@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://ricardovanderlinden.nl/sitemap.xml
+Sitemap: https://vand3rlinden.com/sitemap.xml
