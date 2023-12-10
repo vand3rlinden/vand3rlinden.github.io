@@ -117,7 +117,7 @@ DMARC acts as a shield on top of SPF and DKIM. DMARC ensures that emails that fa
 ### Finalizing
 To protect all non-sending domains, you should consider:
 - a restrictive ***deny all SPF*** record ```v=spf1 -all``` 
-- a ***reject DMARC*** record: ```v=DMARC1; p=reject;```. 
+- a ***reject DMARC*** record: ```v=DMARC1; p=reject;``` 
 
 Bad actors will actively look for unused domains to exploit.
 
