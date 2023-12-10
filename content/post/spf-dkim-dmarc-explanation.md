@@ -47,7 +47,7 @@ SPF can get a softfail or fail, you determine this at the end of the record.
 
 - With ```~all```: If an email is sent from a host or IP that is not in the SPF record, the message will still pass, but it can be flagged as spam (Softfail).
 
-- With ```-all```: If an email is sent from a host or IP that is not in the SPF record, it can be rejected by the receiving server (HardFail).
+- With ```-all```: If an email is sent from a host or IP that is not in the SPF record, it can be rejected by the receiving server (HardFail, ***recommended***).
 
 ### Limitations of SPF
 Although SPF works relatively well in theory, there are several flaws in the protocol that mean that SPF alone is not enough to protect a sending domain.
@@ -94,14 +94,11 @@ For heavy mail domains, I recommended monitoring the domain for at least three m
 - Hostname: ```_dmarc```
 - Value: ```v=DMARC1; p=none; sp=none; rua=mailto:dmarc_agg@vali.email;```
 
-> _Note: I recommend mirroring the SPF record with the DMARC policy, use ```~all``` at the end of your SPF record when your DMARC policy is on ```none```.
-Deploy ```-all``` once you have moved to ```reject``` on the DMARC policy._
-
 After the monitoring phase, we set the DMARC policy to ```reject```:
 
 - Value: ```v=DMARC1; p=reject; sp=reject; rua=mailto:dmarc_agg@vali.email;```
 
-```sp=reject``` means that subdomains will be included; if you don’t want your subdomains to be included in your domain’s root DMARC policy, you can set this to sp=none and list a separate DMARC policy for each subdomain (not recommended).
+The ```sp=reject``` tag means that subdomains will be included; if you don’t want your subdomains to be included in your domain’s root DMARC policy, you can set this to sp=none and list a separate DMARC policy for each subdomain (not recommended).
 
 If you do not list the ```sp=``` tag, your subdomains will get the policy from the ```p=``` tag.
 
@@ -118,7 +115,11 @@ DMARC acts as a shield on top of SPF and DKIM. DMARC ensures that emails that fa
 - DMARC protects the P2 sender domain (Letter sender, which recipients see in their email client, RFC5322.From).
 
 ### Finalizing
-Protect all non-sending domains with a restrictive ***deny all SPF*** record: ```v=spf1 -all``` and a ***reject DMARC*** record: ```v=DMARC1; p=reject;```. Bad actors will actively look for unused domains to exploit.
+To protect all non-sending domains, you should consider:
+- a restrictive ***deny all SPF*** record ```v=spf1 -all``` 
+- a ***reject DMARC*** record: ```v=DMARC1; p=reject;```. 
+
+Bad actors will actively look for unused domains to exploit.
 
 ---
 

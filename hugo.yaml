@@ -6,18 +6,44 @@ theme: PaperMod
 publishDir: "docs"
 enableRobotsTXT: true
 
-
 params:
-  # home-info mode
+# home-info mode
   homeInfoParams:
     Title: "Ricardo van der Linden | Security Analyst"
-    Content: Welcome to my blog, I started blogging to give knowledge back to the community. In IT, there are numerous question marks that we have all encountered. We strengthen each other by sharing our knowledge.
+    Content: Welcome to my blog, I started blogging to give knowledge back to the community. In IT, there are numerous question marks that we have all encountered. We help each other by sharing our knowledge.
 
+# socialIcons
   socialIcons:
     - name: linkedin
       url: "https://www.linkedin.com/in/vand3rlinden/"
     - name: github
       url: "https://github.com/vand3rlinden"
 
+  #meta settings
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  description: "Welcome to the blog of Ricardo van der Linden"
+  keywords: [Blog, Portfolio]
+  author: Ricardo van der Linden
+
+#other params settings
+  defaultTheme: dark # dark, light
+  disableThemeToggle: false
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: false
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: false
+  tocopen: false
+
+ #favicon settings
   assets:
     favicon: "/favicon.ico"
