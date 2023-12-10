@@ -119,7 +119,7 @@ To protect all non-sending domains, you should consider:
 - a restrictive ***deny all SPF*** record ```v=spf1 -all``` 
 - a ***reject DMARC*** record: ```v=DMARC1; p=reject;``` 
 
-Bad actors will actively look for unused domains to exploit.
+This protects all of your domains from phishers and spammers, as bad actors will actively look for unused domains to exploit.
 
 ---
 
