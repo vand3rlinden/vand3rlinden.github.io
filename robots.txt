@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://vand3rlinden.com/sitemap.xml
