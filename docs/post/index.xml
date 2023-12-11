@@ -13,9 +13,9 @@
       <pubDate>Sat, 09 Dec 2023 11:46:16 +0100</pubDate>
       
       <guid>https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/</guid>
-      <description>In this post you will learn to understand SPF, DKIM, DMARC and how these DNS protocols work together to protect your domain from phishers and spammers.
+      <description>In this post you will learn to understand how the DNS protocols SPF, DKIM and DMARC work together to protect your domain from phishers and spammers.
 SPF What is SPF Sender Policy Framework (SPF) is a protocol that aims to reduce spam. SPF can reduce email spoofing and spam by determining if the sender is authorized to send on behalf of the listed sender.
-How SPF works Imagine that you have an SPF record that looks like: v=spf1 include:_spf.</description>
+How SPF works Imagine that you have an SPF record that looks like:</description>
     </item>
     
   </channel>
