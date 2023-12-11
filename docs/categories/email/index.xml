@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>email on VAND3RLINDEN</title>
+    <link>https://vand3rlinden.com/categories/email/</link>
+    <description>Recent content in email on VAND3RLINDEN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 09 Dec 2023 11:46:16 +0100</lastBuildDate><atom:link href="https://vand3rlinden.com/categories/email/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SPF, DKIM and DMARC explanation</title>
+      <link>https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/</link>
+      <pubDate>Sat, 09 Dec 2023 11:46:16 +0100</pubDate>
+      
+      <guid>https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/</guid>
+      <description>In this post you will learn to understand how the DNS protocols SPF, DKIM and DMARC work together to protect your domain from phishers and spammers.
+SPF What is SPF Sender Policy Framework (SPF) is a protocol that aims to reduce spam. SPF can reduce email spoofing and spam by determining if the sender is authorized to send on behalf of the listed sender.
+How SPF works Imagine that you have an SPF record that looks like:</description>
+    </item>
+    
+  </channel>
+</rss>

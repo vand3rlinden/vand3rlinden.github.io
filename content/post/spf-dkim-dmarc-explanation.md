@@ -1,8 +1,9 @@
-+++
-title = 'SPF, DKIM and DMARC explanation'
-date = 2023-12-09T11:46:16+01:00
-draft = false
-+++
+---
+title: "SPF, DKIM and DMARC explanation"
+date: 2023-12-09T11:46:16+01:00
+draft: false
+categories: ["email"]
+---
 
 > _In this post you will learn to understand how the DNS protocols SPF, DKIM and DMARC work together to protect your domain from phishers and spammers._
 
