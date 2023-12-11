@@ -38,7 +38,7 @@ The SPF record will differ for everyone; therefore, it is important to understan
 - Flatten your SPF record (not recommended)
     - Example: ```v=spf1 include:spf.domain.com -all``` can be ```v=spf1 ip4:11.222.33.444 ip4:11.222.33.444 -all```
 
-Problem with flattening is that email service providers may change or add IP addresses without telling you. Then your SPF record is inaccurate, which leads into email delivery problems
+The problem with flattening is that email service providers can change or add IP addresses without telling you. Then your SPF record will be inaccurate, leading to email delivery problems.
 
 - Not using entries like ```a``` and ```mx```, these mechanisms are often useless and probably should not be included in your SPF record (and other duplicate SPF mechanisms).
 
@@ -49,7 +49,7 @@ SPF can get a softfail or fail, you determine this at the end of the record.
 
 - With ```~all```: If an email is sent from a host or IP that is not in the SPF record, the message will still pass, but it can be flagged as spam (Softfail).
 
-- With ```-all```: If an email is sent from a host or IP that is not in the SPF record, it can be rejected by the receiving server (HardFail, **recommended**).
+- With ```-all```: If an email is sent from a host or IP that is not in the SPF record, it can be rejected by the receiving server (Fail, **recommended**).
 
 ### Limitations of SPF
 Although SPF works relatively well in theory, there are several flaws in the protocol that mean that SPF alone is not enough to protect a sending domain.
@@ -73,7 +73,7 @@ You can configure DKIM with a TXT record in your DNS zone for your sending mail 
 
 > _Note: that a DKIM record is required for each sending server or mail provider._
 
-How you set up DKIM can vary depending on your mail provider; setting up DKIM for [Google Workplace](https://support.google.com/a/answer/180504?hl=en) differs from [Exchange Online](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/email-authentication-dkim-configure?view=o365-worldwide#steps-to-create-enable-and-disable-dkim-from-microsoft-defender-portal) in Microsoft Defender for Office 365.
+How you set up DKIM can vary depending on your mail provider; setting up DKIM for [Salesforce](https://help.salesforce.com/s/articleView?id=sf.emailadmin_create_secure_dkim.htm&type=5) differs from [Exchange Online](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/email-authentication-dkim-configure?view=o365-worldwide#steps-to-create-enable-and-disable-dkim-from-microsoft-defender-portal) in Microsoft Defender for Office 365.
 
 ## DMARC
 ### What is DMARC
@@ -106,17 +106,17 @@ If you do not list the ```sp=``` tag, your subdomains will get the policy from t
 SPF performs verification that the IP address of the sending server matches the entry in the SPF record from the sending domain.
 - SPF protects the P1 sender domain (Envelope sender, RFC5321.MailFrom).
 
-DKIM verifies if the public key (DNS record from sending domain) of a sending domain, matched the private key that came from the sending server. This is a check that the sending domain actually sent the e-mail. DKIM must be configured for each sending server, such as Exchange Online or any other server/SaaS service.
+DKIM verifies if the public key (DNS record) of a sending domain, matched the private key that came from the sending server. This is a check that the sending domain actually sent the e-mail. DKIM must be configured for each sending server, such as Exchange Online or any other server/SaaS service.
 
-- DKIM protects the P2 sender domain (Letter sender, which recipients see in their email client, RFC5322.From).
+- DKIM protects the P2 sender domain (Letter sender, RFC5322.From).
 
 DMARC acts as a shield on top of SPF and DKIM. DMARC ensures that emails that fail the SPF and/or DKIM tests do not get through.
 
-- DMARC protects the P2 sender domain (Letter sender, which recipients see in their email client, RFC5322.From).
+- DMARC protects the P2 sender domain (Letter sender, RFC5322.From).
 
 ### Finalizing
 To protect all non-sending domains, you should consider:
-- a restrictive ***deny all SPF*** record ```v=spf1 -all``` 
+- a ***deny all SPF*** record ```v=spf1 -all``` 
 - a ***reject DMARC*** record ```v=DMARC1; p=reject;``` 
 
 This protects all of your domains from phishers and spammers, as bad actors will actively look for unused domains to exploit.

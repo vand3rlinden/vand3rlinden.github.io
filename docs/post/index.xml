@@ -6,7 +6,18 @@
     <description>Recent content in Posts on VAND3RLINDEN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 Dec 2023 11:46:16 +0100</lastBuildDate><atom:link href="https://vand3rlinden.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Dec 2023 16:33:46 +0100</lastBuildDate><atom:link href="https://vand3rlinden.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microsoft 365 Defender: Threat policies — Setup and use Quarantine policies</title>
+      <link>https://vand3rlinden.com/post/mdo-quarantine-policies/</link>
+      <pubDate>Mon, 11 Dec 2023 16:33:46 +0100</pubDate>
+      
+      <guid>https://vand3rlinden.com/post/mdo-quarantine-policies/</guid>
+      <description>Quarantine policies let you control the quarantine on how users can use it. This post will cover the default policies and how to create a custom policy.
+Product using: Microsoft Defender for Office 365 (MDO)
+What are quarantine policies Back in April 2020, Microsoft made it possible for users to view, release, or delete quarantined messages (expect high confidence phishing). Some organizations were not happy about users having access to their own quarantined items.</description>
+    </item>
+    
     <item>
       <title>SPF, DKIM and DMARC explanation</title>
       <link>https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/</link>
