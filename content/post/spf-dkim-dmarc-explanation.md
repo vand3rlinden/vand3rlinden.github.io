@@ -15,7 +15,7 @@ Imagine that you have an SPF record that looks like:
 
 ```v=spf1 include:_spf.domain.com ip4:11.222.33.444 -all```
 
-If an unauthorized server sends on behalf of your domain, the email will get an spf=fail in the message header because that IP is not listed in your SPF record.
+If an unauthorized server sends on behalf of your domain, the email will get an ```spf=fail``` in the message header because that IP is not listed in your SPF record.
 
 SPF will pass if the sender’s IP is added to the SPF record for the P1 Sender domain.
 

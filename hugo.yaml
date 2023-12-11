@@ -23,7 +23,7 @@ params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   description: "Welcome to the blog of Ricardo van der Linden"
   keywords: [Blog, Portfolio]
-  author: Ricardo van der Linden
+  #author: Ricardo van der Linden
 
 #other params settings
   defaultTheme: dark # dark | light
