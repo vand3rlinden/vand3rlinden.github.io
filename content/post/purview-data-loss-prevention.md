@@ -3,9 +3,11 @@ title: 'Microsoft Purview: Configuring a Data Loss Prevention Policy'
 date: 2023-12-16T11:31:31+01:00
 draft: false
 categories: ["Microsoft Purview"]
+cover: 
+  image: /images/purview-data-loss-prevention/purview-data-loss-prevention.png
 ---
 
-> Organizations have sensitive information under their control, such as credit card numbers or social security numbers. To protect this sensitive information and reduce risk, organizations need a way to prevent users from sharing it with people who shouldn't have it. This practice is known as data loss prevention (DLP). In this article, I will explain how to configure it.
+> _Organizations have sensitive information under their control, such as credit card numbers or social security numbers. To protect this sensitive information and reduce risk, organizations need a way to prevent users from sharing it with people who shouldn't have it. This practice is known as data loss prevention (DLP). In this article, I will explain how to configure it._
 
 ## Sensitive information type entity definitions
 In this post, I will configure a DLP policy to block the Netherlands Citizen’s Service (BSN) Number from being shared with external contacts in Exchange Online and Teams. However, you can use this information to select any of the available sensitive information types or multiple types in a policy. These types of sensitive information are referred as Personally Identifiable Information (PII).

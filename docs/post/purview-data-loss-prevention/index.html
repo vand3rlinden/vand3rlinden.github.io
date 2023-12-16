@@ -33,11 +33,13 @@ Sensitive information type entity definitions In this post, I will configure a D
 <meta property="og:description" content="Organizations have sensitive information under their control, such as credit card numbers or social security numbers. To protect this sensitive information and reduce risk, organizations need a way to prevent users from sharing it with people who shouldn&rsquo;t have it. This practice is known as data loss prevention (DLP). In this article, I will explain how to configure it.
 Sensitive information type entity definitions In this post, I will configure a DLP policy to block the Netherlands Citizen’s Service (BSN) Number from being shared with external contacts in Exchange Online and Teams." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://vand3rlinden.com/post/purview-data-loss-prevention/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://vand3rlinden.com/post/purview-data-loss-prevention/" />
+<meta property="og:image" content="https://vand3rlinden.com/images/purview-data-loss-prevention/purview-data-loss-prevention.png" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2023-12-16T11:31:31+01:00" />
 <meta property="article:modified_time" content="2023-12-16T11:31:31+01:00" />
 
-<meta name="twitter:card" content="summary"/>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://vand3rlinden.com/images/purview-data-loss-prevention/purview-data-loss-prevention.png" />
 <meta name="twitter:title" content="Microsoft Purview: Configuring a Data Loss Prevention Policy"/>
 <meta name="twitter:description" content="Organizations have sensitive information under their control, such as credit card numbers or social security numbers. To protect this sensitive information and reduce risk, organizations need a way to prevent users from sharing it with people who shouldn&rsquo;t have it. This practice is known as data loss prevention (DLP). In this article, I will explain how to configure it.
 Sensitive information type entity definitions In this post, I will configure a DLP policy to block the Netherlands Citizen’s Service (BSN) Number from being shared with external contacts in Exchange Online and Teams."/>
@@ -76,7 +78,7 @@ Sensitive information type entity definitions In this post, I will configure a D
   "articleBody": " Organizations have sensitive information under their control, such as credit card numbers or social security numbers. To protect this sensitive information and reduce risk, organizations need a way to prevent users from sharing it with people who shouldn’t have it. This practice is known as data loss prevention (DLP). In this article, I will explain how to configure it.\nSensitive information type entity definitions In this post, I will configure a DLP policy to block the Netherlands Citizen’s Service (BSN) Number from being shared with external contacts in Exchange Online and Teams. However, you can use this information to select any of the available sensitive information types or multiple types in a policy. These types of sensitive information are referred as Personally Identifiable Information (PII).\nCreating a DLP Policy Sign in to the Microsoft Purview compliance portal\nIn the Microsoft Purview compliance portal \u003e left navigation \u003e Solutions \u003e Data loss prevention \u003e Policies \u003e + Create policy.\nSelect Custom from the Categories list.\nSelect Custom from the Regulations list.\nGive the policy a name (policy name cannot be changed later).\nFill in a description. You can use the policy intent statement here.\nSelect Next.\nSelect Full directory under Admin units.\nSet the Exchange email (Scope: All groups) and Teams chat and channel messages (Scope: All users \u0026 groups) locations status to On. Set all the other location status to Off.\nSelect Next.\nSelect Create rule. Name the rule and provide a description.\nUnder Conditions select Add condition \u003e Content contains \u003e Add \u003e Sensitive info types \u003e Netherlands Citizen’s Service (BSN) Number. Choose Add.\nUnder Actions select Add an action \u003e Restrict access or encrypt the content in Microsoft 365 locations \u003e Block only people outside your organization.\nSet User notifications to On.\nSelect \u003e Notify the user who sent, shared, or last modified the content.\nUnder Incident reports, select whether you want to send a report to your (compliance) admins when the policy is violated.\nSelect Save and you will be presented with a review of the rule. Select Next.\nTest or save your policy, it can take up to an hour for the policy to take effect.\nReview and finish your DLP policy Try it out for yourself You can test this yourself when the policy is active. The e-mail or Teams message must contain at least the keywords described here.\nDo not use your own citizen service number or any other type of sensitive information for testing purposes. Search for an online generator such as https://cyberwar.nl/elfproef.html to generate Netherlands Citizen Service Numbers (BSN). Intended for creative testing, NOT abuse.\nExamples Exchange Online Teams Reference All Sensitive information type entity definitions All Microsoft Purview documentation More DLP scenarios ",
   "wordCount" : "451",
   "inLanguage": "en",
-  "datePublished": "2023-12-16T11:31:31+01:00",
+  "image":"https://vand3rlinden.com/images/purview-data-loss-prevention/purview-data-loss-prevention.png","datePublished": "2023-12-16T11:31:31+01:00",
   "dateModified": "2023-12-16T11:31:31+01:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -150,8 +152,11 @@ Sensitive information type entity definitions In this post, I will configure a D
 
 </div>
   </header> 
+<figure class="entry-cover"><img loading="lazy" src="https://vand3rlinden.com/images/purview-data-loss-prevention/purview-data-loss-prevention.png" alt="">
+        
+</figure>
   <div class="post-content"><blockquote>
-<p>Organizations have sensitive information under their control, such as credit card numbers or social security numbers. To protect this sensitive information and reduce risk, organizations need a way to prevent users from sharing it with people who shouldn&rsquo;t have it. This practice is known as data loss prevention (DLP). In this article, I will explain how to configure it.</p>
+<p><em>Organizations have sensitive information under their control, such as credit card numbers or social security numbers. To protect this sensitive information and reduce risk, organizations need a way to prevent users from sharing it with people who shouldn&rsquo;t have it. This practice is known as data loss prevention (DLP). In this article, I will explain how to configure it.</em></p>
 </blockquote>
 <h2 id="sensitive-information-type-entity-definitions">Sensitive information type entity definitions<a hidden class="anchor" aria-hidden="true" href="#sensitive-information-type-entity-definitions">#</a></h2>
 <p>In this post, I will configure a DLP policy to block the Netherlands Citizen’s Service (BSN) Number from being shared with external contacts in Exchange Online and Teams. However, you can use this information to select any of the available sensitive information types or multiple types in a policy. These types of sensitive information are referred as Personally Identifiable Information (PII).</p>

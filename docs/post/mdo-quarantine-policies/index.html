@@ -35,11 +35,13 @@ What are quarantine policies Back in April 2020, Microsoft made it possible for 
 Product using: Microsoft Defender for Office 365 (MDO)
 What are quarantine policies Back in April 2020, Microsoft made it possible for users to view, release, or delete quarantined messages (expect high confidence phishing). Some organizations were not happy about users having access to their own quarantined items." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://vand3rlinden.com/post/mdo-quarantine-policies/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://vand3rlinden.com/post/mdo-quarantine-policies/" />
+<meta property="og:image" content="https://vand3rlinden.com/images/mdo-quarantine-policies/mdo-quarantine-policies-front.png" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2023-12-11T16:33:46+01:00" />
 <meta property="article:modified_time" content="2023-12-11T16:33:46+01:00" />
 
-<meta name="twitter:card" content="summary"/>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://vand3rlinden.com/images/mdo-quarantine-policies/mdo-quarantine-policies-front.png" />
 <meta name="twitter:title" content="Microsoft Defender: Threat policies — Setup and use Quarantine policies"/>
 <meta name="twitter:description" content="Quarantine policies let you control the quarantine on how users can use it. This post will cover the default policies and how to create a custom policy.
 Product using: Microsoft Defender for Office 365 (MDO)
@@ -79,7 +81,7 @@ What are quarantine policies Back in April 2020, Microsoft made it possible for 
   "articleBody": " Quarantine policies let you control the quarantine on how users can use it. This post will cover the default policies and how to create a custom policy.\nProduct using: Microsoft Defender for Office 365 (MDO)\nWhat are quarantine policies Back in April 2020, Microsoft made it possible for users to view, release, or delete quarantined messages (expect high confidence phishing). Some organizations were not happy about users having access to their own quarantined items. Quarantine policies give you more control over quarantine for your end users and which quarantined items they can release.\nThe default quarantine policies You can access the quarantine policies by going to: https://security.microsoft.com/quarantinePolicies.\nOut of the box, you will see three policies:\nDefaultFullAccessPolicy AdminOnlyAccessPolicy DefaultFullAccessWithNotificationPolicy DefaultFullAccessPolicy This policy has the quarantine settings as we have them since April 2020, and includes the following settings (expect high confidence phishing):\nUser message access:\nrelease the message from quarantine block sender (Outlook block sender list, junk mail settings) delete the message preview the message Quarantine notification:\nDisabled AdminOnlyAccessPolicy This policy is the default High Confidence Phishing (HSPM) policy and assigns no access permissions to the items, and includes the following settings:\nUser message access:\nNo allowed actions Quarantine notification:\nDisabled DefaultFullAccessWithNotificationPolicy This policy has the same settings as the DefaultFullAccessPolicy quarantine policy, but with quarantine notifications enabled, and includes the following settings:\nUser message access:\nrelease the message from quarantine block sender (Outlook block sender list, junk mail settings) delete the message preview the message Quarantine notification:\nEnabled Create a custom quarantine policy, such as for request to release In some situations, you may want your users to be able to request that a message be released from quarantine, rather than releasing it themselves. To do this, you can create a custom quarantine policy by following the steps below:\nStep 1: Go to https://security.microsoft.com/quarantinePolicies Step 2: Click on ‘Add custom policy’ Step 3: Specify a policy name such as RequestReleaseFullAccessPolicy Step 4: Under Recipient Message Access select Limited access With Set specific access you can turn on or off each User message access action as desired, for more advanced configurations.\nStep 5: Enable quarantine notifications, if desired Step 6: Safe your policy Outcome: The User message access actions for the created custom quarantine policy will be:\nrequest to release the message from quarantine block sender (Outlook block sender list, junk mail settings) delete the message preview the message Quarantine notification:\nEnabled Users can request release of quarantined items after you assign the quarantine policy to an action in one of the threat policies, as described above:\nTenant Admins or Quarantine Administrators can approve or deny release requests in the quarantine:\nGlobal settings You can also change the notification email settings under Global Settings, where you can set settings such as the recurrence of quarantine notifications or change the layout of the email.\nIn summary After you have set up the quarantine policies the way you want them, you can use your quarantine policies in the threat policies actions.\nReference\n",
   "wordCount" : "500",
   "inLanguage": "en",
-  "datePublished": "2023-12-11T16:33:46+01:00",
+  "image":"https://vand3rlinden.com/images/mdo-quarantine-policies/mdo-quarantine-policies-front.png","datePublished": "2023-12-11T16:33:46+01:00",
   "dateModified": "2023-12-11T16:33:46+01:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -153,6 +155,9 @@ What are quarantine policies Back in April 2020, Microsoft made it possible for 
 
 </div>
   </header> 
+<figure class="entry-cover"><img loading="lazy" src="https://vand3rlinden.com/images/mdo-quarantine-policies/mdo-quarantine-policies-front.png" alt="">
+        
+</figure>
   <div class="post-content"><blockquote>
 <p><em>Quarantine policies let you control the quarantine on how users can use it. This post will cover the default policies and how to create a custom policy.</em></p>
 </blockquote>

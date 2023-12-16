@@ -3,6 +3,8 @@ title: 'Microsoft Defender: Threat policies — Setup and use Quarantine policie
 date: 2023-12-11T16:33:46+01:00
 draft: false
 categories: ["Microsoft Defender for Office 365"]
+cover: 
+  image: /images/mdo-quarantine-policies/mdo-quarantine-policies-front.png
 ---
 
 > _Quarantine policies let you control the quarantine on how users can use it. This post will cover the default policies and how to create a custom policy._
