@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on VAND3RLINDEN</title>
-    <link>https://vand3rlinden.com/post/</link>
+    <link>https://vand3rlinden.nl/post/</link>
     <description>Recent content in Posts on VAND3RLINDEN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 16 Dec 2023 11:31:31 +0100</lastBuildDate><atom:link href="https://vand3rlinden.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 Dec 2023 11:31:31 +0100</lastBuildDate><atom:link href="https://vand3rlinden.nl/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Microsoft Purview: Configuring a Data Loss Prevention Policy</title>
-      <link>https://vand3rlinden.com/post/purview-data-loss-prevention/</link>
+      <link>https://vand3rlinden.nl/post/purview-data-loss-prevention/</link>
       <pubDate>Sat, 16 Dec 2023 11:31:31 +0100</pubDate>
       
-      <guid>https://vand3rlinden.com/post/purview-data-loss-prevention/</guid>
+      <guid>https://vand3rlinden.nl/post/purview-data-loss-prevention/</guid>
       <description>Organizations have sensitive information under their control, such as credit card numbers or social security numbers. To protect this sensitive information and reduce risk, organizations need a way to prevent users from sharing it with people who shouldn&amp;rsquo;t have it. This practice is known as data loss prevention (DLP). In this article, I will explain how to configure it.
 Sensitive information type entity definitions In this post, I will configure a DLP policy to block the Netherlands Citizen’s Service (BSN) Number from being shared with external contacts in Exchange Online and Teams.</description>
     </item>
     
     <item>
       <title>Microsoft Defender: Threat policies — Setup and use Quarantine policies</title>
-      <link>https://vand3rlinden.com/post/mdo-quarantine-policies/</link>
+      <link>https://vand3rlinden.nl/post/mdo-quarantine-policies/</link>
       <pubDate>Mon, 11 Dec 2023 16:33:46 +0100</pubDate>
       
-      <guid>https://vand3rlinden.com/post/mdo-quarantine-policies/</guid>
+      <guid>https://vand3rlinden.nl/post/mdo-quarantine-policies/</guid>
       <description>Quarantine policies let you control the quarantine on how users can use it. This post will cover the default policies and how to create a custom policy.
 Product using: Microsoft Defender for Office 365 (MDO)
 What are quarantine policies Back in April 2020, Microsoft made it possible for users to view, release, or delete quarantined messages (expect high confidence phishing). Some organizations were not happy about users having access to their own quarantined items.</description>
@@ -30,10 +30,10 @@ What are quarantine policies Back in April 2020, Microsoft made it possible for 
     
     <item>
       <title>SPF, DKIM and DMARC explanation</title>
-      <link>https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/</link>
+      <link>https://vand3rlinden.nl/post/spf-dkim-dmarc-explanation/</link>
       <pubDate>Sat, 09 Dec 2023 11:46:16 +0100</pubDate>
       
-      <guid>https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/</guid>
+      <guid>https://vand3rlinden.nl/post/spf-dkim-dmarc-explanation/</guid>
       <description>In this post you will learn to understand how the DNS protocols SPF, DKIM and DMARC work together to protect your domain from phishers and spammers.
 SPF What is SPF Sender Policy Framework (SPF) is a protocol that aims to reduce spam. SPF can reduce email spoofing and spam by determining if the sender is authorized to send on behalf of the listed sender.
 How SPF works Imagine that you have an SPF record that looks like:</description>
