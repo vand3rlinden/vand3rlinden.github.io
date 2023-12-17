@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Microsoft Purview on VAND3RLINDEN</title>
-    <link>https://vand3rlinden.github.io/categories/microsoft-purview/</link>
+    <link>https://vand3rlinden.com/categories/microsoft-purview/</link>
     <description>Recent content in Microsoft Purview on VAND3RLINDEN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 16 Dec 2023 11:31:31 +0100</lastBuildDate><atom:link href="https://vand3rlinden.github.io/categories/microsoft-purview/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 Dec 2023 11:31:31 +0100</lastBuildDate><atom:link href="https://vand3rlinden.com/categories/microsoft-purview/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Microsoft Purview: Configuring a Data Loss Prevention Policy</title>
-      <link>https://vand3rlinden.github.io/post/purview-data-loss-prevention/</link>
+      <link>https://vand3rlinden.com/post/purview-data-loss-prevention/</link>
       <pubDate>Sat, 16 Dec 2023 11:31:31 +0100</pubDate>
       
-      <guid>https://vand3rlinden.github.io/post/purview-data-loss-prevention/</guid>
+      <guid>https://vand3rlinden.com/post/purview-data-loss-prevention/</guid>
       <description>Organizations have sensitive information under their control, such as credit card numbers or social security numbers. To protect this sensitive information and reduce risk, organizations need a way to prevent users from sharing it with people who shouldn&amp;rsquo;t have it. This practice is known as data loss prevention (DLP). In this article, I will explain how to configure it.
 Sensitive information type entity definitions In this post, I will configure a DLP policy to block the Netherlands Citizen’s Service (BSN) Number from being shared with external contacts in Exchange Online and Teams.</description>
     </item>
