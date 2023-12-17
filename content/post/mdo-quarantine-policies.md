@@ -66,8 +66,8 @@ In some situations, you may want your users to be able to request that a message
 ![IMAGE](/images/mdo-quarantine-policies/mdo-quarantine-policies-newpolicy.png) 
 *With **Set specific access** you can turn on or off each **User message access action** as desired, for more advanced configurations.*
 
-- Step 5: Enable quarantine notifications, if desired
-- Step 6: Safe your policy
+5. Enable quarantine notifications, if desired.
+6. Safe your policy.
 
 ### Outcome:
 The _User message access_ actions for the created custom quarantine policy will be:
