@@ -3,7 +3,6 @@ languageCode: en-us
 title: VAND3RLINDEN
 paginate: 5
 theme: PaperMod
-publishDir: "docs"
 enableRobotsTXT: true
 
 #menu settings

@@ -123,7 +123,3 @@ To protect all non-sending domains, you should consider:
 - a ***reject DMARC*** record ```v=DMARC1; p=reject;``` 
 
 This protects all of your domains from phishers and spammers, as bad actors will actively look for unused domains to exploit.
-
----
-
-I hope that I was able to explain on how to use SPF, DKIM and DMARC in your environment.
