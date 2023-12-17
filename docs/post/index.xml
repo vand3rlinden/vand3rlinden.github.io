@@ -6,7 +6,17 @@
     <description>Recent content in Posts on VAND3RLINDEN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 16 Dec 2023 11:31:31 +0100</lastBuildDate><atom:link href="https://vand3rlinden.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Dec 2023 18:31:45 +0100</lastBuildDate><atom:link href="https://vand3rlinden.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Get a handle on your SPF record</title>
+      <link>https://vand3rlinden.com/post/handle-your-spf-record/</link>
+      <pubDate>Sun, 17 Dec 2023 18:31:45 +0100</pubDate>
+      
+      <guid>https://vand3rlinden.com/post/handle-your-spf-record/</guid>
+      <description>In this post, I will share my best practices for getting a handle on your SPF record.
+Why it makes sense to have a good SPF procedure in place In a previous blog post, I explained the limitations of SPF and how it works with DKIM and DMARC. It is useful to have a good SPF procedure to avoid future problems, because if you exceed the DNS lookup limit of 10:</description>
+    </item>
+    
     <item>
       <title>Microsoft Purview: Configuring a Data Loss Prevention Policy</title>
       <link>https://vand3rlinden.com/post/purview-data-loss-prevention/</link>
