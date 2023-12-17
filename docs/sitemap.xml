@@ -2,33 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://vand3rlinden.nl/categories/</loc>
+    <loc>https://vand3rlinden.github.io/categories/</loc>
     <lastmod>2023-12-16T11:31:31+01:00</lastmod>
   </url><url>
-    <loc>https://vand3rlinden.nl/categories/microsoft-purview/</loc>
+    <loc>https://vand3rlinden.github.io/categories/microsoft-purview/</loc>
     <lastmod>2023-12-16T11:31:31+01:00</lastmod>
   </url><url>
-    <loc>https://vand3rlinden.nl/post/purview-data-loss-prevention/</loc>
+    <loc>https://vand3rlinden.github.io/post/purview-data-loss-prevention/</loc>
     <lastmod>2023-12-16T11:31:31+01:00</lastmod>
   </url><url>
-    <loc>https://vand3rlinden.nl/post/</loc>
+    <loc>https://vand3rlinden.github.io/post/</loc>
     <lastmod>2023-12-16T11:31:31+01:00</lastmod>
   </url><url>
-    <loc>https://vand3rlinden.nl/</loc>
+    <loc>https://vand3rlinden.github.io/</loc>
     <lastmod>2023-12-16T11:31:31+01:00</lastmod>
   </url><url>
-    <loc>https://vand3rlinden.nl/categories/microsoft-defender-for-office-365/</loc>
+    <loc>https://vand3rlinden.github.io/categories/microsoft-defender-for-office-365/</loc>
     <lastmod>2023-12-11T16:33:46+01:00</lastmod>
   </url><url>
-    <loc>https://vand3rlinden.nl/post/mdo-quarantine-policies/</loc>
+    <loc>https://vand3rlinden.github.io/post/mdo-quarantine-policies/</loc>
     <lastmod>2023-12-11T16:33:46+01:00</lastmod>
   </url><url>
-    <loc>https://vand3rlinden.nl/categories/email/</loc>
+    <loc>https://vand3rlinden.github.io/categories/email/</loc>
     <lastmod>2023-12-09T11:46:16+01:00</lastmod>
   </url><url>
-    <loc>https://vand3rlinden.nl/post/spf-dkim-dmarc-explanation/</loc>
+    <loc>https://vand3rlinden.github.io/post/spf-dkim-dmarc-explanation/</loc>
     <lastmod>2023-12-09T11:46:16+01:00</lastmod>
   </url><url>
-    <loc>https://vand3rlinden.nl/tags/</loc>
+    <loc>https://vand3rlinden.github.io/tags/</loc>
   </url>
 </urlset>
