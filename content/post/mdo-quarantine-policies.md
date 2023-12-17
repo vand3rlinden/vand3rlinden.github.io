@@ -58,10 +58,10 @@ This policy has the same settings as the _DefaultFullAccessPolicy_ quarantine po
 ## Create a custom quarantine policy, such as for request to release
 In some situations, you may want your users to be able to request that a message be released from quarantine, rather than releasing it themselves. To do this, you can create a custom quarantine policy by following the steps below:
 
-- Step 1: Go to https://security.microsoft.com/quarantinePolicies
-- Step 2: Click on 'Add custom policy'
-- Step 3: Specify a policy name such as _RequestReleaseFullAccessPolicy_
-- Step 4: Under Recipient Message Access select _Limited access_
+1. Go to [Quarantine Policies](https://security.microsoft.com/quarantinePolicies) in the Microsoft Security portal.
+2. Click on 'Add custom policy'.
+3. Specify a policy name such as _RequestReleaseFullAccessPolicy_.
+4. Under Recipient Message Access select _Limited access_.
 
 ![IMAGE](/images/mdo-quarantine-policies/mdo-quarantine-policies-newpolicy.png) 
 *With **Set specific access** you can turn on or off each **User message access action** as desired, for more advanced configurations.*
