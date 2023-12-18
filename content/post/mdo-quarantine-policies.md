@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft Defender for Office 365: Setup and use Quarantine policies'
+title: 'Microsoft Defender for Office 365: Quarantine policies'
 date: 2023-12-11T16:33:46+01:00
 draft: false
 categories: ["Microsoft Defender for Office 365"]
