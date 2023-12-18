@@ -8,13 +8,12 @@
     <language>en-us</language>
     <lastBuildDate>Mon, 18 Dec 2023 15:24:50 +0100</lastBuildDate><atom:link href="https://vand3rlinden.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Microsoft Defender: Threat policies — Setup and use Anti-spam policies</title>
+      <title>Microsoft Defender for Office 365: Setup and use Anti-spam policies</title>
       <link>https://vand3rlinden.com/post/mdo-anti-spam-policies/</link>
       <pubDate>Mon, 18 Dec 2023 15:24:50 +0100</pubDate>
       
       <guid>https://vand3rlinden.com/post/mdo-anti-spam-policies/</guid>
       <description>In Microsoft 365 organizations with mailboxes in Exchange Online, all inbound e-mail messages are automatically protected from spam by Exchange Online Protection (EOP). EOP uses anti-spam policies as part of your organization&amp;rsquo;s overall spam defense.
-Product using: Microsoft Defender for Office 365 (MDO)
 What you can manage with Anti-spam policies Anti-spam policies give you control over inbound and outbound e-mail in Exchange Online. There are three out-of-the-box default policies that you can edit in the Anti-Spam Policy section of the Microsoft Security Portal, where you can also create custom policies (more about this later).</description>
     </item>
     
@@ -39,14 +38,13 @@ Sensitive information type entity definitions In this post, I will configure a D
     </item>
     
     <item>
-      <title>Microsoft Defender: Threat policies — Setup and use Quarantine policies</title>
+      <title>Microsoft Defender for Office 365: Setup and use Quarantine policies</title>
       <link>https://vand3rlinden.com/post/mdo-quarantine-policies/</link>
       <pubDate>Mon, 11 Dec 2023 16:33:46 +0100</pubDate>
       
       <guid>https://vand3rlinden.com/post/mdo-quarantine-policies/</guid>
       <description>Quarantine policies let you control the quarantine on how users can use it. This post will cover the default policies and how to create a custom policy.
-Product using: Microsoft Defender for Office 365 (MDO)
-What are quarantine policies Back in April 2020, Microsoft made it possible for users to view, release, or delete quarantined messages (expect high confidence phishing). Some organizations were not happy about users having access to their own quarantined items.</description>
+What are quarantine policies Back in April 2020, Microsoft made it possible for users to view, release, or delete quarantined messages (expect high confidence phishing). Some organizations were not happy about users having access to their own quarantined items. Quarantine policies give you more control over quarantine for your end users and which quarantined items they can release.</description>
     </item>
     
     <item>

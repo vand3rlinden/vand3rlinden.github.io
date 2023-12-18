@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft Defender: Threat policies — Setup and use Quarantine policies'
+title: 'Microsoft Defender for Office 365: Setup and use Quarantine policies'
 date: 2023-12-11T16:33:46+01:00
 draft: false
 categories: ["Microsoft Defender for Office 365"]
@@ -8,8 +8,6 @@ cover:
 ---
 
 > _Quarantine policies let you control the quarantine on how users can use it. This post will cover the default policies and how to create a custom policy._
-
-**Product using:** Microsoft Defender for Office 365 (MDO)
 
 ## What are quarantine policies
 Back in April 2020, Microsoft made it possible for users to view, release, or delete quarantined messages (expect high confidence phishing). Some organizations were not happy about users having access to their own quarantined items. Quarantine policies give you more control over quarantine for your end users and which quarantined items they can release.

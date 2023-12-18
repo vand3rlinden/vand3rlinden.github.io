@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft Defender: Threat policies — Setup and use Anti-spam policies'
+title: 'Microsoft Defender for Office 365: Setup and use Anti-spam policies'
 date: 2023-12-18T15:24:50+01:00
 draft: false
 categories: ["Microsoft Defender for Office 365"]
@@ -8,8 +8,6 @@ cover:
 ---
 
 > _In Microsoft 365 organizations with mailboxes in Exchange Online, all inbound e-mail messages are automatically protected from spam by Exchange Online Protection (EOP). EOP uses anti-spam policies as part of your organization's overall spam defense._
-
-**Product using:** Microsoft Defender for Office 365 (MDO)
 
 ## What you can manage with Anti-spam policies
 Anti-spam policies give you control over inbound and outbound e-mail in Exchange Online. There are three out-of-the-box default policies that you can edit in the [Anti-Spam Policy section](https://security.microsoft.com/antispam) of the Microsoft Security Portal, where you can also create custom policies (more about this later).
