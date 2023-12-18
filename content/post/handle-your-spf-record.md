@@ -40,15 +40,15 @@ v=spf1 ip4:11.222.33.444 ip4:44.33.222.111 ip4:22.33.444.555 ip4:55.66.777.8 ip4
 
 Calculation of DNS lookups:
 
-| Look up                            | Count           |
-| -----------                        | -----------     |
-| include:spf.protection.outlook.com | 2 DNS Look Ups  |
-| include:_spf.app1.com              | 1 DNS Look Ups  |
-| include:_spf.app2.com              | 1 DNS Look Ups  |
-| include:_spf.app3.com              | 2 DNS Look Ups  |
-| include:_spf.app4.com              | 2 DNS Look Ups  |
-| mx (your MX record)                | 1 DNS Look Ups  |
-| Total:                             | 9 DNS Look Ups  |
+| Look up                                  | Count           |
+| -----------                              | -----------     |
+| ```include:spf.protection.outlook.com``` | 2 DNS Look Ups  |
+| ```include:_spf.app1.com```              | 1 DNS Look Ups  |
+| ```include:_spf.app2.com```              | 1 DNS Look Ups  |
+| ```include:_spf.app3.com```              | 2 DNS Look Ups  |
+| ```include:_spf.app4.com```              | 2 DNS Look Ups  |
+| ```mx``` (your MX record)                | 1 DNS Look Ups  |
+| Total:                                   | 9 DNS Look Ups  |
 
 To clean this up, we need to segment your vendors and email streams.
 
@@ -60,14 +60,14 @@ For example, why would a newsletter need to send on behalf of your primary domai
 With the above in mind, which SaaS applications ***need*** to send on behalf of your primary domain, like Microsoft 365, and which ***don’t***. Like your newsletter service or an internal application.
 
 For example:
-| Look up                             | Outcome                           |
-| -----------                         | -----------                       |
-| include:spf.protection.outlook.com  | Need to send over yourdomain.com  |
-| include:_spf.app1.com               | Need to send over yourdomain.com  |
-| include:_spf.app2.com               | Need to send over yourdomain.com  |
-| include:_spf.app3.com (delete)      | Can send over app1.yourdomain.com |
-| include:_spf.app4.com (delete)      | Can send over news.yourdomain.com |
-| mx (delete)*                        | Duplicate mechanisms              |
+| Look up                                   | Outcome                           |
+| -----------                               | -----------                       |
+| ```include:spf.protection.outlook.com```  | Need to send over yourdomain.com  |
+| ```include:_spf.app1.com```               | Need to send over yourdomain.com  |
+| ```include:_spf.app2.com```               | Need to send over yourdomain.com  |
+| ```include:_spf.app3.com``` (delete)      | Can send over app1.yourdomain.com |
+| ```include:_spf.app4.com``` (delete)      | Can send over news.yourdomain.com |
+| ```mx``` (delete)*                        | Duplicate mechanisms              |
 > *when using Microsoft 365, the MX endpoint IP is already listed in _include:spf.protection.outlook.com_
 
 If you look at the example above, we have ***4 DNS lookups left***, so we cleaned ***5 DNS lookups***, good job! But what about the IP addresses in the SPF record? IP addresses don’t cost any DNS lookups because we’re not talking to DNS. One disadvantage of using IP addresses in your SPF record is that it will result in an unmanageable and too long record. Yes, we can add a new include with the cost of 1 DNS lookup, for example ```include:_spf.yourdomain.com``` with a new SPF (TXT) record like this:

@@ -193,27 +193,27 @@ Why it makes sense to have a good SPF procedure in place In a previous blog post
 </thead>
 <tbody>
 <tr>
-<td>include:spf.protection.outlook.com</td>
+<td><code>include:spf.protection.outlook.com</code></td>
 <td>2 DNS Look Ups</td>
 </tr>
 <tr>
-<td>include:_spf.app1.com</td>
+<td><code>include:_spf.app1.com</code></td>
 <td>1 DNS Look Ups</td>
 </tr>
 <tr>
-<td>include:_spf.app2.com</td>
+<td><code>include:_spf.app2.com</code></td>
 <td>1 DNS Look Ups</td>
 </tr>
 <tr>
-<td>include:_spf.app3.com</td>
+<td><code>include:_spf.app3.com</code></td>
 <td>2 DNS Look Ups</td>
 </tr>
 <tr>
-<td>include:_spf.app4.com</td>
+<td><code>include:_spf.app4.com</code></td>
 <td>2 DNS Look Ups</td>
 </tr>
 <tr>
-<td>mx (your MX record)</td>
+<td><code>mx</code> (your MX record)</td>
 <td>1 DNS Look Ups</td>
 </tr>
 <tr>
@@ -237,27 +237,27 @@ Why it makes sense to have a good SPF procedure in place In a previous blog post
 </thead>
 <tbody>
 <tr>
-<td>include:spf.protection.outlook.com</td>
+<td><code>include:spf.protection.outlook.com</code></td>
 <td>Need to send over yourdomain.com</td>
 </tr>
 <tr>
-<td>include:_spf.app1.com</td>
+<td><code>include:_spf.app1.com</code></td>
 <td>Need to send over yourdomain.com</td>
 </tr>
 <tr>
-<td>include:_spf.app2.com</td>
+<td><code>include:_spf.app2.com</code></td>
 <td>Need to send over yourdomain.com</td>
 </tr>
 <tr>
-<td>include:_spf.app3.com (delete)</td>
+<td><code>include:_spf.app3.com</code> (delete)</td>
 <td>Can send over app1.yourdomain.com</td>
 </tr>
 <tr>
-<td>include:_spf.app4.com (delete)</td>
+<td><code>include:_spf.app4.com</code> (delete)</td>
 <td>Can send over news.yourdomain.com</td>
 </tr>
 <tr>
-<td>mx (delete)*</td>
+<td><code>mx</code> (delete)*</td>
 <td>Duplicate mechanisms</td>
 </tr>
 </tbody>
