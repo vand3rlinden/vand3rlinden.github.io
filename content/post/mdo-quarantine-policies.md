@@ -13,7 +13,7 @@ cover:
 Back in April 2020, Microsoft made it possible for users to view, release, or delete quarantined messages (expect high confidence phishing). Some organizations were not happy about users having access to their own quarantined items. Quarantine policies give you more control over quarantine for your end users and which quarantined items they can release.
 
 ## The default quarantine policies
-You can access the quarantine policies by going to: https://security.microsoft.com/quarantinePolicies. 
+You can access it from the [Quarantine policies section](https://security.microsoft.com/quarantinePolicies) of the Microsoft Security Portal.
 
 Out of the box, you will see three policies: 
 - DefaultFullAccessPolicy 
