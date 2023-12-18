@@ -91,4 +91,5 @@ You can also change the notification email settings under _Global Settings_, whe
 ## In summary
 After you have set up the quarantine policies the way you want them, you can use your quarantine policies in the threat policies actions.
 
-[Reference](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/quarantine-policies)
+### Reference
+[Quarantine policies](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/quarantine-policies)

@@ -16,7 +16,7 @@ Anti-spam policies give you control over inbound and outbound e-mail in Exchange
 In this inbound policy you can manage:
 - Bulk email threshold and spam properties, such as rejecting email from high-risk countries.
 - Spam actions, to set actions (to junk, quarantine, delete and more) when spam is detected. Based on the verdict, you can choose what to do with it, such as quarantine the message, which you can manage with quarantine policies.
-- Allowed and blocked senders or domains, such as ```someone@domain.com``` or ```domain.com```. Senders or domains you list here will be skipped for spam filtering. You should never want to use this, as it is very easy to send email from any sender or domain you list here*. Outbound authentication protocols (SPF, DKIM and DMARC) are ignored.
+- Allowed and blocked senders or domains, such as ```someone@domain.com``` or ```domain.com```. Senders or domains that you list in the Allowed section will be skipped for spam filtering. You should never want to use this, as it is very easy to send email from any sender or domain you list here*. Outbound authentication protocols (SPF, DKIM and DMARC) are ignored.
 
 *To create a blocked/safe senders list in EOP, follow the instructions in the two links below:
 - [Create blocked sender lists in EOP](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/create-block-sender-lists-in-office-365)
@@ -24,8 +24,8 @@ In this inbound policy you can manage:
 
 ### Connection filter policy (Default)
 In this filter policy you can manage:
-- IP allow list: Messages on this list will be skipped for spam filtering.
-- IP block list: Messages from this list will be blocked.
+- IP allow list: IP addresses on this list will be skipped for spam filtering.
+- IP block list: IP addresses from this list will be blocked.
 - Safe list: A dynamic allow list in the Microsoft datacenter that does not require customer configuration.
 
 ### Anti-spam outbound policy (Default)
