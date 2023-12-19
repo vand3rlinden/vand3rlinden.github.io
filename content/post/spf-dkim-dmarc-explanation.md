@@ -23,10 +23,10 @@ If an unauthorized server sends on behalf of your domain, the email will get an 
 SPF will pass if the sender’s IP is added to the SPF record for the P1 Sender domain.
 
 ### P1 vs P2- sender explanation:
-| Postal Letter      | Precise Term                  | Protected by  |
-| -----------        | -----------                   | -----------   |
-| Sender on envelope | RFC5321.MailFrom (P1 Sender)  |  SPF          |
-| Author on letter   | RFC5322.From (P2 Sender)      |  DKIM + DMARC |
+| Postal Letter      | Precise Term                        | Protected by  |
+| -----------        | -----------                         | -----------   |
+| Sender on envelope | ```RFC5321.MailFrom``` (P1 Sender)  |  SPF          |
+| Author on letter   | ```RFC5322.From``` (P2 Sender)      |  DKIM + DMARC |
 
 ### Implementation of SPF
 When you add your domain to Microsoft 365, Microsoft will ask you to provide an SPF record, such as ```v=spf1 include:spf.protection.outlook.com -all```. If you have more allowed senders, you must include them in the SPF record. For example ```v=spf1 include:spf.protection.outlook.com include:_spf.domain.com ip4:11.222.33.444 -all```
@@ -107,15 +107,15 @@ If you do not list the ```sp=``` tag, your subdomains will get the policy from t
 
 ### SPF, DKIM and DMARC in short
 SPF performs verification that the IP address of the sending server matches the entry in the SPF record from the sending domain.
-- SPF protects the P1 sender domain (Envelope sender, RFC5321.MailFrom).
+- SPF protects the P1 sender domain (Envelope sender, ```RFC5321.MailFrom```).
 
 DKIM verifies if the public key (DNS record) of a sending domain, matched the private key that came from the sending server. This is a check that the sending domain actually sent the e-mail. DKIM must be configured for each sending server, such as Exchange Online or any other server/SaaS service.
 
-- DKIM protects the P2 sender domain (Letter sender, RFC5322.From).
+- DKIM protects the P2 sender domain (Letter sender, ```RFC5322.From```).
 
 DMARC acts as a shield on top of SPF and DKIM. DMARC ensures that emails that fail the SPF and/or DKIM tests do not get through.
 
-- DMARC protects the P2 sender domain (Letter sender, RFC5322.From).
+- DMARC protects the P2 sender domain (Letter sender, ```RFC5322.From```).
 
 ### Finalizing
 To protect all non-sending domains, you should consider:
