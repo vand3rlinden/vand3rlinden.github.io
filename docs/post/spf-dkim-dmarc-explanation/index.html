@@ -181,12 +181,12 @@ How SPF works Imagine that you have an SPF record that looks like:"/>
 <tbody>
 <tr>
 <td>Sender on envelope</td>
-<td>RFC5321.MailFrom (P1 Sender)</td>
+<td><code>RFC5321.MailFrom</code> (P1 Sender)</td>
 <td>SPF</td>
 </tr>
 <tr>
 <td>Author on letter</td>
-<td>RFC5322.From (P2 Sender)</td>
+<td><code>RFC5322.From</code> (P2 Sender)</td>
 <td>DKIM + DMARC</td>
 </tr>
 </tbody>
@@ -271,15 +271,15 @@ How SPF works Imagine that you have an SPF record that looks like:"/>
 <h3 id="spf-dkim-and-dmarc-in-short">SPF, DKIM and DMARC in short<a hidden class="anchor" aria-hidden="true" href="#spf-dkim-and-dmarc-in-short">#</a></h3>
 <p>SPF performs verification that the IP address of the sending server matches the entry in the SPF record from the sending domain.</p>
 <ul>
-<li>SPF protects the P1 sender domain (Envelope sender, RFC5321.MailFrom).</li>
+<li>SPF protects the P1 sender domain (Envelope sender, <code>RFC5321.MailFrom</code>).</li>
 </ul>
 <p>DKIM verifies if the public key (DNS record) of a sending domain, matched the private key that came from the sending server. This is a check that the sending domain actually sent the e-mail. DKIM must be configured for each sending server, such as Exchange Online or any other server/SaaS service.</p>
 <ul>
-<li>DKIM protects the P2 sender domain (Letter sender, RFC5322.From).</li>
+<li>DKIM protects the P2 sender domain (Letter sender, <code>RFC5322.From</code>).</li>
 </ul>
 <p>DMARC acts as a shield on top of SPF and DKIM. DMARC ensures that emails that fail the SPF and/or DKIM tests do not get through.</p>
 <ul>
-<li>DMARC protects the P2 sender domain (Letter sender, RFC5322.From).</li>
+<li>DMARC protects the P2 sender domain (Letter sender, <code>RFC5322.From</code>).</li>
 </ul>
 <h3 id="finalizing">Finalizing<a hidden class="anchor" aria-hidden="true" href="#finalizing">#</a></h3>
 <p>To protect all non-sending domains, you should consider:</p>
