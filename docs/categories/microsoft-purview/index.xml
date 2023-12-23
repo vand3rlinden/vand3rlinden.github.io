@@ -6,7 +6,17 @@
     <description>Recent content in Microsoft Purview on VAND3RLINDEN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 16 Dec 2023 11:31:31 +0100</lastBuildDate><atom:link href="https://vand3rlinden.com/categories/microsoft-purview/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Dec 2023 23:57:43 +0100</lastBuildDate><atom:link href="https://vand3rlinden.com/categories/microsoft-purview/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microsoft Purview: Purging mails from Inboxes</title>
+      <link>https://vand3rlinden.com/post/purview-purge-emails/</link>
+      <pubDate>Sat, 23 Dec 2023 23:57:43 +0100</pubDate>
+      
+      <guid>https://vand3rlinden.com/post/purview-purge-emails/</guid>
+      <description>Purging emails from inboxes allows you to remove messages that your users should not have received. Utilizing Microsoft Purview, you have the capability to search for specific content and initiate the purging process. This post provides guidance on how to achieve this.
+Before getting started Before commencing the purging process, it&amp;rsquo;s crucial to acknowledge that some individuals may have already opened the email. Purging emails won&amp;rsquo;t guarantee that no one has seen them, but it will reduce the number of individuals who have.</description>
+    </item>
+    
     <item>
       <title>Microsoft Purview: Configuring a Data Loss Prevention Policy</title>
       <link>https://vand3rlinden.com/post/purview-data-loss-prevention/</link>
