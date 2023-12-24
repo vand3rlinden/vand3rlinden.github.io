@@ -105,6 +105,8 @@ The ```sp=reject``` tag means that subdomains will be included; if you don’t w
 
 If you do not list the ```sp=``` tag, your subdomains will get the policy from the ```p=``` tag.
 
+The table on this [Microsoft Learn page](https://learn.microsoft.com/en-us/archive/blogs/fasttracktips/spf-dkim-dmarc-and-exchange-online#covering-the-basics-of-dmarc) summarizes the options you have when configuring your DMARC policy.
+
 ### SPF, DKIM and DMARC in short
 SPF performs verification that the IP address of the sending server matches the entry in the SPF record from the sending domain.
 - SPF protects the P1 sender domain (Envelope sender, ```RFC5321.MailFrom```).
