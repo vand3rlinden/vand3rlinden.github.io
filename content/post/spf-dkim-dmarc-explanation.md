@@ -45,7 +45,7 @@ The problem with flattening is that email service providers can change or add IP
 
 - Not using entries like ```a``` and ```mx```, these mechanisms are often useless and probably should not be included in your SPF record (and other duplicate SPF mechanisms).
 
-- Move to vendor traffic with the use of subdomains for SPF authentication. Subdomain segmentation creates a new subdomain with an SPF record dedicated to a specific mail stream. Organizations that segment their vendors and email streams find there is no need for SPF flattening.
+- Move to vendor traffic with the use of subdomains for SPF authentication. Subdomain segmentation creates a new domain dedicated to a particular mail stream with its own 10 DNS lookups. Organizations that segment their vendors and email streams find there is no need for SPF flattening.
 
 ### Softfail or Hardfail
 SPF can get a softfail or fail, you determine this at the end of the record.
