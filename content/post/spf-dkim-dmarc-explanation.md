@@ -125,3 +125,9 @@ To protect all non-sending domains, you should consider:
 - a ***reject DMARC*** record ```v=DMARC1; p=reject;``` 
 
 This protects all of your domains from phishers and spammers, as bad actors will actively look for unused domains to exploit.
+
+## Reference
+- [dmarcian SPF best practices](https://dmarcian.com/advancing-dmarc-policy/)
+- [Concluding the Experiment: SPF Flattening](https://dmarcian.com/spf-flattening/)
+- [dmarcian DMARC best practices](https://dmarcian.com/spf-best-practices/)
+- [The Difference in DMARC Reports: RUA and RUF](https://dmarcian.com/rua-vs-ruf/)

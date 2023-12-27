@@ -114,4 +114,5 @@ v=spf1 exists:%{i}._spf.yourdomain.com include:spf.protection.outlook.com includ
 For the future of your SPF record, add IP addresses to your main SPF record using the SPF macro we set up, and choose carefully if a SaaS application should be sent through a subdomain instead of your main domain.
 
 ## Reference
-[dmarcian SPF best practices](https://dmarcian.com/spf-best-practices/)
+- [dmarcian SPF best practices](https://dmarcian.com/spf-best-practices/)
+- [Concluding the Experiment: SPF Flattening](https://dmarcian.com/spf-flattening/)
