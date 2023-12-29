@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft Defender for Office 365: Anti-spam policies'
+title: 'Microsoft Defender for Office 365: Safe Links policies'
 date: 2023-12-29T11:19:27+01:00
 draft: false
 categories: ["Microsoft Defender for Office 365"]
