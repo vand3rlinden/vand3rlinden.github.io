@@ -75,3 +75,15 @@ params:
     hidden: false # hide everywhere but not in structured data
     hiddenInList: true # hide on list pages and home
     hiddenInSingle: false # hide on single page
+
+#HTTP headers
+server:
+  headers:
+  - for: /**
+    values:
+      Content-Security-Policy: upgrade-insecure-requests
+      Referrer-Policy: strict-origin
+      X-Content-Type-Options: nosniff
+      X-Frame-Options: SAMEORIGIN
+      X-XSS-Protection: 1; mode=block
+      Permissions-Policy: geolocation=(none)
