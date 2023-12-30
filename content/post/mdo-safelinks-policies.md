@@ -27,7 +27,7 @@ In this article, we will use the Microsoft Security portal for the configuration
 
 2. Click on 'Create'.
 
-3. Specify a policy name such as ***TENANTSHORT - Safe links  policy***.
+3. Specify a policy name such as ```TENANTSHORT - Safe links  policy```.
 
 4. Under 'Users and Domains', select the users, groups, and/or domains you want to include (In my case, I chose the default tenant domain).
     - If desired, exclude groups such as Microsoft 365 groups or mail-enabled security groups.
