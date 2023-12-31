@@ -14,13 +14,13 @@ By default, there is no existing default Safe Links policy. The security policy 
 
 Safe Links protection through Safe Links policies is accessible in the following locations:
 
-- ***Email messages:*** 
+- Email messages: 
   - Safe Links protection for links embedded in email messages.
 
-- ***Microsoft Teams:*** 
+- Microsoft Teams:
   - Safe Links protection for links within Teams conversations, group chats, or originating from channels.
   
-- ***Office apps:*** 
+- Office apps: 
   - Safe Links protection for supported Office desktop, mobile, and web applications.
 
 ## Safe Links policy configuration
