@@ -64,15 +64,15 @@ The SPF protocol only protects the P1 sender and not the P2 sender of the email.
 DomainKeys Identified Mail (DKIM) is an authentication-based technique, by using DKIM, the receiving mail server can check the authenticity of an e-mail with the DKIM-Signature header. This signature is created using the SHA-256 hash function.
 
 ### How DKIM works
-The receiving server makes a DNS request using the sender’s domain name (P2 Sender). In response to the DNS request, the receiving server obtains the public key from a DNS record in the DNS zone of the sending domain, such as selector1._domainkey.yourdomain.com, and compares it to the private key in the message from the sending server.
+The receiving server makes a DNS request using the sender’s domain name (P2 Sender). In response to the DNS request, the receiving server obtains the public key from a DNS record in the DNS zone of the sending domain, such as ```selector1._domainkey.yourdomain.com```, and compares it to the private key in the message from the sending server.
 
-DKIM will pass if the sending server’s private key can be confirmed by the receiving server, using the public key in the sending domain’s DNS zone. This public key is published in a TXT/CNAME record. For example, when in TXT:
+DKIM will pass if the sending server’s private key can be confirmed by the receiving server, using the public key in the sending domain’s DNS zone. This public key is published in a ```TXT``` or ```CNAME``` record. For example, when in ```TXT```:
 
 - Hostname: ```key1._domainkey.yourdomain.com``` (in TXT)
 - Value: ```v=DKIM1;t=s;p=MIIBIjANBgkqhkiG9w0BA...``` (public key)
 
 ### Implementation of DKIM
-You can configure DKIM with a TXT record in your DNS zone for your sending mail servers (such as postfix or sendmail). A DKIM generator can be used to generate a private key for your server and a public key for your DNS.
+You can configure DKIM with a ```TXT``` record in your DNS zone for your sending mail servers (such as postfix or sendmail). A DKIM generator can be used to generate a private key for your server and a public key for your DNS.
 
 > _Note: that a DKIM record is required for each sending server or mail provider._
 
@@ -111,7 +111,7 @@ The table on this [Microsoft Learn page](https://learn.microsoft.com/en-us/archi
 SPF performs verification that the IP address of the sending server matches the entry in the SPF record from the sending domain.
 - SPF protects the P1 sender domain (Envelope sender, ```RFC5321.MailFrom```).
 
-DKIM verifies if the public key (DNS record) of a sending domain, matched the private key that came from the sending server. This is a check that the sending domain actually sent the e-mail. DKIM must be configured for each sending server, such as Exchange Online or any other server/SaaS service.
+DKIM verifies if the public key (DNS record) of a sending domain, matched the private key that came from the sending server. This is a check that the sending domain actually sent the e-mail. DKIM must be configured for ***each*** sending server, such as Exchange Online or any other server/SaaS service.
 
 - DKIM protects the P2 sender domain (Letter sender, ```RFC5322.From```).
 
@@ -120,9 +120,9 @@ DMARC acts as a shield on top of SPF and DKIM. DMARC ensures that emails that fa
 - DMARC protects the P2 sender domain (Letter sender, ```RFC5322.From```).
 
 ### Finalizing
-To protect all non-sending domains, you should consider:
+To protect all non-sending domains, you should consider _(DKIM is unnecessary as SPF combined with DMARC suffices due to sender-specific configuration of DKIM)_:
 - a ***deny all SPF*** record ```v=spf1 -all``` 
-- a ***reject DMARC*** record ```v=DMARC1; p=reject;``` 
+- a ***reject DMARC*** record ```v=DMARC1; p=reject;```
 
 This protects all of your domains from phishers and spammers, as bad actors will actively look for unused domains to exploit.
 
