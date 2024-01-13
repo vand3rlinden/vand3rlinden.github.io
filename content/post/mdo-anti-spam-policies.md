@@ -18,9 +18,9 @@ In this inbound policy you can manage:
 
 - **Spam actions**, to set actions (to junk, quarantine, delete and more) when spam is detected. Based on the verdict, you can choose what to do with it, such as quarantine the message, which you can manage with quarantine policies.
 
-- ***Allowed and blocked senders or domains**, such as ```someone@domain.com``` or ```domain.com```. Senders or domains that you list in the Allowed section will be skipped for spam filtering, and outbound authentication protocols (SPF, DKIM, and DMARC) will be ignored. 
+- ***Allowed and blocked senders or domains**, such as ```someone@domain.com``` or ```domain.com```. 
 
-_*It is strongly advised against utilizing this feature, as it makes it exceptionally easy to send emails from any sender or domain listed here. To establish a list of blocked/safe senders in EOP, please follow the instructions provided in the two links below:_
+_*To establish a list of blocked/safe senders in EOP, please follow the instructions provided in the two links below:_
 - _[Create blocked sender lists in EOP](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/create-block-sender-lists-in-office-365)_
 - _[Create safe sender lists in EOP](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/create-safe-sender-lists-in-office-365)_
 
@@ -49,7 +49,7 @@ In this outbound policy you can manage:
 - Mark languages you don’t communicate with as spam.
 - Set all your spam actions to quarantine and use quarantine policies.
 - Do not set up any allowed senders or domains.
-    - Allowed senders or allowed domains that are listed in anti-spam policies, creates a high risk because it is possible to bypass all spam, spoof, phishing protection (except high confidence phishing), and sender authentication (SPF, DKIM, DMARC). You should consider using the [Tenant Allow/Block List](https://security.microsoft.com/tenantAllowBlockList) for [creating a safe sender lists in EOP](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/create-safe-sender-lists-in-office-365).
+    - Allowed senders or allowed domains that are listed in anti-spam policies, creates a high risk because it is possible to bypass all spam, spoof, phishing protection (except high confidence phishing), and sender authentication (SPF, DKIM, DMARC). You should consider using the [Tenant Allow/Block List](https://security.microsoft.com/tenantAllowBlockList) for [creating a safe sender lists](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/create-safe-sender-lists-in-office-365).
 
 ### Connection filter policy
 - IP allow list configuration:
