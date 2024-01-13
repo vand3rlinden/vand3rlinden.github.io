@@ -42,7 +42,7 @@ The ```Matching-Type``` specifies how the certificate association is verified:
 - 1: SHA-256 hash (recommended)
 - 2: SHA-512 hash (not recommended / less supported)
 
-## How DNSSEC and DANE work together on 443
+## How DNSSEC and DANE work together on port 443
 - Imagine you want to visit a secure website, and your browser wants to ensure it's communicating with the right place.
 
 - DNSSEC acts like a lock for the phonebook (DNS), ensuring its trustworthiness by preventing malicious actors from providing fake addresses.
@@ -65,7 +65,7 @@ Example for this site:
 
 In simpler terms, DNSSEC secures the phonebook, and DANE adds a special note about a website's security. Together, they ensure that when you visit a website, it's the genuine one, and your connection is secure.
 
-## How DNSSEC and DANE work together on 25 (SMTP DANE)
+## How DNSSEC and DANE work together on port 25 (SMTP DANE)
 SMTP DANE is a security protocol that uses DNS to verify the authenticity of the certificates used for securing email communication with TLS and protecting against TLS downgrade attacks. DNSSEC is a set of extensions to DNS that provides cryptographic verification of DNS records, preventing DNS spoofing and adversary-in-the-middle attacks to DNS.
 
 Where SPF, DKIM, and DMARC focus more on the email messages and the sending hosts they come from, DANE focuses more on establishing the TLS connection between mail servers.
