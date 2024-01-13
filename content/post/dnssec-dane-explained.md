@@ -10,12 +10,12 @@ cover:
 > _In this post, you will learn how DNSSEC and DANE work together and how to configure DANE TLSA DNS records._
 
 
-## DNSSEC (Domain Name System Security Extensions):
+## DNSSEC (Domain Name System Security Extensions)
 The domain name system (DNS) is the phone book of the Internet: it tells computers where to send and retrieve information. Unfortunately, it also accepts any address given to it, no questions asked.
 
 DNSSEC adds a security layer to this phonebook. It uses digital signatures to make sure the information in the phonebook is trustworthy and hasn't been tampered with. It's like putting a lock on the phonebook to prevent fake entries.
 
-## DANE (DNS-based Authentication of Named Entities):
+## DANE (DNS-based Authentication of Named Entities)
 DANE used the DNS infrastructure to store details about the security of a service, such as the public key of a certificate. These details act as a special seal of approval, ensuring that when your computer talks to that service, it's the real thing and it's safe. DANE uses the TLSA _(Transport Layer Security Authentication)_ record type, which allows users to verify the certificate received from a service _(such as a web host on port 443 or a mail server on port 25)_ by querying the DNS for its information. DANE relies on DNSSEC and only works when DNSSEC is enabled.
 
 ### Implementation of DANE
@@ -61,7 +61,6 @@ Example for this site:
 - Your browser then checks these additional details from DANE and verifies the integrity of the phonebook with DNSSEC to guarantee that everything is secure and legitimate.
 
 ![IMAGE](/images/dnssec-dane-explained/dnssec-dane-explained-2.png)
-
 [VERIFY A DANE TLSA RECORD](https://check.sidnlabs.nl/dane/)
 
 In simpler terms, DNSSEC secures the phonebook, and DANE adds a special note about a website's security. Together, they ensure that when you visit a website, it's the genuine one, and your connection is secure.
@@ -84,8 +83,6 @@ Where SPF, DKIM, and DMARC focus more on the email messages and the sending host
         - Value: ```2 1 1 ROOT-certificate-fingerprint```
     - Host: ```_25._tcp.mail.contoso.com``` in ```TSLA```
         - Value: ```3 1 1 End-ENTITY-certificate-fingerprint```
-
-    ![IMAGE](tlsa-record.png)
 
 4. The sending server at fabrikam.com establishes a TLS connection with the receiving server, contoso.com.
 
