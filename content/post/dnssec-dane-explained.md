@@ -84,11 +84,11 @@ Where SPF, DKIM, and DMARC focus more on the email messages and the sending host
     - Host: ```_25._tcp.mail.contoso.com``` in ```TSLA```
         - Value: ```3 1 1 End-ENTITY-certificate-fingerprint```
 
-4. The sending server at fabrikam.com establishes a TLS connection with the receiving server, contoso.com.
+4. The sending server at fabrikam.com establishes a TLS connection with the receiving server, mail.contoso.com.
 
-5. The receiving server at contoso.com sends certificates with fingerprints to the sending server at fabrikam.com.
+5. The receiving server at mail.contoso.com sends certificates with fingerprints to the sending server fabrikam.com.
 
-6. The sending server at fabrikam.com verifies the fingerprints received from the DNS server:
+6. The sending server fabrikam.com verifies the fingerprints received from the DNS server of contoso.com:
     - If verification is successful, establish the connection.
     - If verification fails, disconnect.
 
