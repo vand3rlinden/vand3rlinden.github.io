@@ -13,13 +13,15 @@ cover:
 ## DNSSEC (Domain Name System Security Extensions)
 The domain name system (DNS) is the phone book of the Internet: it tells computers where to send and retrieve information. Unfortunately, it also accepts any address given to it, no questions asked.
 
-DNSSEC adds a security layer to this phonebook. It uses digital signatures to make sure the information in the phonebook is trustworthy and hasn't been tampered with. It's like putting a lock on the phonebook to prevent fake entries.
+DNSSEC adds a security layer to this phonebook. It uses digital signatures to make sure the information in the phonebook can be trusted and hasn't been tampered with. It's like putting a lock on the phonebook to prevent fake entries.
 
 ## DANE (DNS-based Authentication of Named Entities)
-DANE used the DNS infrastructure to store details about the security of a service, such as the public key of a certificate. These details act as a special seal of approval, ensuring that when your computer talks to that service, it's the real thing and it's safe. DANE uses the TLSA _(Transport Layer Security Authentication)_ record type, which allows users to verify the certificate received from a service _(such as a web host on port 443 or a mail server on port 25)_ by querying the DNS for its information. DANE relies on DNSSEC and only works when DNSSEC is enabled.
+DANE used the DNS infrastructure to store details about the security of a service, such as the public key of a certificate. These details act as a special seal of approval, ensuring that when your computer talks to this service, it's real and it's safe. DANE uses the TLSA _(Transport Layer Security Authentication)_ record type, which allows users to verify the certificate received from a service _(such as a web or mail server)_ by querying the DNS for its information. 
+
+> DANE relies on DNSSEC and only works when DNSSEC is enabled.
 
 ### Implementation of DANE
-You can implement DANE with a ```TLSA``` record in your domain registrar and DNS hosting provider; example:
+You can implement DANE with a ```TLSA``` record at your DNS hosting provider; example:
 - ```_port._protocol.yourdomain.com``` IN ```TLSA``` ```usage-selector-matching certificate-fingerprint```
 
   - ```_443._tcp.example.com``` IN ```TLSA``` ```3 1 1 a2a49838ad...```
@@ -42,12 +44,12 @@ The ```Matching-Type``` specifies how the certificate association is verified:
 - 1: SHA-256 hash (recommended)
 - 2: SHA-512 hash (not recommended / less supported)
 
-## How DNSSEC and DANE work together on port 443
-- Imagine you want to visit a secure website, and your browser wants to ensure it's communicating with the right place.
+## How DNSSEC and DANE work together on a webserver (443)
+- Imagine you want to visit a secure site, and your browser wants to make sure it's communicating with the right site.
 
-- DNSSEC acts like a lock for the phonebook (DNS), ensuring its trustworthiness by preventing malicious actors from providing fake addresses.
+- DNSSEC acts as a lock on the phonebook, ensuring it can be trusted by preventing malicious actors from providing spoofed addresses.
 
-- DANE steps in and says, "Hey, not only the phonebook is secure, but here are some extra details like PublicKeyInfo of both the root and host certificates on the website to guarantee its authenticity". These details are sourced from the values in the ```TLSA``` records such as ```_443._tcp.yourdomain.com``` for both certificates.
+- DANE steps in and says, _"Hey, not only the phonebook is secure, but here are some extra details like the PublicKeyInfo of both the root and host certificates of the site to guarantee its authenticity"_. These details are sourced from the values in the ```TLSA``` records such as ```_443._tcp.yourdomain.com``` for both certificates.
 
     - Host: ```_443._tcp.yourdomain.com``` in ```TSLA```
         - Value: ```2 1 1 ROOT-certificate-fingerprint-PublicKey```
@@ -63,9 +65,7 @@ Example for this site:
 ![IMAGE](/images/dnssec-dane-explained/dnssec-dane-explained-2.png)
 [VERIFY A DANE TLSA RECORD](https://check.sidnlabs.nl/dane/)
 
-In simpler terms, DNSSEC secures the phonebook, and DANE adds a special note about a website's security. Together, they ensure that when you visit a website, it's the genuine one, and your connection is secure.
-
-## How DNSSEC and DANE work together on port 25 (SMTP DANE)
+## How DNSSEC and DANE work together on a mailserver (25, SMTP DANE)
 SMTP DANE is a security protocol that uses DNS to verify the authenticity of the certificates used for securing email communication with TLS and protecting against TLS downgrade attacks. DNSSEC is a set of extensions to DNS that provides cryptographic verification of DNS records, preventing DNS spoofing and adversary-in-the-middle attacks to DNS.
 
 Where SPF, DKIM, and DMARC focus more on the email messages and the sending hosts they come from, DANE focuses more on establishing the TLS connection between mail servers.
