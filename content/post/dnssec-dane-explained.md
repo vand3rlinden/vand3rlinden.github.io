@@ -15,6 +15,8 @@ The domain name system (DNS) is the phone book of the Internet: it tells compute
 
 DNSSEC adds a security layer to this phonebook. It uses digital signatures to make sure the information in the phonebook can be trusted and hasn't been tampered with. It's like putting a lock on the phonebook to prevent fake entries.
 
+In summary, DNSSEC is a set of extensions to DNS that provide cryptographic verification of DNS records, preventing DNS spoofing and adversary-in-the-middle attacks to DNS.
+
 ## DANE (DNS-based Authentication of Named Entities)
 DANE used the DNS infrastructure to store details about the security of a service, such as the public key of a certificate. These details act as a special seal of approval, ensuring that when your computer talks to this service, it's real and it's safe. DANE uses the TLSA _(Transport Layer Security Authentication)_ record type, which allows users to verify the certificate received from a service _(such as a web or mail server)_ by querying the DNS for its information. 
 
@@ -66,7 +68,7 @@ Example for this site:
 [VERIFY A DANE TLSA RECORD](https://check.sidnlabs.nl/dane/)
 
 ## How DNSSEC and DANE work together on a mailserver (25, SMTP DANE)
-SMTP DANE is a security protocol that uses DNS to verify the authenticity of the certificates used for securing email communication with TLS and protecting against TLS downgrade attacks. DNSSEC is a set of extensions to DNS that provides cryptographic verification of DNS records, preventing DNS spoofing and adversary-in-the-middle attacks to DNS.
+SMTP DANE is a security protocol that uses DNS to verify the authenticity of the certificates used for securing email communication with TLS and protecting against TLS downgrade attacks. 
 
 Where SPF, DKIM, and DMARC focus more on the email messages and the sending hosts they come from, DANE focuses more on establishing the TLS connection between mail servers.
 
