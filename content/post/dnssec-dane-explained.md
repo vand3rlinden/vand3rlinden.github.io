@@ -13,9 +13,7 @@ cover:
 ## DNSSEC (Domain Name System Security Extensions)
 The domain name system (DNS) is the phone book of the Internet: it tells computers where to send and retrieve information. Unfortunately, it also accepts any address given to it, no questions asked.
 
-DNSSEC adds a security layer to this phonebook. It uses digital signatures to make sure the information in the phonebook can be trusted and hasn't been tampered with. It's like putting a lock on the phonebook to prevent fake entries.
-
-In summary, DNSSEC is a set of extensions to DNS that provide cryptographic verification of DNS records, preventing DNS spoofing and adversary-in-the-middle attacks to DNS.
+DNSSEC adds a security layer to this phonebook. It uses digital signatures to make sure the information in the phonebook can be trusted and hasn't been tampered with. It's like putting a lock on the phonebook to prevent DNS spoofing.
 
 ## DANE (DNS-based Authentication of Named Entities)
 DANE used the DNS infrastructure to store details about the security of a service, such as the public key of a certificate. These details act as a special seal of approval, ensuring that when your computer talks to this service, it's real and it's safe. DANE uses the TLSA _(Transport Layer Security Authentication)_ record type, which allows users to verify the stored details received from a service _(such as a web or mail server)_ by querying the DNS for its information. 
