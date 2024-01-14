@@ -18,7 +18,7 @@ DNSSEC adds a security layer to this phonebook. It uses digital signatures to ma
 In summary, DNSSEC is a set of extensions to DNS that provide cryptographic verification of DNS records, preventing DNS spoofing and adversary-in-the-middle attacks to DNS.
 
 ## DANE (DNS-based Authentication of Named Entities)
-DANE used the DNS infrastructure to store details about the security of a service, such as the public key of a certificate. These details act as a special seal of approval, ensuring that when your computer talks to this service, it's real and it's safe. DANE uses the TLSA _(Transport Layer Security Authentication)_ record type, which allows users to verify the certificate received from a service _(such as a web or mail server)_ by querying the DNS for its information. 
+DANE used the DNS infrastructure to store details about the security of a service, such as the public key of a certificate. These details act as a special seal of approval, ensuring that when your computer talks to this service, it's real and it's safe. DANE uses the TLSA _(Transport Layer Security Authentication)_ record type, which allows users to verify the stored details received from a service _(such as a web or mail server)_ by querying the DNS for its information. 
 
 > DANE relies on DNSSEC and only works when DNSSEC is enabled.
 
