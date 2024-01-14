@@ -71,24 +71,24 @@ SMTP DANE is a security protocol that uses DNS to verify the authenticity of the
 Where SPF, DKIM, and DMARC focus more on the email messages and the sending hosts they come from, DANE focuses more on establishing the TLS connection between mail servers.
 
 ### The flow of SMTP DANE
-- **Sending Email Server:** fabrikam.com (outbound, requesting DANE ```TLSA``` records of the ```MX``` record of the domain)
+- **Sending Email Server:** fabrikam.com (outbound, requesting DANE ```TLSA``` records of the ```MX``` record from the receiving email server)
 - **Receiving Email Server:** contoso.com (inbound, requires DNSSEC and DANE ```TLSA```records)
 
-1. The sending server at fabrikam.com queries the ```MX``` record of the receiving server, contoso.com, from the DNS server, resulting in "mail.contoso.com" (a DNSSEC/DANE-enabled domain).
+1. The sending server at ***fabrikam.com*** queries the ```MX``` record from the DNS server of ***contoso.com***, resulting in ***mail.contoso.com*** (a DNSSEC/DANE-enabled domain).
 
-2. The sending server at fabrikam.com requests the DANE ```TLSA``` records for "mail.contoso.com" from the DNS server.
+2. The sending server at ***fabrikam.com*** requests the DANE ```TLSA``` records for ***mail.contoso.com*** from the DNS server.
 
-3. The DNS server of contoso.com sends DANE records for the Root and End-entity certificates (mail.contoso.com) to the sending server at fabrikam.com:
+3. The DNS server of ***contoso.com*** sends DANE ```TLSA``` records for the Root and End-entity certificates of ***mail.contoso.com*** to the sending server ***fabrikam.com***:
     - Host: ```_25._tcp.mail.contoso.com``` in ```TSLA```
         - Value: ```2 1 1 ROOT-certificate-fingerprint```
     - Host: ```_25._tcp.mail.contoso.com``` in ```TSLA```
         - Value: ```3 1 1 End-ENTITY-certificate-fingerprint```
 
-4. The sending server at fabrikam.com establishes a TLS connection with the receiving server, mail.contoso.com.
+4. The sending server at ***fabrikam.com*** establishes a TLS connection with the receiving server ***mail.contoso.com***.
 
-5. The receiving server at mail.contoso.com sends certificates with fingerprints to the sending server fabrikam.com.
+5. The receiving server at ***mail.contoso.com*** sends certificates with fingerprints to the sending server ***fabrikam.com***.
 
-6. The sending server fabrikam.com verifies the fingerprints received from the DNS server of contoso.com:
+6. The sending server at ***fabrikam.com*** verifies the fingerprints received from the DNS server of ***contoso.com***:
     - If verification is successful, establish the connection.
     - If verification fails, disconnect.
 
