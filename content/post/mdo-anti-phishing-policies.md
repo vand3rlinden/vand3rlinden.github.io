@@ -92,6 +92,8 @@ ForEach ($User in $Users){
 
 8. After saving, navigate to ‘Action’ and select 'Edit Actions'.
 
+9. Turn on all safety tips, to help recipients be more aware of red flags in an email.
+
 9. I recommend setting all actions to 'Quarantine the message'. To align with the DMARC policy, configure the action as 'Reject the message' when the DMARC policy ```p=reject``` is detected.
 
 ## In summary
@@ -114,3 +116,5 @@ Spoofing takes place when the From address (P2 Sender) in an email message does 
 - [Spoof settings](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-phishing-policies-about?view=o365-worldwide#spoof-settings)
 - [Spoof protection and sender DMARC policies](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-phishing-policies-about?view=o365-worldwide#spoof-protection-and-sender-dmarc-policies)
 - [X-Forefront-Antispam-Report message header fields](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/message-headers-eop-mdo?view=o365-worldwide#x-forefront-antispam-report-message-header-fields)
+- [Impersonation safety tips](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-phishing-policies-about?view=o365-worldwide#impersonation-safety-tips)
+- [First contact safety tip](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-phishing-policies-about?view=o365-worldwide#first-contact-safety-tip)
