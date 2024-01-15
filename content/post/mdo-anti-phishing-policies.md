@@ -68,7 +68,9 @@ Phishers may use P1 spoofing, allowing SPF to pass on their domain (P1 Sender) w
 
 3. Set the Phishing email threshold to at least on '2 - Aggressive'.
 
-4. In 'Enable Users to Protect', you can include up to 350 key roles. For bulk user additions, create a CSV file in the following format:
+4. Check 'Enable Users to Protect' (User impersonation protection), you can include up to 350 key roles. 
+
+- For bulk user additions, create a CSV file in the following format:
 ```
 Policy,Users
 Office365 AntiPhish Default,Firstname Lastname;user1@domain.com
@@ -86,15 +88,17 @@ ForEach ($User in $Users){
 }
 ```
 
+5. Check 'Enable domains to protect' (Domain impersonation protection).
+
 5. In 'Add Trusted Senders and Domains', you can specify senders or domains that will not be flagged for impersonation.
 
-6. Both 'Enable Mailbox Intelligence' and 'Enable Intelligence for Impersonation Protection' should be activated, as explained earlier.
+6. Both 'Enable Mailbox Intelligence' and 'Enable Intelligence for Impersonation Protection' should be checked, as explained earlier.
 
-7. Enable 'Spoof Intelligence' and click on Save.
+7. Check 'Spoof Intelligence' and click on Save.
 
 8. After saving, navigate to ‘Action’ and select 'Edit Actions'.
 
-9. Turn on all safety tips, to help recipients be more aware of red flags in an email.
+9. Check all safety tips, to help recipients be more aware of red flags in an email.
 
 10. I recommend setting all actions to 'Quarantine the message'. To align with the DMARC policy, configure the action as 'Reject the message' when the DMARC policy ```p=reject``` is detected.
 
