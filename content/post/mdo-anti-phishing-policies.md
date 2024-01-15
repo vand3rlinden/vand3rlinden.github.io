@@ -66,14 +66,16 @@ Phishers may use P1 spoofing, allowing SPF to pass on their domain (P1 Sender) w
 
 2. Navigate to 'Phishing Threshold & Protection' and select 'Edit Protection Settings'.
 
-3. In 'Enable Users to Protect', you can include up to 350 key roles. For bulk user additions, create a CSV file in the following format:
+3. Set the Phishing email threshold to at least on '2 - Aggressive'.
+
+4. In 'Enable Users to Protect', you can include up to 350 key roles. For bulk user additions, create a CSV file in the following format:
 ```
 Policy,Users
 Office365 AntiPhish Default,Firstname Lastname;user1@domain.com
 Office365 AntiPhish Default,Firstname Lastname;user2@domain.com
 ```
 
-4. To import this CSV into the policy using the Exchange PowerShell Module, execute the following command:
+- To import this CSV into the policy using the Exchange PowerShell Module, execute the following command:
 ```
 $Users = Import-CSV -Path 'C:\temp\users.csv'
 
@@ -94,7 +96,7 @@ ForEach ($User in $Users){
 
 9. Turn on all safety tips, to help recipients be more aware of red flags in an email.
 
-9. I recommend setting all actions to 'Quarantine the message'. To align with the DMARC policy, configure the action as 'Reject the message' when the DMARC policy ```p=reject``` is detected.
+10. I recommend setting all actions to 'Quarantine the message'. To align with the DMARC policy, configure the action as 'Reject the message' when the DMARC policy ```p=reject``` is detected.
 
 ## In summary
 ### User Impersonation:
