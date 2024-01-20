@@ -45,6 +45,8 @@ The problem with flattening is that email service providers can change or add IP
 
 - Not using entries like ```a``` and ```mx```, these mechanisms are often useless and probably should not be included in your SPF record (and other duplicate SPF mechanisms).
 
+- Where email is incapable of passing DMARC with SPF, configure DKIM.
+
 - Move to vendor traffic with the use of subdomains for SPF authentication. Subdomain segmentation creates a new domain dedicated to a particular mail stream with its own 10 DNS lookups. Organizations that segment their vendors and email streams find there is no need for SPF flattening.
 
 ### Softfail or Hardfail
@@ -112,11 +114,9 @@ SPF performs verification that the IP address of the sending server matches the 
 - SPF protects the P1 sender domain (Envelope sender, ```RFC5321.MailFrom```).
 
 DKIM verifies if the public key (DNS record) of a sending domain, matched the private key that came from the sending server. This is a check that the sending domain actually sent the e-mail. DKIM must be configured for ***each*** sending server, such as Exchange Online or any other server/SaaS service.
-
 - DKIM protects the P2 sender domain (Letter sender, ```RFC5322.From```).
 
-DMARC acts as a shield on top of SPF and DKIM. DMARC ensures that emails that fail the SPF and/or DKIM tests do not get through.
-
+DMARC acts as a shield on top of SPF and DKIM. DMARC ensures that emails that fail the SPF and/or DKIM tests do not get through. If the email is unable to pass DMARC with SPF, DKIM can help pass DMARC for the P2 sender domain.
 - DMARC protects the P2 sender domain (Letter sender, ```RFC5322.From```).
 
 ### Finalizing
@@ -127,7 +127,7 @@ To protect all non-sending domains, you should consider _(DKIM is unnecessary as
 This protects all of your domains from phishers and spammers, as bad actors will actively look for unused domains to exploit.
 
 ## Reference
-- [dmarcian SPF best practices](https://dmarcian.com/advancing-dmarc-policy/)
+- [dmarcian SPF best practices](https://dmarcian.com/spf-best-practices/)
 - [Concluding the Experiment: SPF Flattening](https://dmarcian.com/spf-flattening/)
-- [dmarcian DMARC best practices](https://dmarcian.com/spf-best-practices/)
+- [dmarcian DMARC best practices](https://dmarcian.com/advancing-dmarc-policy/)
 - [The Difference in DMARC Reports: RUA and RUF](https://dmarcian.com/rua-vs-ruf/)
