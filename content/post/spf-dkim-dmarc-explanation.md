@@ -45,7 +45,7 @@ The problem with flattening is that email service providers can change or add IP
 
 - Not using entries like ```a``` and ```mx```, these mechanisms are often useless and probably should not be included in your SPF record (and other duplicate SPF mechanisms).
 
-- Where email is incapable of passing DMARC with SPF, configure DKIM.
+- Where email is incapable of passing DMARC with SPF, configure DKIM for the P2 Sender domain.
 
 - Move to vendor traffic with the use of subdomains for SPF authentication. Subdomain segmentation creates a new domain dedicated to a particular mail stream with its own 10 DNS lookups. Organizations that segment their vendors and email streams find there is no need for SPF flattening.
 
@@ -106,6 +106,15 @@ After the monitoring phase, we set the DMARC policy to ```reject```:
 The ```sp=reject``` tag means that subdomains will be included; if you don’t want your subdomains to be included in your domain’s root DMARC policy, you can set this to sp=none and list a separate DMARC policy for each subdomain (not recommended).
 
 If you do not list the ```sp=``` tag, your subdomains will get the policy from the ```p=``` tag.
+
+### DMARC policy explanation
+| Policy      | Value               | Meaning |
+| ----------- | -----------         | -----------   |
+| None        | ```p=none;```       |  This policy is essentially a monitoring or reporting mode. It instructs email receivers not to take any action based on the DMARC authentication results. |
+| Quarantine  | ```p=quarantine;``` |  This policy instructs email receivers to quarantine emails that fail DMARC authentication. Instead of outright rejecting the email, it may be placed in a separate quarantine area or flagged as potentially suspicious.  |
+| Reject      | ```p=reject;```     |  This policy instructs email receivers to reject (not deliver) emails that fail DMARC authentication. |
+
+
 
 The table on this [Microsoft Learn page](https://learn.microsoft.com/en-us/archive/blogs/fasttracktips/spf-dkim-dmarc-and-exchange-online#covering-the-basics-of-dmarc) summarizes the options you have when configuring your DMARC policy.
 
