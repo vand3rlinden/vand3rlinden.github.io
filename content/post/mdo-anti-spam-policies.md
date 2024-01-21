@@ -49,7 +49,7 @@ In this outbound policy you can manage:
 - Mark languages you don’t communicate with as spam.
 - Set all your spam actions to quarantine and use quarantine policies.
 - Do not set up any allowed senders or domains.
-    - Allowed senders or allowed domains that are listed in anti-spam policies, creates a high risk because it is possible to bypass all spam, spoof, phishing protection (except high confidence phishing), and sender authentication (SPF, DKIM, DMARC). You should consider using the [Tenant Allow/Block List](https://security.microsoft.com/tenantAllowBlockList) for [creating a safe sender lists](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/create-safe-sender-lists-in-office-365).
+    - Allowed senders or allowed domains that are listed in anti-spam policies, creates a [high risk](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/create-safe-sender-lists-in-office-365?view=o365-worldwide#use-allowed-sender-lists-or-allowed-domain-lists) because it is possible to bypass all spam, spoof, phishing protection (except high confidence phishing), and sender authentication (SPF, DKIM, DMARC). You should consider using the [Tenant Allow/Block List](https://security.microsoft.com/tenantAllowBlockList) for [creating a safe sender lists](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/create-safe-sender-lists-in-office-365).
 
 ### Connection filter policy
 - IP allow list configuration:
@@ -63,20 +63,28 @@ In this outbound policy you can manage:
 
 ### Anti-spam outbound policy
 - Disable automatic forwarding:
-    - Disabling this option disables any automatic forwarding in your environment. There are other ways to block automatic forwarding, each with pros and cons. You can block automatic forwarding with:
-        - **Mail flow rules (EXO):** does not block the OWA forwarding method.
-        - **Remote Domains (EXO):** the user is not notified _(no NDR)_ that their forwarded message has been dropped.
+    - Disabling this option will disable any auto-forwarding in your environment. Please review the comparison chart below to determine if this option meets your organization's needs.
 
 - Configure message limits based on your organization's needs and set the limit action to restrict users from sending email. Users can be released from the [restricted entities](https://security.microsoft.com/restrictedentities) once there is no indication of a compromised user.
 
-### Anti-spam outbound policy (Custom)
+### Anti-spam outbound policy (Custom, Allow Forward)
 There are situations where you might want to allow automatic forwarding for mail accounts that need to have forwarding enabled, such as forwarding mail to internal team channels _(emails.teams.ms addresses)_.
 
-In this case, you can create a new custom outbound policy, such as: _‘Anti-spam outbound policy (Allow Forward)’_
+In this case, you can:
+1. Create a new custom outbound policy, such as: _‘Anti-spam outbound policy (Allow Forward)’_
 
-Add the desired mail account(s) to the policy and set Automatic forwarding to: _‘On — Forwarding is enabled’_.
+2. Add the desired mail account(s) to the policy
 
-> ***Note:*** Mail accounts can forward to any external domain once you add a mail account to the _'Anti-Spam Outbound Policy (Allow Forwarding)'_ policy. If you want to allow only certain domains, the best choice is to disable automatic forwarding with remote domains in Exchange Online. Mail flow rules should never be an option because direct forwards (OWA forwarding method) can still be used to any domain, only automatic forwards created with inbox rules are blocked.
+3. Set Automatic forwarding to: _‘On — Forwarding is enabled’_.
+
+### Comparison chart of methods for blocking automatic forwarding in Microsoft 365
+| Method                          | Pros                                                                                              | Cons                                                                                                                                                   |
+|-                                |-                                                                                                  |-                                                                                                                                                       |
+| Remote domains (EXO)            | Applies to all types of forwarding that a user can set up.                                        | 1. The user will not be notified that their forwarded message will be dropped. 2. You cannot set a specific address to forward, only an entire domain. |
+| Mail flow rules (EXO)           | Allows more granularity on conditions and actions, such as setting a specific address to forward. | Does not block the OWA direct forwarding method.                                                                                                              |
+| Outbound Anti-spam policy (MDO) | Allows you to turn off automatic forwarding completely.                                           | You cannot specify the address or domain; if an allowed user sets up a client forwarding rule, they can forward to any domain.                         |
+
+If you only want to allow users to forward to a few specific domains, the best choice is to disable automatic forwarding with remote domains in Exchange Online. Mail flow rules should never be an option because direct forwards (OWA forwarding method) can still be used to any domain, only automatic forwards created with inbox rules are blocked.
 
 ### Reference
 - [Anti-spam protection](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-spam-protection-about)
