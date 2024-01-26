@@ -7,7 +7,7 @@ cover:
   image: /images/dnssec-dane-explained/dnssec-dane-explained-front.png
 ---
 
-> _In this post, you will learn how DNSSEC and DANE work together and how to configure DANE TLSA DNS records._
+> _In this post, you find out how DNSSEC and DANE cooperate, and learn how to set up DANE TLSA DNS records._
 
 
 ## DNSSEC (Domain Name System Security Extensions)
