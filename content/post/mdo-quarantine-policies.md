@@ -81,9 +81,12 @@ Users can _request release_ of quarantined items after you assign the quarantine
 
 ![IMAGE](/images/mdo-quarantine-policies/mdo-quarantine-policies-requestrelease.png)
 
-_Tenant Admins_ or _[Quarantine Administrators](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/mdo-portal-permissions?view=o365-worldwide#modify-email--collaboration-role-group-role-assignments-in-the-microsoft-defender-portal)_ can approve or deny release requests in the quarantine:
+_Tenant Admins_ or _*Quarantine Administrators_ can approve or deny release requests in the quarantine:
 
 ![IMAGE](/images/mdo-quarantine-policies/mdo-quarantine-policies-approverelease.png)
+
+### *Quarantine Administrators
+_Quarantine Administrators_ is an Email & collaboration role group in the [Microsoft Defender portal](https://security.microsoft.com/emailandcollabpermissions). You should add the _Quarantine Administrators_ to the _'User requested to release a quarantined message'_ [alert policy](https://security.microsoft.com/alertpoliciesv2) as recipients, so that they receive an informational email alert when a user requested a release from the quarantine.
 
 ## Global settings
 You can also change the notification email settings under _Global Settings_, where you can set settings such as the recurrence of quarantine notifications or change the layout of the email.
@@ -92,4 +95,5 @@ You can also change the notification email settings under _Global Settings_, whe
 After you have set up the quarantine policies the way you want them, you can use your quarantine policies in the threat policies actions.
 
 ### Reference
-[Quarantine policies](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/quarantine-policies)
+- [Quarantine policies](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/quarantine-policies)
+- [Email & collaboration roles in the Microsoft Defender portal](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/mdo-portal-permissions?view=o365-worldwide#modify-email--collaboration-role-group-role-assignments-in-the-microsoft-defender-portal)
