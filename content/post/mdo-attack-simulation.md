@@ -7,7 +7,7 @@ cover:
   image: /images/mdo-attack-simulation/mdo-attack-simulation-front.png
 ---
 
-> _With Microsoft Defender for Office 365, you can create attack simulation trainings to identify vulnerable users and mitigate potential threats before they impact your organization._
+> _With Microsoft Defender for Office 365, you can create an attack simulation training to identify vulnerable users and mitigate potential threats before they impact your organization._
 
 ## Think before you click
 Understanding the intricacies of cybersecurity is crucial in today's digital landscape. Attack simulation training is indispensable for users as it provides hands-on experience in recognizing and defending against potential threats. This proactive approach empowers individuals to enhance their security awareness, identify vulnerabilities, and contribute to a more resilient organizational defense against cyber attacks.
