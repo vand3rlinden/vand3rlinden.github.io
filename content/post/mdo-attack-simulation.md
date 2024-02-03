@@ -7,7 +7,7 @@ cover:
   image: /images/mdo-attack-simulation/mdo-attack-simulation-front.png
 ---
 
-> _Conduct an attack simulation training using Microsoft Defender for Office 365 to identify vulnerable users and mitigate potential threats before they impact your organization._
+> _With Microsoft Defender for Office 365, you can create attack simulation trainings to identify vulnerable users and mitigate potential threats before they impact your organization._
 
 ## Think before you click
 Understanding the intricacies of cybersecurity is crucial in today's digital landscape. Attack simulation training is indispensable for users as it provides hands-on experience in recognizing and defending against potential threats. This proactive approach empowers individuals to enhance their security awareness, identify vulnerabilities, and contribute to a more resilient organizational defense against cyber attacks.
@@ -19,14 +19,14 @@ This blog focuses on what the user sees and is an extension of the Microsoft Lea
 ## Start using MDO's attack simulation training
 
 ### Step 1: Report message button
-You should start by giving your users the ability to report email messages, which is also necessary for simulation training.To do so, you can activate the [built-in Report button](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/submissions-user-reported-messages-custom-mailbox?view=o365-worldwide#use-the-microsoft-defender-portal-to-configure-user-reported-settings) in Outlook on the web using the [User reported settings](https://security.microsoft.com/securitysettings/userSubmission) or the [Microsoft Report Message or Report Phishing add-ins](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/submissions-users-report-message-add-in-configure?view=o365-worldwide#get-the-report-message-add-in) in virtually all Outlook platforms to report email messages. 
+You should start by giving your users the ability to report email messages, which is also necessary for simulation training. To do so, you can activate the [built-in Report button](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/submissions-user-reported-messages-custom-mailbox?view=o365-worldwide#use-the-microsoft-defender-portal-to-configure-user-reported-settings) in Outlook on the web using the [User reported settings](https://security.microsoft.com/securitysettings/userSubmission) or the [Microsoft Report Message or Report Phishing add-ins](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/submissions-users-report-message-add-in-configure?view=o365-worldwide#get-the-report-message-add-in) in virtually all Outlook platforms to report email messages. 
 
-Reported messages appear in the [User Reported](https://security.microsoft.com/reportsubmission?viewid=user) section of the Submissions page, your reporting mailbox, and are visible in the status of an attack simulation.
+Reported messages appear in the [User Reported](https://security.microsoft.com/reportsubmission?viewid=user) section of the Submissions page, your reporting mailbox, and are visible in the simulation report.
 
 ### Step 2: Creating an attack simulation training
 After the report button is implemented, you can begin creating an attack simulation training in the [Microsoft Defender Portal](https://security.microsoft.com/attacksimulator). You have the option to [simulate](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/attack-simulation-training-simulations) or use [automated flows](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/attack-simulation-training-simulation-automations). 
 
-For now, we will take a deep dive into a ***Credential Harvest*** simulation, one of the several [social engineering techniques](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/attack-simulation-training-get-started?view=o365-worldwide#simulations) to choose from. Create the  ***Credential Harvest*** simulation using the steps provided by Microsoft to [simulate](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/attack-simulation-training-simulations) an attack training. Upon completion, you should have a simulation in progress.
+For now, we will take a deep dive into a ***Credential Harvest*** simulation, one of the several [social engineering techniques](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/attack-simulation-training-get-started?view=o365-worldwide#simulations) to choose from. Create the  ***Credential Harvest*** simulation using the steps provided by Microsoft to [simulate](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/attack-simulation-training-simulations) an attack. Upon completion, you should have a simulation in progress.
 
 ![IMAGE](/images/mdo-attack-simulation/mdo-attack-simulation-1.png)
 
