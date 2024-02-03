@@ -19,7 +19,7 @@ This blog focuses more on the user part of the attack simulation and is an exten
 ## Start using MDO's attack simulation training
 
 ### Step 1: Report message button
-You should start by giving your users the ability to report email messages, which is also necessary for simulation training. To do so, you can activate the [built-in Report button](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/submissions-user-reported-messages-custom-mailbox?view=o365-worldwide#use-the-microsoft-defender-portal-to-configure-user-reported-settings) in Outlook on the web using the [User reported settings](https://security.microsoft.com/securitysettings/userSubmission) or the [Microsoft Report Message or Report Phishing add-ins](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/submissions-users-report-message-add-in-configure?view=o365-worldwide#get-the-report-message-add-in) in virtually all Outlook platforms to report email messages. 
+You should start by giving your users the ability to report email messages, which is also necessary for this attack simulation training. To do so, you can activate the [built-in Report button](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/submissions-user-reported-messages-custom-mailbox?view=o365-worldwide#use-the-microsoft-defender-portal-to-configure-user-reported-settings) in Outlook on the web using the [User reported settings](https://security.microsoft.com/securitysettings/userSubmission) or the [Microsoft Report Message or Report Phishing add-ins](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/submissions-users-report-message-add-in-configure?view=o365-worldwide#get-the-report-message-add-in) in virtually all Outlook platforms to report email messages. 
 
 Reported messages appear in the [User Reported](https://security.microsoft.com/reportsubmission?viewid=user) section of the Submissions page, your reporting mailbox, and are visible in the simulation report.
 
@@ -59,7 +59,7 @@ The simulation report allows you to analyze how your users performed in the atta
 ![IMAGE](/images/mdo-attack-simulation/mdo-attack-simulation-8.png)
 
 ## Conlusion
-Despite advanced security measures, phishing tactics continue to evolve, making it difficult to catch every attempt. User awareness is critical, as users play a critical role in identifying and avoiding potential threats, thereby improving overall security.
+Despite advanced security measures, phishing tactics continue to evolve, making it difficult to catch every attempt. Thereby user awareness is important because users play a critical role in identifying and avoiding potential threats.
 
 ## Reference
 [Attack simulation training documentation](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/attack-simulation-training-get-started)
