@@ -47,7 +47,7 @@ The problem with flattening is that email service providers can change or add IP
 
 - Where email is incapable of passing DMARC with SPF, configure DKIM for the P2 Sender domain.
 
-- Move to vendor traffic with the use of subdomains for SPF authentication. Subdomain segmentation creates a new domain dedicated to a particular mail stream with its own 10 DNS lookups. Organizations that segment their vendors and email streams find there is no need for SPF flattening.
+- Move to vendor traffic with the use of subdomains for SPF authentication, subdomain segmentation creates a new domain dedicated to a particular mail stream with its own 10 DNS lookups. Organizations that segment their email streams find there is no need for SPF flattening and will end up with better controls, less attack surface, and limit any spillover effects of a potential cyber incident.
 
 ### Softfail or Hardfail
 SPF can get a softfail or fail, you determine this at the end of the record.
