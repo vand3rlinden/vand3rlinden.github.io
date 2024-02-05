@@ -44,7 +44,9 @@ If the user logs in, they will land on the phish landing page that provides a le
 
 ![IMAGE](/images/mdo-attack-simulation/mdo-attack-simulation-4.png)
 
-Once the user clicked on the link and logged in, they received an email for each action to complete a training course. You may want to remove the External tag for the domain```attacksimulationtraining.com```. To do so, run the cmdlet```Set-ExternalInOutlook -AllowList "attacksimulationtraining.com"```by using the Exchange Online PowerShell module.
+Once the user clicked on the link and logged in, they received an email from ```notification@attacksimulationtraining.com``` for each action to complete a training course. 
+
+> ***NOTE:*** _You may want to remove the External tag for the domain ```attacksimulationtraining.com```. To do so, run the cmdlet ```Set-ExternalInOutlook -AllowList "attacksimulationtraining.com"``` by using the Exchange Online PowerShell module._
 
 ![IMAGE](/images/mdo-attack-simulation/mdo-attack-simulation-5.png)
 
