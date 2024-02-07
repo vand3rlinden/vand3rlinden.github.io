@@ -66,7 +66,7 @@ Phishers may use P1 spoofing, allowing SPF to pass on their domain (P1 Sender) w
 
 2. Navigate to 'Phishing Threshold & Protection' and select 'Edit Protection Settings'.
 
-3. Set the Phishing email threshold to at least on '2 - Aggressive'.
+3. Set the Phishing email threshold to at least on '3 - More Aggressive'.
 
 4. Check 'Enable Users to Protect' (User impersonation protection), you can include up to 350 key roles. 
 
