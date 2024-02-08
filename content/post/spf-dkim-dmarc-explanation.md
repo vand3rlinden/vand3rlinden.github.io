@@ -54,7 +54,7 @@ SPF can get a softfail or fail, you determine this at the end of the record.
 
 - With ```~all```: If an email is sent from a host or IP that is not in the SPF record, the message will still pass, but it can be flagged as spam (Softfail).
 
-- With ```-all```: If an email is sent from a host or IP that is not in the SPF record, it can be rejected by the receiving server (Fail, **recommended**).
+- With ```-all```: If an email is sent from a host or IP that is not in the SPF record, it can be rejected by the receiving server (Hardfail, **recommended**).
 
 ### Limitations of SPF
 Although SPF works relatively well in theory, there are several flaws in the protocol that mean that SPF alone is not enough to protect a sending domain.
