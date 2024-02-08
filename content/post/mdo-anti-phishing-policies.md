@@ -68,7 +68,7 @@ Phishers may use P1 spoofing, allowing SPF to pass on their domain (P1 Sender) w
 
 3. Set the Phishing email threshold to at least on '3 - More Aggressive'.
 
-4. Check 'Enable Users to Protect' (User impersonation protection), you can include up to 350 key roles. 
+4. Check 'Enable Users to Protect' (User impersonation protection), you can include up to 350 key users. 
 
 - For bulk user additions, create a CSV file in the following format:
 ```
@@ -91,6 +91,7 @@ ForEach ($User in $Users){
 5. Check 'Enable domains to protect' (Domain impersonation protection).
 
 5. In 'Add Trusted Senders and Domains', you can specify senders or domains that will not be flagged for impersonation.
+    - ***Not recommended for use***, especially domains. Messages from the specified senders and sender domains will never be classified by the policy as impersonation-based attacks. Require that your key users not use any other address to communicate within your environment.
 
 6. Both 'Enable Mailbox Intelligence' and 'Enable Intelligence for Impersonation Protection' should be checked, as explained earlier.
 
