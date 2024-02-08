@@ -10,14 +10,13 @@ cover:
 > _In this post, I will share my best practices for getting a handle on your SPF record._
 
 ## Why it makes sense to have a good SPF procedure in place
-In a previous [blog post](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/), I explained the limitations of SPF and how it works with DKIM and DMARC. It is useful to have a good SPF procedure to avoid future problems, because if you exceed the DNS lookup limit of 10:
+In a previous [blog post](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/), I explained the limitations of SPF, best practices and how it works with DKIM and DMARC. It is useful to have a good SPF procedure to avoid future problems, because if you exceed the DNS lookup limit of 10:
 
 - Your domain name is vulnerable to spoofing
 - Your domain authentication or validation may fail
-- Your emails will be undeliverable without any warning.
-- Around the globe you will find an answer to bypass the DNS lookup limit with ***SPF flattening***.
+- Your emails will be undeliverable without any warning
 
-SPF flattening converts hostnames to IP addresses, which don’t count in the DNS lookup count.
+Around the globe you will find an answer to bypass the DNS lookup limit with ***SPF flattening***. This approach converts hostnames to IP addresses, which don’t count in the DNS lookup count.
 
 ## The dangers of SPF flattening
 - The problem with flattening is that email service providers can change or add IP addresses without telling you. Then your SPF record is inaccurate, leading to email delivery problems (there are paid tools that can automate SPF flattening).
@@ -31,9 +30,14 @@ When you segment your vendors and email streams, you will find that there is no 
 SPF flattening attempts to work around the ***Too Many DNS Lookups*** error without addressing the underlying issues that caused the error in the first place. Avoiding SPF record flattening will help you get a handle on your SPF record.
 
 ## How to get a handle on your SPF record
-For example, your organization has an SPF record with 9 of the 10 allowed DNS lookups.
+#### Quick wins on how to handle your SPF record:
+- Not using entries like ```a``` and ```mx```, these mechanisms are often useless and probably should not be included in your SPF record (and other duplicate SPF mechanisms).
 
-Current SPF record (9 DNS lookups):
+- Where email is incapable of passing DMARC with SPF, configure DKIM for the P2 Sender domain on the sending email stream.
+
+#### For the long term:
+Imagine your organization has an SPF record with 9 of the 10 allowed DNS lookups, such as:
+
 ```
 v=spf1 ip4:11.222.33.444 ip4:44.33.222.111 ip4:22.33.444.555 ip4:55.66.777.8 ip4:88.99.999.99 ip4:99.88.777.66 mx include:spf.protection.outlook.com include:_spf.app1.com include:_spf.app2.com include:_spf.app3.com include:_spf.app4.com -all
 ```
@@ -50,11 +54,13 @@ Calculation of DNS lookups:
 | ```mx``` (your MX record)                | 1 DNS Look Ups  |
 | Total:                                   | 9 DNS Look Ups  |
 
-To clean this up, we need to segment your vendors and email streams.
+To streamline this process, it's essential to segment your email streams effectively.
 
-We live in a world where we have so many SaaS applications that need to send email on behalf of our domain. But do these SaaS applications need to send email on our behalf? Why shouldn’t we send via a subdomain with a fresh new SPF (TXT) record?
+In today's world, we're surrounded by numerous SaaS applications that use our primary domain for email correspondence. But is it really necessary for these applications to send through your primary domain when they could just as easily use a separate subdomain with its own SPF (TXT) record?
 
-For example, why would a newsletter need to send on behalf of your primary domain? When it can also be sent from noreply@news.yourdomain.com.
+Consider the newsletter scenario. Does it really need to send emails on behalf of your primary domain, or could it just as effectively send them from an address like noreply@news.yourdomain.com?
+
+> ***NOTE***: Some SaaS applications, such as SendGrid, allow SPF to pass through a subdomain as the P1 sender, while still allowing you to use your root domain as the P2 sender. Similarly, when utilizing sendmail in Unix, you have the flexibility to configure a subdomain as the P1 sender while maintaining the ability to send emails using your root domain. This approach complies with DMARC standards, and in this setup, DKIM validation for the P2 sender is not necessary, although it is always wise to set up DKIM for enhanced security measures.
 
 ## Cut your SPF record
 With the above in mind, which SaaS applications ***need*** to send on behalf of your primary domain, like Microsoft 365, and which ***don’t***. Like your newsletter service or an internal application.
