@@ -109,7 +109,7 @@ ForEach ($User in $Users){
 
 ![IMAGE](/images/mdo-anti-phishing-policies/mdo-anti-phishing-policies-1.png)
 
-- As you can see in the screenshot above, the original email is attached as an .eml, which may contain suspicious content or links to AitM phishing sites.
+- As you can see in the screenshot above, the original email is attached as an .eml, which may contain suspicious content and links to AitM phishing sites.
 
 ![IMAGE](/images/mdo-anti-phishing-policies/mdo-anti-phishing-policies-2.png)
 
