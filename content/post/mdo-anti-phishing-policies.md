@@ -101,9 +101,9 @@ ForEach ($User in $Users){
 
 9. Check all safety tips, to help recipients be more aware of red flags in an email.
 
-10. You can turn on 'Honor DMARC record policy when the message is detected as spoof'.
+10. Turn on 'Honor DMARC record policy when the message is detected as spoof', this setting turns on honoring the sender's DMARC policy for explicit email authentication failures.
 
-11. I recommend setting all actions to 'Quarantine the message', even the detection 'If the message is detected as spoof and DMARC Policy is set as p=reject'. You may want to honor the p=reject DMARC policy with 'reject the message', but from the field I have seen that when a user is attacked by self-to-self spoofing. They will receive an NDR from Exchange Online with the original email attached in .eml format, expected but unwanted. This .eml file contains all the links, which could be exploited by an attacker. Here is an example:
+11. I recommend setting all actions to 'Quarantine the message', even the detection ***'If the message is detected as spoof and DMARC Policy is set as p=reject'***. You may want to honor the p=reject DMARC policy with 'reject the message', but from the field I have seen that when a user is attacked by self-to-self spoofing. They will receive an NDR from Exchange Online with the original email attached in .eml format, expected but unwanted. This .eml file contains all the links, which could be exploited by an attacker. Here is an example:
 
 - The user received a Non-Delivery Report (NDR) from Exchange Online indicating that their message was rejected by DMARC because the sending domain has a DMARC policy set to reject.
 
