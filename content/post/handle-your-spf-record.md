@@ -54,13 +54,13 @@ Calculation of DNS lookups:
 | ```mx``` (your MX record)                | 1 DNS Look Ups  |
 | Total:                                   | 9 DNS Look Ups  |
 
-To streamline this process, it's essential to segment your email streams effectively.
+Effective segmentation of your email streams is essential to have a handle on the above.
 
 In today's world, we're surrounded by numerous SaaS applications that use our primary domain for email correspondence. But is it really necessary for these applications to send through your primary domain when they could just as easily use a separate subdomain with its own SPF (TXT) record?
 
 Consider the newsletter scenario. Does it really need to send emails on behalf of your primary domain, or could it just as effectively send them from an address like noreply@news.yourdomain.com?
 
-> ***NOTE***: Some SaaS applications, such as SendGrid, allow SPF to pass through a subdomain as the P1 sender, while still allowing you to use your root domain as the P2 sender. Similarly, when utilizing sendmail in Unix, you have the flexibility to configure a subdomain as the P1 sender while maintaining the ability to send emails using your root domain. This approach complies with DMARC standards, and in this setup, DKIM validation for the P2 sender is not necessary, although it is always wise to set up DKIM for enhanced security measures.
+> ***NOTE***: Some SaaS applications, such as SendGrid, allow SPF to pass through a subdomain as the P1 sender, while still allowing you to use your primary domain as the P2 sender. Similarly, when utilizing sendmail in Unix, you have the flexibility to configure a subdomain as the P1 sender while maintaining the ability to send emails using your primary domain. This approach complies with DMARC standards, and in this setup, DKIM validation for the P2 sender is not necessary, although it is always wise to set up DKIM for enhanced security measures.
 
 ## Cut your SPF record
 With the above in mind, which SaaS applications ***need*** to send on behalf of your primary domain, like Microsoft 365, and which ***don’t***. Like your newsletter service or an internal application.
