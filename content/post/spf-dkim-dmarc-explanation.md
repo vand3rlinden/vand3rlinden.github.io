@@ -92,7 +92,9 @@ DMARC will pass if the P1 Sender and P2 Sender are equal, and/or SPF and DKIM ar
 ### Implementation of DMARC
 Before using DMARC, you need to know how often it will fail. You should consider to start monitor the DMARC fails, before setting the DMARC policy directly on reject.
 
-There are several monitoring tools that convert the unreadable XML DMARC reports into a clear dashboard. One such tool is [Valimail](https://www.valimail.com/blog/office-365-free-dmarc-monitoring/) (free for Microsoft 365 users with an Exchange Online plan).
+There are several monitoring tools that convert the DMARC reports into a clear dashboard. One such tool is [Valimail](https://www.valimail.com/blog/office-365-free-dmarc-monitoring/) (free for Microsoft 365 users with an Exchange Online plan). 
+
+> ***NOTE:*** There are two associated report types - aggregate ```RUA``` and forensic ```RUF```. If the receiving mailbox provider supports sending DMARC reports, it can send the DMARC report to the address specified in the ```RUA``` and/or ```RUF``` tags. The differences between the reports are described [below](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#rua-vs-ruf-dmarc-reports)
 
 For heavy mail domains, I recommended monitoring the domain for at least three months with the DMARC policy set to ```none```:
 
@@ -114,9 +116,15 @@ If you do not list the ```sp=``` tag, your subdomains will get the policy from t
 | Quarantine  | ```p=quarantine;``` |  This policy instructs email receivers to quarantine emails that fail DMARC authentication. Instead of outright rejecting the email, it may be placed in a separate quarantine area or flagged as potentially suspicious.  |
 | Reject      | ```p=reject;```     |  This policy instructs email receivers to reject (not deliver) emails that fail DMARC authentication. |
 
-
-
 The table on this [Microsoft Learn page](https://learn.microsoft.com/en-us/archive/blogs/fasttracktips/spf-dkim-dmarc-and-exchange-online#covering-the-basics-of-dmarc) summarizes the options you have when configuring your DMARC policy.
+
+### RUA vs RUF DMARC Reports
+Aggregate ```RUA``` reports are the most important and contain information about the authentication status for SPF, DKIM and DMARC.
+
+An aggregate ```RUA``` report doesn't contain any sensitive information from the email itself; the data is limited to message counts and email authentication attributes.
+
+
+```RUF``` data was initially meant to give domain owners redacted copies of emails failing DMARC compliance. They use forensic reports to identify legitimate email sources needing remediation. However, due to privacy concerns, most DMARC reporters don't offer ```RUF``` reports due to the potential personally identifiable information (PII) that reports may contain.
 
 ### SPF, DKIM and DMARC in short
 SPF performs verification that the IP address of the sending server matches the entry in the SPF record from the sending domain.
@@ -129,11 +137,25 @@ DMARC acts as a shield on top of SPF and DKIM. DMARC ensures that emails that fa
 - DMARC protects the P2 sender domain (Letter sender, ```RFC5322.From```).
 
 ### Finalizing
-To protect all non-sending domains, you should consider _(DKIM is unnecessary as SPF combined with DMARC suffices due to sender-specific configuration of DKIM)_:
-- a ***deny all SPF*** record ```v=spf1 -all``` 
-- a ***reject DMARC*** record ```v=DMARC1; p=reject;```
+To protect all non-sending domains, you should consider:
+- a ***deny all SPF*** record:
+  - Name: ```@```  
+  - Content:```v=spf1 -all``` 
+  - Type: ```TXT```
+- a ***reject DMARC*** record:
+  - Name: ```_dmarc``` 
+  - Content: ```v=DMARC1; p=reject;```
+  - Type: ```TXT```
 
 This protects all of your domains from phishers and spammers, as bad actors will actively look for unused domains to exploit.
+
+In my opinion, DKIM is unnecessary because SPF, when combined with DMARC, provides sufficient protection. This is due to the configuration of DKIM in both the sending source (private key) and DNS (public key) to ensure DKIM passes.
+
+If desired, you could consider using a wildcard domainkey that covers all possible values for the selector, with an empty public key. This is because there is no public key to bind to.
+
+- Name: ```*._domainkey```
+- Content: ```v=DKIM1; p=```
+- Type: ```TXT```
 
 ## Reference
 - [dmarcian SPF best practices](https://dmarcian.com/spf-best-practices/)
