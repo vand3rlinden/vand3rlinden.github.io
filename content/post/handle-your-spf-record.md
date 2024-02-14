@@ -12,8 +12,8 @@ cover:
 ## Why it makes sense to have a good SPF procedure in place
 In a previous [blog post](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/), I explained the limitations of SPF, best practices and how it works with DKIM and DMARC. It is useful to have a good SPF procedure to avoid future problems, because if you exceed the DNS lookup limit of 10:
 
-- Your domain name is vulnerable to spoofing
-- Your domain authentication or validation may fail
+- Your domain name is vulnerable to spoofing of the P1 sender (```RFC5321.MailFrom```)
+- Your domain authentication or validation may fail (```spf=PermError```)
 - Your emails will be undeliverable without any warning
 
 Around the globe you will find an answer to bypass the DNS lookup limit with ***SPF flattening***. This approach converts hostnames to IP addresses, which don’t count in the DNS lookup count.
