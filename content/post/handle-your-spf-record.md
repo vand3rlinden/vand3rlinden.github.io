@@ -74,7 +74,7 @@ For example:
 | ```mx``` (delete)*                        | Duplicate mechanisms              |
 > *when using Microsoft 365, the MX endpoint IP is already listed in _include:spf.protection.outlook.com_
 
-If you look at the example above, we have ***4 DNS lookups left***, so we cleaned ***5 DNS lookups***, good job! But what about the IP addresses in the SPF record? IP addresses don’t cost any DNS lookups because we’re not talking to DNS. One disadvantage of using IP addresses in your SPF record is that it will result in an unmanageable and too long record. Yes, we can add a new include with the cost of 1 DNS lookup, for example ```include:_spf.yourdomain.com``` with a new SPF (TXT) record like this:
+If you look at the example above, we have ***4 DNS lookups left***, so we cleaned ***5 DNS lookups***, good job! But what about the IP addresses in the SPF record? IP addresses don’t cost any DNS lookups because we’re not talking to DNS. One disadvantage of using IP addresses in your SPF record is that it will result in an unmanageable and too long record. Yes, we can add a new include with the cost of 1 DNS lookup, such as ```include:_spf.yourdomain.com``` with a new SPF (TXT) record:
 
 SPF for ```yourdomain.com```:
 ```
@@ -93,7 +93,7 @@ But without being afraid of needing another DNS lookup when the ```_spf.yourdoma
 exists:%{i}._spf.yourdomain.com
 ```
 
-2. Now, for each IP address, we will create an ```A``` record that is not publicly routable (such as to 127.0.0.2) and a ```TXT``` record. The ```TXT``` record is set to list the source of the IP address and can have any value, which is ***optional*** to use.
+2. Now, for each IP address, such as ```11.222.33.444```, we will create an ```A``` record that is not publicly routable (such as to 127.0.0.2) and a ```TXT``` record. The ```TXT``` record is set to list the source of the IP address and can have any value, which is ***optional*** to use.
 
 | Host                                    | Type       | Value           |
 | ---                                     | ---        | ---             |
