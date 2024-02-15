@@ -19,15 +19,13 @@ In a previous [blog post](https://vand3rlinden.com/post/spf-dkim-dmarc-explanati
 Around the globe you will find an answer to bypass the DNS lookup limit with ***SPF flattening***. This approach converts hostnames to IP addresses, which don’t count in the DNS lookup count.
 
 ## The dangers of SPF flattening
-- The problem with flattening is that email service providers can change or add IP addresses without telling you. Then your SPF record is inaccurate, leading to email delivery problems (there are paid tools that can automate SPF flattening).
+The problem with SPF flattening is that email service providers can change or add IP addresses without notifying you. As a result, your SPF record becomes inaccurate, leading to complications with email delivery. Yes, there are paid tools available to automate this process. However, SPF flattening also increases the likelihood of missing records that need to be removed, resulting in over-authorization.
 
-- SPF flattening makes it easier to forget entries that need to be removed (over-authorization).
+From a security perspective, over-authorization of unnecessary SPF entries creates a potential attack vector. If an adversary gains access to any infrastructure listed in an SPF record, they can bypass your SPF and DMARC to send DMARC-compliant email.
 
-From a security perspective, over-authorization due to bloated SPF records is another way of saying “unnecessary entries in SPF records create attack surfaces”. If an adversary is able to break into (or simply rent) any piece of infrastructure that is listed in an SPF record, that adversary will be able to bypass your SPF and even DMARC to send DMARC compliant email.
+When you segment your vendors and email streams, you will find that there is no need for SPF flattening because subdomain segmentation creates dedicated domains for specific email streams, each with its own 10 DNS lookups. Adopting SPF segmentation increases control, reduces attack surfaces, and mitigates the impact of potential cyber incidents.
 
-When you segment your vendors and email streams, you will find that there is no need for SPF flattening, because subdomain segmentation creates a new domain dedicated to a particular mail stream with its own 10 DNS lookups. Domains that move toward creating an SPF segmentation process will end up with better controls, a smaller attack surface, and limit the spillover effects of a potential cyber incident.
-
-SPF flattening attempts to work around the ***Too Many DNS Lookups*** error without addressing the underlying issues that caused the error in the first place. Avoiding SPF record flattening will help you get a handle on your SPF record.
+SPF flattening attempts to work around the "too many DNS lookups" problem without addressing its underlying causes. Avoiding SPF record flattening will help you get a handle on your SPF record.
 
 ## How to get a handle on your SPF record
 #### Quick wins on how to handle your SPF record:
