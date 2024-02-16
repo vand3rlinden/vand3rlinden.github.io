@@ -35,7 +35,7 @@ The SPF record will differ for everyone; therefore, it is important to understan
 
 - Can only have 255 characters, but it can be split to multiple strings in a single record, most DNS providers handle this automatically.
     - Example: ```"v=spf1 first string" "second string -all"```
-- Can take up to a maximum of 10 DNS Look Ups like ```include:spf.protection.outlook.com``` (which already include two DNS lookups)
+- Can take up to a maximum of 10 DNS Look Ups like ```include:spf.protection.outlook.com``` (which currently contains 1 DNS lookup, without child lookups)
 
 ### Avoiding the 10 DNS Look Ups cap, to:
 - Flatten your SPF record (not recommended)
