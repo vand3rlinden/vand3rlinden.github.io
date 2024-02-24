@@ -50,7 +50,7 @@ The SPF record will differ for everyone; therefore, it is important to understan
 - Move to vendor traffic with the use of subdomains for SPF authentication, subdomain segmentation creates a new domain dedicated to a particular mail stream with its own 10 DNS lookups. Organizations that segment their email streams find there is no need for SPF flattening and will end up with better controls, less attack surface, and limit any spillover effects of a potential cyber incident.
 
 - Use an SPF macro to limit a third-party service to sending from a specific address, since services like Salesforce are most often limited to sending from a single email address, such as ```invoices@yourdomain.com```.
-  - [Example]()
+  - [Example](https://vand3rlinden.com/post/handle-your-spf-record/#use-an-spf-macro-to-restrict-a-third-party-service-to-send-from-a-specific-address)
 
 ### Softfail or Hardfail
 SPF can get a softfail or fail, you determine this at the end of the record.
