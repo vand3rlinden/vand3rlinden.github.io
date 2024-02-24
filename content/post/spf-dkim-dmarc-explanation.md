@@ -38,16 +38,19 @@ The SPF record will differ for everyone; therefore, it is important to understan
 - Can take up to a maximum of 10 DNS Look Ups like ```include:spf.protection.outlook.com``` (which currently contains 1 DNS lookup, without child lookups)
 
 ### Avoiding the 10 DNS Look Ups cap, to:
-- Flatten your SPF record (not recommended)
+- Flatten your SPF record ***(not recommended)***
     - Example: ```v=spf1 include:spf.domain.com -all``` can be ```v=spf1 ip4:11.222.33.444 ip4:11.222.33.444 -all```
 
-The problem with flattening is that email service providers can change or add IP addresses without telling you. Then your SPF record will be inaccurate, leading to email delivery problems.
+> The problem with flattening is that email service providers can change or add IP addresses without telling you. Then your SPF record will be inaccurate, leading to email delivery problems.
 
 - Not using entries like ```a``` and ```mx```, these mechanisms are often useless and probably should not be included in your SPF record (and other duplicate SPF mechanisms).
 
 - Where email is incapable of passing DMARC with SPF, configure DKIM for the P2 Sender domain on the sending server or mail provider.
 
 - Move to vendor traffic with the use of subdomains for SPF authentication, subdomain segmentation creates a new domain dedicated to a particular mail stream with its own 10 DNS lookups. Organizations that segment their email streams find there is no need for SPF flattening and will end up with better controls, less attack surface, and limit any spillover effects of a potential cyber incident.
+
+- Use an SPF macro to limit a third-party service to sending from a specific address, since services like Salesforce are most often limited to sending from a single email address, such as ```invoices@yourdomain.com```.
+  - [Example]()
 
 ### Softfail or Hardfail
 SPF can get a softfail or fail, you determine this at the end of the record.
