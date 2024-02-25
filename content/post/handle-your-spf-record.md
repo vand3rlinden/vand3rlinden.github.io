@@ -57,8 +57,6 @@ In today's world, we're surrounded by numerous SaaS applications that use our pr
 
 Consider the newsletter scenario. Does it really need to send emails on behalf of your primary domain, or could it just as effectively send them from an address like ```noreply@news.yourdomain.com```?
 
-> ***NOTE***: Some SaaS applications, such as SendGrid, allow SPF to pass through a subdomain as the P1 sender, while still allowing you to use your primary domain as the P2 sender. Similarly, when utilizing sendmail in Unix, you have the flexibility to configure a subdomain as the P1 sender while maintaining the ability to send emails using your primary domain as P2 sender. This approach complies with DMARC standards, and in this setup, DKIM validation for the P2 sender is not necessary, although it is always wise to set up DKIM for enhanced security measures.
-
 ## Cut your SPF record
 With the above in mind, determine which SaaS applications ***need*** to send on behalf of your primary domain, such as Microsoft 365, and which ***don’t***. Like your newsletter service or an internal application, for example:
 
