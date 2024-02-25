@@ -41,15 +41,15 @@ v=spf1 ip4:11.222.33.444 ip4:44.33.222.111 ip4:22.33.444.555 ip4:55.66.777.8 ip4
 
 Calculation of DNS lookups:
 
-| Look up                                  | Count           |
-| -----------                              | -----------     |
-| ```include:spf.protection.outlook.com``` | 1 DNS Look Ups  |
-| ```include:_spf.salesforce.com```        | 2 DNS Look Ups  |
-| ```include:_spf.app2.com```              | 1 DNS Look Ups  |
-| ```include:_spf.app3.com```              | 2 DNS Look Ups  |
-| ```include:_spf.app4.com```              | 2 DNS Look Ups  |
-| ```mx``` (your MX record)                | 1 DNS Look Ups  |
-| Total:                                   | 9 DNS Look Ups  |
+| DNS Lookup                               | Count          |
+| -----------                              | -----------    |
+| ```include:spf.protection.outlook.com``` | 1 DNS Lookup   |
+| ```include:_spf.salesforce.com```        | 2 DNS Lookups  |
+| ```include:_spf.app2.com```              | 1 DNS Lookup   |
+| ```include:_spf.app3.com```              | 2 DNS Lookups  |
+| ```include:_spf.app4.com```              | 2 DNS Lookups  |
+| ```mx``` (your MX record)                | 1 DNS Lookup   |
+| Total:                                   | 9 DNS Lookups  |
 
 Effective segmentation of your email streams is essential to have a handle on the above.
 
@@ -74,16 +74,12 @@ With the above in mind, determine which SaaS applications ***need*** to send on 
 
 If you look at the example above, we have ***3 DNS lookups*** left, so we cleaned ***6 DNS lookups***, good job! But what about the IP addresses in the SPF record? IP addresses don’t cost any DNS lookups because we’re not talking to the DNS. One disadvantage of using IP addresses in your SPF record is that it will result in an unmanageable and too long record. Yes, we can add a new include with the cost of 1 DNS lookup, such as ```include:_spf.yourdomain.com``` with a new SPF (TXT) record, for example:
 
-SPF for ```yourdomain.com```:
-```
-v=spf1 include:_spf.yourdomain.com -all 
-```
 SPF for ```_spf.yourdomain.com```:
 ```
 v=spf1 ip4:11.222.33.444 ip4:44.33.222.111 ip4:22.33.444.555 ip4:55.66.777.8 ip4:88.99.999.99 ip4:99.88.777.66 -all
 ```
 
-But without being afraid of needing another DNS lookup when the ```_spf.yourdomain.com``` include reaches its limit of two strings of 255 characters. You can start by using an SPF macro instead. This macro also costs 1 DNS lookup, but you can add an unlimited number of IP addresses _(not recommended, but you get my point)_ to it by creating a separate A record for each ```/32``` IP address.
+But without being afraid of needing another DNS lookup when the ```_spf.yourdomain.com``` include reaches its limit of two strings of 255 characters. You can start by using an SPF macro instead. This macro also costs 1 DNS lookup, but you can add an unlimited number of IP addresses _(not recommended, but you get my point)_ to it by creating a separate ```A``` record for each ```/32``` IP address.
 
 ## Use an SPF macro for your IP addresses
 1. In the SPF record for ```yourdomain.com```, add the following DNS lookup:
@@ -109,16 +105,16 @@ If you’re not comfortable with setting a source in public DNS, this option is 
 
 ## Use an SPF macro to restrict a third-party service to send from a specific address
 Typically, third-party services like Salesforce are mostly limited to sending from a single email address, such as ```invoices@yourdomain.com```.
-So it is unnecessary to have ```include:_spf.salesforce.com``` cost ***2 DNS Look Ups*** in the SPF record on ```yourdomain.com```.
+So it is unnecessary to have ```include:_spf.salesforce.com``` cost ***2 DNS Lookups*** in the SPF record on ```yourdomain.com```.
 
-Calculate the DNS Look Ups from ```include:_spf.salesforce.com``` in ```yourdomain.com```:
-| Look up                                  | Count                 |
-| -----------                              | -----------           |
-| ```include:_spf.salesforce.com```        | 1 DNS Look Ups        |
-| ```exists:%{i}._spf.mta.salesforce.com```| 1 DNS Look Ups        |
-| Total:                                   | ***2 DNS Look Ups***  |
+Calculate the DNS Lookups from ```include:_spf.salesforce.com``` in ```yourdomain.com```:
+| DNS Lookup                               | Count               |
+| -----------                              | -----------         |
+| ```include:_spf.salesforce.com```        | 1 DNS Lookup        |
+| ```exists:%{i}._spf.mta.salesforce.com```| 1 DNS Lookup        |
+| Total:                                   | ***2 DNS Lookups*** |
 
-In order to bring this to ***1 DNS Look Up***, you can follow the steps below.
+In order to bring this to ***1 DNS Lookup***, you can follow the steps below.
 
 1. In the SPF record for ```yourdomain.com```, add the following DNS lookup:
 ```
@@ -140,13 +136,13 @@ v=spf1 include:spf.protection.outlook.com exists:%{i}._spf.yourdomain.com includ
 
 After setting up the above entries, the sending servers of Salesfroce can only send from ```invoices@yourdomain.com```.
 
-## In summary
-1. The main SPF record is cleaned up by deleting 6 DNS lookups, this with segmenting your vendors and email streams with subdomains.
+## To summarize what we have done
+1. The main SPF record is cleaned up by deleting 6 DNS lookups, this with segmenting your email streams with subdomains and using SPF macros.
 2. We deleted the ```mx``` DNS lookup because of a duplicate mechanism.
 3. We have a good and secure way to add IP addresses to the SPF record using an SPF macro.
 4. We have restricted a third-party service to send from a specific address using an SPF macro.
 
-Instead of ***9 DNS look Ups*** before cleaning, the cleaned SPF record has only ***3 DNS look Ups*** with an SPF macro:
+Instead of ***9 DNS lookups*** before cleaning, the cleaned SPF record has only ***3 DNS lookups*** with SPF macros:
 ```
 v=spf1 include:spf.protection.outlook.com exists:%{i}._spf.yourdomain.com include:%{l}._spf.yourdomain.com -all
 ```
