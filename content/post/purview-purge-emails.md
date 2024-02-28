@@ -29,7 +29,7 @@ Before commencing the purging process, it's crucial to acknowledge that some ind
 
 ![IMAGE](/images/purview-purge-emails/purview-purge-emails-4.png)
 
-5. Proceed to the "Conditions" tab and introduce a condition, such as Sender/Author, if you wish to purge emails from a specific address. Additionally, explore other options like subject for a more comprehensive search.
+5. Go to the ***Conditions*** tab and configure a condition using the ***Condition Card Builder***, such as ***Sender*** or ***Subject***. You can also use the ***KQL Editor*** to query the ***EmailEvents*** table for a more comprehensive search.
 
 ![IMAGE](/images/purview-purge-emails/purview-purge-emails-5.png)
 
