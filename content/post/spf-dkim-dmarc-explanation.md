@@ -56,9 +56,13 @@ The SPF record will differ for everyone; therefore, it is important to understan
 ### Softfail or Hardfail
 SPF can get a softfail or fail, you determine this at the end of the record.
 
-- With ```~all```: If an email is sent from a host or IP that is not in the SPF record, the message will still pass, but it can be flagged as spam (Softfail).
+- With ```~all```: The SPF record has designated the host as NOT allowed to send, but it is in transition (Accept but mark, Softfail).
 
-- With ```-all```: If an email is sent from a host or IP that is not in the SPF record, it can be rejected by the receiving server (Hardfail, **recommended**).
+- With ```-all```: The SPF record has designated the host as NOT being allowed to send (Reject, Hardfail, **recommended**).
+
+Most mailbox providers will treat soft and hard- fails directives similarly, but it is [recommended](https://dmarcian.com/spf-best-practices/) to mirror the DMARC policy as the technology is deployed: use softfail (```~all```) if the DMARC policies are "none" and "quarantine", and use hardfail (```-all```) if you have moved to a "reject" policy. 
+
+***NOTE:*** If an email cannot pass SPF, it can be rejected at the SMTP level with an SPF hardfail (-all), which may prevent DMARC and DKIM evaluation. If you are unsure whether your senders are passing SPF, then [consider using an SPF softfail (```~all```)](https://www.mailhardener.com/blog/why-mailhardener-recommends-spf-softfail-over-fail) along with DMARC set to reject (```p=reject```), so that the DMARC and DKIM evaluation is always performed after SPF fails. For example, an email that fails SPF due to relaying may be hard rejected with an SPF hardfail (```-all```) before any DKIM or DMARC evaluation takes place.
 
 ### Limitations of SPF
 Although SPF works relatively well in theory, there are several flaws in the protocol that mean that SPF alone is not enough to protect a sending domain.
@@ -160,6 +164,7 @@ If desired, you could consider using a wildcard domainkey that covers all possib
 
 ## Reference
 - [dmarcian SPF best practices](https://dmarcian.com/spf-best-practices/)
+- [Why Mailhardener recommends SPF softfail over fail](https://www.mailhardener.com/blog/why-mailhardener-recommends-spf-softfail-over-fail)
 - [Concluding the Experiment: SPF Flattening](https://dmarcian.com/spf-flattening/)
 - [dmarcian DMARC best practices](https://dmarcian.com/advancing-dmarc-policy/)
 - [The Difference in DMARC Reports: RUA and RUF](https://dmarcian.com/rua-vs-ruf/)
