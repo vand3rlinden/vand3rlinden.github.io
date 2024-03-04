@@ -46,13 +46,25 @@ In this outbound policy you can manage:
 
 ### Anti-spam inbound policy
 - Set the bulk email threshold to 6 as a minimum, a higher bulk email threshold means more bulk email will be delivered.
+
 - Mark high-risk countries as spam.
+
 - Mark languages you don’t communicate with as spam.
-- Set all your spam actions to quarantine and use quarantine policies.
-- Do not set up any allowed senders or domains.
-    - Allowed senders or allowed domains that are listed in anti-spam policies, creates a [high risk](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/create-safe-sender-lists-in-office-365?view=o365-worldwide#use-allowed-sender-lists-or-allowed-domain-lists) because it is possible to bypass all spam, spoof, phishing protection (except high confidence phishing), and sender authentication (SPF, DKIM, DMARC). You should consider using the [Tenant Allow/Block List](https://security.microsoft.com/tenantAllowBlockList) for [creating a safe sender lists](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/create-safe-sender-lists-in-office-365).
+
 - Turn off ASF (Advanced Spam Filter), such as 'SPF record: hard fail'. This setting does not need to be enabled because legitimate email can be marked as high confidence phishing (HSPM) in situations where email is unable to pass DMARC with SPF and passed with DKIM for the P2 sender domain.
     - Enabling one or more of the [ASF settings](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-spam-policies-asf-settings-about) is an aggressive approach to spam filtering that can often cause false positives. The effectiveness of these settings in reducing spam has severely declined over the years.
+
+- Set all your spam actions to quarantine and use [quarantine policies](https://vand3rlinden.com/post/mdo-quarantine-policies/).
+    - My preference is to select a quarantine policy to ***request to release*** items for the actions ***Phishing*** and ***High confidence phishing*** (which is the default for HPHISH).
+
+- Set intra-organizational messages to the default setting. This setting control spam filtering, and the corresponding actions will be applied to internal messages (messages sent between users within the organization).
+    - The default value is the same as selecting High confidence phishing messages.
+
+- Keep ZAP (Zero-hour auto purge) on for spam and phishing messages (enabled by default).
+    - ZAP continuously monitors spam and malware updates seamlessly for users. It automatically detects and acts on messages in a user's mailbox, searching the last 48 hours of delivered email. Users aren't notified of detected and moved messages.
+
+- Do not set up any allowed senders or domains.
+    - Allowed senders or allowed domains that are listed in anti-spam policies, creates a [high risk](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/create-safe-sender-lists-in-office-365?view=o365-worldwide#use-allowed-sender-lists-or-allowed-domain-lists) because it is possible to bypass all spam, spoof, phishing protection (except high confidence phishing), and sender authentication (SPF, DKIM, DMARC). You should consider using the [Tenant Allow/Block List](https://security.microsoft.com/tenantAllowBlockList) for [creating a safe sender lists](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/create-safe-sender-lists-in-office-365).
 
 ### Connection filter policy
 - IP allow list configuration:
@@ -92,3 +104,4 @@ If you only want to allow users to forward to a few specific domains, the best c
 ### Reference
 - [Anti-spam protection](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-spam-protection-about)
 - [Exchange Online Sending limits](https://learn.microsoft.com/en-us/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#sending-limits)
+- [Zero-hour auto purge (ZAP)](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/zero-hour-auto-purge)
