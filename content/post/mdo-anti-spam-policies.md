@@ -54,8 +54,8 @@ In this outbound policy you can manage:
 - Turn off ASF (Advanced Spam Filter), such as 'SPF record: hard fail'. This setting does not need to be enabled because legitimate email can be marked as high confidence phishing (HSPM) in situations where email is unable to pass DMARC with SPF and passed with DKIM for the P2 sender domain.
     - Enabling one or more of the [ASF settings](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-spam-policies-asf-settings-about) is an aggressive approach to spam filtering that can often cause false positives. The effectiveness of these settings in reducing spam has severely declined over the years.
 
-- Set all your spam actions to quarantine and use [quarantine policies](https://vand3rlinden.com/post/mdo-quarantine-policies/).
-    - My preference is to select a quarantine policy to ***request to release*** items for the actions ***Phishing*** and ***High confidence phishing*** (which is the default for HPHISH).
+- Set all your spam actions to 'Quarantine message', except for the ***Spam message action*** and ***Bulk message action***, this can be set on 'Move message to Junk Email folder'.
+    - My preference is to select a [quarantine policies](https://vand3rlinden.com/post/mdo-quarantine-policies/) to ***request to release*** items for the actions ***Phishing message action*** and ***High confidence phishing message action*** (which is the default for HPHISH).
 
 - Set intra-organizational messages to the default setting. This setting control spam filtering, and the corresponding actions will be applied to internal messages (messages sent between users within the organization).
     - The default value is the same as selecting High confidence phishing messages.

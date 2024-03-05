@@ -99,7 +99,7 @@ ForEach ($User in $Users){
 
 9. After saving, navigate to ‘Action’ and select 'Edit Actions'.
 
-10. I recommend setting all actions to 'Quarantine the message' except for 'If the message is detected as spoof by spoof intelligence'. This action can be set to 'Move the message to the recipients' Junk Email folders'. This is because emails detected as spoof by Spoof Intelligence can be ligitmate emails (implicit failures) if the sender hasn't set up their outbound authentication correctly from the sending email source.
+10. I recommend setting all actions to 'Quarantine the message' except for 'If the message is detected as spoof by spoof intelligence'. This action can be set to 'Move message to Junk Email folder'. This is because emails detected as spoof by Spoof Intelligence can be ligitmate emails (implicit failures) if the sender hasn't set up their outbound authentication correctly from the sending email source.
 
 11. Turn on 'Honor DMARC record policy when the message is detected as spoof', this setting will honor the sender's DMARC policy for email authentication failures (explicit failures).
   - Setting: If the message is detected as spoof and DMARC Policy is set as ***p=quarantine***
