@@ -47,7 +47,7 @@ To activate Mailbox Intelligence, both settings must be turned on.
 
 ## Spoof intelligence
 ### What Spoofing is
-Spoofing occurs when the ```From``` address (P2 Sender) in an email message doesn’t match the domain of the email source (P1 Sender).
+Spoofing (implicit failures) occurs when the ```From``` address (P2 Sender, the sender address that's shown in email clients) in an email message doesn’t match the domain of the email source (P1 Sender).
 
 ### P1 vs P2- sender explanation
 | Postal Letter      | Precise Term                        | Protected by  |
@@ -90,28 +90,29 @@ ForEach ($User in $Users){
 
 5. Check 'Enable domains to protect' (Domain impersonation protection).
 
-5. In 'Add Trusted Senders and Domains', you can specify senders or domains that will not be flagged for impersonation.
-    - ***Not recommended for use***, especially domains. Messages from the specified senders and sender domains will never be classified by the policy as impersonation-based attacks. Require that your key users not use any other address to communicate within your environment.
+6. In 'Add Trusted Senders and Domains', you can specify senders or domains that will not be flagged for impersonation.
+    - ***Not recommended for use***, especially domains. Messages from the specified senders and sender domains will never be classified by the policy as impersonation-based attacks. Require that your key users use no other address to communicate within your environment. However, depending on your organization, only add senders or domains that are incorrectly identified as impersonation attempts. Once you have added entries, monitor the list frequently.
 
-6. Both 'Enable Mailbox Intelligence' and 'Enable Intelligence for Impersonation Protection' should be checked, as explained earlier.
+7. Both 'Enable Mailbox Intelligence' and 'Enable Intelligence for Impersonation Protection' should be checked, as explained earlier.
 
-7. Check 'Spoof Intelligence' and click on Save.
+8. Check 'Spoof Intelligence' and click on Save.
 
-8. After saving, navigate to ‘Action’ and select 'Edit Actions'.
+9. After saving, navigate to ‘Action’ and select 'Edit Actions'.
 
-9. Check all safety tips, to help recipients be more aware of red flags in an email.
+10. I recommend setting all actions to 'Quarantine the message' except for 'If the message is detected as spoof by spoof intelligence'. This action can be set to 'Move the message to the recipients' Junk Email folders'. This is because emails detected as spoof by Spoof Intelligence can be ligitmate emails (implicit failures) if the sender hasn't set up their outbound authentication correctly from the sending email source.
 
-10. Turn on 'Honor DMARC record policy when the message is detected as spoof', this setting turns on honoring the sender's DMARC policy for explicit email authentication failures.
+11. Turn on 'Honor DMARC record policy when the message is detected as spoof', this setting will honor the sender's DMARC policy for email authentication failures (explicit failures).
+  - Setting: If the message is detected as spoof and DMARC Policy is set as ***p=quarantine***
+    - Action: Quarantine the message
+  - Setting: If the message is detected as spoof and DMARC Policy is set as ***p=reject***
+    - Action: Reject the message (NDR)
 
-11. I recommend setting all actions to 'Quarantine the message', even the detection ***'If the message is detected as spoof and DMARC Policy is set as p=reject'***. You may want to honor the p=reject DMARC policy with 'reject the message', but from the field I have seen that when a user is attacked by self-to-self spoofing. They will receive an NDR from Exchange Online with the original email attached in .eml format, expected but unwanted. This .eml file contains all the links, which could be exploited by an attacker. Here is an example:
+12. Check all safety tips, to help recipients be more aware of red flags in an email.
 
-- The user received a Non-Delivery Report (NDR) from Exchange Online indicating that their message was rejected by DMARC because the sending domain has a DMARC policy set to reject.
+## Self-to-self spoofing attack with DMARC reject policy
+From the field I have seen that when a user is attacked by self-to-self spoofing. They receive an NDR from Exchange Online with the original email attached in .eml format, expected but unwanted. I have contacted Microsoft and they recently fixed this issue and this NDR backscatter should get a high confidence spam (HSPM) or spam (SPM) verdict and the email will end up in the JUNK folder. Backscatter is treated differently than regular email and the HSPM and SPM actions in the anti-spam policies do not apply.
 
 ![IMAGE](/images/mdo-anti-phishing-policies/mdo-anti-phishing-policies-1.png)
-
-- As you can see in the screenshot above, the original email is attached as an .eml, which may contain suspicious content and links to AitM phishing sites.
-
-![IMAGE](/images/mdo-anti-phishing-policies/mdo-anti-phishing-policies-2.png)
 
 ## In summary
 ### User Impersonation:
@@ -134,4 +135,5 @@ Spoofing takes place when the From address (P2 Sender) in an email message does 
 - [Spoof protection and sender DMARC policies](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-phishing-policies-about?view=o365-worldwide#spoof-protection-and-sender-dmarc-policies)
 - [X-Forefront-Antispam-Report message header fields](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/message-headers-eop-mdo?view=o365-worldwide#x-forefront-antispam-report-message-header-fields)
 - [Impersonation safety tips](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-phishing-policies-about?view=o365-worldwide#impersonation-safety-tips)
+- [Recommended anti-phishing policy settings](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/recommended-settings-for-eop-and-office365?view=o365-worldwide#eop-anti-phishing-policy-settings)
 - [First contact safety tip](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-phishing-policies-about?view=o365-worldwide#first-contact-safety-tip)
