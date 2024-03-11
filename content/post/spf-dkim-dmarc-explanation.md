@@ -168,3 +168,4 @@ If desired, you could consider using a wildcard domainkey that covers all possib
 - [Concluding the Experiment: SPF Flattening](https://dmarcian.com/spf-flattening/)
 - [dmarcian DMARC best practices](https://dmarcian.com/advancing-dmarc-policy/)
 - [The Difference in DMARC Reports: RUA and RUF](https://dmarcian.com/rua-vs-ruf/)
+- [How to protect domains that do not send email](https://www.cloudflare.com/learning/dns/dns-records/protect-domains-without-email/)
