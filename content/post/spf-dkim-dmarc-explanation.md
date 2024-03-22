@@ -46,6 +46,7 @@ The SPF record will differ for everyone; therefore, it is important to understan
 - Not using entries like ```a``` and ```mx```, these mechanisms are often useless and probably should not be included in your SPF record (and other duplicate SPF mechanisms).
 
 - Where email is incapable of passing DMARC with SPF, configure DKIM for the P2 Sender domain on the sending server or mail provider.
+  - ***NOTE:*** In this scenario, you need to set your SPF record to [softfail](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#softfail-or-hardfail) ```~all``` so that DMARC and DKIM validation is always performed after SPF fails.
 
 - Check if providers have the ability to pass SPF on a subdomain on behalf of your primary domain; passing SPF on a subdomain is still DMARC compliant.
 
@@ -58,7 +59,7 @@ SPF can get a softfail or fail, you determine this at the end of the record.
 
 - With ```~all```: The SPF record has designated the host as NOT allowed to send, but it is in transition (Accept but mark, Softfail).
 
-- With ```-all```: The SPF record has designated the host as NOT being allowed to send (Reject, Hardfail, **recommended**).
+- With ```-all```: The SPF record has designated the host as NOT being allowed to send (Reject, Hardfail).
 
 Most mailbox providers will treat soft and hard- fails directives similarly, but it is [recommended](https://dmarcian.com/spf-best-practices/) to mirror the DMARC policy as the technology is deployed: use softfail (```~all```) if the DMARC policies are "none" and "quarantine", and use hardfail (```-all```) if you have moved to a "reject" policy. 
 
