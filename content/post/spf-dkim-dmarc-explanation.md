@@ -46,7 +46,7 @@ The SPF record will differ for everyone; therefore, it is important to understan
 - Not using entries like ```a``` and ```mx```, these mechanisms are often useless and probably should not be included in your SPF record (and other duplicate SPF mechanisms).
 
 - Where email is incapable of passing DMARC with SPF, configure DKIM for the P2 Sender domain on the sending server or mail provider.
-  - ***NOTE:*** In this scenario, you need to set your SPF record to [softfail](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#softfail-or-hardfail) ```~all```, so that the DMARC and DKIM evaluation is always performed in the absence of a valid SPF validation.
+  - ***NOTE:*** In this scenario, you must to set your SPF record to [softfail](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#softfail-or-hardfail) ```~all``` so that the DMARC and DKIM evaluation will always be performed in the absence of a valid SPF validation.
 
 - Check if providers have the ability to pass SPF on a subdomain on behalf of your primary domain; passing SPF on a subdomain is still DMARC compliant.
 
@@ -63,7 +63,7 @@ SPF can get a softfail or fail, you determine this at the end of the record.
 
 Most mailbox providers will treat soft and hard- fails directives similarly, but it is [recommended](https://dmarcian.com/spf-best-practices/) to mirror the DMARC policy as the technology is deployed: use softfail (```~all```) if the DMARC policies are "none" and "quarantine", and use hardfail (```-all```) if you have moved to a "reject" policy. 
 
-***NOTE:*** If an email cannot pass SPF, it can be rejected at the SMTP level with an SPF hardfail (```-all```), which may prevent DMARC and DKIM evaluation. If you are unsure whether your senders are passing SPF, then [consider using an SPF softfail (```~all```)](https://www.mailhardener.com/blog/why-mailhardener-recommends-spf-softfail-over-fail) along with DMARC set to reject (```p=reject```), so that the DMARC and DKIM evaluation is always performed in the absence of a valid SPF validation. For example, an email that fails SPF due to relaying may be hard rejected with an SPF hardfail (```-all```) before any DKIM or DMARC evaluation takes place.
+***NOTE:*** If an email cannot pass SPF, it can be rejected at the SMTP level with an SPF hardfail (```-all```), which may prevent DMARC and DKIM evaluation. If you are unsure whether your senders are pass SPF, then [consider using an SPF softfail (```~all```)](https://www.mailhardener.com/blog/why-mailhardener-recommends-spf-softfail-over-fail) along with DMARC set to reject (```p=reject```). This ensures that DMARC and DKIM evaluation is always performed in the absence of a valid SPF validation. For example, an email that fails SPF due to relaying may be hard rejected with an SPF hardfail (```-all```) before any DKIM or DMARC evaluation takes place.
 
 ### Limitations of SPF
 Although SPF works relatively well in theory, there are several flaws in the protocol that mean that SPF alone is not enough to protect a sending domain.
