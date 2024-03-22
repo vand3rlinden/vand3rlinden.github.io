@@ -151,3 +151,5 @@ For the future of your SPF record, add IP addresses to your SPF record using the
 ## Reference
 - [dmarcian SPF best practices](https://dmarcian.com/spf-best-practices/)
 - [Concluding the Experiment: SPF Flattening](https://dmarcian.com/spf-flattening/)
+- [Using SPF Macros to Solve the Operational Challenges of SPF](https://www.jamieweb.net/blog/using-spf-macros-to-solve-the-operational-challenges-of-spf/)
+- [SPF Macros: Overcoming the 10 DNS Lookup Limit](https://www.uriports.com/blog/spf-macros-max-10-dns-lookups/)
