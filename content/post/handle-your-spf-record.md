@@ -156,7 +156,7 @@ Instead of ***9 DNS lookups*** before cleaning, the cleaned SPF record has only 
 ```
 v=spf1 include:spf.protection.outlook.com exists:%{i}._spf.yourdomain.com include:%{l}._spf.yourdomain.com -all
 ```
-> **NOTE:** When using SPF macros and other includes, always use the same order as in the above record, otherwise you may get a `spf=permerror' in your outbound authentication.
+> **NOTE:** When using SPF macros and other includes, always use the same order as in the above record, otherwise you may get a `spf=permerror` in your outbound authentication.
 
 ## Lastly
 For the future of your SPF record, add IP addresses to your SPF record using the SPF macro we set up, and choose carefully whether a SaaS application should be sent through a subdomain or a static address instead of any address from your primary domain. Also, get in the habit of monitoring your SPF record frequently.
