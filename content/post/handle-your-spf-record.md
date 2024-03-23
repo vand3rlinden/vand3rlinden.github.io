@@ -36,7 +36,7 @@ SPF flattening attempts to work around the "too many DNS lookups" problem withou
 #### For the long term:
 Imagine your organization has an SPF record on `yourdomain.com` with 9 of the 10 allowed DNS lookups, such as:
 ```
-v=spf1 ip4:11.222.33.444 ip4:44.33.222.111 ip4:22.33.444.555 ip4:55.66.777.8 ip4:88.99.999.99 ip4:99.88.777.66 mx include:spf.protection.outlook.com include:_spf.salesforce.com include:_spf.app2.com include:_spf.app3.com include:_spf.app4.com -all
+v=spf1 ip4:11.222.33.444 ip4:44.33.222.111 ip4:22.33.444.555 ip4:55.66.777.8 ip4:88.99.999.99 ip4:99.88.777.66 mx include:spf.protection.outlook.com include:_spf.salesforce.com include:mail.zendesk.com include:_spf.app1.com include:_spf.app2.com -all
 ```
 
 Calculation of DNS lookups:
@@ -45,9 +45,9 @@ Calculation of DNS lookups:
 | -----------                          | -----------    |
 | `include:spf.protection.outlook.com` | 1 DNS Lookup   |
 | `include:_spf.salesforce.com`        | 2 DNS Lookups  |
-| `include:_spf.app2.com`              | 1 DNS Lookup   |
-| `include:_spf.app3.com`              | 2 DNS Lookups  |
-| `include:_spf.app4.com`              | 2 DNS Lookups  |
+| `include:mail.zendesk.com`           | 1 DNS Lookup   |
+| `include:_spf.app1.com`              | 2 DNS Lookups  |
+| `include:_spf.app2.com`              | 2 DNS Lookups  |
 | `mx` (your MX record)                | 1 DNS Lookup   |
 | Total:                               | 9 DNS Lookups  |
 
@@ -64,10 +64,10 @@ With the above in mind, determine which SaaS applications ***need*** to send on 
 | -----------                           | -----------                                                   |
 | `include:spf.protection.outlook.com`  | Need to send over yourdomain.com                              |
 | `include:_spf.salesforce.com`         | Must be sent from a specific address `invoices@yourdomain.com`|
-| `include:_spf.app2.com` (delete)      | Can send over app2.yourdomain.com                             |
-| `include:_spf.app3.com` (delete)      | Can send over app3.yourdomain.com                             |
-| `include:_spf.app4.com` (delete)      | Can send over app4.yourdomain.com                             |
-| `mx` (delete)*                        | Duplicate mechanisms                                          |
+| `include:mail.zendesk.com`            | Must be sent from a specific address `support@yourdomain.com` |
+| `include:_spf.app1.com`               | Can send over app1.yourdomain.com                             |
+| `include:_spf.app2.com`               | Can send over app2.yourdomain.com                             |
+| `mx`*                                 | Duplicate mechanisms                                          |
 > *when using Microsoft 365, the MX endpoint IP is already listed in _include:spf.protection.outlook.com_
 
 If you look at the example above, we have ***3 DNS lookups*** left, so we cleaned ***6 DNS lookups***, good job! But what about the IP addresses in the SPF record? IP addresses don’t cost any DNS lookups because we’re not talking to the DNS. One disadvantage of using IP addresses in your SPF record is that it will result in an unmanageable and too long record. Yes, we can add a new include with the cost of 1 DNS lookup, such as `include:_spf.yourdomain.com` with a new SPF (TXT) record, for example:
@@ -99,20 +99,26 @@ v=spf1 include:spf.protection.outlook.com exists:%{i}._spf.yourdomain.com -all
 
 You can repeat this process for each IP address you need to add.
 
-If you’re not comfortable with setting a source in public DNS, this option is ***optional*** for the above SPF macro. In my opinion, there should be no security concerns if you use a minimal listed source, such as _vendor name_ or _internal_. For the internal value (if you are using an Azure VM), you can check in Azure which PIP is bound to a NIC for example. Also, the IP addresses are not directly visible using this SPF macro, as you can see in the SPF record from step 1. So the direct hostname is not easy to guess, and the purpose of these systems is probably already easy to identify in other ways, such as an Nmap scan for open ports.
+If you’re not comfortable with setting a source in public DNS, this option is ***optional*** for the above SPF macro. In my opinion, there should be no security concerns if you use a minimal listed source, such as _vendor name_ or _internal_. For the internal value (if you are using an Azure VM), you can check in Azure which PIP is bound to a NIC for example. Also, the IP addresses are not directly visible using this SPF macro, as you can see in the SPF record from step 1. So the direct hostname is not easy to guess, and the purpose of these systems is probably already easy to identify in other ways, such as an `nmap` scan for open ports.
 
 ## Use an SPF macro to restrict a third-party service to send from a specific address
-Typically, third-party services like Salesforce are mostly limited to sending from a single email address, such as `invoices@yourdomain.com`.
-So it is unnecessary to have `include:_spf.salesforce.com` cost ***2 DNS Lookups*** in the SPF record on `yourdomain.com`.
+Typically, third-party services like Salesforce and Zendesk are mostly limited to sending from a single email address, such as `invoices@yourdomain.com` and `support@yourdomain.com`
+So it is unnecessary to have `include:_spf.salesforce.com` and `include:mail.zendesk.com` cost ***3 DNS Lookups*** in the SPF record on `yourdomain.com`.
 
 Calculate the DNS Lookups from `include:_spf.salesforce.com` in `yourdomain.com`:
+| DNS Lookup                           | Count                      |
+| -----------                          | -----------                |
+| `include:_spf.salesforce.com`        | 1 DNS Lookup               |
+| `exists:%{i}._spf.mta.salesforce.com`| 1 DNS Lookup (child lookup)|
+| Total:                               | ***2 DNS Lookups***        |
+
+Calculate the DNS Lookup from `include:mail.zendesk.com` in `yourdomain.com`:
 | DNS Lookup                           | Count               |
 | -----------                          | -----------         |
-| `include:_spf.salesforce.com`        | 1 DNS Lookup        |
-| `exists:%{i}._spf.mta.salesforce.com`| 1 DNS Lookup        |
-| Total:                               | ***2 DNS Lookups*** |
+| `include:mail.zendesk.com`           | 1 DNS Lookup        |
+| Total:                               | ***1 DNS Lookup***  |
 
-In order to bring this to ***1 DNS Lookup***, you can follow the steps below.
+In order to bring this ***3 DNS Lookups*** to ***1 DNS Lookup***, you can follow the steps below.
 
 1. In the SPF record for `yourdomain.com`, add the following DNS lookup:
 ```
@@ -124,15 +130,21 @@ Complete record:
 v=spf1 include:spf.protection.outlook.com exists:%{i}._spf.yourdomain.com include:%{l}._spf.yourdomain.com -all
 ```
 
-2. Now, we will create a new SPF record to restrict Salesforce to only send from `invoices@yourdomain.com`.
+2. Now, we will create two new SPF records to restrict Salesforce to only send from `invoices@yourdomain.com` and Zendesk to only send from `support@yourdomain.com`.
 
+Salesforce:
 | Host                           | Type   | Value                                |
 | ---                            | ---    | ---                                  |
 | `invoices._spf.yourdomain.com` | `TXT`  | `v=spf1 include:_spf.salesforce.com` |
 
-> It is not necessary to put a `-all` statement at the end of the record, because it will take the statement from the SPF record on `yourdomain.com`.
+Zendesk:
+| Host                           | Type   | Value                                |
+| ---                            | ---    | ---                                  |
+| `support._spf.yourdomain.com`  | `TXT`  | `v=spf1 include:mail.zendesk.com`    |
 
-After setting up the above entries, the sending servers of Salesfroce can only send from `invoices@yourdomain.com`.
+> **NOTE:** It is not necessary to put a `-all` statement at the end of the record, because it will take the statement from the SPF record on `yourdomain.com`.
+
+After setting up the above, Salesfroce's sending servers can only send from `invoices@yourdomain.com` and Zendesk can only send from `support@yourdomain.com`.
 
 ## To summarize what we have done
 1. The main SPF record is cleaned up by deleting 6 DNS lookups, this with segmenting your email streams with subdomains and using SPF macros.
@@ -144,6 +156,7 @@ Instead of ***9 DNS lookups*** before cleaning, the cleaned SPF record has only 
 ```
 v=spf1 include:spf.protection.outlook.com exists:%{i}._spf.yourdomain.com include:%{l}._spf.yourdomain.com -all
 ```
+> **NOTE:** When using SPF macros and other includes, always use the same order as in the above record, otherwise you may get a `spf=permerror' in your outbound authentication.
 
 ## Lastly
 For the future of your SPF record, add IP addresses to your SPF record using the SPF macro we set up, and choose carefully whether a SaaS application should be sent through a subdomain or a static address instead of any address from your primary domain. Also, get in the habit of monitoring your SPF record frequently.

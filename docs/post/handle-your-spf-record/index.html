@@ -76,8 +76,8 @@ Why it makes sense to have a good SPF procedure in place In a previous blog post
   "keywords": [
     
   ],
-  "articleBody": " In this post, I will share my best practices for getting a handle on your SPF record.\nWhy it makes sense to have a good SPF procedure in place In a previous blog post, I explained the limitations of SPF, best practices and how it works with DKIM and DMARC. It is useful to have a good SPF procedure to avoid future problems, because if you exceed the DNS lookup limit of 10:\nYour domain is vulnerable to spoofing on the P1 sender domain (RFC5321.MailFrom) Your domain authentication or validation may fail (spf=PermError) Your emails will be undeliverable without any warning Around the globe you will find an answer to bypass the DNS lookup limit with SPF flattening. This approach converts hostnames to IP addresses, which don’t count in the DNS lookup count.\nThe dangers of SPF flattening The problem with SPF flattening is that email service providers can change or add IP addresses without notifying you. As a result, your SPF record becomes inaccurate, leading to complications with email delivery. Yes, there are paid tools available to automate this process. However, SPF flattening also increases the likelihood of forgetting to remove entries that are no longer needed, resulting in over-authorization.\nFrom a security perspective, over-authorization of unnecessary SPF entries creates a potential attack vector. If an adversary gains access to any infrastructure listed in an SPF record, they can bypass your SPF and DMARC to send DMARC-compliant email.\nWhen you segment your vendors and email streams, you will find that there is no need for SPF flattening because subdomain segmentation creates dedicated domains for specific email streams, each with its own 10 DNS lookups. Adopting SPF segmentation increases control, reduces attack surfaces, and mitigates the impact of potential cyber incidents.\nSPF flattening attempts to work around the “too many DNS lookups” problem without addressing its underlying causes. Avoiding SPF record flattening will help you get a handle on your SPF record.\nHow to get a handle on your SPF record Quick wins on how to handle your SPF record: Not using entries like a and mx, these mechanisms are often useless and probably should not be included in your SPF record (and other duplicate SPF mechanisms).\nWhere email is incapable of passing DMARC with SPF, configure DKIM for the P2 Sender domain on the sending email stream.\nFor the long term: Imagine your organization has an SPF record on yourdomain.com with 9 of the 10 allowed DNS lookups, such as:\nv=spf1 ip4:11.222.33.444 ip4:44.33.222.111 ip4:22.33.444.555 ip4:55.66.777.8 ip4:88.99.999.99 ip4:99.88.777.66 mx include:spf.protection.outlook.com include:_spf.salesforce.com include:_spf.app2.com include:_spf.app3.com include:_spf.app4.com -all Calculation of DNS lookups:\nDNS Lookup Count include:spf.protection.outlook.com 1 DNS Lookup include:_spf.salesforce.com 2 DNS Lookups include:_spf.app2.com 1 DNS Lookup include:_spf.app3.com 2 DNS Lookups include:_spf.app4.com 2 DNS Lookups mx (your MX record) 1 DNS Lookup Total: 9 DNS Lookups Effective segmentation of your email streams is essential to have a handle on the above.\nIn today’s world, we’re surrounded by numerous SaaS applications that use our primary domain for email correspondence. But is it really necessary for these applications to send through your primary domain when they could just as easily use a separate subdomain with its own SPF (TXT) record?\nConsider the newsletter scenario. Does it really need to send emails on behalf of your primary domain, or could it just as effectively send them from an address like noreply@news.yourdomain.com?\nCut your SPF record With the above in mind, determine which SaaS applications need to send on behalf of your primary domain, such as Microsoft 365, and which don’t. Like your newsletter service or an internal application, for example:\nLook up Outcome include:spf.protection.outlook.com Need to send over yourdomain.com include:_spf.salesforce.com Must be sent from a specific address invoices@yourdomain.com include:_spf.app2.com (delete) Can send over app2.yourdomain.com include:_spf.app3.com (delete) Can send over app3.yourdomain.com include:_spf.app4.com (delete) Can send over app4.yourdomain.com mx (delete)* Duplicate mechanisms *when using Microsoft 365, the MX endpoint IP is already listed in include:spf.protection.outlook.com\nIf you look at the example above, we have 3 DNS lookups left, so we cleaned 6 DNS lookups, good job! But what about the IP addresses in the SPF record? IP addresses don’t cost any DNS lookups because we’re not talking to the DNS. One disadvantage of using IP addresses in your SPF record is that it will result in an unmanageable and too long record. Yes, we can add a new include with the cost of 1 DNS lookup, such as include:_spf.yourdomain.com with a new SPF (TXT) record, for example:\nSPF for _spf.yourdomain.com:\nv=spf1 ip4:11.222.33.444 ip4:44.33.222.111 ip4:22.33.444.555 ip4:55.66.777.8 ip4:88.99.999.99 ip4:99.88.777.66 -all But without being afraid of needing another DNS lookup when the _spf.yourdomain.com include reaches its limit of two strings of 255 characters. You can start by using an SPF macro instead. This macro also costs 1 DNS lookup, but you can add an unlimited number of IP addresses (not recommended, but you get my point) to it by creating a separate A record for each /32 IP address.\nUse an SPF macro for your IP addresses In the SPF record for yourdomain.com, add the following DNS lookup: exists:%{i}._spf.yourdomain.com Complete record:\nv=spf1 include:spf.protection.outlook.com exists:%{i}._spf.yourdomain.com -all Now, for each IP address, such as 11.222.33.444, we will create an A record that is not publicly routable (such as to 127.0.0.2) and a TXT record. The TXT record is set to list the source of the IP address and can have any value, which is optional to use. Host Type Value 11.222.33.444._spf.yourdomain.com A 127.0.0.2 11.222.33.444._spf.yourdomain.com TXT Internal You can repeat this process for each IP address you need to add.\nIf you’re not comfortable with setting a source in public DNS, this option is optional for the above SPF macro. In my opinion, there should be no security concerns if you use a minimal listed source, such as vendor name or internal. For the internal value (if you are using an Azure VM), you can check in Azure which PIP is bound to a NIC for example. Also, the IP addresses are not directly visible using this SPF macro, as you can see in the SPF record from step 1. So the direct hostname is not easy to guess, and the purpose of these systems is probably already easy to identify in other ways, such as an Nmap scan for open ports.\nUse an SPF macro to restrict a third-party service to send from a specific address Typically, third-party services like Salesforce are mostly limited to sending from a single email address, such as invoices@yourdomain.com. So it is unnecessary to have include:_spf.salesforce.com cost 2 DNS Lookups in the SPF record on yourdomain.com.\nCalculate the DNS Lookups from include:_spf.salesforce.com in yourdomain.com:\nDNS Lookup Count include:_spf.salesforce.com 1 DNS Lookup exists:%{i}._spf.mta.salesforce.com 1 DNS Lookup Total: 2 DNS Lookups In order to bring this to 1 DNS Lookup, you can follow the steps below.\nIn the SPF record for yourdomain.com, add the following DNS lookup: include:%{l}._spf.yourdomain.com Complete record:\nv=spf1 include:spf.protection.outlook.com exists:%{i}._spf.yourdomain.com include:%{l}._spf.yourdomain.com -all Now, we will create a new SPF record to restrict Salesforce to only send from invoices@yourdomain.com. Host Type Value invoices._spf.yourdomain.com TXT v=spf1 include:_spf.salesforce.com It is not necessary to put a -all statement at the end of the record, because it will take the statement from the SPF record on yourdomain.com.\nAfter setting up the above entries, the sending servers of Salesfroce can only send from invoices@yourdomain.com.\nTo summarize what we have done The main SPF record is cleaned up by deleting 6 DNS lookups, this with segmenting your email streams with subdomains and using SPF macros. We deleted the mx DNS lookup because of a duplicate mechanism. We have a good and secure way to add IP addresses to the SPF record using an SPF macro. We have restricted a third-party service to send from a specific address using an SPF macro. Instead of 9 DNS lookups before cleaning, the cleaned SPF record has only 3 DNS lookups with SPF macros:\nv=spf1 include:spf.protection.outlook.com exists:%{i}._spf.yourdomain.com include:%{l}._spf.yourdomain.com -all Lastly For the future of your SPF record, add IP addresses to your SPF record using the SPF macro we set up, and choose carefully whether a SaaS application should be sent through a subdomain or a static address instead of any address from your primary domain. Also, get in the habit of monitoring your SPF record frequently.\nReference dmarcian SPF best practices Concluding the Experiment: SPF Flattening Using SPF Macros to Solve the Operational Challenges of SPF SPF Macros: Overcoming the 10 DNS Lookup Limit ",
-  "wordCount" : "1397",
+  "articleBody": " In this post, I will share my best practices for getting a handle on your SPF record.\nWhy it makes sense to have a good SPF procedure in place In a previous blog post, I explained the limitations of SPF, best practices and how it works with DKIM and DMARC. It is useful to have a good SPF procedure to avoid future problems, because if you exceed the DNS lookup limit of 10:\nYour domain is vulnerable to spoofing on the P1 sender domain (RFC5321.MailFrom) Your domain authentication or validation may fail (spf=PermError) Your emails will be undeliverable without any warning Around the globe you will find an answer to bypass the DNS lookup limit with SPF flattening. This approach converts hostnames to IP addresses, which don’t count in the DNS lookup count.\nThe dangers of SPF flattening The problem with SPF flattening is that email service providers can change or add IP addresses without notifying you. As a result, your SPF record becomes inaccurate, leading to complications with email delivery. Yes, there are paid tools available to automate this process. However, SPF flattening also increases the likelihood of forgetting to remove entries that are no longer needed, resulting in over-authorization.\nFrom a security perspective, over-authorization of unnecessary SPF entries creates a potential attack vector. If an adversary gains access to any infrastructure listed in an SPF record, they can bypass your SPF and DMARC to send DMARC-compliant email.\nWhen you segment your vendors and email streams, you will find that there is no need for SPF flattening because subdomain segmentation creates dedicated domains for specific email streams, each with its own 10 DNS lookups. Adopting SPF segmentation increases control, reduces attack surfaces, and mitigates the impact of potential cyber incidents.\nSPF flattening attempts to work around the “too many DNS lookups” problem without addressing its underlying causes. Avoiding SPF record flattening will help you get a handle on your SPF record.\nHow to get a handle on your SPF record Quick wins on how to handle your SPF record: Not using entries like a and mx, these mechanisms are often useless and probably should not be included in your SPF record (and other duplicate SPF mechanisms).\nWhere email is incapable of passing DMARC with SPF, configure DKIM for the P2 Sender domain on the sending email stream.\nFor the long term: Imagine your organization has an SPF record on yourdomain.com with 9 of the 10 allowed DNS lookups, such as:\nv=spf1 ip4:11.222.33.444 ip4:44.33.222.111 ip4:22.33.444.555 ip4:55.66.777.8 ip4:88.99.999.99 ip4:99.88.777.66 mx include:spf.protection.outlook.com include:_spf.salesforce.com include:mail.zendesk.com include:_spf.app1.com include:_spf.app2.com -all Calculation of DNS lookups:\nDNS Lookup Count include:spf.protection.outlook.com 1 DNS Lookup include:_spf.salesforce.com 2 DNS Lookups include:mail.zendesk.com 1 DNS Lookup include:_spf.app1.com 2 DNS Lookups include:_spf.app2.com 2 DNS Lookups mx (your MX record) 1 DNS Lookup Total: 9 DNS Lookups Effective segmentation of your email streams is essential to have a handle on the above.\nIn today’s world, we’re surrounded by numerous SaaS applications that use our primary domain for email correspondence. But is it really necessary for these applications to send through your primary domain when they could just as easily use a separate subdomain with its own SPF (TXT) record?\nConsider the newsletter scenario. Does it really need to send emails on behalf of your primary domain, or could it just as effectively send them from an address like noreply@news.yourdomain.com?\nCut your SPF record With the above in mind, determine which SaaS applications need to send on behalf of your primary domain, such as Microsoft 365, and which don’t. Like your newsletter service or an internal application, for example:\nLook up Outcome include:spf.protection.outlook.com Need to send over yourdomain.com include:_spf.salesforce.com Must be sent from a specific address invoices@yourdomain.com include:mail.zendesk.com Must be sent from a specific address support@yourdomain.com include:_spf.app1.com Can send over app1.yourdomain.com include:_spf.app2.com Can send over app2.yourdomain.com mx* Duplicate mechanisms *when using Microsoft 365, the MX endpoint IP is already listed in include:spf.protection.outlook.com\nIf you look at the example above, we have 3 DNS lookups left, so we cleaned 6 DNS lookups, good job! But what about the IP addresses in the SPF record? IP addresses don’t cost any DNS lookups because we’re not talking to the DNS. One disadvantage of using IP addresses in your SPF record is that it will result in an unmanageable and too long record. Yes, we can add a new include with the cost of 1 DNS lookup, such as include:_spf.yourdomain.com with a new SPF (TXT) record, for example:\nSPF for _spf.yourdomain.com:\nv=spf1 ip4:11.222.33.444 ip4:44.33.222.111 ip4:22.33.444.555 ip4:55.66.777.8 ip4:88.99.999.99 ip4:99.88.777.66 -all But without being afraid of needing another DNS lookup when the _spf.yourdomain.com include reaches its limit of two strings of 255 characters. You can start by using an SPF macro instead. This macro also costs 1 DNS lookup, but you can add an unlimited number of IP addresses (not recommended, but you get my point) to it by creating a separate A record for each /32 IP address.\nUse an SPF macro for your IP addresses In the SPF record for yourdomain.com, add the following DNS lookup: exists:%{i}._spf.yourdomain.com Complete record:\nv=spf1 include:spf.protection.outlook.com exists:%{i}._spf.yourdomain.com -all Now, for each IP address, such as 11.222.33.444, we will create an A record that is not publicly routable (such as to 127.0.0.2) and a TXT record. The TXT record is set to list the source of the IP address and can have any value, which is optional to use. Host Type Value 11.222.33.444._spf.yourdomain.com A 127.0.0.2 11.222.33.444._spf.yourdomain.com TXT Internal You can repeat this process for each IP address you need to add.\nIf you’re not comfortable with setting a source in public DNS, this option is optional for the above SPF macro. In my opinion, there should be no security concerns if you use a minimal listed source, such as vendor name or internal. For the internal value (if you are using an Azure VM), you can check in Azure which PIP is bound to a NIC for example. Also, the IP addresses are not directly visible using this SPF macro, as you can see in the SPF record from step 1. So the direct hostname is not easy to guess, and the purpose of these systems is probably already easy to identify in other ways, such as an nmap scan for open ports.\nUse an SPF macro to restrict a third-party service to send from a specific address Typically, third-party services like Salesforce and Zendesk are mostly limited to sending from a single email address, such as invoices@yourdomain.com and support@yourdomain.com So it is unnecessary to have include:_spf.salesforce.com and include:mail.zendesk.com cost 3 DNS Lookups in the SPF record on yourdomain.com.\nCalculate the DNS Lookups from include:_spf.salesforce.com in yourdomain.com:\nDNS Lookup Count include:_spf.salesforce.com 1 DNS Lookup exists:%{i}._spf.mta.salesforce.com 1 DNS Lookup (child lookup) Total: 2 DNS Lookups Calculate the DNS Lookup from include:mail.zendesk.com in yourdomain.com:\nDNS Lookup Count include:mail.zendesk.com 1 DNS Lookup Total: 1 DNS Lookup In order to bring this 3 DNS Lookups to 1 DNS Lookup, you can follow the steps below.\nIn the SPF record for yourdomain.com, add the following DNS lookup: include:%{l}._spf.yourdomain.com Complete record:\nv=spf1 include:spf.protection.outlook.com exists:%{i}._spf.yourdomain.com include:%{l}._spf.yourdomain.com -all Now, we will create two new SPF records to restrict Salesforce to only send from invoices@yourdomain.com and Zendesk to only send from support@yourdomain.com. Salesforce:\nHost Type Value invoices._spf.yourdomain.com TXT v=spf1 include:_spf.salesforce.com Zendesk:\nHost Type Value support._spf.yourdomain.com TXT v=spf1 include:mail.zendesk.com NOTE: It is not necessary to put a -all statement at the end of the record, because it will take the statement from the SPF record on yourdomain.com.\nAfter setting up the above, Salesfroce’s sending servers can only send from invoices@yourdomain.com and Zendesk can only send from support@yourdomain.com.\nTo summarize what we have done The main SPF record is cleaned up by deleting 6 DNS lookups, this with segmenting your email streams with subdomains and using SPF macros. We deleted the mx DNS lookup because of a duplicate mechanism. We have a good and secure way to add IP addresses to the SPF record using an SPF macro. We have restricted a third-party service to send from a specific address using an SPF macro. Instead of 9 DNS lookups before cleaning, the cleaned SPF record has only 3 DNS lookups with SPF macros:\nv=spf1 include:spf.protection.outlook.com exists:%{i}._spf.yourdomain.com include:%{l}._spf.yourdomain.com -all NOTE: When using SPF macros and other includes, always use the same order as in the above record, otherwise you may get a `spf=permerror’ in your outbound authentication.\nLastly For the future of your SPF record, add IP addresses to your SPF record using the SPF macro we set up, and choose carefully whether a SaaS application should be sent through a subdomain or a static address instead of any address from your primary domain. Also, get in the habit of monitoring your SPF record frequently.\nReference dmarcian SPF best practices Concluding the Experiment: SPF Flattening Using SPF Macros to Solve the Operational Challenges of SPF SPF Macros: Overcoming the 10 DNS Lookup Limit ",
+  "wordCount" : "1476",
   "inLanguage": "en",
   "image":"https://vand3rlinden.com/images/handle-your-spf-record/handle-your-spf-record-front.png","datePublished": "2023-12-17T18:31:45+01:00",
   "dateModified": "2023-12-17T18:31:45+01:00",
@@ -191,7 +191,7 @@ Why it makes sense to have a good SPF procedure in place In a previous blog post
 </ul>
 <h4 id="for-the-long-term">For the long term:<a hidden class="anchor" aria-hidden="true" href="#for-the-long-term">#</a></h4>
 <p>Imagine your organization has an SPF record on <code>yourdomain.com</code> with 9 of the 10 allowed DNS lookups, such as:</p>
-<pre tabindex="0"><code>v=spf1 ip4:11.222.33.444 ip4:44.33.222.111 ip4:22.33.444.555 ip4:55.66.777.8 ip4:88.99.999.99 ip4:99.88.777.66 mx include:spf.protection.outlook.com include:_spf.salesforce.com include:_spf.app2.com include:_spf.app3.com include:_spf.app4.com -all
+<pre tabindex="0"><code>v=spf1 ip4:11.222.33.444 ip4:44.33.222.111 ip4:22.33.444.555 ip4:55.66.777.8 ip4:88.99.999.99 ip4:99.88.777.66 mx include:spf.protection.outlook.com include:_spf.salesforce.com include:mail.zendesk.com include:_spf.app1.com include:_spf.app2.com -all
 </code></pre><p>Calculation of DNS lookups:</p>
 <table>
 <thead>
@@ -210,15 +210,15 @@ Why it makes sense to have a good SPF procedure in place In a previous blog post
 <td>2 DNS Lookups</td>
 </tr>
 <tr>
-<td><code>include:_spf.app2.com</code></td>
+<td><code>include:mail.zendesk.com</code></td>
 <td>1 DNS Lookup</td>
 </tr>
 <tr>
-<td><code>include:_spf.app3.com</code></td>
+<td><code>include:_spf.app1.com</code></td>
 <td>2 DNS Lookups</td>
 </tr>
 <tr>
-<td><code>include:_spf.app4.com</code></td>
+<td><code>include:_spf.app2.com</code></td>
 <td>2 DNS Lookups</td>
 </tr>
 <tr>
@@ -253,19 +253,19 @@ Why it makes sense to have a good SPF procedure in place In a previous blog post
 <td>Must be sent from a specific address <code>invoices@yourdomain.com</code></td>
 </tr>
 <tr>
-<td><code>include:_spf.app2.com</code> (delete)</td>
+<td><code>include:mail.zendesk.com</code></td>
+<td>Must be sent from a specific address <code>support@yourdomain.com</code></td>
+</tr>
+<tr>
+<td><code>include:_spf.app1.com</code></td>
+<td>Can send over app1.yourdomain.com</td>
+</tr>
+<tr>
+<td><code>include:_spf.app2.com</code></td>
 <td>Can send over app2.yourdomain.com</td>
 </tr>
 <tr>
-<td><code>include:_spf.app3.com</code> (delete)</td>
-<td>Can send over app3.yourdomain.com</td>
-</tr>
-<tr>
-<td><code>include:_spf.app4.com</code> (delete)</td>
-<td>Can send over app4.yourdomain.com</td>
-</tr>
-<tr>
-<td><code>mx</code> (delete)*</td>
+<td><code>mx</code>*</td>
 <td>Duplicate mechanisms</td>
 </tr>
 </tbody>
@@ -309,10 +309,10 @@ Why it makes sense to have a good SPF procedure in place In a previous blog post
 </tbody>
 </table>
 <p>You can repeat this process for each IP address you need to add.</p>
-<p>If you’re not comfortable with setting a source in public DNS, this option is <em><strong>optional</strong></em> for the above SPF macro. In my opinion, there should be no security concerns if you use a minimal listed source, such as <em>vendor name</em> or <em>internal</em>. For the internal value (if you are using an Azure VM), you can check in Azure which PIP is bound to a NIC for example. Also, the IP addresses are not directly visible using this SPF macro, as you can see in the SPF record from step 1. So the direct hostname is not easy to guess, and the purpose of these systems is probably already easy to identify in other ways, such as an Nmap scan for open ports.</p>
+<p>If you’re not comfortable with setting a source in public DNS, this option is <em><strong>optional</strong></em> for the above SPF macro. In my opinion, there should be no security concerns if you use a minimal listed source, such as <em>vendor name</em> or <em>internal</em>. For the internal value (if you are using an Azure VM), you can check in Azure which PIP is bound to a NIC for example. Also, the IP addresses are not directly visible using this SPF macro, as you can see in the SPF record from step 1. So the direct hostname is not easy to guess, and the purpose of these systems is probably already easy to identify in other ways, such as an <code>nmap</code> scan for open ports.</p>
 <h2 id="use-an-spf-macro-to-restrict-a-third-party-service-to-send-from-a-specific-address">Use an SPF macro to restrict a third-party service to send from a specific address<a hidden class="anchor" aria-hidden="true" href="#use-an-spf-macro-to-restrict-a-third-party-service-to-send-from-a-specific-address">#</a></h2>
-<p>Typically, third-party services like Salesforce are mostly limited to sending from a single email address, such as <code>invoices@yourdomain.com</code>.
-So it is unnecessary to have <code>include:_spf.salesforce.com</code> cost <em><strong>2 DNS Lookups</strong></em> in the SPF record on <code>yourdomain.com</code>.</p>
+<p>Typically, third-party services like Salesforce and Zendesk are mostly limited to sending from a single email address, such as <code>invoices@yourdomain.com</code> and <code>support@yourdomain.com</code>
+So it is unnecessary to have <code>include:_spf.salesforce.com</code> and <code>include:mail.zendesk.com</code> cost <em><strong>3 DNS Lookups</strong></em> in the SPF record on <code>yourdomain.com</code>.</p>
 <p>Calculate the DNS Lookups from <code>include:_spf.salesforce.com</code> in <code>yourdomain.com</code>:</p>
 <table>
 <thead>
@@ -328,7 +328,7 @@ So it is unnecessary to have <code>include:_spf.salesforce.com</code> cost <em><
 </tr>
 <tr>
 <td><code>exists:%{i}._spf.mta.salesforce.com</code></td>
-<td>1 DNS Lookup</td>
+<td>1 DNS Lookup (child lookup)</td>
 </tr>
 <tr>
 <td>Total:</td>
@@ -336,7 +336,26 @@ So it is unnecessary to have <code>include:_spf.salesforce.com</code> cost <em><
 </tr>
 </tbody>
 </table>
-<p>In order to bring this to <em><strong>1 DNS Lookup</strong></em>, you can follow the steps below.</p>
+<p>Calculate the DNS Lookup from <code>include:mail.zendesk.com</code> in <code>yourdomain.com</code>:</p>
+<table>
+<thead>
+<tr>
+<th>DNS Lookup</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>include:mail.zendesk.com</code></td>
+<td>1 DNS Lookup</td>
+</tr>
+<tr>
+<td>Total:</td>
+<td><em><strong>1 DNS Lookup</strong></em></td>
+</tr>
+</tbody>
+</table>
+<p>In order to bring this <em><strong>3 DNS Lookups</strong></em> to <em><strong>1 DNS Lookup</strong></em>, you can follow the steps below.</p>
 <ol>
 <li>In the SPF record for <code>yourdomain.com</code>, add the following DNS lookup:</li>
 </ol>
@@ -344,8 +363,9 @@ So it is unnecessary to have <code>include:_spf.salesforce.com</code> cost <em><
 </code></pre><p>Complete record:</p>
 <pre tabindex="0"><code>v=spf1 include:spf.protection.outlook.com exists:%{i}._spf.yourdomain.com include:%{l}._spf.yourdomain.com -all
 </code></pre><ol start="2">
-<li>Now, we will create a new SPF record to restrict Salesforce to only send from <code>invoices@yourdomain.com</code>.</li>
+<li>Now, we will create two new SPF records to restrict Salesforce to only send from <code>invoices@yourdomain.com</code> and Zendesk to only send from <code>support@yourdomain.com</code>.</li>
 </ol>
+<p>Salesforce:</p>
 <table>
 <thead>
 <tr>
@@ -362,10 +382,27 @@ So it is unnecessary to have <code>include:_spf.salesforce.com</code> cost <em><
 </tr>
 </tbody>
 </table>
+<p>Zendesk:</p>
+<table>
+<thead>
+<tr>
+<th>Host</th>
+<th>Type</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>support._spf.yourdomain.com</code></td>
+<td><code>TXT</code></td>
+<td><code>v=spf1 include:mail.zendesk.com</code></td>
+</tr>
+</tbody>
+</table>
 <blockquote>
-<p>It is not necessary to put a <code>-all</code> statement at the end of the record, because it will take the statement from the SPF record on <code>yourdomain.com</code>.</p>
+<p><strong>NOTE:</strong> It is not necessary to put a <code>-all</code> statement at the end of the record, because it will take the statement from the SPF record on <code>yourdomain.com</code>.</p>
 </blockquote>
-<p>After setting up the above entries, the sending servers of Salesfroce can only send from <code>invoices@yourdomain.com</code>.</p>
+<p>After setting up the above, Salesfroce&rsquo;s sending servers can only send from <code>invoices@yourdomain.com</code> and Zendesk can only send from <code>support@yourdomain.com</code>.</p>
 <h2 id="to-summarize-what-we-have-done">To summarize what we have done<a hidden class="anchor" aria-hidden="true" href="#to-summarize-what-we-have-done">#</a></h2>
 <ol>
 <li>The main SPF record is cleaned up by deleting 6 DNS lookups, this with segmenting your email streams with subdomains and using SPF macros.</li>
@@ -375,7 +412,10 @@ So it is unnecessary to have <code>include:_spf.salesforce.com</code> cost <em><
 </ol>
 <p>Instead of <em><strong>9 DNS lookups</strong></em> before cleaning, the cleaned SPF record has only <em><strong>3 DNS lookups</strong></em> with SPF macros:</p>
 <pre tabindex="0"><code>v=spf1 include:spf.protection.outlook.com exists:%{i}._spf.yourdomain.com include:%{l}._spf.yourdomain.com -all
-</code></pre><h2 id="lastly">Lastly<a hidden class="anchor" aria-hidden="true" href="#lastly">#</a></h2>
+</code></pre><blockquote>
+<p><strong>NOTE:</strong> When using SPF macros and other includes, always use the same order as in the above record, otherwise you may get a `spf=permerror&rsquo; in your outbound authentication.</p>
+</blockquote>
+<h2 id="lastly">Lastly<a hidden class="anchor" aria-hidden="true" href="#lastly">#</a></h2>
 <p>For the future of your SPF record, add IP addresses to your SPF record using the SPF macro we set up, and choose carefully whether a SaaS application should be sent through a subdomain or a static address instead of any address from your primary domain. Also, get in the habit of monitoring your SPF record frequently.</p>
 <h2 id="reference">Reference<a hidden class="anchor" aria-hidden="true" href="#reference">#</a></h2>
 <ul>
