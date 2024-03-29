@@ -43,7 +43,7 @@ params:
 
   #meta settings
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  description: "Welcome to the blog of Ricardo van der Linden"
+  description: "Welcome to the blog of Ricardo van der Linden | Security Analyst"
   keywords: [Blog, Portfolio]
   #author: Ricardo van der Linden
 
