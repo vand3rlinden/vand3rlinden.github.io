@@ -55,7 +55,7 @@ Effective segmentation of your email streams is essential to have a handle on th
 
 In today's world, we're surrounded by numerous SaaS applications that use our primary domain for email correspondence. But is it really necessary for these applications to send through your primary domain when they could just as easily use a separate subdomain with its own SPF (TXT) record?
 
-Consider the newsletter scenario. Does it really need to send emails on behalf of your primary domain, or could it just as effectively send them from an address like `noreply@news.yourdomain.com`?
+Consider the newsletter scenario that you have configured as `noreply@yourdomain.com`. Does it really need to send emails on behalf of your primary domain, or could it send them just as effectively from an address such as `noreply@news.yourdomain.com`?
 
 ## Cut your SPF record
 With the above in mind, determine which SaaS applications ***need*** to send on behalf of your primary domain, such as Microsoft 365, and which ***don’t***. Like your newsletter service or an internal application, for example:
