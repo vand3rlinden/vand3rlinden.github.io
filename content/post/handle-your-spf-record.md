@@ -54,19 +54,19 @@ Effective segmentation of your email streams is essential to have a handle on th
 In today's world, we're surrounded by numerous SaaS applications that use our primary domain for email correspondence. But is it really necessary for these applications to send through your primary domain when they could just as easily use a separate subdomain with its own SPF (TXT) record?
 
 ## Cut your SPF record
-With the above in mind, determine which SaaS applications ***need*** to send on behalf of your primary domain, such as Microsoft 365, and which ***don’t***. Like your newsletter service or an internal application, for example:
+Given the information provided, determine which SaaS applications can be restricted to sending email from a specific address using an [SPF macro](https://vand3rlinden.com/post/handle-your-spf-record/#use-an-spf-macro-to-restrict-a-third-party-service-to-send-from-a-specific-address). Also, determine which services are required to send email through your primary domain from multiple addresses, such as Microsoft 365, and which services are not subject to such restrictions and can send through a subdomain, such as your internal applications. A helpful approach is to create a list of your SPF record entries and specify the desired behavior for each entry, as shown in the example below:
 
 | Look up                               | Outcome     |
 | -----------                           | ----------- |
-| `include:spf.protection.outlook.com`  | Use multiple email addresses and need to send through the primary domain `yourdomain.com`|
-| `include:_spf.salesforce.com`         | Can be [restricted](https://vand3rlinden.com/post/handle-your-spf-record/#use-an-spf-macro-to-restrict-a-third-party-service-to-send-from-a-specific-address) to send from a specific address `invoices@yourdomain.com`|
-| `include:mail.zendesk.com`            | Can be [restricted](https://vand3rlinden.com/post/handle-your-spf-record/#use-an-spf-macro-to-restrict-a-third-party-service-to-send-from-a-specific-address) to send from a specific address `support@yourdomain.com` |
-| `include:_spf.app1.com`               | Use multiple addresses and can send through subdomain `app1.yourdomain.com`|
-| `include:_spf.app2.com`               | Use multiple addresses and can send through subdomain `app2.yourdomain.com`|
+| `include:spf.protection.outlook.com`  | Used multiple email addresses and must send through the primary domain `yourdomain.com`|
+| `include:_spf.salesforce.com`         | Must send through the primary domain, but can be restricted to send from a specific address `invoices@yourdomain.com`|
+| `include:mail.zendesk.com`            | Must send through the primary domain, but can be restricted to send from a specific address `support@yourdomain.com` |
+| `include:_spf.app1.com`               | Used multiple addresses and can send through a subdomain with a new SPF `TXT` record for `app1.yourdomain.com`|
+| `include:_spf.app2.com`               | Used multiple addresses and can send through a subdomain with a new SPF `TXT` record for `app2.yourdomain.com`|
 | `mx`*                                 | Duplicate mechanisms|
 > *when using Microsoft 365, the MX endpoint IP is already listed in _include:spf.protection.outlook.com_
 
-If you look at the example above, we have ***3 DNS lookups*** left, so we cleaned ***6 DNS lookups***, good job! But what about the IP addresses in the SPF record? IP addresses don’t cost any DNS lookups because we’re not talking to the DNS. One disadvantage of using IP addresses in your SPF record is that it will result in an unmanageable and too long record. Yes, we can add a new include with the cost of 1 DNS lookup, such as `include:_spf.yourdomain.com` with a new SPF (TXT) record, for example:
+If you look at the example above, we have ***3 DNS lookups*** left, so we cleaned ***6 DNS lookups***, good job! But what about the IP addresses in the SPF record? IP addresses don’t cost any DNS lookups because we’re not talking to the DNS. One disadvantage of using IP addresses in your SPF record is that it will result in an unmanageable and too long record. Yes, we can add a new include with the cost of 1 DNS lookup, such as `include:_spf.yourdomain.com` with a new SPF `TXT` record, for example:
 
 SPF for `_spf.yourdomain.com`:
 ```
