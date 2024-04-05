@@ -28,10 +28,8 @@ When you segment your vendors and email streams, you will find that there is no 
 SPF flattening attempts to work around the "too many DNS lookups" problem without addressing its underlying causes. Avoiding SPF record flattening will help you get a handle on your SPF record.
 
 ## How to get a handle on your SPF record
-#### Quick wins on how to handle your SPF record:
+#### A quick win on how to handle your SPF record:
 - Not using entries like `a` and `mx`, these mechanisms are often useless and probably should not be included in your SPF record (and other duplicate SPF mechanisms).
-
-- Where email is incapable of passing DMARC with SPF, configure DKIM for the P2 Sender domain on the sending email stream.
 
 #### For the long term:
 Imagine your organization has an SPF record on `yourdomain.com` with 9 of the 10 allowed DNS lookups, such as:
@@ -58,14 +56,14 @@ In today's world, we're surrounded by numerous SaaS applications that use our pr
 ## Cut your SPF record
 With the above in mind, determine which SaaS applications ***need*** to send on behalf of your primary domain, such as Microsoft 365, and which ***don’t***. Like your newsletter service or an internal application, for example:
 
-| Look up                               | Outcome                                                       |
-| -----------                           | -----------                                                   |
-| `include:spf.protection.outlook.com`  | Need to send over `yourdomain.com`                            |
-| `include:_spf.salesforce.com`         | Must be sent from a specific address `invoices@yourdomain.com`|
-| `include:mail.zendesk.com`            | Must be sent from a specific address `support@yourdomain.com` |
-| `include:_spf.app1.com`               | Can send over `app1.yourdomain.com`                           |
-| `include:_spf.app2.com`               | Can send over `app2.yourdomain.com`                           |
-| `mx`*                                 | Duplicate mechanisms                                          |
+| Look up                               | Outcome     |
+| -----------                           | ----------- |
+| `include:spf.protection.outlook.com`  | Use multiple email addresses and need to send through the primary domain `yourdomain.com`|
+| `include:_spf.salesforce.com`         | Can be [restricted](https://vand3rlinden.com/post/handle-your-spf-record/#use-an-spf-macro-to-restrict-a-third-party-service-to-send-from-a-specific-address) to send from a specific address `invoices@yourdomain.com`|
+| `include:mail.zendesk.com`            | Can be [restricted](https://vand3rlinden.com/post/handle-your-spf-record/#use-an-spf-macro-to-restrict-a-third-party-service-to-send-from-a-specific-address) to send from a specific address `support@yourdomain.com` |
+| `include:_spf.app1.com`               | Use multiple addresses and can send through subdomain `app1.yourdomain.com`|
+| `include:_spf.app2.com`               | Use multiple addresses and can send through subdomain `app2.yourdomain.com`|
+| `mx`*                                 | Duplicate mechanisms|
 > *when using Microsoft 365, the MX endpoint IP is already listed in _include:spf.protection.outlook.com_
 
 If you look at the example above, we have ***3 DNS lookups*** left, so we cleaned ***6 DNS lookups***, good job! But what about the IP addresses in the SPF record? IP addresses don’t cost any DNS lookups because we’re not talking to the DNS. One disadvantage of using IP addresses in your SPF record is that it will result in an unmanageable and too long record. Yes, we can add a new include with the cost of 1 DNS lookup, such as `include:_spf.yourdomain.com` with a new SPF (TXT) record, for example:
