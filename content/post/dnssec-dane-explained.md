@@ -90,9 +90,9 @@ Where SPF, DKIM, and DMARC focus more on the email messages and the sending host
 
 4. The sending server at `fabrikam.com` establishes a TLS connection with the receiving server `mail.contoso.com`.
 
-5. The receiving server at `mail.contoso.com` sends certificates with fingerprints to the sending server `fabrikam.com`.
+5. The receiving server at `mail.contoso.com` sends the fingerprints of the ***Root*** and ***End-entity (host)*** certificates to the sending server `fabrikam.com`.
 
-6. The sending server at `fabrikam.com` verifies the fingerprints received from the public DNS server of `contoso.com`:
+6. The sending server at `fabrikam.com` verifies that the fingerprints it received from `mail.contoso.com` match the fingerprints it received from the public DNS server at `contoso.com` _(from step 3)_:
     - If verification is successful, establish the connection.
     - If verification fails, disconnect.
 
