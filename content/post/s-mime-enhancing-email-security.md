@@ -30,7 +30,7 @@ _*BSD Unixes such as Apple MacOS, OpenBSD, FreeBSD use LibreSSL (a fork of OpenS
 
 1. Open a terminal application on your computer
 
-2. Execute the following command (BSD Unixes use: `~/tmp`):
+2. Execute the following command:
 ```
 openssl req -nodes -newkey rsa:4096 -keyout /tmp/certificate.key -out /tmp/certificate.csr
 ```
@@ -60,7 +60,7 @@ After the CA signs the certificate, you can download the certificate, for exampl
 
 1. Place your public key `certificate.crt` in the `/tmp` directory along with the previous private key `certificate.key`.
 
-2. Execute the following command (BSD Unixes use: `~/tmp`) to combine the public key with the private key in a `.pfx` bundle file (`PKCS #12`).
+2. Execute the following command to combine the public key with the private key in a `.pfx` bundle file (`PKCS #12`).
 ```
 openssl pkcs12 -inkey /tmp/certificate.key -in /tmp/certificate.crt -export -out /tmp/your-email-com.pfx
 ```
