@@ -127,14 +127,9 @@ include:%{l}._spf.yourdomain.com
 
 2. Now, we will create two new SPF records to restrict Salesforce to only send from `invoices@yourdomain.com` and Zendesk to only send from `support@yourdomain.com`.
 
-Salesforce:
 | Host                           | Type   | Value                                |
 | ---                            | ---    | ---                                  |
 | `invoices._spf.yourdomain.com` | `TXT`  | `v=spf1 include:_spf.salesforce.com` |
-
-Zendesk:
-| Host                           | Type   | Value                                |
-| ---                            | ---    | ---                                  |
 | `support._spf.yourdomain.com`  | `TXT`  | `v=spf1 include:mail.zendesk.com`    |
 
 > **NOTE:** It is not necessary to put a `-all` statement at the end of the record, because it will take the statement from the SPF record on `yourdomain.com`.
