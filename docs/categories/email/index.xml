@@ -6,7 +6,17 @@
     <description>Recent content in Email on VAND3RLINDEN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 17 Dec 2023 18:31:45 +0100</lastBuildDate><atom:link href="https://vand3rlinden.com/categories/email/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 06 Apr 2024 17:09:18 +0200</lastBuildDate><atom:link href="https://vand3rlinden.com/categories/email/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Understanding S/MIME: Enhancing Email Security</title>
+      <link>https://vand3rlinden.com/post/s-mime-enhancing-email-security/</link>
+      <pubDate>Sat, 06 Apr 2024 17:09:18 +0200</pubDate>
+      
+      <guid>https://vand3rlinden.com/post/s-mime-enhancing-email-security/</guid>
+      <description>This article will help you understand S/MIME and how to request and use it on your devices.
+What is S/MIME? In today&amp;rsquo;s digital landscape, the security of sensitive information transmitted via email is critical. One method of safeguarding email communications is through the use of S/MIME (Secure/Multipurpose Internet Mail Extensions). S/MIME is a widely adopted protocol that provides end-to-end encryption and digital signatures, ensuring the confidentiality, integrity, and authenticity of email messages.</description>
+    </item>
+    
     <item>
       <title>Get a handle on your SPF record</title>
       <link>https://vand3rlinden.com/post/handle-your-spf-record/</link>
