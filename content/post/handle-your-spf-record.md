@@ -152,8 +152,8 @@ Final computation of DNS lookups:
 | DNS Lookup                           | Count          |
 | -----------                          | -----------    |
 | `include:spf.protection.outlook.com` | 1 DNS Lookup   |
-| `exists:%{i}._spf.yourdomain.com`    | 1 DNS Lookup   |
-| `include:%{l}._spf.yourdomain.comm`  | 1 DNS Lookup   |
+| `exists:%{i}._spf.yourdomain.com`    | 1 DNS Lookup for your `/32` IP addresses |
+| `include:%{l}._spf.yourdomain.comm`  | 1 DNS Lookup for Salesforce and Zendesk  |
 | Total:                               | 3 DNS Lookups  |
 
 ## Lastly
