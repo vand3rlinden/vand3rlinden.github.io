@@ -7,7 +7,7 @@ cover:
   image: /images/s-mime-enhancing-email-security/s-mime-enhancing-email-security-front.png
 ---
 
-> _This article will help you understand S/MIME and how to request and use it on your devices._
+> _Unlocking the Power of S/MIME: This article will help you understand S/MIME and how to request, configure, and use S/MIME on your devices._
 
 ## What is S/MIME?
 In today's digital landscape, the security of sensitive information transmitted via email is critical. One method of safeguarding email communications is through the use of S/MIME _(Secure/Multipurpose Internet Mail Extensions)_. S/MIME is a widely adopted protocol that provides end-to-end encryption and digital signatures, ensuring the confidentiality, integrity, and authenticity of email messages. 
@@ -68,6 +68,7 @@ openssl pkcs12 -inkey /tmp/certificate.key -in /tmp/certificate.crt -export -out
 
 3. Your S/MIME email certificate is now ready to be installed on your devices, here are some external instructions on how to install the certificate on your device and email client.
 - [S/MIME on iOS](https://formsmarts.com/iphone-smime-encrypted-email)
+- [S/MIME for Outlook for iOS and Android](https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/outlook-for-ios-and-android/smime-outlook-for-ios-and-android)
 - [S/MIME on Mac](https://support.apple.com/guide/mail/use-personal-certificates-mlhlp1179/mac)
 - [S/MIME on Outlook for Mac](https://support.microsoft.com/en-us/office/encrypt-email-messages-using-s-mime-in-the-new-outlook-for-mac-623f5b72-4a8c-4293-a8a2-1f2ea223fde5)
 - [S/MIME for Windows](https://learn.microsoft.com/en-us/windows/security/operating-system-security/data-protection/configure-s-mime)
@@ -82,7 +83,6 @@ Once you have imported the S/MIME e-mail certificate into your device, you can c
 After you send the email to your recipient, the recipient's email client verifies the signature using your public key.
 
 ![IMAGE](/images/s-mime-enhancing-email-security/s-mime-enhancing-email-security2.png)
-
 
 ## To Summarize
 S/MIME plays a critical role in enhancing email security by providing encryption, digital signatures, and authentication mechanisms. As cyber threats continue to evolve, implementing robust security measures such as S/MIME is essential to protecting sensitive information and maintaining trust in digital communications.
