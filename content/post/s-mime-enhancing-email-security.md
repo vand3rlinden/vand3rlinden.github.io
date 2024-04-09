@@ -50,11 +50,11 @@ to be sent with your certificate request
 A challenge password []: **LEAVE BLANK**
 An optional company name []: **LEAVE BLANK**
 ```
-**Note:** If you are requesting an S/MIME e-mail certificate for your organization, fill in the `Organization Name` and `Organizational Unit Name` fields.
+**Note:** If you are requesting an S/MIME e-mail certificate for your organization, fill in the `Organization Name` and `Organizational Unit Name` fields instead of `N/A`.
 
-4. The file `certificate.csr` is now created in the `tmp` directory. Open this file in your favorite text editor and copy the entire contents to the clipboard.
+4. The `certificate.csr` file is now created in the `tmp` directory. Open this file in your favorite text editor and copy the entire contents to the clipboard.
 
-5. Upload the CSR to a trusted Certificate Authority (CA), such as [Sectigo](https://sectigostore.com/id/email-signing-certificate).
+5. Upload the `certificate.csr` file to a trusted Certificate Authority (CA), such as [Sectigo](https://sectigostore.com/id/email-signing-certificate).
 
 ## Configuring and installing the S/MIME email certificate
 After the CA signs the certificate, you can download the certificate, for example, in `.crt` format. This `.crt` file is your public key.
