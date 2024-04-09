@@ -50,6 +50,7 @@ to be sent with your certificate request
 A challenge password []: **LEAVE BLANK**
 An optional company name []: **LEAVE BLANK**
 ```
+**Note:** If you are requesting an S/MIME e-mail certificate for your organization, fill in the `Organization Name` and `Organizational Unit Name` fields.
 
 4. The file `certificate.csr` is now created in the `tmp` directory. Open this file in your favorite text editor and copy the entire contents to the clipboard.
 
