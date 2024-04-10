@@ -14,7 +14,7 @@
       
       <guid>https://vand3rlinden.com/post/purview-purge-emails/</guid>
       <description>Purging emails from inboxes allows you to remove messages that your users should not have received. Utilizing Microsoft Purview, you have the capability to search for specific content and initiate the purging process. This post provides guidance on how to achieve this.
-Before getting started Before commencing the purging process, it&amp;rsquo;s crucial to acknowledge that some individuals may have already opened the email. Purging emails won&amp;rsquo;t guarantee that no one has seen them, but it will reduce the number of individuals who have.</description>
+Before getting started You can also use the Threat Explorer in MDO to initiate a hard delete by performing a manual remediation. However, if you are using Threat Explorer, you are limited to 30 days, which is sufficient for most purge scenarios.</description>
     </item>
     
     <item>

@@ -10,9 +10,7 @@ cover:
 > _Purging emails from inboxes allows you to remove messages that your users should not have received. Utilizing Microsoft Purview, you have the capability to search for specific content and initiate the purging process. This post provides guidance on how to achieve this._
 
 ## Before getting started
-Before commencing the purging process, it's crucial to acknowledge that some individuals may have already opened the email. Purging emails won't guarantee that no one has seen them, but it will reduce the number of individuals who have. 
-
-> **NOTE**: You can also use the Threat Explorer in MDO to initiate a hard delete by performing a [manual remediation](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/remediate-malicious-email-delivered-office-365?view=o365-worldwide#manual-and-automated-remediation). However, if you are using Threat Explorer, you are limited to 30 days, which is sufficient for most purge scenarios.
+You can also use the Threat Explorer in MDO to initiate a hard delete by performing a [manual remediation](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/remediate-malicious-email-delivered-office-365?view=o365-worldwide#manual-and-automated-remediation). However, if you are using Threat Explorer, you are [limited to 30 days](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/mdo-data-retention?view=o365-worldwide#defender-for-office-365-plan-2), which is sufficient for most purge scenarios.
 
 ## Let's begin
 1. You must designate yourself as an **eDiscovery Administrator** within the [Microsoft Purview portal](https://compliance.microsoft.com/compliancecenterpermissions).
