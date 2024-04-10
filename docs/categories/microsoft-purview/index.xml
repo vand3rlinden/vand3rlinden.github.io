@@ -13,8 +13,8 @@
       <pubDate>Sat, 23 Dec 2023 23:57:43 +0100</pubDate>
       
       <guid>https://vand3rlinden.com/post/purview-purge-emails/</guid>
-      <description>Using Microsoft Purview, you can search for specific content in Exchange Online via a content search and initiate the purge process. This article provides guidance on how to do this.
-Before getting started You can also use the Threat Explorer in MDO to initiate a hard delete by performing a manual remediation. However, if you are using Threat Explorer, you are limited to 30 days, which is sufficient for most purge scenarios.</description>
+      <description>You can use Microsoft Purview to search for specific content in Exchange Online and, if desired, initiate a purge process. This article provides instructions on how to do this.
+Before getting started Note that you can also use Threat Explorer in MDO to initiate a hard delete by performing a manual remediation However, when using Threat Explorer, you are limited to 30 days, which is sufficient for most remediation scenarios.</description>
     </item>
     
     <item>

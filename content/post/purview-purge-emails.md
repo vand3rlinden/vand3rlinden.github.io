@@ -7,10 +7,10 @@ cover:
   image: /images/purview-purge-emails/purview-purge-emails-front.png
 ---
 
-> _Using Microsoft Purview, you can search for specific content in Exchange Online via a content search and initiate the purge process. This article provides guidance on how to do this._
+> _You can use Microsoft Purview to search for specific content in Exchange Online and, if desired, initiate a purge process. This article provides instructions on how to do this._
 
 ## Before getting started
-You can also use the Threat Explorer in MDO to initiate a hard delete by performing a [manual remediation](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/remediate-malicious-email-delivered-office-365?view=o365-worldwide#manual-and-automated-remediation). However, if you are using Threat Explorer, you are [limited to 30 days](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/mdo-data-retention?view=o365-worldwide#defender-for-office-365-plan-2), which is sufficient for most purge scenarios.
+Note that you can also use Threat Explorer in MDO to initiate a hard delete by performing a [manual remediation](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/remediate-malicious-email-delivered-office-365?view=o365-worldwide#manual-and-automated-remediation) However, when using Threat Explorer, you are [limited to 30 days](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/mdo-data-retention?view=o365-worldwide#defender-for-office-365-plan-2), which is sufficient for most remediation scenarios.
 
 ## Let's begin
 1. You must designate yourself as an **eDiscovery Administrator** within the [Microsoft Purview portal](https://compliance.microsoft.com/compliancecenterpermissions).
