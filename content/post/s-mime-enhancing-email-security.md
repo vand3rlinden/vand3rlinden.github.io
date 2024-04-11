@@ -40,8 +40,8 @@ openssl req -nodes -newkey rsa:4096 -keyout /tmp/certificate.key -out /tmp/certi
 Country Name (2 letter code) [AU]:NL
 State or Province Name (full name) [Some-State]:Your State
 Locality Name (eg, city) []:Your City
-Organization Name (eg, company) [Internet Widgits Pty Ltd]:N/A
-Organizational Unit Name (eg, section) []:N/A
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:Your Organization 
+Organizational Unit Name (eg, section) []:Your Department
 Common Name (e.g. server FQDN or YOUR name) []:Your Fullname
 Email Address []:your@email.com
 
@@ -50,9 +50,9 @@ to be sent with your certificate request
 A challenge password []: **LEAVE BLANK**
 An optional company name []: **LEAVE BLANK**
 ```
-**Note:** If you are requesting an S/MIME e-mail certificate for your organization, fill in the `Organization Name` and `Organizational Unit Name` fields instead of `N/A`.
+**Note:** If you are requesting an S/MIME e-mail certificate for your personal e-mail, enter `N/A` in the `Organization Name` and `Organizational Unit Name` fields.
 
-4. The `certificate.csr` file is now created in the `tmp` directory. You can upload the `CSR` file to a trusted Certificate Authority (CA), such as [Sectigo](https://sectigostore.com/id/email-signing-certificate).
+4. The `certificate.csr` file is now created in the `/tmp` directory. You can upload the `CSR` file to a trusted Certificate Authority (CA), such as [Sectigo](https://sectigostore.com/id/email-signing-certificate).
 
 ## Configuring and installing the S/MIME email certificate
 After the CA signs the certificate, you can download the certificate, for example, in `.crt` format. This `.crt` file is your public key.
