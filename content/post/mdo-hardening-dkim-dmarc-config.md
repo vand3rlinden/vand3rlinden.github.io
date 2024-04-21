@@ -24,8 +24,8 @@ foreach ($domain in $domains){
 ```
 To configure the runbook, you can access my [MDO Azure Automation](https://github.com/vand3rlinden/MDO-Azure-Automation) repository on my Github.
 
-## Setup DMARC for the MOERA domain.
-Your `onmicrosoft.com` domain, also known as the Microsoft Online Email Routing Address (MOERA) domain, does not have a DMARC policy set up by default. This means that this domain is vulnerable to abuse. As for spoofed inbound messages from your `onmicrosoft.com`, they will end up in the Junk folder because the detection technology is `Spoof intra-org`, and Spoof Intelligence will not be triggered in the anti-phishing policy.
+## Setup DMARC for the MOERA domain
+Your `onmicrosoft.com` domain, also known as the Microsoft Online Email Routing Address (MOERA) domain, does not have a DMARC policy set up by default. This means that this domain is vulnerable to abuse and can be used to spoof your `onmicrosoft.com` domain. Spoofed inbound messages from  your `onmicrosoft.com` domain will end up in the Junk folder, because the detection technology is `Spoof intra-org`. Spoof Intelligence will not trigger your anti-phishing policy for this detection.
 
 To prevent email spoofing and phishing using this domain, you need to set up a DMARC reject policy on the MOERA domain, as you do on all of your send and [non-send domains](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#protect-all-non-sending-domains). Setting DMARC for the MOERA is most often forgotten because you do not own the MOERA domain, but Microsoft has made it possible to manage the public DNS of your MOERA domain in the Microsoft 365 Admin Center.
 
