@@ -6,7 +6,17 @@
     <description>Recent content in Posts on VAND3RLINDEN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 06 Apr 2024 17:09:18 +0200</lastBuildDate><atom:link href="https://vand3rlinden.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 21 Apr 2024 15:31:27 +0200</lastBuildDate><atom:link href="https://vand3rlinden.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microsoft Defender for Office 365: Hardening DKIM and DMARC configuration</title>
+      <link>https://vand3rlinden.com/post/mdo-hardening-dkim-dmarc-config/</link>
+      <pubDate>Sun, 21 Apr 2024 15:31:27 +0200</pubDate>
+      
+      <guid>https://vand3rlinden.com/post/mdo-hardening-dkim-dmarc-config/</guid>
+      <description>Improve email security in Microsoft 365: Fine-tuning DKIM and setup DMARC for the MOERA domain.
+Fine-tune DKIM by frequently rotating the DKIM keys After setting up DKIM in Microsoft Defender for Office 365, it is also important to set up frequent rotation of these DKIM keys to prevent adversaries from intercepting and decrypting your cryptographic keys. Key rotation helps to minimize the risk of compromising the private keys. In Microsoft 365, you can rotate DKIM keys for your custom domain to increase security.</description>
+    </item>
+    
     <item>
       <title>Understanding S/MIME: Enhancing Email Security</title>
       <link>https://vand3rlinden.com/post/s-mime-enhancing-email-security/</link>
