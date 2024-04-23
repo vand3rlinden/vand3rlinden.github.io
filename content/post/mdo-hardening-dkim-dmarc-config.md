@@ -38,4 +38,4 @@ To prevent email spoofing and phishing using this domain, you need to set up a D
 
 
 ## To summerize 
-DKIM rotation ensures that even if a key is compromised, it will become obsolete after a period of time, limiting the window of vulnerability. Setting up DMARC for the MOERA domain is an essential practice to protect against email fraud on this domain.
+DKIM rotation ensures that even if a key is compromised, it will become obsolete after a period of time, limiting the window of vulnerability. Additionally, setting up DMARC for the MOERA domain is crucial to protect against email fraud targeting this domain.
