@@ -10,7 +10,7 @@ cover:
 > _You can use Microsoft Purview to search for specific content in Exchange Online (or SharePoint Online) using Content Search and, if desired, initiate a purge process. This article provides instructions on how to do this._
 
 ## Before getting started
-Note that you can also use Threat Explorer in MDO to initiate a hard delete by performing a [manual remediation](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/remediate-malicious-email-delivered-office-365?view=o365-worldwide#manual-and-automated-remediation). However, when using Threat Explorer, you are [limited to 30 days](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/mdo-data-retention?view=o365-worldwide#defender-for-office-365-plan-2), which is sufficient for most remediation scenarios.
+Note that you can also use Threat Explorer in MDO to initiate a hard delete by performing a [manual remediation](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/remediate-malicious-email-delivered-office-365?view=o365-worldwide#manual-and-automated-remediation). However, when using Threat Explorer, you are [limited to 30 days](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/mdo-data-retention?view=o365-worldwide#defender-for-office-365-plan-2), which is sufficient for most remediation scenarios. This article describes how to use Purview to search for older mailbox data, such as mailboxes that are on hold.
 
 ## Let's begin
 1. You must designate yourself as an **eDiscovery Administrator** within the [Microsoft Purview portal](https://compliance.microsoft.com/compliancecenterpermissions).
