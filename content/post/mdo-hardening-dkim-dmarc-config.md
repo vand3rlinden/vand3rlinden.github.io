@@ -10,7 +10,8 @@ cover:
 > Improve email security in Microsoft 365: Fine-tuning DKIM and setup DMARC for the MOERA domain.
 
 ## Fine-tune DKIM by frequently rotating the DKIM keys
-After [setting up DKIM](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/email-authentication-dkim-configure) in Microsoft Defender for Office 365, it is also important to set up frequent rotation of these DKIM keys to prevent adversaries from intercepting and decrypting your cryptographic keys. Key rotation helps to minimize the risk of compromising the private keys. In Microsoft 365, you can rotate DKIM keys for your custom domain to increase security. After four days (96 hours), the new DKIM key begins signing outbound messages for the custom domain. However, you may want to automate this task by using Azure Automation. To do this, you can set up a runbook with the following script.
+After [setting up DKIM](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/email-authentication-dkim-configure) in Microsoft Defender for Office 365, it is also important to set up frequent rotation of these DKIM keys to prevent adversaries from intercepting and decrypting your cryptographic keys. Key rotation helps to minimize the risk of compromising the private keys. In Microsoft 365, you can rotate DKIM keys for your domains to increase security. The recurrence must be every 3 months because rotating the DKIM keys every 3 months ensures a complete rotation of both selectors every 6 months.
+
 ```
 #Connect EXO
 Connect-ExchangeOnline -ManagedIdentity -Organization yourorg.onmicrosoft.com

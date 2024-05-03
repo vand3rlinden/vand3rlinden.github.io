@@ -14,7 +14,7 @@
       
       <guid>https://vand3rlinden.com/post/mdo-hardening-dkim-dmarc-config/</guid>
       <description>Improve email security in Microsoft 365: Fine-tuning DKIM and setup DMARC for the MOERA domain.
-Fine-tune DKIM by frequently rotating the DKIM keys After setting up DKIM in Microsoft Defender for Office 365, it is also important to set up frequent rotation of these DKIM keys to prevent adversaries from intercepting and decrypting your cryptographic keys. Key rotation helps to minimize the risk of compromising the private keys. In Microsoft 365, you can rotate DKIM keys for your custom domain to increase security.</description>
+Fine-tune DKIM by frequently rotating the DKIM keys After setting up DKIM in Microsoft Defender for Office 365, it is also important to set up frequent rotation of these DKIM keys to prevent adversaries from intercepting and decrypting your cryptographic keys. Key rotation helps to minimize the risk of compromising the private keys. In Microsoft 365, you can rotate DKIM keys for your domains to increase security.</description>
     </item>
     
     <item>
