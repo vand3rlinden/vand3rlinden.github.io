@@ -102,7 +102,7 @@ Once your domain has a DMARC record, any receiving email server can verify the i
 DMARC will pass if the P1 Sender and P2 Sender are equal, and/or SPF and DKIM are passed. If the P1 sender is not equal to the P2 sender, then DKIM must pass for the P2 sender domain in order to get a DMARC pass.
 
 ### Implementation of DMARC
-Before using DMARC, you need to know how often it will fail. You should consider to start monitor the DMARC fails, before setting the DMARC policy directly on reject.
+Before using DMARC, you need to know how often it will fail. You should consider monitoring DMARC failures before setting the DMARC policy directly to reject.
 
 There are several monitoring tools that convert the DMARC reports into a clear dashboard. One such tool is [Valimail](https://www.valimail.com/blog/office-365-free-dmarc-monitoring/) (free for Microsoft 365 users with an Exchange Online plan). 
 
