@@ -145,7 +145,7 @@ To protect all non-sending domains, you should consider:
   - Name: `_dmarc` 
   - Content: `v=DMARC1; p=reject;`
   - Type: `TXT`
-- an ***unassociated public key DKIM*** record:
+- an ***unassociated public key for the DKIM*** record:
   - Name: `*._domainkey`
   - Content: `v=DKIM1; p=`
   - Type: `TXT`
