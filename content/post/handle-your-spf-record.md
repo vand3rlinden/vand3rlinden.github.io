@@ -125,7 +125,7 @@ include:%{l}._spf.yourdomain.com
 
 > The SPF macro `%{l}` replaced with the local-part of the sender's email address.
 
-2. Now we will create two new SPF records to restrict Salesforce to only send from `invoices@yourdomain.com` and Zendesk to only send from `support@yourdomain.com`.
+2. Now we will create two new `TXT` records to restrict Salesforce to only send from `invoices@yourdomain.com` and Zendesk to only send from `support@yourdomain.com`.
 
 | Host                           | Type   | Value                                |
 | ---                            | ---    | ---                                  |
