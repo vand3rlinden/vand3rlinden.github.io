@@ -145,16 +145,12 @@ To protect all non-sending domains, you should consider:
   - Name: `_dmarc` 
   - Content: `v=DMARC1; p=reject;`
   - Type: `TXT`
+- an ***unassociated public key DKIM*** record:
+  - Name: `*._domainkey`
+  - Content: `v=DKIM1; p=`
+  - Type: `TXT`
 
 This protects all of your domains from phishers and spammers, as bad actors will actively look for unused domains to exploit.
-
-In my opinion, DKIM is unnecessary because SPF, when combined with DMARC, provides sufficient protection. This is due to the configuration of DKIM in both the sending source (private key) and DNS (public key) to ensure DKIM passes.
-
-If desired, you could consider using a wildcard domainkey that covers all possible values for the selector, with an empty public key. This is because there is no public key to bind to.
-
-- Name: `*._domainkey`
-- Content: `v=DKIM1; p=`
-- Type: `TXT`
 
 ## To Summarize
 SPF performs verification that the IP address of the sending server matches the entry in the SPF record from the sending domain.
