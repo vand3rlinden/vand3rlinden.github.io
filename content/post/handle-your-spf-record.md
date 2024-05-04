@@ -88,7 +88,7 @@ exists:%{i}._spf.yourdomain.com
 ```
 > The SPF macro `%{i}` replaced the IP address of the SMTP client that submitted the message.
 
-2. Now, for each IP address, such as `11.222.33.444`, we will create an `A` record that is not publicly routable (such as to 127.0.0.2) and a `TXT` record. The `TXT` record is set to list the source of the IP address and can have any value, which is ***optional*** to use.
+2. Now, for each IP address, such as `11.222.33.444`, we will create an `A` record that is not publicly routable (such as to `127.0.0.2`) and a `TXT` record. The `TXT` record is set to list the source of the IP address and can have any value, which is ***optional*** to use.
 
 | Host                                | Type   | Value       |
 | ---                                 | ---    | ---         |

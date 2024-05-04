@@ -300,7 +300,7 @@ Why it makes sense to have a good SPF procedure in place In a previous blog post
 <p>The SPF macro <code>%{i}</code> replaced the IP address of the SMTP client that submitted the message.</p>
 </blockquote>
 <ol start="2">
-<li>Now, for each IP address, such as <code>11.222.33.444</code>, we will create an <code>A</code> record that is not publicly routable (such as to 127.0.0.2) and a <code>TXT</code> record. The <code>TXT</code> record is set to list the source of the IP address and can have any value, which is <em><strong>optional</strong></em> to use.</li>
+<li>Now, for each IP address, such as <code>11.222.33.444</code>, we will create an <code>A</code> record that is not publicly routable (such as to <code>127.0.0.2</code>) and a <code>TXT</code> record. The <code>TXT</code> record is set to list the source of the IP address and can have any value, which is <em><strong>optional</strong></em> to use.</li>
 </ol>
 <table>
 <thead>
