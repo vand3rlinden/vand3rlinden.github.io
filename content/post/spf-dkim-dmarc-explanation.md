@@ -58,7 +58,7 @@ The SPF record will differ for everyone; therefore, it is important to understan
 - Use an [SPF macro](https://vand3rlinden.com/post/handle-your-spf-record/#use-an-spf-macro-to-restrict-a-third-party-service-to-send-from-a-specific-address) to limit a third-party service to sending from a specific address, since services like Salesforce are most often limited to sending from a single email address, such as `invoices@yourdomain.com`.
 
 ### Softfail or Hardfail
-SPF can get a softfail or fail, you determine this at the end of the record.
+SPF can get a softfail or a hardfail, you determine that at the end of the record.
 
 - With `~all`: The SPF record has designated the host as NOT allowed to send, but it is in transition (Accept but mark, Softfail).
 
