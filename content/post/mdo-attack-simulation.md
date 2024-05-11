@@ -19,7 +19,9 @@ This blog focuses more on the user part of the attack simulation and is an exten
 ## Start using MDO's attack simulation training
 
 ### Step 1: Report message button
-You should start by giving your users the ability to report email messages, which is also necessary for this attack simulation training. To do so, you can activate the [built-in Report button](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/submissions-user-reported-messages-custom-mailbox?view=o365-worldwide#use-the-microsoft-defender-portal-to-configure-user-reported-settings) in Outlook on the web using the [User reported settings](https://security.microsoft.com/securitysettings/userSubmission) or the [Microsoft Report Message or Report Phishing add-ins](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/submissions-users-report-message-add-in-configure?view=o365-worldwide#get-the-report-message-add-in) in virtually all Outlook platforms to report email messages. 
+You should start by giving your users the ability to report email messages, which is also necessary for this attack simulation training. To do so, you can activate the:
+- [Built-in Report button](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/submissions-user-reported-messages-custom-mailbox?view=o365-worldwide#use-the-microsoft-defender-portal-to-configure-user-reported-settings) (Outlook on the web)
+- [Microsoft Report Message or Report Phishing add-ins](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/submissions-users-report-message-add-in-configure?view=o365-worldwide#get-the-report-message-add-in) (all Outlook platforms)
 
 Reported messages appear in the [User Reported](https://security.microsoft.com/reportsubmission?viewid=user) section of the Submissions page, your reporting mailbox, and are visible in the simulation report.
 
