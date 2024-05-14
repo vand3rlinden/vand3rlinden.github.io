@@ -38,6 +38,19 @@ For now, we will take a deep dive into a ***Credential Harvest*** simulation, on
 
 ![IMAGE](/images/mdo-attack-simulation/mdo-attack-simulation-1.png)
 
+The basic elements of a simulation are:
+- Select a ***social engineering technique***, such as credential harvesting
+- Select a ***payload*** _(phishing emails and web pages that you use to launch simulations)_
+  - Global payloads: Includes built-in payloads, such as the `Keep Office 365 Password` payload
+  - Tenant payloads: Contains custom payloads, such as a fake email from an executive with the company's official signature.
+- Select a ***phish landing page*** _(provides a learning moment for the user after being phished)_
+  - Global phish landing pages: Includes built-in phish landing pages
+  - Tenant Phish Landing Pages: Includes custom landing pages, such as with corporate branding
+- Select a ***Login Page*** _(phish web login page for credential harvesting and link in attachment techniques)_
+  - Global login pages: Includes built-in login pages, such as the Microsoft login page.
+  - Tenant login pages: Includes custom login pages, such as a custom Microsoft login page with corporate branding.
+- Who receives the simulated phishing message and on what schedule
+  - All users or specific users and groups (dynamic distribution groups are not supported)
 
 ### Step 3: Progress of the attack simulation
 The attack simulation begins with users receiving credential phishing emails.
