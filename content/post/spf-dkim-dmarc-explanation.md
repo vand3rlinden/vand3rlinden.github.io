@@ -77,7 +77,7 @@ The SPF protocol only protects the P1 sender and not the P2 sender of the email.
 
 ## DKIM
 ### What is DKIM
-DomainKeys Identified Mail (DKIM) is an authentication-based technique that allows the receiving mail server to verify the authenticity of an email by comparing the received private key with the public key.
+DomainKeys Identified Mail (DKIM) is an authentication-based technique that allows the receiving mail server to verify the authenticity of an email by comparing the received private key with the public key if they match.
 
 ### How DKIM works
 The receiving server makes a DNS request using the sender’s domain name (P2 Sender). In response to the DNS request, the receiving server obtains the public key from a DNS record in the DNS zone of the sending domain, such as `selector1._domainkey.yourdomain.com`, and compares it to the private key in the message from the sending server.
