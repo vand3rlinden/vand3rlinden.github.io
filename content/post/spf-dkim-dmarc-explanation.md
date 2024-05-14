@@ -25,6 +25,8 @@ If an unauthorized server sends on behalf of your domain, the email will get a `
 
 SPF will pass if the sender’s IP is added to the SPF record for the P1 Sender domain.
 
+![IMAGE](/images/spf-dkim-dmarc-explanation/spf-visual.png)
+
 ### P1 vs P2- sender explanation:
 | Postal Letter      | Precise Term                    | Protected by  |
 | -----------        | -----------                     | -----------   |
@@ -75,7 +77,7 @@ The SPF protocol only protects the P1 sender and not the P2 sender of the email.
 
 ## DKIM
 ### What is DKIM
-DomainKeys Identified Mail (DKIM) is an authentication-based technique, by using DKIM, the receiving mail server can check the authenticity of an e-mail with the DKIM-Signature header. This signature is created using the SHA-256 hash function.
+DomainKeys Identified Mail (DKIM) is an authentication-based technique that allows the receiving mail server to verify the authenticity of an email by comparing the received private key with the public key.
 
 ### How DKIM works
 The receiving server makes a DNS request using the sender’s domain name (P2 Sender). In response to the DNS request, the receiving server obtains the public key from a DNS record in the DNS zone of the sending domain, such as `selector1._domainkey.yourdomain.com`, and compares it to the private key in the message from the sending server.
@@ -84,6 +86,8 @@ DKIM will pass if the sending server’s private key can be confirmed by the rec
 
 - Hostname: `key1._domainkey.yourdomain.com` (in `TXT`)
 - Value: `v=DKIM1;t=s;p=MIIBIjANBgkqhkiG9w0BA...` (public key)
+
+![IMAGE](/images/spf-dkim-dmarc-explanation/dkim-visual.png)
 
 ### Implementation of DKIM
 You can configure DKIM with a `TXT` record in your DNS zone for your sending mail servers (such as postfix or sendmail). A DKIM generator can be used to generate a private key for your server and a public key for your DNS.
@@ -100,6 +104,8 @@ DMARC (Domain-based Message Authentication, Reporting and Conformance) acts as a
 Once your domain has a DMARC record, any receiving email server can verify the incoming email based on the instructions in the DMARC policy. If the email passes the DMARC authentication, it will be delivered and can be trusted. If the email fails the check, depending on the instructions in the DMARC record, the email can be delivered, quarantined, or rejected.
 
 DMARC will pass if the P1 Sender and P2 Sender are equal, and/or SPF and DKIM are passed. If the P1 sender is not equal to the P2 sender, then DKIM must pass for the P2 sender domain in order to get a DMARC pass.
+
+![IMAGE](/images/spf-dkim-dmarc-explanation/dmarc-visual.png)
 
 ### Implementation of DMARC
 Before using DMARC, you need to know how often it will fail. You should consider monitoring DMARC failures before setting the DMARC policy directly to reject.
