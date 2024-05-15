@@ -39,31 +39,39 @@ For now, we will take a deep dive into a ***Credential Harvest*** simulation, on
 ![IMAGE](/images/mdo-attack-simulation/mdo-attack-simulation-1.png)
 
 The basic elements of a simulation are:
-- Select a ***social engineering technique***, such as credential harvesting
-- Select a ***payload*** _(phishing emails and web pages that you use to launch simulations)_
-  - Global payloads: Includes built-in payloads, such as the `Keep Office 365 Password` payload
-  - Tenant payloads: Contains custom payloads, such as a fake email from an executive with the company's official signature.
-- Select a ***phish landing page*** _(provides a learning moment for the user after being phished)_
-  - Global phish landing pages: Includes built-in phish landing pages
-  - Tenant Phish Landing Pages: Includes custom landing pages, such as with corporate branding
+- Select a ***Social Engineering Technique***, such as credential harvesting
+- Select a ***Payload*** _(phishing emails and web pages that you use to launch simulations)_
+  - Global Payloads: Includes built-in payloads, such as the `Keep Office 365 Password` payload
+  - Tenant Payloads: Contains custom payloads, such as a fake email from an executive with the company's official signature.
+
 - Select a ***Login Page*** _(phish web login page for credential harvesting and link in attachment techniques)_
-  - Global login pages: Includes built-in login pages, such as the Microsoft login page.
-  - Tenant login pages: Includes custom login pages, such as a custom Microsoft login page with corporate branding.
+  - Global Login Pages: Includes built-in login pages, such as the Microsoft login page.
+  - Tenant Login Pages: Includes custom login pages, such as a custom Microsoft login page with corporate branding.
+
+- Select a ***Phish Landing Page*** _(provides a learning moment for the user after being phished)_
+  - Global Phish Landing Pages: Includes built-in phish landing pages
+  - Tenant Phish Landing Pages: Includes custom landing pages, such as with corporate branding
+
 - Who receives the simulated phishing message and on what schedule
   - All users or specific users and groups (dynamic distribution groups are not supported)
   - Supported groups: distribution and mail-enabled security groups
 
+The simulation doesn’t send Payloads to every user. Instead, it [predicts](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-get-started#predicted-compromise-rate) the percentage of users who might be compromised by a specific payload based on historical data across Microsoft 365.
+
 ### Step 3: Progress of the attack simulation
 The attack simulation begins with users receiving credential phishing emails.
 
+Payload:
 ![IMAGE](/images/mdo-attack-simulation/mdo-attack-simulation-2.png)
 
 A user can click on the link, which creates an outbound connection to an adversary-in-the-middle (AiTM) phishing site (the connection does not raise an alert in Defender).
 
+Login Page:
 ![IMAGE](/images/mdo-attack-simulation/mdo-attack-simulation-3.png)
 
 If the user logs in, they will land on the phish landing page that provides a learning moment to the user after getting phished.
 
+Phish Landing Page:
 ![IMAGE](/images/mdo-attack-simulation/mdo-attack-simulation-4.png)
 
 Once the user clicked on the link and logged in, they received an email from ```notification@attacksimulationtraining.com``` for each action to complete a training course. 
@@ -86,4 +94,5 @@ The simulation report allows you to analyze how your users performed in the atta
 Despite advanced security measures, phishing tactics continue to evolve, making it difficult to catch every attempt. Thereby user awareness is important because users play a critical role in identifying and avoiding potential threats.
 
 ## Reference
-[Attack simulation training documentation](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/attack-simulation-training-get-started)
+- [Attack simulation training documentation](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/attack-simulation-training-get-started)
+- [Predicted compromise rate (PCR)](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-get-started#predicted-compromise-rate)
