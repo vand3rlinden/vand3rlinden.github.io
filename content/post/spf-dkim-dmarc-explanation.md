@@ -143,15 +143,15 @@ The table on this [Microsoft Learn page](https://learn.microsoft.com/en-us/archi
 
 ## Protect all non-sending domains
 To protect all non-sending domains, you should consider:
-- a ***deny all SPF*** record:
+- A ***deny all SPF*** record:
   - Name: `@` 
   - Content:`v=spf1 -all` 
   - Type: `TXT`
-- a ***reject DMARC*** record:
+- A ***reject DMARC*** record:
   - Name: `_dmarc` 
   - Content: `v=DMARC1; p=reject;`
   - Type: `TXT`
-- an ***unassociated public key for the DKIM*** record:
+- An ***unassociated public key as a DKIM*** wildcard record:
   - Name: `*._domainkey`
   - Content: `v=DKIM1; p=`
   - Type: `TXT`
