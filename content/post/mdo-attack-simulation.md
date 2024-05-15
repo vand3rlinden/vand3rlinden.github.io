@@ -51,6 +51,7 @@ The basic elements of a simulation are:
   - Tenant login pages: Includes custom login pages, such as a custom Microsoft login page with corporate branding.
 - Who receives the simulated phishing message and on what schedule
   - All users or specific users and groups (dynamic distribution groups are not supported)
+  - Supported groups: distribution and mail-enabled security groups
 
 ### Step 3: Progress of the attack simulation
 The attack simulation begins with users receiving credential phishing emails.
