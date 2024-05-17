@@ -38,7 +38,7 @@ For now, we will take a deep dive into a ***Credential Harvest*** simulation, on
 
 ![IMAGE](/images/mdo-attack-simulation/mdo-attack-simulation-1.png)
 
-The basic elements of a simulation are:
+#### The basic elements of a simulation are:
 - Select a ***Social Engineering Technique***, such as credential harvesting
 - Select a ***Payload*** _(phishing emails and web pages that you use to launch simulations)_
   - Global Payloads: Includes built-in payloads, such as the `Keep Office 365 Password` payload
@@ -56,7 +56,16 @@ The basic elements of a simulation are:
   - All users or specific users and groups (dynamic distribution groups are not supported)
   - Supported groups: distribution and mail-enabled security groups
 
-The simulation doesn’t send Payloads to every user. Instead, it [predicts](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-get-started#predicted-compromise-rate) the percentage of users who might be compromised by a specific payload based on historical data across Microsoft 365.
+#### The best practices of a simulation are:
+- Target users: Include all users in your organization
+- Exclude users: Import a CSV file that contains all your shared and room mailboxes (also specify your mail-enabled service accounts in this CSV file)
+
+To export these RecipientTypes, you can run the following command in ExchangeOnline PowerShell
+```
+Get-Mailbox -RecipientTypeDetails SharedMailbox, RoomMailbox -ResultSize Unlimited | Select-Object PrimarySmtpAddress | Export-CSV <PATH> -NoTypeInformation
+```
+
+> Note: You may can see that the excluded users will end up in the report as `FailedToDeliverEmail`, this is normal behavior and you can filter them out in the report.
 
 ### Step 3: Progress of the attack simulation
 The attack simulation begins with users receiving credential phishing emails.
