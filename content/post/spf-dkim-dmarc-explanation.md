@@ -123,7 +123,7 @@ After the monitoring phase, we set the DMARC policy to `reject`:
 
 - Value: `v=DMARC1; p=reject; sp=reject; rua=mailto:dmarc_agg@vali.email;`
 
-The `sp=reject` tag means that subdomains will be included; if you don’t want your subdomains to be included in your domain’s root DMARC policy, you can set this to sp=none and list a separate DMARC policy for each subdomain (not recommended).
+The `sp=reject` tag means that subdomains will be included; if you don’t want your subdomains to be included in your domain’s root DMARC policy, you can set this to `sp=none` and list a separate DMARC policy for each subdomain (not recommended).
 
 If you do not list the `sp=` tag, your subdomains will get the policy from the `p=` tag.
 

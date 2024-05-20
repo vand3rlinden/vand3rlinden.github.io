@@ -301,7 +301,7 @@ Why deploy SPF, DKIM, and DMARC? SPF, DKIM, and DMARC are critical email authent
 <ul>
 <li>Value: <code>v=DMARC1; p=reject; sp=reject; rua=mailto:dmarc_agg@vali.email;</code></li>
 </ul>
-<p>The <code>sp=reject</code> tag means that subdomains will be included; if you don’t want your subdomains to be included in your domain’s root DMARC policy, you can set this to sp=none and list a separate DMARC policy for each subdomain (not recommended).</p>
+<p>The <code>sp=reject</code> tag means that subdomains will be included; if you don’t want your subdomains to be included in your domain’s root DMARC policy, you can set this to <code>sp=none</code> and list a separate DMARC policy for each subdomain (not recommended).</p>
 <p>If you do not list the <code>sp=</code> tag, your subdomains will get the policy from the <code>p=</code> tag.</p>
 <h3 id="dmarc-policy-explanation">DMARC policy explanation<a hidden class="anchor" aria-hidden="true" href="#dmarc-policy-explanation">#</a></h3>
 <table>
