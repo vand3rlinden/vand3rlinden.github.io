@@ -65,7 +65,7 @@ To export these RecipientTypes, you can run the following command in ExchangeOnl
 Get-Mailbox -RecipientTypeDetails SharedMailbox, RoomMailbox -ResultSize Unlimited | Select-Object PrimarySmtpAddress | Export-CSV <PATH> -NoTypeInformation
 ```
 
-> Note: You may can see that the excluded users will end up in the report as `FailedToDeliverEmail`, this is normal behavior and you can filter them out in the report.
+> Note: You may see that the excluded users end up in the report as `FailedToDeliverEmail`, this is because the given user is blocked from signing in, such as you shared mailbox identities. This is normal behavior and you can filter them out in the report.
 
 ### Step 3: Progress of the attack simulation
 The attack simulation begins with users receiving credential phishing emails.
