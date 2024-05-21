@@ -12,6 +12,13 @@ cover:
 ## Why deploy SPF, DKIM, and DMARC?
 SPF, DKIM, and DMARC are critical email authentication protocols that help prevent email spoofing, phishing attacks, and domain impersonation for ***outbound email***. Enabling these protocols together strengthens your domain's email authentication mechanisms, improves security, and builds trust with your recipients by ensuring that email sent from your domain is legitimate and trustworthy.
 
+### SPF, DKIM and DMARC - Comparison table:
+| Protocol           | Precise Term         | Purpose                             |
+| -----------        | -----------          | -----------                         |
+| SPF                | `RFC5321.MailFrom`   | Sender authorization check          |
+| DKIM               | `RFC5322.From`       | Message authenticity verification   |
+| DMARC              | `RFC5322.From`       | Final shield on top of SPF and DKIM |
+
 ## SPF
 ### What is SPF
 Sender Policy Framework (SPF) is a protocol that aims to reduce spam. SPF can reduce email spoofing and spam by determining if the sender is authorized to send on behalf of the listed sender.
@@ -27,7 +34,7 @@ SPF will pass if the sender’s IP is added to the SPF record for the P1 Sender 
 
 ![IMAGE](/images/spf-dkim-dmarc-explanation/spf-visual.png)
 
-### P1 vs P2- sender explanation:
+### P1 vs. P2 - Sender explanation table:
 | Postal Letter      | Precise Term                    | Protected by  |
 | -----------        | -----------                     | -----------   |
 | Sender on envelope | `RFC5321.MailFrom` (P1 Sender)  |  SPF          |
