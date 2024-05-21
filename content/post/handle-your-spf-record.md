@@ -137,9 +137,11 @@ include:%{l}._spf.yourdomain.com
 After setting up the above, Salesfroce's sending servers can only send from `invoices@yourdomain.com` and Zendesk can only send from `support@yourdomain.com`.
 
 ## How SPF macros work on the receiving mail server
-Example for SPF macro `%{l}`, but the same technique is used for SPF macro `%{i}`:
+Example for SPF macro `%{i}`:
+![IMAGE](/images/handle-your-spf-record/spf-macro-visual-i.png)
 
-![IMAGE](/images/handle-your-spf-record/spf-macro-visual.png)
+Example for SPF macro `%{l}`:
+![IMAGE](/images/handle-your-spf-record/spf-macro-visual-l.png)
 
 ## To summarize what we have done
 1. The main SPF record is cleaned up by deleting ***7 DNS lookups***, this with segmenting your email streams with subdomains and using SPF macros.
