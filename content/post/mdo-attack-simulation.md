@@ -32,7 +32,7 @@ Users in this role can handle every facet of attack simulations, including creat
 
 Role can be assgined in the [Microsoft Defender](https://security.microsoft.com/emailandcollabpermissions) portal.
 
-### Step 2: Creating an attack simulation training
+### Step 3: Creating an attack simulation training
 After the report button is implemented, you can begin creating an attack simulation training in the [Microsoft Defender Portal](https://security.microsoft.com/attacksimulator). You have the option to:
 - [Simulate a phishing attack](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/attack-simulation-training-simulations)
   - These simulations test your security policies and practices, as well as train your employees to increase their awareness and decrease their susceptibility to attacks.
