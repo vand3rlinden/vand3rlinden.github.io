@@ -25,7 +25,7 @@ You should start by giving your users the ability to report email messages, whic
 
 Reported messages appear in the [User Reported](https://security.microsoft.com/reportsubmission?viewid=user) section of the Submissions page, your reporting mailbox, and are visible in the simulation report.
 
-### Step 2: Getting permissions 
+### Step 2: Required permissions 
 Required role: [Attack Simulation Administrator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#attack-simulation-administrator)
 
 Users in this role can handle every facet of attack simulations, including creation, launch, scheduling, and result review. They have full access to all simulations within the tenant.
