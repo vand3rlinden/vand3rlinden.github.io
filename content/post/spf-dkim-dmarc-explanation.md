@@ -105,6 +105,7 @@ How you set up DKIM can vary depending on your mail provider; setting up DKIM fo
 
 ### DKIM recommendations
 - You must implement DKIM key rotation for each sending service to prevent adversaries from intercepting and decrypting your DKIM keys. DKIM Key rotation helps to minimize the risk of having a private key compromised.
+  - Recurring: Every six months for a 2048-bit DKIM key.
 - The DKIM key length must be at least 2048-bits. 
 
 ## DMARC
