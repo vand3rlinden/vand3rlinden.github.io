@@ -103,6 +103,10 @@ You can configure DKIM with a `TXT` record in your DNS zone for your sending mai
 
 How you set up DKIM can vary depending on your mail provider; setting up DKIM for [Salesforce](https://help.salesforce.com/s/articleView?id=sf.emailadmin_create_secure_dkim.htm&type=5) differs from [Exchange Online](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/email-authentication-dkim-configure?view=o365-worldwide#steps-to-create-enable-and-disable-dkim-from-microsoft-defender-portal) in Microsoft Defender for Office 365.
 
+### DKIM recommendations
+- You must implement DKIM key rotation for each sending service to prevent adversaries from intercepting and decrypting your DKIM keys. DKIM Key rotation helps to minimize the risk of having a private key compromised.
+- The DKIM key length must be at least 2048-bits. 
+
 ## DMARC
 ### What is DMARC
 DMARC (Domain-based Message Authentication, Reporting and Conformance) acts as a shield on top of SPF and DKIM. With DMARC, the sender specifies what to do with email on behalf of the domain if it does not meet the requirements of SPF and DKIM.
