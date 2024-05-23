@@ -78,6 +78,8 @@ Get-Mailbox -RecipientTypeDetails SharedMailbox, RoomMailbox -ResultSize Unlimit
 
 > Note: You may see that the excluded users end up in the report as `FailedToDeliverEmail`, this is because the given user is blocked from signing in, such as you shared mailbox identities. This is normal behavior and you can filter them out in the report.
 
+- Training: Select the Microsoft training experience and let Microsoft assign training courses and modules based on a user's previous simulation and training results learning paths.
+
 ### Step 3: Progress of the attack simulation
 The attack simulation begins with users receiving credential phishing emails.
 
