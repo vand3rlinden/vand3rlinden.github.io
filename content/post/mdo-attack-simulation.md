@@ -65,9 +65,13 @@ For now, we will take a deep dive into a ***Credential Harvest*** simulation, on
 
 #### The best practices of a simulation are:
 - Target users: Include all users in your organization
-- Exclude users: Import a CSV file that contains all your shared and room mailboxes (also specify your mail-enabled service accounts in this CSV file)
+  - If you want to target a specific department, you could import a CSV containing all the members of that department. To do this, run the following command in Graph PowerShell:
+```
+Get-MgUser -All -Property "Department,UserPrincipalname" | Where-Object {$_.Department -eq "DepartmentNameHere"} | Select-Object UserPrincipalname | Export-CSV -Path <PATH> -NoTypeInformation
+```
 
-To export these RecipientTypes, you can run the following command in ExchangeOnline PowerShell
+- Exclude users: Import a CSV file that contains all your shared and room mailboxes (also specify your mail-enabled service accounts in this CSV file)
+  - To export these RecipientTypes, you can run the following command in ExchangeOnline PowerShell:
 ```
 Get-Mailbox -RecipientTypeDetails SharedMailbox, RoomMailbox -ResultSize Unlimited | Select-Object PrimarySmtpAddress | Export-CSV <PATH> -NoTypeInformation
 ```
