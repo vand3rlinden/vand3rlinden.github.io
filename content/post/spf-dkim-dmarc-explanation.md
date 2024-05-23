@@ -89,7 +89,7 @@ DomainKeys Identified Mail (DKIM) is an authentication-based technique that allo
 ### How DKIM works
 The receiving server makes a DNS request using the sender’s domain name (P2 Sender). In response to the DNS request, the receiving server obtains the public key from a DNS record in the DNS zone of the sending domain, such as `selector1._domainkey.yourdomain.com`, and compares it to the private key in the message from the sending server.
 
-DKIM will pass if the sending server’s private key can be confirmed by the receiving server, using the public key in the sending domain’s DNS zone. This public key is published in a `TXT` or `CNAME` record. For example, when in `TXT`:
+DKIM will pass if the sending server’s private key can be confirmed by the receiving server, using the public key in the sending domain’s DNS zone. This public key is published in a `TXT` or within a `CNAME` record. For example, if in `TXT`:
 
 - Hostname: `key1._domainkey.yourdomain.com` (in `TXT`)
 - Value: `v=DKIM1;t=s;p=MIIBIjANBgkqhkiG9w0BA...` (public key)
