@@ -30,7 +30,7 @@ Required role: [Attack Simulation Administrator](https://learn.microsoft.com/en-
 
 Users in this role can handle every facet of attack simulations, including creation, launch, scheduling, and result review. They have full access to all simulations within the tenant.
 
-Role can be assgined in the [Microsoft Defender](https://security.microsoft.com/emailandcollabpermissions) portal.
+The role is available in the [Microsoft Defender](https://security.microsoft.com/emailandcollabpermissions) portal or in Entra ID (e.g. through PIM).
 
 ### Step 3: Creating an attack simulation training
 After the report button is implemented, you can begin creating an attack simulation training in the [Microsoft Defender Portal](https://security.microsoft.com/attacksimulator). You have the option to:
