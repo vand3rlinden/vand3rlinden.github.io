@@ -6,7 +6,17 @@
     <description>Recent content on VAND3RLINDEN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 21 Apr 2024 15:31:27 +0200</lastBuildDate><atom:link href="https://vand3rlinden.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 May 2024 23:37:34 +0200</lastBuildDate><atom:link href="https://vand3rlinden.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Role and Benefits of ARC</title>
+      <link>https://vand3rlinden.com/post/arc-explained/</link>
+      <pubDate>Fri, 24 May 2024 23:37:34 +0200</pubDate>
+      
+      <guid>https://vand3rlinden.com/post/arc-explained/</guid>
+      <description>Introduction ARC (Authenticated Received Chain) is an email authentication protocol that preserves the authentication results of an email as it travels through multiple intermediaries, such as forwarding services.
+By implementing ARC, organizations can better manage the complexities of email authentication, particularly when emails are forwarded. This ensures that legitimate emails are less likely to be marked as spam or rejected, while fraudulent emails are more easily identified and filtered out. In this blog post, we will explore the fundamentals of ARC, how it works, and the benefits it offers to enhance your email security strategy.</description>
+    </item>
+    
     <item>
       <title>Microsoft Defender for Office 365: Hardening DKIM and DMARC configuration</title>
       <link>https://vand3rlinden.com/post/mdo-hardening-dkim-dmarc-config/</link>
