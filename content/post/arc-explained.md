@@ -45,15 +45,13 @@ ARC’s success really depends on email receivers trusting each other by applyin
 ## Mailbox providers that support ARC Seal
 ARC has already been adopted by major mailbox providers such as Google, Verizon Media, and Microsoft, and is likely to become a global standard.
 
-## Accept ARC Seal
-An intermediate server's ARC Seal can be accepted by an admin within their mailbox provider.
+## Set ARC Seals on your MTA
+The commercial MTAs Halon and MailerQ include ARC. For open source solutions, [authentication_milter](https://github.com/fastmail/authentication_milter) or [OpenARC](https://github.com/trusteddomainproject/OpenARC) can be used to implement ARC with the Postfix, Oracle Communications Messaging Server, and Sendmail MTAs.
 
-The domain name must match the domain that's shown in the `d` value in the `ARC-Seal` and `ARC-Message-Signature` headers in affected messages.
+## Accept an ARC Seal on your receiving server
+An intermediate server's ARC seal can be accepted by an administrator within their mailbox provider (receiving server). To do this, you need to add the trusted signing domain. This domain must match the domain that's shown in the `d` value in the `ARC-Seal` and `ARC-Message-Signature` headers in affected messages.
 
 The steps to accept an ARC seal depend on your mailbox provider; for Microsoft 365, you can use [this](https://learn.microsoft.com/en-us/defender-office-365/email-authentication-arc-configure) documentation.
-
-## Implement ARC on your MTA
-The commercial MTAs Halon and MailerQ include ARC. For open source solutions, [authentication_milter](https://github.com/fastmail/authentication_milter) or [OpenARC](https://github.com/trusteddomainproject/OpenARC) can be used to implement ARC with the Postfix, Oracle Communications Messaging Server, and Sendmail MTAs.
 
 ## To summarize
 ARC ensures that email authentication results are preserved as messages pass through multiple hops, such as forwarding services and intermediate servers.
