@@ -1,5 +1,5 @@
 ---
-title: "The Role and Benefits of ARC"
+title: "Understanding the Role and Benefits of ARC"
 date: 2024-05-24T23:37:34+02:00
 draft: false
 categories: ["email"]
