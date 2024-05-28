@@ -1,5 +1,5 @@
 ---
-title: "Understanding the Role and Benefits of ARC"
+title: "Understanding the Role and Benefits of ARC Sealing"
 date: 2024-05-24T23:37:34+02:00
 draft: false
 categories: ["email"]
@@ -42,19 +42,20 @@ ARC has limitations and is not a replacement for DMARC. For example, ARC doesn't
 
 ARC’s success really depends on email receivers trusting each other by applying the protocol.
 
-## Mailbox providers that support ARC Seal
+## Mailbox providers that support ARC Sealers
 ARC has already been adopted by major mailbox providers such as Google, Verizon Media, and Microsoft, and is likely to become a global standard.
 
-## Set ARC Seals on your MTA
+## Place an ARC seal on your MTA as an intermediate server
 The commercial MTAs Halon and MailerQ include ARC. For open source solutions, [authentication_milter](https://github.com/fastmail/authentication_milter) or [OpenARC](https://github.com/trusteddomainproject/OpenARC) can be used to implement ARC with the Postfix, Oracle Communications Messaging Server, and Sendmail MTAs.
 
-## Accept an ARC Seal on your receiving server
+## Accept trusted ARC sealers on your receiving server
 An intermediate server's ARC seal can be accepted by an administrator within their mailbox provider (receiving server). To do this, you need to add the trusted signing domain. This domain must match the domain that's shown in the `d` value in the `ARC-Seal` and `ARC-Message-Signature` headers in affected messages.
 
 The steps to accept an ARC seal depend on your mailbox provider; for Microsoft 365, you can use [this](https://learn.microsoft.com/en-us/defender-office-365/email-authentication-arc-configure) documentation.
 
 ## To summarize
-ARC ensures that email authentication results are preserved as messages pass through multiple hops, such as forwarding services and intermediate servers.
+ARC ensures that email authentication results are preserved as messages pass through multiple hops, such as forwarding services and other intermediate services.
 
 ## Reference
 - [ARC Specifications](https://arc-spec.org/)
+- [Microsoft Defender for Office 365: Configure trusted ARC sealers](https://learn.microsoft.com/en-us/defender-office-365/email-authentication-arc-configure)
