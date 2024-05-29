@@ -10,7 +10,7 @@ cover:
 ## Introduction
 ARC (Authenticated Received Chain) is an email authentication protocol that preserves the authentication results of an email as it travels through multiple intermediaries, such as forwarding services.
 
-By implementing ARC, organizations can better manage the complexities of email authentication, particularly when emails are forwarded. This ensures that legitimate emails are less likely to be marked as spam or rejected, while fraudulent emails are more easily identified and filtered out. In this blog post, we will explore the fundamentals of ARC, how it works, and the benefits it offers to enhance your email security strategy.
+By implementing ARC, organizations can better manage the complexities of email authentication, particularly when emails are forwarded. This ensures that legitimate emails are less likely to be marked as spam or rejected, while fraudulent emails are more easily identified and filtered out. In this blog post, we will explore the fundamentals of ARC, how it works, and the benefits it offers.
 
 ## How ARC works
 ARC (Authenticated Received Chain) sealing is a way to help ensure the authenticity of email messages as they pass through various email servers. 
