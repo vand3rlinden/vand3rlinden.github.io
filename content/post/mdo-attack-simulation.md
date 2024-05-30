@@ -117,4 +117,3 @@ Despite advanced security measures, phishing tactics continue to evolve, making 
 
 ## Reference
 - [Attack simulation training documentation](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/attack-simulation-training-get-started)
-- [Predicted compromise rate (PCR)](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-get-started#predicted-compromise-rate)
