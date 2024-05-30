@@ -30,7 +30,7 @@ In this filter policy you can manage:
 
 - **IP block list:** IP addresses from this list will be blocked.
 
-- **Safe list:** A dynamic allow list in the Microsoft datacenter that does not require customer configuration.
+- **Safe list:** The safe list in the connection filter policy is a dynamic allow list that requires no customer setup. Microsoft automatically identifies trusted email sources from third-party subscriptions. You can enable or disable the safe list but cannot configure its servers. Incoming messages from these servers bypass spam filtering.
 
 ### Anti-spam outbound policy (Default)
 In this outbound policy you can manage:
