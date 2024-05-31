@@ -74,7 +74,7 @@ In this outbound policy you can manage:
     - A spammer or phisher will always send over multiple IP ranges. In most use cases, the email subject pattern is more likely to match when you receive an email attack. You can temporarily block this with a mail flow rule, for example.
 
 - Safe list configuration:
-    - You should not want to enable this, I think you want to decide for yourself which party you want to bypass for spam filtering.
+    - You should not enable this dynamic allow list, because incoming messages from this dynamic list will bypass spam filtering.
 
 ### Anti-spam outbound policy
 - Disable automatic forwarding:
