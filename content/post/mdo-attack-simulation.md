@@ -16,24 +16,30 @@ Microsoft Defender for Office 365 provides an attack simulation training if you 
 
 This blog focuses more on the user part of the attack simulation and is an extension of the Microsoft Learn documentation, which already provides a good explanation of how to set up the attack simulation in the Defender portal. We will definitely have a summary of the configuration part as well.
 
-## Start using MDO's attack simulation training
+## Requirements
+### 1: Required license
+All target users must have a ***Microsoft Defender for Office 365 Plan 2*** (add-on licenses or included in subscriptions such as Microsoft 365 E5).
 
-### Step 1: Report message button
+### 2: Report message button
 You should start by giving your users the ability to report email messages, which is also necessary for this attack simulation training. To do so, you can activate the:
 - [Built-in Report button](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/submissions-user-reported-messages-custom-mailbox?view=o365-worldwide#use-the-microsoft-defender-portal-to-configure-user-reported-settings) (Outlook on the web)
 - [Microsoft Report Message or Report Phishing add-ins](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/submissions-users-report-message-add-in-configure?view=o365-worldwide#get-the-report-message-add-in) (all Outlook platforms)
 
 Reported messages appear in the [User Reported](https://security.microsoft.com/reportsubmission?viewid=user) section of the Submissions page, your reporting mailbox, and are visible in the simulation report.
 
-### Step 2: Required permissions 
+### 3: Required permissions 
 Required role: [Attack Simulation Administrator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#attack-simulation-administrator)
 
 Users in this role can handle every facet of attack simulations, including creation, launch, scheduling, and result review. They have full access to all simulations within the tenant.
 
 The role is available in the [Microsoft Defender](https://security.microsoft.com/emailandcollabpermissions) portal or in Entra ID (e.g. through PIM).
 
-### Step 3: Creating an attack simulation training
-After the report button is implemented, you can begin creating an attack simulation training in the [Microsoft Defender Portal](https://security.microsoft.com/attacksimulator). You have the option to:
+### 4: Remove external tagging for the notification email
+Once the user clicked on the link and/or logged on to the phishing site, they received an email from `notification@attacksimulationtraining.com`.
+Exclude this email address or domain from your external tagging configuration (Exchange Online mail flow rules or Exchange Online’s External Email Tagging Feature).
+
+## Creating an attack simulation training
+After the requirements are set, you can begin creating an attack simulation training in the [Microsoft Defender Portal](https://security.microsoft.com/attacksimulator). You have the option to:
 - [Simulate a phishing attack](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/attack-simulation-training-simulations)
   - These simulations test your security policies and practices, as well as train your employees to increase their awareness and decrease their susceptibility to attacks.
 - [Using automated flows for Attack simulation](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/attack-simulation-training-simulation-automations)
@@ -45,7 +51,7 @@ For now, we will take a deep dive into a ***Credential Harvest*** simulation, on
 
 ![IMAGE](/images/mdo-attack-simulation/mdo-attack-simulation-1.png)
 
-#### The basic elements of a simulation are:
+## The basic elements of a simulation are:
 - Select a ***Social Engineering Technique***, such as credential harvesting
 - Select a ***Payload*** _(phishing emails and web pages that you use to launch simulations)_
   - Global Payloads: Includes built-in payloads, such as the `Keep Office 365 Password` payload
@@ -63,7 +69,7 @@ For now, we will take a deep dive into a ***Credential Harvest*** simulation, on
   - All users or specific users and groups (dynamic distribution groups are not supported)
   - Supported groups: distribution and mail-enabled security groups
 
-#### The best practices of a simulation are:
+## The best practices of a simulation are:
 - Target users: Include all users in your organization
   - If you want to target a specific department, you could import a CSV containing all the members of that department. To do this, run the following command in Graph PowerShell:
 ```
@@ -80,7 +86,7 @@ Get-Mailbox -RecipientTypeDetails SharedMailbox, RoomMailbox -ResultSize Unlimit
 
 - Training: Select the Microsoft training experience and let Microsoft assign training courses and modules based on a user's previous simulation and training results learning paths.
 
-### Step 3: Progress of the attack simulation
+## Progress of the attack simulation
 The attack simulation begins with users receiving credential phishing emails.
 
 Payload:
@@ -99,7 +105,7 @@ Phish Landing Page:
 Once the user clicked on the link and logged in, they received an email from `notification@attacksimulationtraining.com` for each action to complete a training course. 
 
 ![IMAGE](/images/mdo-attack-simulation/mdo-attack-simulation-5.png)
-> ***NOTE:*** _You may want to remove the External tag for the notification email. To do so, run the cmdlet `Set-ExternalInOutlook -AllowList @{Add="attacksimulationtraining.com"}` by using the Exchange Online PowerShell module._
+> ***NOTE:*** _You should remove the External tag for the notification email. To do so, run the cmdlet `Set-ExternalInOutlook -AllowList @{Add="attacksimulationtraining.com"}` by using the Exchange Online PowerShell module._
 
 
 The link will take the user to the Defender portal to complete the courses.
