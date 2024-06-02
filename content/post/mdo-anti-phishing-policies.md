@@ -38,8 +38,8 @@ Mailbox intelligence operates similarly to user impersonation protection; howeve
 
 Mailbox Intelligence has two settings:
 
-1. **Enable Mailbox Intelligence:** Helps the AI distinguish between legitimate and impersonated senders. It’s turned on by default.
-2. **Enable Impersonation Protection:** By default, it’s off. Utilizes contact history to enhance protection.
+1. **Enable Mailbox Intelligence:** This setting helps the AI distinguish between messages from legitimate and impersonated senders. By default, this setting is turned on.
+2. **Enable Impersonation Protection:** By default, this setting is off. This setting uses the contact history learned from Mailbox Intelligence (both frequent contacts and no contacts).
 
 To activate Mailbox Intelligence, both settings must be turned on.
 
@@ -122,7 +122,7 @@ User impersonation involves combining the user’s display name and email addres
 Domain impersonation occurs when the domain is manipulated to resemble the legitimate domain.
 
 ### Mailbox Intelligence:
-Mailbox intelligence utilizes the content of the mailbox to identify potential phishing attempts.
+Operates similarly to user impersonation protection; however, it utilizes the contents of the mailbox to identify phishing attempts.
 
 ### Spoof Intelligence:
 Spoofing takes place when the From address (P2 Sender) in an email message does not match the domain of the email source (P1 Sender).
