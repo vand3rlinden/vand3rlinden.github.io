@@ -98,5 +98,7 @@ When `user@fabrikam.com` sends an email to `user@contoso.com`, the following flo
     - If verification is successful, establish the connection.
     - If verification fails, disconnect.
 
+![IMAGE](/images/dnssec-dane-explained/smtpdane-visual.png)
+
 ## To Summarize
 The use of DNSSEC and DANE is critical to strengthening online security. DNSSEC ensures data integrity and authentication in the DNS, while DANE associates digital certificates with domain names to prevent unauthorized access. Together, they form a powerful defense against evolving cyber threats, promoting trust and improving overall Internet security.
