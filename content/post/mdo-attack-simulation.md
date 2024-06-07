@@ -34,9 +34,10 @@ Users in this role can handle every facet of attack simulations, including creat
 
 The role is available in the [Microsoft Defender](https://security.microsoft.com/emailandcollabpermissions) portal or in Entra ID (e.g. through PIM).
 
-### 4: Remove external tagging for the end user notifications
-Once the user clicked on the link and/or logged on to the phishing site, they received an email from `notification@attacksimulationtraining.com`.
-Exclude this email address or domain from your external tagging configuration (_Exchange Online mail flow rules_ or _Exchange Online’s External Email Tagging Feature_). You can also Tenant notifcations to change the address. 
+### 4: Remove external tagging for the default end user notifications address
+Once the user clicked on the link and/or logged on to the phishing site, they received an email From `notification@attacksimulationtraining.com`.
+Exclude this email address or domain from your external tagging configuration (_Exchange Online mail flow rules_ or _Exchange Online’s External Email Tagging Feature_). 
+> You can also use Tenant notifications to change the From address to an internal address.
 
 ## Creating an attack simulation training
 After the requirements are set, you can begin creating an attack simulation training in the [Microsoft Defender Portal](https://security.microsoft.com/attacksimulator). You have the option to:
@@ -66,8 +67,8 @@ For now, we will take a deep dive into a ***Credential Harvest*** simulation, on
   - Tenant Phish Landing Pages: Includes custom landing pages, such as with corporate branding
 
 - Select ***End user notifications***
-  - Global notifications: Includes built-in end user notifications send from `notification@attacksimulationtraining.com`
-  - Tenant notifications: Includes custom end user notifications for branding and to set a different from address
+  - Global notifications: Includes built-in end user notifications send From `notification@attacksimulationtraining.com`
+  - Tenant notifications: Includes custom end user notifications for branding and to set a different From address to an internal mailbox
 
 - Who receives the simulated phishing message and on what schedule
   - All users or specific users and groups (dynamic distribution groups are not supported)
