@@ -44,8 +44,6 @@ ARC helps preserve email authentication results and verifies the identity of int
 ## What ARC can’t do
 ARC has limitations and is not a replacement for DMARC. For example, ARC doesn't provide any information about the reputation or trustworthiness of the sender or the intermediate server, because an intermediate server can still add bad content or remove some (or even all) ARC headers.
 
-ARC’s success really depends on email receivers trusting each other by applying the protocol.
-
 ## Mailbox providers that support ARC Sealers
 ARC has already been adopted by major mailbox providers such as Google, Verizon Media, and Microsoft, and is likely to become a global standard.
 
@@ -59,6 +57,7 @@ The steps to accept an ARC seal depend on your mailbox provider; for Microsoft 3
 
 ## To summarize
 ARC ensures that email authentication results are preserved as messages pass through multiple hops, such as forwarding services and other intermediate services.
+The success of ARC really depends on email receivers trusting each other by applying the protocol.
 
 ## Reference
 - [ARC Specifications](https://arc-spec.org/)
