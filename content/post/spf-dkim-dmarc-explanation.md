@@ -187,3 +187,6 @@ DMARC acts as a shield on top of SPF and DKIM. DMARC ensures that emails that fa
 - [The Difference in DMARC Reports: RUA and RUF](https://dmarcian.com/rua-vs-ruf/)
 - [Why Mailhardener recommends SPF softfail over fail](https://www.mailhardener.com/blog/why-mailhardener-recommends-spf-softfail-over-fail)
 - [How to protect domains that do not send email](https://www.cloudflare.com/learning/dns/dns-records/protect-domains-without-email/)
+- [SPF is defined in RFC 8617](https://www.rfc-editor.org/info/rfc8617)
+- [DKIM is defined in RFC 6376](https://www.rfc-editor.org/info/rfc8617)
+- [DMARC is defined in RFC 7489](https://www.rfc-editor.org/info/rfc7489)

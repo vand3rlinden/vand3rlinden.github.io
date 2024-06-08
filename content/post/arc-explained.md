@@ -25,6 +25,8 @@ When you send an email message, it goes through your sending server and may be r
 
 ![IMAGE](/images/arc-explained/arc-visual.png)
 
+> Want to learn more about SPF, DKIM, and DMARC? You can read my [previous blog post](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/) about these outbound authentication protocols.
+
 ## ARC Headers
 ARC helps preserve email authentication results and verifies the identity of intermediate server(s) that forward a message on to its final destination. There are three key components to ARC:
 
@@ -58,4 +60,5 @@ ARC ensures that email authentication results are preserved as messages pass thr
 
 ## Reference
 - [ARC Specifications](https://arc-spec.org/)
+- [ARC is defined in RFC 8617](https://www.rfc-editor.org/info/rfc8617)
 - [Microsoft Defender for Office 365: Configure trusted ARC sealers](https://learn.microsoft.com/en-us/defender-office-365/email-authentication-arc-configure)
