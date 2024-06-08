@@ -47,57 +47,24 @@ The `Matching-Type` specifies how the certificate association is verified:
 - 2: SHA-512 hash (not recommended / less supported)
 
 ## How DNSSEC and DANE work together on a webserver (443)
-- Imagine you want to visit a secure site, and your browser wants to make sure it's communicating with the right site.
+By combining DNSSEC and DANE, the integrity and authenticity of both the DNS responses and the TLS certificates are ensured, providing a robust mechanism to prevent man-in-the-middle attacks and other security threats.
 
-- DNSSEC acts as a lock on the phonebook, ensuring it can be trusted by preventing malicious actors from providing spoofed addresses.
+### The flow of DNSSEC and DANE on 443
+![IMAGE](/images/dnssec-dane-explained/webserverdane-visual.png)
 
-- DANE steps in and says, _"Hey, not only the phonebook is secure, but here are some extra details like the Public Keys (fingerprints) of both the Root and End-entity (host) certificates of the site to guarantee its authenticity"_. These details are sourced from the values in the `TLSA` records such as `_443._tcp.yourdomain.com` for both certificates.
-
-    - Host: `_443._tcp.yourdomain.com` in `TSLA`
-        - Value: `2 1 1 ROOT-certificate-fingerprint-PublicKey`
-    - Host: `_443._tcp.yourdomain.com` in `TSLA`
-        - Value: `3 1 1 End-ENTITY-certificate-fingerprint-PublicKey`
-
-Example for this site:
-
+Example for this site, `TLSA` records:
 ![IMAGE](/images/dnssec-dane-explained/dnssec-dane-explained-1.png)
 
-- Your browser then checks these additional details from DANE and verifies the integrity of the phonebook with DNSSEC to guarantee that everything is secure and legitimate.
-
+[Verify DANE TLSA records:](https://check.sidnlabs.nl/dane/)
 ![IMAGE](/images/dnssec-dane-explained/dnssec-dane-explained-2.png)
-[VERIFY A DANE TLSA RECORD](https://check.sidnlabs.nl/dane/)
+
 
 ## How DNSSEC and DANE work together on a mailserver (25, SMTP DANE)
 SMTP DANE is a security protocol that uses DNS to verify the authenticity of the certificates used for securing email communication with TLS and protecting against TLS downgrade attacks. 
 
 Where SPF, DKIM, and DMARC focus more on the email messages and the sending hosts they come from, DANE focuses more on establishing the TLS connection between mail servers.
 
-### The flow of SMTP DANE
-- **Sending Mail Server:** `mail.fabrikam.com` 
-    - Outbound: Requesting DANE `TLSA` records of the `MX` record domain from the receiving mail server
-- **Receiving Mail Server:** `mail.contoso.com` 
-    - Inbound: requires DNSSEC and DANE `TLSA`records
-
-When `user@fabrikam.com` sends an email to `user@contoso.com`, the following flow is triggered:
-
-1. The sending server `mail.fabrikam.com` queries the `MX` record from the DNS server of `contoso.com`, resulting in `mail.contoso.com` _(a DNSSEC/DANE-enabled domain)_.
-
-2. The sending server `mail.fabrikam.com` requests the DANE `TLSA` records for `mail.contoso.com` from the public DNS server.
-
-3. The public DNS server of `contoso.com` sends the DANE `TLSA` records with the fingerprints for the ***Root*** and ***End-entity (host)*** certificates of `mail.contoso.com` to the sending server `fabrikam.com`:
-    - Host: `_25._tcp.mail.contoso.com` in `TSLA`
-        - Value: `2 1 1 ROOT-certificate-fingerprint`
-    - Host: `_25._tcp.mail.contoso.com` in `TSLA`
-        - Value: `3 1 1 End-ENTITY-certificate-fingerprint`
-
-4. The sending server `mail.fabrikam.com` establishes a TLS connection with the receiving server `mail.contoso.com`.
-
-5. The receiving server `mail.contoso.com` sends the fingerprints of the ***Root*** and ***End-entity (host)*** certificates to the sending server `mail.fabrikam.com`.
-
-6. The sending server `mail.fabrikam.com` verifies that the fingerprints it received from `mail.contoso.com` match the fingerprints it received from the public DNS server at `contoso.com` _(from step 3)_:
-    - If verification is successful, establish the connection.
-    - If verification fails, disconnect.
-
+### The flow of SMTP DANE on 25
 ![IMAGE](/images/dnssec-dane-explained/smtpdane-visual.png)
 
 ## To Summarize

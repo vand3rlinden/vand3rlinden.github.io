@@ -45,10 +45,10 @@ ARC helps preserve email authentication results and verifies the identity of int
 ARC has limitations and is not a replacement for DMARC. For example, ARC doesn't provide any information about the reputation or trustworthiness of the sender or the intermediate server, because an intermediate server can still add bad content or remove some (or even all) ARC headers.
 
 ## Mailbox providers that support ARC Sealers
-ARC has already been adopted by major mailbox providers such as Google, Verizon Media, and Microsoft, and is likely to become a global standard.
+ARC has already been adopted by major mailbox providers such as Google and Microsoft, and is likely to become a global standard.
 
-## Place an ARC seal on your MTA as an intermediate server
-The commercial MTAs Halon and MailerQ include ARC. For open source solutions, [authentication_milter](https://github.com/fastmail/authentication_milter) or [OpenARC](https://github.com/trusteddomainproject/OpenARC) can be used to implement ARC with the Postfix, Oracle Communications Messaging Server, and Sendmail MTAs.
+## Set ARC seals on your intermediate server
+The commercial MTAs Halon and MailerQ include ARC sealing. For open source solutions, [authentication_milter](https://github.com/fastmail/authentication_milter) or [OpenARC](https://github.com/trusteddomainproject/OpenARC) can be used to implement ARC with the Postfix, Oracle Communications Messaging Server, and Sendmail MTAs.
 
 ## Accept trusted ARC sealers on your receiving server
 An intermediate server's ARC seal can be accepted by an administrator within their mailbox provider (receiving server). To do this, you need to add the trusted signing domain. This domain must match the domain that's shown in the `d` value in the `ARC-Seal` and `ARC-Message-Signature` headers in affected messages.
