@@ -56,7 +56,7 @@ For now, we will take a deep dive into a ***Credential Harvest*** simulation, on
 - Select a ***Social Engineering Technique***, such as credential harvesting
 - Select a ***Payload*** _(phishing emails and web pages that you use to launch simulations)_
   - Global Payloads: Includes built-in payloads, such as the `Keep Office 365 Password` payload
-  - Tenant Payloads: Contains custom payloads, such as a fake email from an executive with the company's official signature.
+  - Tenant Payloads: Contains [custom payloads](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-payloads#create-payloads), such as a fake email from an executive with the company's official signature.
 
 - Select a ***Login Page*** _(phish web login page for credential harvesting and link in attachment techniques)_
   - Global Login Pages: Includes built-in login pages, such as the Microsoft login page
