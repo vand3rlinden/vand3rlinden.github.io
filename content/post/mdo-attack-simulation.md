@@ -73,10 +73,10 @@ For now, we will take a deep dive into a ***Credential Harvest*** simulation, on
 - Who receives the simulated phishing message and on what schedule
   - All users* or specific users and groups (dynamic distribution groups are not supported)
     - *All users are all mailboxes (user and shared) and resources (room and equipment) in Exchange Online
-  - Supported groups: distribution and mail-enabled security groups
+  - Supported groups: _distribution_ and _mail-enabled security groups_
 
 ## The best practices of a simulation are:
-- Target users: Include all users in your organization (Assuming all user mailboxes are licensed for Microsoft Defender Plan 2)
+- Target users: Include all users in your organization (Assuming all user mailboxes are licensed for Microsoft Defender for Office Plan 2)
   - If you want to target a specific department, you could import a CSV containing all the members of that department. To do this, run the following command in Graph PowerShell:
 ```
 Get-MgUser -All -Property "Department,UserPrincipalname" | Where-Object {$_.Department -eq "DepartmentNameHere"} | Select-Object UserPrincipalname | Export-CSV -Path <PATH> -NoTypeInformation
