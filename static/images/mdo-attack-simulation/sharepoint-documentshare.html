@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SharePoint Document Sharing</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f2f1;
+            color: #323130;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border: 1px solid #d2d0ce;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .header {
+            background-color: #0078d4;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+        .content {
+            padding: 20px;
+        }
+        .document-info {
+            background-color: #f3f2f1;
+            padding: 10px;
+            border-left: 4px solid #0078d4;
+            margin-bottom: 20px;
+        }
+        .document-info h2 {
+            margin: 0;
+            font-size: 18px;
+            color: #0078d4;
+        }
+        .document-info p {
+            margin: 5px 0 0;
+            font-size: 14px;
+            color: #323130;
+        }
+        .footer {
+            background-color: #f3f2f1;
+            padding: 10px;
+            text-align: center;
+            font-size: 12px;
+            color: #605e5c;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #0078d4;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            Microsoft SharePoint
+        </div>
+        <div class="content">
+            <p>Hello ${firstName},</p>
+            <p>Your organization has shared a document with you:</p>
+            <div class="document-info">
+                <h2>Annual report.docx</h2>
+            </div>
+            <a href="${phishingUrl}" class="button">View Document</a>
+            <p>If you have any questions, feel free to reach out to the document owner.</p>
+        </div>
+        <div class="footer">
+            © Microsoft Corporation. All rights reserved.<br>
+            One Microsoft Way, Redmond, WA 98052, USA
+        </div>
+    </div>
+</body>
+</html>
