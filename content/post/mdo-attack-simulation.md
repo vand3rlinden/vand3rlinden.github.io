@@ -90,9 +90,9 @@ Get-Mailbox -RecipientTypeDetails SharedMailbox, RoomMailbox -ResultSize Unlimit
 
 ## Progress of the attack simulation
 We will take a deep dive into a ***Credential Harvest*** simulation, one of the several [social engineering techniques](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/attack-simulation-training-get-started?view=o365-worldwide#simulations) to choose from. Create the  ***Credential Harvest*** simulation using the steps provided by Microsoft to [simulate a phishing attack](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/attack-simulation-training-simulations) and select the global payload: `Keep Office 365 Password`. Upon completion, you should have a simulation in progress.
-
 ![IMAGE](/images/mdo-attack-simulation/mdo-attack-simulation-1.png)
-The attack simulation begins with users receiving credential phishing emails.
+
+The attack simulation then begins with users receiving credential phishing emails with the selected payload.
 
 Payload:
 ![IMAGE](/images/mdo-attack-simulation/mdo-attack-simulation-2.png)
