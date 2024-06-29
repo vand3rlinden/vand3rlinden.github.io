@@ -149,9 +149,9 @@ If you do not list the `sp=` tag, your subdomains will get the policy from the `
 The table on this [Microsoft Learn page](https://learn.microsoft.com/en-us/archive/blogs/fasttracktips/spf-dkim-dmarc-and-exchange-online#covering-the-basics-of-dmarc) summarizes the options you have when configuring your DMARC policy.
 
 ### RUA vs RUF DMARC Reports
-`RUA` reports are the most important and contain information about the authentication status for SPF, DKIM and DMARC. The `RUA` report doesn't contain any sensitive information from the email itself; the data is limited to message counts and email authentication attributes.
+`RUA` (Reporting URI for Aggregate reports) reports are the most important and contain information about the authentication status for SPF, DKIM and DMARC. The `RUA` report doesn't contain any sensitive information from the email itself; the data is limited to message counts and email authentication attributes.
 
-`RUF` data was initially meant to give domain owners redacted copies of emails failing DMARC compliance. They use forensic reports to identify legitimate email sources needing remediation. However, due to privacy concerns, most DMARC reporters don't offer ```RUF``` reports due to the potential personally identifiable information (PII) that reports may contain. You don't need `RUF` Reporting to get a DMARC compliant domain, `RUA` is sufficient.
+`RUF` (Reporting URI for Forensic reports) data was initially meant to give domain owners redacted copies of emails failing DMARC compliance. They use forensic reports to identify legitimate email sources needing remediation. However, due to privacy concerns, most DMARC reporters don't offer ```RUF``` reports due to the potential personally identifiable information (PII) that reports may contain. You don't need `RUF` Reporting to get a DMARC compliant domain, `RUA` is sufficient.
 
 ## Protect all non-sending domains
 To protect all non-sending domains, you should consider:
