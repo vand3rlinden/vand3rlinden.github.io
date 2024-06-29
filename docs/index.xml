@@ -4,150 +4,123 @@
     <title>VAND3RLINDEN</title>
     <link>https://vand3rlinden.com/</link>
     <description>Recent content on VAND3RLINDEN</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.128.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 May 2024 23:37:34 +0200</lastBuildDate><atom:link href="https://vand3rlinden.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 May 2024 23:37:34 +0200</lastBuildDate>
+    <atom:link href="https://vand3rlinden.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Understanding the Role and Benefits of ARC Sealing</title>
       <link>https://vand3rlinden.com/post/arc-explained/</link>
       <pubDate>Fri, 24 May 2024 23:37:34 +0200</pubDate>
-      
       <guid>https://vand3rlinden.com/post/arc-explained/</guid>
       <description>Introduction ARC (Authenticated Received Chain) is an email authentication protocol that preserves the authentication results of an email as it travels through multiple intermediaries, such as forwarding services.
 By using ARC, organizations can better manage the complexities of email authentication, especially when email is forwarded, but ARC is a collaboration of multiple servers that trust each other.
 ARC ensures that legitimate emails are less likely to be marked as spam or rejected, while fraudulent emails are more easily identified and filtered out.</description>
     </item>
-    
     <item>
       <title>Microsoft Defender for Office 365: Hardening DKIM and DMARC configuration</title>
       <link>https://vand3rlinden.com/post/mdo-hardening-dkim-dmarc-config/</link>
       <pubDate>Sun, 21 Apr 2024 15:31:27 +0200</pubDate>
-      
       <guid>https://vand3rlinden.com/post/mdo-hardening-dkim-dmarc-config/</guid>
       <description>Improve email security in Microsoft 365: Fine-tuning DKIM and setup DMARC for the MOERA domain.
 Fine-tune DKIM by frequently rotating the DKIM keys After setting up DKIM in Microsoft Defender for Office 365, it is also important to set up frequent rotation of these DKIM keys to prevent adversaries from intercepting and decrypting your cryptographic keys. Key rotation helps to minimize the risk of compromising the private keys. In Microsoft 365, you can rotate the DKIM keys for your domains to increase security.</description>
     </item>
-    
     <item>
       <title>Understanding S/MIME: Enhancing Email Security</title>
       <link>https://vand3rlinden.com/post/s-mime-enhancing-email-security/</link>
       <pubDate>Sat, 06 Apr 2024 17:09:18 +0200</pubDate>
-      
       <guid>https://vand3rlinden.com/post/s-mime-enhancing-email-security/</guid>
       <description>Unlocking the Power of S/MIME: This article will help you understand S/MIME and how to request, configure, and use S/MIME on your devices.
 What is S/MIME? In today&amp;rsquo;s digital landscape, the security of sensitive information transmitted via email is critical. One method of safeguarding email communications is through the use of S/MIME (Secure/Multipurpose Internet Mail Extensions). S/MIME is a widely adopted protocol that provides end-to-end encryption and digital signatures, ensuring the confidentiality, integrity, and authenticity of email messages.</description>
     </item>
-    
     <item>
       <title>Microsoft Defender for Office 365: Attack simulation training</title>
       <link>https://vand3rlinden.com/post/mdo-attack-simulation/</link>
       <pubDate>Sat, 03 Feb 2024 12:31:15 +0100</pubDate>
-      
       <guid>https://vand3rlinden.com/post/mdo-attack-simulation/</guid>
       <description>With Microsoft Defender for Office 365, you can create an attack simulation training to identify vulnerable users and mitigate potential threats before they impact your organization.
 Think before you click Understanding the intricacies of cybersecurity is crucial in today&amp;rsquo;s digital landscape. Attack simulation training is indispensable for users as it provides hands-on experience in recognizing and defending against potential threats. This proactive approach empowers individuals to enhance their security awareness, identify vulnerabilities, and contribute to a more resilient organizational defense against cyber attacks.</description>
     </item>
-    
     <item>
       <title>DNSSEC and DANE explained</title>
       <link>https://vand3rlinden.com/post/dnssec-dane-explained/</link>
       <pubDate>Sat, 13 Jan 2024 21:51:39 +0100</pubDate>
-      
       <guid>https://vand3rlinden.com/post/dnssec-dane-explained/</guid>
       <description>In this post, you find out how DNSSEC and DANE cooperate, and learn how to set up DANE TLSA DNS records.
 DNSSEC (Domain Name System Security Extensions) The domain name system (DNS) is the phone book of the Internet: it tells computers where to send and retrieve information. Unfortunately, it also accepts any address given to it, no questions asked.
 DNSSEC adds a security layer to this phonebook. It uses digital signatures to make sure the information in the phonebook can be trusted and hasn&amp;rsquo;t been tampered with.</description>
     </item>
-    
     <item>
       <title>Microsoft Defender for Office 365: Safe Links policies</title>
       <link>https://vand3rlinden.com/post/mdo-safelinks-policies/</link>
       <pubDate>Fri, 29 Dec 2023 11:19:27 +0100</pubDate>
-      
       <guid>https://vand3rlinden.com/post/mdo-safelinks-policies/</guid>
       <description>Safe Links examines emails, Teams messages, and Office 365 apps for malicious links. It scans and alters URLs in incoming emails and verifies links at the time of clicking.
 What you can manage with a Safe Links policy By default, there is no existing default Safe Links policy. The security policy preset, &amp;ldquo;Built-in protection,&amp;rdquo; ensures Safe Links protection for email messages, Microsoft Teams, and files within supported Office apps.</description>
     </item>
-    
     <item>
       <title>Microsoft Purview: Purging mails from Inboxes using Content Search</title>
       <link>https://vand3rlinden.com/post/purview-purge-emails/</link>
       <pubDate>Sat, 23 Dec 2023 23:57:43 +0100</pubDate>
-      
       <guid>https://vand3rlinden.com/post/purview-purge-emails/</guid>
       <description>You can use Microsoft Purview to search for specific content in Exchange Online (or SharePoint Online) using Content Search and, if desired, initiate a purge process. This article provides instructions on how to do this.
 Before getting started Note that you can also use Threat Explorer in MDO to initiate a hard delete by performing a manual remediation. However, when using Threat Explorer, you are limited to 30 days, which is sufficient for most remediation scenarios.</description>
     </item>
-    
     <item>
       <title>Microsoft Defender for Office 365: Anti-malware policies</title>
       <link>https://vand3rlinden.com/post/mdo-anti-malware-policies/</link>
       <pubDate>Sat, 23 Dec 2023 23:07:45 +0100</pubDate>
-      
       <guid>https://vand3rlinden.com/post/mdo-anti-malware-policies/</guid>
       <description>Malware is specifically designed to harm or exploit devices, networks, or users. It includes various types of harmful software such as viruses, worms, trojan horses, ransomware, spyware, and adware. Malware can be distributed through email attachments, infected websites, malicious downloads, or other deceptive means.
 What you can manage with an Anti-malware policy Mailboxes in Exchange Online benefit from automatic protection against malware through Exchange Online Protection (EOP). EOP offers a multi-layered malware protection system designed to detect all known malware.</description>
     </item>
-    
     <item>
       <title>Microsoft Defender for Office 365: Anti-phishing policies</title>
       <link>https://vand3rlinden.com/post/mdo-anti-phishing-policies/</link>
       <pubDate>Fri, 22 Dec 2023 14:27:30 +0100</pubDate>
-      
       <guid>https://vand3rlinden.com/post/mdo-anti-phishing-policies/</guid>
       <description>Phishing is an email attack that aims to steal sensitive information through messages that appear to be from legitimate or trusted senders. You can enhance the security of your Exchange Online mailboxes by implementing anti-phishing policies.
 What you can manage with Anti-phishing policies Anti-phishing policies provide enhanced control over incoming phishing emails, for instance, in cases where someone may attempt to impersonate your CEO or send messages from a domain that closely resembles yours.</description>
     </item>
-    
     <item>
       <title>Microsoft Defender for Office 365: Anti-spam policies</title>
       <link>https://vand3rlinden.com/post/mdo-anti-spam-policies/</link>
       <pubDate>Mon, 18 Dec 2023 15:24:50 +0100</pubDate>
-      
       <guid>https://vand3rlinden.com/post/mdo-anti-spam-policies/</guid>
       <description>All inbound e-mail is automatically protected from spam by Exchange Online Protection (EOP) for Microsoft 365 organizations with mailboxes in Exchange Online. EOP uses anti-spam policies as part of your organization&amp;rsquo;s overall spam defense.
 What you can manage with Anti-spam policies Anti-spam policies provide you with control over both inbound and outbound email in Exchange Online. Within the Microsoft Security Portal, you can access the Anti-Spam Policy section, where three default policies are available for editing.</description>
     </item>
-    
     <item>
       <title>Get a handle on your SPF record</title>
       <link>https://vand3rlinden.com/post/handle-your-spf-record/</link>
       <pubDate>Sun, 17 Dec 2023 18:31:45 +0100</pubDate>
-      
       <guid>https://vand3rlinden.com/post/handle-your-spf-record/</guid>
       <description>In this post, I will share my best practices for getting a handle on your SPF record.
 Why it makes sense to have a good SPF procedure in place In a previous blog post, I explained the limitations of SPF, best practices and how it works with DKIM and DMARC. It is useful to have a good SPF procedure to avoid future problems, because if you exceed the DNS lookup limit of 10:</description>
     </item>
-    
     <item>
       <title>Microsoft Purview: Configuring a Data Loss Prevention Policy</title>
       <link>https://vand3rlinden.com/post/purview-data-loss-prevention/</link>
       <pubDate>Sat, 16 Dec 2023 11:31:31 +0100</pubDate>
-      
       <guid>https://vand3rlinden.com/post/purview-data-loss-prevention/</guid>
       <description>Organizations have sensitive information under their control, such as credit card numbers or social security numbers. To protect this sensitive information and reduce risk, organizations need a way to prevent users from sharing it with people who shouldn&amp;rsquo;t have it. This practice is known as data loss prevention (DLP). In this article, I will explain how to configure it.
 Sensitive information type entity definitions In this post, I will configure a DLP policy to block the Netherlands Citizen’s Service (BSN) Number from being shared with external contacts in Exchange Online and Teams.</description>
     </item>
-    
     <item>
       <title>Microsoft Defender for Office 365: Quarantine policies</title>
       <link>https://vand3rlinden.com/post/mdo-quarantine-policies/</link>
       <pubDate>Mon, 11 Dec 2023 16:33:46 +0100</pubDate>
-      
       <guid>https://vand3rlinden.com/post/mdo-quarantine-policies/</guid>
       <description>Quarantine policies let you control the quarantine on how users can use it. This post will cover the default policies and how to create a custom policy.
 What are quarantine policies Back in April 2020, Microsoft made it possible for users to view, release, or delete quarantined messages (expect high confidence phishing). Some organizations were not happy about users having access to their own quarantined items. Quarantine policies give you more control over quarantine for your end users and which quarantined items they can release.</description>
     </item>
-    
     <item>
       <title>SPF, DKIM and DMARC explanation</title>
       <link>https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/</link>
       <pubDate>Sat, 09 Dec 2023 11:46:16 +0100</pubDate>
-      
       <guid>https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/</guid>
       <description>In this post you will learn to understand how the DNS protocols SPF, DKIM and DMARC work together to protect your domain from phishers and spammers.
 Why deploy SPF, DKIM, and DMARC? SPF, DKIM, and DMARC are critical email authentication protocols that help prevent email spoofing, phishing attacks, and domain impersonation for outbound email. Enabling these protocols together strengthens your domain&amp;rsquo;s email authentication mechanisms, improves security, and builds trust with your recipients by ensuring that email sent from your domain is legitimate and trustworthy.</description>
     </item>
-    
   </channel>
 </rss>

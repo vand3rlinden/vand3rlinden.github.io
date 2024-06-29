@@ -4,19 +4,18 @@
     <title>DNS on VAND3RLINDEN</title>
     <link>https://vand3rlinden.com/categories/dns/</link>
     <description>Recent content in DNS on VAND3RLINDEN</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.128.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 13 Jan 2024 21:51:39 +0100</lastBuildDate><atom:link href="https://vand3rlinden.com/categories/dns/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Jan 2024 21:51:39 +0100</lastBuildDate>
+    <atom:link href="https://vand3rlinden.com/categories/dns/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DNSSEC and DANE explained</title>
       <link>https://vand3rlinden.com/post/dnssec-dane-explained/</link>
       <pubDate>Sat, 13 Jan 2024 21:51:39 +0100</pubDate>
-      
       <guid>https://vand3rlinden.com/post/dnssec-dane-explained/</guid>
       <description>In this post, you find out how DNSSEC and DANE cooperate, and learn how to set up DANE TLSA DNS records.
 DNSSEC (Domain Name System Security Extensions) The domain name system (DNS) is the phone book of the Internet: it tells computers where to send and retrieve information. Unfortunately, it also accepts any address given to it, no questions asked.
 DNSSEC adds a security layer to this phonebook. It uses digital signatures to make sure the information in the phonebook can be trusted and hasn&amp;rsquo;t been tampered with.</description>
     </item>
-    
   </channel>
 </rss>

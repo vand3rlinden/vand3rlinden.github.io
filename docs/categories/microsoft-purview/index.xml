@@ -4,28 +4,25 @@
     <title>Microsoft Purview on VAND3RLINDEN</title>
     <link>https://vand3rlinden.com/categories/microsoft-purview/</link>
     <description>Recent content in Microsoft Purview on VAND3RLINDEN</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.128.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 23 Dec 2023 23:57:43 +0100</lastBuildDate><atom:link href="https://vand3rlinden.com/categories/microsoft-purview/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Dec 2023 23:57:43 +0100</lastBuildDate>
+    <atom:link href="https://vand3rlinden.com/categories/microsoft-purview/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Microsoft Purview: Purging mails from Inboxes using Content Search</title>
       <link>https://vand3rlinden.com/post/purview-purge-emails/</link>
       <pubDate>Sat, 23 Dec 2023 23:57:43 +0100</pubDate>
-      
       <guid>https://vand3rlinden.com/post/purview-purge-emails/</guid>
       <description>You can use Microsoft Purview to search for specific content in Exchange Online (or SharePoint Online) using Content Search and, if desired, initiate a purge process. This article provides instructions on how to do this.
 Before getting started Note that you can also use Threat Explorer in MDO to initiate a hard delete by performing a manual remediation. However, when using Threat Explorer, you are limited to 30 days, which is sufficient for most remediation scenarios.</description>
     </item>
-    
     <item>
       <title>Microsoft Purview: Configuring a Data Loss Prevention Policy</title>
       <link>https://vand3rlinden.com/post/purview-data-loss-prevention/</link>
       <pubDate>Sat, 16 Dec 2023 11:31:31 +0100</pubDate>
-      
       <guid>https://vand3rlinden.com/post/purview-data-loss-prevention/</guid>
       <description>Organizations have sensitive information under their control, such as credit card numbers or social security numbers. To protect this sensitive information and reduce risk, organizations need a way to prevent users from sharing it with people who shouldn&amp;rsquo;t have it. This practice is known as data loss prevention (DLP). In this article, I will explain how to configure it.
 Sensitive information type entity definitions In this post, I will configure a DLP policy to block the Netherlands Citizen’s Service (BSN) Number from being shared with external contacts in Exchange Online and Teams.</description>
     </item>
-    
   </channel>
 </rss>
