@@ -2,7 +2,7 @@
 title: "SPF, DKIM and DMARC explanation"
 date: 2023-12-09T11:46:16+01:00
 draft: false
-categories: ["email"]
+categories: ["email", "DNS"]
 cover: 
   image: /images/spf-dkim-dmarc-explanation/spf-dkim-dmarc-explanation-front.png
 ---

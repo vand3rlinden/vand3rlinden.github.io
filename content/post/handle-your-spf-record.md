@@ -2,7 +2,7 @@
 title: 'Get a handle on your SPF record'
 date: 2023-12-17T18:31:45+01:00
 draft: false
-categories: ["email"]
+categories: ["email", "DNS"]
 cover: 
   image: /images/handle-your-spf-record/handle-your-spf-record-front.png
 ---

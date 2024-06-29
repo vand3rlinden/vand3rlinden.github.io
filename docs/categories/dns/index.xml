@@ -6,8 +6,17 @@
     <description>Recent content in DNS on VAND3RLINDEN</description>
     <generator>Hugo -- 0.128.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 13 Jan 2024 21:51:39 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 24 May 2024 23:37:34 +0200</lastBuildDate>
     <atom:link href="https://vand3rlinden.com/categories/dns/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Understanding the Role and Benefits of ARC Sealing</title>
+      <link>https://vand3rlinden.com/post/arc-explained/</link>
+      <pubDate>Fri, 24 May 2024 23:37:34 +0200</pubDate>
+      <guid>https://vand3rlinden.com/post/arc-explained/</guid>
+      <description>Introduction ARC (Authenticated Received Chain) is an email authentication protocol that preserves the authentication results of an email as it travels through multiple intermediaries, such as forwarding services.
+By using ARC, organizations can better manage the complexities of email authentication, especially when email is forwarded, but ARC is a collaboration of multiple servers that trust each other.
+ARC ensures that legitimate emails are less likely to be marked as spam or rejected, while fraudulent emails are more easily identified and filtered out.</description>
+    </item>
     <item>
       <title>DNSSEC and DANE explained</title>
       <link>https://vand3rlinden.com/post/dnssec-dane-explained/</link>
@@ -16,6 +25,22 @@
       <description>In this post, you find out how DNSSEC and DANE cooperate, and learn how to set up DANE TLSA DNS records.
 DNSSEC (Domain Name System Security Extensions) The domain name system (DNS) is the phone book of the Internet: it tells computers where to send and retrieve information. Unfortunately, it also accepts any address given to it, no questions asked.
 DNSSEC adds a security layer to this phonebook. It uses digital signatures to make sure the information in the phonebook can be trusted and hasn&amp;rsquo;t been tampered with.</description>
+    </item>
+    <item>
+      <title>Get a handle on your SPF record</title>
+      <link>https://vand3rlinden.com/post/handle-your-spf-record/</link>
+      <pubDate>Sun, 17 Dec 2023 18:31:45 +0100</pubDate>
+      <guid>https://vand3rlinden.com/post/handle-your-spf-record/</guid>
+      <description>In this post, I will share my best practices for getting a handle on your SPF record.
+Why it makes sense to have a good SPF procedure in place In a previous blog post, I explained the limitations of SPF, best practices and how it works with DKIM and DMARC. It is useful to have a good SPF procedure to avoid future problems, because if you exceed the DNS lookup limit of 10:</description>
+    </item>
+    <item>
+      <title>SPF, DKIM and DMARC explanation</title>
+      <link>https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/</link>
+      <pubDate>Sat, 09 Dec 2023 11:46:16 +0100</pubDate>
+      <guid>https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/</guid>
+      <description>In this post you will learn to understand how the DNS protocols SPF, DKIM and DMARC work together to protect your domain from phishers and spammers.
+Why deploy SPF, DKIM, and DMARC? SPF, DKIM, and DMARC are critical email authentication protocols that help prevent email spoofing, phishing attacks, and domain impersonation for outbound email. Enabling these protocols together strengthens your domain&amp;rsquo;s email authentication mechanisms, improves security, and builds trust with your recipients by ensuring that email sent from your domain is legitimate and trustworthy.</description>
     </item>
   </channel>
 </rss>

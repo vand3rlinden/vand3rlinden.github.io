@@ -2,7 +2,7 @@
 title: "Understanding the Role and Benefits of ARC Sealing"
 date: 2024-05-24T23:37:34+02:00
 draft: false
-categories: ["email"]
+categories: ["email", "DNS"]
 cover: 
   image: /images/arc-explained/arc-explained-front.png
 ---
