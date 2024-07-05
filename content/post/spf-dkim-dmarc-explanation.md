@@ -171,14 +171,14 @@ To protect all non-sending domains, you should consider:
 This protects all of your domains from phishers and spammers, as bad actors will actively look for unused domains to exploit.
 
 ## To Summarize
-SPF performs verification that the IP address of the sending server matches the entry in the SPF record from the sending domain.
-- SPF protects the P1 sender domain (Envelope sender, `RFC5321.MailFrom`).
+***SPF*** performs verification that the IP address of the sending server matches the entry in the SPF record from the sending domain.
+- ***SPF*** protects the P1 sender domain (Envelope sender, `RFC5321.MailFrom`).
 
-DKIM verifies if the public key (DNS record) of a sending domain, matched the private key that came from the sending server. This is a check that the sending domain actually sent the e-mail. DKIM must be configured for ***each*** sending server, such as Exchange Online or any other server/SaaS service.
-- DKIM protects the P2 sender domain (Letter sender, `RFC5322.From`).
+***DKIM*** verifies if the public key (DNS record) of a sending domain, matched the private key that came from the sending server. This is a check that the sending domain actually sent the e-mail. DKIM must be configured for ***each*** sending server, such as Exchange Online or any other server/SaaS service.
+- ***DKIM*** protects the P2 sender domain (Letter sender, `RFC5322.From`).
 
-DMARC acts as a shield on top of SPF and DKIM. DMARC ensures that emails that fail the SPF and/or DKIM tests do not get through. If the email is unable to pass DMARC with SPF, DKIM can help pass DMARC for the P2 sender domain.
-- DMARC protects the P2 sender domain (Letter sender, `RFC5322.From`).
+***DMARC*** acts as a shield on top of SPF and DKIM. DMARC ensures that emails that fail the SPF and/or DKIM tests do not get through. If the email is unable to pass DMARC with SPF, DKIM can help pass DMARC for the P2 sender domain. Therefore, it is really important to have DKIM enabled for all your sending servers before setting DMARC to `reject`.
+- ***DMARC*** protects the P2 sender domain (Letter sender, `RFC5322.From`).
 
 ## Reference
 - [dmarcian SPF best practices](https://dmarcian.com/spf-best-practices/)
