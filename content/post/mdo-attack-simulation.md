@@ -113,7 +113,7 @@ Once the user clicked on the link and logged in, they received an email from `no
 > ***NOTE:*** _You should remove the External tag for the notification email. To do so, run the cmdlet `Set-ExternalInOutlook -AllowList @{Add="attacksimulationtraining.com"}` by using the Exchange Online PowerShell module. You can also use **Tenant notifcations** to change the content or from address._
 
 
-The link will take the user to the Defender portal to complete the courses.
+The link will take the user to the Defender portal to complete the courses at `https://security.microsoft.com/trainingassignments`.
 
 ![IMAGE](/images/mdo-attack-simulation/mdo-attack-simulation-6.png)
 
