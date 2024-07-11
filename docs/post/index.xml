@@ -56,7 +56,7 @@ DNSSEC adds a security layer to this phonebook. It uses digital signatures to ma
       <pubDate>Fri, 29 Dec 2023 11:19:27 +0100</pubDate>
       <guid>https://vand3rlinden.com/post/mdo-safelinks-policies/</guid>
       <description>Safe Links examines emails, Teams messages, and Office 365 apps for malicious links. It scans and alters URLs in incoming emails and verifies links at the time of clicking.
-What you can manage with a Safe Links policy By default, there is no existing default Safe Links policy. The security policy preset, &amp;ldquo;Built-in protection,&amp;rdquo; ensures Safe Links protection for email messages, Microsoft Teams, and files within supported Office apps.</description>
+What you can manage with a Safe Links policy With a Safe Links policy, administrators can configure and manage advanced security policies to protect users from clicking harmful links and being redirected to malicious websites. For organizations using Microsoft Defender for Office 365, Safe Links provides URL scanning for links in messages, Microsoft Teams, and supported Office 365 applications.</description>
     </item>
     <item>
       <title>Microsoft Purview: Purging mails from Inboxes using Content Search</title>

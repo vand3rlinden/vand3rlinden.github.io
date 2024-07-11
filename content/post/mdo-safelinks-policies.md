@@ -10,7 +10,8 @@ cover:
 > _Safe Links examines emails, Teams messages, and Office 365 apps for malicious links. It scans and alters URLs in incoming emails and verifies links at the time of clicking._
 
 ## What you can manage with a Safe Links policy
-By default, there is no existing default Safe Links policy. The security policy preset, "Built-in protection," ensures Safe Links protection for email messages, Microsoft Teams, and files within supported Office apps.
+With a Safe Links policy, administrators can configure and manage advanced security policies to protect users from clicking harmful links and being redirected to malicious websites. For organizations using Microsoft Defender for Office 365, Safe Links provides URL scanning for links in messages, Microsoft Teams, and supported Office 365 applications. Although there's no default policy for Safe Links, the ***built-in protection*** [preset security policy](https://learn.microsoft.com/en-us/defender-office-365/preset-security-policies) provides Safe Links protection for all recipients by default. For greater granularity, you can create custom Safe Links policies that apply to specific users, groups, or domains.
+
 
 Safe Links protection through Safe Links policies is accessible in the following locations:
 
@@ -24,7 +25,7 @@ Safe Links protection through Safe Links policies is accessible in the following
   - Safe Links protection for supported Office desktop, mobile, and web applications.
 
 ## Safe Links policy configuration
-You configure Safe Links policies in the Microsoft Security portal or in Exchange Online PowerShell with the ```New-SafeLinksPolicy``` cmdlet.
+You configure Safe Links policies in the Microsoft Security portal or in Exchange Online PowerShell with the `New-SafeLinksPolicy` cmdlet.
 
 In this article, we will use the Microsoft Security portal for the configuration.
 
@@ -32,24 +33,24 @@ In this article, we will use the Microsoft Security portal for the configuration
 
 2. Click on 'Create'.
 
-3. Specify a policy name such as ```TENANTSHORT - Safe links  policy```.
+3. Specify a policy name such as `TENANTSHORT - Safe links  policy`.
 
 4. Under 'Users and Domains', select the users, groups, and/or domains you want to include (In my case, I chose the default tenant domain).
     - If desired, exclude groups such as Microsoft 365 groups or mail-enabled security groups.
     
 5. Under 'URL & click protection settings' you can set your URL and click protection settings for Email, Teams and Office 365 Apps
     - Email: 
-      - Safe Links checks a list of known, malicious links when users click links in email. URLs are rewritten by default (recommended value: ```$true```).
+      - Safe Links checks a list of known, malicious links when users click links in email. URLs are rewritten by default (recommended value: `$true`).
 
-      - Apply Safe Links to email messages sent within the organization (recommended value: ```$true```).
+      - Apply Safe Links to email messages sent within the organization (recommended value: `$true`).
 
-      - Apply real-time URL scanning for suspicious links and links that point to files (recommended value: ```$true```).
+      - Apply real-time URL scanning for suspicious links and links that point to files (recommended value: `$true`).
 
-      - Wait for URL scanning to complete before delivering the message (recommended value: ```$true```).
+      - Wait for URL scanning to complete before delivering the message (recommended value: `$true`).
 
-      - Do not rewrite URLs, do checks via Safe Links API only (recommended value: ```$false```).
+      - Do not rewrite URLs, do checks via Safe Links API only (recommended value: `$false`).
 
-      - Do not rewrite the following URLs in email (recommended value: ```none```).
+      - Do not rewrite the following URLs in email (recommended value: `none`).
 
         - URLs in the _"Don't rewrite the following URLs"_ list bypass Safe Links scanning. Report it as _"Should not have been blocked (False positive)"_ and choose _"Allow this URL"_ to prevent Safe Links from scanning during mail flow and at the time of click. This adds the URL to the [Tenant Allow/Block List](https://security.microsoft.com/tenantAllowBlockList?viewid=Url).
           - Instruction: [Report good URLs to Microsoft](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/submissions-admin?view=o365-worldwide#report-good-urls-to-microsoft)
