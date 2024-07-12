@@ -10,9 +10,9 @@ cover:
 > _Safe Links examines emails, Teams messages, and Office 365 apps for malicious links. It scans and alters URLs in incoming emails and verifies links at the time of clicking._
 
 ## What you can manage with a Safe Links policy
-With a Safe Links policy, administrators can configure and manage this policy to protect users from clicking harmful links and being redirected to malicious websites. Safe Links provides URL scanning for links in email messages, Microsoft Teams, and supported Office 365 applications. 
+With a Safe Links policy, administrators can configure and manage this policy to protect users from clicking harmful links and being redirected to malicious websites. Safe Links provides URL scanning for links in email messages, Microsoft Teams, and supported Office 365 applications. You can create custom Safe Links policies that apply to specific users, groups, or domains. 
 
-Although there's no default policy for Safe Links, the ***Built-in protection*** [preset security policy](https://learn.microsoft.com/en-us/defender-office-365/preset-security-policies) provides Safe Links protection for all recipients by default (users who aren't defined in the Standard or Strict preset security policies or in custom Safe Links policies). For greater granularity, you can create custom Safe Links policies that apply to specific users, groups, or domains.
+Although there's no default policy for Safe Links, the ***Built-in protection*** [preset security policy](https://learn.microsoft.com/en-us/defender-office-365/preset-security-policies) provides Safe Links protection for all recipients by default (users who aren't defined in the Standard or Strict preset security policies or in custom Safe Links policies).
 
 Safe Links protection through Safe Links policies is accessible in the following locations:
 
