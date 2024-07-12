@@ -7,7 +7,7 @@ cover:
   image: /images/mdo-safelinks-policies/mdo-safelinks-policies-front.png
 ---
 
-> _Safe Links examines emails, Teams messages, and Office 365 apps for malicious links. It scans and alters URLs in incoming emails and verifies links at the time of clicking._
+> _Safe Links scans URLs in incoming messages and checks the links for malicious content at the time they are clicked._
 
 ## What you can manage with a Safe Links policy
 With a Safe Links policy, administrators can configure and manage this policy to protect users from clicking harmful links and being redirected to malicious websites. Safe Links provides URL scanning for links in email messages, Microsoft Teams, and supported Office 365 applications. You can create custom Safe Links policies that apply to specific users, groups, or domains. 
@@ -34,9 +34,9 @@ In this article, we will use the Microsoft Security portal for the configuration
 
 2. Click on 'Create'.
 
-3. Specify a policy name such as `TENANTSHORT - Safe links  policy`.
+3. Specify a policy name such as `TENANTSHORT - Safe links policy`.
 
-4. Under 'Users and Domains', select the users, groups, and/or domains you want to include (In my case, I chose the default tenant domain).
+4. Under 'Users and Domains', select the users, groups, and/or domains you want to include (In my case, I configured all the accepted domains).
     - If desired, exclude groups such as Microsoft 365 groups or mail-enabled security groups.
     
 5. Under 'URL & click protection settings' you can set your URL and click protection settings for Email, Teams and Office 365 Apps

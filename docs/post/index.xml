@@ -6,8 +6,16 @@
     <description>Recent content in Posts on VAND3RLINDEN</description>
     <generator>Hugo -- 0.128.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 May 2024 23:37:34 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 12 Jul 2024 22:43:43 +0200</lastBuildDate>
     <atom:link href="https://vand3rlinden.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microsoft Defender for Office 365: Safe Attachments policies</title>
+      <link>https://vand3rlinden.com/post/mdo-safeattachments-policies/</link>
+      <pubDate>Fri, 12 Jul 2024 22:43:43 +0200</pubDate>
+      <guid>https://vand3rlinden.com/post/mdo-safeattachments-policies/</guid>
+      <description>Safe Attachments scans and evaluates attachments for malicious content before delivering messages to recipients.
+What you can manage with a Safe Attachments policy With a Safe Attachments policy, administrators can configure an additional layer of protection against malicious content in email attachments. It scans and evaluates attachments (Safe Attachments opens files in a virtual environment) before delivering messages to recipients. You can create a custom policy to, specify actions for unknown malware, select a quarantine policy, and configure global settings to protect files in SharePoint, OneDrive, and Teams with Safe Attachments.</description>
+    </item>
     <item>
       <title>Understanding the Role and Benefits of ARC Sealing</title>
       <link>https://vand3rlinden.com/post/arc-explained/</link>
@@ -55,7 +63,7 @@ DNSSEC adds a security layer to this phonebook. It uses digital signatures to ma
       <link>https://vand3rlinden.com/post/mdo-safelinks-policies/</link>
       <pubDate>Fri, 29 Dec 2023 11:19:27 +0100</pubDate>
       <guid>https://vand3rlinden.com/post/mdo-safelinks-policies/</guid>
-      <description>Safe Links examines emails, Teams messages, and Office 365 apps for malicious links. It scans and alters URLs in incoming emails and verifies links at the time of clicking.
+      <description>Safe Links scans URLs in incoming messages and checks the links for malicious content at the time they are clicked.
 What you can manage with a Safe Links policy With a Safe Links policy, administrators can configure and manage this policy to protect users from clicking harmful links and being redirected to malicious websites. Safe Links provides URL scanning for links in email messages, Microsoft Teams, and supported Office 365 applications.</description>
     </item>
     <item>
