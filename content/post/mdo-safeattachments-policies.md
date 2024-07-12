@@ -35,14 +35,14 @@ In this article, we will use the Microsoft Security portal for the configuration
 
 7. Specify a policy name such as `TENANTSHORT - Safe Attachments policy`.
 
-6. Under 'Users and Domains', select the users, groups, and/or domains you want to include (In my case, I configured all the accepted domains).
+8. Under 'Users and Domains', select the users, groups, and/or domains you want to include (In my case, I configured all the accepted domains).
     - If desired, exclude groups such as Microsoft 365 groups or mail-enabled security groups.
 
-7. Under 'Safe Attachments unknown malware response', choose 'Block - Block current and future messages and attachments with detected malware'.
+9. Under 'Safe Attachments unknown malware response', choose 'Block - Block current and future messages and attachments with detected malware'.
 
-8. Under 'Quarantine policy', select a 'Request to release' policy. Preferred: AdminOnlyAccessPolicy. 
+10. Under 'Quarantine policy', select a 'Request to release' policy. Preferred: AdminOnlyAccessPolicy. 
 
-9. Do not configure the 'Redirect messages with detected attachments'. If necessary, you can download the message from Quarantine to investigate the attachment in a sandbox.
+11. Do not configure the 'Redirect messages with detected attachments'. If necessary, you can download the message from Quarantine to investigate the attachment in a sandbox.
 
 > ***NOTE:*** Allow up to 6 hours for a new or updated policy to be applied.
 
