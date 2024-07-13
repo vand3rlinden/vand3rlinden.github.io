@@ -105,6 +105,7 @@ If you only want to allow users to forward to a few specific domains, the best c
 
 ### Reference
 - [Anti-spam protection](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-spam-protection-about)
+- [Configure connection filtering](https://learn.microsoft.com/en-us/defender-office-365/connection-filter-policies-configure)
 - [Exchange Online Sending limits](https://learn.microsoft.com/en-us/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#sending-limits)
 - [Zero-hour auto purge (ZAP)](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/zero-hour-auto-purge)
 - [Recommended anti-spam policy settings - Inbound anti-spam policy](https://learn.microsoft.com/en-us/defender-office-365/recommended-settings-for-eop-and-office365?view=o365-worldwide#eop-anti-spam-policy-settings)
