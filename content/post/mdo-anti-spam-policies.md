@@ -18,7 +18,7 @@ In this inbound policy you can manage:
 
 - **Spam actions**, to set actions (to junk, quarantine, delete and more) when spam is detected. Based on the verdict, you can choose what to do with it, such as quarantine the message, which you can manage with quarantine policies.
 
-- ***Allowed and blocked senders or domains**, such as ```someone@domain.com``` or ```domain.com```. 
+- ***Allowed and blocked senders or domains**, such as `someone@domain.com` or `domain.com`. 
 
 _*To establish a list of blocked/safe senders in EOP, please follow the instructions provided in the two links below:_
 - _[Create blocked sender lists in EOP](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/create-block-sender-lists-in-office-365)_
@@ -36,7 +36,7 @@ In this filter policy you can manage:
 In this outbound policy you can manage:
 - **Internal/external message limit (per hour)**, set an hourly limit for your users (the value cannot exceed the daily limit).
 
-- **Daily message limit**, the [default limit](https://learn.microsoft.com/en-us/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#sending-limits) is ```10,000``` emails per day, this limit can be changed between ```0``` and ```10,000```.
+- **Daily message limit**, the [default limit](https://learn.microsoft.com/en-us/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#sending-limits) is `10,000` emails per day, this limit can be changed between `0` and `10,000`.
 
 > Beginning in January 2025, Exchange Online will begin enforcing an [External Recipient Rate Limit (ERR)](https://techcommunity.microsoft.com/t5/exchange-team-blog/exchange-online-to-introduce-external-recipient-rate-limit/ba-p/4114733) of 2,000 recipients in 24 hours. The 2,000 ERR limit becomes a sub-limit within this `10,000` Recipient Rate limit. There is no change to the Recipient Rate limit, and both are rolling limits for 24-hour windows. You can send to up to `2,000` external recipients in a 24-hour period, and if you max out the external recipient rate limit, you can still send to up to `8,000` internal recipients in the same period. If you don't send to any external recipients in a 24-hour period, you can send to up to `10,000` internal recipients. If you have a cloud-hosted mailbox that needs to exceed the ERR limit, you can move to [Azure Communication Services for Email](https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/email-overview), which is designed specifically for high-volume email sent to recipients outside your tenant. For interal messages you could use [High Volume Email for Microsoft 365](https://techcommunity.microsoft.com/t5/exchange-team-blog/public-preview-high-volume-email-for-microsoft-365/ba-p/4102271) (HVE).
 
