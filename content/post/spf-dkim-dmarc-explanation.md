@@ -55,7 +55,7 @@ The SPF record will differ for everyone; therefore, it is important to understan
 - Flatten your SPF record ***(not recommended)***
     - Example: `v=spf1 include:spf.domain.com -all` can be `v=spf1 ip4:11.222.33.444 ip4:11.222.33.444 -all`
 
-> The problem with flattening is that email service providers can change or add IP addresses without telling you. Then your SPF record will be inaccurate, leading to email delivery problems.
+> The [problem with flattening](https://vand3rlinden.com/post/handle-your-spf-record/#the-dangers-of-spf-flattening) is that email service providers can change or add IP addresses without telling you. Then your SPF record will be inaccurate, leading to email delivery problems.
 
 - Not using entries like `a` and `mx`, these mechanisms are often useless and probably should not be included in your SPF record (and other duplicate SPF mechanisms).
 
