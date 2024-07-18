@@ -49,6 +49,8 @@ The SPF record will differ for everyone; therefore, it is important to understan
     - Example: `"v=spf1 first string" "second string -all"`
 - Can take up to a maximum of 10 DNS Lookups like `include:spf.protection.outlook.com` (which currently contains 1 DNS lookup, without child lookups)
 
+> If a vendor decides to add another DNS lookup within its SPF include (child lookup). Your SPF record may become inaccurate because it has reached the DNS lookup limit, which may result in an email delivery problems.
+
 ### Avoiding the 10 DNS Lookups cap, to:
 - Flatten your SPF record ***(not recommended)***
     - Example: `v=spf1 include:spf.domain.com -all` can be `v=spf1 ip4:11.222.33.444 ip4:11.222.33.444 -all`
