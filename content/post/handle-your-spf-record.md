@@ -72,32 +72,16 @@ If you look at the example above, we have ***2 DNS lookups*** left after cutting
 | `include:%{l}._spf.yourdomain.com`    | 1 DNS Lookup, using an [SPF macro](https://vand3rlinden.com/post/handle-your-spf-record/#use-an-spf-macro-to-restrict-a-third-party-service-to-send-from-a-specific-address) for both Salesforce and Zendesk |
 
 ## IP address management in your SPF record
-So we cleaned up ***7 DNS lookups*** from the previous ***9 DNS Lookups***, good job! But what about the IP addresses in the SPF record? IP addresses don’t cost any DNS lookups because we’re not talking to the DNS. One disadvantage of using IP addresses in your SPF record is that it will result in an unmanageable and too long record. Yes, we can add a new include with the cost of ***1 DNS lookup***, such as `include:_spf.yourdomain.com` with a new SPF `TXT` record, for example:
+So we cleaned up ***7 DNS lookups*** from the previous ***9 DNS Lookups***, good job! But what about the IP addresses in the SPF record? IP addresses don’t cost any DNS lookups because we’re not talking to the DNS. One disadvantage of using IP addresses in your SPF record is that it will result in an unmanageable and too long record. So, we can add a new include with the cost of ***1 DNS lookup***, such as `include:_spf.yourdomain.com` with a new SPF `TXT` record, for example:
 
 SPF for `_spf.yourdomain.com`:
 ```
 v=spf1 ip4:11.222.33.444 ip4:44.33.222.111 ip4:22.33.444.555 ip4:55.66.777.8 ip4:88.99.999.99 ip4:99.88.777.66 -all
 ```
 
-But without being afraid of needing another DNS lookup when the `_spf.yourdomain.com` include reaches its limit of two strings of 255 characters. You can start by using an SPF macro instead. This macro also costs ***1 DNS lookup***, but you can add an unlimited number of IP addresses _(not recommended, but you get my point)_ to it by creating a separate `A` record for each `/32` IP address.
+> **CAUTION:** If the SPF record for your IP addresses reaches its limit of two strings of 255 characters, it will become inaccurate. You should avoid including too many IP addresses. While you can add another include, such as `_spf1.yourdomain.com`, at the cost of another DNS lookup, it is advisable to start segmenting this to subdomains.
 
-## Use an SPF macro for your IP addresses
-1. In the SPF record for `yourdomain.com`, add the following DNS lookup at a cost of ***1 DNS Lookup***:
-```
-exists:%{i}._spf.yourdomain.com
-```
-> The SPF macro `%{i}` replaced the IP address of the SMTP client that submitted the message.
-
-2. Now for each IP address, such as `11.222.33.444`, we will create an `A` record that is not publicly routable (such as to `127.0.0.2`) and a `TXT` record. The `TXT` record is set to list the source of the IP address and can have any value, which is ***optional*** to use.
-
-| Host                                | Type   | Value       |
-| ---                                 | ---    | ---         |
-| `11.222.33.444._spf.yourdomain.com` | `A`    | `127.0.0.2` |
-| `11.222.33.444._spf.yourdomain.com` | `TXT`  | `Internal`  |
-
-You can repeat this process for each IP address you need to add.
-
-If you’re not comfortable with setting a source in public DNS, this option is ***optional*** for the above SPF macro. In my opinion, there should be no security concerns if you use a minimal listed source, such as _vendor name_ or _internal_. For the internal value (if you are using an Azure VM), you can check in Azure which PIP is bound to a NIC for example. Also, the IP addresses are not directly visible using this SPF macro, as you can see in the SPF record from step 1. So the direct hostname is not easy to guess, and the purpose of these systems is probably already easy to identify in other ways, such as an `nmap` scan for open ports.
+> **NOTE:** There is also an SPF macro for IP addresses, `%{i}`, this macro replace the IP address of the SMTP client that submitted the message. However, using two separate SPF macros _(because this blog already uses the macro `%{l}`)_ is not advisable due to the limit of two allowed void lookups (`NXDomain`). Even if you stay within the limit, there is still a risk of DNS timeouts due to slow DNS responses. Exceeding the limit will result in SPF `permerror`. Publishing an SPF policy that refers to data that does not exist in DNS is a poor practice and raises security concerns (see [RFC7208](https://www.rfc-editor.org/info/rfc7208) Section 4.6.4.).
 
 ## Use an SPF macro to restrict a third-party service to send from a specific address
 As described above, third-party services like Salesforce and Zendesk are mostly limited to sending from a single email address, such as `invoices@yourdomain.com` and `support@yourdomain.com`.
@@ -136,38 +120,34 @@ include:%{l}._spf.yourdomain.com
 
 After setting up the above, Salesfroce's sending servers can only send from `invoices@yourdomain.com` and Zendesk can only send from `support@yourdomain.com`.
 
-## How SPF macros work on the receiving mail server
-Example for SPF macro `%{i}`:
-![IMAGE](/images/handle-your-spf-record/spf-macro-visual-i.png)
-
-Example for SPF macro `%{l}`:
+## How the SPF macro %{l} works on the receiving mail server
 ![IMAGE](/images/handle-your-spf-record/spf-macro-visual-l.png)
 
 ## To summarize what we have done
 1. The main SPF record is cleaned up by deleting ***7 DNS lookups***, this with segmenting your email streams with subdomains and using SPF macros.
 2. We deleted the `mx` DNS lookup because of a duplicate mechanism.
-3. We have a good and secure way to add IP addresses to the SPF record using an SPF macro.
+3. We have set all the IP addresses in a separate include.
 4. We have restricted a third-party service to send from a specific address using an SPF macro.
 
 Instead of ***9 DNS lookups*** before cleaning, the cleaned SPF record has only ***3 DNS lookups*** with SPF macros:
 ```
-v=spf1 include:spf.protection.outlook.com exists:%{i}._spf.yourdomain.com include:%{l}._spf.yourdomain.com -all
+v=spf1 include:spf.protection.outlook.com include:_spf.yourdomain.com include:%{l}._spf.yourdomain.com -all
 ```
-> **NOTE:** When using SPF macros and other includes, always use the same order _(`include:` `exists:%{i}` `include:%{l}`)_ as in the above record, otherwise you may get a `spf=permerror` in your outbound authentication.
 
 Final computation of DNS lookups:
 | DNS Lookup                           | Count          |
 | -----------                          | -----------    |
 | `include:spf.protection.outlook.com` | 1 DNS Lookup   |
-| `exists:%{i}._spf.yourdomain.com`    | 1 DNS Lookup for your `/32` IP addresses |
+| `include:_spf.yourdomain.com`        | 1 DNS Lookup for the IP addresses |
 | `include:%{l}._spf.yourdomain.comm`  | 1 DNS Lookup for Salesforce and Zendesk  |
 | Total:                               | 3 DNS Lookups  |
 
 ## Lastly
-For the future of your SPF record, add IP addresses to your SPF record using the SPF macro we set up, and choose carefully whether a SaaS application should be sent through a subdomain or a static address instead of any address from your primary domain. Also, get in the habit of monitoring your SPF record frequently.
+For the future of your SPF record, add IP addresses using the separate include, and carefully decide whether a SaaS application should be sent through a subdomain or a static address instead of any address from your primary domain. In addition, make it a habit to monitor your SPF record frequently and document each sender you list.
 
 ## Reference
-- [dmarcian SPF best practices](https://dmarcian.com/spf-best-practices/)
-- [Concluding the Experiment: SPF Flattening](https://dmarcian.com/spf-flattening/)
+- [Dmarcian SPF best practices - Unavailable from the Netherlands](https://dmarcian.com/spf-best-practices/)
+- [Dmarcian Concluding the Experiment: SPF Flattening - Unavailable from the Netherlands](https://dmarcian.com/spf-flattening/)
 - [Using SPF Macros to Solve the Operational Challenges of SPF](https://www.jamieweb.net/blog/using-spf-macros-to-solve-the-operational-challenges-of-spf/)
 - [SPF Macros: Overcoming the 10 DNS Lookup Limit](https://www.uriports.com/blog/spf-macros-max-10-dns-lookups/)
+- [SPF Policy Tester](https://vamsoft.com/support/tools/spf-policy-tester)

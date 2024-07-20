@@ -183,12 +183,13 @@ This protects all of your domains from phishers and spammers, as bad actors will
 - ***DMARC*** protects the P2 sender domain (Letter sender, `RFC5322.From`).
 
 ## Reference
-- [dmarcian SPF best practices](https://dmarcian.com/spf-best-practices/)
-- [Concluding the Experiment: SPF Flattening](https://dmarcian.com/spf-flattening/)
-- [dmarcian DMARC best practices](https://dmarcian.com/advancing-dmarc-policy/)
-- [The Difference in DMARC Reports: RUA and RUF](https://dmarcian.com/rua-vs-ruf/)
+- [Dmarcian SPF best practices - Unavailable from the Netherlands](https://dmarcian.com/spf-best-practices/)
+- [Dmarcian Concluding the Experiment: SPF Flattening - Unavailable from the Netherlands](https://dmarcian.com/spf-flattening/)
+- [Dmarcian DMARC best practices - Unavailable from the Netherlands](https://dmarcian.com/advancing-dmarc-policy/)
+- [Dmarcian The Difference in DMARC Reports: RUA and RUF - Unavailable from the Netherlands](https://dmarcian.com/rua-vs-ruf/)
 - [Why Mailhardener recommends SPF softfail over fail](https://www.mailhardener.com/blog/why-mailhardener-recommends-spf-softfail-over-fail)
 - [How to protect domains that do not send email](https://www.cloudflare.com/learning/dns/dns-records/protect-domains-without-email/)
 - [SPF is defined in RFC 7208](https://www.rfc-editor.org/info/rfc7208)
 - [DKIM is defined in RFC 6376](https://www.rfc-editor.org/info/rfc6376)
 - [DMARC is defined in RFC 7489](https://www.rfc-editor.org/info/rfc7489)
+- [SPF Policy Tester](https://vamsoft.com/support/tools/spf-policy-tester)
