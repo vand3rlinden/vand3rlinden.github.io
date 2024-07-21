@@ -72,14 +72,21 @@ If you look at the example above, we have ***2 DNS lookups*** left after cutting
 | `include:%{l}._spf.yourdomain.com`    | 1 DNS Lookup, using an [SPF macro](https://vand3rlinden.com/post/handle-your-spf-record/#use-an-spf-macro-to-restrict-a-third-party-service-to-send-from-a-specific-address) for both Salesforce and Zendesk |
 
 ## IP address management in your SPF record
-So we cleaned up ***7 DNS lookups*** from the previous ***9 DNS Lookups***, good job! But what about the IP addresses in the SPF record? IP addresses don’t cost any DNS lookups because we’re not talking to the DNS. One disadvantage of using IP addresses in your SPF record is that it will result in an unmanageable and too long record. So, we can add a new include with the cost of ***1 DNS lookup***, such as `include:_spf.yourdomain.com` with a new SPF `TXT` record, for example:
+So we cleaned up ***7 DNS lookups*** from the previous ***9 DNS Lookups***, good job! But what about the IP addresses in the SPF record? IP addresses don’t cost any DNS lookups because we’re not talking to the DNS. One disadvantage of using IP addresses in your SPF record is that it will result in an unmanageable and too long record. So, we can add a new include with the cost of ***1 DNS lookup***, such as `include:_spf.yourdomain.com`.
 
-SPF for `_spf.yourdomain.com`:
+1. In the SPF record for `yourdomain.com`, add the following DNS lookup:
 ```
-v=spf1 ip4:11.222.33.444 ip4:44.33.222.111 ip4:22.33.444.555 ip4:55.66.777.8 ip4:88.99.999.99 ip4:99.88.777.66 -all
+include:_spf.yourdomain.com
 ```
 
-> **CAUTION:** If the SPF record for your IP addresses reaches its limit of two strings of 255 characters, it will become inaccurate. You should avoid including too many IP addresses. While you can add another include, such as `_spf1.yourdomain.com`, at the cost of another DNS lookup, it is advisable to start segmenting this to subdomains.
+2. Now we create a new `TXT` record in the DNS zone of `yourdomain.com` listing the IP addresses.
+
+| Host                 | Type   | Value                                                                                                                |
+| ---                  | ---    | ---                                                                                                                  |
+| `_spf.yourdomain.com` | `TXT` | `v=spf1 ip4:11.222.33.444 ip4:44.33.222.111 ip4:22.33.444.555 ip4:55.66.777.8 ip4:88.99.999.99 ip4:99.88.777.66 -all`|
+
+
+> **CAUTION:** When the SPF record for your IP addresses reaches its limit of [two strings of 255 characters](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#implementation-of-spf), it becomes inaccurate. You should avoid including too many IP addresses. While you can add another include, such as `_spf1.yourdomain.com`, at the cost of another DNS lookup, it is advisable to start segmenting this into subdomains. Also, get into the habit of documenting all of your IP addresses that send mail on behalf of your domain.
 
 > **NOTE:** There is also an SPF macro for IP addresses, `%{i}`, this macro replace the IP address of the SMTP client that submitted the message. However, using two separate SPF macros _(because this blog already uses the macro `%{l}`)_ is not advisable due to the limit of two allowed void lookups (`NXDomain`). Even if you stay within the limit, there is still a risk of DNS timeouts due to slow DNS responses. Exceeding the limit will result in SPF `permerror`. Publishing an SPF policy that refers to data that does not exist in DNS is a poor practice and raises security concerns (see [RFC7208](https://www.rfc-editor.org/info/rfc7208) Section 4.6.4.).
 
@@ -109,14 +116,12 @@ include:%{l}._spf.yourdomain.com
 
 > The SPF macro `%{l}` replaced with the local-part of the sender's email address.
 
-2. Now we will create two new `TXT` records to restrict Salesforce to only send from `invoices@yourdomain.com` and Zendesk to only send from `support@yourdomain.com`.
+2. Now we will create two new `TXT` records in the DNS zone of `yourdomain.com` to restrict Salesforce to only send from `invoices@yourdomain.com` and Zendesk to only send from `support@yourdomain.com`.
 
-| Host                           | Type   | Value                                |
-| ---                            | ---    | ---                                  |
-| `invoices._spf.yourdomain.com` | `TXT`  | `v=spf1 include:_spf.salesforce.com` |
-| `support._spf.yourdomain.com`  | `TXT`  | `v=spf1 include:mail.zendesk.com`    |
-
-> **NOTE:** It is not necessary to put a `-all` statement at the end of the record, because it will take the statement from the SPF record on `yourdomain.com`.
+| Host                           | Type   | Value                                    |
+| ---                            | ---    | ---                                      |
+| `invoices._spf.yourdomain.com` | `TXT`  | `v=spf1 include:_spf.salesforce.com -all`|
+| `support._spf.yourdomain.com`  | `TXT`  | `v=spf1 include:mail.zendesk.com -all`   |
 
 After setting up the above, Salesfroce's sending servers can only send from `invoices@yourdomain.com` and Zendesk can only send from `support@yourdomain.com`.
 
@@ -135,12 +140,12 @@ v=spf1 include:spf.protection.outlook.com include:_spf.yourdomain.com include:%{
 ```
 
 Final computation of DNS lookups:
-| DNS Lookup                           | Count          |
-| -----------                          | -----------    |
-| `include:spf.protection.outlook.com` | 1 DNS Lookup   |
-| `include:_spf.yourdomain.com`        | 1 DNS Lookup for the IP addresses |
-| `include:%{l}._spf.yourdomain.comm`  | 1 DNS Lookup for Salesforce and Zendesk  |
-| Total:                               | 3 DNS Lookups  |
+| DNS Lookup                           | Count                                  |
+| -----------                          | -----------                            |
+| `include:spf.protection.outlook.com` | 1 DNS Lookup                           |
+| `include:_spf.yourdomain.com`        | 1 DNS Lookup for the IP addresses      |
+| `include:%{l}._spf.yourdomain.comm`  | 1 DNS Lookup for Salesforce and Zendesk|
+| Total:                               | 3 DNS Lookups                          |
 
 ## Lastly
 For the future of your SPF record, add IP addresses using the separate include, and carefully decide whether a SaaS application should be sent through a subdomain or a static address instead of any address from your primary domain. In addition, make it a habit to monitor your SPF record frequently and document each sender you list.
