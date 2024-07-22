@@ -10,7 +10,7 @@ cover:
 > _In this post, I will share my best practices for getting a handle on your SPF record._
 
 ## Why it makes sense to have a good SPF procedure in place
-In a previous [blog post](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/), I explained the limitations of SPF, best practices and how it works with DKIM and DMARC. It is useful to have a good SPF procedure to avoid future problems, because if you exceed the DNS lookup limit of 10:
+In a previous [blog post](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/), I explained the limitations of SPF and how it works with DKIM and DMARC. It's crucial to have a well-structured SPF procedure to avoid future problems, especially since exceeding the DNS lookup limit of 10 can cause issues, such as:
 
 - Your domain is vulnerable to spoofing on the P1 sender domain (`RFC5321.MailFrom`)
 - Your domain authentication or validation may fail (`spf=PermError`)
