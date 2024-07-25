@@ -95,7 +95,7 @@ In this case, you can:
 3. Set Automatic forwarding to: _‘On — Forwarding is enabled’_.
 
 ### Comparison chart of methods for blocking automatic forwarding in Microsoft 365
-Exchange Online offers several methods for managing the flow of email messages, including Remote Domain, Transport Rules, and Anti-Spam Outbound Policies. Each method has its pros and cons:
+Exchange Online provides several methods for blocking automatic forwarding. These are Remote domains, Transport Rules, and Anti-spam outbound policies. Each method has its pros and cons:
 
 | Method                          | Pros                                                                                              | Cons                                                                                                                                                       | Exclusions                  |
 |-                                |-                                                                                                  |-                                                                                                                                                           |-                            |
