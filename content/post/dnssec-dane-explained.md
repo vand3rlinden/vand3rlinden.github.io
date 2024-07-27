@@ -65,6 +65,9 @@ SMTP DANE is a security protocol that uses DNS to verify the authenticity of the
 Where SPF, DKIM, and DMARC focus more on the email messages and the sending hosts they come from, DANE focuses more on establishing the TLS connection between mail servers.
 
 ### The flow of SMTP DANE on 25
+- **Outbound SMTP DANE with DNSSEC `sending mail server`**: Requests DANE `TLSA` records of the receiving domain's MX record.
+- **Inbound SMTP DANE with DNSSEC `receiving mail server`**: Requires DNSSEC and DANE `TLSA` records that can be requested by the sending mail server.
+
 ![IMAGE](/images/dnssec-dane-explained/smtpdane-visual.png)
 
 ## To Summarize

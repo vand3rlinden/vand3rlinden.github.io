@@ -6,8 +6,16 @@
     <description>Recent content on VAND3RLINDEN</description>
     <generator>Hugo -- 0.129.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 Jul 2024 22:43:43 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 28 Jul 2024 01:13:44 +0200</lastBuildDate>
     <atom:link href="https://vand3rlinden.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Exchange Online: Configure inbound SMTP DANE with DNSSEC</title>
+      <link>https://vand3rlinden.com/post/exo-inbound-smtp-dane-dnssec/</link>
+      <pubDate>Sun, 28 Jul 2024 01:13:44 +0200</pubDate>
+      <guid>https://vand3rlinden.com/post/exo-inbound-smtp-dane-dnssec/</guid>
+      <description>In this post, you will learn how to enable and use SMTP DANE with DNSSEC in Exchange Online.
+While outbound SMTP DANE with DNSSEC in Exchange Online has been enabled since 2022, Microsoft is currently rolling out inbound SMTP DANE with DNSSEC in Exchange Online. It is currently in public preview, with General Availability expected in October 2024. In an earlier blog post, I explained how SMTP DANE with DNSSEC works together.</description>
+    </item>
     <item>
       <title>Microsoft Defender for Office 365: Safe Attachments policies</title>
       <link>https://vand3rlinden.com/post/mdo-safeattachments-policies/</link>
