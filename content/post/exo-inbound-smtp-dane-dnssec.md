@@ -74,6 +74,7 @@ $DNSSEC.DnsValidation
 $DNSSEC = Get-DnssecStatusForVerifiedDomain -DomainName yourdomain.com
 $DNSSEC.MxValidation
 
+# DNSSEC - MTA-STS Policy validation (check the validation only if you use an MTA-STS policy)
 $DNSSEC = Get-DnssecStatusForVerifiedDomain -DomainName yourdomain.com
 $DNSSEC.MtaStsValidation
 
