@@ -1,4 +1,4 @@
 version: STSv1
-mode: enforce
+mode: none
 mx: demo365-vand3rlinden-com.j-v1.mx.microsoft
 max_age: 86400

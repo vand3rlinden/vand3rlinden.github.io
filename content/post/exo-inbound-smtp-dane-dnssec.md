@@ -89,6 +89,20 @@ The `TLSA` records are listed in: ` _25._tcp.yourdomain-com.j-v1.mx.microsoft`
 
 ![IMAGE](/images/exo-inbound-smtp-dane-dnssec/exo-inbound-smtp-dane-dnssec1.png)
 
+## Activate TLS Reporting (TLSRPT)
+TLS Reporting (TLSRPT) is a standard defined in [RFC 8460](https://datatracker.ietf.org/doc/html/rfc8460) that provides a way to report when the TLS connection could not be established during email transmission. It provides a mechanism for receiving reports of failures to establish secure SMTP connections, helping organizations improve their email security configurations and diagnose problems.
+
+TLSRPT records are DNS TXT records that specify how to report issues with TLS encryption for SMTP. When an email server experiences issues delivering emails securely to another server, it can refer to the TLSRPT record to know where to send the report of the problem.
+
+### Implementation
+- Log in to your DNS hosting provider's management console.
+- Add a new TXT record with the following details:
+  ```
+  Host/Name: _smtp._tls
+  Type: TXT
+  Value: "v=TLSRPTv1; rua=mailto:tlsrpt@yourdomain.com"
+  ```
+
 ## Reference
 - [Announcing Public Preview of Inbound SMTP DANE with DNSSEC for Exchange Online](https://techcommunity.microsoft.com/t5/exchange-team-blog/announcing-public-preview-of-inbound-smtp-dane-with-dnssec-for/ba-p/4155257)
 - [How SMTP DNS-based Authentication of Named Entities (DANE) works](https://learn.microsoft.com/en-us/purview/how-smtp-dane-works)
