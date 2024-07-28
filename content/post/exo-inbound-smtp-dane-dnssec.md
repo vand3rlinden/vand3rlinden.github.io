@@ -21,7 +21,7 @@ A short recap:
 - Enhance your email reputation by demonstrating compliance with the latest security standards
 
 ## Prerequisites
-- You must have added the domain as an "Accepted Domain," and the domain status must be "Healthy" in the Microsoft 365 Admin Center. The current domain's MX record must have a priority of 0 or 10 and must not have a fallback or secondary MX record.
+- Before you enable inbound SMTP DANE with DNSSEC in Exchange Online for a domain, you must have added the domain as an Accepted domain and the domain status must be Healthy in the Microsoft 365 Admin Center. The current domain's MX record must have a priority of `0` or `10` and must not have a fallback or secondary MX record.
 
 - Make sure that DNSSEC is enabled for your domain at your DNS provider.
  - You can use the [DNSSEC Analyzer](https://dnssec-analyzer.verisignlabs.com/) from VeriSign, to check if your DNS provider have DNSSEC enabled for your domain.
@@ -80,6 +80,11 @@ $DNSSEC.MtaStsValidation
 # SMTP DANE
 Get-SmtpDaneInboundStatus -DomainName yourdomain.com
 ```
+
+## Check the TLSA record
+The `TLSA` records are listed in: ` _25._tcp.yourdomain-com.j-v1.mx.microsoft`
+
+![IMAGE](/images/exo-inbound-smtp-dane-dnssec/exo-inbound-smtp-dane-dnssec1.png)
 
 ## Reference
 - [Announcing Public Preview of Inbound SMTP DANE with DNSSEC for Exchange Online](https://techcommunity.microsoft.com/t5/exchange-team-blog/announcing-public-preview-of-inbound-smtp-dane-with-dnssec-for/ba-p/4155257)
