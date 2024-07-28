@@ -37,6 +37,8 @@ Below is a simplified version of the implementation compared to the official [Mi
 
 2. Connect to Exchange Online PowerShell
 
+> If you're using MTA-STS, you'll need to set your policy mode to `testing` during configuration, and set it back to `enforced` after configuration.
+
 3. Enable DNSSEC on your verified domain by running the cmdlet: `Enable-DnssecForVerifiedDomain -DomainName yourdomain.com`
 
 4. Take the `DnssecMxValue` value, navigate to the DNS registrar hosting the domain, add a new MX record: `20 yourdomain-com.j-v1.mx.microsoft` and set the TTL to the lowest possible value (not lower than 30 seconds).
@@ -49,7 +51,7 @@ Below is a simplified version of the implementation compared to the official [Mi
 
 8. Delete the legacy MX record `yourdomain-com.mail.protection.outlook.com`
 
-9. Update the TTL for the new MX record `yourdomain-com.j-v1.mx.microsoft` to '3600 seconds' or '1 hour'
+9.  Update the TTL for the new MX record `yourdomain-com.j-v1.mx.microsoft` to '3600 seconds' or '1 hour'
 
 10. Enable SMTP DANE for that same domain once the DNSSEC enablement is complete by running the cmdlet: `Enable-SmtpDaneInbound -DomainName yourdomain.com`
 
