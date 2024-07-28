@@ -95,13 +95,13 @@ TLS Reporting (TLSRPT) is a standard defined in [RFC 8460](https://datatracker.i
 TLSRPT records are DNS TXT records that specify how to report issues with TLS encryption for SMTP. When an email server experiences issues delivering emails securely to another server, it can refer to the TLSRPT record to know where to send the report of the problem.
 
 ### Implementation
-- Log in to your DNS hosting provider's management console.
-- Add a new TXT record with the following details:
-  ```
-  Host/Name: _smtp._tls
-  Type: TXT
-  Value: "v=TLSRPTv1; rua=mailto:tlsrpt@yourdomain.com"
-  ```
+1. Log in to your DNS hosting provider's management console.
+2. Add a new TXT record with the following details:
+
+| Host                        | Type | Value                                         |
+| ----                        | ---  | ---                                           |
+| `_smtp._tls.yourdomain.com` | `TXT`| `v=TLSRPTv1; rua=mailto:tlsrpt@yourdomain.com`|
+
 
 ## Reference
 - [Announcing Public Preview of Inbound SMTP DANE with DNSSEC for Exchange Online](https://techcommunity.microsoft.com/t5/exchange-team-blog/announcing-public-preview-of-inbound-smtp-dane-with-dnssec-for/ba-p/4155257)
