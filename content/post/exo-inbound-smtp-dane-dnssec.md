@@ -37,7 +37,7 @@ Below is a simplified version of the implementation compared to the official [Mi
 
 2. Connect to Exchange Online PowerShell
 
-> If you're using MTA-STS, you'll need to set your policy mode to `testing` during configuration, and set it back to `enforced` after configuration.
+> If you're using [MTA-STS](https://github.com/vand3rlinden/mta-sts), you'll need to set your policy mode to `testing` during configuration, and set it back to `enforced` after configuration.
 
 3. Enable DNSSEC on your verified domain by running the cmdlet: `Enable-DnssecForVerifiedDomain -DomainName yourdomain.com`
 
