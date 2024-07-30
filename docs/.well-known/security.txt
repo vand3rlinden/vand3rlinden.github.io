@@ -1,3 +1,11 @@
+# Security address
 Contact: mailto:security@vand3rlinden.com
+
+# OpenPGP key
+Encryption: https://vand3rlinden.com/.well-known/pgp-key.txt
+
+# Expiration of security.txt file
 Expires: 2025-07-29T21:59:00.000Z
+
+# Languages
 Preferred-Languages: EN, NL
