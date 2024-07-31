@@ -16,9 +16,10 @@ A short recap:
 - **Inbound SMTP DANE with DNSSEC `receiving mail server`**: Requires DNSSEC and DANE `TLSA` records that can be requested by the sending mail server.
 
 ## Inbound SMTP DANE with DNSSEC benefits
-- Better protect your email domain from impersonation
-- Help ensure your messages are delivered to the intended recipients using encryption and without being altered or redirected
-- Enhance your email reputation by demonstrating compliance with the latest security standards
+- **Authentication of TLS Certificates**: SMTP DANE ensures that the TLS certificates used in email exchanges are authenticated.
+- **Reduction in Delivery Failures**: By using DANE, the sending mail server can verify that the recipient's server supports and prefers secure TLS connections.
+- **Enhance Email Reputation**: Demonstrate compliance with the latest security standards, thus enhancing your email reputation.
+- **Integrity and Authenticity of DNS Records**: DNSSEC adds a layer of security to the DNS system by digitally signing DNS records. 
 
 ## Prerequisites
 - Before you enable inbound SMTP DANE with DNSSEC in Exchange Online for a domain, you must have added the domain as an Accepted domain and the domain status must be Healthy in the Microsoft 365 Admin Center. The current domain's MX record must have a priority of `0` or `10` and must not have a fallback or secondary MX record.
