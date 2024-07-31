@@ -18,7 +18,7 @@ A short recap:
 ## Inbound SMTP DANE with DNSSEC benefits
 - **Authentication of TLS Certificates**: SMTP DANE ensures that the TLS certificates used in email exchanges are authenticated.
 - **Reduction in Delivery Failures**: By using DANE, the sending mail server can verify that the recipient's server supports and prefers secure TLS connections.
-- **Enhance Email Reputation**: Demonstrate compliance with the latest security standards, thus enhancing your email reputation.
+- **Enhance Email Reputation**: Demonstrate that you comply with the latest security standards.
 - **Integrity and Authenticity of DNS Records**: DNSSEC adds a layer of security to the DNS system by digitally signing DNS records. 
 
 ## Prerequisites
