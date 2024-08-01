@@ -22,7 +22,7 @@ I do not share your personal information with third parties.
 # Security
 I take reasonable measures to protect the information you provide to me from unauthorized access or disclosure.
 
-# Third-Party Links
+# Third-Party links
 My blog may contain links to other Websites. I am not responsible for the privacy practices or the content of these third-party Websites. Please review the privacy policies of any third-party sites you visit.
 
 # Changes to this privacy policy
