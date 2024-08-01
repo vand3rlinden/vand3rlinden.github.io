@@ -14,7 +14,7 @@ Welcome to my blog vand3rlinden.com! Your privacy is important to me. This priva
 2. Google Analytics: I do not use Google Analytics or any other analytics services to track your visit to my blog. 
 
 # Information I collect
-1. Voluntarily Provided Information: If you contact me, I may receive information about you such as your name, email address, and any other information you choose to provide.
+Voluntarily Provided Information: If you contact me, I may receive information about you such as your name, email address, and any other information you choose to provide.
 
 # Information Sharing
 I do not share your personal information with third parties.
