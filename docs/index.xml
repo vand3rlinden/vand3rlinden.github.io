@@ -6,8 +6,18 @@
     <description>Recent content on VAND3RLINDEN</description>
     <generator>Hugo -- 0.129.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 Jul 2024 01:13:44 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 01 Aug 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://vand3rlinden.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Privacy Policy</title>
+      <link>https://vand3rlinden.com/privacy-policy/</link>
+      <pubDate>Thu, 01 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://vand3rlinden.com/privacy-policy/</guid>
+      <description>Last Updated: [08/01/2024]
+Welcome to my blog vand3rlinden.com! Your privacy is important to me. This privacy policy explains what personal information I collect and how I use it.
+Information I do not collect Cookies: I do not collect cookies on this website. This means I do not store any information on your device or track your browsing activity through cookies.
+Google Analytics: I do not use Google Analytics or any other analytics services to track your visit to my blog.</description>
+    </item>
     <item>
       <title>Exchange Online: Configure inbound SMTP DANE with DNSSEC</title>
       <link>https://vand3rlinden.com/post/exo-inbound-smtp-dane-dnssec/</link>

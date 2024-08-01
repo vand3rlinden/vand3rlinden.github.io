@@ -1,5 +1,10 @@
-# Privacy Policy
-Last Updated: [07/31/2024]
+---
+date: 2024-08-01
+title: "Privacy Policy"
+type: "pages"
+---
+
+> _Last Updated: [08/01/2024]_
 
 Welcome to my blog vand3rlinden.com! Your privacy is important to me. This privacy policy explains what personal information I collect and how I use it. 
 
@@ -24,4 +29,4 @@ My blog may contain links to other Websites. I am not responsible for the privac
 I may update this privacy policy from time to time. You are advised to review this privacy policy periodically for any changes.
 
 # Contact me
-If you have any questions or concerns about this privacy policy, please contact me at info@vand3rlinden.com.
+If you have any questions or concerns about this privacy policy, please contact me at [info@vand3rlinden.com](mailto:info@vand3rlinden.com).
