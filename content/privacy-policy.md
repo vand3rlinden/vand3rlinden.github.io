@@ -16,7 +16,7 @@ Welcome to my blog vand3rlinden.com! Your privacy is important to me. This priva
 # Information I collect
 Voluntarily Provided Information: If you contact me, I may receive information about you such as your name, email address, and any other information you choose to provide.
 
-# Information Sharing
+# Information sharing
 I do not share your personal information with third parties.
 
 # Security
@@ -25,7 +25,7 @@ I take reasonable measures to protect the information you provide to me from una
 # Third-Party Links
 My blog may contain links to other Websites. I am not responsible for the privacy practices or the content of these third-party Websites. Please review the privacy policies of any third-party sites you visit.
 
-# Changes to This Privacy Policy
+# Changes to this privacy policy
 I may update this privacy policy from time to time. You are advised to review this privacy policy periodically for any changes.
 
 # Contact me
