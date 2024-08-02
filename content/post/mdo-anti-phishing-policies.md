@@ -62,11 +62,14 @@ With spoof intelligence enabled, you control the response when the P1 Sender doe
 Phishers may use P1 spoofing, allowing SPF to pass on their domain (P1 Sender) while sending emails on behalf of another domain (P2 Sender). Spoof intelligence identifies this and labels the email with Protection Policy Category ```SPOOF``` (Spoofing) in the ```X-Forefront-Antispam-Report``` message header.
 
 ## Configure anti-phishing policies and best practices
+> The best practices are based on the [Strict recommendations settings](https://learn.microsoft.com/en-us/defender-office-365/recommended-settings-for-eop-and-office365?view=o365-worldwide#eop-anti-phishing-policy-settings) of the Configuration Analyzer.
+
 1. Sign in to the Microsoft Defender portal and navigate to the [Anti-phishing section](https://security.microsoft.com/antiphishing).
 
 2. Navigate to 'Phishing Threshold & Protection' and select 'Edit Protection Settings'.
 
-3. Set the Phishing email threshold to at least on '3 - More Aggressive'.
+3. Set the Phishing email threshold to '4 - Most Aggressive'.
+   - A higher phishing threshold value results in stricter actions for phishing detections. Since phishing attacks are still the number one method of gaining access to an environment, you should not risk lowering this threshold.
 
 4. Check 'Enable Users to Protect' (User impersonation protection), you can include up to 350 key users. 
 
@@ -91,7 +94,7 @@ ForEach ($User in $Users){
 5. Check 'Enable domains to protect' (Domain impersonation protection).
 
 6. In 'Add Trusted Senders and Domains', you can specify senders or domains that will not be flagged for impersonation.
-    - Trusted Senders and Domains does not bypass all spam, spoofing, phishing protection and sender authentication (SPF, DKIM, DMARC) like Allowed Senders or Allowed Domains in the inbound anti-spam policy. However, it is still not recommended for use, especially for domains. Messages from the specified senders and sender domains will never be classified by the policy as impersonation-based attacks. Require that your key users use no other address to communicate within your environment. But, depending on your organization, only add senders or domains that are incorrectly identified as impersonation attempts. Once you have added entries, monitor the list frequently.
+    - ***Trusted Senders and Domains*** does not bypass all spam, spoofing, phishing protection and sender authentication (SPF, DKIM, DMARC) like ***Allowed Senders or Allowed Domains*** in the inbound anti-spam policy. However, it is still not recommended for use, especially for domains. Messages from the specified senders and sender domains will never be classified by the policy as impersonation-based attacks. Require that your key users use no other address to communicate within your environment. But, depending on your organization, only add senders or domains that are incorrectly identified as impersonation attempts. Once you have added entries, monitor the list frequently.
 
 7. Both 'Enable Mailbox Intelligence' and 'Enable Intelligence for Impersonation Protection' should be checked, as explained earlier.
 
@@ -99,13 +102,14 @@ ForEach ($User in $Users){
 
 9. After saving, navigate to ‘Action’ and select 'Edit Actions'.
 
-10. I recommend setting all actions to 'Quarantine the message' except for 'If the message is detected as spoof by spoof intelligence'. This action can be set to 'Move message to Junk Email folder'. This is because emails detected as spoof by Spoof Intelligence can be ligitmate emails (implicit failures) if the sender hasn't set up their outbound authentication correctly from the sending email source.
+10. I recommend setting all actions to 'Quarantine the message'.
+      - My preference is to select a quarantine policies to ***request to release*** except for the quarantine policy for mailbox intelligence. 
 
 11. Turn on 'Honor DMARC record policy when the message is detected as spoof', this setting will honor the sender's DMARC policy for email authentication failures (explicit failures).
-  - Setting: If the message is detected as spoof and DMARC Policy is set as ***p=quarantine***
-    - Action: Quarantine the message
-  - Setting: If the message is detected as spoof and DMARC Policy is set as ***p=reject***
-    - Action: Reject the message (NDR)
+      - Setting: If the message is detected as spoof and DMARC Policy is set as ***p=quarantine***
+        - Action: Quarantine the message
+      - Setting: If the message is detected as spoof and DMARC Policy is set as ***p=reject***
+        - Action: Reject the message (NDR)
 
 12. Check all safety tips, to help recipients be more aware of red flags in an email.
 

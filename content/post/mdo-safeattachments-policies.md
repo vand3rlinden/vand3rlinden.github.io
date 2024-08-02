@@ -47,5 +47,5 @@ In this article, we will use the Microsoft Security portal for the configuration
 > ***NOTE:*** Allow up to 6 hours for a new or updated policy to be applied.
 
 ## Reference
-- [Recommended Safe Attachments settings](https://learn.microsoft.com/en-us/defender-office-365/recommended-settings-for-eop-and-office365?view=o365-worldwide#safe-attachments-settings)
+- [Recommended Safe Attachments settings](https://learn.microsoft.com/en-us/defender-office-365/recommended-settings-for-eop-and-office365?view=o365-worldwide#safe-attachments-policy-settings)
 - [Safe Attachments in Microsoft Defender for Office 365](https://learn.microsoft.com/en-us/defender-office-365/safe-attachments-about)

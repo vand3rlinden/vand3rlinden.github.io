@@ -45,15 +45,18 @@ In this outbound policy you can manage:
 - **Disable automatic forwarding**, one-third of the available options for disabling automatic forwarding in EOP; more details will be provided later in this post.
 
 ## Best practices
+> The best practices are based on the Strict recommendations settings of the Configuration Analyzer for the [Inbound anti-spam policy](https://learn.microsoft.com/en-us/defender-office-365/recommended-settings-for-eop-and-office365?view=o365-worldwide#eop-anti-spam-policy-settings) and [Outbound anti-spam policy](https://learn.microsoft.com/en-us/defender-office-365/recommended-settings-for-eop-and-office365?view=o365-worldwide#eop-outbound-spam-policy-settings)
+
 
 ### Anti-spam inbound policy
-- Set the bulk email threshold to 6 as a minimum, a higher bulk email threshold means more bulk email will be delivered.
+- Set the bulk email threshold to 5 as a minimum. 
+  - A higher bulk email threshold means more bulk email will be delivered.
 
 - It is recommended to disable the [ASF (Advanced Spam Filter) settings](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-spam-policies-asf-settings-about), because enabling one or more of the ASF settings is an aggressive approach to spam filtering that can often result in false positives. The effectiveness of these settings in reducing spam has declined significantly over the years.
   - For example, ASF Setting: `SPF record: hard fail` does not need to be enabled because legitimate emails can be marked as High Confidence Phishing (`HSPM`) in situations where SPF fails but DMARC passes because DKIM succeeded for the P2 sender domain. 
 
-- Set all your spam actions to 'Quarantine message', except for the ***Spam message action*** and ***Bulk message action***, this can be set on 'Move message to Junk Email folder'.
-    - My preference is to select a [quarantine policies](https://vand3rlinden.com/post/mdo-quarantine-policies/) to ***request to release*** items for the actions ***Phishing message action*** and ***High confidence phishing message action*** (also, quarantine release permissions will be ignored for high-confidence phishing messages).
+- Set all your spam actions to 'Quarantine message'.
+    - My preference is to ***only*** select ***request to release*** [quarantine policies](https://vand3rlinden.com/post/mdo-quarantine-policies/) for the actions ***Phishing message action*** and ***High confidence phishing message action*** (also, quarantine release permissions will be ignored for high-confidence phishing messages).
 
 - Set intra-organizational messages to the default setting. This setting control spam filtering, and the corresponding actions will be applied to internal messages (messages sent between users within the organization).
     - The default value is the same as selecting High confidence phishing messages.
@@ -77,10 +80,19 @@ In this outbound policy you can manage:
     - You should not enable this dynamic allow list, because incoming messages from this dynamic list will bypass spam filtering.
 
 ### Anti-spam outbound policy
+- Configure message limits and set the 'over limit action' to 'restrict users from sending email'. Users can be released from the [restricted entities](https://security.microsoft.com/restrictedentities) once there is no indication of a compromised user.
+  - Recommended Strict:
+    ```
+    Restrict sending to external recipients (per hour)
+    400
+    Restrict sending to internal recipients (per hour)
+    800
+    Maximum recipient limit per day
+    800
+    ```
+
 - Disable automatic forwarding:
     - Disabling this option will disable any auto-forwarding in your environment. Please review the comparison chart below to determine if this option meets your organization's needs.
-
-- Configure message limits based on your organization's needs and set the limit action to restrict users from sending email. Users can be released from the [restricted entities](https://security.microsoft.com/restrictedentities) once there is no indication of a compromised user.
 
 ### Anti-spam outbound policy (Custom, Allow Forward)
 There are situations where you might want to allow automatic forwarding for mail accounts that need to have forwarding enabled, such as forwarding mail to internal team channels _(emails.teams.ms addresses)_.
