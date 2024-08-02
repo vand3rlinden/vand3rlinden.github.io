@@ -91,7 +91,7 @@ ForEach ($User in $Users){
 5. Check 'Enable domains to protect' (Domain impersonation protection).
 
 6. In 'Add Trusted Senders and Domains', you can specify senders or domains that will not be flagged for impersonation.
-    - ***Not recommended for use***, especially domains. Messages from the specified senders and sender domains will never be classified by the policy as impersonation-based attacks. Require that your key users use no other address to communicate within your environment. However, depending on your organization, only add senders or domains that are incorrectly identified as impersonation attempts. Once you have added entries, monitor the list frequently.
+    - Trusted Senders and Domains does not bypass all spam, spoofing, phishing protection and sender authentication (SPF, DKIM, DMARC) like Allowed Senders or Allowed Domains in the inbound anti-spam policy. However, it is still not recommended for use, especially for domains. Messages from the specified senders and sender domains will never be classified by the policy as impersonation-based attacks. Require that your key users use no other address to communicate within your environment. But, depending on your organization, only add senders or domains that are incorrectly identified as impersonation attempts. Once you have added entries, monitor the list frequently.
 
 7. Both 'Enable Mailbox Intelligence' and 'Enable Intelligence for Impersonation Protection' should be checked, as explained earlier.
 
@@ -116,17 +116,21 @@ From the field I have seen that when a user is attacked by self-to-self spoofing
 
 ## In summary
 ### User Impersonation:
-User impersonation involves combining the user’s display name and email address, and it can be set up for a maximum of 350 users.
+- User impersonation involves combining the user’s display name and email address, and it can be set up for a maximum of 350 users.
+- Protection Policy Category (CAT): `UIMP` (User impersonation) in the X-Forefront-Antispam-Report header
 
 ### Domain Impersonation:
-Domain impersonation occurs when the domain is manipulated to resemble the legitimate domain.
+- Domain impersonation occurs when the domain is manipulated to resemble the legitimate domain.
+- Protection Policy Category (CAT): `DIMP` (Domain impersonation) in the X-Forefront-Antispam-Report header
 
 ### Mailbox Intelligence:
-Operates similarly to user impersonation protection; however, it utilizes the contents of the mailbox to identify phishing attempts.
-
+- Operates similarly to user impersonation protection; however, it utilizes the contents of the mailbox to identify phishing attempts.
+- Protection Policy Category (CAT): `GIMP` (Mailbox intelligence impersonation) in the X-Forefront-Antispam-Report header
+  
 ### Spoof Intelligence:
-Spoofing takes place when the From address (P2 Sender) in an email message does not match the domain of the email source (P1 Sender).
-
+- Spoofing takes place when the From address (P2 Sender) in an email message does not match the domain of the email source (P1 Sender).
+- Protection Policy Category (CAT): `SPOOF` (Spoofing) in the X-Forefront-Antispam-Report header
+  
 ## Reference
 - [Impersonation settings in anti-phishing policies in Microsoft Defender for Office 365](https://learn.microsoft.com/en-us/defender-office-365/anti-phishing-policies-about?view=o365-worldwide#impersonation-settings-in-anti-phishing-policies-in-microsoft-defender-for-office-365)
 - [User impersonation protection](https://learn.microsoft.com/en-us/defender-office-365/anti-phishing-policies-about?view=o365-worldwide#user-impersonation-protection)
