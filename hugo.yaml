@@ -48,7 +48,7 @@ params:
   #author: Ricardo van der Linden
 
 #other params settings
-  defaultTheme: dark # dark | light
+  defaultTheme: light # dark | light
   disableThemeToggle: false
   ShowReadingTime: true
   ShowShareButtons: true

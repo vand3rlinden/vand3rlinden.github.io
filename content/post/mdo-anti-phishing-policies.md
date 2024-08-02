@@ -103,7 +103,7 @@ ForEach ($User in $Users){
 9. After saving, navigate to ‘Action’ and select 'Edit Actions'.
 
 10. I recommend setting all actions to 'Quarantine the message'.
-      - My preference is to select a quarantine policies to ***request to release*** except for the quarantine policy for mailbox intelligence. 
+      - Select ***request to release*** [quarantine policies](https://vand3rlinden.com/post/mdo-quarantine-policies/) for all actions, except the mailbox intelligence action. 
 
 11. Turn on 'Honor DMARC record policy when the message is detected as spoof', this setting will honor the sender's DMARC policy for email authentication failures (explicit failures).
       - Setting: If the message is detected as spoof and DMARC Policy is set as ***p=quarantine***
