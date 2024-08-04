@@ -60,7 +60,7 @@ Example for this site, `TLSA` records:
 ![IMAGE](/images/dnssec-dane-explained/dnssec-dane-explained-2.png)
 
 
-## How DNSSEC and DANE work together on a mailserver (25, SMTP DANE)
+## How DNSSEC and DANE work together on a mailserver (25)
 SMTP DANE is a security protocol that uses DNS to verify the authenticity of the certificates used for securing email communication with TLS and protecting against TLS downgrade attacks. 
 
 Where SPF, DKIM, and DMARC focus more on the email messages and the sending hosts they come from, DANE focuses more on establishing the TLS connection between mail servers.
