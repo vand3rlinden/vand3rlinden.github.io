@@ -43,7 +43,7 @@ To prevent email spoofing and phishing using this domain, you need to set up a D
 - TXT name: `_dmarc`
 - TXT value: `v=DMARC1; p=reject;`
 
-Because you can treat your `onmicrosoft.com` as a non-sending domain, the DMARC Aggregate (`rua`) and DMARC Forensic (`ruf`) reports are not required for listing in the DMARC `TXT` record.
+Because you can treat your `onmicrosoft.com` domain as a non-sending domain, the DMARC Aggregate (`rua`) and DMARC Forensic (`ruf`) reports are not required for listing in the DMARC `TXT` record.
 
 ## To summerize 
 DKIM rotation ensures that even if a key is compromised, it will become obsolete after a period of time, limiting the window of vulnerability. Additionally, setting up DMARC for the MOERA domain is crucial to protect against email fraud targeting this domain.
