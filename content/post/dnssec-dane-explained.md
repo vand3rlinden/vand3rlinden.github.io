@@ -21,7 +21,7 @@ DANE used the DNS infrastructure to store details about the security of a servic
 
 > DANE relies on DNSSEC and only works when DNSSEC is enabled.
 
-### Implementation of DANE
+## Implementation of DANE
 You can implement DANE with a `TLSA` record at your DNS hosting provider:
 - `_port._protocol.yourdomain.com` IN `TLSA` `usage-selector-matching certificate-fingerprint`
 
@@ -47,10 +47,10 @@ The `Matching-Type` specifies how the certificate association is verified:
 - 1: SHA-256 hash (recommended)
 - 2: SHA-512 hash (not recommended / less supported)
 
-## How DNSSEC and DANE work together on a webserver (443)
+## DNSSEC and DANE on a webserver
 By combining DNSSEC and DANE, the integrity and authenticity of both the DNS responses and the TLS certificates are ensured, providing a robust mechanism to prevent man-in-the-middle attacks and other security threats.
 
-### The flow of DNSSEC and DANE on 443
+## The flow of DNSSEC and DANE on a webserver
 ![IMAGE](/images/dnssec-dane-explained/webserverdane-visual.png)
 
 Example for this site, `TLSA` records:
@@ -60,12 +60,12 @@ Example for this site, `TLSA` records:
 ![IMAGE](/images/dnssec-dane-explained/dnssec-dane-explained-2.png)
 
 
-## How DNSSEC and DANE work together on a mailserver (25)
+## DNSSEC and DANE on a mailserver
 SMTP DANE is a security protocol that uses DNS to verify the authenticity of the certificates used for securing email communication with TLS and protecting against TLS downgrade attacks. 
 
 Where SPF, DKIM, and DMARC focus more on the email messages and the sending hosts they come from, DANE focuses more on establishing the TLS connection between mail servers.
 
-### The flow of SMTP DANE on 25
+## The flow of SMTP DANE on a mailserver
 - **Outbound SMTP DANE with DNSSEC `sending mail server`**: Requests DANE `TLSA` records of the receiving domain's MX record.
 - **Inbound SMTP DANE with DNSSEC `receiving mail server`**: Requires DNSSEC and DANE `TLSA` records that can be requested by the sending mail server.
 
