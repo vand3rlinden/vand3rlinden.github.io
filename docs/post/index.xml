@@ -80,7 +80,8 @@ What you can manage with a Safe Links policy With a Safe Links policy, administr
       <pubDate>Sat, 23 Dec 2023 23:57:43 +0100</pubDate>
       <guid>https://vand3rlinden.com/post/purview-purge-emails/</guid>
       <description>You can use Microsoft Purview to search for specific content in Exchange Online (or SharePoint Online) using Content Search and, if desired, initiate a purge process. This article provides instructions on how to do this.
-Before getting started Note that you can also use Threat Explorer in MDO to initiate a hard delete by performing a manual remediation. However, when using Threat Explorer, you are limited to 30 days, which is sufficient for most remediation scenarios.</description>
+Before getting started Note that you can also use Threat Explorer in MDO to initiate a hard delete by performing a manual remediation or to take action on Advanced Hunting query results.
+KQL Query Example:</description>
     </item>
     <item>
       <title>Microsoft Defender for Office 365: Anti-malware policies</title>
