@@ -37,13 +37,13 @@ Spoofed ***inbound messages*** from  your `onmicrosoft.com` domain will end up i
 To prevent email spoofing and phishing using this domain, you need to set up a DMARC reject policy on the MOERA domain, as you do on all of your send and [non-send domains](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#protect-all-non-sending-domains). Setting DMARC for the MOERA is most often forgotten because you do not own the MOERA domain, but Microsoft has made it possible to manage the public DNS of your MOERA domain in the Microsoft 365 Admin Center.
 
 1. In the [Microsoft 365 admin center](https://admin.microsoft.com), select Show all > Settings > Domains
-2. On the Domains page, open the `*.onmicrosoft.com` domain and click on DNS Records
+2. On the Domains page, open your `onmicrosoft.com` domain and click on DNS Records
 4. Click on Add record and set the following values
 - Type: `TXT`
 - TXT name: `_dmarc`
 - TXT value: `v=DMARC1; p=reject;`
 
-Because you can treat your `onmicrosoft.com` domain as a non-sending domain, the DMARC Aggregate (`rua`) and DMARC Forensic (`ruf`) reports are not required for listing in the DMARC `TXT` record.
+If you are not using this domain for outbound messaging, you can treat your `onmicrosoft.com` domain as a non-sending domain, and the DMARC Aggregate (`rua`) and DMARC Forensic (`ruf`) reports are not required to be listed in the DMARC `TXT` record.
 
 ## To summerize 
 DKIM rotation ensures that even if a key is compromised, it will become obsolete after a period of time, limiting the window of vulnerability. Additionally, setting up DMARC for the MOERA domain is crucial to protect against email fraud targeting this domain.
