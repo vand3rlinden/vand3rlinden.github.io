@@ -10,7 +10,7 @@ cover:
 > _You can use Microsoft Purview to search for specific content in Exchange Online (or SharePoint Online) using Content Search and, if desired, initiate a purge process. This article provides instructions on how to do this._
 
 ## Before getting started
-Note that you can also use Threat Explorer in MDO to initiate a hard delete by performing a [manual remediation](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/remediate-malicious-email-delivered-office-365?view=o365-worldwide#manual-and-automated-remediation) or to [take action on Advanced Hunting query results](https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-take-action#take-various-actions-on-emails).
+Note that you can also use Threat Explorer in MDO by performing a [manual remediation](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/remediate-malicious-email-delivered-office-365?view=o365-worldwide#manual-and-automated-remediation) or to [take action on Advanced Hunting query results](https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-take-action#take-various-actions-on-emails) in XDR to initiate a hard delete.
 
 KQL Query Example:
 ```
