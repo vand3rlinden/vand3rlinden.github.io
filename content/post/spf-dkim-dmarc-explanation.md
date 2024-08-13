@@ -145,7 +145,7 @@ If you do not list the `sp=` tag, your subdomains will get the policy from the `
 | Policy      | Value           | Meaning       |
 | ----------- | -----------     | -----------   |
 | None        | `p=none;`       |  This policy is essentially a monitoring or reporting mode. It instructs email receivers not to take any action based on the DMARC authentication results. |
-| Quarantine  | `p=quarantine;` |  This policy instructs email receivers to flag an email as potentially suspicious, but the receiving mail server decides how to handle it. The DMARC quarantine policy does not take full advantage of DMARC. |
+| Quarantine  | `p=quarantine;` |  This policy instructs email receivers to flag an email that fails DMARC authentication as potentially suspicious, but the receiving mail server decides how to handle it. The DMARC quarantine policy does not take full advantage of DMARC. |
 | Reject      | `p=reject;`     |  This policy instructs email receivers to reject (not deliver) emails that fail DMARC authentication. |
 
 The table on this [Microsoft Learn page](https://learn.microsoft.com/en-us/archive/blogs/fasttracktips/spf-dkim-dmarc-and-exchange-online#covering-the-basics-of-dmarc) summarizes the options you have when configuring your DMARC policy.
