@@ -9,7 +9,7 @@ cover:
 
 > _In this post, you will learn how to enable and use SMTP DANE with DNSSEC in Exchange Online._
 
-While ***outbound*** SMTP DANE with DNSSEC in Exchange Online has been enabled since 2022, Microsoft is currently rolling out ***inbound*** SMTP DANE with DNSSEC in Exchange Online. It is currently in public preview, with General Availability expected in October 2024. In an earlier [blog post](https://vand3rlinden.com/post/dnssec-dane-explained/#dnssec-and-dane-on-a-mailserver), I explained how SMTP DANE with DNSSEC works together.
+While ***outbound*** SMTP DANE with DNSSEC in Exchange Online has been enabled since 2022, Microsoft is currently rolling out ***inbound*** SMTP DANE with DNSSEC in Exchange Online. It is currently in public preview, with General Availability expected in October 2024. In an earlier [blog post](https://vand3rlinden.com/post/dnssec-dane-explained/), I explained how SMTP DANE with DNSSEC works together on a mail and web server.
 
 A short recap:
 - **Outbound SMTP DANE with DNSSEC `sending mail server`**: Requests DANE `TLSA` records of the receiving domain's MX record.
