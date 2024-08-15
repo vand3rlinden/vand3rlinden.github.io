@@ -124,7 +124,9 @@ DMARC will pass if the P1 Sender and P2 Sender are equal, and/or SPF and DKIM ar
 ### Implementation of DMARC
 Before using DMARC, you need to know how often it will fail. You should consider monitoring DMARC failures before setting the DMARC policy directly to reject.
 
-There are several monitoring tools that convert the DMARC reports into a clear dashboard. One such tool is [Valimail](https://www.valimail.com/blog/office-365-free-dmarc-monitoring/) (free for Microsoft 365 users with an Exchange Online plan). 
+There are several monitoring tools that convert the DMARC reports into a clear dashboard. One such tool is [Valimail](https://www.valimail.com/blog/office-365-free-dmarc-monitoring/) (free for Microsoft 365 users with an Exchange Online plan).
+
+Overview of the Valimail Dashboard:
 
 ![IMAGE](/images/spf-dkim-dmarc-explanation/valimail-monitor.png)
 
