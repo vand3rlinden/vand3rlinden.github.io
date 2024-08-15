@@ -56,9 +56,9 @@ By combining DNSSEC and DANE, the integrity and authenticity of both the DNS res
 Example for this site, `TLSA` records:
 ![IMAGE](/images/dnssec-dane-explained/dnssec-dane-explained-1.png)
 
-[Verify DANE TLSA records:](https://check.sidnlabs.nl/dane/)
+Verify DANE TLSA records:
 ![IMAGE](/images/dnssec-dane-explained/dnssec-dane-explained-2.png)
-
+Source: https://check.sidnlabs.nl/dane/ 
 
 ## DNSSEC and DANE on a mailserver
 SMTP DANE is a security protocol that uses DNS to verify the authenticity of the certificates used for securing email communication with TLS and protecting against TLS downgrade attacks. 
