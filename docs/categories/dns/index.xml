@@ -6,8 +6,17 @@
     <description>Recent content in DNS on VAND3RLINDEN</description>
     <generator>Hugo -- 0.132.1</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 Jul 2024 01:13:44 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 23 Aug 2024 16:22:41 +0200</lastBuildDate>
     <atom:link href="https://vand3rlinden.com/categories/dns/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MTA-STS Explained: A Comprehensive guide for the Mail Transfer Agent Strict Transport Security Policy</title>
+      <link>https://vand3rlinden.com/post/mta-sts-explained/</link>
+      <pubDate>Fri, 23 Aug 2024 16:22:41 +0200</pubDate>
+      <guid>https://vand3rlinden.com/post/mta-sts-explained/</guid>
+      <description>MTA-STS (Mail Transfer Agent Strict Transport Security) is a security protocol designed to improve the security of email communication by enforcing the use of TLS (Transport Layer Security) to encrypt email traffic between mail servers. It helps prevent man-in-the-middle attacks and downgrade attacks, where an attacker could intercept or tamper with email messages in transit.
+How MTA-STS Works Discovery:
+When a sending mail server (MTA) wants to deliver an email to a domain, it first checks for the presence of the _mta-sts.</description>
+    </item>
     <item>
       <title>Exchange Online: Configure inbound SMTP DANE with DNSSEC</title>
       <link>https://vand3rlinden.com/post/exo-inbound-smtp-dane-dnssec/</link>
@@ -21,7 +30,8 @@ While outbound SMTP DANE with DNSSEC in Exchange Online has been enabled since 2
       <link>https://vand3rlinden.com/post/arc-explained/</link>
       <pubDate>Fri, 24 May 2024 23:37:34 +0200</pubDate>
       <guid>https://vand3rlinden.com/post/arc-explained/</guid>
-      <description>Introduction ARC (Authenticated Received Chain) is an email authentication protocol that preserves the authentication results of an email as it travels through multiple intermediaries, such as forwarding services.
+      <description>This blog post explains the role and benefits of ARC sealing.
+Introduction ARC (Authenticated Received Chain) is an email authentication protocol that preserves the authentication results of an email as it travels through multiple intermediaries, such as forwarding services.
 By using ARC, organizations can better manage the complexities of email authentication, especially when email is forwarded, but ARC is a collaboration of multiple servers that trust each other.
 ARC ensures that legitimate emails are less likely to be marked as spam or rejected, while fraudulent emails are more easily identified and filtered out.</description>
     </item>

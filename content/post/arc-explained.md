@@ -7,6 +7,8 @@ cover:
   image: /images/arc-explained/arc-explained-front.png
 ---
 
+> _This blog post explains the role and benefits of ARC sealing._
+
 ## Introduction
 ARC (Authenticated Received Chain) is an email authentication protocol that preserves the authentication results of an email as it travels through multiple intermediaries, such as forwarding services.
 

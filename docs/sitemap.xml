@@ -2,25 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://vand3rlinden.com/categories/</loc>
+    <lastmod>2024-08-23T16:22:41+02:00</lastmod>
+  </url><url>
+    <loc>https://vand3rlinden.com/categories/dns/</loc>
+    <lastmod>2024-08-23T16:22:41+02:00</lastmod>
+  </url><url>
+    <loc>https://vand3rlinden.com/categories/email/</loc>
+    <lastmod>2024-08-23T16:22:41+02:00</lastmod>
+  </url><url>
+    <loc>https://vand3rlinden.com/post/mta-sts-explained/</loc>
+    <lastmod>2024-08-23T16:22:41+02:00</lastmod>
+  </url><url>
+    <loc>https://vand3rlinden.com/post/</loc>
+    <lastmod>2024-08-23T16:22:41+02:00</lastmod>
+  </url><url>
+    <loc>https://vand3rlinden.com/</loc>
+    <lastmod>2024-08-23T16:22:41+02:00</lastmod>
+  </url><url>
     <loc>https://vand3rlinden.com/privacy-policy/</loc>
     <lastmod>2024-08-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vand3rlinden.com/</loc>
-    <lastmod>2024-08-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://vand3rlinden.com/categories/</loc>
-    <lastmod>2024-07-28T01:13:44+02:00</lastmod>
-  </url><url>
-    <loc>https://vand3rlinden.com/categories/dns/</loc>
-    <lastmod>2024-07-28T01:13:44+02:00</lastmod>
-  </url><url>
-    <loc>https://vand3rlinden.com/categories/email/</loc>
-    <lastmod>2024-07-28T01:13:44+02:00</lastmod>
-  </url><url>
     <loc>https://vand3rlinden.com/post/exo-inbound-smtp-dane-dnssec/</loc>
-    <lastmod>2024-07-28T01:13:44+02:00</lastmod>
-  </url><url>
-    <loc>https://vand3rlinden.com/post/</loc>
     <lastmod>2024-07-28T01:13:44+02:00</lastmod>
   </url><url>
     <loc>https://vand3rlinden.com/categories/microsoft-defender-for-office-365/</loc>
