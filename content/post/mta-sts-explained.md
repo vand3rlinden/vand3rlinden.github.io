@@ -79,8 +79,8 @@ max_age: 604800
 `https://mta-sts.example.com/.well-known/mta-sts.txt` - you should see the policy, and it should have loaded over `HTTPS`.
 
 Example: 
-- MTA-STS Policy for vand3rlinden.com: https://mta-sts.vand3rlinden.com/.well-known/mta-sts.txt
-- MTA-STS GitHub Pages repo: https://github.com/vand3rlinden/mta-sts 
+- MTA-STS policy for `vand3rlinden.com`: https://mta-sts.vand3rlinden.com/.well-known/mta-sts.txt
+- Repository of the MTA-STS policy for `mta-sts.vand3rlinden.com`: https://github.com/vand3rlinden/mta-sts 
 
 ## Detailed Explanation of the Policy File
 - `version: STSv1`: Indicates the version of the MTA-STS policy.
