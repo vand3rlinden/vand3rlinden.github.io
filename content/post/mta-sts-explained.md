@@ -1,5 +1,5 @@
 ---
-title: "MTA-STS Explained: A Comprehensive guide for the MTA-STS Policy"
+title: "MTA-STS Explained: A Comprehensive guide to the MTA-STS Policy"
 date: 2024-08-23T16:22:41+02:00
 draft: false
 categories: ["DNS", "email"]
