@@ -13,7 +13,7 @@
       <link>https://vand3rlinden.com/post/mta-sts-explained/</link>
       <pubDate>Fri, 23 Aug 2024 16:22:41 +0200</pubDate>
       <guid>https://vand3rlinden.com/post/mta-sts-explained/</guid>
-      <description>This blog post explains how an MTA STS policy works and how to implement it on GitHub Pages.
+      <description>This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages.
 MTA-STS (Mail Transfer Agent Strict Transport Security) is a security protocol designed to improve the security of email communication by enforcing the use of TLS (Transport Layer Security) to encrypt email traffic between mail servers. It helps prevent man-in-the-middle attacks and downgrade attacks, where an attacker could intercept or tamper with email messages in transit.</description>
     </item>
     <item>
