@@ -91,8 +91,17 @@ The `TLSA` records are listed in: ` _25._tcp.yourdomain-com.j-v1.mx.microsoft`
 ![IMAGE](/images/exo-inbound-smtp-dane-dnssec/exo-inbound-smtp-dane-dnssec1.png)
 
 ## Activate TLS Reporting (TLSRPT)
-TLS Reporting (TLSRPT) is a standard defined in [RFC 8460](https://datatracker.ietf.org/doc/html/rfc8460) that provides a way to report when the TLS connection could not be established during email transmission. It provides a mechanism for receiving reports of failures to establish secure SMTP connections, helping organizations improve their email security configurations and diagnose problems.
+TLS Reporting (TLSRPT) is a standard that provides a way to report when the TLS connection could not be established during email transmission.
 
+### Implementation of TLSRPT
+1. Log in to your DNS hosting provider's management console.
+2. Add a new TXT record with the following details:
+
+| Host                        | Type | Value                                   |
+| ----                        | ---  | ---                                     |
+| `_smtp._tls.example.com` | `TXT`| `v=TLSRPTv1; rua=mailto:tlsrpt@example.com`|
+
+### TLSRPT report handling
 If a sending mail server is having trouble securely delivering mail to a receiving mail server, the sending mail server can use the receiving mail server's TLSRPT record to find out where to send a report about the problem or to report a successful session.
 
 The reports are received in `.json`, you can look for the `summary` tag to check if the TLS connection was failed or successful:
@@ -100,16 +109,9 @@ The reports are received in `.json`, you can look for the `summary` tag to check
 "summary":{"total-successful-session-count":1,"total-failure-session-count":0}
 ```
 
-### Implementation
-1. Log in to your DNS hosting provider's management console.
-2. Add a new TXT record with the following details:
-
-| Host                        | Type | Value                                         |
-| ----                        | ---  | ---                                           |
-| `_smtp._tls.yourdomain.com` | `TXT`| `v=TLSRPTv1; rua=mailto:tlsrpt@yourdomain.com`|
-
 ## Reference
 - [Announcing Public Preview of Inbound SMTP DANE with DNSSEC for Exchange Online](https://techcommunity.microsoft.com/t5/exchange-team-blog/announcing-public-preview-of-inbound-smtp-dane-with-dnssec-for/ba-p/4155257)
 - [How SMTP DNS-based Authentication of Named Entities (DANE) works](https://learn.microsoft.com/en-us/purview/how-smtp-dane-works)
 - [Releasing: Outbound SMTP DANE with DNSSEC in Exchange Online](https://techcommunity.microsoft.com/t5/exchange-team-blog/releasing-outbound-smtp-dane-with-dnssec/ba-p/3100920)
 - [Support of DANE and DNSSEC in Office 365 Exchange Online](https://techcommunity.microsoft.com/t5/exchange-team-blog/support-of-dane-and-dnssec-in-office-365-exchange-online/ba-p/1275494)
+- [TLSRPT is defined in RFC8460](https://datatracker.ietf.org/doc/html/rfc8460)

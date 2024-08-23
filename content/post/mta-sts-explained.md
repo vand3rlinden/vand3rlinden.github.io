@@ -95,7 +95,10 @@ In the `mta-sts.txt` file, you should list all MX servers that are used for rece
 - **Transition to Enforce Mode**: Once you are confident that your MX servers support TLS and that email can be securely delivered, you can switch to `enforce` mode to enhance your email security.
 - **Activate TLS Reporting (TLSRPT)**: TLSRPT records are DNS `TXT` records that specify how to report issues with TLS encryption for SMTP. When an email server experiences issues delivering emails securely to another server, it can refer to the TLSRPT record to know where to send the report of the problem.
 
-## Implementation of TLSRPT
+## Activate TLS Reporting (TLSRPT)
+TLS Reporting (TLSRPT) is a standard that provides a way to report when the TLS connection could not be established during email transmission.
+
+### Implementation of TLSRPT
 1. Log in to your DNS hosting provider's management console.
 2. Add a new TXT record with the following details:
 
