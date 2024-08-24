@@ -14,7 +14,7 @@ MTA-STS (Mail Transfer Agent Strict Transport Security) is a security protocol d
 ## How MTA-STS Works
 1. **Discovery**:
    - When a sending mail server (MTA) wants to deliver an email to a domain, it first checks for the presence of the `_mta-sts.example.com` DNS TXT record.
-   - If the record exists, the sending server retrieves the policy file from `https://mta-sts.example.com/mta-sts.txt`.
+   - If the record exists, the sending server retrieves the policy file from `https://mta-sts.example.com/.well-known/mta-sts.txt`.
 
 2. **Policy Evaluation**:
    - The sending server reads the policy file and checks the mode (enforce, testing, or none).
