@@ -14,7 +14,14 @@ Anti-phishing policies provide enhanced control over incoming phishing emails, f
 
 
 ## In an anti-phishing policy, you can configure
+## Impersonation protection
+Impersonation occurs when the sender of an email appears similar to a legitimate or expected sender's address. Attackers often use impersonated email addresses in phishing or other attacks to deceive recipients and gain their trust. Messages from impersonated senders can bypass standard email authentication checks, such as SPF, DKIM, and DMARC, which would normally detect them as spoofing attempts. There are two main types of impersonation:
+
+- **User impersonation:** Contains subtle differences in the email alias.
+- **Domain impersonation:** Contains subtle differences in the domain.
+
 ### User impersonation protection
+### What you can protect:
 With user impersonation protection, you can protect 350 internal and external users with key roles. Internally, these could be your CEO, CFO, and other senior executives. Externally, they could be council members or your board of directors.
 
 > **NOTE:** User impersonation protection is not effective when there is a history of email communication between the sender and recipient. Detection of an impersonation attempt is only possible in cases where there is no prior email interaction between the sender and recipient.
@@ -28,6 +35,9 @@ With domain impersonation protection, you can protect the domains that you own i
 
 ### How it works
 Domain impersonation prevents the sender’s email domain from appearing in a message that looks like a real email domain. For example, ```contoso.com``` could be impersonated as ```c0ntoso.com``` or ```contoso.co```. Even though SPF, DKIM and DMARC will pass for the domain ```c0ntoso.com``` or ```contoso.co```, the email will be labeled with Protection Policy Category ```DIMP``` (domain impersonation) in the ```X-Forefront-Antispam-Report``` message header.
+
+## Impersonation insight
+You can use Impersonation insight in the [Microsoft Defender Portal](https://security.microsoft.com/impersonationinsight) to quickly identify messages from impersonated senders or sender domains that are included in impersonation protection in anti-phishing policies.
 
 ## Mailbox intelligence
 ### What you can protect:
@@ -60,6 +70,9 @@ With spoof intelligence enabled, you control the response when the P1 Sender doe
 
 ### How it works
 Phishers may use P1 spoofing, allowing SPF to pass on their domain (P1 Sender) while sending emails on behalf of another domain (P2 Sender). Spoof intelligence identifies this and labels the email with Protection Policy Category ```SPOOF``` (Spoofing) in the ```X-Forefront-Antispam-Report``` message header.
+
+## Spoof intelligence insight
+You can use the spoof intelligence insight in the [Microsoft Defender portal](https://security.microsoft.com/spoofintelligence) to quickly identify spoofed senders who are legitimately sending you unauthenticated email (messages from domains that don't pass SPF, DKIM, or DMARC checks), and manually allow those senders.
 
 ## Configure anti-phishing policies and best practices
 > The best practices are based on the [Strict recommendations settings](https://learn.microsoft.com/en-us/defender-office-365/recommended-settings-for-eop-and-office365?view=o365-worldwide#eop-anti-phishing-policy-settings) of the Configuration Analyzer.
@@ -136,12 +149,15 @@ From the field I have seen that when a user is attacked by self-to-self spoofing
 - Protection Policy Category (CAT): `SPOOF` (Spoofing) in the X-Forefront-Antispam-Report header
   
 ## Reference
+- [Anti-phishing protection](https://learn.microsoft.com/en-us/defender-office-365/anti-phishing-protection-about)
 - [Impersonation settings in anti-phishing policies in Microsoft Defender for Office 365](https://learn.microsoft.com/en-us/defender-office-365/anti-phishing-policies-about?view=o365-worldwide#impersonation-settings-in-anti-phishing-policies-in-microsoft-defender-for-office-365)
 - [User impersonation protection](https://learn.microsoft.com/en-us/defender-office-365/anti-phishing-policies-about?view=o365-worldwide#user-impersonation-protection)
 - [Domain impersonation protection](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-phishing-policies-about?view=o365-worldwide#domain-impersonation-protection)
+- [Impersonation insight in Defender for Office 365](https://learn.microsoft.com/en-us/defender-office-365/anti-phishing-mdo-impersonation-insight)
 - [Mailbox intelligence impersonation protection](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-phishing-policies-about?view=o365-worldwide#mailbox-intelligence-impersonation-protection)
 - [Spoof settings](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-phishing-policies-about?view=o365-worldwide#spoof-settings)
 - [Spoof protection and sender DMARC policies](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-phishing-policies-about?view=o365-worldwide#spoof-protection-and-sender-dmarc-policies)
+- [Spoof intelligence insight in EOP](https://learn.microsoft.com/en-us/defender-office-365/anti-spoofing-spoof-intelligence)
 - [X-Forefront-Antispam-Report message header fields](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/message-headers-eop-mdo?view=o365-worldwide#x-forefront-antispam-report-message-header-fields)
 - [Impersonation safety tips](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-phishing-policies-about?view=o365-worldwide#impersonation-safety-tips)
 - [Recommended anti-phishing policy settings](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/recommended-settings-for-eop-and-office365?view=o365-worldwide#eop-anti-phishing-policy-settings)
