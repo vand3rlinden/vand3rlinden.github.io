@@ -51,6 +51,7 @@ In this outbound policy you can manage:
 ### Anti-spam inbound policy
 - Set the bulk email threshold to 5 as a minimum. 
   - A higher bulk email threshold means more bulk email will be delivered.
+  - You can also review the [Bulk Senders Insight page](https://security.microsoft.com/senderinsights) to see how much mail is classified as bulk at each BCL level (1 to 9) over the past 60 days. On this same page, you can simulate changes to the bulk email threshold and view the impact on the number of messages delivered versus those identified as bulk in your inbound anti-spam policy. More information about [Bulk senders insight in Exchange Online Protection](https://learn.microsoft.com/en-us/defender-office-365/anti-spam-bulk-senders-insight).
 
 - It is recommended to disable the [ASF (Advanced Spam Filter) settings](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-spam-policies-asf-settings-about), because enabling one or more of the ASF settings is an aggressive approach to spam filtering that can often result in false positives. The effectiveness of these settings in reducing spam has declined significantly over the years.
   - For example, ASF Setting: `SPF record: hard fail` does not need to be enabled because legitimate emails can be marked as High Confidence Phishing (`HSPM`) in situations where SPF fails but DMARC passes because DKIM succeeded for the P2 sender domain. 
@@ -58,13 +59,15 @@ In this outbound policy you can manage:
 - Set all your spam actions to 'Quarantine message'.
     - My preference is to ***only*** select ***request to release*** [quarantine policies](https://vand3rlinden.com/post/mdo-quarantine-policies/) for the actions ***Phishing message action*** and ***High confidence phishing message action*** (also, quarantine release permissions will be ignored for high-confidence phishing messages).
 
-- Set intra-organizational messages to the default setting. This setting control spam filtering, and the corresponding actions will be applied to internal messages (messages sent between users within the organization).
+- Set Intra-Organizational messages to the default setting. This setting control spam filtering, and the corresponding actions will be applied to internal messages (messages sent between users within the organization).
     - The default value is the same as selecting High confidence phishing messages.
+
+- Leave 'Retain spam in quarantine for this many days' at the default 30 days.
+
+- Enable Spam Safety Tips, a color-coded banner in Outlook that warns recipients of potentially harmful messages.
 
 - Keep ZAP (Zero-hour auto purge) on for spam and phishing messages (enabled by default).
     - ZAP continuously monitors spam and malware updates seamlessly for users. It automatically detects and acts on messages in a user's mailbox, searching the last 48 hours of delivered email. Users aren't notified of detected and moved messages.
-
-- Leave 'Retain spam in quarantine for this many days' at the default 30 days.
 
 - Do not set up any allowed senders or domains.
     - Allowed senders or allowed domains that are listed in anti-spam policies, creates a [high risk](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/create-safe-sender-lists-in-office-365?view=o365-worldwide#use-allowed-sender-lists-or-allowed-domain-lists) because it is possible to bypass all spam, spoof, phishing protection (except high confidence phishing), and sender authentication (SPF, DKIM, DMARC). You should consider using the [Tenant Allow/Block List](https://security.microsoft.com/tenantAllowBlockList) for [creating a safe sender lists](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/create-safe-sender-lists-in-office-365).
@@ -123,4 +126,7 @@ If you only want to allow users to forward to a few specific domains, the best c
 - [Recommended anti-spam policy settings - Inbound anti-spam policy](https://learn.microsoft.com/en-us/defender-office-365/recommended-settings-for-eop-and-office365?view=o365-worldwide#eop-anti-spam-policy-settings)
 - [Recommended anti-spam policy ASF settings - Inbound anti-spam policy](https://learn.microsoft.com/en-us/defender-office-365/recommended-settings-for-eop-and-office365?view=o365-worldwide#asf-settings-in-anti-spam-policies)
 - [Recommended anti-spam policy settings - Outbound anti-spam policy](https://learn.microsoft.com/en-us/defender-office-365/recommended-settings-for-eop-and-office365?view=o365-worldwide#eop-outbound-spam-policy-settings)
+- [Azure Communication Services for Email - Solution for high volumes of external email](https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/email-overview)
+- [PUBLIC PREVIEW: High Volume Email for Microsoft 365 - Solution for high volumes of internal email](https://techcommunity.microsoft.com/t5/exchange-team-blog/public-preview-high-volume-email-for-microsoft-365/ba-p/4102271)
+- [Bulk senders insight in Exchange Online Protection](https://learn.microsoft.com/en-us/defender-office-365/anti-spam-bulk-senders-insight)
 - [Control automatic external email forwarding in Microsoft 365](https://learn.microsoft.com/en-us/defender-office-365/outbound-spam-policies-external-email-forwarding)
