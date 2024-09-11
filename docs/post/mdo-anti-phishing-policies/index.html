@@ -182,12 +182,12 @@ What you can manage with Anti-phishing policies Anti-phishing policies provide e
 </blockquote>
 <h3 id="how-it-works">How it works<a hidden class="anchor" aria-hidden="true" href="#how-it-works">#</a></h3>
 <p>User impersonation is the combination of the user’s display name and email address. For example, your CEO <code>Shaggy Rogers &lt;shaggy@contoso.com&gt;</code> could be impersonated as Shaggy Rogers, but with a completely different email address, such as <code>Shaggy Rogers &lt;shaggy.rogers@fabrikam.com&gt;</code>. Even though SPF, DKIM and DMARC will pass for the fabrikam.com domain, the email will be flagged as protection policy category UIMP (user impersonation) in the <code>X-Forefront-Antispam-Report</code> message header.</p>
-<h2 id="domain-impersonation-protection">Domain impersonation protection<a hidden class="anchor" aria-hidden="true" href="#domain-impersonation-protection">#</a></h2>
+<h3 id="domain-impersonation-protection">Domain impersonation protection<a hidden class="anchor" aria-hidden="true" href="#domain-impersonation-protection">#</a></h3>
 <h3 id="what-you-can-protect-1">What you can protect:<a hidden class="anchor" aria-hidden="true" href="#what-you-can-protect-1">#</a></h3>
 <p>With domain impersonation protection, you can protect the domains that you own in Microsoft 365 (accepted domains) as well as external domains, such as the domains of your vendors.</p>
 <h3 id="how-it-works-1">How it works<a hidden class="anchor" aria-hidden="true" href="#how-it-works-1">#</a></h3>
 <p>Domain impersonation prevents the sender’s email domain from appearing in a message that looks like a real email domain. For example, <code>contoso.com</code> could be impersonated as <code>c0ntoso.com</code> or <code>contoso.co</code>. Even though SPF, DKIM and DMARC will pass for the domain <code>c0ntoso.com</code> or <code>contoso.co</code>, the email will be labeled with Protection Policy Category <code>DIMP</code> (domain impersonation) in the <code>X-Forefront-Antispam-Report</code> message header.</p>
-<h2 id="impersonation-insight">Impersonation insight<a hidden class="anchor" aria-hidden="true" href="#impersonation-insight">#</a></h2>
+<h3 id="impersonation-insight">Impersonation insight<a hidden class="anchor" aria-hidden="true" href="#impersonation-insight">#</a></h3>
 <p>You can use Impersonation insight in the <a href="https://security.microsoft.com/impersonationinsight">Microsoft Defender Portal</a> to quickly identify messages from impersonated senders or sender domains that are included in impersonation protection in anti-phishing policies.</p>
 <h2 id="mailbox-intelligence">Mailbox intelligence<a hidden class="anchor" aria-hidden="true" href="#mailbox-intelligence">#</a></h2>
 <h3 id="what-you-can-protect-2">What you can protect:<a hidden class="anchor" aria-hidden="true" href="#what-you-can-protect-2">#</a></h3>
@@ -232,7 +232,7 @@ What you can manage with Anti-phishing policies Anti-phishing policies provide e
 <p>With spoof intelligence enabled, you control the response when the P1 Sender doesn’t match the P2 Sender. This check is similar to DMARC, though not all domains have DMARC configured.</p>
 <h3 id="how-it-works-3">How it works<a hidden class="anchor" aria-hidden="true" href="#how-it-works-3">#</a></h3>
 <p>Phishers may use P1 spoofing, allowing SPF to pass on their domain (P1 Sender) while sending emails on behalf of another domain (P2 Sender). Spoof intelligence identifies this and labels the email with Protection Policy Category <code>SPOOF</code> (Spoofing) in the <code>X-Forefront-Antispam-Report</code> message header.</p>
-<h2 id="spoof-intelligence-insight">Spoof intelligence insight<a hidden class="anchor" aria-hidden="true" href="#spoof-intelligence-insight">#</a></h2>
+<h3 id="spoof-intelligence-insight">Spoof intelligence insight<a hidden class="anchor" aria-hidden="true" href="#spoof-intelligence-insight">#</a></h3>
 <p>You can use the spoof intelligence insight in the <a href="https://security.microsoft.com/spoofintelligence">Microsoft Defender portal</a> to quickly identify spoofed senders who are legitimately sending you unauthenticated email (messages from domains that don&rsquo;t pass SPF, DKIM, or DMARC checks), and manually allow those senders.</p>
 <h2 id="configure-anti-phishing-policies-and-best-practices">Configure anti-phishing policies and best practices<a hidden class="anchor" aria-hidden="true" href="#configure-anti-phishing-policies-and-best-practices">#</a></h2>
 <blockquote>
