@@ -4,7 +4,7 @@
     <title>Microsoft Purview on VAND3RLINDEN</title>
     <link>https://vand3rlinden.com/categories/microsoft-purview/</link>
     <description>Recent content in Microsoft Purview on VAND3RLINDEN</description>
-    <generator>Hugo -- 0.132.1</generator>
+    <generator>Hugo -- 0.134.3</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 23 Dec 2023 23:57:43 +0100</lastBuildDate>
     <atom:link href="https://vand3rlinden.com/categories/microsoft-purview/index.xml" rel="self" type="application/rss+xml" />
@@ -13,16 +13,23 @@
       <link>https://vand3rlinden.com/post/purview-purge-emails/</link>
       <pubDate>Sat, 23 Dec 2023 23:57:43 +0100</pubDate>
       <guid>https://vand3rlinden.com/post/purview-purge-emails/</guid>
-      <description>You can use Microsoft Purview to search for specific content in Exchange Online (or SharePoint Online) using Content Search and, if desired, initiate a purge process. This article provides instructions on how to do this.
-Before getting started Note that you can also use Threat Explorer in MDO by performing a manual remediation or to take action on Advanced Hunting query results in XDR to initiate a hard delete.</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;You can use Microsoft Purview to search for specific content in Exchange Online (or SharePoint Online) using Content Search and, if desired, initiate a purge process. This article provides instructions on how to do this.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;before-getting-started&#34;&gt;Before getting started&lt;/h2&gt;
+&lt;p&gt;Note that you can also use Threat Explorer in MDO by performing a &lt;a href=&#34;https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/remediate-malicious-email-delivered-office-365?view=o365-worldwide#manual-and-automated-remediation&#34;&gt;manual remediation&lt;/a&gt; or to &lt;a href=&#34;https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-take-action#take-various-actions-on-emails&#34;&gt;take action on Advanced Hunting query results&lt;/a&gt; in XDR to initiate a hard delete.&lt;/p&gt;
+&lt;p&gt;KQL Query Example:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Microsoft Purview: Configuring a Data Loss Prevention Policy</title>
       <link>https://vand3rlinden.com/post/purview-data-loss-prevention/</link>
       <pubDate>Sat, 16 Dec 2023 11:31:31 +0100</pubDate>
       <guid>https://vand3rlinden.com/post/purview-data-loss-prevention/</guid>
-      <description>Organizations have sensitive information under their control, such as credit card numbers or social security numbers. To protect this sensitive information and reduce risk, organizations need a way to prevent users from sharing it with people who shouldn&amp;rsquo;t have it. This practice is known as data loss prevention (DLP). In this article, I will explain how to configure it.
-Sensitive information type entity definitions In this post, I will configure a DLP policy to block the Netherlands Citizen’s Service (BSN) Number from being shared with external contacts in Exchange Online and Teams.</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Organizations have sensitive information under their control, such as credit card numbers or social security numbers. To protect this sensitive information and reduce risk, organizations need a way to prevent users from sharing it with people who shouldn&amp;rsquo;t have it. This practice is known as data loss prevention (DLP). In this article, I will explain how to configure it.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;sensitive-information-type-entity-definitions&#34;&gt;Sensitive information type entity definitions&lt;/h2&gt;
+&lt;p&gt;In this post, I will configure a DLP policy to block the Netherlands Citizen’s Service (BSN) Number from being shared with external contacts in Exchange Online and Teams. However, you can use this information to select any of the available sensitive information types or multiple types in a policy. These types of sensitive information are referred as Personally Identifiable Information (PII).&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

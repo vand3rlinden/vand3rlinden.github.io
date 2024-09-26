@@ -7,8 +7,11 @@
 <meta name="robots" content="index, follow">
 <title>Microsoft Defender for Office 365: Anti-phishing policies | VAND3RLINDEN</title>
 <meta name="keywords" content="">
-<meta name="description" content="Phishing is an email attack that aims to steal sensitive information through messages that appear to be from legitimate or trusted senders. You can enhance the security of your Exchange Online mailboxes by implementing anti-phishing policies.
-What you can manage with Anti-phishing policies Anti-phishing policies provide enhanced control over incoming phishing emails, for instance, in cases where someone may attempt to impersonate your CEO or send messages from a domain that closely resembles yours.">
+<meta name="description" content="
+Phishing is an email attack that aims to steal sensitive information through messages that appear to be from legitimate or trusted senders. You can enhance the security of your Exchange Online mailboxes by implementing anti-phishing policies.
+
+What you can manage with Anti-phishing policies
+Anti-phishing policies provide enhanced control over incoming phishing emails, for instance, in cases where someone may attempt to impersonate your CEO or send messages from a domain that closely resembles yours. By default, a policy named &lsquo;Office365 AntiPhish Default (Default)&rsquo; is automatically applied to all users.">
 <meta name="author" content="">
 <link rel="canonical" href="https://vand3rlinden.com/post/mdo-anti-phishing-policies/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
@@ -28,12 +31,12 @@ What you can manage with Anti-phishing policies Anti-phishing policies provide e
         }
 
     </style>
-</noscript>
-  
+</noscript><meta property="og:title" content="Microsoft Defender for Office 365: Anti-phishing policies" />
+<meta property="og:description" content="
+Phishing is an email attack that aims to steal sensitive information through messages that appear to be from legitimate or trusted senders. You can enhance the security of your Exchange Online mailboxes by implementing anti-phishing policies.
 
-<meta property="og:title" content="Microsoft Defender for Office 365: Anti-phishing policies" />
-<meta property="og:description" content="Phishing is an email attack that aims to steal sensitive information through messages that appear to be from legitimate or trusted senders. You can enhance the security of your Exchange Online mailboxes by implementing anti-phishing policies.
-What you can manage with Anti-phishing policies Anti-phishing policies provide enhanced control over incoming phishing emails, for instance, in cases where someone may attempt to impersonate your CEO or send messages from a domain that closely resembles yours." />
+What you can manage with Anti-phishing policies
+Anti-phishing policies provide enhanced control over incoming phishing emails, for instance, in cases where someone may attempt to impersonate your CEO or send messages from a domain that closely resembles yours. By default, a policy named &lsquo;Office365 AntiPhish Default (Default)&rsquo; is automatically applied to all users." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vand3rlinden.com/post/mdo-anti-phishing-policies/" />
 <meta property="og:image" content="https://vand3rlinden.com/images/mdo-anti-phishing-policies/mdo-anti-phishing-policies-front.png" /><meta property="article:section" content="post" />
@@ -43,8 +46,11 @@ What you can manage with Anti-phishing policies Anti-phishing policies provide e
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://vand3rlinden.com/images/mdo-anti-phishing-policies/mdo-anti-phishing-policies-front.png" />
 <meta name="twitter:title" content="Microsoft Defender for Office 365: Anti-phishing policies"/>
-<meta name="twitter:description" content="Phishing is an email attack that aims to steal sensitive information through messages that appear to be from legitimate or trusted senders. You can enhance the security of your Exchange Online mailboxes by implementing anti-phishing policies.
-What you can manage with Anti-phishing policies Anti-phishing policies provide enhanced control over incoming phishing emails, for instance, in cases where someone may attempt to impersonate your CEO or send messages from a domain that closely resembles yours."/>
+<meta name="twitter:description" content="
+Phishing is an email attack that aims to steal sensitive information through messages that appear to be from legitimate or trusted senders. You can enhance the security of your Exchange Online mailboxes by implementing anti-phishing policies.
+
+What you can manage with Anti-phishing policies
+Anti-phishing policies provide enhanced control over incoming phishing emails, for instance, in cases where someone may attempt to impersonate your CEO or send messages from a domain that closely resembles yours. By default, a policy named &lsquo;Office365 AntiPhish Default (Default)&rsquo; is automatically applied to all users."/>
 
 
 <script type="application/ld+json">
@@ -73,7 +79,7 @@ What you can manage with Anti-phishing policies Anti-phishing policies provide e
   "@type": "BlogPosting",
   "headline": "Microsoft Defender for Office 365: Anti-phishing policies",
   "name": "Microsoft Defender for Office 365: Anti-phishing policies",
-  "description": "Phishing is an email attack that aims to steal sensitive information through messages that appear to be from legitimate or trusted senders. You can enhance the security of your Exchange Online mailboxes by implementing anti-phishing policies.\nWhat you can manage with Anti-phishing policies Anti-phishing policies provide enhanced control over incoming phishing emails, for instance, in cases where someone may attempt to impersonate your CEO or send messages from a domain that closely resembles yours.",
+  "description": " Phishing is an email attack that aims to steal sensitive information through messages that appear to be from legitimate or trusted senders. You can enhance the security of your Exchange Online mailboxes by implementing anti-phishing policies.\nWhat you can manage with Anti-phishing policies Anti-phishing policies provide enhanced control over incoming phishing emails, for instance, in cases where someone may attempt to impersonate your CEO or send messages from a domain that closely resembles yours. By default, a policy named \u0026lsquo;Office365 AntiPhish Default (Default)\u0026rsquo; is automatically applied to all users.\n",
   "keywords": [
     
   ],
@@ -208,25 +214,25 @@ What you can manage with Anti-phishing policies Anti-phishing policies provide e
 <p>Spoofing (implicit failures) occurs when the <code>From</code> address (P2 Sender, the sender address that&rsquo;s shown in email clients) in an email message doesn’t match the domain of the email source (P1 Sender).</p>
 <h3 id="p1-vs-p2--sender-explanation">P1 vs P2- sender explanation<a hidden class="anchor" aria-hidden="true" href="#p1-vs-p2--sender-explanation">#</a></h3>
 <table>
-<thead>
-<tr>
-<th>Postal Letter</th>
-<th>Precise Term</th>
-<th>Protected by</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Sender on envelope</td>
-<td><code>RFC5321.MailFrom</code> (P1 Sender)</td>
-<td>SPF</td>
-</tr>
-<tr>
-<td>Author on letter</td>
-<td><code>RFC5322.From</code> (P2 Sender)</td>
-<td>DKIM + DMARC</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Postal Letter</th>
+          <th style="text-align: left">Precise Term</th>
+          <th style="text-align: left">Protected by</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Sender on envelope</td>
+          <td style="text-align: left"><code>RFC5321.MailFrom</code> (P1 Sender)</td>
+          <td style="text-align: left">SPF</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Author on letter</td>
+          <td style="text-align: left"><code>RFC5322.From</code> (P2 Sender)</td>
+          <td style="text-align: left">DKIM + DMARC</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="what-you-can-protect-3">What you can protect<a hidden class="anchor" aria-hidden="true" href="#what-you-can-protect-3">#</a></h3>
 <p>With spoof intelligence enabled, you control the response when the P1 Sender doesn’t match the P2 Sender. This check is similar to DMARC, though not all domains have DMARC configured.</p>

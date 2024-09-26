@@ -7,8 +7,11 @@
 <meta name="robots" content="index, follow">
 <title>Microsoft Defender for Office 365: Anti-spam policies | VAND3RLINDEN</title>
 <meta name="keywords" content="">
-<meta name="description" content="All inbound e-mail is automatically protected from spam by Exchange Online Protection (EOP) for Microsoft 365 organizations with mailboxes in Exchange Online. EOP uses anti-spam policies as part of your organization&rsquo;s overall spam defense.
-What you can manage with Anti-spam policies Anti-spam policies provide you with control over both inbound and outbound email in Exchange Online. Within the Microsoft Security Portal, you can access the Anti-Spam Policy section, where three default policies are available for editing.">
+<meta name="description" content="
+All inbound e-mail is automatically protected from spam by Exchange Online Protection (EOP) for Microsoft 365 organizations with mailboxes in Exchange Online. EOP uses anti-spam policies as part of your organization&rsquo;s overall spam defense.
+
+What you can manage with Anti-spam policies
+Anti-spam policies provide you with control over both inbound and outbound email in Exchange Online. Within the Microsoft Security Portal, you can access the Anti-Spam Policy section, where three default policies are available for editing. Additionally, it is possible to create custom policies, and further details on this will be discussed later in this post.">
 <meta name="author" content="">
 <link rel="canonical" href="https://vand3rlinden.com/post/mdo-anti-spam-policies/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
@@ -28,12 +31,12 @@ What you can manage with Anti-spam policies Anti-spam policies provide you with 
         }
 
     </style>
-</noscript>
-  
+</noscript><meta property="og:title" content="Microsoft Defender for Office 365: Anti-spam policies" />
+<meta property="og:description" content="
+All inbound e-mail is automatically protected from spam by Exchange Online Protection (EOP) for Microsoft 365 organizations with mailboxes in Exchange Online. EOP uses anti-spam policies as part of your organization&rsquo;s overall spam defense.
 
-<meta property="og:title" content="Microsoft Defender for Office 365: Anti-spam policies" />
-<meta property="og:description" content="All inbound e-mail is automatically protected from spam by Exchange Online Protection (EOP) for Microsoft 365 organizations with mailboxes in Exchange Online. EOP uses anti-spam policies as part of your organization&rsquo;s overall spam defense.
-What you can manage with Anti-spam policies Anti-spam policies provide you with control over both inbound and outbound email in Exchange Online. Within the Microsoft Security Portal, you can access the Anti-Spam Policy section, where three default policies are available for editing." />
+What you can manage with Anti-spam policies
+Anti-spam policies provide you with control over both inbound and outbound email in Exchange Online. Within the Microsoft Security Portal, you can access the Anti-Spam Policy section, where three default policies are available for editing. Additionally, it is possible to create custom policies, and further details on this will be discussed later in this post." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vand3rlinden.com/post/mdo-anti-spam-policies/" />
 <meta property="og:image" content="https://vand3rlinden.com/images/mdo-anti-spam-policies/mdo-anti-spam-policies-front.png" /><meta property="article:section" content="post" />
@@ -43,8 +46,11 @@ What you can manage with Anti-spam policies Anti-spam policies provide you with 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://vand3rlinden.com/images/mdo-anti-spam-policies/mdo-anti-spam-policies-front.png" />
 <meta name="twitter:title" content="Microsoft Defender for Office 365: Anti-spam policies"/>
-<meta name="twitter:description" content="All inbound e-mail is automatically protected from spam by Exchange Online Protection (EOP) for Microsoft 365 organizations with mailboxes in Exchange Online. EOP uses anti-spam policies as part of your organization&rsquo;s overall spam defense.
-What you can manage with Anti-spam policies Anti-spam policies provide you with control over both inbound and outbound email in Exchange Online. Within the Microsoft Security Portal, you can access the Anti-Spam Policy section, where three default policies are available for editing."/>
+<meta name="twitter:description" content="
+All inbound e-mail is automatically protected from spam by Exchange Online Protection (EOP) for Microsoft 365 organizations with mailboxes in Exchange Online. EOP uses anti-spam policies as part of your organization&rsquo;s overall spam defense.
+
+What you can manage with Anti-spam policies
+Anti-spam policies provide you with control over both inbound and outbound email in Exchange Online. Within the Microsoft Security Portal, you can access the Anti-Spam Policy section, where three default policies are available for editing. Additionally, it is possible to create custom policies, and further details on this will be discussed later in this post."/>
 
 
 <script type="application/ld+json">
@@ -73,7 +79,7 @@ What you can manage with Anti-spam policies Anti-spam policies provide you with 
   "@type": "BlogPosting",
   "headline": "Microsoft Defender for Office 365: Anti-spam policies",
   "name": "Microsoft Defender for Office 365: Anti-spam policies",
-  "description": "All inbound e-mail is automatically protected from spam by Exchange Online Protection (EOP) for Microsoft 365 organizations with mailboxes in Exchange Online. EOP uses anti-spam policies as part of your organization\u0026rsquo;s overall spam defense.\nWhat you can manage with Anti-spam policies Anti-spam policies provide you with control over both inbound and outbound email in Exchange Online. Within the Microsoft Security Portal, you can access the Anti-Spam Policy section, where three default policies are available for editing.",
+  "description": " All inbound e-mail is automatically protected from spam by Exchange Online Protection (EOP) for Microsoft 365 organizations with mailboxes in Exchange Online. EOP uses anti-spam policies as part of your organization\u0026rsquo;s overall spam defense.\nWhat you can manage with Anti-spam policies Anti-spam policies provide you with control over both inbound and outbound email in Exchange Online. Within the Microsoft Security Portal, you can access the Anti-Spam Policy section, where three default policies are available for editing. Additionally, it is possible to create custom policies, and further details on this will be discussed later in this post.\n",
   "keywords": [
     
   ],
@@ -329,34 +335,34 @@ Maximum recipient limit per day
 <h3 id="comparison-chart-of-methods-for-blocking-automatic-forwarding-in-microsoft-365">Comparison chart of methods for blocking automatic forwarding in Microsoft 365<a hidden class="anchor" aria-hidden="true" href="#comparison-chart-of-methods-for-blocking-automatic-forwarding-in-microsoft-365">#</a></h3>
 <p>Exchange Online provides several methods for blocking automatic forwarding. These are Remote domains, Transport Rules, and Anti-spam outbound policies. Each method has its pros and cons:</p>
 <table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Pros</th>
-<th>Cons</th>
-<th>Exclusions</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Remote domains (EXO)</td>
-<td>Applies to all types of forwarding that a user can set up.</td>
-<td>The user will not be notified that their forwarded message will be dropped.</td>
-<td>Per domain</td>
-</tr>
-<tr>
-<td>Mail flow rules (EXO)</td>
-<td>Allows more granularity on conditions and actions, such as setting a specific address to forward.</td>
-<td>Does not block the OWA forwarding setting (ForwardingSmtpAddress)</td>
-<td>Per domain and address</td>
-</tr>
-<tr>
-<td>Outbound Anti-spam policy (MDO)</td>
-<td>Allows you to turn off automatic forwarding completely.</td>
-<td>You cannot specify the address or domain as an exclusion; if an allowed user sets up a client forwarding rule, they can forward to any address and domain</td>
-<td>Per user</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Method</th>
+          <th style="text-align: left">Pros</th>
+          <th style="text-align: left">Cons</th>
+          <th style="text-align: left">Exclusions</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Remote domains (EXO)</td>
+          <td style="text-align: left">Applies to all types of forwarding that a user can set up.</td>
+          <td style="text-align: left">The user will not be notified that their forwarded message will be dropped.</td>
+          <td style="text-align: left">Per domain</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Mail flow rules (EXO)</td>
+          <td style="text-align: left">Allows more granularity on conditions and actions, such as setting a specific address to forward.</td>
+          <td style="text-align: left">Does not block the OWA forwarding setting (ForwardingSmtpAddress)</td>
+          <td style="text-align: left">Per domain and address</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Outbound Anti-spam policy (MDO)</td>
+          <td style="text-align: left">Allows you to turn off automatic forwarding completely.</td>
+          <td style="text-align: left">You cannot specify the address or domain as an exclusion; if an allowed user sets up a client forwarding rule, they can forward to any address and domain</td>
+          <td style="text-align: left">Per user</td>
+      </tr>
+  </tbody>
 </table>
 <p>If you only want to allow users to forward to a few specific domains, the best choice is to disable automatic forwarding with remote domains in Exchange Online. Mail flow rules should never be an option because direct forwards (OWA forwarding method) can still be used to any domain, only automatic forwards created with inbox rules are blocked.</p>
 <h3 id="reference">Reference<a hidden class="anchor" aria-hidden="true" href="#reference">#</a></h3>

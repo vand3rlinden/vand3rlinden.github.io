@@ -7,8 +7,11 @@
 <meta name="robots" content="index, follow">
 <title>Get a handle on your SPF record | VAND3RLINDEN</title>
 <meta name="keywords" content="">
-<meta name="description" content="In this post, I will share my best practices for getting a handle on your SPF record.
-Why it makes sense to have a good SPF procedure in place In a previous blog post, I explained the limitations of SPF and how it works with DKIM and DMARC. It&rsquo;s crucial to have a well-structured SPF procedure to avoid future problems, especially since exceeding the DNS lookup limit of 10 can cause issues, such as:">
+<meta name="description" content="
+In this post, I will share my best practices for getting a handle on your SPF record.
+
+Why it makes sense to have a good SPF procedure in place
+In a previous blog post, I explained the limitations of SPF and how it works with DKIM and DMARC. It&rsquo;s crucial to have a well-structured SPF procedure to avoid future problems, especially since exceeding the DNS lookup limit of 10 can cause issues, such as:">
 <meta name="author" content="">
 <link rel="canonical" href="https://vand3rlinden.com/post/handle-your-spf-record/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
@@ -28,12 +31,12 @@ Why it makes sense to have a good SPF procedure in place In a previous blog post
         }
 
     </style>
-</noscript>
-  
+</noscript><meta property="og:title" content="Get a handle on your SPF record" />
+<meta property="og:description" content="
+In this post, I will share my best practices for getting a handle on your SPF record.
 
-<meta property="og:title" content="Get a handle on your SPF record" />
-<meta property="og:description" content="In this post, I will share my best practices for getting a handle on your SPF record.
-Why it makes sense to have a good SPF procedure in place In a previous blog post, I explained the limitations of SPF and how it works with DKIM and DMARC. It&rsquo;s crucial to have a well-structured SPF procedure to avoid future problems, especially since exceeding the DNS lookup limit of 10 can cause issues, such as:" />
+Why it makes sense to have a good SPF procedure in place
+In a previous blog post, I explained the limitations of SPF and how it works with DKIM and DMARC. It&rsquo;s crucial to have a well-structured SPF procedure to avoid future problems, especially since exceeding the DNS lookup limit of 10 can cause issues, such as:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vand3rlinden.com/post/handle-your-spf-record/" />
 <meta property="og:image" content="https://vand3rlinden.com/images/handle-your-spf-record/handle-your-spf-record-front.png" /><meta property="article:section" content="post" />
@@ -43,8 +46,11 @@ Why it makes sense to have a good SPF procedure in place In a previous blog post
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://vand3rlinden.com/images/handle-your-spf-record/handle-your-spf-record-front.png" />
 <meta name="twitter:title" content="Get a handle on your SPF record"/>
-<meta name="twitter:description" content="In this post, I will share my best practices for getting a handle on your SPF record.
-Why it makes sense to have a good SPF procedure in place In a previous blog post, I explained the limitations of SPF and how it works with DKIM and DMARC. It&rsquo;s crucial to have a well-structured SPF procedure to avoid future problems, especially since exceeding the DNS lookup limit of 10 can cause issues, such as:"/>
+<meta name="twitter:description" content="
+In this post, I will share my best practices for getting a handle on your SPF record.
+
+Why it makes sense to have a good SPF procedure in place
+In a previous blog post, I explained the limitations of SPF and how it works with DKIM and DMARC. It&rsquo;s crucial to have a well-structured SPF procedure to avoid future problems, especially since exceeding the DNS lookup limit of 10 can cause issues, such as:"/>
 
 
 <script type="application/ld+json">
@@ -73,7 +79,7 @@ Why it makes sense to have a good SPF procedure in place In a previous blog post
   "@type": "BlogPosting",
   "headline": "Get a handle on your SPF record",
   "name": "Get a handle on your SPF record",
-  "description": "In this post, I will share my best practices for getting a handle on your SPF record.\nWhy it makes sense to have a good SPF procedure in place In a previous blog post, I explained the limitations of SPF and how it works with DKIM and DMARC. It\u0026rsquo;s crucial to have a well-structured SPF procedure to avoid future problems, especially since exceeding the DNS lookup limit of 10 can cause issues, such as:",
+  "description": " In this post, I will share my best practices for getting a handle on your SPF record.\nWhy it makes sense to have a good SPF procedure in place In a previous blog post, I explained the limitations of SPF and how it works with DKIM and DMARC. It\u0026rsquo;s crucial to have a well-structured SPF procedure to avoid future problems, especially since exceeding the DNS lookup limit of 10 can cause issues, such as:\n",
   "keywords": [
     
   ],
@@ -188,99 +194,99 @@ Why it makes sense to have a good SPF procedure in place In a previous blog post
 <pre tabindex="0"><code>v=spf1 ip4:11.222.33.444 ip4:44.33.222.111 ip4:22.33.444.555 ip4:55.66.777.8 ip4:88.99.999.99 ip4:99.88.777.66 mx include:spf.protection.outlook.com include:_spf.salesforce.com include:mail.zendesk.com include:_spf.app1.com include:_spf.app2.com -all
 </code></pre><p>Calculation of DNS lookups:</p>
 <table>
-<thead>
-<tr>
-<th>DNS Lookup</th>
-<th>Count</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>include:spf.protection.outlook.com</code></td>
-<td>1 DNS Lookup</td>
-</tr>
-<tr>
-<td><code>include:_spf.salesforce.com</code></td>
-<td>2 DNS Lookups</td>
-</tr>
-<tr>
-<td><code>include:mail.zendesk.com</code></td>
-<td>1 DNS Lookup</td>
-</tr>
-<tr>
-<td><code>include:_spf.app1.com</code></td>
-<td>2 DNS Lookups</td>
-</tr>
-<tr>
-<td><code>include:_spf.app2.com</code></td>
-<td>2 DNS Lookups</td>
-</tr>
-<tr>
-<td><code>mx</code> (your MX record)</td>
-<td>1 DNS Lookup</td>
-</tr>
-<tr>
-<td>Total:</td>
-<td>9 DNS Lookups</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">DNS Lookup</th>
+          <th style="text-align: left">Count</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>include:spf.protection.outlook.com</code></td>
+          <td style="text-align: left">1 DNS Lookup</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>include:_spf.salesforce.com</code></td>
+          <td style="text-align: left">2 DNS Lookups</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>include:mail.zendesk.com</code></td>
+          <td style="text-align: left">1 DNS Lookup</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>include:_spf.app1.com</code></td>
+          <td style="text-align: left">2 DNS Lookups</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>include:_spf.app2.com</code></td>
+          <td style="text-align: left">2 DNS Lookups</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>mx</code> (your MX record)</td>
+          <td style="text-align: left">1 DNS Lookup</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Total:</td>
+          <td style="text-align: left">9 DNS Lookups</td>
+      </tr>
+  </tbody>
 </table>
 <p>Effective segmentation of your email streams is essential to have a handle on the above.</p>
 <p>In today&rsquo;s world, we&rsquo;re surrounded by numerous SaaS applications that use our primary domain for email correspondence. But is it really necessary for these applications to send through your primary domain when they could just as easily use a separate subdomain with its own SPF <code>TXT</code> record?</p>
 <h2 id="cut-your-spf-record">Cut your SPF record<a hidden class="anchor" aria-hidden="true" href="#cut-your-spf-record">#</a></h2>
 <p>Given the information provided, determine which SaaS applications can be restricted to sending email from a specific address using an <a href="https://vand3rlinden.com/post/handle-your-spf-record/#use-an-spf-macro-to-restrict-a-third-party-service-to-send-from-a-specific-address">SPF macro</a>. Also, determine which services are required to send email through your primary domain from multiple addresses, such as Microsoft 365, and which services are not subject to such restrictions and can send through a subdomain. A helpful approach is to create a list of your SPF record entries and specify the desired behavior for each entry, as shown in the example below:</p>
 <table>
-<thead>
-<tr>
-<th>Look up</th>
-<th>Outcome</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>include:spf.protection.outlook.com</code></td>
-<td>Used multiple email addresses and must send through the primary domain <code>yourdomain.com</code></td>
-</tr>
-<tr>
-<td><code>include:_spf.salesforce.com</code></td>
-<td>Must send through the primary domain, but can be restricted to send from a specific address <code>invoices@yourdomain.com</code> using an SPF macro</td>
-</tr>
-<tr>
-<td><code>include:mail.zendesk.com</code></td>
-<td>Must send through the primary domain, but can be restricted to send from a specific address <code>support@yourdomain.com</code> using an SPF macro</td>
-</tr>
-<tr>
-<td><code>include:_spf.app1.com</code></td>
-<td>Used multiple addresses and can send through a subdomain with a new SPF <code>TXT</code> record for <code>app1.yourdomain.com</code></td>
-</tr>
-<tr>
-<td><code>include:_spf.app2.com</code></td>
-<td>Used multiple addresses and can send through a subdomain with a new SPF <code>TXT</code> record for <code>app2.yourdomain.com</code></td>
-</tr>
-<tr>
-<td><code>mx</code></td>
-<td>Duplicate mechanisms, can be removed. When using Microsoft 365, the <code>MX</code> endpoint IP is already listed in <code>include:spf.protection.outlook.com</code></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Look up</th>
+          <th style="text-align: left">Outcome</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>include:spf.protection.outlook.com</code></td>
+          <td style="text-align: left">Used multiple email addresses and must send through the primary domain <code>yourdomain.com</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>include:_spf.salesforce.com</code></td>
+          <td style="text-align: left">Must send through the primary domain, but can be restricted to send from a specific address <code>invoices@yourdomain.com</code> using an SPF macro</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>include:mail.zendesk.com</code></td>
+          <td style="text-align: left">Must send through the primary domain, but can be restricted to send from a specific address <code>support@yourdomain.com</code> using an SPF macro</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>include:_spf.app1.com</code></td>
+          <td style="text-align: left">Used multiple addresses and can send through a subdomain with a new SPF <code>TXT</code> record for <code>app1.yourdomain.com</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>include:_spf.app2.com</code></td>
+          <td style="text-align: left">Used multiple addresses and can send through a subdomain with a new SPF <code>TXT</code> record for <code>app2.yourdomain.com</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>mx</code></td>
+          <td style="text-align: left">Duplicate mechanisms, can be removed. When using Microsoft 365, the <code>MX</code> endpoint IP is already listed in <code>include:spf.protection.outlook.com</code></td>
+      </tr>
+  </tbody>
 </table>
 <p>If you look at the example above, we have <em><strong>2 DNS lookups</strong></em> left after cutting the current SPF record for the primary domain:</p>
 <table>
-<thead>
-<tr>
-<th>Look up</th>
-<th>Count</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>include:spf.protection.outlook.com</code></td>
-<td>1 DNS Lookup</td>
-</tr>
-<tr>
-<td><code>include:%{l}._spf.yourdomain.com</code></td>
-<td>1 DNS Lookup, using an <a href="https://vand3rlinden.com/post/handle-your-spf-record/#use-an-spf-macro-to-restrict-a-third-party-service-to-send-from-a-specific-address">SPF macro</a> for both Salesforce and Zendesk</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Look up</th>
+          <th style="text-align: left">Count</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>include:spf.protection.outlook.com</code></td>
+          <td style="text-align: left">1 DNS Lookup</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>include:%{l}._spf.yourdomain.com</code></td>
+          <td style="text-align: left">1 DNS Lookup, using an <a href="https://vand3rlinden.com/post/handle-your-spf-record/#use-an-spf-macro-to-restrict-a-third-party-service-to-send-from-a-specific-address">SPF macro</a> for both Salesforce and Zendesk</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="ip-address-management-in-your-spf-record">IP address management in your SPF record<a hidden class="anchor" aria-hidden="true" href="#ip-address-management-in-your-spf-record">#</a></h2>
 <p>So we cleaned up <em><strong>7 DNS lookups</strong></em> from the previous <em><strong>9 DNS Lookups</strong></em>, good job! But what about the IP addresses in the SPF record? IP addresses don’t cost any DNS lookups because we’re not talking to the DNS. One disadvantage of using IP addresses in your SPF record is that it will result in an unmanageable and too long record. So, we can add a new include with the cost of <em><strong>1 DNS lookup</strong></em>, such as <code>include:_spf.yourdomain.com</code>.</p>
@@ -292,20 +298,20 @@ Why it makes sense to have a good SPF procedure in place In a previous blog post
 <li>Now we create a new <code>TXT</code> record in the DNS zone of <code>yourdomain.com</code> listing the IP addresses.</li>
 </ol>
 <table>
-<thead>
-<tr>
-<th>Host</th>
-<th>Type</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>_spf.yourdomain.com</code></td>
-<td><code>TXT</code></td>
-<td><code>v=spf1 ip4:11.222.33.444 ip4:44.33.222.111 ip4:22.33.444.555 ip4:55.66.777.8 ip4:88.99.999.99 ip4:99.88.777.66 -all</code></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Host</th>
+          <th style="text-align: left">Type</th>
+          <th style="text-align: left">Value</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>_spf.yourdomain.com</code></td>
+          <td style="text-align: left"><code>TXT</code></td>
+          <td style="text-align: left"><code>v=spf1 ip4:11.222.33.444 ip4:44.33.222.111 ip4:22.33.444.555 ip4:55.66.777.8 ip4:88.99.999.99 ip4:99.88.777.66 -all</code></td>
+      </tr>
+  </tbody>
 </table>
 <blockquote>
 <p><strong>CAUTION:</strong> When the SPF record for your IP addresses reaches its limit of <a href="https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#implementation-of-spf">two strings of 255 characters</a>, it becomes inaccurate. You should avoid including too many IP addresses. While you can add another include, such as <code>_spf1.yourdomain.com</code>, at the cost of another DNS lookup, it is advisable to start segmenting this into subdomains. Also, get into the habit of documenting all of your IP addresses that send mail on behalf of your domain.</p>
@@ -318,45 +324,45 @@ Why it makes sense to have a good SPF procedure in place In a previous blog post
 So it is unnecessary to have <code>include:_spf.salesforce.com</code> and <code>include:mail.zendesk.com</code> cost <em><strong>3 DNS Lookups</strong></em> in the SPF record on <code>yourdomain.com</code>.</p>
 <p>Calculate the DNS Lookups from <code>include:_spf.salesforce.com</code> in <code>yourdomain.com</code>:</p>
 <table>
-<thead>
-<tr>
-<th>DNS Lookup</th>
-<th>Count</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>include:_spf.salesforce.com</code></td>
-<td>1 DNS Lookup</td>
-</tr>
-<tr>
-<td><code>exists:%{i}._spf.mta.salesforce.com</code></td>
-<td>1 DNS Lookup (child lookup)</td>
-</tr>
-<tr>
-<td>Total:</td>
-<td><em><strong>2 DNS Lookups</strong></em></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">DNS Lookup</th>
+          <th style="text-align: left">Count</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>include:_spf.salesforce.com</code></td>
+          <td style="text-align: left">1 DNS Lookup</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>exists:%{i}._spf.mta.salesforce.com</code></td>
+          <td style="text-align: left">1 DNS Lookup (child lookup)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Total:</td>
+          <td style="text-align: left"><em><strong>2 DNS Lookups</strong></em></td>
+      </tr>
+  </tbody>
 </table>
 <p>Calculate the DNS Lookup from <code>include:mail.zendesk.com</code> in <code>yourdomain.com</code>:</p>
 <table>
-<thead>
-<tr>
-<th>DNS Lookup</th>
-<th>Count</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>include:mail.zendesk.com</code></td>
-<td>1 DNS Lookup</td>
-</tr>
-<tr>
-<td>Total:</td>
-<td><em><strong>1 DNS Lookup</strong></em></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">DNS Lookup</th>
+          <th style="text-align: left">Count</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>include:mail.zendesk.com</code></td>
+          <td style="text-align: left">1 DNS Lookup</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Total:</td>
+          <td style="text-align: left"><em><strong>1 DNS Lookup</strong></em></td>
+      </tr>
+  </tbody>
 </table>
 <p>In order to bring this <em><strong>3 DNS Lookups</strong></em> to <em><strong>1 DNS Lookup</strong></em>, you can follow the steps below.</p>
 <ol>
@@ -370,25 +376,25 @@ So it is unnecessary to have <code>include:_spf.salesforce.com</code> and <code>
 <li>Now we will create two new <code>TXT</code> records in the DNS zone of <code>yourdomain.com</code> to restrict Salesforce to only send from <code>invoices@yourdomain.com</code> and Zendesk to only send from <code>support@yourdomain.com</code>.</li>
 </ol>
 <table>
-<thead>
-<tr>
-<th>Host</th>
-<th>Type</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>invoices._spf.yourdomain.com</code></td>
-<td><code>TXT</code></td>
-<td><code>v=spf1 include:_spf.salesforce.com -all</code></td>
-</tr>
-<tr>
-<td><code>support._spf.yourdomain.com</code></td>
-<td><code>TXT</code></td>
-<td><code>v=spf1 include:mail.zendesk.com -all</code></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Host</th>
+          <th style="text-align: left">Type</th>
+          <th style="text-align: left">Value</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>invoices._spf.yourdomain.com</code></td>
+          <td style="text-align: left"><code>TXT</code></td>
+          <td style="text-align: left"><code>v=spf1 include:_spf.salesforce.com -all</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>support._spf.yourdomain.com</code></td>
+          <td style="text-align: left"><code>TXT</code></td>
+          <td style="text-align: left"><code>v=spf1 include:mail.zendesk.com -all</code></td>
+      </tr>
+  </tbody>
 </table>
 <p>After setting up the above, Salesfroce&rsquo;s sending servers can only send from <code>invoices@yourdomain.com</code> and Zendesk can only send from <code>support@yourdomain.com</code>.</p>
 <h2 id="how-the-spf-macro-l-works-on-the-receiving-mail-server">How the SPF macro %{l} works on the receiving mail server<a hidden class="anchor" aria-hidden="true" href="#how-the-spf-macro-l-works-on-the-receiving-mail-server">#</a></h2>
@@ -405,30 +411,30 @@ So it is unnecessary to have <code>include:_spf.salesforce.com</code> and <code>
 <pre tabindex="0"><code>v=spf1 include:spf.protection.outlook.com include:_spf.yourdomain.com include:%{l}._spf.yourdomain.com -all
 </code></pre><p>Final computation of DNS lookups:</p>
 <table>
-<thead>
-<tr>
-<th>DNS Lookup</th>
-<th>Count</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>include:spf.protection.outlook.com</code></td>
-<td>1 DNS Lookup</td>
-</tr>
-<tr>
-<td><code>include:_spf.yourdomain.com</code></td>
-<td>1 DNS Lookup for the IP addresses</td>
-</tr>
-<tr>
-<td><code>include:%{l}._spf.yourdomain.comm</code></td>
-<td>1 DNS Lookup for Salesforce and Zendesk</td>
-</tr>
-<tr>
-<td>Total:</td>
-<td>3 DNS Lookups</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">DNS Lookup</th>
+          <th style="text-align: left">Count</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>include:spf.protection.outlook.com</code></td>
+          <td style="text-align: left">1 DNS Lookup</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>include:_spf.yourdomain.com</code></td>
+          <td style="text-align: left">1 DNS Lookup for the IP addresses</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>include:%{l}._spf.yourdomain.comm</code></td>
+          <td style="text-align: left">1 DNS Lookup for Salesforce and Zendesk</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Total:</td>
+          <td style="text-align: left">3 DNS Lookups</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="lastly">Lastly<a hidden class="anchor" aria-hidden="true" href="#lastly">#</a></h2>
 <p>For the future of your SPF record, add IP addresses using the separate include, and carefully decide whether a SaaS application should be sent through a subdomain or a static address instead of any address from your primary domain. In addition, make it a habit to monitor your SPF record frequently and document each sender you list.</p>

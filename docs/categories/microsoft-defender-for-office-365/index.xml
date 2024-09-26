@@ -4,7 +4,7 @@
     <title>Microsoft Defender for Office 365 on VAND3RLINDEN</title>
     <link>https://vand3rlinden.com/categories/microsoft-defender-for-office-365/</link>
     <description>Recent content in Microsoft Defender for Office 365 on VAND3RLINDEN</description>
-    <generator>Hugo -- 0.132.1</generator>
+    <generator>Hugo -- 0.134.3</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 12 Jul 2024 22:43:43 +0200</lastBuildDate>
     <atom:link href="https://vand3rlinden.com/categories/microsoft-defender-for-office-365/index.xml" rel="self" type="application/rss+xml" />
@@ -13,64 +13,88 @@
       <link>https://vand3rlinden.com/post/mdo-safeattachments-policies/</link>
       <pubDate>Fri, 12 Jul 2024 22:43:43 +0200</pubDate>
       <guid>https://vand3rlinden.com/post/mdo-safeattachments-policies/</guid>
-      <description>Safe Attachments scans and evaluates attachments for malicious content before delivering messages to recipients.
-What you can manage with a Safe Attachments policy With a Safe Attachments policy, administrators can configure an additional layer of protection against malicious content in email attachments. It scans and evaluates attachments (Safe Attachments opens files in a virtual environment) before delivering messages to recipients. You can create a custom policy to, specify actions for unknown malware, select a quarantine policy, and configure global settings to protect files in SharePoint, OneDrive, and Teams with Safe Attachments.</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Safe Attachments scans and evaluates attachments for malicious content before delivering messages to recipients.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;what-you-can-manage-with-a-safe-attachments-policy&#34;&gt;What you can manage with a Safe Attachments policy&lt;/h2&gt;
+&lt;p&gt;With a Safe Attachments policy, administrators can configure an additional layer of protection against malicious content in email attachments. It scans and evaluates attachments &lt;em&gt;(Safe Attachments opens files in a virtual environment)&lt;/em&gt; before delivering messages to recipients. You can create a custom policy to, specify actions for unknown malware, select a quarantine policy, and configure global settings to protect files in SharePoint, OneDrive, and Teams with Safe Attachments.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Microsoft Defender for Office 365: Hardening DKIM and DMARC configuration</title>
       <link>https://vand3rlinden.com/post/mdo-hardening-dkim-dmarc-config/</link>
       <pubDate>Sun, 21 Apr 2024 15:31:27 +0200</pubDate>
       <guid>https://vand3rlinden.com/post/mdo-hardening-dkim-dmarc-config/</guid>
-      <description>Improve email security in Microsoft 365: Fine-tuning DKIM and setup DMARC for the MOERA domain.
-Fine-tune DKIM by frequently rotating the DKIM keys After setting up DKIM in Microsoft Defender for Office 365, it is also important to set up frequent rotation of these DKIM keys to prevent adversaries from intercepting and decrypting your cryptographic keys. Key rotation helps to minimize the risk of compromising the private keys. In Microsoft 365, you can rotate the DKIM keys for your domains to increase security.</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Improve email security in Microsoft 365: Fine-tuning DKIM and setup DMARC for the MOERA domain.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;fine-tune-dkim-by-frequently-rotating-the-dkim-keys&#34;&gt;Fine-tune DKIM by frequently rotating the DKIM keys&lt;/h2&gt;
+&lt;p&gt;After &lt;a href=&#34;https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/email-authentication-dkim-configure&#34;&gt;setting up DKIM&lt;/a&gt; in Microsoft Defender for Office 365, it is also important to set up frequent rotation of these DKIM keys to prevent adversaries from intercepting and decrypting your cryptographic keys. Key rotation helps to minimize the risk of compromising the private keys. In Microsoft 365, you can rotate the DKIM keys for your domains to increase security. The recurrence must be every 3 months because rotating the DKIM keys every 3 months ensures a complete rotation of both selectors every 6 months. You can rotate the DKIM keys manually using the &lt;a href=&#34;https://learn.microsoft.com/en-us/defender-office-365/email-authentication-dkim-configure#use-the-defender-portal-to-rotate-dkim-keys-for-a-custom-domain&#34;&gt;Defender portal&lt;/a&gt; or &lt;a href=&#34;https://learn.microsoft.com/en-us/defender-office-365/email-authentication-dkim-configure#use-exchange-online-powershell-to-rotate-the-dkim-keys-for-a-domain-and-change-the-bit-depth&#34;&gt;Exchange Online PowerShell&lt;/a&gt;, but it is easy to forget if you do it manually. So you should delegate this to Azure Automation by using the runbook below:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Microsoft Defender for Office 365: Attack simulation training</title>
       <link>https://vand3rlinden.com/post/mdo-attack-simulation/</link>
       <pubDate>Sat, 03 Feb 2024 12:31:15 +0100</pubDate>
       <guid>https://vand3rlinden.com/post/mdo-attack-simulation/</guid>
-      <description>With Microsoft Defender for Office 365, you can create an attack simulation training to identify vulnerable users and mitigate potential threats before they impact your organization.
-Think before you click Understanding the intricacies of cybersecurity is crucial in today&amp;rsquo;s digital landscape. Attack simulation training is indispensable for users as it provides hands-on experience in recognizing and defending against potential threats. This proactive approach empowers individuals to enhance their security awareness, identify vulnerabilities, and contribute to a more resilient organizational defense against cyber attacks.</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;With Microsoft Defender for Office 365, you can create an attack simulation training to identify vulnerable users and mitigate potential threats before they impact your organization.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;think-before-you-click&#34;&gt;Think before you click&lt;/h2&gt;
+&lt;p&gt;Understanding the intricacies of cybersecurity is crucial in today&amp;rsquo;s digital landscape. Attack simulation training is indispensable for users as it provides hands-on experience in recognizing and defending against potential threats. This proactive approach empowers individuals to enhance their security awareness, identify vulnerabilities, and contribute to a more resilient organizational defense against cyber attacks.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Microsoft Defender for Office 365: Safe Links policies</title>
       <link>https://vand3rlinden.com/post/mdo-safelinks-policies/</link>
       <pubDate>Fri, 29 Dec 2023 11:19:27 +0100</pubDate>
       <guid>https://vand3rlinden.com/post/mdo-safelinks-policies/</guid>
-      <description>Safe Links scans URLs in incoming messages and checks the links for malicious content at the time they are clicked.
-What you can manage with a Safe Links policy With a Safe Links policy, administrators can configure and manage this policy to protect users from clicking harmful links and being redirected to malicious websites. Safe Links provides URL scanning for links in email messages, Microsoft Teams, and supported Office 365 applications.</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Safe Links scans URLs in incoming messages and checks the links for malicious content at the time they are clicked.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;what-you-can-manage-with-a-safe-links-policy&#34;&gt;What you can manage with a Safe Links policy&lt;/h2&gt;
+&lt;p&gt;With a Safe Links policy, administrators can configure and manage this policy to protect users from clicking harmful links and being redirected to malicious websites. Safe Links provides URL scanning for links in email messages, Microsoft Teams, and supported Office 365 applications. You can create custom Safe Links policies that apply to specific users, groups, or domains.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Microsoft Defender for Office 365: Anti-malware policies</title>
       <link>https://vand3rlinden.com/post/mdo-anti-malware-policies/</link>
       <pubDate>Sat, 23 Dec 2023 23:07:45 +0100</pubDate>
       <guid>https://vand3rlinden.com/post/mdo-anti-malware-policies/</guid>
-      <description>Malware is specifically designed to harm or exploit devices, networks, or users. It includes various types of harmful software such as viruses, worms, trojan horses, ransomware, spyware, and adware. Malware can be distributed through email attachments, infected websites, malicious downloads, or other deceptive means.
-What you can manage with an Anti-malware policy Mailboxes in Exchange Online benefit from automatic protection against malware through Exchange Online Protection (EOP). EOP offers a multi-layered malware protection system designed to detect all known malware.</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Malware is specifically designed to harm or exploit devices, networks, or users. It includes various types of harmful software such as viruses, worms, trojan horses, ransomware, spyware, and adware. Malware can be distributed through email attachments, infected websites, malicious downloads, or other deceptive means.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;what-you-can-manage-with-an-anti-malware-policy&#34;&gt;What you can manage with an Anti-malware policy&lt;/h2&gt;
+&lt;p&gt;Mailboxes in Exchange Online benefit from automatic protection against malware through Exchange Online Protection (EOP). EOP offers a multi-layered malware protection system designed to detect all known malware.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Microsoft Defender for Office 365: Anti-phishing policies</title>
       <link>https://vand3rlinden.com/post/mdo-anti-phishing-policies/</link>
       <pubDate>Fri, 22 Dec 2023 14:27:30 +0100</pubDate>
       <guid>https://vand3rlinden.com/post/mdo-anti-phishing-policies/</guid>
-      <description>Phishing is an email attack that aims to steal sensitive information through messages that appear to be from legitimate or trusted senders. You can enhance the security of your Exchange Online mailboxes by implementing anti-phishing policies.
-What you can manage with Anti-phishing policies Anti-phishing policies provide enhanced control over incoming phishing emails, for instance, in cases where someone may attempt to impersonate your CEO or send messages from a domain that closely resembles yours.</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Phishing is an email attack that aims to steal sensitive information through messages that appear to be from legitimate or trusted senders. You can enhance the security of your Exchange Online mailboxes by implementing anti-phishing policies.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;what-you-can-manage-with-anti-phishing-policies&#34;&gt;What you can manage with Anti-phishing policies&lt;/h2&gt;
+&lt;p&gt;Anti-phishing policies provide enhanced control over incoming phishing emails, for instance, in cases where someone may attempt to impersonate your CEO or send messages from a domain that closely resembles yours. By default, a policy named &amp;lsquo;Office365 AntiPhish Default (Default)&amp;rsquo; is automatically applied to all users.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Microsoft Defender for Office 365: Anti-spam policies</title>
       <link>https://vand3rlinden.com/post/mdo-anti-spam-policies/</link>
       <pubDate>Mon, 18 Dec 2023 15:24:50 +0100</pubDate>
       <guid>https://vand3rlinden.com/post/mdo-anti-spam-policies/</guid>
-      <description>All inbound e-mail is automatically protected from spam by Exchange Online Protection (EOP) for Microsoft 365 organizations with mailboxes in Exchange Online. EOP uses anti-spam policies as part of your organization&amp;rsquo;s overall spam defense.
-What you can manage with Anti-spam policies Anti-spam policies provide you with control over both inbound and outbound email in Exchange Online. Within the Microsoft Security Portal, you can access the Anti-Spam Policy section, where three default policies are available for editing.</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;All inbound e-mail is automatically protected from spam by Exchange Online Protection (EOP) for Microsoft 365 organizations with mailboxes in Exchange Online. EOP uses anti-spam policies as part of your organization&amp;rsquo;s overall spam defense.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;what-you-can-manage-with-anti-spam-policies&#34;&gt;What you can manage with Anti-spam policies&lt;/h2&gt;
+&lt;p&gt;Anti-spam policies provide you with control over both inbound and outbound email in Exchange Online. Within the Microsoft Security Portal, you can access the &lt;a href=&#34;https://security.microsoft.com/antispam&#34;&gt;Anti-Spam Policy section&lt;/a&gt;, where three default policies are available for editing. Additionally, it is possible to create custom policies, and further details on this will be discussed later in this post.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Microsoft Defender for Office 365: Quarantine policies</title>
       <link>https://vand3rlinden.com/post/mdo-quarantine-policies/</link>
       <pubDate>Mon, 11 Dec 2023 16:33:46 +0100</pubDate>
       <guid>https://vand3rlinden.com/post/mdo-quarantine-policies/</guid>
-      <description>Quarantine policies let you control the quarantine on how users can use it. This post will cover the default policies and how to create a custom policy.
-What are quarantine policies Back in April 2020, Microsoft made it possible for users to view, release, or delete quarantined messages (expect high confidence phishing). Some organizations were not happy about users having access to their own quarantined items. Quarantine policies give you more control over quarantine for your end users and which quarantined items they can release.</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Quarantine policies let you control the quarantine on how users can use it. This post will cover the default policies and how to create a custom policy.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;what-are-quarantine-policies&#34;&gt;What are quarantine policies&lt;/h2&gt;
+&lt;p&gt;Back in April 2020, Microsoft made it possible for users to view, release, or delete quarantined messages (expect high confidence phishing). Some organizations were not happy about users having access to their own quarantined items. Quarantine policies give you more control over quarantine for your end users and which quarantined items they can release.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
