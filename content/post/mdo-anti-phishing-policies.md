@@ -27,14 +27,14 @@ With user impersonation protection, you can protect 350 internal and external us
 > **NOTE:** User impersonation protection is not effective when there is a history of email communication between the sender and recipient. Detection of an impersonation attempt is only possible in cases where there is no prior email interaction between the sender and recipient.
 
 ### How it works
-User impersonation is the combination of the user’s display name and email address. For example, your CEO ```Shaggy Rogers <shaggy@contoso.com>``` could be impersonated as Shaggy Rogers, but with a completely different email address, such as ```Shaggy Rogers <shaggy.rogers@fabrikam.com>```. Even though SPF, DKIM and DMARC will pass for the fabrikam.com domain, the email will be flagged as protection policy category UIMP (user impersonation) in the ```X-Forefront-Antispam-Report``` message header.
+User impersonation is the combination of the user’s display name and email address. For example, your CEO `Shaggy Rogers <shaggy@contoso.com>` could be impersonated as Shaggy Rogers, but with a completely different email address, such as `Shaggy Rogers <shaggy.rogers@fabrikam.com>`. Even though SPF, DKIM and DMARC will pass for the fabrikam.com domain, the email will be flagged as protection policy category UIMP (user impersonation) in the `X-Forefront-Antispam-Report` message header.
 
 ### Domain impersonation protection
 ### What you can protect:
 With domain impersonation protection, you can protect the domains that you own in Microsoft 365 (accepted domains) as well as external domains, such as the domains of your vendors.
 
 ### How it works
-Domain impersonation prevents the sender’s email domain from appearing in a message that looks like a real email domain. For example, ```contoso.com``` could be impersonated as ```c0ntoso.com``` or ```contoso.co```. Even though SPF, DKIM and DMARC will pass for the domain ```c0ntoso.com``` or ```contoso.co```, the email will be labeled with Protection Policy Category ```DIMP``` (domain impersonation) in the ```X-Forefront-Antispam-Report``` message header.
+Domain impersonation prevents the sender’s email domain from appearing in a message that looks like a real email domain. For example, `contoso.com` could be impersonated as `c0ntoso.com` or `contoso.co`. Even though SPF, DKIM and DMARC will pass for the domain `c0ntoso.com` or `contoso.co`, the email will be labeled with Protection Policy Category `DIMP` (domain impersonation) in the `X-Forefront-Antispam-Report` message header.
 
 ### Impersonation insight
 You can use Impersonation insight in the [Microsoft Defender Portal](https://security.microsoft.com/impersonationinsight) to quickly identify messages from impersonated senders or sender domains that are included in impersonation protection in anti-phishing policies.
@@ -44,7 +44,7 @@ You can use Impersonation insight in the [Microsoft Defender Portal](https://sec
 Mailbox Intelligence uses artificial intelligence (AI) to determine the email patterns of users with their most frequent contacts.
 
 ### How it works:
-Mailbox intelligence operates similarly to user impersonation protection; however, it utilizes the contents of the mailbox to identify phishing attempts. For instance, if you regularly exchange emails with ```Shaggy Rogers <shaggy@contoso.com>```, and one day you receive an email from ```Shaggy Rogers <shaggy.rogers@fabrikam.com>``` that successfully passes SPF, DKIM, and DMARC checks, it will still be flagged with the protection policy category ```GIMP``` (Mailbox Intelligence Based Impersonation) in the ```X-Forefront-Antispam-Report``` message header. This is because the AI within Mailbox Intelligence assesses that you have not previously interacted with ```Shaggy Rogers <shaggy.rogers@fabrikam.com>```, suggesting a potential impersonation.
+Mailbox intelligence operates similarly to user impersonation protection; however, it utilizes the contents of the mailbox to identify phishing attempts. For instance, if you regularly exchange emails with `Shaggy Rogers <shaggy@contoso.com>`, and one day you receive an email from `Shaggy Rogers <shaggy.rogers@fabrikam.com>` that successfully passes SPF, DKIM, and DMARC checks, it will still be flagged with the protection policy category `GIMP` (Mailbox Intelligence Based Impersonation) in the `X-Forefront-Antispam-Report` message header. This is because the AI within Mailbox Intelligence assesses that you have not previously interacted with `Shaggy Rogers <shaggy.rogers@fabrikam.com>`, suggesting a potential impersonation.
 
 Mailbox Intelligence has two settings:
 
@@ -57,19 +57,19 @@ To activate Mailbox Intelligence, both settings must be turned on.
 
 ## Spoof intelligence
 ### What Spoofing is
-Spoofing (implicit failures) occurs when the ```From``` address (P2 Sender, the sender address that's shown in email clients) in an email message doesn’t match the domain of the email source (P1 Sender).
+Spoofing occurs when the `From` address (P2 Sender, the sender address that's shown in email clients) in an email message doesn’t match the domain of the email source (P1 Sender).
 
 ### P1 vs P2- sender explanation
 | Postal Letter      | Precise Term                        | Protected by  |
 | -----------        | -----------                         | -----------   |
-| Sender on envelope | ```RFC5321.MailFrom``` (P1 Sender)  |  SPF          |
-| Author on letter   | ```RFC5322.From``` (P2 Sender)      |  DKIM + DMARC |
+| Sender on envelope | `RFC5321.MailFrom` (P1 Sender)      |  SPF          |
+| Author on letter   | `RFC5322.From` (P2 Sender)          |  DKIM + DMARC |
 
 ### What you can protect
 With spoof intelligence enabled, you control the response when the P1 Sender doesn’t match the P2 Sender. This check is similar to DMARC, though not all domains have DMARC configured.
 
 ### How it works
-Phishers may use P1 spoofing, allowing SPF to pass on their domain (P1 Sender) while sending emails on behalf of another domain (P2 Sender). Spoof intelligence identifies this and labels the email with Protection Policy Category ```SPOOF``` (Spoofing) in the ```X-Forefront-Antispam-Report``` message header.
+Phishers may use P1 spoofing, allowing SPF to pass on their domain (P1 Sender) while sending emails on behalf of another domain (P2 Sender). Spoof intelligence identifies this and labels the email with Protection Policy Category `SPOOF` (Spoofing) in the `X-Forefront-Antispam-Report` message header.
 
 ### Spoof intelligence insight
 You can use the spoof intelligence insight in the [Microsoft Defender portal](https://security.microsoft.com/spoofintelligence) to quickly identify spoofed senders who are legitimately sending you unauthenticated email (messages from domains that don't pass SPF, DKIM, or DMARC checks), and manually allow those senders.
