@@ -66,10 +66,10 @@ Spoofing occurs when the `From` address (P2 Sender, the sender address that's sh
 | Author on letter   | `RFC5322.From` (P2 Sender)          |  DKIM + DMARC |
 
 ### What you can protect
-With spoof intelligence enabled, you control the response when the P1 Sender doesn’t match the P2 Sender. This check is similar to DMARC, though not all domains have DMARC configured.
+When Spoof Intelligence is enabled, the Spoof Intelligence Insight displays spoofed senders that have been automatically identified and either allowed or blocked by Spoof Intelligence. 
 
 ### How it works
-Phishers may use P1 spoofing, allowing SPF to pass on their domain (P1 Sender) while sending emails on behalf of another domain (P2 Sender). Spoof intelligence identifies this and labels the email with Protection Policy Category `SPOOF` (Spoofing) in the `X-Forefront-Antispam-Report` message header.
+If Spoof Intelligence has good signals that a domain may be suspicious, Spoof Intelligence will identify it as a **block** and mark the email with protection policy category `SPOOF` in the `X-Forefront-Antispam-Report` message header. However, if Spoof Intelligence has good signals that a domain should pass extended authentication checks, it should be **allowed** by Spoof Intelligence and the [Unauthenticated Sender Indicators](https://learn.microsoft.com/en-us/defender-office-365/anti-phishing-policies-about?view=o365-worldwide#unauthenticated-sender-indicators) should be visible to the recipient. 
 
 ### Spoof intelligence insight
 You can use the spoof intelligence insight in the [Microsoft Defender portal](https://security.microsoft.com/spoofintelligence) to quickly identify spoofed senders who are legitimately sending you unauthenticated email (messages from domains that don't pass SPF, DKIM, or DMARC checks), and manually allow those senders.
@@ -157,6 +157,7 @@ From the field I have seen that when a user is attacked by self-to-self spoofing
 - [Mailbox intelligence impersonation protection](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-phishing-policies-about?view=o365-worldwide#mailbox-intelligence-impersonation-protection)
 - [Spoof settings](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-phishing-policies-about?view=o365-worldwide#spoof-settings)
 - [Spoof protection and sender DMARC policies](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-phishing-policies-about?view=o365-worldwide#spoof-protection-and-sender-dmarc-policies)
+- [Unauthenticated Sender Indicators](https://learn.microsoft.com/en-us/defender-office-365/anti-phishing-policies-about?view=o365-worldwide#unauthenticated-sender-indicators)
 - [Spoof intelligence insight in EOP](https://learn.microsoft.com/en-us/defender-office-365/anti-spoofing-spoof-intelligence)
 - [X-Forefront-Antispam-Report message header fields](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/message-headers-eop-mdo?view=o365-worldwide#x-forefront-antispam-report-message-header-fields)
 - [Impersonation safety tips](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-phishing-policies-about?view=o365-worldwide#impersonation-safety-tips)
