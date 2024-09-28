@@ -66,7 +66,7 @@ Spoofing occurs when the `From` address (P2 Sender, the sender address that's sh
 | Author on letter   | `RFC5322.From` (P2 Sender)          |  DKIM + DMARC |
 
 ### What you can protect
-When Spoof Intelligence is enabled, the Spoof Intelligence Insight displays spoofed senders that have been automatically identified and either allowed or blocked by Spoof Intelligence. 
+When Spoof Intelligence is enabled, Spoof Intelligence Insight displays spoofed senders that have been automatically identified and either allowed or blocked by Spoof Intelligence. 
 
 ### How it works
 If Spoof Intelligence has good signals that a domain may be suspicious, Spoof Intelligence will identify it as a **block** and mark the email with protection policy category `SPOOF` in the `X-Forefront-Antispam-Report` message header. However, if Spoof Intelligence has good signals that a domain should pass extended authentication checks, it should be **allowed** by Spoof Intelligence and the [Unauthenticated Sender Indicators](https://learn.microsoft.com/en-us/defender-office-365/anti-phishing-policies-about?view=o365-worldwide#unauthenticated-sender-indicators) should be visible to the recipient. 
