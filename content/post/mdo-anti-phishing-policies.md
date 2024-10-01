@@ -127,7 +127,7 @@ ForEach ($User in $Users){
 12. Check all safety tips, to help recipients be more aware of red flags in an email.
 
 ## Self-to-self spoofing attack with DMARC reject policy
-From the field I have seen that when a user is attacked by self-to-self spoofing. They receive an NDR from Exchange Online with the original email attached in .eml format, expected but unwanted. I have contacted Microsoft and they recently fixed this issue and this NDR backscatter should get a high confidence spam (HSPM) or spam (SPM) verdict and the email will end up in the JUNK folder. Backscatter is treated differently than regular email and the HSPM and SPM actions in the anti-spam policies do not apply.
+From the field I have seen that when a user is attacked by self-to-self spoofing. They receive an NDR from Exchange Online with the original email attached in `.eml` format, expected but unwanted. I have contacted Microsoft and they recently fixed this issue and this NDR backscatter should get a high confidence spam (`HSPM`) or spam (`SPM`) verdict and the email will end up in the Junk Folder. Backscatter is treated differently than regular email and the `HSPM` and `SPM` actions in the anti-spam policies do not apply.
 
 ![IMAGE](/images/mdo-anti-phishing-policies/mdo-anti-phishing-policies-1.png)
 

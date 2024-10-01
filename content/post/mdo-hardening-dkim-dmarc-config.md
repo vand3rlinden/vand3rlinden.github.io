@@ -32,13 +32,13 @@ Your `onmicrosoft.com` domain, also known as the Microsoft Online Email Routing 
 Example of a spoofed ***outbound message*** from an `onmicrosoft.com` that doesn't have a DMARC reject policy:
 ![IMAGE](/images/mdo-hardening-dkim-dmarc-config/mdo-hardening-dkim-dmarc-config1.png)
 
-> **NOTE:** Spoofed ***inbound messages*** from  your `onmicrosoft.com` domain will end up in the Junk Folder, because the detection technology is `Spoof intra-org`. Spoof Intelligence will not trigger your anti-phishing policy for this detection. More info [here](https://vand3rlinden.com/post/mdo-anti-phishing-policies/#self-to-self-spoofing-attack-with-dmarc-reject-policy).
+> **NOTE:** Spoofed ***inbound messages*** from  your `onmicrosoft.com` domain will end up in the Junk Folder, because the detection technology is `Spoof intra-org`. Spoof Intelligence will not trigger your anti-phishing policy for this detection.
 
 To prevent email spoofing and phishing using this domain, you need to set up a DMARC reject policy on the MOERA domain, as you do on all of your send and [non-send domains](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#protect-all-non-sending-domains). Setting DMARC for the MOERA is most often forgotten because you do not own the MOERA domain, but Microsoft has made it possible to manage the public DNS of your MOERA domain in the Microsoft 365 Admin Center.
 
 1. In the [Microsoft 365 admin center](https://admin.microsoft.com), select Show all > Settings > Domains
 2. On the Domains page, open your `onmicrosoft.com` domain and click on DNS Records
-4. Click on Add record and set the following values
+3. Click on Add record and set the following values
 - Type: `TXT`
 - TXT name: `_dmarc`
 - TXT value: `v=DMARC1; p=reject;`
