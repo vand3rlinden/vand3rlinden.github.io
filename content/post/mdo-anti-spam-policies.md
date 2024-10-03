@@ -18,11 +18,10 @@ In this inbound policy you can manage:
 
 - **Spam actions**, to set actions (to junk, quarantine, delete and more) when spam is detected. Based on the verdict, you can choose what to do with it, such as quarantine the message, which you can manage with quarantine policies.
 
-- ***Allowed and blocked senders or domains**, such as `someone@domain.com` or `domain.com`. 
-
-_*To establish a list of blocked/safe senders in EOP, please follow the instructions provided in the two links below:_
-- _[Create blocked sender lists in EOP](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/create-block-sender-lists-in-office-365)_
-- _[Create safe sender lists in EOP](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/create-safe-sender-lists-in-office-365)_
+- **Allowed and blocked senders or domains**, such as `someone@domain.com` or `domain.com` ([not recommended](https://vand3rlinden.com/post/mdo-anti-spam-policies/#best-practices)).
+  - To create a list of blocked/safe senders in EOP, follow the instructions in the two links below:
+    - [Create blocked sender lists in EOP](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/create-block-sender-lists-in-office-365)
+    - [Create safe sender lists in EOP](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/create-safe-sender-lists-in-office-365)
 
 ### Connection filter policy (Default)
 In this filter policy you can manage:
