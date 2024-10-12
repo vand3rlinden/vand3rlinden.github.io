@@ -76,9 +76,9 @@ During setup, you have two options: you can "manually select" up to 20 payloads 
   - Tenant notifications: Includes custom end user notifications for branding and to set a different From address to an internal mailbox
 
 - Who receives the simulated phishing message and on what schedule
-  - All users* or specific users and groups (dynamic distribution groups are not supported)
+  - All users* or specific users and groups
     - *All users are all mailboxes (user and shared) and resources (room and equipment) in Exchange Online
-  - Supported groups: _distribution_ and _mail-enabled security groups_
+  - Supported groups: **Microsoft 365**, **distribution list** and **mail-enabled security** (dynamic distribution groups are _not_ supported).
 
 ## The best practices of a simulation are:
 - Target users: Include all users in your organization (Assuming all user mailboxes are licensed for Microsoft Defender for Office Plan 2)
