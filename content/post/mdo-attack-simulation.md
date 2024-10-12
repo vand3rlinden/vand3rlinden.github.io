@@ -48,6 +48,13 @@ After the requirements are set, you can begin creating an attack simulation trai
 - [Training campaigns for Attack simulation](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-training-campaigns)
   - Instead of creating and launching simulated phishing attacks that eventually lead to training, you can create and assign Training campaigns directly to users.
 
+#### Personal Insight:
+While automation can be a good fit for your organization, there are some considerations to keep in mind. For instance, if you plan to automate a year-long simulation, you won’t be able to edit the content after setup. You’ll be restricted to the choices you made during the initial configuration.
+
+During setup, you can "manually select" up to 20 payloads (global and tenant-payloads), or you can choose the "randomize" option, where Microsoft will randomly select the payloads for the simulation. Additionally, when configuring the simulation schedule in automation, you can either choose a "randomized schedule" (launching simulations at random within your specified timeframe) or a "fixed schedule" (launching simulations on specific dates and times). However, in the automation recurrence of the fixed schedule, you can only select a static day of the week or month.
+
+**My advice:** Consider creating individual monthly simulations instead (e.g., with 2 global payloads and 1 tenant-specific payload), and plan a yearly schedule that varies the simulation dates and times each month. This approach gives you greater control and flexibility.
+
 ## The basic elements of a simulation are:
 - Select a ***Social Engineering Technique***, such as credential harvesting
 - Select a ***Payload*** _(phishing emails and web pages that you use to launch simulations)_
