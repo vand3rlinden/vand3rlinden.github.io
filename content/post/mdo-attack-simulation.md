@@ -49,11 +49,11 @@ After the requirements are set, you can begin creating an attack simulation trai
   - Instead of creating and launching simulated phishing attacks that eventually lead to training, you can create and assign Training campaigns directly to users.
 
 ### Personal Insight:
-While automation can be a good fit for your organization, there are some considerations to keep in mind. For instance, if you plan to automate a year-long simulation, you won’t be able to edit the content after setup. You’ll be restricted to the choices you made during the initial configuration.
+While automation can be a good fit for your organization, there are some considerations to keep in mind. For example, if you plan to automate a year-long simulation, you won’t be able to edit the content after the initial setup, meaning you’ll be restricted to the choices made during configuration.
 
-During setup, you can "manually select" up to 20 payloads (global and tenant-payloads), or you can choose the "randomize" option, where Microsoft will randomly select the payloads for the simulation. Additionally, when configuring the simulation schedule in automation, you can either choose a "randomized schedule" (launching simulations at random within your specified timeframe) or a "fixed schedule" (launching simulations on specific dates and times). However, in the automation recurrence of the fixed schedule, you can only select a static day of the week or month.
+During setup, you have two options: you can "manually select" up to 20 payloads (including global and tenant-specific payloads), or choose the "randomize" option, where Microsoft will randomly select the payloads for the simulation. When configuring the schedule for automation, you can opt for a "randomized schedule", which launches simulations at random within your chosen timeframe with random send times. However, you can’t limit it to only one simulation per month; you can only select a day of the week when simulations are allowed to start. Alternatively, with a "fixed schedule," simulations will launch on specific dates and times, but you can only choose a static day of the week or month for the recurrence.
 
-**My advice:** Consider creating individual monthly simulations instead (e.g., with 2 global payloads and 1 tenant payload as interval), and plan a yearly schedule that varies the simulation dates and times each month. This approach gives you greater control and flexibility.
+**My advice**: Consider creating individual monthly simulations (e.g., 2 global payloads and 1 tenant payload as the interval) and plan a yearly schedule that varies the simulation dates and times each month. Keep in mind that random send times aren’t available with this method, but using individual monthly simulations will provide you with more control and flexibility.
 
 ## The basic elements of a simulation are:
 - Select a ***Social Engineering Technique***, such as credential harvesting
