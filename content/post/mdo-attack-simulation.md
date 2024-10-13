@@ -39,6 +39,12 @@ Once the user clicked on the link and/or logged on to the phishing site, they re
 Exclude this email address or domain from your external tagging configuration (_Exchange Online mail flow rules_ or _Exchange Online’s External Email Tagging Feature_). 
 > You can also use Tenant notifications to change the From address to an internal address.
 
+### 5: Turn on auditing
+In order for Attack simulation training to have reporting capabilities, auditing needs to be enabled.
+1. Connect to Exchange Online PowerShell
+2. Enable Organization Customization by running: `Enable-OrganizationCustomization`
+3. Then run the following PowerShell command to turn on auditing: `Set-AdminAuditLogConfig -UnifiedAuditLogIngestionEnabled $true`
+
 ## Creating an attack simulation training
 After the requirements are set, you can begin creating an attack simulation training in the [Microsoft Defender Portal](https://security.microsoft.com/attacksimulator). You have the option to:
 - [Simulate a phishing attack](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/attack-simulation-training-simulations)
@@ -49,9 +55,9 @@ After the requirements are set, you can begin creating an attack simulation trai
   - Instead of creating and launching simulated phishing attacks that eventually lead to training, you can create and assign Training campaigns directly to users.
 
 ### Personal Insight:
-While automation can be a good fit for your organization, there are some considerations to keep in mind. For example, if you plan to automate a year-long simulation, you won’t be able to edit the content after the initial setup, meaning you’ll be restricted to the choices made during configuration.
+While automation can be a good fit for your organization, there are some considerations to keep in mind. For example, if you plan to automate a year-long simulation (which is also the maximum for an automation schedule), you won’t be able to edit the content after the initial setup, meaning you’ll be restricted to the choices made during configuration.
 
-During setup, you have two options: you can "manually select" up to 20 payloads (including global and tenant-specific payloads), or choose the "randomize" option, where Microsoft will randomly select the payloads for the simulation. When configuring the schedule for automation, you can opt for a "randomized schedule", which launches simulations at random within your chosen timeframe with random send times. However, you can’t limit it to only one simulation per month; you can only select a day of the week when simulations are allowed to start. Alternatively, with a "fixed schedule," simulations will launch on specific dates and times, but you can only choose a static day of the week or month for the recurrence.
+During setup, you have two options: you can **manually select** up to 20 payloads (both global and tenant-specific), or choose the **randomize** option, where Microsoft will randomly select the payloads for the simulation. When configuring the automation schedule, you can opt for a **randomized schedule**, which will start simulations randomly within your chosen days of the week, along with random send times. However, you can't limit it to just one simulation per month—only to specific days of the week when simulations are allowed to start. Alternatively, with a **fixed schedule**, you can choose a weekly or monthly schedule, but the recurrence can only be set for a static day of the week or month, and you can't set the send time.
 
 **My advice**: Consider creating individual monthly simulations (e.g., 2 global payloads and 1 tenant payload as the interval) and plan a yearly schedule that varies the simulation dates and times each month. Keep in mind that random send times aren’t available with this method, but using individual monthly simulations will provide you with more control and flexibility.
 
@@ -78,7 +84,7 @@ During setup, you have two options: you can "manually select" up to 20 payloads 
 - Who receives the simulated phishing message and on what schedule
   - All users* or specific users and groups
     - *All users are all mailboxes (user and shared) and resources (room and equipment) in Exchange Online
-  - Supported groups: **Microsoft 365**, **distribution list** and **mail-enabled security** (dynamic distribution groups are _not_ supported).
+  - Supported groups: **Microsoft 365** (dynamic groups not supported), **distribution list** (dynamic groups not supported) and **mail-enabled security**.
 
 ## The best practices of a simulation are:
 - Target users: Include all users in your organization (Assuming all user mailboxes are licensed for Microsoft Defender for Office Plan 2)
@@ -138,3 +144,4 @@ Despite advanced security measures, phishing tactics continue to evolve, making 
 ## Reference
 - [Attack simulation training documentation](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/attack-simulation-training-get-started)
 - [Attack simulation training deployment considerations and FAQ](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-faq)
+- [Turn on auditing](https://learn.microsoft.com/en-us/purview/audit-log-enable-disable?view=o365-worldwide&tabs=microsoft-purview-portal#turn-on-auditing)
