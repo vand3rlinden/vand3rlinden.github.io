@@ -11,7 +11,7 @@ cover:
 
 ARC (Authenticated Received Chain) is an email authentication protocol that preserves the authentication results of an email as it travels through multiple intermediaries, such as forwarding services.
 
-By using ARC, organizations can better manage the complexities of email authentication, especially when email is forwarded, but ARC is a collaboration of multiple servers that trust each other. 
+Using ARC helps organizations handle the complexities of email authentication, especially when emails are forwarded. ARC involves multiple servers working together based on mutual trust.
 
 ARC ensures that legitimate emails are less likely to be marked as spam or rejected, while fraudulent emails are more easily identified and filtered out. In this blog post, we will explore the basics of ARC, how it works, and the benefits it provides.
 
@@ -41,9 +41,6 @@ ARC helps preserve email authentication results and verifies the identity of int
 	- `none`: No ARC chain to validate
 	- `fail`: ARC chain validation failed
 	- `pass`: ARC chain validation succeeded
-
-## What ARC can’t do
-ARC has limitations and is not a replacement for DMARC. For example, ARC doesn't provide any information about the reputation or trustworthiness of the sender or the intermediate server, because an intermediate server can still add bad content or remove some (or even all) ARC headers.
 
 ## Mailbox providers that support ARC Sealers
 ARC has already been adopted by major mailbox providers such as Google and Microsoft, and is likely to become a global standard.
