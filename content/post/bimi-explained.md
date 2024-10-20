@@ -18,14 +18,14 @@ BIMI allows your brand’s logo to appear alongside your emails, providing visua
 To begin your BIMI journey, you must first meet certain prerequisites. A crucial requirement is having a DMARC policy set to `p=quarantine` or `p=reject` on your organizational domain. It’s essential to avoid using `sp=none` or `pct<100` to ensure full protection.
 
 ## How BIMI works
-BIMI works by using your domain’s DNS records to display your verified logo in the email clients that support BIMI. This logo provides recipients with an immediate visual confirmation of your brand’s identity, reducing the risk of phishing and enhancing the overall user experience.
+BIMI works by using your domain’s DNS records to display your verified logo in the email clients that support BIMI. This logo provides recipients with an immediate visual confirmation of your brand’s identity, reducing the risk of phishing and improving the overall user experience.
 
 ## Steps to implement BIMI
 1. **Authenticate your emails**: Ensure that your emails are authenticated using SPF, DKIM, and DMARC. These protocols verify the legitimacy of your emails and prevent spoofing.
    
 > For more information about SPF, DKIM, and DMARC, and how to implement a DMARC-compliant domain, see an [earlier blog post](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/).
 
-2. **Create a BIMI-Compliant Logo**: Your logo must be in SVG Tiny PS format. This format ensures that the logo is scalable and of high quality.
+2. **Create a BIMI-Compliant Logo**: Your BIMI logo must be in SVG Portable/Secure (SVG P/S) format, which is a profile of the SVG Tiny 1.2 format standardized by the World Wide Web Consortium (W3C). The logo must be square, have a solid background color, and not exceed 32 kilobytes in size.
 
 3. **Obtain a Verified Mark Certificate (VMC)**: A [VMC](https://www.digicert.com/tls-ssl/verified-mark-certificates#vmc_basic) is crucial for verifying your logo’s authenticity. It confirms that the logo is indeed associated with your domain.
 
@@ -47,7 +47,7 @@ Your logo might appear like this:
 A VMC is essential for implementing BIMI. It acts as proof that your logo is valid and associated with your domain, giving email clients the confidence to display it. Obtaining a VMC involves a verification process by a trusted third party, ensuring that only legitimate logos are used.
 
 ## Benefits of BIMI
-- **Enhanced Brand Visibility**: Your logo in the recipient’s inbox makes your emails instantly recognizable.
+- **Brand Visibility**: Your logo in the recipient’s inbox makes your emails instantly recognizable.
 - **Increased Trust and Engagement**: A familiar logo encourages recipients to open your emails, knowing they’re from a trusted source.
 - **Phishing Prevention**: BIMI helps reduce phishing attacks by making it difficult for malicious actors to impersonate your brand.
 
