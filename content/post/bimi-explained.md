@@ -25,7 +25,7 @@ BIMI works by using your domain’s DNS records to display your verified logo in
    
 > For more information about SPF, DKIM, and DMARC, and how to implement a DMARC-compliant domain, see an [earlier blog post](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/).
 
-2. **Create a BIMI-Compliant Logo**: Your BIMI logo must be in SVG Portable/Secure (SVG P/S) format, which is a profile of the SVG Tiny 1.2 format standardized by the World Wide Web Consortium (W3C). The logo must be square, have a solid background color, and not exceed 32 kilobytes in size.
+2. **Create a BIMI-Compliant Logo**: Your BIMI logo must be in SVG Portable/Secure (SVG P/S) format, which is a profile of the SVG Tiny 1.2 format standardized by the World Wide Web Consortium (W3C). The logo must be square, have a solid background color, be vector-based, and not exceed 32 kilobytes in size. You can create a BIMI logo in a visual tool such as Inkscape or Adobe Illustrator. Once you have your SVG file, [EasyDMARC](https://easydmarc.com/tools/bimi-logo-converter) can help you convert your company logo into a BIMI compliant SVG file.
 
 3. **Obtain a Verified Mark Certificate (VMC)**: A [VMC](https://www.digicert.com/tls-ssl/verified-mark-certificates#vmc_basic) is crucial for verifying your logo’s authenticity. It confirms that the logo is indeed associated with your domain.
 
