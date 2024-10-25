@@ -81,12 +81,12 @@ Users can _request release_ of quarantined items after you assign the quarantine
 
 ![IMAGE](/images/mdo-quarantine-policies/mdo-quarantine-policies-requestrelease.png)
 
-_Tenant Admins (Entra permissions Global Administrator or Security Administrator )_ or _Quarantine Administrators (Defender Portal permissions)_ can approve or deny release requests in the quarantine:
+**Tenant Admins** _(Entra permissions Global Administrator or Security Administrator)_ or **Quarantine Administrators** _(Defender Portal permissions)_ can approve or deny release requests in the quarantine:
 
 ![IMAGE](/images/mdo-quarantine-policies/mdo-quarantine-policies-approverelease.png)
 
 ### Quarantine Administrators in the Defender Portal
-_Quarantine Administrators_ is an Email & Collaboration role group in the [Microsoft Defender portal](https://security.microsoft.com/emailandcollabpermissions). If XDR Unified role-based access control (RBAC) is enabled, grant the permissions `Security operations/Security Data/Email & collaboration quarantine (manage)` within the [Microsoft Defender XDR Unified RBAC Portal](https://security.microsoft.com/mtp_roles).
+Quarantine Administrators is an Email & Collaboration role group in the [Microsoft Defender portal](https://security.microsoft.com/emailandcollabpermissions). If XDR Unified role-based access control (RBAC) is enabled, grant the permissions `Security operations/Security Data/Email & collaboration quarantine (manage)` within the [Microsoft Defender XDR Unified RBAC Portal](https://security.microsoft.com/mtp_roles).
 
 To ensure _Quarantine Administrators_ are notified of release requests, add them as recipients in the _'User requested to release a quarantined message'_ [alert policy](https://security.microsoft.com/alertpoliciesv2). This will send them an informational email alert whenever a user requests a release from quarantine.
 
