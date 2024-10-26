@@ -164,17 +164,6 @@
 &lt;p&gt;In a previous &lt;a href=&#34;https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/&#34;&gt;blog post&lt;/a&gt;, I explained the limitations of SPF and how it works with DKIM and DMARC. It&amp;rsquo;s crucial to have a well-structured SPF procedure to avoid future problems, especially since exceeding the DNS lookup limit of 10 can cause issues, such as:&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Microsoft Purview: Configuring a Data Loss Prevention Policy</title>
-      <link>https://vand3rlinden.com/post/purview-data-loss-prevention/</link>
-      <pubDate>Sat, 16 Dec 2023 11:31:31 +0100</pubDate>
-      <guid>https://vand3rlinden.com/post/purview-data-loss-prevention/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;Organizations have sensitive information under their control, such as credit card numbers or social security numbers. To protect this sensitive information and reduce risk, organizations need a way to prevent users from sharing it with people who shouldn&amp;rsquo;t have it. This practice is known as data loss prevention (DLP). In this article, I will explain how to configure it.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;sensitive-information-type-entity-definitions&#34;&gt;Sensitive information type entity definitions&lt;/h2&gt;
-&lt;p&gt;In this post, I will configure a DLP policy to block the Netherlands Citizen’s Service (BSN) Number from being shared with external contacts in Exchange Online and Teams. However, you can use this information to select any of the available sensitive information types or multiple types in a policy. These types of sensitive information are referred as Personally Identifiable Information (PII).&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Microsoft Defender for Office 365: Quarantine policies</title>
       <link>https://vand3rlinden.com/post/mdo-quarantine-policies/</link>
       <pubDate>Mon, 11 Dec 2023 16:33:46 +0100</pubDate>
