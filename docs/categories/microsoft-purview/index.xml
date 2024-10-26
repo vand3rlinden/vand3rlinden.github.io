@@ -6,20 +6,8 @@
     <description>Recent content in Microsoft Purview on VAND3RLINDEN</description>
     <generator>Hugo -- 0.135.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 23 Dec 2023 23:57:43 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 16 Dec 2023 11:31:31 +0100</lastBuildDate>
     <atom:link href="https://vand3rlinden.com/categories/microsoft-purview/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Microsoft Purview: Purging mails from Inboxes using Content Search</title>
-      <link>https://vand3rlinden.com/post/purview-purge-emails/</link>
-      <pubDate>Sat, 23 Dec 2023 23:57:43 +0100</pubDate>
-      <guid>https://vand3rlinden.com/post/purview-purge-emails/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;You can use Microsoft Purview to search for specific content in Exchange Online (or SharePoint Online) using Content Search and, if desired, initiate a purge process. This article provides instructions on how to do this.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;before-getting-started&#34;&gt;Before getting started&lt;/h2&gt;
-&lt;p&gt;Note that you can also use Threat Explorer in MDO by performing a &lt;a href=&#34;https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/remediate-malicious-email-delivered-office-365?view=o365-worldwide#manual-and-automated-remediation&#34;&gt;manual remediation&lt;/a&gt; or to &lt;a href=&#34;https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-take-action#take-various-actions-on-emails&#34;&gt;take action on Advanced Hunting query results&lt;/a&gt; in XDR to initiate a hard delete.&lt;/p&gt;
-&lt;p&gt;KQL Query Example:&lt;/p&gt;</description>
-    </item>
     <item>
       <title>Microsoft Purview: Configuring a Data Loss Prevention Policy</title>
       <link>https://vand3rlinden.com/post/purview-data-loss-prevention/</link>
