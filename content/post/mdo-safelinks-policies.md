@@ -65,20 +65,20 @@ In this article, we will use the Microsoft Security portal for the configuration
         ![IMAGE](/images/mdo-safelinks-policies/mdo-safelinks-policies-donotrewriteURLs.png)
 
     - Teams:
-      - Safe Links checks a list of known, malicious links when users click links in Microsoft Teams. URLs are not rewritten (recommended value: ```$true```).
+      - Safe Links checks a list of known, malicious links when users click links in Microsoft Teams. URLs are not rewritten (recommended value: `$true`).
         - This setting may require up to 24 hours to become effective. It influences the functionality of time-of-click protection.
     
     - Office 365 apps:
-      - Safe Links checks a list of known, malicious links when users click links in Microsoft Office apps. URLs are not rewritten (recommended value: ```$true```).
+      - Safe Links checks a list of known, malicious links when users click links in Microsoft Office apps. URLs are not rewritten (recommended value: `$true`).
         - Safe Links is supported in Office 365 desktop and mobile (iOS and Android) apps.
     
-    - Track user clicks:
-      - Let users click through to the original URL (recommended value: ```$false```).
+    - Track user clicks (`$true`):
+      - Let users click through to the original URL (recommended value: `$false`).
         - This disables the option to prevent users from clicking through to the original URL in [warning pages](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/safe-links-about?view=o365-worldwide#warning-pages-from-safe-links).
-      - Display the organization branding on notification and warning pages (recommended value: ```none```).
+      - Display the organization branding on notification and warning pages (recommended value: `none`).
 
     - Notification:
-      - Use custom notification text (recommended value: ```none```).
+      - Use custom notification text (recommended value: `none`).
   
 6. Save you new Safe links policy
 
