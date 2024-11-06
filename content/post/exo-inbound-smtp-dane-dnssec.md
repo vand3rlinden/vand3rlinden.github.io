@@ -9,7 +9,7 @@ cover:
 
 > _In this post, you will learn how to enable and use SMTP DANE with DNSSEC in Exchange Online._
 
-While ***outbound*** SMTP DANE with DNSSEC in Exchange Online has been enabled since 2022, Microsoft is currently rolling out ***inbound*** SMTP DANE with DNSSEC in Exchange Online. It is currently in public preview, with General Availability expected in October 2024. In an earlier [blog post](https://vand3rlinden.com/post/dnssec-dane-explained/), I explained how SMTP DANE with DNSSEC works together on a mail and web server.
+While ***outbound*** SMTP DANE with DNSSEC in Exchange Online has been enabled since 2022, Microsoft is currently rolling out ***inbound*** SMTP DANE with DNSSEC in Exchange Online. In an earlier [blog post](https://vand3rlinden.com/post/dnssec-dane-explained/), I explained how SMTP DANE with DNSSEC works together on a mail and web server.
 
 A short recap:
 - **Outbound SMTP DANE with DNSSEC `sending mail server`**: Requests DANE `TLSA` records of the receiving domain's MX record.
@@ -110,8 +110,6 @@ The reports are received in `.json`, you can look for the `summary` tag to check
 ```
 
 ## Reference
-- [Announcing Public Preview of Inbound SMTP DANE with DNSSEC for Exchange Online](https://techcommunity.microsoft.com/t5/exchange-team-blog/announcing-public-preview-of-inbound-smtp-dane-with-dnssec-for/ba-p/4155257)
+- [Announcing General Availability of Inbound SMTP DANE with DNSSEC for Exchange Online](https://techcommunity.microsoft.com/blog/exchange/announcing-general-availability-of-inbound-smtp-dane-with-dnssec-for-exchange-on/4281292)
 - [How SMTP DNS-based Authentication of Named Entities (DANE) works](https://learn.microsoft.com/en-us/purview/how-smtp-dane-works)
-- [Releasing: Outbound SMTP DANE with DNSSEC in Exchange Online](https://techcommunity.microsoft.com/t5/exchange-team-blog/releasing-outbound-smtp-dane-with-dnssec/ba-p/3100920)
-- [Support of DANE and DNSSEC in Office 365 Exchange Online](https://techcommunity.microsoft.com/t5/exchange-team-blog/support-of-dane-and-dnssec-in-office-365-exchange-online/ba-p/1275494)
 - [TLSRPT is defined in RFC8460](https://datatracker.ietf.org/doc/html/rfc8460)

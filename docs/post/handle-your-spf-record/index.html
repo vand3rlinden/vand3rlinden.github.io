@@ -196,38 +196,38 @@ In a previous blog post, I explained the limitations of SPF and how it works wit
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">DNS Lookup</th>
-          <th style="text-align: left">Count</th>
+          <th>DNS Lookup</th>
+          <th>Count</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left"><code>include:spf.protection.outlook.com</code></td>
-          <td style="text-align: left">1 DNS Lookup</td>
+          <td><code>include:spf.protection.outlook.com</code></td>
+          <td>1 DNS Lookup</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>include:_spf.salesforce.com</code></td>
-          <td style="text-align: left">2 DNS Lookups</td>
+          <td><code>include:_spf.salesforce.com</code></td>
+          <td>2 DNS Lookups</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>include:mail.zendesk.com</code></td>
-          <td style="text-align: left">1 DNS Lookup</td>
+          <td><code>include:mail.zendesk.com</code></td>
+          <td>1 DNS Lookup</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>include:_spf.app1.com</code></td>
-          <td style="text-align: left">2 DNS Lookups</td>
+          <td><code>include:_spf.app1.com</code></td>
+          <td>2 DNS Lookups</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>include:_spf.app2.com</code></td>
-          <td style="text-align: left">2 DNS Lookups</td>
+          <td><code>include:_spf.app2.com</code></td>
+          <td>2 DNS Lookups</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>mx</code> (your MX record)</td>
-          <td style="text-align: left">1 DNS Lookup</td>
+          <td><code>mx</code> (your MX record)</td>
+          <td>1 DNS Lookup</td>
       </tr>
       <tr>
-          <td style="text-align: left">Total:</td>
-          <td style="text-align: left">9 DNS Lookups</td>
+          <td>Total:</td>
+          <td>9 DNS Lookups</td>
       </tr>
   </tbody>
 </table>
@@ -238,34 +238,34 @@ In a previous blog post, I explained the limitations of SPF and how it works wit
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Look up</th>
-          <th style="text-align: left">Outcome</th>
+          <th>Look up</th>
+          <th>Outcome</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left"><code>include:spf.protection.outlook.com</code></td>
-          <td style="text-align: left">Used multiple email addresses and must send through the primary domain <code>yourdomain.com</code></td>
+          <td><code>include:spf.protection.outlook.com</code></td>
+          <td>Used multiple email addresses and must send through the primary domain <code>yourdomain.com</code></td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>include:_spf.salesforce.com</code></td>
-          <td style="text-align: left">Must send through the primary domain, but can be restricted to send from a specific address <code>invoices@yourdomain.com</code> using an SPF macro</td>
+          <td><code>include:_spf.salesforce.com</code></td>
+          <td>Must send through the primary domain, but can be restricted to send from a specific address <code>invoices@yourdomain.com</code> using an SPF macro</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>include:mail.zendesk.com</code></td>
-          <td style="text-align: left">Must send through the primary domain, but can be restricted to send from a specific address <code>support@yourdomain.com</code> using an SPF macro</td>
+          <td><code>include:mail.zendesk.com</code></td>
+          <td>Must send through the primary domain, but can be restricted to send from a specific address <code>support@yourdomain.com</code> using an SPF macro</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>include:_spf.app1.com</code></td>
-          <td style="text-align: left">Used multiple addresses and can send through a subdomain with a new SPF <code>TXT</code> record for <code>app1.yourdomain.com</code></td>
+          <td><code>include:_spf.app1.com</code></td>
+          <td>Used multiple addresses and can send through a subdomain with a new SPF <code>TXT</code> record for <code>app1.yourdomain.com</code></td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>include:_spf.app2.com</code></td>
-          <td style="text-align: left">Used multiple addresses and can send through a subdomain with a new SPF <code>TXT</code> record for <code>app2.yourdomain.com</code></td>
+          <td><code>include:_spf.app2.com</code></td>
+          <td>Used multiple addresses and can send through a subdomain with a new SPF <code>TXT</code> record for <code>app2.yourdomain.com</code></td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>mx</code></td>
-          <td style="text-align: left">Duplicate mechanisms, can be removed. When using Microsoft 365, the <code>MX</code> endpoint IP is already listed in <code>include:spf.protection.outlook.com</code></td>
+          <td><code>mx</code></td>
+          <td>Duplicate mechanisms, can be removed. When using Microsoft 365, the <code>MX</code> endpoint IP is already listed in <code>include:spf.protection.outlook.com</code></td>
       </tr>
   </tbody>
 </table>
@@ -273,18 +273,18 @@ In a previous blog post, I explained the limitations of SPF and how it works wit
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Look up</th>
-          <th style="text-align: left">Count</th>
+          <th>Look up</th>
+          <th>Count</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left"><code>include:spf.protection.outlook.com</code></td>
-          <td style="text-align: left">1 DNS Lookup</td>
+          <td><code>include:spf.protection.outlook.com</code></td>
+          <td>1 DNS Lookup</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>include:%{l}._spf.yourdomain.com</code></td>
-          <td style="text-align: left">1 DNS Lookup, using an <a href="https://vand3rlinden.com/post/handle-your-spf-record/#use-an-spf-macro-to-restrict-a-third-party-service-to-send-from-a-specific-address">SPF macro</a> for both Salesforce and Zendesk</td>
+          <td><code>include:%{l}._spf.yourdomain.com</code></td>
+          <td>1 DNS Lookup, using an <a href="https://vand3rlinden.com/post/handle-your-spf-record/#use-an-spf-macro-to-restrict-a-third-party-service-to-send-from-a-specific-address">SPF macro</a> for both Salesforce and Zendesk</td>
       </tr>
   </tbody>
 </table>
@@ -300,16 +300,16 @@ In a previous blog post, I explained the limitations of SPF and how it works wit
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Host</th>
-          <th style="text-align: left">Type</th>
-          <th style="text-align: left">Value</th>
+          <th>Host</th>
+          <th>Type</th>
+          <th>Value</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left"><code>_spf.yourdomain.com</code></td>
-          <td style="text-align: left"><code>TXT</code></td>
-          <td style="text-align: left"><code>v=spf1 ip4:11.222.33.444 ip4:44.33.222.111 ip4:22.33.444.555 ip4:55.66.777.8 ip4:88.99.999.99 ip4:99.88.777.66 -all</code></td>
+          <td><code>_spf.yourdomain.com</code></td>
+          <td><code>TXT</code></td>
+          <td><code>v=spf1 ip4:11.222.33.444 ip4:44.33.222.111 ip4:22.33.444.555 ip4:55.66.777.8 ip4:88.99.999.99 ip4:99.88.777.66 -all</code></td>
       </tr>
   </tbody>
 </table>
@@ -326,22 +326,22 @@ So it is unnecessary to have <code>include:_spf.salesforce.com</code> and <code>
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">DNS Lookup</th>
-          <th style="text-align: left">Count</th>
+          <th>DNS Lookup</th>
+          <th>Count</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left"><code>include:_spf.salesforce.com</code></td>
-          <td style="text-align: left">1 DNS Lookup</td>
+          <td><code>include:_spf.salesforce.com</code></td>
+          <td>1 DNS Lookup</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>exists:%{i}._spf.mta.salesforce.com</code></td>
-          <td style="text-align: left">1 DNS Lookup (child lookup)</td>
+          <td><code>exists:%{i}._spf.mta.salesforce.com</code></td>
+          <td>1 DNS Lookup (child lookup)</td>
       </tr>
       <tr>
-          <td style="text-align: left">Total:</td>
-          <td style="text-align: left"><em><strong>2 DNS Lookups</strong></em></td>
+          <td>Total:</td>
+          <td><em><strong>2 DNS Lookups</strong></em></td>
       </tr>
   </tbody>
 </table>
@@ -349,18 +349,18 @@ So it is unnecessary to have <code>include:_spf.salesforce.com</code> and <code>
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">DNS Lookup</th>
-          <th style="text-align: left">Count</th>
+          <th>DNS Lookup</th>
+          <th>Count</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left"><code>include:mail.zendesk.com</code></td>
-          <td style="text-align: left">1 DNS Lookup</td>
+          <td><code>include:mail.zendesk.com</code></td>
+          <td>1 DNS Lookup</td>
       </tr>
       <tr>
-          <td style="text-align: left">Total:</td>
-          <td style="text-align: left"><em><strong>1 DNS Lookup</strong></em></td>
+          <td>Total:</td>
+          <td><em><strong>1 DNS Lookup</strong></em></td>
       </tr>
   </tbody>
 </table>
@@ -378,21 +378,21 @@ So it is unnecessary to have <code>include:_spf.salesforce.com</code> and <code>
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Host</th>
-          <th style="text-align: left">Type</th>
-          <th style="text-align: left">Value</th>
+          <th>Host</th>
+          <th>Type</th>
+          <th>Value</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left"><code>invoices._spf.yourdomain.com</code></td>
-          <td style="text-align: left"><code>TXT</code></td>
-          <td style="text-align: left"><code>v=spf1 include:_spf.salesforce.com -all</code></td>
+          <td><code>invoices._spf.yourdomain.com</code></td>
+          <td><code>TXT</code></td>
+          <td><code>v=spf1 include:_spf.salesforce.com -all</code></td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>support._spf.yourdomain.com</code></td>
-          <td style="text-align: left"><code>TXT</code></td>
-          <td style="text-align: left"><code>v=spf1 include:mail.zendesk.com -all</code></td>
+          <td><code>support._spf.yourdomain.com</code></td>
+          <td><code>TXT</code></td>
+          <td><code>v=spf1 include:mail.zendesk.com -all</code></td>
       </tr>
   </tbody>
 </table>
@@ -413,26 +413,26 @@ So it is unnecessary to have <code>include:_spf.salesforce.com</code> and <code>
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">DNS Lookup</th>
-          <th style="text-align: left">Count</th>
+          <th>DNS Lookup</th>
+          <th>Count</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left"><code>include:spf.protection.outlook.com</code></td>
-          <td style="text-align: left">1 DNS Lookup</td>
+          <td><code>include:spf.protection.outlook.com</code></td>
+          <td>1 DNS Lookup</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>include:_spf.yourdomain.com</code></td>
-          <td style="text-align: left">1 DNS Lookup for the IP addresses</td>
+          <td><code>include:_spf.yourdomain.com</code></td>
+          <td>1 DNS Lookup for the IP addresses</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>include:%{l}._spf.yourdomain.comm</code></td>
-          <td style="text-align: left">1 DNS Lookup for Salesforce and Zendesk</td>
+          <td><code>include:%{l}._spf.yourdomain.comm</code></td>
+          <td>1 DNS Lookup for Salesforce and Zendesk</td>
       </tr>
       <tr>
-          <td style="text-align: left">Total:</td>
-          <td style="text-align: left">3 DNS Lookups</td>
+          <td>Total:</td>
+          <td>3 DNS Lookups</td>
       </tr>
   </tbody>
 </table>

@@ -139,7 +139,9 @@ MTA-STS (Mail Transfer Agent Strict Transport Security) is a security protocol d
   </header>
   <div class="entry-content">
     <p> In this post, you will learn how to enable and use SMTP DANE with DNSSEC in Exchange Online.
-While outbound SMTP DANE with DNSSEC in Exchange Online has been enabled since 2022, Microsoft is currently rolling out inbound SMTP DANE with DNSSEC in Exchange Online. It is currently in public preview, with General Availability expected in October 2024. In an earlier blog post, I explained how SMTP DANE with DNSSEC works together on a mail and web server.
+While outbound SMTP DANE with DNSSEC in Exchange Online has been enabled since 2022, Microsoft is currently rolling out inbound SMTP DANE with DNSSEC in Exchange Online. In an earlier blog post, I explained how SMTP DANE with DNSSEC works together on a mail and web server.
+A short recap:
+Outbound SMTP DANE with DNSSEC sending mail server: Requests DANE TLSA records of the receiving domain’s MX record. Inbound SMTP DANE with DNSSEC receiving mail server: Requires DNSSEC and DANE TLSA records that can be requested by the sending mail server. Inbound SMTP DANE with DNSSEC benefits Authentication of TLS Certificates: SMTP DANE ensures that the TLS certificates used in email exchanges are authenticated. Reduction in Delivery Failures: By using DANE, the sending mail server can verify that the recipient’s server supports and prefers secure TLS connections. Enhance Email Reputation: Demonstrate that you comply with the latest security standards. Integrity and Authenticity of DNS Records: DNSSEC adds a layer of security to the DNS system by digitally signing DNS records. Prerequisites Before you enable inbound SMTP DANE with DNSSEC in Exchange Online for a domain, you must have added the domain as an Accepted domain and the domain status must be Healthy in the Microsoft 365 Admin Center. The current domain’s MX record must have a priority of 0 or 10 and must not have a fallback or secondary MX record.
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2024-07-28 01:13:44 +0200 CEST'>July 28, 2024</span>&nbsp;·&nbsp;5 min</footer>

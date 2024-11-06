@@ -177,26 +177,26 @@ SPF, DKIM, and DMARC are critical email authentication protocols that help preve
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Protocol</th>
-          <th style="text-align: left">Precise Term</th>
-          <th style="text-align: left">Purpose</th>
+          <th>Protocol</th>
+          <th>Precise Term</th>
+          <th>Purpose</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">SPF</td>
-          <td style="text-align: left"><code>RFC5321.MailFrom</code> (P1 Sender)</td>
-          <td style="text-align: left">Sender authorization check</td>
+          <td>SPF</td>
+          <td><code>RFC5321.MailFrom</code> (P1 Sender)</td>
+          <td>Sender authorization check</td>
       </tr>
       <tr>
-          <td style="text-align: left">DKIM</td>
-          <td style="text-align: left"><code>RFC5322.From</code> (P2 Sender)</td>
-          <td style="text-align: left">Message authenticity verification</td>
+          <td>DKIM</td>
+          <td><code>RFC5322.From</code> (P2 Sender)</td>
+          <td>Message authenticity verification</td>
       </tr>
       <tr>
-          <td style="text-align: left">DMARC</td>
-          <td style="text-align: left"><code>RFC5322.From</code> (P2 Sender)</td>
-          <td style="text-align: left">Final shield on top of SPF and DKIM</td>
+          <td>DMARC</td>
+          <td><code>RFC5322.From</code> (P2 Sender)</td>
+          <td>Final shield on top of SPF and DKIM</td>
       </tr>
   </tbody>
 </table>
@@ -214,21 +214,21 @@ SPF, DKIM, and DMARC are critical email authentication protocols that help preve
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Postal Letter</th>
-          <th style="text-align: left">Precise Term</th>
-          <th style="text-align: left">Protected by</th>
+          <th>Postal Letter</th>
+          <th>Precise Term</th>
+          <th>Protected by</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">Sender on envelope</td>
-          <td style="text-align: left"><code>RFC5321.MailFrom</code> (P1 Sender)</td>
-          <td style="text-align: left">SPF</td>
+          <td>Sender on envelope</td>
+          <td><code>RFC5321.MailFrom</code> (P1 Sender)</td>
+          <td>SPF</td>
       </tr>
       <tr>
-          <td style="text-align: left">Author on letter</td>
-          <td style="text-align: left"><code>RFC5322.From</code> (P2 Sender)</td>
-          <td style="text-align: left">DKIM + DMARC</td>
+          <td>Author on letter</td>
+          <td><code>RFC5322.From</code> (P2 Sender)</td>
+          <td>DKIM + DMARC</td>
       </tr>
   </tbody>
 </table>
@@ -350,26 +350,26 @@ SPF, DKIM, and DMARC are critical email authentication protocols that help preve
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Policy</th>
-          <th style="text-align: left">Value</th>
-          <th style="text-align: left">Meaning</th>
+          <th>Policy</th>
+          <th>Value</th>
+          <th>Meaning</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">None</td>
-          <td style="text-align: left"><code>p=none;</code></td>
-          <td style="text-align: left">This policy is essentially a monitoring or reporting mode. It instructs email receivers not to take any action based on the DMARC authentication results.</td>
+          <td>None</td>
+          <td><code>p=none;</code></td>
+          <td>This policy is essentially a monitoring or reporting mode. It instructs email receivers not to take any action based on the DMARC authentication results.</td>
       </tr>
       <tr>
-          <td style="text-align: left">Quarantine</td>
-          <td style="text-align: left"><code>p=quarantine;</code></td>
-          <td style="text-align: left">This policy instructs email receivers to flag an email that fails DMARC authentication as potentially suspicious, but the receiving mail server decides how to handle it. The DMARC quarantine policy does not take full advantage of DMARC.</td>
+          <td>Quarantine</td>
+          <td><code>p=quarantine;</code></td>
+          <td>This policy instructs email receivers to flag an email that fails DMARC authentication as potentially suspicious, but the receiving mail server decides how to handle it. The DMARC quarantine policy does not take full advantage of DMARC.</td>
       </tr>
       <tr>
-          <td style="text-align: left">Reject</td>
-          <td style="text-align: left"><code>p=reject;</code></td>
-          <td style="text-align: left">This policy instructs email receivers to reject (not deliver) emails that fail DMARC authentication.</td>
+          <td>Reject</td>
+          <td><code>p=reject;</code></td>
+          <td>This policy instructs email receivers to reject (not deliver) emails that fail DMARC authentication.</td>
       </tr>
   </tbody>
 </table>
