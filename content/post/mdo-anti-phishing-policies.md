@@ -15,7 +15,7 @@ Anti-phishing policies provide enhanced control over incoming phishing emails, f
 
 ## In an anti-phishing policy, you can configure
 ## Impersonation protection
-Impersonation occurs when the sender of an email appears similar to a legitimate or expected sender's address. Attackers often use impersonated email addresses in phishing or other attacks to deceive recipients and gain their trust. Messages from impersonated senders can bypass standard email authentication checks, such as SPF, DKIM, and DMARC, which would normally detect them as spoofing attempts. There are two main types of impersonation:
+Impersonation occurs when the sender of an email appears similar to a legitimate or expected sender's address. Attackers often use impersonated email addresses in phishing or other attacks to deceive recipients and gain their trust. There are two main types of impersonation:
 
 - **User impersonation:** Contains subtle differences in the email alias.
 - **Domain impersonation:** Contains subtle differences in the domain.
