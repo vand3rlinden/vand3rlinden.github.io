@@ -83,19 +83,19 @@ During setup, you have two options: you can **manually select** up to 20 payload
   - Global notifications: Includes built-in end user notifications send From `notification@attacksimulationtraining.com`
   - Tenant notifications: Includes custom end user notifications for branding and to set a different From address to an internal mailbox
 
-- Who receives the simulated phishing message and on what schedule
-  - All users* or specific users and groups
-    - *All users are all mailboxes (user and shared) and resources (room and equipment) in Exchange Online
-  - Supported groups: **Microsoft 365** (dynamic supported), **distribution list** (dynamic **not** supported) and **mail-enabled security**.
+- Select [target users](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-simulations#target-users), who will receive the simulated phishing message and on what schedule
+  - All users or specific users and groups
+    - All users are all mailboxes (user and shared) and resources (room and equipment) in Exchange Online
+  - Supported groups: **Microsoft 365** (static and dynamic), **distribution list** (static only) and **mail-enabled security** (static only).
 
 ## The best practices of a simulation are:
-- Target users: Include all users in your organization (Assuming all user mailboxes are licensed for Microsoft Defender for Office Plan 2)
-  - If you want to target a specific department, you could import a CSV containing all the members of that department. To do this, run the following command in Graph PowerShell:
+- **Target users**: Include all users in your organization (Assuming all user mailboxes are licensed for Microsoft Defender for Office Plan 2)
+  - If you want to target a specific department, you could import a CSV containing all the members of that department. To do this, run the following command in Graph PowerShell _(or configure a dynamic Microsoft 365 group)_:
 ```
 Get-MgUser -All -Property "Department,UserPrincipalname" | Where-Object {$_.Department -eq "DepartmentNameHere"} | Select-Object UserPrincipalname | Export-CSV -Path <PATH> -NoTypeInformation
 ```
 
-- Exclude users: Import a CSV file that contains all your shared and room mailboxes (also specify your mail-enabled service accounts in this CSV file)
+- **Excluded users**: Import a CSV file that contains all your shared and room mailboxes (also specify your mail-enabled service accounts in this CSV file)
   - To export these RecipientTypes, you can run the following command in ExchangeOnline PowerShell:
 ```
 Get-Mailbox -RecipientTypeDetails SharedMailbox, RoomMailbox -ResultSize Unlimited | Select-Object PrimarySmtpAddress | Export-CSV <PATH> -NoTypeInformation
@@ -145,5 +145,6 @@ Despite advanced security measures, phishing tactics continue to evolve, making 
 
 ## Reference
 - [Attack simulation training documentation](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/attack-simulation-training-get-started)
+- [Supported Target user](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-simulations#target-users)
 - [Attack simulation training deployment considerations and FAQ](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-faq)
 - [Turn on auditing](https://learn.microsoft.com/en-us/purview/audit-log-enable-disable?view=o365-worldwide&tabs=microsoft-purview-portal#turn-on-auditing)
