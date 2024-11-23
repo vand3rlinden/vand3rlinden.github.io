@@ -145,6 +145,6 @@ Despite advanced security measures, phishing tactics continue to evolve, making 
 
 ## Reference
 - [Attack simulation training documentation](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/attack-simulation-training-get-started)
-- [Supported Target user](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-simulations#target-users)
+- [Supported target users](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-simulations#target-users)
 - [Attack simulation training deployment considerations and FAQ](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-faq)
 - [Turn on auditing](https://learn.microsoft.com/en-us/purview/audit-log-enable-disable?view=o365-worldwide&tabs=microsoft-purview-portal#turn-on-auditing)
