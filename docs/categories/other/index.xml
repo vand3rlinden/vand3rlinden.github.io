@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Other on VAND3RLINDEN</title>
+    <link>https://vand3rlinden.com/categories/other/</link>
+    <description>Recent content in Other on VAND3RLINDEN</description>
+    <generator>Hugo -- 0.136.5</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 25 Nov 2024 23:35:37 +0100</lastBuildDate>
+    <atom:link href="https://vand3rlinden.com/categories/other/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Implementing a signed security.txt file with PGP for your website</title>
+      <link>https://vand3rlinden.com/post/implementing-signed-security-txt-file/</link>
+      <pubDate>Mon, 25 Nov 2024 23:35:37 +0100</pubDate>
+      <guid>https://vand3rlinden.com/post/implementing-signed-security-txt-file/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;A &lt;code&gt;security.txt&lt;/code&gt; file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. Adding a signed &lt;code&gt;security.txt&lt;/code&gt; file to your website enhances credibility and ensures trust, as the signature allows others to verify its authenticity. This blog will walk you through implementing a signed &lt;code&gt;security.txt&lt;/code&gt; file using PGP (Pretty Good Privacy).&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;&lt;strong&gt;Introduction&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;security.txt&lt;/code&gt; file is typically hosted at &lt;code&gt;/.well-known/security.txt&lt;/code&gt; on a website. It follows a standardized format to share security contact information, preferred encryption keys, and disclosure policies. However, without proper authentication, anyone could tamper with the file. A signed &lt;code&gt;security.txt&lt;/code&gt; solves this issue by letting others verify the file’s legitimacy using your PGP key. Here’s how to create, sign, and verify a &lt;code&gt;security.txt&lt;/code&gt; file for your website.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

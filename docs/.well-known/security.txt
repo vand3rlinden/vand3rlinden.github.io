@@ -10,19 +10,22 @@ Encryption: https://vand3rlinden.com/.well-known/pgp-key.txt
 # Expiration of security.txt file
 Expires: 2025-07-29T21:59:00.000Z
 
+# Privacy Policy
+https://vand3rlinden.com/privacy-policy/
+
 # Languages
 Preferred-Languages: EN, NL
 -----BEGIN PGP SIGNATURE-----
 
-iQGzBAEBCAAdFiEEc4KkE3UfnPiUeVui7xigVVGVOhsFAmbohe0ACgkQ7xigVVGV
-OhsG9QwAj2hWkMy/jfmHLuUR8KNLMGd++dznz8fN2NhShnrAaBs0WiI4kurGjZ/G
-NOGvcDP9xljFAy0UaoDUw5ROZR9vdT99AWLVM2RHHJgFMnuCIaFKSoJK609YMQKT
-VTErppq86uos/9vN6zJi8DKpomzn7nA8GqBk6dw1V2NmJ5J7IK08CbbLaJwFM56Y
-2bWy01/f14QUCO7Xd4kpYJCAJb6sY+hnrjh94esLcXwXwKCM/YPhSbRonrY5KF6L
-jbkbmo1GcFvjdwpfQaa+Po54DuO6Ifzj1krgIwX6KTMPotIqJczAi1ntcGziGk/M
-9DoGE+59FDIaz4npDoAWmDYd0GTKYAcII5Ad/ugVi0FwLeu88TuhfEXpgu4iqOgX
-RHzyfUw41IBzbZUNeHh+e54ugmOXreNmdsqPcZlZEQOuro96F+VA7Cxv7BDy4Z+P
-O1zamPGWjjXdAt/ysQlwm7x0ePqyN94dl0r31Ak9ASqeF+1d66QCwqUAcpJJfSZm
-paOww42E
-=mlrG
+iQGzBAEBCAAdFiEEc4KkE3UfnPiUeVui7xigVVGVOhsFAmdE4bkACgkQ7xigVVGV
+Ohv27gv/V1QhuzqM27WBdneI3CzodrfPgFsIG0wiE91Ere4MIiL0Cv20aamY9rvV
+sLolj4Cc0AeZ6A9r75oKmUGzfBBYtxyKqMQouYsZSZfyU8HZVlygEYUcJy9zQvQh
+vmcGdBlmM1LPQCiQnykfyEDyUMLuAzNr4mFttP/BGtEzhEAE1PLq9OlepaIfFBML
+v9N8M4Cxq13JDVzgsZKz5uEbuV7JvHWtq7kICROchWwA67L3OYYGaUP4kvbDiGof
+qeVfDgDGDuw3uBQKKteXCvyEGXugK2rGPLZi/L9uWV22OpTXxaq6F/Xe+IDoNrNS
+HSv3yrx9xI5vibzCSFkj2rvP9TCHHg9J8t4pHa7fyqFwn3C03LZOTqo6WkTSnuMu
+sMe+jninf/UV6rNT7fLtEgtz+7dD3mktUGsEkwCKV8KaToorolTPypqK8htZQVfj
+5ulrOvxeqfR3/gm/HsSZDW+LZfKsHsvAK0cg7QeeFbxKHTLt7wS48hpvgflgZHuj
+dl77zFc3
+=S3In
 -----END PGP SIGNATURE-----
