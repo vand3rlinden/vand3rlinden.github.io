@@ -33,7 +33,17 @@ gpg --full-generate-key
 4. Enter your name and email address when prompted.
 5. Set a strong passphrase to secure the private key.
 
-Once completed, your keys are stored in the GPG keyring.
+Once complete, your keys are stored in the GPG keyring. You can view your generated key pair by running the following command for both the public and private keys.
+
+- Public key:
+```
+gpg --list-keys
+```
+
+- Private key:
+```
+gpg --list-secret-keys
+```
 
 ### **3. Export Your Public Key**
 Others will need your public key to verify your signature:
@@ -41,7 +51,7 @@ Others will need your public key to verify your signature:
 gpg --armor --export your_email@example.com > pgp-publickey.txt
 ```
 
-This exports the public key to a file named `pgp-publickey.txt`
+This will export the public key to a file named `pgp-publickey.txt`. 
 
 ## **Step 2: Create and Sign the security.txt File**
 1. **Create the security.txt File**
