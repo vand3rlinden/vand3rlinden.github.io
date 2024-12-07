@@ -8,6 +8,10 @@ enableRobotsTXT: true
 #menu settings
 menu:
   main:
+    - identifier: pages
+      name: M365 SecOps Links
+      url: /m365-secops
+      weight: 20
     - identifier: categories
       name: Categories
       url: /categories/
@@ -15,10 +19,6 @@ menu:
     - identifier: post
       name: Posts
       url: /post/
-      weight: 20
-    - identifier: pages
-      name: M365 SecOps Links
-      url: /m365-secops.md
       weight: 20
     #- identifier: tags
       #name: Tags
