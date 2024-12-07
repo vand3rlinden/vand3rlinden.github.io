@@ -9,7 +9,7 @@ enableRobotsTXT: true
 menu:
   main:
     - identifier: pages
-      name: M365 SecOps Links
+      name: SecOps
       url: /m365-secops
       weight: 20
     - identifier: categories
