@@ -1,10 +1,7 @@
 ---
-date: 2024-08-01
 title: "Privacy Policy"
 type: "pages"
 ---
-
-> _Last Updated: [08/01/2024]_
 
 Welcome to my blog vand3rlinden.com! Your privacy is important to me. This privacy policy explains what personal information I collect and how I use it. 
 
