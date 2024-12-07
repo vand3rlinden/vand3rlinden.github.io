@@ -16,6 +16,10 @@ menu:
       name: Posts
       url: /post/
       weight: 20
+    - identifier: pages
+      name: M365 SecOps Links
+      url: /m365-secops.md
+      weight: 20
     #- identifier: tags
       #name: Tags
       #url: /tags/
