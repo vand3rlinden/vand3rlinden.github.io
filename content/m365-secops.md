@@ -4,9 +4,10 @@ title: "Microsoft 365: SecOps Links"
 type: "pages"
 ---
 
-Quickly access SecOps tools and portals across Microsoft 365, including Defender XDR, Entra, and Azure Portals—all in one place.
+Quickly access SecOps tools and portals across Microsoft 365, including Defender, Entra, and Azure Portals—all in one place.
 
 ## Microsoft 365
+- [Microsoft 365 documentation](https://learn.microsoft.com/en-us/microsoft-365)
 - [Microsoft 365 Status](https://status.office365.com)
 - [Microsoft 365 admin center](https://admin.microsoft.com/)
 - [Exchange Online admin center](https://admin.exchange.microsoft.com)
@@ -26,7 +27,7 @@ Quickly access SecOps tools and portals across Microsoft 365, including Defender
 - [Microsoft Entra built-in roles](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference)
 
 ## Defender
-- [Microsoft Defender Documentation](https://learn.microsoft.com/en-us/defender-xdr/microsoft-365-defender)
+- [Microsoft Defender Documentation](https://learn.microsoft.com/en-us/defender/)
 - [Defender Portal](https://security.microsoft.com)
 - [MDO - Quarantine](https://security.microsoft.com/quarantine)
 - [MDO - Explorer](https://security.microsoft.com/threatexplorerv3)
@@ -47,7 +48,7 @@ Quickly access SecOps tools and portals across Microsoft 365, including Defender
 - [XDR - Action Center](https://security.microsoft.com/action-center/pending)
 - [XDR - Advanced hunting](https://security.microsoft.com/v2/advanced-hunting)
 - [XDR - Incidents](https://security.microsoft.com/incidents)
-- [TI - Portal](https://security.microsoft.com/intel-explorer)
+- [TI Portal](https://security.microsoft.com/intel-explorer)
 
 ## Tools
 - [AbuseIPDB](https://www.abuseipdb.com/)

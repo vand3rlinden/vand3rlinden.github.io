@@ -13,9 +13,10 @@
       <link>https://vand3rlinden.com/m365-secops/</link>
       <pubDate>Sat, 07 Dec 2024 00:00:00 +0000</pubDate>
       <guid>https://vand3rlinden.com/m365-secops/</guid>
-      <description>&lt;p&gt;Quickly access SecOps tools and portals across Microsoft 365, including Defender XDR, Entra, and Azure Portals—all in one place.&lt;/p&gt;
+      <description>&lt;p&gt;Quickly access SecOps tools and portals across Microsoft 365, including Defender, Entra, and Azure Portals—all in one place.&lt;/p&gt;
 &lt;h2 id=&#34;microsoft-365&#34;&gt;Microsoft 365&lt;/h2&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/microsoft-365&#34;&gt;Microsoft 365 documentation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://status.office365.com&#34;&gt;Microsoft 365 Status&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://admin.microsoft.com/&#34;&gt;Microsoft 365 admin center&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://admin.exchange.microsoft.com&#34;&gt;Exchange Online admin center&lt;/a&gt;&lt;/li&gt;
@@ -38,7 +39,7 @@
 &lt;/ul&gt;
 &lt;h2 id=&#34;defender&#34;&gt;Defender&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/defender-xdr/microsoft-365-defender&#34;&gt;Microsoft Defender Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/defender/&#34;&gt;Microsoft Defender Documentation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://security.microsoft.com&#34;&gt;Defender Portal&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://security.microsoft.com/quarantine&#34;&gt;MDO - Quarantine&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://security.microsoft.com/threatexplorerv3&#34;&gt;MDO - Explorer&lt;/a&gt;&lt;/li&gt;
@@ -59,7 +60,7 @@
 &lt;li&gt;&lt;a href=&#34;https://security.microsoft.com/action-center/pending&#34;&gt;XDR - Action Center&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://security.microsoft.com/v2/advanced-hunting&#34;&gt;XDR - Advanced hunting&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://security.microsoft.com/incidents&#34;&gt;XDR - Incidents&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://security.microsoft.com/intel-explorer&#34;&gt;TI - Portal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://security.microsoft.com/intel-explorer&#34;&gt;TI Portal&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;tools&#34;&gt;Tools&lt;/h2&gt;
 &lt;ul&gt;
