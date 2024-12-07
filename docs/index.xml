@@ -23,6 +23,7 @@
 &lt;/ul&gt;
 &lt;h2 id=&#34;azure&#34;&gt;Azure&lt;/h2&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/azure&#34;&gt;Azure documentation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://azure.status.microsoft/en-us/status&#34;&gt;Azure status&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://portal.azure.com&#34;&gt;Azure Portal&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles&#34;&gt;Azure built-in roles&lt;/a&gt;&lt;/li&gt;
@@ -31,11 +32,13 @@
 &lt;/ul&gt;
 &lt;h2 id=&#34;entra&#34;&gt;Entra&lt;/h2&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/entra/&#34;&gt;Microsoft Entra documentation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://entra.microsoft.com&#34;&gt;Entra ID Portal&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference&#34;&gt;Microsoft Entra built-in roles&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;defender&#34;&gt;Defender:&lt;/h2&gt;
+&lt;h2 id=&#34;defender&#34;&gt;Defender&lt;/h2&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/defender-xdr/microsoft-365-defender&#34;&gt;Microsoft Defender Documentation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://security.microsoft.com&#34;&gt;Defender Portal&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://security.microsoft.com/quarantine&#34;&gt;MDO - Quarantine&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://security.microsoft.com/threatexplorerv3&#34;&gt;MDO - Explorer&lt;/a&gt;&lt;/li&gt;
@@ -47,6 +50,8 @@
 &lt;li&gt;&lt;a href=&#34;https://security.microsoft.com/spoofintelligence&#34;&gt;MDO - Spoof Intelligence Insight&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://security.microsoft.com/restrictedentities&#34;&gt;MDO - Restricted entities&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://security.microsoft.com/machines&#34;&gt;MDE - Devices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://security.microsoft.com/vulnerabilities/cves&#34;&gt;MDE - CVEs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://msrc.microsoft.com/update-guide/vulnerability&#34;&gt;MDE - CVEs Update Guide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://security.microsoft.com/asr?viewid=detections&#34;&gt;MDE - ASR rules&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://security.microsoft.com/cloudapps/discovery&#34;&gt;MDA - CloudApps&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://security.microsoft.com/identities/health-issues&#34;&gt;MDI - Health Issues&lt;/a&gt;&lt;/li&gt;
@@ -55,6 +60,29 @@
 &lt;li&gt;&lt;a href=&#34;https://security.microsoft.com/v2/advanced-hunting&#34;&gt;XDR - Advanced hunting&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://security.microsoft.com/incidents&#34;&gt;XDR - Incidents&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://security.microsoft.com/intel-explorer&#34;&gt;TI - Portal&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;tools&#34;&gt;Tools&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.abuseipdb.com/&#34;&gt;AbuseIPDB&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://scamalytics.com/ip&#34;&gt;Scamalytics&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ipinfo.io/&#34;&gt;IPinfo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://spur.us/context/&#34;&gt;SPUR&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.virustotal.com/gui/home/search&#34;&gt;VirusTotal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dmarcadvisor.com/&#34;&gt;DMARCAdvisor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://mha.azurewebsites.net/&#34;&gt;Message Header Analyzer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://mxtoolbox.com/NetworkTools.aspx&#34;&gt;MXToolBox&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://login.microsoftonline.com/error&#34;&gt;EntraID Errors&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://o365atp.com/&#34;&gt;Decode SafeLinks URL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/&#34;&gt;Windows Security Log Events&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.kqlsearch.com/&#34;&gt;KQLSearch&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;my-pages&#34;&gt;My Pages&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://myaccess.microsoft.com&#34;&gt;MyAccess&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://myapplications.microsoft.com&#34;&gt;MyApplications&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://myaccount.microsoft.com&#34;&gt;MyAccount&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://aka.ms/mfasetup&#34;&gt;MFASetup&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://passwordreset.microsoftonline.com&#34;&gt;SSPR&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     <item>

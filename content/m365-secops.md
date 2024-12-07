@@ -13,6 +13,7 @@ Quickly access SecOps tools and portals across Microsoft 365, including Defender
 - [Intune admin center](https://intune.microsoft.com)
 
 ## Azure
+- [Azure documentation](https://learn.microsoft.com/en-us/azure)
 - [Azure status](https://azure.status.microsoft/en-us/status)
 - [Azure Portal](https://portal.azure.com)
 - [Azure built-in roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles)
@@ -20,10 +21,12 @@ Quickly access SecOps tools and portals across Microsoft 365, including Defender
 - [Sentinel](https://portal.azure.com/#browse/microsoft.securityinsightsarg%2Fsentinel)
 
 ## Entra
+- [Microsoft Entra documentation](https://learn.microsoft.com/en-us/entra/)
 - [Entra ID Portal](https://entra.microsoft.com)
 - [Microsoft Entra built-in roles](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference)
 
-## Defender:
+## Defender
+- [Microsoft Defender Documentation](https://learn.microsoft.com/en-us/defender-xdr/microsoft-365-defender)
 - [Defender Portal](https://security.microsoft.com)
 - [MDO - Quarantine](https://security.microsoft.com/quarantine)
 - [MDO - Explorer](https://security.microsoft.com/threatexplorerv3)
@@ -35,6 +38,8 @@ Quickly access SecOps tools and portals across Microsoft 365, including Defender
 - [MDO - Spoof Intelligence Insight](https://security.microsoft.com/spoofintelligence)
 - [MDO - Restricted entities](https://security.microsoft.com/restrictedentities)
 - [MDE - Devices](https://security.microsoft.com/machines)
+- [MDE - CVEs](https://security.microsoft.com/vulnerabilities/cves)
+- [MDE - CVEs Update Guide](https://msrc.microsoft.com/update-guide/vulnerability)
 - [MDE - ASR rules](https://security.microsoft.com/asr?viewid=detections)
 - [MDA - CloudApps](https://security.microsoft.com/cloudapps/discovery)
 - [MDI - Health Issues](https://security.microsoft.com/identities/health-issues)
@@ -43,3 +48,24 @@ Quickly access SecOps tools and portals across Microsoft 365, including Defender
 - [XDR - Advanced hunting](https://security.microsoft.com/v2/advanced-hunting)
 - [XDR - Incidents](https://security.microsoft.com/incidents)
 - [TI - Portal](https://security.microsoft.com/intel-explorer)
+
+## Tools
+- [AbuseIPDB](https://www.abuseipdb.com/)
+- [Scamalytics](https://scamalytics.com/ip)
+- [IPinfo](https://ipinfo.io/)
+- [SPUR](https://spur.us/context/)
+- [VirusTotal](https://www.virustotal.com/gui/home/search)
+- [DMARCAdvisor](https://dmarcadvisor.com/)
+- [Message Header Analyzer](https://mha.azurewebsites.net/)
+- [MXToolBox](https://mxtoolbox.com/NetworkTools.aspx)
+- [EntraID Errors](https://login.microsoftonline.com/error)
+- [Decode SafeLinks URL](https://o365atp.com/)
+- [Windows Security Log Events](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/)
+- [KQLSearch](https://www.kqlsearch.com/)
+
+## My Pages
+- [MyAccess](https://myaccess.microsoft.com)
+- [MyApplications](https://myapplications.microsoft.com)
+- [MyAccount](https://myaccount.microsoft.com)
+- [MFASetup](https://aka.ms/mfasetup)
+- [SSPR](https://passwordreset.microsoftonline.com)
