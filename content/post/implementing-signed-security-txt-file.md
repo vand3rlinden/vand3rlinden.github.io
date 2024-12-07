@@ -9,19 +9,19 @@ cover:
 
 > _A `security.txt` file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. Adding a signed `security.txt` file to your website enhances credibility and ensures trust, as the signature allows others to verify its authenticity. This blog will walk you through implementing a signed `security.txt` file using PGP (Pretty Good Privacy)._
 
-## **Introduction**
+## Introduction
 The `security.txt` file is typically hosted at `/.well-known/security.txt` on a website. It follows a standardized format to share security contact information, preferred encryption keys, and disclosure policies. However, without proper authentication, anyone could tamper with the file. A signed `security.txt` solves this issue by letting others verify the file’s legitimacy using your PGP key. Here’s how to create, sign, and verify a `security.txt` file for your website.
 
-## **Step 1: Generate a PGP Key Pair**
+## Step 1: Generate a PGP Key Pair
 If you don’t already have a PGP key pair, you’ll need to generate one. A PGP key pair consists of a public key, which you can share publicly, and a private key, which is kept secret.
 
-### **1. Install GPG (GNU Privacy Guard)**
+### 1. Install GPG (GNU Privacy Guard)
 GPG is the most common tool for generating and managing PGP keys. Install it using your package manager:
 - **Linux:** `sudo apt-get install gnupg`
 - **MacOS (via Homebrew):** `brew install gnupg`
 - **Windows:** Download GPG4Win from [https://gpg4win.org](https://gpg4win.org).
 
-### **2. Generate the Key Pair**
+### 2. Generate the Key Pair
 Run the following command:
 ```
 gpg --full-generate-key
@@ -45,7 +45,7 @@ gpg --list-keys
 gpg --list-secret-keys
 ```
 
-### **3. Export Your Public Key**
+### 3. Export Your Public Key
 Others will need your public key to verify your signature:
 ```
 gpg --armor --export your_email@example.com > pgp-publickey.txt
@@ -53,7 +53,7 @@ gpg --armor --export your_email@example.com > pgp-publickey.txt
 
 This will export the public key to a file named `pgp-publickey.txt`. 
 
-## **Step 2: Create and Sign the security.txt File**
+## Step 2: Create and Sign the security.txt File
 1. **Create the security.txt File**
    Create a plain text file named `security.txt` with the following content (customize as needed):
    ```
@@ -88,16 +88,16 @@ This will export the public key to a file named `pgp-publickey.txt`.
    https://example.com/.well-known/pgp-publickey.txt
    ```
 
-## **Step 3: Verifying the Signature**
+## Step 3: Verifying the Signature
 To confirm the authenticity of the `security.txt` file, anyone can verify it using your public key.
 
-### **1. Import the Public Key**
+### 1. Import the Public Key
 A user downloads your public key and imports it into their GPG keyring:
 ```
 gpg --import pgp-publickey.txt
 ```
 
-### **2. Verify the Signature**
+### 2. Verify the Signature
 The user runs the following command to verify the signature:
 ```
 gpg --verify security.txt
@@ -112,7 +112,7 @@ gpg: Good signature from "Your Name <your_email@example.com>"
 
 The user can trust your public key by running: `gpg --edit-key Key_ID`, typing `trust` at the next prompt, and selecting the option `5 = I trust ultimately`.
 
-## **Conclusion**
+## Conclusion
 Adding a signed `security.txt` file to your website is a simple yet powerful way to build trust with security researchers and users. It ensures that the contact information provided is legitimate and hasn’t been tampered with. By following these steps, you create a clear and verifiable point of contact for handling vulnerabilities responsibly.
 
 ## Reference

@@ -176,18 +176,18 @@ The security.txt file is typically hosted at /.well-known/security.txt on a webs
   <div class="post-content"><blockquote>
 <p><em>A <code>security.txt</code> file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. Adding a signed <code>security.txt</code> file to your website enhances credibility and ensures trust, as the signature allows others to verify its authenticity. This blog will walk you through implementing a signed <code>security.txt</code> file using PGP (Pretty Good Privacy).</em></p>
 </blockquote>
-<h2 id="introduction"><strong>Introduction</strong><a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
+<h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
 <p>The <code>security.txt</code> file is typically hosted at <code>/.well-known/security.txt</code> on a website. It follows a standardized format to share security contact information, preferred encryption keys, and disclosure policies. However, without proper authentication, anyone could tamper with the file. A signed <code>security.txt</code> solves this issue by letting others verify the file’s legitimacy using your PGP key. Here’s how to create, sign, and verify a <code>security.txt</code> file for your website.</p>
-<h2 id="step-1-generate-a-pgp-key-pair"><strong>Step 1: Generate a PGP Key Pair</strong><a hidden class="anchor" aria-hidden="true" href="#step-1-generate-a-pgp-key-pair">#</a></h2>
+<h2 id="step-1-generate-a-pgp-key-pair">Step 1: Generate a PGP Key Pair<a hidden class="anchor" aria-hidden="true" href="#step-1-generate-a-pgp-key-pair">#</a></h2>
 <p>If you don’t already have a PGP key pair, you’ll need to generate one. A PGP key pair consists of a public key, which you can share publicly, and a private key, which is kept secret.</p>
-<h3 id="1-install-gpg-gnu-privacy-guard"><strong>1. Install GPG (GNU Privacy Guard)</strong><a hidden class="anchor" aria-hidden="true" href="#1-install-gpg-gnu-privacy-guard">#</a></h3>
+<h3 id="1-install-gpg-gnu-privacy-guard">1. Install GPG (GNU Privacy Guard)<a hidden class="anchor" aria-hidden="true" href="#1-install-gpg-gnu-privacy-guard">#</a></h3>
 <p>GPG is the most common tool for generating and managing PGP keys. Install it using your package manager:</p>
 <ul>
 <li><strong>Linux:</strong> <code>sudo apt-get install gnupg</code></li>
 <li><strong>MacOS (via Homebrew):</strong> <code>brew install gnupg</code></li>
 <li><strong>Windows:</strong> Download GPG4Win from <a href="https://gpg4win.org">https://gpg4win.org</a>.</li>
 </ul>
-<h3 id="2-generate-the-key-pair"><strong>2. Generate the Key Pair</strong><a hidden class="anchor" aria-hidden="true" href="#2-generate-the-key-pair">#</a></h3>
+<h3 id="2-generate-the-key-pair">2. Generate the Key Pair<a hidden class="anchor" aria-hidden="true" href="#2-generate-the-key-pair">#</a></h3>
 <p>Run the following command:</p>
 <pre tabindex="0"><code>gpg --full-generate-key
 </code></pre><ol>
@@ -206,11 +206,11 @@ The security.txt file is typically hosted at /.well-known/security.txt on a webs
 <li>Private key:</li>
 </ul>
 <pre tabindex="0"><code>gpg --list-secret-keys
-</code></pre><h3 id="3-export-your-public-key"><strong>3. Export Your Public Key</strong><a hidden class="anchor" aria-hidden="true" href="#3-export-your-public-key">#</a></h3>
+</code></pre><h3 id="3-export-your-public-key">3. Export Your Public Key<a hidden class="anchor" aria-hidden="true" href="#3-export-your-public-key">#</a></h3>
 <p>Others will need your public key to verify your signature:</p>
 <pre tabindex="0"><code>gpg --armor --export your_email@example.com &gt; pgp-publickey.txt
 </code></pre><p>This will export the public key to a file named <code>pgp-publickey.txt</code>.</p>
-<h2 id="step-2-create-and-sign-the-securitytxt-file"><strong>Step 2: Create and Sign the security.txt File</strong><a hidden class="anchor" aria-hidden="true" href="#step-2-create-and-sign-the-securitytxt-file">#</a></h2>
+<h2 id="step-2-create-and-sign-the-securitytxt-file">Step 2: Create and Sign the security.txt File<a hidden class="anchor" aria-hidden="true" href="#step-2-create-and-sign-the-securitytxt-file">#</a></h2>
 <ol>
 <li>
 <p><strong>Create the security.txt File</strong>
@@ -243,12 +243,12 @@ In the <code>/.well-known/</code> folder on your website, upload the <code>secur
 https://example.com/.well-known/pgp-publickey.txt
 </code></pre></li>
 </ol>
-<h2 id="step-3-verifying-the-signature"><strong>Step 3: Verifying the Signature</strong><a hidden class="anchor" aria-hidden="true" href="#step-3-verifying-the-signature">#</a></h2>
+<h2 id="step-3-verifying-the-signature">Step 3: Verifying the Signature<a hidden class="anchor" aria-hidden="true" href="#step-3-verifying-the-signature">#</a></h2>
 <p>To confirm the authenticity of the <code>security.txt</code> file, anyone can verify it using your public key.</p>
-<h3 id="1-import-the-public-key"><strong>1. Import the Public Key</strong><a hidden class="anchor" aria-hidden="true" href="#1-import-the-public-key">#</a></h3>
+<h3 id="1-import-the-public-key">1. Import the Public Key<a hidden class="anchor" aria-hidden="true" href="#1-import-the-public-key">#</a></h3>
 <p>A user downloads your public key and imports it into their GPG keyring:</p>
 <pre tabindex="0"><code>gpg --import pgp-publickey.txt
-</code></pre><h3 id="2-verify-the-signature"><strong>2. Verify the Signature</strong><a hidden class="anchor" aria-hidden="true" href="#2-verify-the-signature">#</a></h3>
+</code></pre><h3 id="2-verify-the-signature">2. Verify the Signature<a hidden class="anchor" aria-hidden="true" href="#2-verify-the-signature">#</a></h3>
 <p>The user runs the following command to verify the signature:</p>
 <pre tabindex="0"><code>gpg --verify security.txt
 </code></pre><p>If the file is authentic, they’ll see output confirming the signature, such as:</p>
@@ -256,7 +256,7 @@ https://example.com/.well-known/pgp-publickey.txt
 gpg:                using RSA key ABC123DEF4567890
 gpg: Good signature from &#34;Your Name &lt;your_email@example.com&gt;&#34;
 </code></pre><p>The user can trust your public key by running: <code>gpg --edit-key Key_ID</code>, typing <code>trust</code> at the next prompt, and selecting the option <code>5 = I trust ultimately</code>.</p>
-<h2 id="conclusion"><strong>Conclusion</strong><a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
+<h2 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
 <p>Adding a signed <code>security.txt</code> file to your website is a simple yet powerful way to build trust with security researchers and users. It ensures that the contact information provided is legitimate and hasn’t been tampered with. By following these steps, you create a clear and verifiable point of contact for handling vulnerabilities responsibly.</p>
 <h2 id="reference">Reference<a hidden class="anchor" aria-hidden="true" href="#reference">#</a></h2>
 <ul>
