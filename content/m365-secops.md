@@ -1,4 +1,5 @@
 ---
+date: 2024-12-07
 title: "Microsoft 365: SecOps Links"
 type: "pages"
 ---

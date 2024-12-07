@@ -1,4 +1,5 @@
 ---
+date: 2024-08-01
 title: "Privacy Policy"
 type: "pages"
 ---
