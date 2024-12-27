@@ -53,9 +53,8 @@ gpg --armor --export your_email@example.com > pgp-publickey.txt
 
 This will export the public key to a file named `pgp-publickey.txt`. 
 
-## Step 2: Create and Sign the security.txt File
-1. **Create the security.txt File**
-   Create a plain text file named `security.txt` with the following content (customize as needed):
+## Step 2: Create and Sign the security.txt file
+1. **Create the security.txt file**: Create a plain text file named `security.txt` with the following content (customize as needed):
    ```
    # Security address
    Contact: mailto:security@example.com
@@ -64,7 +63,7 @@ This will export the public key to a file named `pgp-publickey.txt`.
    Encryption: https://example.com/.well-know/pgp-publickey.txt
 
    # Expiration of security.txt file
-   Expires: DATE
+   Expires: expiration date of your pgp key pair
 
    # Privacy Policy
    Policy: https://example.com/security-policy.html
@@ -73,7 +72,7 @@ This will export the public key to a file named `pgp-publickey.txt`.
    Preferred-Languages: EN, NL
    ```
 
-2. **Sign the File with your Private Key**: Use the following command to create a cleartext signature:
+2. **Sign the file with your Private Key**: Use the following command to create a cleartext signature:
    ```
    gpg --clearsign security.txt
    ```
