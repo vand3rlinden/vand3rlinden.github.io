@@ -73,16 +73,14 @@ This will export the public key to a file named `pgp-publickey.txt`.
    Preferred-Languages: EN, NL
    ```
 
-2. **Sign the File with your Private Key**
-   Use the following command to create a cleartext signature:
+2. **Sign the File with your Private Key**: Use the following command to create a cleartext signature:
    ```
    gpg --clearsign security.txt
    ```
 
    After you enter the passphrase to unlock the OpenPGP secret key, a signature file `security.txt.asc` is created. Copy the contents of `security.txt.asc` into the original `security.txt` file.
 
-3. **Host the files**
-   In the `/.well-known/` folder on your website, upload the `security.txt` and `pgp-publickey.txt` files:
+3. **Host the files**: In the `/.well-known/` folder on your website, upload the `security.txt` and `pgp-publickey.txt` files:
    ```
    https://example.com/.well-known/security.txt
    https://example.com/.well-known/pgp-publickey.txt
