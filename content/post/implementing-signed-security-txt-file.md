@@ -115,3 +115,5 @@ Adding a signed `security.txt` file to your website is a simple yet powerful way
 ## Reference
 - [securitytxt.org](https://securitytxt.org/)
 - [security.txt is defined in RFC 9116](https://www.rfc-editor.org/rfc/rfc9116#section-2.6)
+- [Digital Trust Center (DTC) - about security.txt - Dutch government](https://www.digitaltrustcenter.nl/securitytxt)
+- [Digital Trust Center (DTC) - security.txt is mandatory for the Dutch government](https://www.digitaltrustcenter.nl/nieuws/securitytxt-verplicht-voor-overheid)
