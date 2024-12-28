@@ -1,5 +1,5 @@
 ---
-title: "Implementing a signed security.txt file with PGP for your website"
+title: "Implementing a signed security.txt file with PGP for your webserver"
 date: 2024-11-25T23:35:37+01:00
 draft: false
 categories: ["other"]
@@ -7,10 +7,10 @@ cover:
   image: /images/implementing-signed-security-txt-file/implementing-signed-security-txt-file-front.png
 ---
 
-> _A `security.txt` file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. Adding a signed `security.txt` file to your website enhances credibility and ensures trust, as the signature allows others to verify its authenticity. This blog will walk you through implementing a signed `security.txt` file using PGP (Pretty Good Privacy)._
+> _A `security.txt` file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. Adding a signed `security.txt` file to your webserver enhances credibility and ensures trust, as the signature allows others to verify its authenticity. This blog will walk you through implementing a signed `security.txt` file using PGP (Pretty Good Privacy)._
 
 ## Introduction
-The `security.txt` file is typically hosted at `/.well-known/security.txt` on a website. It follows a standardized format to share security contact information, preferred encryption keys, and disclosure policies. However, without proper authentication, anyone could tamper with the file. A signed `security.txt` solves this issue by letting others verify the file’s legitimacy using your PGP key. Here’s how to create, sign, and verify a `security.txt` file for your website.
+The `security.txt` file is typically hosted at `/.well-known/security.txt` on a webserver. It follows a standardized format to share security contact information, preferred encryption keys, and disclosure policies. However, without proper authentication, anyone could tamper with the file. A signed `security.txt` solves this issue by letting others verify the file’s legitimacy using your PGP key. Here’s how to create, sign, and verify a `security.txt` file for your webserver.
 
 ## Step 1: Generate a PGP Key Pair
 If you don’t already have a PGP key pair, you’ll need to generate one. A PGP key pair consists of a public key, which you can share publicly, and a private key, which is kept secret.
@@ -79,7 +79,7 @@ This will export the public key to a file named `pgp-publickey.txt`.
 
    After you enter the passphrase to unlock the OpenPGP secret key, a signature file `security.txt.asc` is created. Copy the contents of `security.txt.asc` into the original `security.txt` file.
 
-3. **Host the files**: In the `/.well-known/` folder on your website, upload the `security.txt` and `pgp-publickey.txt` files:
+3. **Host the files**: In the `/.well-known/` folder on your webserver, upload the `security.txt` and `pgp-publickey.txt` files:
    ```
    https://example.com/.well-known/security.txt
    https://example.com/.well-known/pgp-publickey.txt
@@ -110,7 +110,7 @@ gpg: Good signature from "Your Name <your_email@example.com>"
 The user can trust your public key by running: `gpg --edit-key Key_ID`, typing `trust` at the next prompt, and selecting the option `5 = I trust ultimately`.
 
 ## Conclusion
-Adding a signed `security.txt` file to your website is a simple yet powerful way to build trust with security researchers and users. It ensures that the contact information provided is legitimate and hasn’t been tampered with. By following these steps, you create a clear and verifiable point of contact for handling vulnerabilities responsibly.
+Adding a signed `security.txt` file to your webserver is a simple yet powerful way to build trust with security researchers and users. It ensures that the contact information provided is legitimate and hasn’t been tampered with. By following these steps, you create a clear and verifiable point of contact for handling vulnerabilities responsibly.
 
 ## Reference
 - [securitytxt.org](https://securitytxt.org/)

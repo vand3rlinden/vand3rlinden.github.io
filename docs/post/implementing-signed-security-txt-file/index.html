@@ -5,13 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Implementing a signed security.txt file with PGP for your website | VAND3RLINDEN</title>
+<title>Implementing a signed security.txt file with PGP for your webserver | VAND3RLINDEN</title>
 <meta name="keywords" content="">
 <meta name="description" content="
-A security.txt file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. Adding a signed security.txt file to your website enhances credibility and ensures trust, as the signature allows others to verify its authenticity. This blog will walk you through implementing a signed security.txt file using PGP (Pretty Good Privacy).
+A security.txt file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. Adding a signed security.txt file to your webserver enhances credibility and ensures trust, as the signature allows others to verify its authenticity. This blog will walk you through implementing a signed security.txt file using PGP (Pretty Good Privacy).
 
 Introduction
-The security.txt file is typically hosted at /.well-known/security.txt on a website. It follows a standardized format to share security contact information, preferred encryption keys, and disclosure policies. However, without proper authentication, anyone could tamper with the file. A signed security.txt solves this issue by letting others verify the file’s legitimacy using your PGP key. Here’s how to create, sign, and verify a security.txt file for your website.">
+The security.txt file is typically hosted at /.well-known/security.txt on a webserver. It follows a standardized format to share security contact information, preferred encryption keys, and disclosure policies. However, without proper authentication, anyone could tamper with the file. A signed security.txt solves this issue by letting others verify the file’s legitimacy using your PGP key. Here’s how to create, sign, and verify a security.txt file for your webserver.">
 <meta name="author" content="">
 <link rel="canonical" href="https://vand3rlinden.com/post/implementing-signed-security-txt-file/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
@@ -31,12 +31,12 @@ The security.txt file is typically hosted at /.well-known/security.txt on a webs
         }
 
     </style>
-</noscript><meta property="og:title" content="Implementing a signed security.txt file with PGP for your website" />
+</noscript><meta property="og:title" content="Implementing a signed security.txt file with PGP for your webserver" />
 <meta property="og:description" content="
-A security.txt file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. Adding a signed security.txt file to your website enhances credibility and ensures trust, as the signature allows others to verify its authenticity. This blog will walk you through implementing a signed security.txt file using PGP (Pretty Good Privacy).
+A security.txt file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. Adding a signed security.txt file to your webserver enhances credibility and ensures trust, as the signature allows others to verify its authenticity. This blog will walk you through implementing a signed security.txt file using PGP (Pretty Good Privacy).
 
 Introduction
-The security.txt file is typically hosted at /.well-known/security.txt on a website. It follows a standardized format to share security contact information, preferred encryption keys, and disclosure policies. However, without proper authentication, anyone could tamper with the file. A signed security.txt solves this issue by letting others verify the file’s legitimacy using your PGP key. Here’s how to create, sign, and verify a security.txt file for your website." />
+The security.txt file is typically hosted at /.well-known/security.txt on a webserver. It follows a standardized format to share security contact information, preferred encryption keys, and disclosure policies. However, without proper authentication, anyone could tamper with the file. A signed security.txt solves this issue by letting others verify the file’s legitimacy using your PGP key. Here’s how to create, sign, and verify a security.txt file for your webserver." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vand3rlinden.com/post/implementing-signed-security-txt-file/" />
 <meta property="og:image" content="https://vand3rlinden.com/images/implementing-signed-security-txt-file/implementing-signed-security-txt-file-front.png" /><meta property="article:section" content="post" />
@@ -45,12 +45,12 @@ The security.txt file is typically hosted at /.well-known/security.txt on a webs
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://vand3rlinden.com/images/implementing-signed-security-txt-file/implementing-signed-security-txt-file-front.png" />
-<meta name="twitter:title" content="Implementing a signed security.txt file with PGP for your website"/>
+<meta name="twitter:title" content="Implementing a signed security.txt file with PGP for your webserver"/>
 <meta name="twitter:description" content="
-A security.txt file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. Adding a signed security.txt file to your website enhances credibility and ensures trust, as the signature allows others to verify its authenticity. This blog will walk you through implementing a signed security.txt file using PGP (Pretty Good Privacy).
+A security.txt file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. Adding a signed security.txt file to your webserver enhances credibility and ensures trust, as the signature allows others to verify its authenticity. This blog will walk you through implementing a signed security.txt file using PGP (Pretty Good Privacy).
 
 Introduction
-The security.txt file is typically hosted at /.well-known/security.txt on a website. It follows a standardized format to share security contact information, preferred encryption keys, and disclosure policies. However, without proper authentication, anyone could tamper with the file. A signed security.txt solves this issue by letting others verify the file’s legitimacy using your PGP key. Here’s how to create, sign, and verify a security.txt file for your website."/>
+The security.txt file is typically hosted at /.well-known/security.txt on a webserver. It follows a standardized format to share security contact information, preferred encryption keys, and disclosure policies. However, without proper authentication, anyone could tamper with the file. A signed security.txt solves this issue by letting others verify the file’s legitimacy using your PGP key. Here’s how to create, sign, and verify a security.txt file for your webserver."/>
 
 
 <script type="application/ld+json">
@@ -67,7 +67,7 @@ The security.txt file is typically hosted at /.well-known/security.txt on a webs
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "Implementing a signed security.txt file with PGP for your website",
+      "name": "Implementing a signed security.txt file with PGP for your webserver",
       "item": "https://vand3rlinden.com/post/implementing-signed-security-txt-file/"
     }
   ]
@@ -77,13 +77,13 @@ The security.txt file is typically hosted at /.well-known/security.txt on a webs
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Implementing a signed security.txt file with PGP for your website",
-  "name": "Implementing a signed security.txt file with PGP for your website",
-  "description": " A security.txt file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. Adding a signed security.txt file to your website enhances credibility and ensures trust, as the signature allows others to verify its authenticity. This blog will walk you through implementing a signed security.txt file using PGP (Pretty Good Privacy).\nIntroduction The security.txt file is typically hosted at /.well-known/security.txt on a website. It follows a standardized format to share security contact information, preferred encryption keys, and disclosure policies. However, without proper authentication, anyone could tamper with the file. A signed security.txt solves this issue by letting others verify the file’s legitimacy using your PGP key. Here’s how to create, sign, and verify a security.txt file for your website.\n",
+  "headline": "Implementing a signed security.txt file with PGP for your webserver",
+  "name": "Implementing a signed security.txt file with PGP for your webserver",
+  "description": " A security.txt file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. Adding a signed security.txt file to your webserver enhances credibility and ensures trust, as the signature allows others to verify its authenticity. This blog will walk you through implementing a signed security.txt file using PGP (Pretty Good Privacy).\nIntroduction The security.txt file is typically hosted at /.well-known/security.txt on a webserver. It follows a standardized format to share security contact information, preferred encryption keys, and disclosure policies. However, without proper authentication, anyone could tamper with the file. A signed security.txt solves this issue by letting others verify the file’s legitimacy using your PGP key. Here’s how to create, sign, and verify a security.txt file for your webserver.\n",
   "keywords": [
     
   ],
-  "articleBody": " A security.txt file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. Adding a signed security.txt file to your website enhances credibility and ensures trust, as the signature allows others to verify its authenticity. This blog will walk you through implementing a signed security.txt file using PGP (Pretty Good Privacy).\nIntroduction The security.txt file is typically hosted at /.well-known/security.txt on a website. It follows a standardized format to share security contact information, preferred encryption keys, and disclosure policies. However, without proper authentication, anyone could tamper with the file. A signed security.txt solves this issue by letting others verify the file’s legitimacy using your PGP key. Here’s how to create, sign, and verify a security.txt file for your website.\nStep 1: Generate a PGP Key Pair If you don’t already have a PGP key pair, you’ll need to generate one. A PGP key pair consists of a public key, which you can share publicly, and a private key, which is kept secret.\n1. Install GPG (GNU Privacy Guard) GPG is the most common tool for generating and managing PGP keys. Install it using your package manager:\nLinux: sudo apt-get install gnupg MacOS (via Homebrew): brew install gnupg Windows: Download GPG4Win from https://gpg4win.org. 2. Generate the Key Pair Run the following command:\ngpg --full-generate-key Choose RSA and RSA for encryption. Select the desired key size (e.g., 4096 bits for stronger security). Set an expiration date (or choose “no expiration” for permanent use). Enter your name and email address when prompted. Set a strong passphrase to secure the private key. Once complete, your keys are stored in the GPG keyring. You can view your generated key pair by running the following command for both the public and private keys.\nPublic key: gpg --list-keys Private key: gpg --list-secret-keys 3. Export Your Public Key Others will need your public key to verify your signature:\ngpg --armor --export your_email@example.com \u003e pgp-publickey.txt This will export the public key to a file named pgp-publickey.txt.\nStep 2: Create and Sign the security.txt file Create the security.txt file: Create a plain text file named security.txt with the following content (customize as needed):\n# Security address Contact: mailto:security@example.com # OpenPGP key Encryption: https://example.com/.well-know/pgp-publickey.txt # Expiration of security.txt file Expires: expiration date of your pgp key pair # Privacy Policy Policy: https://example.com/security-policy.html # Languages Preferred-Languages: EN, NL Sign the file with your Private Key: Use the following command to create a cleartext signature:\ngpg --clearsign security.txt After you enter the passphrase to unlock the OpenPGP secret key, a signature file security.txt.asc is created. Copy the contents of security.txt.asc into the original security.txt file.\nHost the files: In the /.well-known/ folder on your website, upload the security.txt and pgp-publickey.txt files:\nhttps://example.com/.well-known/security.txt https://example.com/.well-known/pgp-publickey.txt Step 3: Verifying the Signature To confirm the authenticity of the security.txt file, anyone can verify it using your public key.\n1. Import the Public Key A user downloads your public key and imports it into their GPG keyring:\ngpg --import pgp-publickey.txt 2. Verify the Signature The user runs the following command to verify the signature:\ngpg --verify security.txt If the file is authentic, they’ll see output confirming the signature, such as:\ngpg: Signature made Fri 23 Nov 2024 10:30:00 AM UTC gpg: using RSA key ABC123DEF4567890 gpg: Good signature from \"Your Name \" The user can trust your public key by running: gpg --edit-key Key_ID, typing trust at the next prompt, and selecting the option 5 = I trust ultimately.\nConclusion Adding a signed security.txt file to your website is a simple yet powerful way to build trust with security researchers and users. It ensures that the contact information provided is legitimate and hasn’t been tampered with. By following these steps, you create a clear and verifiable point of contact for handling vulnerabilities responsibly.\nReference securitytxt.org security.txt is defined in RFC 9116 Digital Trust Center (DTC) - about security.txt - Dutch government Digital Trust Center (DTC) - security.txt is mandatory for the Dutch government ",
+  "articleBody": " A security.txt file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. Adding a signed security.txt file to your webserver enhances credibility and ensures trust, as the signature allows others to verify its authenticity. This blog will walk you through implementing a signed security.txt file using PGP (Pretty Good Privacy).\nIntroduction The security.txt file is typically hosted at /.well-known/security.txt on a webserver. It follows a standardized format to share security contact information, preferred encryption keys, and disclosure policies. However, without proper authentication, anyone could tamper with the file. A signed security.txt solves this issue by letting others verify the file’s legitimacy using your PGP key. Here’s how to create, sign, and verify a security.txt file for your webserver.\nStep 1: Generate a PGP Key Pair If you don’t already have a PGP key pair, you’ll need to generate one. A PGP key pair consists of a public key, which you can share publicly, and a private key, which is kept secret.\n1. Install GPG (GNU Privacy Guard) GPG is the most common tool for generating and managing PGP keys. Install it using your package manager:\nLinux: sudo apt-get install gnupg MacOS (via Homebrew): brew install gnupg Windows: Download GPG4Win from https://gpg4win.org. 2. Generate the Key Pair Run the following command:\ngpg --full-generate-key Choose RSA and RSA for encryption. Select the desired key size (e.g., 4096 bits for stronger security). Set an expiration date (or choose “no expiration” for permanent use). Enter your name and email address when prompted. Set a strong passphrase to secure the private key. Once complete, your keys are stored in the GPG keyring. You can view your generated key pair by running the following command for both the public and private keys.\nPublic key: gpg --list-keys Private key: gpg --list-secret-keys 3. Export Your Public Key Others will need your public key to verify your signature:\ngpg --armor --export your_email@example.com \u003e pgp-publickey.txt This will export the public key to a file named pgp-publickey.txt.\nStep 2: Create and Sign the security.txt file Create the security.txt file: Create a plain text file named security.txt with the following content (customize as needed):\n# Security address Contact: mailto:security@example.com # OpenPGP key Encryption: https://example.com/.well-know/pgp-publickey.txt # Expiration of security.txt file Expires: expiration date of your pgp key pair # Privacy Policy Policy: https://example.com/security-policy.html # Languages Preferred-Languages: EN, NL Sign the file with your Private Key: Use the following command to create a cleartext signature:\ngpg --clearsign security.txt After you enter the passphrase to unlock the OpenPGP secret key, a signature file security.txt.asc is created. Copy the contents of security.txt.asc into the original security.txt file.\nHost the files: In the /.well-known/ folder on your webserver, upload the security.txt and pgp-publickey.txt files:\nhttps://example.com/.well-known/security.txt https://example.com/.well-known/pgp-publickey.txt Step 3: Verifying the Signature To confirm the authenticity of the security.txt file, anyone can verify it using your public key.\n1. Import the Public Key A user downloads your public key and imports it into their GPG keyring:\ngpg --import pgp-publickey.txt 2. Verify the Signature The user runs the following command to verify the signature:\ngpg --verify security.txt If the file is authentic, they’ll see output confirming the signature, such as:\ngpg: Signature made Fri 23 Nov 2024 10:30:00 AM UTC gpg: using RSA key ABC123DEF4567890 gpg: Good signature from \"Your Name \" The user can trust your public key by running: gpg --edit-key Key_ID, typing trust at the next prompt, and selecting the option 5 = I trust ultimately.\nConclusion Adding a signed security.txt file to your webserver is a simple yet powerful way to build trust with security researchers and users. It ensures that the contact information provided is legitimate and hasn’t been tampered with. By following these steps, you create a clear and verifiable point of contact for handling vulnerabilities responsibly.\nReference securitytxt.org security.txt is defined in RFC 9116 Digital Trust Center (DTC) - about security.txt - Dutch government Digital Trust Center (DTC) - security.txt is mandatory for the Dutch government ",
   "wordCount" : "662",
   "inLanguage": "en",
   "image":"https://vand3rlinden.com/images/implementing-signed-security-txt-file/implementing-signed-security-txt-file-front.png","datePublished": "2024-11-25T23:35:37+01:00",
@@ -164,7 +164,7 @@ The security.txt file is typically hosted at /.well-known/security.txt on a webs
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://vand3rlinden.com/">Home</a>&nbsp;»&nbsp;<a href="https://vand3rlinden.com/post/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
-      Implementing a signed security.txt file with PGP for your website
+      Implementing a signed security.txt file with PGP for your webserver
     </h1>
     <div class="post-meta"><span title='2024-11-25 23:35:37 +0100 CET'>November 25, 2024</span>&nbsp;·&nbsp;4 min
 
@@ -174,10 +174,10 @@ The security.txt file is typically hosted at /.well-known/security.txt on a webs
         
 </figure>
   <div class="post-content"><blockquote>
-<p><em>A <code>security.txt</code> file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. Adding a signed <code>security.txt</code> file to your website enhances credibility and ensures trust, as the signature allows others to verify its authenticity. This blog will walk you through implementing a signed <code>security.txt</code> file using PGP (Pretty Good Privacy).</em></p>
+<p><em>A <code>security.txt</code> file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. Adding a signed <code>security.txt</code> file to your webserver enhances credibility and ensures trust, as the signature allows others to verify its authenticity. This blog will walk you through implementing a signed <code>security.txt</code> file using PGP (Pretty Good Privacy).</em></p>
 </blockquote>
 <h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
-<p>The <code>security.txt</code> file is typically hosted at <code>/.well-known/security.txt</code> on a website. It follows a standardized format to share security contact information, preferred encryption keys, and disclosure policies. However, without proper authentication, anyone could tamper with the file. A signed <code>security.txt</code> solves this issue by letting others verify the file’s legitimacy using your PGP key. Here’s how to create, sign, and verify a <code>security.txt</code> file for your website.</p>
+<p>The <code>security.txt</code> file is typically hosted at <code>/.well-known/security.txt</code> on a webserver. It follows a standardized format to share security contact information, preferred encryption keys, and disclosure policies. However, without proper authentication, anyone could tamper with the file. A signed <code>security.txt</code> solves this issue by letting others verify the file’s legitimacy using your PGP key. Here’s how to create, sign, and verify a <code>security.txt</code> file for your webserver.</p>
 <h2 id="step-1-generate-a-pgp-key-pair">Step 1: Generate a PGP Key Pair<a hidden class="anchor" aria-hidden="true" href="#step-1-generate-a-pgp-key-pair">#</a></h2>
 <p>If you don’t already have a PGP key pair, you’ll need to generate one. A PGP key pair consists of a public key, which you can share publicly, and a private key, which is kept secret.</p>
 <h3 id="1-install-gpg-gnu-privacy-guard">1. Install GPG (GNU Privacy Guard)<a hidden class="anchor" aria-hidden="true" href="#1-install-gpg-gnu-privacy-guard">#</a></h3>
@@ -235,7 +235,7 @@ Preferred-Languages: EN, NL
 </code></pre><p>After you enter the passphrase to unlock the OpenPGP secret key, a signature file <code>security.txt.asc</code> is created. Copy the contents of <code>security.txt.asc</code> into the original <code>security.txt</code> file.</p>
 </li>
 <li>
-<p><strong>Host the files</strong>: In the <code>/.well-known/</code> folder on your website, upload the <code>security.txt</code> and <code>pgp-publickey.txt</code> files:</p>
+<p><strong>Host the files</strong>: In the <code>/.well-known/</code> folder on your webserver, upload the <code>security.txt</code> and <code>pgp-publickey.txt</code> files:</p>
 <pre tabindex="0"><code>https://example.com/.well-known/security.txt
 https://example.com/.well-known/pgp-publickey.txt
 </code></pre></li>
@@ -254,7 +254,7 @@ gpg:                using RSA key ABC123DEF4567890
 gpg: Good signature from &#34;Your Name &lt;your_email@example.com&gt;&#34;
 </code></pre><p>The user can trust your public key by running: <code>gpg --edit-key Key_ID</code>, typing <code>trust</code> at the next prompt, and selecting the option <code>5 = I trust ultimately</code>.</p>
 <h2 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
-<p>Adding a signed <code>security.txt</code> file to your website is a simple yet powerful way to build trust with security researchers and users. It ensures that the contact information provided is legitimate and hasn’t been tampered with. By following these steps, you create a clear and verifiable point of contact for handling vulnerabilities responsibly.</p>
+<p>Adding a signed <code>security.txt</code> file to your webserver is a simple yet powerful way to build trust with security researchers and users. It ensures that the contact information provided is legitimate and hasn’t been tampered with. By following these steps, you create a clear and verifiable point of contact for handling vulnerabilities responsibly.</p>
 <h2 id="reference">Reference<a hidden class="anchor" aria-hidden="true" href="#reference">#</a></h2>
 <ul>
 <li><a href="https://securitytxt.org/">securitytxt.org</a></li>
@@ -280,8 +280,8 @@ gpg: Good signature from &#34;Your Name &lt;your_email@example.com&gt;&#34;
 
 <ul class="share-buttons">
     <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Implementing a signed security.txt file with PGP for your website on x"
-            href="https://x.com/intent/tweet/?text=Implementing%20a%20signed%20security.txt%20file%20with%20PGP%20for%20your%20website&amp;url=https%3a%2f%2fvand3rlinden.com%2fpost%2fimplementing-signed-security-txt-file%2f&amp;hashtags=">
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Implementing a signed security.txt file with PGP for your webserver on x"
+            href="https://x.com/intent/tweet/?text=Implementing%20a%20signed%20security.txt%20file%20with%20PGP%20for%20your%20webserver&amp;url=https%3a%2f%2fvand3rlinden.com%2fpost%2fimplementing-signed-security-txt-file%2f&amp;hashtags=">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
@@ -289,8 +289,8 @@ gpg: Good signature from &#34;Your Name &lt;your_email@example.com&gt;&#34;
         </a>
     </li>
     <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Implementing a signed security.txt file with PGP for your website on linkedin"
-            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fvand3rlinden.com%2fpost%2fimplementing-signed-security-txt-file%2f&amp;title=Implementing%20a%20signed%20security.txt%20file%20with%20PGP%20for%20your%20website&amp;summary=Implementing%20a%20signed%20security.txt%20file%20with%20PGP%20for%20your%20website&amp;source=https%3a%2f%2fvand3rlinden.com%2fpost%2fimplementing-signed-security-txt-file%2f">
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Implementing a signed security.txt file with PGP for your webserver on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fvand3rlinden.com%2fpost%2fimplementing-signed-security-txt-file%2f&amp;title=Implementing%20a%20signed%20security.txt%20file%20with%20PGP%20for%20your%20webserver&amp;summary=Implementing%20a%20signed%20security.txt%20file%20with%20PGP%20for%20your%20webserver&amp;source=https%3a%2f%2fvand3rlinden.com%2fpost%2fimplementing-signed-security-txt-file%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
@@ -298,8 +298,8 @@ gpg: Good signature from &#34;Your Name &lt;your_email@example.com&gt;&#34;
         </a>
     </li>
     <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Implementing a signed security.txt file with PGP for your website on reddit"
-            href="https://reddit.com/submit?url=https%3a%2f%2fvand3rlinden.com%2fpost%2fimplementing-signed-security-txt-file%2f&title=Implementing%20a%20signed%20security.txt%20file%20with%20PGP%20for%20your%20website">
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Implementing a signed security.txt file with PGP for your webserver on reddit"
+            href="https://reddit.com/submit?url=https%3a%2f%2fvand3rlinden.com%2fpost%2fimplementing-signed-security-txt-file%2f&title=Implementing%20a%20signed%20security.txt%20file%20with%20PGP%20for%20your%20webserver">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
@@ -307,7 +307,7 @@ gpg: Good signature from &#34;Your Name &lt;your_email@example.com&gt;&#34;
         </a>
     </li>
     <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Implementing a signed security.txt file with PGP for your website on facebook"
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Implementing a signed security.txt file with PGP for your webserver on facebook"
             href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fvand3rlinden.com%2fpost%2fimplementing-signed-security-txt-file%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
@@ -316,8 +316,8 @@ gpg: Good signature from &#34;Your Name &lt;your_email@example.com&gt;&#34;
         </a>
     </li>
     <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Implementing a signed security.txt file with PGP for your website on whatsapp"
-            href="https://api.whatsapp.com/send?text=Implementing%20a%20signed%20security.txt%20file%20with%20PGP%20for%20your%20website%20-%20https%3a%2f%2fvand3rlinden.com%2fpost%2fimplementing-signed-security-txt-file%2f">
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Implementing a signed security.txt file with PGP for your webserver on whatsapp"
+            href="https://api.whatsapp.com/send?text=Implementing%20a%20signed%20security.txt%20file%20with%20PGP%20for%20your%20webserver%20-%20https%3a%2f%2fvand3rlinden.com%2fpost%2fimplementing-signed-security-txt-file%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
@@ -325,8 +325,8 @@ gpg: Good signature from &#34;Your Name &lt;your_email@example.com&gt;&#34;
         </a>
     </li>
     <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Implementing a signed security.txt file with PGP for your website on telegram"
-            href="https://telegram.me/share/url?text=Implementing%20a%20signed%20security.txt%20file%20with%20PGP%20for%20your%20website&amp;url=https%3a%2f%2fvand3rlinden.com%2fpost%2fimplementing-signed-security-txt-file%2f">
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Implementing a signed security.txt file with PGP for your webserver on telegram"
+            href="https://telegram.me/share/url?text=Implementing%20a%20signed%20security.txt%20file%20with%20PGP%20for%20your%20webserver&amp;url=https%3a%2f%2fvand3rlinden.com%2fpost%2fimplementing-signed-security-txt-file%2f">
             <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
@@ -334,8 +334,8 @@ gpg: Good signature from &#34;Your Name &lt;your_email@example.com&gt;&#34;
         </a>
     </li>
     <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Implementing a signed security.txt file with PGP for your website on ycombinator"
-            href="https://news.ycombinator.com/submitlink?t=Implementing%20a%20signed%20security.txt%20file%20with%20PGP%20for%20your%20website&u=https%3a%2f%2fvand3rlinden.com%2fpost%2fimplementing-signed-security-txt-file%2f">
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Implementing a signed security.txt file with PGP for your webserver on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=Implementing%20a%20signed%20security.txt%20file%20with%20PGP%20for%20your%20webserver&u=https%3a%2f%2fvand3rlinden.com%2fpost%2fimplementing-signed-security-txt-file%2f">
             <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
                 xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
                 <path
