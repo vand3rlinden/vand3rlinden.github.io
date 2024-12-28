@@ -1,5 +1,5 @@
 ---
-title: "Implementing a signed security.txt file with PGP for your webserver"
+title: "Implementing a signed security.txt file with PGP on your webserver"
 date: 2024-11-25T23:35:37+01:00
 draft: false
 categories: ["other"]
@@ -114,6 +114,7 @@ Adding a signed `security.txt` file to your webserver is a simple yet powerful w
 
 ## Reference
 - [securitytxt.org](https://securitytxt.org/)
-- [security.txt is defined in RFC 9116](https://www.rfc-editor.org/rfc/rfc9116#section-2.6)
+- [security.txt is defined in RFC 9116](https://www.rfc-editor.org/rfc/rfc9116)
+- [Unsigned vs. Signed security.txt file](https://www.rfc-editor.org/rfc/rfc9116#section-2.6)
 - [Digital Trust Center (DTC) - about security.txt - Dutch government](https://www.digitaltrustcenter.nl/securitytxt)
 - [Digital Trust Center (DTC) - security.txt is mandatory for the Dutch government](https://www.digitaltrustcenter.nl/nieuws/securitytxt-verplicht-voor-overheid)

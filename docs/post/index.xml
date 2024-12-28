@@ -9,7 +9,7 @@
     <lastBuildDate>Mon, 25 Nov 2024 23:35:37 +0100</lastBuildDate>
     <atom:link href="https://vand3rlinden.com/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Implementing a signed security.txt file with PGP for your webserver</title>
+      <title>Implementing a signed security.txt file with PGP on your webserver</title>
       <link>https://vand3rlinden.com/post/implementing-signed-security-txt-file/</link>
       <pubDate>Mon, 25 Nov 2024 23:35:37 +0100</pubDate>
       <guid>https://vand3rlinden.com/post/implementing-signed-security-txt-file/</guid>
