@@ -29,7 +29,7 @@ gpg --full-generate-key
 
 1. Choose **RSA and RSA** for encryption.
 2. Select the desired key size (e.g., 4096 bits for stronger security).
-3. Set an expiration date (or choose "no expiration" for permanent use).
+3. Set an expiration date (it is not recommended to select **no expiration** for permanent use).
 4. Enter your name and email address when prompted.
 5. Set a strong passphrase to secure the private key.
 
