@@ -141,23 +141,8 @@
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;In this post, you will learn how to enable and use SMTP DANE with DNSSEC in Exchange Online.&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;While &lt;em&gt;&lt;strong&gt;outbound&lt;/strong&gt;&lt;/em&gt; SMTP DANE with DNSSEC in Exchange Online has been enabled since 2022, Microsoft is currently rolling out &lt;em&gt;&lt;strong&gt;inbound&lt;/strong&gt;&lt;/em&gt; SMTP DANE with DNSSEC in Exchange Online. In an earlier &lt;a href=&#34;https://vand3rlinden.com/post/dnssec-dane-explained/&#34;&gt;blog post&lt;/a&gt;, I explained how SMTP DANE with DNSSEC works together on a mail and web server.&lt;/p&gt;
-&lt;p&gt;A short recap:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Outbound SMTP DANE with DNSSEC &lt;code&gt;sending mail server&lt;/code&gt;&lt;/strong&gt;: Requests DANE &lt;code&gt;TLSA&lt;/code&gt; records of the receiving domain&amp;rsquo;s MX record.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Inbound SMTP DANE with DNSSEC &lt;code&gt;receiving mail server&lt;/code&gt;&lt;/strong&gt;: Requires DNSSEC and DANE &lt;code&gt;TLSA&lt;/code&gt; records that can be requested by the sending mail server.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;inbound-smtp-dane-with-dnssec-benefits&#34;&gt;Inbound SMTP DANE with DNSSEC benefits&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Authentication of TLS Certificates&lt;/strong&gt;: SMTP DANE ensures that the TLS certificates used in email exchanges are authenticated.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Reduction in Delivery Failures&lt;/strong&gt;: By using DANE, the sending mail server can verify that the recipient&amp;rsquo;s server supports and prefers secure TLS connections.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Enhance Email Reputation&lt;/strong&gt;: Demonstrate that you comply with the latest security standards.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Integrity and Authenticity of DNS Records&lt;/strong&gt;: DNSSEC adds a layer of security to the DNS system by digitally signing DNS records.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Before you enable inbound SMTP DANE with DNSSEC in Exchange Online for a domain, you must have added the domain as an Accepted domain and the domain status must be Healthy in the Microsoft 365 Admin Center. The current domain&amp;rsquo;s MX record must have a priority of &lt;code&gt;0&lt;/code&gt; or &lt;code&gt;10&lt;/code&gt; and must not have a fallback or secondary MX record.&lt;/p&gt;</description>
+&lt;p&gt;While &lt;em&gt;&lt;strong&gt;outbound&lt;/strong&gt;&lt;/em&gt; SMTP DANE with DNSSEC in Exchange Online has been enabled since 2022, Microsoft is has rolling out &lt;em&gt;&lt;strong&gt;inbound&lt;/strong&gt;&lt;/em&gt; SMTP DANE with DNSSEC in Exchange Online since late 2024. In an earlier &lt;a href=&#34;https://vand3rlinden.com/post/dnssec-dane-explained/&#34;&gt;blog post&lt;/a&gt;, I explained how SMTP DANE with DNSSEC works together on a mail and web server.&lt;/p&gt;
+&lt;p&gt;A short recap:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Microsoft Defender for Office 365: Safe Attachments policies</title>
