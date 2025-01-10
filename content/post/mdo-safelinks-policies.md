@@ -50,6 +50,7 @@ In this article, we will use the Microsoft Security portal for the configuration
       - Wait for URL scanning to complete before delivering the message (recommended value: `$true`).
 
       - Do not rewrite URLs, do checks via Safe Links API only (recommended value: `$false`).
+        - If this setting is enabled, URLs are not wrapped, but they are scanned before the message is delivered. But ***only*** in supported versions of Outlook (Windows, Mac, and Outlook on the web), Safe Links functionality is invoked exclusively via APIs at the time a URL is clicked, hence the recommendation to set it to `$false`.
 
       - Do not rewrite the following URLs in email (recommended value: `none`).
 
