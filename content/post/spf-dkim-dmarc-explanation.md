@@ -71,9 +71,9 @@ The SPF record will differ for everyone; therefore, it is important to understan
 ### Softfail or Hardfail
 SPF can get a softfail or a hardfail, you determine that at the end of the record.
 
-- With `~all`: The SPF record has designated the host as NOT allowed to send, but it is in transition (Accept but mark, Softfail).
+- With `~all`: The SPF record identifies the host as NOT authorized to send emails on behalf of the domain; however, it instructs email receivers to accept the email but flag it as potentially suspicious.
 
-- With `-all`: The SPF record has designated the host as NOT being allowed to send (Reject, Hardfail).
+- With `-all`: The SPF record specifies that the host is NOT authorized to send emails and instructs email receivers to reject them.
 
 Most mailbox providers will treat soft and hard- fails directives similarly, but it is [recommended](https://dmarcian.com/spf-best-practices/) to mirror the DMARC policy as the technology is deployed: use softfail (`~all`) if the DMARC policies are "none" and "quarantine", and use hardfail (`-all`) if you have moved to a "reject" policy. 
 
@@ -115,7 +115,7 @@ How you set up DKIM can vary depending on your mail provider; setting up DKIM fo
 DMARC (Domain-based Message Authentication, Reporting and Conformance) acts as a shield on top of SPF and DKIM. With DMARC, the sender specifies what to do with email on behalf of the domain if it does not meet the requirements of SPF and DKIM.
 
 ### How DMARC works
-Once your domain has a DMARC record, any receiving email server can verify the incoming email based on the instructions in the DMARC policy. If the email passes the DMARC authentication, it will be delivered and can be trusted. If the email fails the check, depending on the instructions in the DMARC record, the email can be delivered, quarantined, or rejected.
+Once your domain has a DMARC record, any receiving email server can verify the incoming email based on the instructions in the DMARC policy. If the email passes the DMARC authentication, it will be delivered and can be trusted. If the email fails the check, depending on the instructions in the DMARC record, the email can be delivered, quarantined (flagged as potentially suspicious), or rejected.
 
 DMARC will pass if the P1 Sender and P2 Sender are equal, and/or SPF and DKIM are passed. If the P1 sender is not equal to the P2 sender, then DKIM must pass for the P2 sender domain in order to get a DMARC pass.
 
@@ -147,7 +147,7 @@ If you do not list the `sp=` tag, your subdomains will get the policy from the `
 | Policy      | Value           | Meaning       |
 | ----------- | -----------     | -----------   |
 | None        | `p=none;`       |  This policy is essentially a monitoring or reporting mode. It instructs email receivers not to take any action based on the DMARC authentication results. |
-| Quarantine  | `p=quarantine;` |  This policy instructs email receivers to flag an email that fails DMARC authentication as potentially suspicious, but the receiving mail server decides how to handle it. The DMARC quarantine policy does not take full advantage of DMARC. |
+| Quarantine  | `p=quarantine;` |  This policy instructs email receivers to mark emails that fail DMARC authentication as potentially suspicious, typically delivering them to the recipient’s SPAM folder. As a result, the DMARC quarantine policy does not fully utilize the protective capabilities of DMARC. |
 | Reject      | `p=reject;`     |  This policy instructs email receivers to reject (not deliver) emails that fail DMARC authentication. |
 
 The table on this [Microsoft Learn page](https://learn.microsoft.com/en-us/archive/blogs/fasttracktips/spf-dkim-dmarc-and-exchange-online#covering-the-basics-of-dmarc) summarizes the options you have when configuring your DMARC policy.

@@ -22,7 +22,7 @@ Impersonation occurs when the sender of an email appears similar to a legitimate
 
 ### User impersonation protection
 ### What you can protect:
-With user impersonation protection, you can protect 350 internal and external users with key roles. Internally, these could be your CEO, CFO, and other senior executives. Externally, they could be council members or your board of directors.
+User impersonation protection allows you to secure up to 350 internal and external key users from impersonation attempts. Internally, this might include roles like the CEO, CFO, and other senior executives. Externally, it could cover individuals such as council members or board directors.
 
 > **NOTE:** User impersonation protection is not effective when there is a history of email communication between the sender and recipient. Detection of an impersonation attempt is only possible in cases where there is no prior email interaction between the sender and recipient.
 
@@ -31,7 +31,7 @@ User impersonation is the combination of the user’s display name and email add
 
 ### Domain impersonation protection
 ### What you can protect:
-With domain impersonation protection, you can protect the domains that you own in Microsoft 365 (accepted domains) as well as external domains, such as the domains of your vendors.
+Domain impersonation protection helps secure both your organization’s domains (accepted domains) and external domains, such as vendor domains, from impersonation attempts.
 
 ### How it works
 Domain impersonation prevents the sender’s email domain from appearing in a message that looks like a real email domain. For example, `contoso.com` could be impersonated as `c0ntoso.com` or `contoso.co`. Even though SPF, DKIM and DMARC will pass for the domain `c0ntoso.com` or `contoso.co`, the email will be labeled with Protection Policy Category `DIMP` (domain impersonation) in the `X-Forefront-Antispam-Report` message header.
