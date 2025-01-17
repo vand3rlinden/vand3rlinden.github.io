@@ -52,9 +52,9 @@ In this outbound policy you can manage:
   - A higher bulk email threshold means more bulk email will be delivered.
   - You can also review the [Bulk Senders Insight page](https://security.microsoft.com/senderinsights) to see how much mail is classified as bulk at each BCL level (1 to 9) over the past 60 days. On this same page, you can simulate changes to the bulk email threshold and view the impact on the number of messages delivered versus those identified as bulk in your inbound anti-spam policy. More information about [Bulk senders insight in Exchange Online Protection](https://learn.microsoft.com/en-us/defender-office-365/anti-spam-bulk-senders-insight).
 
-- It is recommended to disable the [ASF (Advanced Spam Filter) settings](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-spam-policies-asf-settings-about), because enabling one or more of the ASF settings is an aggressive approach to spam filtering that can often result in false positives. The effectiveness of these settings in reducing spam has declined significantly over the years.
-  - For example, ASF Setting: `SPF record: hard fail` does not need to be enabled because legitimate emails can be marked as High Confidence Phishing (`HSPM`) in situations where SPF fails but DMARC passes because DKIM succeeded for the P2 sender domain. 
-
+- It is recommended to disable the [ASF (Advanced Spam Filter) settings](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-spam-policies-asf-settings-about), as enabling one or more ASF settings takes an aggressive approach to spam filtering, often leading to false positives. For instance, messages containing certain elements may be flagged as spam or have their spam score increased. 
+  - As example, for the ASF Setting, **SPF record: hard fail**: Messages sent from an IP address that isn't specified in the SPF record, are marked as **high confidence spam** (`HSPM`), even if DMARC passes because DKIM succeeded for the P2 sender domain.
+ 
 - Set all your spam actions to 'Quarantine message'.
     - My preference is to ***only*** select ***request to release*** [quarantine policies](https://vand3rlinden.com/post/mdo-quarantine-policies/) for the actions ***Phishing message action*** and ***High confidence phishing message action*** (also, quarantine release permissions will be ignored for high-confidence phishing messages).
 
