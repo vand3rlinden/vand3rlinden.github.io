@@ -63,6 +63,8 @@ Quickly access SecOps tools and portals across Microsoft 365, including Defender
 - [Decode SafeLinks URL](https://o365atp.com/)
 - [Windows Security Log Events](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/)
 - [KQLSearch](https://www.kqlsearch.com/)
+- [WhoIs](https://who.is/)
+- [Shodan](https://www.shodan.io/)
 
 ## My Pages
 - [MyAccess](https://myaccess.microsoft.com)
