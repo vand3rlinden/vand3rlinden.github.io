@@ -11,15 +11,16 @@ cover:
 
 While ***outbound*** SMTP DANE with DNSSEC in Exchange Online has been enabled since 2022, Microsoft is has rolling out ***inbound*** SMTP DANE with DNSSEC in Exchange Online since late 2024. In an earlier [blog post](https://vand3rlinden.com/post/dnssec-dane-explained/), I explained how SMTP DANE with DNSSEC works together on a mail and web server.
 
-A short recap:
+## DNSSEC and DANE on a mailserver
+SMTP DANE is a security protocol that uses DNSSEC to verify the authenticity of TLS certificates used for securing email communication. It helps protect against attacks such as TLS downgrade and man-in-the-middle attacks by ensuring that the certificates and encryption settings used in mail server communications are authentic and trustworthy.
+
+While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages and ensuring they are sent from authorized domains, DANE focuses specifically on securely establishing TLS connections between mail servers. By leveraging DNSSEC to publish certificate information directly in DNS, DANE ensures that the sending mail server connects to the intended receiving mail server with verified encryption, enhancing the overall security of email transport.
+
+## The flow of SMTP DANE on a mailserver
 - **Outbound SMTP DANE with DNSSEC `sending mail server`**: Requests DANE `TLSA` records of the receiving domain's `MX` record.
 - **Inbound SMTP DANE with DNSSEC `receiving mail server`**: Requires DNSSEC and DANE `TLSA` records that can be requested by the sending mail server.
 
-## Inbound SMTP DANE with DNSSEC benefits
-- **Authentication of TLS Certificates**: SMTP DANE ensures that the TLS certificates used in email exchanges are authenticated.
-- **Reduction in Delivery Failures**: By using DANE, the sending mail server can verify that the recipient's server supports and prefers secure TLS connections.
-- **Enhance Email Reputation**: Demonstrate that you comply with the latest security standards.
-- **Integrity and Authenticity of DNS Records**: DNSSEC adds a layer of security to the DNS system by digitally signing DNS records. 
+![IMAGE](/images/dnssec-dane-explained/smtpdane-visual.png)
 
 ## Prerequisites
 - Before you enable inbound SMTP DANE with DNSSEC in Exchange Online for a domain, you must have added the domain as an Accepted domain and the domain status must be Healthy in the Microsoft 365 Admin Center. The current domain's `MX` record must have a priority of `0` or `10` and must not have a fallback or secondary `MX` record.
@@ -33,39 +34,64 @@ A short recap:
 
 - To configure inbound SMTP DANE with DNSSEC for your Accepted Domain, such as `yourdomain.com`, ensure that:
   - If this domain is referenced in any smarthost configurations, or in any connectors, you need to switch the smarthost name to `yourdomain-com.mail.protection.outlook.com`
-  - Your business partners update their connectors to `yourdomain.onmicrosoft.com` or `yourdomain-com.mail.protection.outlook.com` to avoid failures. After enabling DANE, partners can switch to the new `yourdomain-com.j-v1.mx.microsoft` endpoint to restore the original connection.
+  - Your business partners update their connectors to `yourdomain.onmicrosoft.com` or `yourdomain-com.mail.protection.outlook.com` to avoid failures. After enabling DANE, partners can switch to the new `yourdomain-com.<random>.mx.microsoft` endpoint to restore the original connection.
 
 ## Set up inbound SMTP DANE with DNSSEC in Exchange Online
 Below is a simplified version of the implementation compared to the official [Microsoft Learn documentation](https://learn.microsoft.com/en-us/purview/how-smtp-dane-works#set-up-inbound-smtp-dane-with-dnssec).
 
 1. Update the `TTL` of your existing `MX` record to the lowest possible value (not lower than `30` seconds). Then, wait for the previous `TTL` to expire before proceeding. For example, if the `TTL` of your existing `MX` record was `3600` seconds or `1` hour before you changed it, you need to wait 1 hour before proceeding.
 
+![IMAGE](/images/exo-inbound-smtp-dane-dnssec/exo-inbound-smtp-dane-dnssec1.png)
+
 2. Connect to Exchange Online PowerShell
 
 > If you're using [MTA-STS](https://vand3rlinden.com/post/mta-sts-explained/), you'll need to set your policy mode to `testing` during configuration, and set it back to `enforced` after configuration.
 
 3. Enable DNSSEC on your accepted domain by running the cmdlet in PowerShell: `Enable-DnssecForVerifiedDomain -DomainName yourdomain.com`
+  
+![IMAGE](/images/exo-inbound-smtp-dane-dnssec/exo-inbound-smtp-dane-dnssec2.png)
 
-4. Take the `DnssecMxValue` value, navigate to the DNS registrar hosting the domain, add a new `MX` record: `20 yourdomain-com.j-v1.mx.microsoft` and set the `TTL` to the lowest possible value (not lower than `30` seconds).
+4. Take the `DnssecMxValue` value, navigate to the DNS registrar hosting the domain, add a new `MX` record: `20 yourdomain-com.<random>.mx.microsoft` and set the `TTL` to the lowest possible value (not lower than `30` seconds).
+
+![IMAGE](/images/exo-inbound-smtp-dane-dnssec/exo-inbound-smtp-dane-dnssec3.png)
 
 5. Verify that the new `MX` is working via the [Inbound SMTP Email test](https://testconnectivity.microsoft.com/tests/O365InboundSmtp/input)
 
+![IMAGE](/images/exo-inbound-smtp-dane-dnssec/exo-inbound-smtp-dane-dnssec4.png)
+
 6. Change the priority of the legacy `MX` record `yourdomain-com.mail.protection.outlook.com` from current priority to `30` (`30 yourdomain-com.mail.protection.outlook.com`)
 
-7. Change the priority of the new `MX` record to `0` (`0 yourdomain-com.j-v1.mx.microsoft`)
+![IMAGE](/images/exo-inbound-smtp-dane-dnssec/exo-inbound-smtp-dane-dnssec5.png)
+
+> Wait a minute
+
+7. Change the priority of the new `MX` record to `0` (`0 yourdomain-com.<random>.mx.microsoft`)
+
+![IMAGE](/images/exo-inbound-smtp-dane-dnssec/exo-inbound-smtp-dane-dnssec6.png)
+
+> Wait a minute
 
 8. Delete the legacy `MX` record `yourdomain-com.mail.protection.outlook.com`
 
-9.  Update the `TTL` for the new `MX` record `yourdomain-com.j-v1.mx.microsoft` to `3600` seconds or `1` hour
+![IMAGE](/images/exo-inbound-smtp-dane-dnssec/exo-inbound-smtp-dane-dnssec7.png)
+
+> Wait a minute
+
+9.  Update the `TTL` for the new `MX` record `yourdomain-com.<random>.mx.microsoft` to `3600` seconds or `1` hour
+
+![IMAGE](/images/exo-inbound-smtp-dane-dnssec/exo-inbound-smtp-dane-dnssec8.png)
 
 10. Enable SMTP DANE for that same domain once the DNSSEC enablement is complete by running the cmdlet: `Enable-SmtpDaneInbound -DomainName yourdomain.com`
 
+![IMAGE](/images/exo-inbound-smtp-dane-dnssec/exo-inbound-smtp-dane-dnssec9.png)
+
 11. Verify that the TLSA record has been propagated (this can take 15-30 minutes) by using the [DANE Validation in Microsoft Remote Connectivity Analyzer](https://testconnectivity.microsoft.com/tests/O365DaneValidation/input)
 
-Once you have completed DNSSEC and SMTP DANE enablement, a successful output will be displayed in the DANE validation tool.
+![IMAGE](/images/exo-inbound-smtp-dane-dnssec/exo-inbound-smtp-dane-dnssec10.png)
 
 12. Check the health of your domain's `MX` record in the Microsoft 365 Admin Center under 'DNS Records'.
 
+![IMAGE](/images/exo-inbound-smtp-dane-dnssec/exo-inbound-smtp-dane-dnssec11.png)
 
 ## Cmdlets to get DNSSEC and SMTP DANE configuration settings in Exchange Online
 ```PowerShell
@@ -90,9 +116,9 @@ Get-SmtpDaneInboundStatus -DomainName yourdomain.com
 ```
 
 ## Check the TLSA record
-The `TLSA` records are listed in: ` _25._tcp.yourdomain-com.j-v1.mx.microsoft`
+The `TLSA` records are listed in: `_25._tcp.yourdomain-com.<random>.mx.microsoft`
 
-![IMAGE](/images/exo-inbound-smtp-dane-dnssec/exo-inbound-smtp-dane-dnssec1.png)
+![IMAGE](/images/exo-inbound-smtp-dane-dnssec/exo-inbound-smtp-dane-dnssec12.png)
 
 ## Activate TLS Reporting (TLSRPT)
 TLS Reporting (TLSRPT) is a standard that provides a way to report when the TLS connection could not be established during email transmission.

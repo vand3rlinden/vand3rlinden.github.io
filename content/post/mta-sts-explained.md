@@ -9,7 +9,9 @@ cover:
 
 > _This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages._
 
-MTA-STS (Mail Transfer Agent Strict Transport Security) is a security protocol designed to improve the security of email communication by enforcing the use of TLS (Transport Layer Security) to encrypt email traffic between mail servers. It helps prevent man-in-the-middle attacks and downgrade attacks, where an attacker could intercept or tamper with email messages in transit.
+MTA-STS (Mail Transfer Agent Strict Transport Security) is a security protocol that enforces the use of secure TLS connections for email communication. It helps protect against attacks such as TLS downgrade and man-in-the-middle attacks by ensuring that emails are only delivered over encrypted channels with properly validated TLS certificates.
+
+While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages and ensuring they originate from authorized domains, MTA-STS specifically focuses on securing the transport layer between mail servers. By using a policy file retrieved over HTTPS, MTA-STS allows recipient domains to specify their requirement for encrypted connections, ensuring that sending servers only deliver mail over verified secure channels, thereby enhancing the overall security of email transport.
 
 ## How MTA-STS Works
 1. **Discovery**:
@@ -31,11 +33,6 @@ MTA-STS (Mail Transfer Agent Strict Transport Security) is a security protocol d
   - Certificate Subject needs to match the MX-Entry
   - They need to be signed and issued by a public trusthworthy CA
   - They need to be valid (valid from / valid until)
-
-## MTA-STS protects against:
-- Downgrade-Attacks to lower TLS Versions
-- Man-In-The-Middle (MITM) Attacks
-- Solves multiple SMTP-Security Issues, including expired TLS certificates and lack of support for secure protocols.
 
 ## MTA-STS consists of:
 - MTA STS DNS TXT Record (`_mta-sts.example.com`)
@@ -116,9 +113,6 @@ The reports are received in `.json`, you can look for the `summary` tag to check
 
 ## MTA-STS vs. SMTP DANE
 Neither SMTP DANE nor MTA-STS is universally "better"; the choice depends on the specific context and needs of the organization. SMTP DANE provides stronger security, but requires DNSSEC, and not every DNS provider supports DNSSEC yet. MTA-STS, on the other hand, is easier to implement and provides good security through HTTPS and DNS. Using the two together can provide the best of both worlds, increasing security through a layered approach.
-
-## SPF, DKIM and DMARC vs. MTA-STS
-While SPF, DKIM, and DMARC focus more on the email messages and the sending hosts they come from, MTA-STS focuses more on establishing the TLS connection between mail servers.
 
 ## Reference
 - [MTA-STS validator](https://www.mailhardener.com/tools/mta-sts-validator)

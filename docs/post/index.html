@@ -159,7 +159,8 @@ Why BIMI matters BIMI allows your brand’s logo to appear alongside your emails
   </header>
   <div class="entry-content">
     <p> This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages.
-MTA-STS (Mail Transfer Agent Strict Transport Security) is a security protocol designed to improve the security of email communication by enforcing the use of TLS (Transport Layer Security) to encrypt email traffic between mail servers. It helps prevent man-in-the-middle attacks and downgrade attacks, where an attacker could intercept or tamper with email messages in transit.
+MTA-STS (Mail Transfer Agent Strict Transport Security) is a security protocol that enforces the use of secure TLS connections for email communication. It helps protect against attacks such as TLS downgrade and man-in-the-middle attacks by ensuring that emails are only delivered over encrypted channels with properly validated TLS certificates.
+While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages and ensuring they originate from authorized domains, MTA-STS specifically focuses on securing the transport layer between mail servers. By using a policy file retrieved over HTTPS, MTA-STS allows recipient domains to specify their requirement for encrypted connections, ensuring that sending servers only deliver mail over verified secure channels, thereby enhancing the overall security of email transport.
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2024-08-23 16:22:41 +0200 CEST'>August 23, 2024</span>&nbsp;·&nbsp;6 min</footer>
@@ -174,7 +175,7 @@ MTA-STS (Mail Transfer Agent Strict Transport Security) is a security protocol d
   <div class="entry-content">
     <p> In this post, you will learn how to enable and use SMTP DANE with DNSSEC in Exchange Online.
 While outbound SMTP DANE with DNSSEC in Exchange Online has been enabled since 2022, Microsoft is has rolling out inbound SMTP DANE with DNSSEC in Exchange Online since late 2024. In an earlier blog post, I explained how SMTP DANE with DNSSEC works together on a mail and web server.
-A short recap:
+DNSSEC and DANE on a mailserver SMTP DANE is a security protocol that uses DNSSEC to verify the authenticity of TLS certificates used for securing email communication. It helps protect against attacks such as TLS downgrade and man-in-the-middle attacks by ensuring that the certificates and encryption settings used in mail server communications are authentic and trustworthy.
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2024-07-28 01:13:44 +0200 CEST'>July 28, 2024</span>&nbsp;·&nbsp;5 min</footer>
@@ -260,7 +261,7 @@ Think before you click Understanding the intricacies of cybersecurity is crucial
   </header>
   <div class="entry-content">
     <p> In this post, you find out how DNSSEC and DANE cooperate, and learn how to set up DANE TLSA DNS records.
-DNSSEC (Domain Name System Security Extensions) The domain name system (DNS) is the phone book of the Internet: it tells computers where to send and retrieve information. Unfortunately, it also accepts any address given to it, no questions asked.
+DNSSEC (DNS Security Extensions) The domain name system (DNS) is the phone book of the Internet: it tells computers where to send and retrieve information. Unfortunately, it also accepts any address given to it, no questions asked.
 DNSSEC adds a security layer to this phonebook. It uses digital signatures to make sure the information in the phonebook can be trusted and hasn’t been tampered with. It’s like putting a lock on the phonebook to prevent DNS spoofing.
 ...</p>
   </div>
