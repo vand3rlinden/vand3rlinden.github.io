@@ -26,7 +26,7 @@ While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages
 - Before you enable inbound SMTP DANE with DNSSEC in Exchange Online for a domain, you must have added the domain as an Accepted domain and the domain status must be Healthy in the Microsoft 365 Admin Center. The current domain's `MX` record must have a priority of `0` or `10` and must not have a fallback or secondary `MX` record.
 
 - Make sure that DNSSEC is enabled for your domain at your DNS provider.
- - You can use the [DNSSEC Analyzer](https://dnssec-analyzer.verisignlabs.com/) from VeriSign, to check if your DNS provider have DNSSEC enabled for your domain.
+  - You can use the [DNSSEC Analyzer](https://dnssec-analyzer.verisignlabs.com/) from VeriSign, to check if your DNS provider have DNSSEC enabled for your domain.
 
 - You must be authorized to access Exchange Online PowerShell and to run the cmdlets.
 
