@@ -9,9 +9,9 @@ cover:
 
 > _In this post, you will learn how to enable and use SMTP DANE with DNSSEC in Exchange Online._
 
-While ***outbound*** SMTP DANE with DNSSEC in Exchange Online has been enabled since 2022, Microsoft is has rolling out ***inbound*** SMTP DANE with DNSSEC in Exchange Online since late 2024. In an earlier [blog post](https://vand3rlinden.com/post/dnssec-dane-explained/), I explained how SMTP DANE with DNSSEC works together on a mail and web server.
+While ***outbound*** SMTP DANE with DNSSEC in Exchange Online has been enabled since 2022, Microsoft is has rolling out ***inbound*** SMTP DANE with DNSSEC in Exchange Online since late 2024.
 
-## DNSSEC and DANE on a mailserver
+## How SMTP DANE with DNSSEC works
 SMTP DANE is a security protocol that uses DNSSEC to verify the authenticity of TLS certificates used for securing email communication. It helps protect against attacks such as TLS downgrade and man-in-the-middle attacks by ensuring that the certificates and encryption settings used in mail server communications are authentic and trustworthy.
 
 While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages and ensuring they are sent from authorized domains, DANE focuses specifically on securely establishing TLS connections between mail servers. By leveraging DNSSEC to publish certificate information directly in DNS, DANE ensures that the sending mail server connects to the intended receiving mail server with verified encryption, enhancing the overall security of email transport.
