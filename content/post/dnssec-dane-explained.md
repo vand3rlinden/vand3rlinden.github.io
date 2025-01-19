@@ -48,7 +48,7 @@ The `Matching-Type` specifies how the certificate association is verified:
 - 2: SHA-512 hash (not recommended / less supported)
 
 ## DNSSEC and DANE on a webserver
-By combining DNSSEC and DANE, the integrity and authenticity of both the DNS responses and the TLS certificates are ensured, providing a robust mechanism to prevent man-in-the-middle attacks and other security threats.
+By combining DNSSEC and DANE, the integrity and authenticity of both the DNS responses and the TLS certificates are ensured, providing a robust mechanism to prevent man-in-the-middle attacks and improving overall webserver trust.
 
 ## The flow of DNSSEC and DANE on a webserver
 ![IMAGE](/images/dnssec-dane-explained/webserverdane-visual.png)
