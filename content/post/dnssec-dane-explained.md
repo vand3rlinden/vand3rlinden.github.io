@@ -63,7 +63,7 @@ Source: https://check.sidnlabs.nl/dane/
 ## DNSSEC and DANE on a mailserver
 SMTP DANE is a security protocol that uses DNSSEC to verify the authenticity of TLS certificates used for securing email communication. It helps protect against attacks such as TLS downgrade and man-in-the-middle attacks by ensuring that the certificates and encryption settings used in mail server communications are authentic and trustworthy.
 
-While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages and ensuring they are sent from authorized domains, DANE focuses specifically on securely establishing TLS connections between mail servers. By leveraging DNSSEC to publish certificate information directly in DNS, DANE ensures that the sending mail server connects to the intended receiving mail server with verified encryption, enhancing the overall security of email transport.
+While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages and ensuring they are sent from authorized domains, SMTP DANE focuses specifically on securely establishing TLS connections between mail servers. By leveraging DNSSEC to publish certificate information directly in DNS, SMTP DANE ensures that the sending mail server connects to the intended receiving mail server with verified encryption, enhancing the overall security of email transport.
 
 ## The flow of SMTP DANE on a mailserver
 - **Outbound SMTP DANE with DNSSEC `sending mail server`**: Requests DANE `TLSA` records of the receiving domain's `MX` record.
