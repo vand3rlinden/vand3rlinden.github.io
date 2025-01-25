@@ -45,8 +45,35 @@ To prevent email spoofing and phishing using this domain, you need to set up a D
 
 If you are not using this domain for outbound messaging, you can treat your `onmicrosoft.com` domain as a non-sending domain, and the DMARC Aggregate (`rua`) and DMARC Forensic (`ruf`) reports are not required to be listed in the DMARC `TXT` record.
 
+## Prevent DMARC failures in the inbox with action oreject
+Microsoft 365 uses [implicit email authentication](https://learn.microsoft.com/en-us/defender-office-365/email-authentication-about#inbound-email-authentication-for-mail-sent-to-microsoft-365) to evaluate inbound emails. This method extends traditional SPF, DKIM, and DMARC checks by incorporating signals from various sources, such as:
+
+- Sender reputation
+- Sender history
+- Recipient history
+- Behavioral analysis
+- Other advanced techniques
+
+The results of these implicit checks are consolidated into a single value called [composite authentication](https://learn.microsoft.com/en-us/defender-office-365/email-authentication-about#composite-authentication) (`compauth`), which is set in the `Authentication-Results` header of the email.
+
+If an email bypasses composite authentication (`compauth=none`) because other implicit signals pass successfully, a DMARC fail—even with a `reject` policy on the sender’s domain—can still be delivered. This happens because Microsoft 365 can overrides the DMARC action from `reject` to `oreject`, if other implicit signals passes.
+
+This configuration exists to prevent the rejection of some legitimate emails that may fail DMARC checks. By leveraging implicit email authentication, messages that fail traditional authentication methods may still be allowed into Microsoft 365 if the overall evaluation deems them safe.
+
+Example `Authentication-Results` header with action `oreject` and composite authentication `none`:
+```
+spf=fail (sender IP is 11.222.33.444) smtp.mailfrom=contoso.com; dkim=none (message not signed) header.d=none;dmarc=fail action=oreject header.from=contoso.com;compauth=none reason=451
+```
+
+If you’d like more granular control over DMARC failures from unauthenticated senders (which are not flagged as spoofed sender by Spoof Intelligence), you can configure a mail flow rule in Exchange Online. This rule would direct emails with the value `dmarc=fail action=oreject` in the `Authentication-Results` header to Quarantine instead of delivering them.
+
+Example of the mail flow rule in Exchange Online:
+![IMAGE](/images/mdo-hardening-dkim-dmarc-config/mdo-hardening-dkim-dmarc-config2.png)
+
+> CAUTION: The approach outlined above can result in false positives. However, in my **personal opinion**, DMARC failures should always be rejected or thoroughly reviewed before reaching a user’s inbox. It is the sender’s responsibility to ensure their emails are sent with proper outbound authentication. If an email is non-compliant with DMARC, it should be treated as suspicious, even with other advanced techniques. Furthermore, if you identify a false negative (where the email is not flagged by Spoof Intelligence even with failed email authentication) and it gets caught by the proposed mail flow rule, it is essential to [report the false negative to Microsoft](https://learn.microsoft.com/en-us/defender-office-365/submissions-admin#report-questionable-email-to-microsoft) as a questionable email. Doing so allows Microsoft’s advanced techniques in implicit email authentication to learn and adapt, improving detection accuracy over time. This proactive step helps minimize false negatives while enhancing the reliability of the system.
+
 ## To summerize 
-DKIM rotation ensures that even if a key is compromised, it will become obsolete after a period of time, limiting the window of vulnerability. Additionally, setting up DMARC for the MOERA domain is crucial to protect against email fraud targeting this domain.
+DKIM rotation ensures that even if a key is compromised, it will become obsolete after a period of time, limiting the window of vulnerability. In addition, setting up DMARC for the MOERA domain is critical to protect against email fraud targeting this domain, and preventing DMARC failures with the override action to oreject will inbound DMARC configuration.
 
 ## Reference
 - [Rotate DKIM keys](https://learn.microsoft.com/en-us/defender-office-365/email-authentication-dkim-configure#rotate-dkim-keys)
