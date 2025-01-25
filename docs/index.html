@@ -244,7 +244,7 @@ ARC ensures that legitimate emails are less likely to be marked as spam or rejec
     </h2>
   </header>
   <div class="entry-content">
-    <p> Improve email security in Microsoft 365: Fine-tuning DKIM and setup DMARC for the MOERA domain.
+    <p> Improve email security in Microsoft 365: Fine-tuning DKIM, configuring DMARC for the MOERA domain, and blocking inbound DMARC failures from reaching user inboxes.
 Fine-tune DKIM by frequently rotating the DKIM keys After setting up DKIM in Microsoft Defender for Office 365, it is also important to set up frequent rotation of these DKIM keys to prevent adversaries from intercepting and decrypting your cryptographic keys. Key rotation helps to minimize the risk of compromising the private keys. In Microsoft 365, you can rotate the DKIM keys for your domains to increase security. The recurrence must be every 3 months because rotating the DKIM keys every 3 months ensures a complete rotation of both selectors every 6 months. You can rotate the DKIM keys manually using the Defender portal or Exchange Online PowerShell, but it is easy to forget if you do it manually. So you should delegate this to Azure Automation by using the runbook below:
 ...</p>
   </div>
