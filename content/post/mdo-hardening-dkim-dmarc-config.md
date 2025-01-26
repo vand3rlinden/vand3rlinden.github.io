@@ -45,8 +45,8 @@ To prevent email spoofing and phishing using this domain, you need to set up a D
 
 If you are not using this domain for outbound messaging, you can treat your `onmicrosoft.com` domain as a non-sending domain, and the DMARC Aggregate (`rua`) and DMARC Forensic (`ruf`) reports are not required to be listed in the DMARC `TXT` record.
 
-## Prevent DMARC failures in the inbox
-Microsoft 365 uses [implicit email authentication](https://learn.microsoft.com/en-us/defender-office-365/email-authentication-about#inbound-email-authentication-for-mail-sent-to-microsoft-365) to evaluate inbound emails. This method extends traditional SPF, DKIM, and DMARC checks by incorporating signals from various sources, such as:
+## Enforce inbound DMARC rejection policy to reject
+Microsoft 365 overrides the DMARC fail action from `reject` to `oreject` (override reject) because, it uses [implicit email authentication](https://learn.microsoft.com/en-us/defender-office-365/email-authentication-about#inbound-email-authentication-for-mail-sent-to-microsoft-365) to evaluate inbound emails in Exchange Online Protection (EOP). This method extends traditional SPF, DKIM, and DMARC checks by incorporating signals from various sources, such as:
 
 - Sender reputation
 - Sender history
@@ -56,21 +56,21 @@ Microsoft 365 uses [implicit email authentication](https://learn.microsoft.com/e
 
 The results of these implicit checks are consolidated into a single value called [composite authentication](https://learn.microsoft.com/en-us/defender-office-365/email-authentication-about#composite-authentication) (`compauth`), which is set in the `Authentication-Results` header of the email.
 
-If an email bypasses composite authentication (`compauth=none`) because other implicit signals pass successfully, a DMARC fail—even with a `reject` policy on the sender’s domain—can still be delivered. This happens because Microsoft 365 can overrides the DMARC action from `reject` to `oreject`, if other implicit signals passes.
+If an email bypasses composite authentication (`compauth=none`) because other implicit signals pass successfully, a DMARC fail—even with a `reject` policy on the sender’s domain—can still be delivered.
 
-This configuration exists to prevent the rejection of some legitimate emails that may fail DMARC checks. By leveraging implicit email authentication, messages that fail traditional authentication methods may still be allowed into Microsoft 365 if the overall evaluation deems them safe.
+This configuration exists to prevent the rejection of some legitimate emails that may fail DMARC checks. By leveraging implicit email authentication, messages that fail traditional authentication methods may still be allowed into Microsoft 365 if the overall evaluation deems them safe. False negatives from the advanced implicit authentication checks can be reported to Microsoft as [questionable emails](https://learn.microsoft.com/en-us/defender-office-365/submissions-admin#report-questionable-email-to-microsoft) to improve detection.
 
-Example `Authentication-Results` header with action `oreject` and composite authentication `none`:
+Example `Authentication-Results` header with DMARC fail action `oreject` and composite authentication `none` that arrived in the user's inbox and was not detected as Spoof by Spoof Intelligence:
 ```
 spf=fail (sender IP is 11.222.33.444) smtp.mailfrom=contoso.com; dkim=none (message not signed) header.d=none;dmarc=fail action=oreject header.from=contoso.com;compauth=none reason=451
 ```
 
-If you want more granular control over DMARC failures, which are by passed by the composite authentication (and are not flagged as spoofed sender by Spoof Intelligence), you can configure a mail flow rule in Exchange Online. This rule would direct emails with the value `compauth=none reason=451` in the `Authentication-Results` [header field](https://learn.microsoft.com/en-us/defender-office-365/message-headers-eop-mdo#authentication-results-message-header-fields) to the Quarantine instead of delivering them.
+If you want more granular control over DMARC failures, from a domain whose DMARC `TXT` record has a policy of `p=reject`, you can configure a mail flow rule in Exchange Online. This rule would reject emails with the value `dmarc=fail action=oreject` in the `Authentication-Results` [header field](https://learn.microsoft.com/en-us/defender-office-365/message-headers-eop-mdo#authentication-results-message-header-fields) instead of delivering them.
 
 Example of the mail flow rule in Exchange Online:
 ![IMAGE](/images/mdo-hardening-dkim-dmarc-config/mdo-hardening-dkim-dmarc-config2.png)
 
-> CAUTION: The approach outlined above can result in false positives. However, my **personal opinion**, DMARC failures should always be rejected or thoroughly reviewed before reaching a user’s inbox. It is the sender’s responsibility to ensure their emails are sent with proper outbound authentication. If an email is non-compliant with DMARC, it should be treated as suspicious, even if it passes other advanced techniques. Furthermore, if you identify a false negative (where the email bypasses Spoof Intelligence and skips the [honor DMARC policy enforcement](https://vand3rlinden.com/post/mdo-anti-phishing-policies/#configure-anti-phishing-policies-and-best-practices) despite failed authentication) and it gets caught by the proposed mail flow rule, it is essential to [report the false negative to Microsoft](https://learn.microsoft.com/en-us/defender-office-365/submissions-admin#report-questionable-email-to-microsoft) as a questionable email. Doing so allows Microsoft’s advanced techniques in implicit email authentication to learn and adapt, improving detection accuracy over time. This proactive step helps minimize false negatives while enhancing the reliability of the system.
+> CAUTION: The outlined approach may lead to false positives due to EOP’s implicit authentication techniques. However, in **my personal opinion**, DMARC failures should always be rejected before reaching a user’s inbox. It’s the sender’s responsibility to ensure proper outbound authentication. Non-compliant DMARC emails should be treated as suspicious, even if they pass advanced checks. This method also catches emails that have not been flagged as Spoof by Spoof Intelligence (that has the [honor DMARC policy](https://vand3rlinden.com/post/mdo-anti-phishing-policies/#configure-anti-phishing-policies-and-best-practices) configured to reject) despite failed authentication, as they’ll now be handled by the proposed mail flow rule to reject.
 
 ## To summerize 
 DKIM rotation ensures that even if a key is compromised, it will become obsolete after a period of time, limiting the window of vulnerability. Setting up DMARC for the MOERA domain is critical to protect against email fraud targeting this domain, and by preventing inbound DMARC failures with the oreject override action from reaching user inboxes, you will harden your DKIM and DMARC configuration in Microsoft 365.
