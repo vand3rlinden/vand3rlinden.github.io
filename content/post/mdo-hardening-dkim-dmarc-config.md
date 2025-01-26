@@ -45,7 +45,7 @@ To prevent email spoofing and phishing using this domain, you need to set up a D
 
 If you are not using this domain for outbound messaging, you can treat your `onmicrosoft.com` domain as a non-sending domain, and the DMARC Aggregate (`rua`) and DMARC Forensic (`ruf`) reports are not required to be listed in the DMARC `TXT` record.
 
-## Prevent DMARC failures in the inbox with action oreject
+## Prevent DMARC failures in the inbox
 Microsoft 365 uses [implicit email authentication](https://learn.microsoft.com/en-us/defender-office-365/email-authentication-about#inbound-email-authentication-for-mail-sent-to-microsoft-365) to evaluate inbound emails. This method extends traditional SPF, DKIM, and DMARC checks by incorporating signals from various sources, such as:
 
 - Sender reputation
@@ -65,7 +65,7 @@ Example `Authentication-Results` header with action `oreject` and composite auth
 spf=fail (sender IP is 11.222.33.444) smtp.mailfrom=contoso.com; dkim=none (message not signed) header.d=none;dmarc=fail action=oreject header.from=contoso.com;compauth=none reason=451
 ```
 
-If you’d like more granular control over DMARC failures from unauthenticated senders (which are not flagged as spoofed sender by Spoof Intelligence), you can configure a mail flow rule in Exchange Online. This rule would direct emails with the value `dmarc=fail action=oreject` in the `Authentication-Results` header to Quarantine instead of delivering them.
+If you want more granular control over DMARC failures, which are by passed by the composite authentication (and are not flagged as spoofed sender by Spoof Intelligence), you can configure a mail flow rule in Exchange Online. This rule would direct emails with the value `compauth=none reason=451` in the `Authentication-Results` [header field](https://learn.microsoft.com/en-us/defender-office-365/message-headers-eop-mdo#authentication-results-message-header-fields) to the Quarantine instead of delivering them.
 
 Example of the mail flow rule in Exchange Online:
 ![IMAGE](/images/mdo-hardening-dkim-dmarc-config/mdo-hardening-dkim-dmarc-config2.png)
