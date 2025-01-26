@@ -70,6 +70,9 @@ If you want more granular control over DMARC failures, from a domain whose DMARC
 Example of the mail flow rule in Exchange Online:
 ![IMAGE](/images/mdo-hardening-dkim-dmarc-config/mdo-hardening-dkim-dmarc-config2.png)
 
+Example of the NDR:
+![IMAGE](/images/mdo-hardening-dkim-dmarc-config/mdo-hardening-dkim-dmarc-config3.png)
+
 > CAUTION: The outlined approach may lead to false positives due to EOP’s implicit authentication techniques. However, in **my personal opinion**, DMARC failures should always be rejected before reaching a user’s inbox. It’s the sender’s responsibility to ensure proper outbound authentication. Non-compliant DMARC emails should be treated as suspicious, even if they pass advanced checks. This method also catches emails that have not been flagged as Spoof by Spoof Intelligence (that has the [honor DMARC policy](https://vand3rlinden.com/post/mdo-anti-phishing-policies/#configure-anti-phishing-policies-and-best-practices) configured to reject) despite failed authentication, as they’ll now be handled by the proposed mail flow rule to reject.
 
 ## To summerize 
