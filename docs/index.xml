@@ -62,6 +62,14 @@
 &lt;li&gt;&lt;a href=&#34;https://security.microsoft.com/incidents&#34;&gt;XDR - Incidents&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://security.microsoft.com/intel-explorer&#34;&gt;TI Portal&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&#34;purview&#34;&gt;Purview&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/defender/&#34;&gt;Microsoft Purview Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;%5Bhttps://security.microsoft.com&#34;&gt;Purview Portal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://purview.microsoft.com/informationprotection&#34;&gt;Information Protection&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://purview.microsoft.com/insiderriskmgmt&#34;&gt;Insider Risk Management&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://purview.microsoft.com/ediscovery&#34;&gt;eDiscovery&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;tools&#34;&gt;Tools&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.abuseipdb.com/&#34;&gt;AbuseIPDB&lt;/a&gt;&lt;/li&gt;
