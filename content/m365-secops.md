@@ -72,6 +72,7 @@ Quickly access SecOps tools and portals across Microsoft 365, including Defender
 - [KQLSearch](https://www.kqlsearch.com/)
 - [WhoIs](https://who.is/)
 - [Shodan](https://www.shodan.io/)
+- [CVE Details](https://www.cvedetails.com/)
 
 ## My Pages
 - [MyAccess](https://myaccess.microsoft.com)
