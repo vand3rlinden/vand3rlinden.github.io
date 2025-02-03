@@ -9,7 +9,6 @@
 <meta name="keywords" content="">
 <meta name="description" content="
 In this post, I will share my best practices for getting a handle on your SPF record.
-
 Why it makes sense to have a good SPF procedure in place
 In a previous blog post, I explained the limitations of SPF and how it works with DKIM and DMARC. It&rsquo;s crucial to have a well-structured SPF procedure to avoid future problems, especially since exceeding the DNS lookup limit of 10 can cause issues, such as:">
 <meta name="author" content="">
@@ -34,7 +33,6 @@ In a previous blog post, I explained the limitations of SPF and how it works wit
 </noscript><meta property="og:title" content="Get a handle on your SPF record" />
 <meta property="og:description" content="
 In this post, I will share my best practices for getting a handle on your SPF record.
-
 Why it makes sense to have a good SPF procedure in place
 In a previous blog post, I explained the limitations of SPF and how it works with DKIM and DMARC. It&rsquo;s crucial to have a well-structured SPF procedure to avoid future problems, especially since exceeding the DNS lookup limit of 10 can cause issues, such as:" />
 <meta property="og:type" content="article" />
@@ -48,7 +46,6 @@ In a previous blog post, I explained the limitations of SPF and how it works wit
 <meta name="twitter:title" content="Get a handle on your SPF record"/>
 <meta name="twitter:description" content="
 In this post, I will share my best practices for getting a handle on your SPF record.
-
 Why it makes sense to have a good SPF procedure in place
 In a previous blog post, I explained the limitations of SPF and how it works with DKIM and DMARC. It&rsquo;s crucial to have a well-structured SPF procedure to avoid future problems, especially since exceeding the DNS lookup limit of 10 can cause issues, such as:"/>
 
@@ -174,8 +171,7 @@ In a previous blog post, I explained the limitations of SPF and how it works wit
         
 </figure>
   <div class="post-content"><blockquote>
-<p><em>In this post, I will share my best practices for getting a handle on your SPF record.</em></p>
-</blockquote>
+<p><em>In this post, I will share my best practices for getting a handle on your SPF record.</em></p></blockquote>
 <h2 id="why-it-makes-sense-to-have-a-good-spf-procedure-in-place">Why it makes sense to have a good SPF procedure in place<a hidden class="anchor" aria-hidden="true" href="#why-it-makes-sense-to-have-a-good-spf-procedure-in-place">#</a></h2>
 <p>In a previous <a href="https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/">blog post</a>, I explained the limitations of SPF and how it works with DKIM and DMARC. It&rsquo;s crucial to have a well-structured SPF procedure to avoid future problems, especially since exceeding the DNS lookup limit of 10 can cause issues, such as:</p>
 <ul>
@@ -319,11 +315,9 @@ In a previous blog post, I explained the limitations of SPF and how it works wit
   </tbody>
 </table>
 <blockquote>
-<p><strong>CAUTION:</strong> When the SPF record for your IP addresses reaches its limit of <a href="https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#implementation-of-spf">two strings of 255 characters</a>, it becomes inaccurate. You should avoid including too many IP addresses. While you can add another include, such as <code>_spf1.yourdomain.com</code>, at the cost of another DNS lookup, it is advisable to start segmenting this into subdomains. Also, get into the habit of documenting all of your IP addresses that send mail on behalf of your domain.</p>
-</blockquote>
+<p><strong>CAUTION:</strong> When the SPF record for your IP addresses reaches its limit of <a href="https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#implementation-of-spf">two strings of 255 characters</a>, it becomes inaccurate. You should avoid including too many IP addresses. While you can add another include, such as <code>_spf1.yourdomain.com</code>, at the cost of another DNS lookup, it is advisable to start segmenting this into subdomains. Also, get into the habit of documenting all of your IP addresses that send mail on behalf of your domain.</p></blockquote>
 <blockquote>
-<p><strong>NOTE:</strong> There is also an SPF macro for IP addresses, <code>%{i}</code>, this macro replace the IP address of the SMTP client that submitted the message. However, using two separate SPF macros <em>(because this blog already uses the macro <code>%{l}</code>)</em> is not advisable due to the limit of two allowed void lookups (<code>NXDomain</code>). Even if you stay within the limit, there is still a risk of DNS timeouts due to slow DNS responses. Exceeding the limit will result in SPF <code>permerror</code>. Publishing an SPF policy that refers to data that does not exist in DNS is a poor practice and raises security concerns (see <a href="https://www.rfc-editor.org/info/rfc7208">RFC7208</a> Section 4.6.4.).</p>
-</blockquote>
+<p><strong>NOTE:</strong> There is also an SPF macro for IP addresses, <code>%{i}</code>, this macro replace the IP address of the SMTP client that submitted the message. However, using two separate SPF macros <em>(because this blog already uses the macro <code>%{l}</code>)</em> is not advisable due to the limit of two allowed void lookups (<code>NXDomain</code>). Even if you stay within the limit, there is still a risk of DNS timeouts due to slow DNS responses. Exceeding the limit will result in SPF <code>permerror</code>. Publishing an SPF policy that refers to data that does not exist in DNS is a poor practice and raises security concerns (see <a href="https://www.rfc-editor.org/info/rfc7208">RFC7208</a> Section 4.6.4.).</p></blockquote>
 <h2 id="use-an-spf-macro-to-restrict-a-third-party-service-to-send-from-a-specific-address">Use an SPF macro to restrict a third-party service to send from a specific address<a hidden class="anchor" aria-hidden="true" href="#use-an-spf-macro-to-restrict-a-third-party-service-to-send-from-a-specific-address">#</a></h2>
 <p>As described above, third-party services like Salesforce and Zendesk are mostly limited to sending from a single email address, such as <code>invoices@yourdomain.com</code> and <code>support@yourdomain.com</code>.
 So it is unnecessary to have <code>include:_spf.salesforce.com</code> and <code>include:mail.zendesk.com</code> cost <em><strong>3 DNS Lookups</strong></em> in the SPF record on <code>yourdomain.com</code>.</p>
@@ -375,8 +369,7 @@ So it is unnecessary to have <code>include:_spf.salesforce.com</code> and <code>
 </ol>
 <pre tabindex="0"><code>include:%{l}._spf.yourdomain.com
 </code></pre><blockquote>
-<p>The SPF macro <code>%{l}</code> replaced with the local-part of the sender&rsquo;s email address.</p>
-</blockquote>
+<p>The SPF macro <code>%{l}</code> replaced with the local-part of the sender&rsquo;s email address.</p></blockquote>
 <ol start="2">
 <li>Now we will create two new <code>TXT</code> records in the DNS zone of <code>yourdomain.com</code> to restrict Salesforce to only send from <code>invoices@yourdomain.com</code> and Zendesk to only send from <code>support@yourdomain.com</code>.</li>
 </ol>

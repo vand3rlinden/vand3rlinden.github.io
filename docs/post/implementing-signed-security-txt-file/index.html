@@ -9,7 +9,6 @@
 <meta name="keywords" content="">
 <meta name="description" content="
 A security.txt file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. Adding a signed security.txt file to your webserver enhances credibility and ensures trust, as the signature allows others to verify its authenticity. This blog will walk you through implementing a signed security.txt file using PGP (Pretty Good Privacy).
-
 Introduction
 The security.txt file is typically hosted at /.well-known/security.txt on a webserver. It follows a standardized format to share security contact information, preferred encryption keys, and disclosure policies. However, without proper authentication, anyone could tamper with the file. A signed security.txt solves this issue by letting others verify the file’s legitimacy using your PGP key. Here’s how to create, sign, and verify a security.txt file for your webserver.">
 <meta name="author" content="">
@@ -34,7 +33,6 @@ The security.txt file is typically hosted at /.well-known/security.txt on a webs
 </noscript><meta property="og:title" content="Implementing a signed security.txt file with PGP on your webserver" />
 <meta property="og:description" content="
 A security.txt file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. Adding a signed security.txt file to your webserver enhances credibility and ensures trust, as the signature allows others to verify its authenticity. This blog will walk you through implementing a signed security.txt file using PGP (Pretty Good Privacy).
-
 Introduction
 The security.txt file is typically hosted at /.well-known/security.txt on a webserver. It follows a standardized format to share security contact information, preferred encryption keys, and disclosure policies. However, without proper authentication, anyone could tamper with the file. A signed security.txt solves this issue by letting others verify the file’s legitimacy using your PGP key. Here’s how to create, sign, and verify a security.txt file for your webserver." />
 <meta property="og:type" content="article" />
@@ -48,7 +46,6 @@ The security.txt file is typically hosted at /.well-known/security.txt on a webs
 <meta name="twitter:title" content="Implementing a signed security.txt file with PGP on your webserver"/>
 <meta name="twitter:description" content="
 A security.txt file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. Adding a signed security.txt file to your webserver enhances credibility and ensures trust, as the signature allows others to verify its authenticity. This blog will walk you through implementing a signed security.txt file using PGP (Pretty Good Privacy).
-
 Introduction
 The security.txt file is typically hosted at /.well-known/security.txt on a webserver. It follows a standardized format to share security contact information, preferred encryption keys, and disclosure policies. However, without proper authentication, anyone could tamper with the file. A signed security.txt solves this issue by letting others verify the file’s legitimacy using your PGP key. Here’s how to create, sign, and verify a security.txt file for your webserver."/>
 
@@ -174,8 +171,7 @@ The security.txt file is typically hosted at /.well-known/security.txt on a webs
         
 </figure>
   <div class="post-content"><blockquote>
-<p><em>A <code>security.txt</code> file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. Adding a signed <code>security.txt</code> file to your webserver enhances credibility and ensures trust, as the signature allows others to verify its authenticity. This blog will walk you through implementing a signed <code>security.txt</code> file using PGP (Pretty Good Privacy).</em></p>
-</blockquote>
+<p><em>A <code>security.txt</code> file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. Adding a signed <code>security.txt</code> file to your webserver enhances credibility and ensures trust, as the signature allows others to verify its authenticity. This blog will walk you through implementing a signed <code>security.txt</code> file using PGP (Pretty Good Privacy).</em></p></blockquote>
 <h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
 <p>The <code>security.txt</code> file is typically hosted at <code>/.well-known/security.txt</code> on a webserver. It follows a standardized format to share security contact information, preferred encryption keys, and disclosure policies. However, without proper authentication, anyone could tamper with the file. A signed <code>security.txt</code> solves this issue by letting others verify the file’s legitimacy using your PGP key. Here’s how to create, sign, and verify a <code>security.txt</code> file for your webserver.</p>
 <h2 id="step-1-generate-a-pgp-key-pair">Step 1: Generate a PGP Key Pair<a hidden class="anchor" aria-hidden="true" href="#step-1-generate-a-pgp-key-pair">#</a></h2>

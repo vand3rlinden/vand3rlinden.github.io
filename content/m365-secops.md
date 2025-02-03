@@ -71,8 +71,9 @@ Quickly access SecOps tools and portals across Microsoft 365, including Defender
 - [Windows Security Log Events](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/)
 - [KQLSearch](https://www.kqlsearch.com/)
 - [WhoIs](https://who.is/)
-- [Shodan](https://www.shodan.io/)
 - [CVE Details](https://www.cvedetails.com/)
+- [Shodan - Search Engine For Internet-connected Devices](https://www.shodan.io/)
+- [ANY.RUN - Malware Hunting Service](https://app.any.run/)
 
 ## My Pages
 - [MyAccess](https://myaccess.microsoft.com)

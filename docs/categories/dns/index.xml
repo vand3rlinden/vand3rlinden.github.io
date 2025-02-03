@@ -4,7 +4,7 @@
     <title>DNS on VAND3RLINDEN</title>
     <link>https://vand3rlinden.com/categories/dns/</link>
     <description>Recent content in DNS on VAND3RLINDEN</description>
-    <generator>Hugo -- 0.141.0</generator>
+    <generator>Hugo -- 0.143.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 19 Oct 2024 23:30:32 +0200</lastBuildDate>
     <atom:link href="https://vand3rlinden.com/categories/dns/index.xml" rel="self" type="application/rss+xml" />
@@ -14,11 +14,8 @@
       <pubDate>Sat, 19 Oct 2024 23:30:32 +0200</pubDate>
       <guid>https://vand3rlinden.com/post/bimi-explained/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;In this post, you will learn what BIMI is, how it works, and the benefits it brings to your domain, including increased trust and brand visibility.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;In today’s digital age, making a memorable first impression is crucial. With the increasing volume of emails, standing out in the inbox can be challenging. That’s where BIMI (Brand Indicators for Message Identification) comes in, transforming how brands interact with recipients through email.&lt;/p&gt;
-&lt;h2 id=&#34;why-bimi-matters&#34;&gt;Why BIMI matters&lt;/h2&gt;
-&lt;p&gt;BIMI allows your brand’s logo to appear alongside your emails, providing visual trust cues to recipients. This simple addition can significantly enhance brand recognition and trust, making your communications more engaging and trustworthy.&lt;/p&gt;</description>
+&lt;p&gt;&lt;em&gt;In this post, you will learn what BIMI is, how it works, and the benefits it brings to your domain, including increased trust and brand visibility.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;In today’s digital age, making a memorable first impression is crucial. With the increasing volume of emails, standing out in the inbox can be challenging. That’s where BIMI (Brand Indicators for Message Identification) comes in, transforming how brands interact with recipients through email.&lt;/p&gt;</description>
     </item>
     <item>
       <title>MTA-STS Explained: A Comprehensive guide to the MTA-STS Policy</title>
@@ -26,8 +23,7 @@
       <pubDate>Fri, 23 Aug 2024 16:22:41 +0200</pubDate>
       <guid>https://vand3rlinden.com/post/mta-sts-explained/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;MTA-STS (Mail Transfer Agent Strict Transport Security) is a security protocol that enforces the use of secure TLS connections for email communication. It helps protect against attacks such as TLS downgrade and man-in-the-middle attacks by ensuring that emails are only delivered over encrypted channels with properly validated TLS certificates.&lt;/p&gt;
 &lt;p&gt;While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages and ensuring they originate from authorized domains, MTA-STS specifically focuses on securing the transport layer between mail servers. By using a policy file retrieved over HTTPS, MTA-STS allows receiving domains to specify their requirement for encrypted connections, ensuring that sending mail servers only deliver mail over verified secure channels, thereby enhancing the overall security of email transport.&lt;/p&gt;</description>
     </item>
@@ -37,12 +33,10 @@
       <pubDate>Sun, 28 Jul 2024 01:13:44 +0200</pubDate>
       <guid>https://vand3rlinden.com/post/exo-inbound-smtp-dane-dnssec/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;In this post, you will learn how to enable and use SMTP DANE with DNSSEC in Exchange Online.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;In this post, you will learn how to enable and use SMTP DANE with DNSSEC in Exchange Online.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;While &lt;em&gt;&lt;strong&gt;outbound&lt;/strong&gt;&lt;/em&gt; SMTP DANE with DNSSEC in Exchange Online has been enabled since 2022, Microsoft is has rolling out &lt;em&gt;&lt;strong&gt;inbound&lt;/strong&gt;&lt;/em&gt; SMTP DANE with DNSSEC in Exchange Online since late 2024.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;For a deeper understanding of DNSSEC and DANE, take a look at my earlier &lt;a href=&#34;https://vand3rlinden.com/post/dnssec-dane-explained/&#34;&gt;blog post&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;For a deeper understanding of DNSSEC and DANE, take a look at my earlier &lt;a href=&#34;https://vand3rlinden.com/post/dnssec-dane-explained/&#34;&gt;blog post&lt;/a&gt;.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;how-smtp-dane-with-dnssec-works&#34;&gt;How SMTP DANE with DNSSEC works&lt;/h2&gt;
 &lt;p&gt;SMTP DANE is a security protocol that uses DNSSEC to verify the authenticity of TLS certificates used for securing email communication. It helps protect against attacks such as TLS downgrade and man-in-the-middle attacks by ensuring that the certificates and encryption settings used in mail server communications are authentic and trustworthy.&lt;/p&gt;</description>
     </item>
@@ -52,8 +46,7 @@
       <pubDate>Fri, 24 May 2024 23:37:34 +0200</pubDate>
       <guid>https://vand3rlinden.com/post/arc-explained/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;This blog post explains the role and benefits of ARC sealing.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;This blog post explains the role and benefits of ARC sealing.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;ARC (Authenticated Received Chain) is an email authentication protocol that preserves the authentication results of an email as it travels through multiple intermediaries, such as forwarding services.&lt;/p&gt;
 &lt;p&gt;Using ARC helps organizations handle the complexities of email authentication, especially when emails are forwarded. ARC involves multiple servers working together based on mutual trust.&lt;/p&gt;
 &lt;p&gt;ARC ensures that legitimate emails are less likely to be marked as spam or rejected, while fraudulent emails are more easily identified and filtered out. In this blog post, we will explore the basics of ARC, how it works, and the benefits it provides.&lt;/p&gt;</description>
@@ -64,8 +57,7 @@
       <pubDate>Sat, 13 Jan 2024 21:51:39 +0100</pubDate>
       <guid>https://vand3rlinden.com/post/dnssec-dane-explained/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;In this post, you find out how DNSSEC and DANE cooperate, and learn how to set up DANE TLSA DNS records.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;In this post, you find out how DNSSEC and DANE cooperate, and learn how to set up DANE TLSA DNS records.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;dnssec-dns-security-extensions&#34;&gt;DNSSEC (DNS Security Extensions)&lt;/h2&gt;
 &lt;p&gt;The domain name system (DNS) is the phone book of the Internet: it tells computers where to send and retrieve information. Unfortunately, it also accepts any address given to it, no questions asked.&lt;/p&gt;
 &lt;p&gt;DNSSEC adds a security layer to this phonebook. It uses digital signatures to make sure the information in the phonebook can be trusted and hasn&amp;rsquo;t been tampered with. It&amp;rsquo;s like putting a lock on the phonebook to prevent DNS spoofing.&lt;/p&gt;</description>
@@ -76,8 +68,7 @@
       <pubDate>Sun, 17 Dec 2023 18:31:45 +0100</pubDate>
       <guid>https://vand3rlinden.com/post/handle-your-spf-record/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;In this post, I will share my best practices for getting a handle on your SPF record.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;In this post, I will share my best practices for getting a handle on your SPF record.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;why-it-makes-sense-to-have-a-good-spf-procedure-in-place&#34;&gt;Why it makes sense to have a good SPF procedure in place&lt;/h2&gt;
 &lt;p&gt;In a previous &lt;a href=&#34;https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/&#34;&gt;blog post&lt;/a&gt;, I explained the limitations of SPF and how it works with DKIM and DMARC. It&amp;rsquo;s crucial to have a well-structured SPF procedure to avoid future problems, especially since exceeding the DNS lookup limit of 10 can cause issues, such as:&lt;/p&gt;</description>
     </item>
@@ -87,8 +78,7 @@
       <pubDate>Sat, 09 Dec 2023 11:46:16 +0100</pubDate>
       <guid>https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;In this post you will learn to understand how the DNS protocols SPF, DKIM and DMARC work together to protect your domain from phishers and spammers.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;In this post you will learn to understand how the DNS protocols SPF, DKIM and DMARC work together to protect your domain from phishers and spammers.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;why-deploy-spf-dkim-and-dmarc&#34;&gt;Why deploy SPF, DKIM, and DMARC?&lt;/h2&gt;
 &lt;p&gt;SPF, DKIM, and DMARC are critical email authentication protocols that help prevent email spoofing, phishing attacks, and domain impersonation for &lt;em&gt;&lt;strong&gt;outbound email&lt;/strong&gt;&lt;/em&gt;. Enabling these protocols together strengthens your domain&amp;rsquo;s email authentication mechanisms, improves security, and builds trust with your recipients by ensuring that email sent from your domain is legitimate and trustworthy.&lt;/p&gt;</description>
     </item>

@@ -4,7 +4,7 @@
     <title>Posts on VAND3RLINDEN</title>
     <link>https://vand3rlinden.com/post/</link>
     <description>Recent content in Posts on VAND3RLINDEN</description>
-    <generator>Hugo -- 0.141.0</generator>
+    <generator>Hugo -- 0.143.0</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 25 Nov 2024 23:35:37 +0100</lastBuildDate>
     <atom:link href="https://vand3rlinden.com/post/index.xml" rel="self" type="application/rss+xml" />
@@ -14,8 +14,7 @@
       <pubDate>Mon, 25 Nov 2024 23:35:37 +0100</pubDate>
       <guid>https://vand3rlinden.com/post/implementing-signed-security-txt-file/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;A &lt;code&gt;security.txt&lt;/code&gt; file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. Adding a signed &lt;code&gt;security.txt&lt;/code&gt; file to your webserver enhances credibility and ensures trust, as the signature allows others to verify its authenticity. This blog will walk you through implementing a signed &lt;code&gt;security.txt&lt;/code&gt; file using PGP (Pretty Good Privacy).&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;A &lt;code&gt;security.txt&lt;/code&gt; file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. Adding a signed &lt;code&gt;security.txt&lt;/code&gt; file to your webserver enhances credibility and ensures trust, as the signature allows others to verify its authenticity. This blog will walk you through implementing a signed &lt;code&gt;security.txt&lt;/code&gt; file using PGP (Pretty Good Privacy).&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;The &lt;code&gt;security.txt&lt;/code&gt; file is typically hosted at &lt;code&gt;/.well-known/security.txt&lt;/code&gt; on a webserver. It follows a standardized format to share security contact information, preferred encryption keys, and disclosure policies. However, without proper authentication, anyone could tamper with the file. A signed &lt;code&gt;security.txt&lt;/code&gt; solves this issue by letting others verify the file’s legitimacy using your PGP key. Here’s how to create, sign, and verify a &lt;code&gt;security.txt&lt;/code&gt; file for your webserver.&lt;/p&gt;</description>
     </item>
@@ -25,11 +24,8 @@
       <pubDate>Sat, 19 Oct 2024 23:30:32 +0200</pubDate>
       <guid>https://vand3rlinden.com/post/bimi-explained/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;In this post, you will learn what BIMI is, how it works, and the benefits it brings to your domain, including increased trust and brand visibility.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;In today’s digital age, making a memorable first impression is crucial. With the increasing volume of emails, standing out in the inbox can be challenging. That’s where BIMI (Brand Indicators for Message Identification) comes in, transforming how brands interact with recipients through email.&lt;/p&gt;
-&lt;h2 id=&#34;why-bimi-matters&#34;&gt;Why BIMI matters&lt;/h2&gt;
-&lt;p&gt;BIMI allows your brand’s logo to appear alongside your emails, providing visual trust cues to recipients. This simple addition can significantly enhance brand recognition and trust, making your communications more engaging and trustworthy.&lt;/p&gt;</description>
+&lt;p&gt;&lt;em&gt;In this post, you will learn what BIMI is, how it works, and the benefits it brings to your domain, including increased trust and brand visibility.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;In today’s digital age, making a memorable first impression is crucial. With the increasing volume of emails, standing out in the inbox can be challenging. That’s where BIMI (Brand Indicators for Message Identification) comes in, transforming how brands interact with recipients through email.&lt;/p&gt;</description>
     </item>
     <item>
       <title>MTA-STS Explained: A Comprehensive guide to the MTA-STS Policy</title>
@@ -37,8 +33,7 @@
       <pubDate>Fri, 23 Aug 2024 16:22:41 +0200</pubDate>
       <guid>https://vand3rlinden.com/post/mta-sts-explained/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;MTA-STS (Mail Transfer Agent Strict Transport Security) is a security protocol that enforces the use of secure TLS connections for email communication. It helps protect against attacks such as TLS downgrade and man-in-the-middle attacks by ensuring that emails are only delivered over encrypted channels with properly validated TLS certificates.&lt;/p&gt;
 &lt;p&gt;While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages and ensuring they originate from authorized domains, MTA-STS specifically focuses on securing the transport layer between mail servers. By using a policy file retrieved over HTTPS, MTA-STS allows receiving domains to specify their requirement for encrypted connections, ensuring that sending mail servers only deliver mail over verified secure channels, thereby enhancing the overall security of email transport.&lt;/p&gt;</description>
     </item>
@@ -48,12 +43,10 @@
       <pubDate>Sun, 28 Jul 2024 01:13:44 +0200</pubDate>
       <guid>https://vand3rlinden.com/post/exo-inbound-smtp-dane-dnssec/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;In this post, you will learn how to enable and use SMTP DANE with DNSSEC in Exchange Online.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;In this post, you will learn how to enable and use SMTP DANE with DNSSEC in Exchange Online.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;While &lt;em&gt;&lt;strong&gt;outbound&lt;/strong&gt;&lt;/em&gt; SMTP DANE with DNSSEC in Exchange Online has been enabled since 2022, Microsoft is has rolling out &lt;em&gt;&lt;strong&gt;inbound&lt;/strong&gt;&lt;/em&gt; SMTP DANE with DNSSEC in Exchange Online since late 2024.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;For a deeper understanding of DNSSEC and DANE, take a look at my earlier &lt;a href=&#34;https://vand3rlinden.com/post/dnssec-dane-explained/&#34;&gt;blog post&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;For a deeper understanding of DNSSEC and DANE, take a look at my earlier &lt;a href=&#34;https://vand3rlinden.com/post/dnssec-dane-explained/&#34;&gt;blog post&lt;/a&gt;.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;how-smtp-dane-with-dnssec-works&#34;&gt;How SMTP DANE with DNSSEC works&lt;/h2&gt;
 &lt;p&gt;SMTP DANE is a security protocol that uses DNSSEC to verify the authenticity of TLS certificates used for securing email communication. It helps protect against attacks such as TLS downgrade and man-in-the-middle attacks by ensuring that the certificates and encryption settings used in mail server communications are authentic and trustworthy.&lt;/p&gt;</description>
     </item>
@@ -63,8 +56,7 @@
       <pubDate>Fri, 12 Jul 2024 22:43:43 +0200</pubDate>
       <guid>https://vand3rlinden.com/post/mdo-safeattachments-policies/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;Safe Attachments scans and evaluates attachments for malicious content before delivering messages to recipients.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;Safe Attachments scans and evaluates attachments for malicious content before delivering messages to recipients.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;what-you-can-manage-with-a-safe-attachments-policy&#34;&gt;What you can manage with a Safe Attachments policy&lt;/h2&gt;
 &lt;p&gt;With a Safe Attachments policy, administrators can configure an additional layer of protection against malicious content in email attachments. It scans and evaluates attachments &lt;em&gt;(Safe Attachments opens files in a virtual environment)&lt;/em&gt; before delivering messages to recipients. You can create a custom policy to, specify actions for unknown malware, select a quarantine policy, and configure global settings to protect files in SharePoint, OneDrive, and Teams with Safe Attachments.&lt;/p&gt;</description>
     </item>
@@ -74,8 +66,7 @@
       <pubDate>Fri, 24 May 2024 23:37:34 +0200</pubDate>
       <guid>https://vand3rlinden.com/post/arc-explained/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;This blog post explains the role and benefits of ARC sealing.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;This blog post explains the role and benefits of ARC sealing.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;ARC (Authenticated Received Chain) is an email authentication protocol that preserves the authentication results of an email as it travels through multiple intermediaries, such as forwarding services.&lt;/p&gt;
 &lt;p&gt;Using ARC helps organizations handle the complexities of email authentication, especially when emails are forwarded. ARC involves multiple servers working together based on mutual trust.&lt;/p&gt;
 &lt;p&gt;ARC ensures that legitimate emails are less likely to be marked as spam or rejected, while fraudulent emails are more easily identified and filtered out. In this blog post, we will explore the basics of ARC, how it works, and the benefits it provides.&lt;/p&gt;</description>
@@ -86,8 +77,7 @@
       <pubDate>Sun, 21 Apr 2024 15:31:27 +0200</pubDate>
       <guid>https://vand3rlinden.com/post/mdo-hardening-dkim-dmarc-config/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;Improve email security in Microsoft 365: Fine-tuning DKIM, configuring DMARC for the MOERA domain, and blocking inbound DMARC failures from reaching user inboxes.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Improve email security in Microsoft 365: Fine-tuning DKIM, configuring DMARC for the MOERA domain, and blocking inbound DMARC failures from reaching user inboxes.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;fine-tune-dkim-by-frequently-rotating-the-dkim-keys&#34;&gt;Fine-tune DKIM by frequently rotating the DKIM keys&lt;/h2&gt;
 &lt;p&gt;After &lt;a href=&#34;https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/email-authentication-dkim-configure&#34;&gt;setting up DKIM&lt;/a&gt; in Microsoft Defender for Office 365, it is also important to set up frequent rotation of these DKIM keys to prevent adversaries from intercepting and decrypting your cryptographic keys. Key rotation helps to minimize the risk of compromising the private keys. In Microsoft 365, you can rotate the DKIM keys for your domains to increase security. The recurrence must be every 3 months because rotating the DKIM keys every 3 months ensures a complete rotation of both selectors every 6 months. You can rotate the DKIM keys manually using the &lt;a href=&#34;https://learn.microsoft.com/en-us/defender-office-365/email-authentication-dkim-configure#use-the-defender-portal-to-rotate-dkim-keys-for-a-custom-domain&#34;&gt;Defender portal&lt;/a&gt; or &lt;a href=&#34;https://learn.microsoft.com/en-us/defender-office-365/email-authentication-dkim-configure#use-exchange-online-powershell-to-rotate-the-dkim-keys-for-a-domain-and-change-the-bit-depth&#34;&gt;Exchange Online PowerShell&lt;/a&gt;, but it is easy to forget if you do it manually. So you should delegate this to Azure Automation by using the runbook below:&lt;/p&gt;</description>
     </item>
@@ -97,8 +87,7 @@
       <pubDate>Sat, 06 Apr 2024 17:09:18 +0200</pubDate>
       <guid>https://vand3rlinden.com/post/s-mime-enhancing-email-security/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;Unlocking the Power of S/MIME: This article will help you understand S/MIME and how to request, configure, and use S/MIME on your devices.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;Unlocking the Power of S/MIME: This article will help you understand S/MIME and how to request, configure, and use S/MIME on your devices.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;what-is-smime&#34;&gt;What is S/MIME?&lt;/h2&gt;
 &lt;p&gt;In today&amp;rsquo;s digital landscape, the security of sensitive information transmitted via email is critical. One method of safeguarding email communications is through the use of S/MIME &lt;em&gt;(Secure/Multipurpose Internet Mail Extensions)&lt;/em&gt;. S/MIME is a widely adopted protocol that provides end-to-end encryption and digital signatures, ensuring the confidentiality, integrity, and authenticity of email messages.&lt;/p&gt;</description>
     </item>
@@ -108,8 +97,7 @@
       <pubDate>Sat, 03 Feb 2024 12:31:15 +0100</pubDate>
       <guid>https://vand3rlinden.com/post/mdo-attack-simulation/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;With Microsoft Defender for Office 365, you can create an attack simulation training to identify vulnerable users and mitigate potential threats before they impact your organization.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;With Microsoft Defender for Office 365, you can create an attack simulation training to identify vulnerable users and mitigate potential threats before they impact your organization.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;think-before-you-click&#34;&gt;Think before you click&lt;/h2&gt;
 &lt;p&gt;Understanding the intricacies of cybersecurity is crucial in today&amp;rsquo;s digital landscape. Attack simulation training is indispensable for users as it provides hands-on experience in recognizing and defending against potential threats. This proactive approach empowers individuals to enhance their security awareness, identify vulnerabilities, and contribute to a more resilient organizational defense against cyber attacks.&lt;/p&gt;</description>
     </item>
@@ -119,8 +107,7 @@
       <pubDate>Sat, 13 Jan 2024 21:51:39 +0100</pubDate>
       <guid>https://vand3rlinden.com/post/dnssec-dane-explained/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;In this post, you find out how DNSSEC and DANE cooperate, and learn how to set up DANE TLSA DNS records.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;In this post, you find out how DNSSEC and DANE cooperate, and learn how to set up DANE TLSA DNS records.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;dnssec-dns-security-extensions&#34;&gt;DNSSEC (DNS Security Extensions)&lt;/h2&gt;
 &lt;p&gt;The domain name system (DNS) is the phone book of the Internet: it tells computers where to send and retrieve information. Unfortunately, it also accepts any address given to it, no questions asked.&lt;/p&gt;
 &lt;p&gt;DNSSEC adds a security layer to this phonebook. It uses digital signatures to make sure the information in the phonebook can be trusted and hasn&amp;rsquo;t been tampered with. It&amp;rsquo;s like putting a lock on the phonebook to prevent DNS spoofing.&lt;/p&gt;</description>
@@ -131,8 +118,7 @@
       <pubDate>Fri, 29 Dec 2023 11:19:27 +0100</pubDate>
       <guid>https://vand3rlinden.com/post/mdo-safelinks-policies/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;Safe Links scans URLs in incoming messages and checks the links for malicious content at the time they are clicked.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;Safe Links scans URLs in incoming messages and checks the links for malicious content at the time they are clicked.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;what-you-can-manage-with-a-safe-links-policy&#34;&gt;What you can manage with a Safe Links policy&lt;/h2&gt;
 &lt;p&gt;With a Safe Links policy, administrators can configure and manage this policy to protect users from clicking harmful links and being redirected to malicious websites. Safe Links provides URL scanning for links in email messages, Microsoft Teams, and supported Office 365 applications. You can create custom Safe Links policies that apply to specific users, groups, or domains.&lt;/p&gt;</description>
     </item>
@@ -142,8 +128,7 @@
       <pubDate>Sat, 23 Dec 2023 23:07:45 +0100</pubDate>
       <guid>https://vand3rlinden.com/post/mdo-anti-malware-policies/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;Malware is specifically designed to harm or exploit devices, networks, or users. It includes various types of harmful software such as viruses, worms, trojan horses, ransomware, spyware, and adware. Malware can be distributed through email attachments, infected websites, malicious downloads, or other deceptive means.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;Malware is specifically designed to harm or exploit devices, networks, or users. It includes various types of harmful software such as viruses, worms, trojan horses, ransomware, spyware, and adware. Malware can be distributed through email attachments, infected websites, malicious downloads, or other deceptive means.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;what-you-can-manage-with-an-anti-malware-policy&#34;&gt;What you can manage with an Anti-malware policy&lt;/h2&gt;
 &lt;p&gt;Mailboxes in Exchange Online benefit from automatic protection against malware through Exchange Online Protection (EOP). EOP offers a multi-layered malware protection system designed to detect all known malware.&lt;/p&gt;</description>
     </item>
@@ -153,8 +138,7 @@
       <pubDate>Fri, 22 Dec 2023 14:27:30 +0100</pubDate>
       <guid>https://vand3rlinden.com/post/mdo-anti-phishing-policies/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;Phishing is an email attack that aims to steal sensitive information through messages that appear to be from legitimate or trusted senders. You can enhance the security of your Exchange Online mailboxes by implementing anti-phishing policies.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;Phishing is an email attack that aims to steal sensitive information through messages that appear to be from legitimate or trusted senders. You can enhance the security of your Exchange Online mailboxes by implementing anti-phishing policies.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;what-you-can-manage-with-anti-phishing-policies&#34;&gt;What you can manage with Anti-phishing policies&lt;/h2&gt;
 &lt;p&gt;Anti-phishing policies provide enhanced control over incoming phishing emails, for instance, in cases where someone may attempt to impersonate your CEO or send messages from a domain that closely resembles yours. By default, a policy named &amp;lsquo;Office365 AntiPhish Default (Default)&amp;rsquo; is automatically applied to all users.&lt;/p&gt;</description>
     </item>
@@ -164,8 +148,7 @@
       <pubDate>Mon, 18 Dec 2023 15:24:50 +0100</pubDate>
       <guid>https://vand3rlinden.com/post/mdo-anti-spam-policies/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;All inbound e-mail is automatically protected from spam by Exchange Online Protection (EOP) for Microsoft 365 organizations with mailboxes in Exchange Online. EOP uses anti-spam policies as part of your organization&amp;rsquo;s overall spam defense.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;All inbound e-mail is automatically protected from spam by Exchange Online Protection (EOP) for Microsoft 365 organizations with mailboxes in Exchange Online. EOP uses anti-spam policies as part of your organization&amp;rsquo;s overall spam defense.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;what-you-can-manage-with-anti-spam-policies&#34;&gt;What you can manage with Anti-spam policies&lt;/h2&gt;
 &lt;p&gt;Anti-spam policies provide you with control over both inbound and outbound email in Exchange Online. Within the Microsoft Security Portal, you can access the &lt;a href=&#34;https://security.microsoft.com/antispam&#34;&gt;Anti-Spam Policy section&lt;/a&gt;, where three default policies are available for editing. Additionally, it is possible to create custom policies, and further details on this will be discussed later in this post.&lt;/p&gt;</description>
     </item>
@@ -175,8 +158,7 @@
       <pubDate>Sun, 17 Dec 2023 18:31:45 +0100</pubDate>
       <guid>https://vand3rlinden.com/post/handle-your-spf-record/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;In this post, I will share my best practices for getting a handle on your SPF record.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;In this post, I will share my best practices for getting a handle on your SPF record.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;why-it-makes-sense-to-have-a-good-spf-procedure-in-place&#34;&gt;Why it makes sense to have a good SPF procedure in place&lt;/h2&gt;
 &lt;p&gt;In a previous &lt;a href=&#34;https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/&#34;&gt;blog post&lt;/a&gt;, I explained the limitations of SPF and how it works with DKIM and DMARC. It&amp;rsquo;s crucial to have a well-structured SPF procedure to avoid future problems, especially since exceeding the DNS lookup limit of 10 can cause issues, such as:&lt;/p&gt;</description>
     </item>
@@ -186,8 +168,7 @@
       <pubDate>Mon, 11 Dec 2023 16:33:46 +0100</pubDate>
       <guid>https://vand3rlinden.com/post/mdo-quarantine-policies/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;Quarantine policies let you control the quarantine on how users can use it. This post will cover the default policies and how to create a custom policy.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;Quarantine policies let you control the quarantine on how users can use it. This post will cover the default policies and how to create a custom policy.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;what-are-quarantine-policies&#34;&gt;What are quarantine policies&lt;/h2&gt;
 &lt;p&gt;Back in April 2020, Microsoft made it possible for users to view, release, or delete quarantined messages (expect high confidence phishing). Some organizations were not happy about users having access to their own quarantined items. Quarantine policies give you more control over quarantine for your end users and which quarantined items they can release.&lt;/p&gt;</description>
     </item>
@@ -197,8 +178,7 @@
       <pubDate>Sat, 09 Dec 2023 11:46:16 +0100</pubDate>
       <guid>https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;In this post you will learn to understand how the DNS protocols SPF, DKIM and DMARC work together to protect your domain from phishers and spammers.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;In this post you will learn to understand how the DNS protocols SPF, DKIM and DMARC work together to protect your domain from phishers and spammers.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;why-deploy-spf-dkim-and-dmarc&#34;&gt;Why deploy SPF, DKIM, and DMARC?&lt;/h2&gt;
 &lt;p&gt;SPF, DKIM, and DMARC are critical email authentication protocols that help prevent email spoofing, phishing attacks, and domain impersonation for &lt;em&gt;&lt;strong&gt;outbound email&lt;/strong&gt;&lt;/em&gt;. Enabling these protocols together strengthens your domain&amp;rsquo;s email authentication mechanisms, improves security, and builds trust with your recipients by ensuring that email sent from your domain is legitimate and trustworthy.&lt;/p&gt;</description>
     </item>

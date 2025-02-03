@@ -9,7 +9,6 @@
 <meta name="keywords" content="">
 <meta name="description" content="
 This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages.
-
 MTA-STS (Mail Transfer Agent Strict Transport Security) is a security protocol that enforces the use of secure TLS connections for email communication. It helps protect against attacks such as TLS downgrade and man-in-the-middle attacks by ensuring that emails are only delivered over encrypted channels with properly validated TLS certificates.
 While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages and ensuring they originate from authorized domains, MTA-STS specifically focuses on securing the transport layer between mail servers. By using a policy file retrieved over HTTPS, MTA-STS allows receiving domains to specify their requirement for encrypted connections, ensuring that sending mail servers only deliver mail over verified secure channels, thereby enhancing the overall security of email transport.">
 <meta name="author" content="">
@@ -34,7 +33,6 @@ While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages
 </noscript><meta property="og:title" content="MTA-STS Explained: A Comprehensive guide to the MTA-STS Policy" />
 <meta property="og:description" content="
 This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages.
-
 MTA-STS (Mail Transfer Agent Strict Transport Security) is a security protocol that enforces the use of secure TLS connections for email communication. It helps protect against attacks such as TLS downgrade and man-in-the-middle attacks by ensuring that emails are only delivered over encrypted channels with properly validated TLS certificates.
 While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages and ensuring they originate from authorized domains, MTA-STS specifically focuses on securing the transport layer between mail servers. By using a policy file retrieved over HTTPS, MTA-STS allows receiving domains to specify their requirement for encrypted connections, ensuring that sending mail servers only deliver mail over verified secure channels, thereby enhancing the overall security of email transport." />
 <meta property="og:type" content="article" />
@@ -48,7 +46,6 @@ While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages
 <meta name="twitter:title" content="MTA-STS Explained: A Comprehensive guide to the MTA-STS Policy"/>
 <meta name="twitter:description" content="
 This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages.
-
 MTA-STS (Mail Transfer Agent Strict Transport Security) is a security protocol that enforces the use of secure TLS connections for email communication. It helps protect against attacks such as TLS downgrade and man-in-the-middle attacks by ensuring that emails are only delivered over encrypted channels with properly validated TLS certificates.
 While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages and ensuring they originate from authorized domains, MTA-STS specifically focuses on securing the transport layer between mail servers. By using a policy file retrieved over HTTPS, MTA-STS allows receiving domains to specify their requirement for encrypted connections, ensuring that sending mail servers only deliver mail over verified secure channels, thereby enhancing the overall security of email transport."/>
 
@@ -174,8 +171,7 @@ While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages
         
 </figure>
   <div class="post-content"><blockquote>
-<p><em>This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages.</em></p>
-</blockquote>
+<p><em>This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages.</em></p></blockquote>
 <p>MTA-STS (Mail Transfer Agent Strict Transport Security) is a security protocol that enforces the use of secure TLS connections for email communication. It helps protect against attacks such as TLS downgrade and man-in-the-middle attacks by ensuring that emails are only delivered over encrypted channels with properly validated TLS certificates.</p>
 <p>While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages and ensuring they originate from authorized domains, MTA-STS specifically focuses on securing the transport layer between mail servers. By using a policy file retrieved over HTTPS, MTA-STS allows receiving domains to specify their requirement for encrypted connections, ensuring that sending mail servers only deliver mail over verified secure channels, thereby enhancing the overall security of email transport.</p>
 <h2 id="how-mta-sts-works">How MTA-STS Works<a hidden class="anchor" aria-hidden="true" href="#how-mta-sts-works">#</a></h2>

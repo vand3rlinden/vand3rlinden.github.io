@@ -9,11 +9,9 @@
 <meta name="keywords" content="">
 <meta name="description" content="
 In this post, you will learn how to enable and use SMTP DANE with DNSSEC in Exchange Online.
-
 While outbound SMTP DANE with DNSSEC in Exchange Online has been enabled since 2022, Microsoft is has rolling out inbound SMTP DANE with DNSSEC in Exchange Online since late 2024.
 
 For a deeper understanding of DNSSEC and DANE, take a look at my earlier blog post.
-
 How SMTP DANE with DNSSEC works
 SMTP DANE is a security protocol that uses DNSSEC to verify the authenticity of TLS certificates used for securing email communication. It helps protect against attacks such as TLS downgrade and man-in-the-middle attacks by ensuring that the certificates and encryption settings used in mail server communications are authentic and trustworthy.">
 <meta name="author" content="">
@@ -38,11 +36,9 @@ SMTP DANE is a security protocol that uses DNSSEC to verify the authenticity of 
 </noscript><meta property="og:title" content="Exchange Online: Configure inbound SMTP DANE with DNSSEC" />
 <meta property="og:description" content="
 In this post, you will learn how to enable and use SMTP DANE with DNSSEC in Exchange Online.
-
 While outbound SMTP DANE with DNSSEC in Exchange Online has been enabled since 2022, Microsoft is has rolling out inbound SMTP DANE with DNSSEC in Exchange Online since late 2024.
 
 For a deeper understanding of DNSSEC and DANE, take a look at my earlier blog post.
-
 How SMTP DANE with DNSSEC works
 SMTP DANE is a security protocol that uses DNSSEC to verify the authenticity of TLS certificates used for securing email communication. It helps protect against attacks such as TLS downgrade and man-in-the-middle attacks by ensuring that the certificates and encryption settings used in mail server communications are authentic and trustworthy." />
 <meta property="og:type" content="article" />
@@ -56,11 +52,9 @@ SMTP DANE is a security protocol that uses DNSSEC to verify the authenticity of 
 <meta name="twitter:title" content="Exchange Online: Configure inbound SMTP DANE with DNSSEC"/>
 <meta name="twitter:description" content="
 In this post, you will learn how to enable and use SMTP DANE with DNSSEC in Exchange Online.
-
 While outbound SMTP DANE with DNSSEC in Exchange Online has been enabled since 2022, Microsoft is has rolling out inbound SMTP DANE with DNSSEC in Exchange Online since late 2024.
 
 For a deeper understanding of DNSSEC and DANE, take a look at my earlier blog post.
-
 How SMTP DANE with DNSSEC works
 SMTP DANE is a security protocol that uses DNSSEC to verify the authenticity of TLS certificates used for securing email communication. It helps protect against attacks such as TLS downgrade and man-in-the-middle attacks by ensuring that the certificates and encryption settings used in mail server communications are authentic and trustworthy."/>
 
@@ -186,12 +180,10 @@ SMTP DANE is a security protocol that uses DNSSEC to verify the authenticity of 
         
 </figure>
   <div class="post-content"><blockquote>
-<p><em>In this post, you will learn how to enable and use SMTP DANE with DNSSEC in Exchange Online.</em></p>
-</blockquote>
+<p><em>In this post, you will learn how to enable and use SMTP DANE with DNSSEC in Exchange Online.</em></p></blockquote>
 <p>While <em><strong>outbound</strong></em> SMTP DANE with DNSSEC in Exchange Online has been enabled since 2022, Microsoft is has rolling out <em><strong>inbound</strong></em> SMTP DANE with DNSSEC in Exchange Online since late 2024.</p>
 <blockquote>
-<p>For a deeper understanding of DNSSEC and DANE, take a look at my earlier <a href="https://vand3rlinden.com/post/dnssec-dane-explained/">blog post</a>.</p>
-</blockquote>
+<p>For a deeper understanding of DNSSEC and DANE, take a look at my earlier <a href="https://vand3rlinden.com/post/dnssec-dane-explained/">blog post</a>.</p></blockquote>
 <h2 id="how-smtp-dane-with-dnssec-works">How SMTP DANE with DNSSEC works<a hidden class="anchor" aria-hidden="true" href="#how-smtp-dane-with-dnssec-works">#</a></h2>
 <p>SMTP DANE is a security protocol that uses DNSSEC to verify the authenticity of TLS certificates used for securing email communication. It helps protect against attacks such as TLS downgrade and man-in-the-middle attacks by ensuring that the certificates and encryption settings used in mail server communications are authentic and trustworthy.</p>
 <p>While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages and ensuring they are sent from authorized domains, SMTP DANE focuses specifically on securely establishing TLS connections between mail servers. By leveraging DNSSEC to publish certificate information directly in DNS, SMTP DANE ensures that the sending mail server connects to the intended receiving mail server with verified encryption, enhancing the overall security of email transport.</p>
@@ -238,8 +230,7 @@ SMTP DANE is a security protocol that uses DNSSEC to verify the authenticity of 
 <li>Connect to Exchange Online PowerShell</li>
 </ol>
 <blockquote>
-<p>If you&rsquo;re using <a href="https://vand3rlinden.com/post/mta-sts-explained/">MTA-STS</a>, you&rsquo;ll need to set your policy mode to <code>testing</code> during configuration, and set it back to <code>enforced</code> after configuration.</p>
-</blockquote>
+<p>If you&rsquo;re using <a href="https://vand3rlinden.com/post/mta-sts-explained/">MTA-STS</a>, you&rsquo;ll need to set your policy mode to <code>testing</code> during configuration, and set it back to <code>enforced</code> after configuration.</p></blockquote>
 <ol start="3">
 <li>Enable DNSSEC on your accepted domain by running the cmdlet in PowerShell: <code>Enable-DnssecForVerifiedDomain -DomainName yourdomain.com</code></li>
 </ol>
@@ -261,24 +252,21 @@ SMTP DANE is a security protocol that uses DNSSEC to verify the authenticity of 
 <p><img loading="lazy" src="/images/exo-inbound-smtp-dane-dnssec/exo-inbound-smtp-dane-dnssec5.png" alt="IMAGE"  />
 </p>
 <blockquote>
-<p>Wait a minute</p>
-</blockquote>
+<p>Wait a minute</p></blockquote>
 <ol start="7">
 <li>Change the priority of the new <code>MX</code> record to <code>0</code> (<code>0 yourdomain-com.&lt;random&gt;.mx.microsoft</code>)</li>
 </ol>
 <p><img loading="lazy" src="/images/exo-inbound-smtp-dane-dnssec/exo-inbound-smtp-dane-dnssec6.png" alt="IMAGE"  />
 </p>
 <blockquote>
-<p>Wait a minute</p>
-</blockquote>
+<p>Wait a minute</p></blockquote>
 <ol start="8">
 <li>Delete the legacy <code>MX</code> record <code>yourdomain-com.mail.protection.outlook.com</code></li>
 </ol>
 <p><img loading="lazy" src="/images/exo-inbound-smtp-dane-dnssec/exo-inbound-smtp-dane-dnssec7.png" alt="IMAGE"  />
 </p>
 <blockquote>
-<p>Wait a minute</p>
-</blockquote>
+<p>Wait a minute</p></blockquote>
 <ol start="9">
 <li>Update the <code>TTL</code> for the new <code>MX</code> record <code>yourdomain-com.&lt;random&gt;.mx.microsoft</code> to <code>3600</code> seconds or <code>1</code> hour</li>
 </ol>
