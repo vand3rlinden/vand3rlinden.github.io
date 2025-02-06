@@ -107,14 +107,14 @@ Calculate the DNS Lookup from `include:mail.zendesk.com` in `yourdomain.com`:
 | `include:mail.zendesk.com`           | 1 DNS Lookup        |
 | Total:                               | ***1 DNS Lookup***  |
 
-In order to bring this ***3 DNS Lookups*** to ***1 DNS Lookup***, you can follow the steps below.
+To reduce the ***3 DNS Lookups*** to ***1 DNS Lookup***, we will use the SPF macro `%{l}`, which replaces the local-part of the sender’s email address. Follow the two steps below to implement this.
 
 1. In the SPF record for `yourdomain.com`, add the following DNS lookup at a cost of ***1 DNS Lookup***:
 ```
 include:%{l}._spf.yourdomain.com
 ```
 
-> The SPF macro `%{l}` replaced with the local-part of the sender's email address.
+> **CAUTION**: Always place the `{l}` SPF macro at the end of your SPF record, as SPF evaluation processes this macro last during policy validation. Placing it elsewhere can lead to SPF permerrors, regardless of any subsequent includes in your SPF record.
 
 2. Now we will create two new `TXT` records in the DNS zone of `yourdomain.com` to restrict Salesforce to only send from `invoices@yourdomain.com` and Zendesk to only send from `support@yourdomain.com`.
 
