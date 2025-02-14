@@ -83,7 +83,7 @@ You can use the Spoof Intelligence Insight in the [Microsoft Defender portal](ht
 2. Navigate to 'Phishing Threshold & Protection' and select 'Edit Protection Settings'.
 
 3. Set the Phishing email threshold to '4 - Most Aggressive'.
-   - A higher phishing threshold value results in stricter actions for phishing detections. Since phishing attacks are still the number one method of gaining access to an environment, you should not risk lowering this threshold.
+   - A higher phishing threshold means more sensitivity for applying machine learning models to messages for determining a phishing verdict. Since phishing attacks are still the number one method of gaining access to an environment, you should not risk lowering this threshold.
 
 4. Check 'Enable Users to Protect' (User impersonation protection), you can include up to 350 key users. 
 
@@ -106,6 +106,7 @@ ForEach ($User in $Users){
 ```
 
 5. Check 'Enable domains to protect' (Domain impersonation protection).
+   - These can be your own domains (Include domains I own) or domains that belong to partners or suppliers (Include custom domains).
 
 6. In 'Add Trusted Senders and Domains', you can specify senders or domains that will not be flagged for impersonation.
     - ***Trusted Senders and Domains*** does not bypass all spam, spoofing, phishing protection and sender authentication (SPF, DKIM, DMARC) like ***Allowed Senders or Allowed Domains*** in the inbound anti-spam policy. However, it is still not recommended for use, especially for domains. Messages from the specified senders and sender domains will never be classified by the policy as impersonation-based attacks. Require that your key users use no other address to communicate within your environment. But, depending on your organization, only add senders or domains that are incorrectly identified as impersonation attempts. Once you have added entries, monitor the list frequently.
@@ -114,7 +115,7 @@ ForEach ($User in $Users){
 
 8. Check 'Spoof Intelligence' and click on Save.
 
-9. After saving, navigate to ‘Action’ and select 'Edit Actions'.
+9.  After saving, navigate to ‘Action’ and select 'Edit Actions'.
 
 10. I recommend setting all actions to 'Quarantine the message'.
       - Select ***request to release*** [quarantine policies](https://vand3rlinden.com/post/mdo-quarantine-policies/) for all actions, except the mailbox intelligence action. 
