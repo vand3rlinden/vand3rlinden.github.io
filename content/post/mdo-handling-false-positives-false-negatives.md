@@ -9,8 +9,8 @@ cover:
 
 > _False positives block important emails, while false negatives allow harmful ones through. Learn how to manage these emails effectively in Microsoft Defender for Office 365._
 
-## How inbound email functions in Microsoft 365
-Microsoft 365 uses implicit email authentication to verify inbound messages. This approach goes beyond traditional SPF, DKIM, and DMARC checks by incorporating additional signals to evaluate inbound email. By leveraging these extra signals, messages that would typically fail standard authentication can pass implicit authentication and be successfully delivered to Microsoft 365.
+## How inbound email works in Microsoft 365
+Microsoft 365 uses implicit email authentication to verify inbound email. This approach goes beyond traditional SPF, DKIM, and DMARC checks by incorporating additional signals to evaluate inbound email. By leveraging these extra signals, emails that would typically fail standard authentication can pass implicit authentication and be successfully delivered to Microsoft 365.
 
 These signals include:
 - Sender reputation
