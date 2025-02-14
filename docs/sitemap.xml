@@ -2,17 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://vand3rlinden.com/categories/</loc>
+    <lastmod>2025-02-10T17:27:49+01:00</lastmod>
+  </url><url>
+    <loc>https://vand3rlinden.com/categories/microsoft-defender-for-office-365/</loc>
+    <lastmod>2025-02-10T17:27:49+01:00</lastmod>
+  </url><url>
+    <loc>https://vand3rlinden.com/post/mdo-handling-false-positives-false-negatives/</loc>
+    <lastmod>2025-02-10T17:27:49+01:00</lastmod>
+  </url><url>
     <loc>https://vand3rlinden.com/post/</loc>
-    <lastmod>2025-02-15T17:27:49+01:00</lastmod>
+    <lastmod>2025-02-10T17:27:49+01:00</lastmod>
   </url><url>
     <loc>https://vand3rlinden.com/</loc>
-    <lastmod>2025-02-15T17:27:49+01:00</lastmod>
+    <lastmod>2025-02-10T17:27:49+01:00</lastmod>
   </url><url>
     <loc>https://vand3rlinden.com/m365-secops/</loc>
     <lastmod>2024-12-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://vand3rlinden.com/categories/</loc>
-    <lastmod>2024-11-25T23:35:37+01:00</lastmod>
   </url><url>
     <loc>https://vand3rlinden.com/post/implementing-signed-security-txt-file/</loc>
     <lastmod>2024-11-25T23:35:37+01:00</lastmod>
@@ -37,9 +43,6 @@
   </url><url>
     <loc>https://vand3rlinden.com/post/exo-inbound-smtp-dane-dnssec/</loc>
     <lastmod>2024-07-28T01:13:44+02:00</lastmod>
-  </url><url>
-    <loc>https://vand3rlinden.com/categories/microsoft-defender-for-office-365/</loc>
-    <lastmod>2024-07-12T22:43:43+02:00</lastmod>
   </url><url>
     <loc>https://vand3rlinden.com/post/mdo-safeattachments-policies/</loc>
     <lastmod>2024-07-12T22:43:43+02:00</lastmod>

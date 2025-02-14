@@ -6,8 +6,18 @@
     <description>Recent content in Posts on VAND3RLINDEN</description>
     <generator>Hugo -- 0.143.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 25 Nov 2024 23:35:37 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 10 Feb 2025 17:27:49 +0100</lastBuildDate>
     <atom:link href="https://vand3rlinden.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microsoft Defender for Office 365: Handling False Positives and False Negatives</title>
+      <link>https://vand3rlinden.com/post/mdo-handling-false-positives-false-negatives/</link>
+      <pubDate>Mon, 10 Feb 2025 17:27:49 +0100</pubDate>
+      <guid>https://vand3rlinden.com/post/mdo-handling-false-positives-false-negatives/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;False positives block important emails, while false negatives allow harmful ones through. Learn how to manage these emails effectively in Microsoft Defender for Office 365.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;how-inbound-email-functions-in-microsoft-365&#34;&gt;How inbound email functions in Microsoft 365&lt;/h2&gt;
+&lt;p&gt;Microsoft 365 uses implicit email authentication to verify inbound messages. This approach goes beyond traditional SPF, DKIM, and DMARC checks by incorporating additional signals to evaluate inbound email. By leveraging these extra signals, messages that would typically fail standard authentication can pass implicit authentication and be successfully delivered to Microsoft 365.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Implementing a signed security.txt file with PGP on your webserver</title>
       <link>https://vand3rlinden.com/post/implementing-signed-security-txt-file/</link>
