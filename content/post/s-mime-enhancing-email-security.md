@@ -32,7 +32,7 @@ _*BSD Unixes such as Apple MacOS, OpenBSD, FreeBSD use LibreSSL (a fork of OpenS
 
 2. Execute the following command:
 ```
-openssl req -nodes -newkey rsa:4096 -keyout /tmp/certificate.key -out /tmp/certificate.csr
+openssl req -out /tmp/certificate.csr -newkey rsa:4096 -nodes -sha256 -keyout /tmp/certificate.key
 ```
 
 3. Fill in the required information for the displayed fields with your own data:
