@@ -65,7 +65,7 @@ Spoofing occurs when the `From` address (P2 Sender, the sender address that's sh
 | Author on letter   | `RFC5322.From` (P2 Sender)          |  DKIM + DMARC |
 
 ### What you can protect
-When Spoof Intelligence is enabled, Spoof Intelligence Insight provides a list of spoofed senders that have been automatically detected and either allowed or blocked by the system. Exchange Online Protection (EOP) evaluates messages and determines whether to allow or block them using a combination of standard email authentication methods and sender reputation techniques.
+When Spoof Intelligence is enabled, Spoof Intelligence Insight provides a list of spoofed senders that have been automatically detected and either allowed or blocked by the system. Exchange Online Protection (EOP) evaluates messages and determines whether to allow or block them using a combination of standard email authentication methods (SPF, DKIM and DMARC), with sender reputation, behavioral analysis, and other advanced techniques ([implicit email authentication](https://learn.microsoft.com/en-us/defender-office-365/email-authentication-about#inbound-email-authentication-for-mail-sent-to-microsoft-365)).
 
 ![IMAGE](/images/mdo-anti-phishing-policies/mdo-anti-phishing-policies-2.png)
 
