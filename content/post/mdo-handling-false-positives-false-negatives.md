@@ -37,7 +37,7 @@ Once you report a false positive (good email), you can create an allow entry in 
 In addition to implicit authentication checks, you can also reduce false positives by disabling the [ASF (Advanced Spam Filter) settings](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-spam-policies-asf-settings-about) in your Anti-spam inbound policy, as enabling one or more ASF settings is an aggressive approach to spam filtering that often results in false positives. For example, messages containing certain elements may be marked as spam or have their spam score increased. 
 
 ## Handling false negatives
-Once you report a false negative (questionable email), you can create a block entry in the Tenant Allow/Block List for domains and email addresses, files and URLs. These entries expire after 30 days, but you can set them to expire after 90 days or never. Block entries for spoofed senders and IP addresses never expire.
+Once you report a false negative (questionable email), you can create a block entry in the Tenant Allow/Block List for domains and email addresses, files and URLs. These entries expire after 30 days, but you can also set them to expire after 90 days or never. Block entries for spoofed senders and IP addresses never expire.
 
 In addition to the implicit authentication checks, anti-phishing and anti-spam techniques offered by MDO, end users should be vigilant in identifying red flags in an email message, such as checking the sender address, subject and content. 
 
