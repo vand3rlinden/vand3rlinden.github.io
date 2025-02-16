@@ -41,7 +41,7 @@ In addition to implicit authentication checks, you can also reduce false positiv
 ## Handling false negatives
 Once you report a false negative (questionable email), you can create a block entry in the Tenant Allow/Block List for domains and email addresses, files and URLs. These entries expire after 30 days, but you can also set them to expire after 90 days or never. Block entries for spoofed senders and IP addresses never expire.
 
-In addition to the implicit authentication checks, anti-phishing and anti-spam techniques offered by MDO, end users should be vigilant in identifying red flags in an email message, such as checking the sender address, subject and content. 
+In addition to the implicit authentication checks, [anti-phishing](https://vand3rlinden.com/post/mdo-anti-phishing-policies/) and [anti-spam](https://vand3rlinden.com/post/mdo-anti-spam-policies/) techniques offered by MDO, end users should be vigilant in identifying red flags in an email message, such as checking the sender address, subject and content. 
 
 To give end users more red flags to look for when they receive an email message, the following can be used or implemented:
 - [First contact safety tip](https://learn.microsoft.com/en-us/defender-office-365/anti-phishing-policies-about#first-contact-safety-tip)
