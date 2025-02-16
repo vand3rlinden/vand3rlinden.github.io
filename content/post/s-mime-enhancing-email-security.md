@@ -63,7 +63,7 @@ After the CA signs the certificate, you can download the certificate, for exampl
 ```
 openssl pkcs12 -inkey /tmp/certificate.key -in /tmp/certificate.crt -export -out /tmp/your-email-com.pfx
 ```
-**Note:** If you want to import the certificate in BSD Unixes such as MacOS, you must add the `-legacy` flag at the end of the above command, if your are using OpenSSL `V3`. This OpenSSL version changed the default algorithm and it's not compatible with the default LibreSSL library.
+**Note:** If you want to import the certificate on BSD-based systems like macOS, you must add the `-legacy` flag at the end of the command when using OpenSSL v3. This version of OpenSSL has changed the default algorithm, making it incompatible with the default LibreSSL library used in BSD-based systems.
 
 3. Your S/MIME email certificate is now ready to be installed on your devices, here are some external instructions on how to install the certificate on your device and email client.
 - [S/MIME on iOS](https://formsmarts.com/iphone-smime-encrypted-email)
