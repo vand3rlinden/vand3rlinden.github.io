@@ -10,6 +10,8 @@ cover:
 > _False positives block important emails, while false negatives allow harmful ones through. Learn how to manage these emails effectively in Microsoft Defender for Office 365._
 
 ## How inbound email works in Microsoft 365
+To understand why your environment experiences false positives and false negatives, you first need to understand how Microsoft 365 handles inbound email.
+
 Microsoft 365 uses implicit email authentication to verify inbound email. This approach goes beyond traditional SPF, DKIM, and DMARC checks by incorporating additional signals to evaluate inbound email. By leveraging these extra signals, emails that would typically fail standard authentication can pass implicit authentication and be successfully delivered to Microsoft 365.
 
 These signals include:
@@ -34,7 +36,7 @@ To help these signals to get better you can [report good emails](https://learn.m
 ## Handling false positives
 Once you report a false positive (good email), you can create an allow entry in the Tenant Allow/Block List for domains, email addresses, files, and URLs. These entries are retained for 45 days after the filtering system determines that the entity is clean, and then the allow entry is removed.
 
-In addition to implicit authentication checks, you can also reduce false positives by disabling the [ASF (Advanced Spam Filter) settings](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-spam-policies-asf-settings-about) in your Anti-spam inbound policy, as enabling one or more ASF settings is an aggressive approach to spam filtering that often results in false positives. For example, messages containing certain elements may be marked as spam or have their spam score increased. 
+In addition to implicit authentication checks, you can also reduce false positives by disabling the [ASF (Advanced Spam Filter) settings](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-spam-policies-asf-settings-about) in your Anti-spam inbound policy, as enabling one or more ASF settings is an aggressive approach to spam filtering that often results in false positives. For example, messages containing certain elements may be marked as spam or have their spam score increased. You cannot report messages filtered by ASF as false positives to Microsoft. 
 
 ## Handling false negatives
 Once you report a false negative (questionable email), you can create a block entry in the Tenant Allow/Block List for domains and email addresses, files and URLs. These entries expire after 30 days, but you can also set them to expire after 90 days or never. Block entries for spoofed senders and IP addresses never expire.
