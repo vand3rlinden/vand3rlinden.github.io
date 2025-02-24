@@ -135,7 +135,7 @@ For heavy mail domains, I recommended monitoring the domain for at least three m
 - Hostname: `_dmarc`
 - Value: `v=DMARC1; p=none; sp=none; rua=mailto:dmarc_agg@vali.email;`
 
-During the monitoring phase, you can adjust your SPF record and set up DKIM for each sender, and then update your DMARC record to `reject` once the monitoring phase is complete:
+During the monitoring phase, you can [adjust your SPF record](https://vand3rlinden.com/post/handle-your-spf-record/) and [set up DKIM for each sender](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#implementation-of-dkim), and then update your DMARC record to `reject` once the monitoring phase is complete:
 
 - Value: `v=DMARC1; p=reject; sp=reject; rua=mailto:dmarc_agg@vali.email;`
 

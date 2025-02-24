@@ -337,7 +337,7 @@ SPF, DKIM, and DMARC are critical email authentication protocols that help preve
 <li>Hostname: <code>_dmarc</code></li>
 <li>Value: <code>v=DMARC1; p=none; sp=none; rua=mailto:dmarc_agg@vali.email;</code></li>
 </ul>
-<p>During the monitoring phase, you can adjust your SPF record and set up DKIM for each sender, and then update your DMARC record to <code>reject</code> once the monitoring phase is complete:</p>
+<p>During the monitoring phase, you can <a href="https://vand3rlinden.com/post/handle-your-spf-record/">adjust your SPF record</a> and <a href="https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#implementation-of-dkim">set up DKIM for each sender</a>, and then update your DMARC record to <code>reject</code> once the monitoring phase is complete:</p>
 <ul>
 <li>Value: <code>v=DMARC1; p=reject; sp=reject; rua=mailto:dmarc_agg@vali.email;</code></li>
 </ul>
