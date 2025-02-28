@@ -56,10 +56,16 @@ After the requirements are set, you can begin creating an attack simulation trai
 - [Training campaigns for Attack simulation](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-training-campaigns)
   - Instead of creating and launching simulated phishing attacks that eventually lead to training, you can create and assign Training campaigns directly to users.
 
-### Personal Insight:
+### Automation vs. Individual simulations
 While automation can be a good fit for your organization, there are some considerations to keep in mind. For example, if you plan to automate a year-long simulation (which is also the maximum for an automation schedule), you won’t be able to edit the content after the initial setup, meaning you’ll be restricted to the choices made during configuration.
 
-During setup, you have two options: you can **manually select** up to 20 payloads (both global and tenant-specific), or choose the **randomize** option, where Microsoft will randomly select the payloads for the simulation. When configuring the automation schedule, you can opt for a **randomized schedule**, which will start simulations randomly within your chosen days of the week, along with random send times. However, you can't limit it to just one simulation per month—only to specific days of the week when simulations are allowed to start. Alternatively, with a **fixed schedule**, you can choose a weekly or monthly schedule, but the recurrence can only be set for a static day of the week or month, and you can't set the send time. Each automated simulation will land in the Simulations tab with a naming convention such as: `AutomatedSimulation_PayloadName [Technique]_date`
+During setup, you have two options. You can **manually select** up to 20 payloads, including both global and tenant-payloads, or you can choose the **randomize** option, where Microsoft will randomly select the payloads for the simulation.
+
+When setting up the automation schedule, you can choose a **randomized schedule**, which can start simulations with randomize send times. However, you cannot limit it to just one simulation per month. Instead, you can schedule up to 10 simulations per year on specific allowed days.
+
+Alternatively, you can choose a **fixed schedule**, where simulations follow a weekly or monthly recurrence. However, they will always occur on a specific day of the week or month, and you cannot customize the send time.
+
+Each automated simulation will appear in the Simulations tab with a specific naming convention, such as: `AutomatedSimulation_PayloadName [Technique]_date`
 
 **My advice**: Consider creating individual monthly simulations (e.g., 2 global payloads and 1 tenant payload as the interval) and plan a yearly schedule that varies the simulation dates and times each month. Keep in mind that random send times aren’t available with this method, but using individual monthly simulations will provide you with more control and flexibility.
 
@@ -89,13 +95,13 @@ During setup, you have two options: you can **manually select** up to 20 payload
   - Supported groups: **Microsoft 365** (static and dynamic), **distribution list** (static only) and **mail-enabled security** (static only).
 
 ## The best practices of a simulation are:
-- **Target users**: Include all users in your organization (Assuming all user mailboxes are licensed for Microsoft Defender for Office Plan 2)
-  - If you want to target a specific department, you could import a CSV containing all the members of that department. To do this, run the following command in Graph PowerShell _(or configure a dynamic Microsoft 365 group)_:
+- **Target users**: Include all users in your organization (Assuming all user mailboxes are licensed for Microsoft Defender for Office Plan 2).
+  - If you want to target a specific department, such as the HR department, you can create a dynamic Microsoft 365 group using the following syntax:
 ```
-Get-MgUser -All -Property "Department,UserPrincipalname" | Where-Object {$_.Department -eq "DepartmentNameHere"} | Select-Object UserPrincipalname | Export-CSV -Path <PATH> -NoTypeInformation
+(user.department -eq "HR")
 ```
 
-- **Excluded users**: Import a CSV file that contains all your shared and room mailboxes (also specify your mail-enabled service accounts in this CSV file)
+- **Excluded users**: Import a CSV file that contains all your shared and room mailboxes (also specify your mail-enabled service accounts in this CSV file).
   - To export these RecipientTypes, you can run the following command in ExchangeOnline PowerShell:
 ```
 Get-Mailbox -RecipientTypeDetails SharedMailbox, RoomMailbox -ResultSize Unlimited | Select-Object PrimarySmtpAddress | Export-CSV <PATH> -NoTypeInformation
@@ -103,7 +109,7 @@ Get-Mailbox -RecipientTypeDetails SharedMailbox, RoomMailbox -ResultSize Unlimit
 
 > Note: You may see that the excluded users end up in the report as `FailedToDeliverEmail`, this is because the given user is blocked from signing in, such as you shared mailbox identities. This is normal behavior and you can filter them out in the report.
 
-- Training: Select the Microsoft training experience and let Microsoft assign training courses and modules based on a user's previous simulation and training results learning paths.
+- **Training**: By enabling training during an attack simulation, Microsoft can assign courses and modules customized to the user’s previous simulation and training results through learning pathways. The training is based on user interactions, specifically whether they clicked and submitted their credentials. A compromised user may receive two training sessions. You can choose standalone training campaigns and disable training within the attack simulation. However, this approach will not be as adaptive as the learning pathways provided through training campaigns within an attack simulation.
 
 ## Progress of the attack simulation
 We will take a deep dive into a ***Credential Harvest*** simulation, one of the several [social engineering techniques](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/attack-simulation-training-get-started?view=o365-worldwide#simulations) to choose from. Create the  ***Credential Harvest*** simulation using the steps provided by Microsoft to [simulate a phishing attack](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/attack-simulation-training-simulations) and select the global payload: `Keep Office 365 Password`. Upon completion, you should have a simulation in progress.
@@ -148,3 +154,4 @@ Despite advanced security measures, phishing tactics continue to evolve, making 
 - [Supported target users](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-simulations#target-users)
 - [Attack simulation training deployment considerations and FAQ](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-faq)
 - [Turn on auditing](https://learn.microsoft.com/en-us/purview/audit-log-enable-disable?view=o365-worldwide&tabs=microsoft-purview-portal#turn-on-auditing)
+- [Automation Schedule details](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-simulation-automations#schedule-details)
