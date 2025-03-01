@@ -56,7 +56,7 @@ After the requirements are set, you can begin creating an attack simulation trai
 - [Training campaigns for Attack simulation](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-training-campaigns)
   - Instead of creating and launching simulated phishing attacks that eventually lead to training, you can create and assign Training campaigns directly to users.
 
-### Automation vs. Individual simulations
+## Automation vs. Individual simulations
 While automation can be a good fit for your organization, there are some considerations to keep in mind. For example, if you plan to automate a year-long simulation (which is also the maximum for an automation schedule), you won’t be able to edit the content after the initial setup, meaning you’ll be restricted to the choices made during configuration.
 
 During setup, you have two options. You can **manually select** up to 20 payloads, including both global and tenant-payloads, or you can choose the **randomize** option, where Microsoft will randomly select the payloads for the simulation.
@@ -68,6 +68,15 @@ Alternatively, you can choose a **fixed schedule**, where simulations follow a w
 Each automated simulation will appear in the Simulations tab with a specific naming convention, such as: `AutomatedSimulation_PayloadName [Technique]_date`
 
 **My advice**: Consider creating individual monthly simulations (e.g., 2 global payloads and 1 tenant payload as the interval) and plan a yearly schedule that varies the simulation dates and times each month. Keep in mind that random send times aren’t available with this method, but using individual monthly simulations will provide you with more control and flexibility.
+
+## Simulation schedule comparison
+
+| Action           | Automation randomized schedule | Automation fixed schedule | Individual schedule |
+|-----------       |-----------                     |-----------                |-----------          |
+| Random send time | Yes                            | No                        | No                  |
+| Monthly  		     | No                             | Yes                       | No                  |
+| Static send time | No                             | No                        | Yes                 |
+
 
 ## The basic elements of a simulation are:
 - Select a ***Social Engineering Technique***, such as credential harvesting
