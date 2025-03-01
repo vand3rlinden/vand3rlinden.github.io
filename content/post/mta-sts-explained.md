@@ -9,7 +9,7 @@ cover:
 
 > _This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages._
 
-MTA-STS (Mail Transfer Agent Strict Transport Security) is a security protocol that enforces the use of secure TLS connections for email communication. It helps protect against attacks such as TLS downgrade and man-in-the-middle attacks by ensuring that emails are only delivered over encrypted channels with properly validated TLS certificates.
+MTA-STS (Mail Transfer Agent Strict Transport Security) is a security protocol that enforces the use of secure TLS connections for **inbound** email communication. It helps protect your domain from TLS downgrade and man-in-the-middle attacks by ensuring that incoming emails are encrypted with TLS when delivered to your mail servers. When an external mail server (SMTP client) attempts to send email to your domain, it checks your MTA-STS policy to determine whether TLS encryption must be enforced.
 
 While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages and ensuring they originate from authorized domains, MTA-STS specifically focuses on securing the transport layer between mail servers. By using a policy file retrieved over HTTPS, MTA-STS allows receiving domains to specify their requirement for encrypted connections, ensuring that sending mail servers only deliver mail over verified secure channels, thereby enhancing the overall security of email transport.
 
@@ -19,8 +19,8 @@ While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages
    - If the record exists, the sending server retrieves the policy file from `https://mta-sts.example.com/.well-known/mta-sts.txt`.
 
 2. **Policy Evaluation**:
-   - The sending server reads the policy file and checks the mode (enforce, testing, or none).
-   - If the mode is "enforce," the sending server must use TLS and verify the certificate of the receiving server.
+   - The sending server reads the policy file and checks the mode (`enforce`, `testing`, or `none`).
+   - If the mode is `enforce`, the sending server must use TLS and verify the certificate of the receiving server.
 
 3. **TLS Enforcement**:
    - The sending server attempts to establish a TLS connection with the receiving server.
@@ -56,8 +56,8 @@ _mta-sts.example.com IN TXT "v=STSv1; id=20240728"
 ```
 version: STSv1
 mode: testing
-mx: your-mx.com
-mx: your-mx.com
+mx: your-mx1.com
+mx: your-mx2.com
 max_age: 604800
 ```
 
@@ -104,7 +104,7 @@ TLS Reporting (TLSRPT) is a standard that provides a way to report when the TLS 
 | `_smtp._tls.example.com` | `TXT`| `v=TLSRPTv1; rua=mailto:tlsrpt@example.com`|
 
 ### TLSRPT report handling
-If a sending mail server is having trouble securely delivering mail to a receiving mail server, the sending mail server can use the receiving mail server's TLSRPT record to find out where to send a report about the problem or to report a successful session.
+If a sending mail server is having trouble securely delivering mail to a receiving (your) mail server, the sending mail server can use the receiving (your) mail server's TLSRPT record to find out where to send a report about the problem or to report a successful session.
 
 The reports are received in `.json`, you can look for the `summary` tag to check if the TLS connection was failed or successful:
 ```
@@ -119,3 +119,4 @@ Neither SMTP DANE nor MTA-STS is universally "better"; the choice depends on the
 - [TLS-RPT Record Checker](https://easydmarc.com/tools/tls-rpt-check)
 - [MTA-STS is defined in RFC8461](https://datatracker.ietf.org/doc/html/rfc8461)
 - [TLSRPT is defined in RFC8460](https://datatracker.ietf.org/doc/html/rfc8460)
+- [Enhancing mail flow with MTA-STS](https://learn.microsoft.com/en-us/purview/enhancing-mail-flow-with-mta-sts)

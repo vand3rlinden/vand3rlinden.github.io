@@ -24,8 +24,7 @@
       <guid>https://vand3rlinden.com/post/mta-sts-explained/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;MTA-STS (Mail Transfer Agent Strict Transport Security) is a security protocol that enforces the use of secure TLS connections for email communication. It helps protect against attacks such as TLS downgrade and man-in-the-middle attacks by ensuring that emails are only delivered over encrypted channels with properly validated TLS certificates.&lt;/p&gt;
-&lt;p&gt;While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages and ensuring they originate from authorized domains, MTA-STS specifically focuses on securing the transport layer between mail servers. By using a policy file retrieved over HTTPS, MTA-STS allows receiving domains to specify their requirement for encrypted connections, ensuring that sending mail servers only deliver mail over verified secure channels, thereby enhancing the overall security of email transport.&lt;/p&gt;</description>
+&lt;p&gt;MTA-STS (Mail Transfer Agent Strict Transport Security) is a security protocol that enforces the use of secure TLS connections for &lt;strong&gt;inbound&lt;/strong&gt; email communication. It helps protect your domain from TLS downgrade and man-in-the-middle attacks by ensuring that incoming emails are encrypted with TLS when delivered to your mail servers. When an external mail server (SMTP client) attempts to send email to your domain, it checks your MTA-STS policy to determine whether TLS encryption must be enforced.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Exchange Online: Configure inbound SMTP DANE with DNSSEC</title>
