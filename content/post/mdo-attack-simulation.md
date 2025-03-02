@@ -46,15 +46,19 @@ In order for Attack simulation training to have reporting capabilities, auditing
 3. Then run the following PowerShell command to turn on auditing: `Set-AdminAuditLogConfig -UnifiedAuditLogIngestionEnabled $true`
 
 ## Creating an attack simulation training
-After the requirements are set, you can begin creating an attack simulation training in the [Microsoft Defender Portal](https://security.microsoft.com/attacksimulator). You have the option to:
-- [Simulate a phishing attack](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/attack-simulation-training-simulations)
-  - These simulations test your security policies and practices, as well as train your employees to increase their awareness and decrease their susceptibility to attacks.
-- [Using automated flows for Attack simulation](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/attack-simulation-training-simulation-automations)
-  - Creating a simulation automation is similar to creating an individual simulation, except for the ability to select multiple techniques, payloads, and the automation schedule.
-- [Payload automations for Attack simulation training](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-payload-automations)
-   - Payload automations, also known as payload harvesting, gather data from real-world phishing attacks reported by your organization's users. 
-- [Training campaigns for Attack simulation](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-training-campaigns)
-  - Instead of creating and launching simulated phishing attacks that eventually lead to training, you can create and assign Training campaigns directly to users.
+After the requirements are set, you can begin creating an attack simulation in the [Microsoft Defender Portal](https://security.microsoft.com/attacksimulator). 
+
+- You have the option to create:
+  - [Simulate a phishing attack](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/attack-simulation-training-simulations)
+    - These simulations test your security policies and practices, as well as train your employees to increase their awareness and decrease their susceptibility to attacks.
+  - [Using automated flows for Attack simulation](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/attack-simulation-training-simulation-automations)
+    - Creating a simulation automation is similar to creating an individual simulation, except for the ability to select multiple techniques, payloads, and the automation schedule.
+
+- You also have the ability to create:
+  - [Training campaigns for Attack simulation](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-training-campaigns)
+    - Instead of creating and launching simulated phishing attacks that eventually lead to training, you can create and assign Training campaigns directly to users.
+  - [Payload automations for Attack simulation training](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-payload-automations)
+     - Payload automations, also known as payload harvesting, can collect data from real-world phishing attacks reported as phishing by users within your organization (and verified by Microsoft as phishing). You can define specific conditions to identify in phishing attacks, such as recipient details, social engineering techniques, or sender information.
 
 ## Automation vs. Individual simulations
 While automation can be a good fit for your organization, there are some considerations to keep in mind. For example, if you plan to automate a year-long simulation (which is also the maximum for an automation schedule), you won’t be able to edit the content after the initial setup, meaning you’ll be restricted to the choices made during configuration.
