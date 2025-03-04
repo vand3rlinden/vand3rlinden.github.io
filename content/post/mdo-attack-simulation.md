@@ -78,9 +78,10 @@ Each automated simulation will appear in the Simulations tab with a specific nam
 | Action           | Automation randomized schedule | Automation fixed schedule | Individual schedule |
 |-----------       |-----------                     |-----------                |-----------          |
 | Random send time | Yes                            | No                        | No                  |
-| Monthly  		     | No                             | Yes                       | No                  |
+| Monthly  		     | No                             | Yes                       | Yes*                |
 | Static send time | No                             | No                        | Yes                 |
 
+_*You can create an individual simulation each month or set up 12 individual simulations at once._
 
 ## The basic elements of a simulation are:
 - Select a ***Social Engineering Technique***, such as credential harvesting
