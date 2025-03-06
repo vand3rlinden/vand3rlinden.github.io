@@ -110,19 +110,19 @@ Each automated simulation will appear in the Simulations tab with a specific nam
   - Supported groups: **Microsoft 365** (static and dynamic), **distribution list** (static only) and **mail-enabled security** (static only).
 
 ## The best practices of a simulation are:
-- **Target users**: Include all users in your organization (Assuming all user mailboxes are licensed for Microsoft Defender for Office Plan 2).
-  - If you want to target a specific department, such as the HR department, you can create a dynamic Microsoft 365 group using the following syntax:
+- **Target users**: Include all **Microsoft Defender for Office Plan 2** users in your organization by using a dynamic Microsoft 365 group with the following syntax
+```
+user.assignedPlans -any (assignedPlan.servicePlanId -eq "8e0c0a52-6a6c-4d40-8370-dd62790dcd70" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
+
+> NOTE: The servicePlanId `8e0c0a52-6a6c-4d40-8370-dd62790dcd70` corresponds to **Microsoft Defender for Office Plan 2** and remains the same across all tenants.
+
+If you want to target a specific department, such as HR, you can use the following syntax:
 ```
 (user.department -eq "HR")
 ```
 
-- **Excluded users**: Import a CSV file that contains all your shared and room mailboxes (also specify your mail-enabled service accounts in this CSV file).
-  - To export these RecipientTypes, you can run the following command in ExchangeOnline PowerShell:
-```
-Get-Mailbox -RecipientTypeDetails SharedMailbox, RoomMailbox -ResultSize Unlimited | Select-Object PrimarySmtpAddress | Export-CSV <PATH> -NoTypeInformation
-```
-
-> Note: You may see that the excluded users end up in the report as `FailedToDeliverEmail`, this is because the given user is blocked from signing in, such as you shared mailbox identities. This is normal behavior and you can filter them out in the report.
+> Note: Users may appear in the report as `FailedToDeliverEmail` because they are blocked from signing in. This is expected behavior, and you can filter them out in the report.
 
 - **Training**: By enabling training during an attack simulation, Microsoft can assign courses and modules customized to the user’s previous simulation and training results through learning pathways. The training is based on user interactions, specifically whether they clicked and submitted their credentials. A compromised user may receive two training sessions. You can choose standalone training campaigns and disable training within the attack simulation. However, this approach will not be as adaptive as the learning pathways provided through training campaigns within an attack simulation.
 
@@ -170,3 +170,5 @@ Despite advanced security measures, phishing tactics continue to evolve, making 
 - [Attack simulation training deployment considerations and FAQ](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-faq)
 - [Turn on auditing](https://learn.microsoft.com/en-us/purview/audit-log-enable-disable?view=o365-worldwide&tabs=microsoft-purview-portal#turn-on-auditing)
 - [Automation Schedule details](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-simulation-automations#schedule-details)
+- [Manage rules for dynamic membership groups in Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/identity/users/groups-dynamic-membership)
+- [Product names and service plan identifiers for licensing](https://learn.microsoft.com/en-us/entra/identity/users/licensing-service-plan-reference)
