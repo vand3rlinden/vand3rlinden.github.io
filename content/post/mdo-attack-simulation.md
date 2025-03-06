@@ -110,19 +110,19 @@ Each automated simulation will appear in the Simulations tab with a specific nam
   - Supported groups: **Microsoft 365** (static and dynamic), **distribution list** (static only) and **mail-enabled security** (static only).
 
 ## The best practices of a simulation are:
-- **Target users**: Include all **Microsoft Defender for Office Plan 2** users in your organization by using a dynamic Microsoft 365 group with the following syntax
+- **Target users**: Include all **Microsoft Defender for Office Plan 2** users in your organization by using a dynamic Microsoft 365 group with the following syntax:
 ```
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "8e0c0a52-6a6c-4d40-8370-dd62790dcd70" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-> NOTE: The servicePlanId `8e0c0a52-6a6c-4d40-8370-dd62790dcd70` corresponds to **Microsoft Defender for Office Plan 2** and remains the same across all tenants.
+> The servicePlanId `8e0c0a52-6a6c-4d40-8370-dd62790dcd70` corresponds to **Microsoft Defender for Office Plan 2** and remains the same across all tenants.
 
 If you want to target a specific department, such as HR, you can use the following syntax:
 ```
 (user.department -eq "HR")
 ```
 
-> Note: Users may appear in the report as `FailedToDeliverEmail` because they are blocked from signing in. This is expected behavior, and you can filter them out in the report.
+> Users may appear in the report as `FailedToDeliverEmail` because they are blocked from signing in. This is expected behavior, and you can filter them out in the report.
 
 - **Training**: By enabling training during an attack simulation, Microsoft can assign courses and modules customized to the user’s previous simulation and training results through learning pathways. The training is based on user interactions, specifically whether they clicked and submitted their credentials. A compromised user may receive two training sessions. You can choose standalone training campaigns and disable training within the attack simulation. However, this approach will not be as adaptive as the learning pathways provided through training campaigns within an attack simulation.
 
@@ -148,8 +148,7 @@ Phish Landing Page:
 Once the user clicked on the link and logged in, they received an email from `notification@attacksimulationtraining.com` for each action to complete a training course. 
 
 ![IMAGE](/images/mdo-attack-simulation/mdo-attack-simulation-5.png)
-> ***NOTE:*** _You should remove the External tag for the notification email. To do so, run the cmdlet `Set-ExternalInOutlook -AllowList @{Add="attacksimulationtraining.com"}` by using the Exchange Online PowerShell module. You can also use **Tenant notifcations** to change the content or from address._
-
+> You should remove the External tag for the notification email. To do so, run the cmdlet `Set-ExternalInOutlook -AllowList @{Add="attacksimulationtraining.com"}` by using the Exchange Online PowerShell module. You can also use **Tenant notifcations** to change the content or from address.
 
 The link will take the user to the Defender portal to complete the courses at `https://security.microsoft.com/trainingassignments`.
 
