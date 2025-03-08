@@ -21,9 +21,9 @@ This blog focuses more on the user part of the attack simulation and is an exten
 All target users must have a ***Microsoft Defender for Office 365 Plan 2*** (add-on licenses or included in subscriptions such as Microsoft 365 E5).
 
 ### 2: Report message button
-You should start by giving your users the ability to report email messages, which is also necessary for this attack simulation training. To do so, you can activate the:
-- [Built-in Report button](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/submissions-user-reported-messages-custom-mailbox?view=o365-worldwide#use-the-microsoft-defender-portal-to-configure-user-reported-settings) ([supported versions of Outlook](https://learn.microsoft.com/en-us/defender-office-365/submissions-outlook-report-messages#use-the-built-in-report-button-in-outlook))
-- [Microsoft Report Message or Report Phishing add-ins](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/submissions-users-report-message-add-in-configure?view=o365-worldwide#get-the-report-message-add-in) (virtually all Outlook platforms)
+You should start by enabling your users to report malicious email messages using the built-in Report button, which is also required for this attack simulation training. If you haven’t already, [activate the built-in Report button](https://learn.microsoft.com/en-us/defender-office-365/submissions-user-reported-messages-custom-mailbox?view=o365-worldwide#use-the-microsoft-defender-portal-to-configure-user-reported-settings).
+
+> If you are still using the Microsoft Report Message or Report Phishing add-ins, consider [transitioning to the built-in report button](https://learn.microsoft.com/en-us/defender-office-365/submissions-users-report-message-add-in-configure). These add-ins have security vulnerabilities that make them unsafe for your organization and will be deprecated over time. 
 
 Reported messages appear in the [User Reported](https://security.microsoft.com/reportsubmission?viewid=user) section of the Submissions page, your reporting mailbox, and are visible in the simulation report.
 
