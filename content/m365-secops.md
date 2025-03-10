@@ -52,7 +52,7 @@ Quickly access SecOps tools and portals across Microsoft 365, including Defender
 
 ## Purview
 - [Microsoft Purview Documentation](https://learn.microsoft.com/en-us/defender/)
-- [Purview Portal]([https://security.microsoft.com)
+- [Purview Portal](https://purview.microsoft.com)
 - [Information Protection](https://purview.microsoft.com/informationprotection)
 - [Insider Risk Management](https://purview.microsoft.com/insiderriskmgmt)
 - [eDiscovery](https://purview.microsoft.com/ediscovery)
