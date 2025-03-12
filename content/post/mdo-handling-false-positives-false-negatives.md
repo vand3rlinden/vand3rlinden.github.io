@@ -36,6 +36,8 @@ To help these signals to get better you can [report good emails](https://learn.m
 ## Handling false positives
 Once you report a false positive (good email), you can create an allow entry in the Tenant Allow/Block List for domains, email addresses, files, and URLs. These entries are retained for 45 days after the filtering system determines that the entity is clean, and then the allow entry is removed.
 
+**Example**: If you create an allow entry on July 1 with removal set for 45 days after the last use, and the entity is deemed malicious until July 29 but clean from July 30, the last used date updates until July 29. Since it’s clean, updates stop on July 30, and the entry is removed on September 12—45 days after the last update.
+
 In addition to implicit authentication checks, you can also reduce false positives by disabling the [ASF (Advanced Spam Filter) settings](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-spam-policies-asf-settings-about) in your Anti-spam inbound policy, as enabling one or more ASF settings is an aggressive approach to spam filtering that often results in false positives. For example, messages containing certain elements may be marked as spam or have their spam score increased. Additionally, messages filtered by ASF cannot be reported to Microsoft as false positives. 
 
 ## Handling false negatives
@@ -57,3 +59,4 @@ Finally, end users can be educated with a security awareness program to help the
 - [Inbound email authentication for mail sent to Microsoft 365](https://learn.microsoft.com/en-us/defender-office-365/email-authentication-about#inbound-email-authentication-for-mail-sent-to-microsoft-365)
 - [Use the Submissions page to submit suspected spam, phish, URLs, legitimate email getting blocked, and email attachments to Microsoft](https://learn.microsoft.com/en-us/defender-office-365/submissions-admin)
 - [Manage allows and blocks in the Tenant Allow/Block List](https://learn.microsoft.com/en-us/defender-office-365/tenant-allow-block-list-about)
+- [Automate Tenant Allow/Block List entries](https://techcommunity.microsoft.com/blog/microsoftdefenderforoffice365blog/automate-tenant-allowblock-list-entries/4213201)
