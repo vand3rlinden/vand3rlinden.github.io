@@ -47,9 +47,9 @@ To give end users more red flags to look for when they receive an email message,
 - [First contact safety tip](https://learn.microsoft.com/en-us/defender-office-365/anti-phishing-policies-about#first-contact-safety-tip)
 - [External Email Tagging](https://learn.microsoft.com/en-us/powershell/module/exchange/set-externalinoutlook)
 
-You can also give your users the option to report false negatives (or false positives as not junk) to Microsoft by using a report button in Outlook:
-- [built-in Report](https://learn.microsoft.com/en-us/defender-office-365/submissions-user-reported-messages-custom-mailbox?view=o365-worldwide#use-the-microsoft-defender-portal-to-configure-user-reported-settings) (Outlook on the web)
-- [Microsoft Report Message or Report Phishing add-ins](https://learn.microsoft.com/en-us/defender-office-365/submissions-users-report-message-add-in-configure) (all Outlook platforms)
+You can also allow your users to report false negatives (questionable emails) or false positives (good emails) to Microsoft by enabling the [built-in Report button](https://learn.microsoft.com/en-us/defender-office-365/submissions-user-reported-messages-custom-mailbox?view=o365-worldwide#use-the-microsoft-defender-portal-to-configure-user-reported-settings), if you haven’t already.
+
+> **NOTE**: If you are still using the Microsoft Report Message or Report Phishing add-ins, consider [transitioning to the built-in report button](https://learn.microsoft.com/en-us/defender-office-365/submissions-users-report-message-add-in-configure). These add-ins have security vulnerabilities that make them unsafe for your organization and will be deprecated over time. 
 
 Finally, end users can be educated with a security awareness program to help them recognize questionable emails. See also [this blog post](https://vand3rlinden.com/post/mdo-attack-simulation/).
 
