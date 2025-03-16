@@ -26,6 +26,8 @@ While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages
    - The sending server attempts to establish a TLS connection with the receiving server.
    - If the connection cannot be established securely according to the policy, the sending server may defer delivery and try again later.
 
+![IMAGE](/images/mta-sts-explained/mta-sts-tlsrpt-visual.png)
+
 ## MTA-STS benefits:
 - Emails are transfered over a secure TLS connection
 - Must use TLS-Version 1.2 or higher
