@@ -22,10 +22,6 @@ While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages
    - The sending server reads the policy file and checks the mode (`enforce`, `testing`, or `none`).
    - If the mode is `enforce`, the sending server must use TLS and verify the certificate of the receiving server.
 
-3. **TLS Enforcement**:
-   - The sending server attempts to establish a TLS connection with the receiving server.
-   - If the connection cannot be established securely according to the policy, the sending server may defer delivery and try again later.
-
 ![IMAGE](/images/mta-sts-explained/mta-sts-tlsrpt-visual.png)
 
 ## MTA-STS benefits:
