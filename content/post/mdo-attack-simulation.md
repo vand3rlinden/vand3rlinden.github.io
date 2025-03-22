@@ -61,19 +61,29 @@ After the requirements are set, you can begin creating an attack simulation in t
      - Payload automations, also known as payload harvesting, can collect data from real-world phishing attacks reported as phishing by users within your organization (and verified by Microsoft as phishing). You can define specific conditions to identify in phishing attacks, such as recipient details, social engineering techniques, or sender information.
 
 ## Automation vs. Individual simulations
-While automation can be a good fit for your organization, there are some considerations to keep in mind. For example, if you plan to automate a year-long simulation (which is also the maximum for an automation schedule), you won’t be able to edit the content after the initial setup, meaning you’ll be restricted to the choices made during configuration.
+### Automated Simulations
+While Automated Simulations can be a great fit for your organization, there are some important considerations. For example, if you plan to automate a simulation for an entire year (which is the maximum duration for an automation schedule), you won’t be able to modify the content after the initial setup. This means you’ll be locked into the configuration choices made at the beginning.
 
-During setup, you have two options. You can **manually select** up to 20 payloads, including both global and tenant-payloads, or you can choose the **randomize** option, where Microsoft will randomly select the payloads for the simulation.
+### Individual Simulations 
+Individual simulations, on the other hand, offer more flexibility—especially if you prefer to run separate monthly simulations. They allow for adjustments and customizations between campaigns.
 
-When setting up the automation schedule, you can choose a **randomized schedule**, which can start simulations with randomize send times. However, you cannot limit it to just one simulation per month. Instead, you can schedule up to 10 simulations per year on specific allowed days.
+### Payload Selection
+When setting up an automated simulation, you have two options for payload selection:
+- **Manually select**: Up to 20 payloads, including both global and tenant-specific payloads.
+- **Randomize**: Allowing Microsoft to select payloads automatically.
 
-Alternatively, you can choose a **fixed schedule**, where simulations follow a weekly or monthly recurrence. However, they will always occur on a specific day of the week or month, and you cannot customize the send time.
+It’s important to note that even in an automated simulation, only **one payload** is sent out per launch. **All targeted users** will receive the **same payload**, which is no different from how individual simulations operate.
 
-Each automated simulation will appear in the Simulations tab with a specific naming convention, such as: `AutomatedSimulation_PayloadName [Technique]_date`
+### Schedule Selection
+When configuring the automation schedule, you have two options:  
 
-**My advice**: Consider creating individual monthly simulations (e.g., 2 global payloads and 1 tenant payload as the interval) and plan a yearly schedule that varies the simulation dates and times each month. Keep in mind that random send times aren’t available with this method, but using individual monthly simulations will provide you with more control and flexibility.
+- **Randomized Schedule**: Can start simulations with **randomize send times**. However, you cannot limit it to just one simulation per month. Instead, you can **schedule up to 10 simulations per year** on specific allowed days.
+- **Fixed Schedule**: where simulations follow a **weekly or monthly recurrence**. However, they will always occur on a **specific day of the week or month**, and you **cannot customize the send time**.
 
-## Simulation schedule comparison
+Each automated simulation will be listed in the **Simulations tab** with a naming convention like:  
+`AutomatedSimulation_PayloadName [Technique]_date`
+
+#### Simulation schedule comparison
 
 | Action           | Automation randomized schedule | Automation fixed schedule | Individual schedule |
 |-----------       |-----------                     |-----------                |-----------          |
@@ -83,6 +93,8 @@ Each automated simulation will appear in the Simulations tab with a specific nam
 
 - _*Each individual simulation can be configured to start at a different static time._
 - _**You can create an individual simulation each month or set up 12 individual simulations at once._
+
+**My advice**: Consider creating **individual monthly simulations** _(e.g., 2 global payloads and 1 tenant payload as the interval)_ and plan a yearly schedule that varies the **simulation dates and times** each month to keep users engaged and reduce predictability. Keep in mind that **all target users** will receive the **same payload**. However, using individual monthly simulations gives you **greater control and flexibility** over content, timing, and targeting throughout the year.
 
 ## The basic elements of a simulation are:
 - Select a ***Social Engineering Technique***, such as credential harvesting
