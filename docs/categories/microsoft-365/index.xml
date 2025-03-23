@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Microsoft 365 on VAND3RLINDEN</title>
+    <link>https://vand3rlinden.com/categories/microsoft-365/</link>
+    <description>Recent content in Microsoft 365 on VAND3RLINDEN</description>
+    <generator>Hugo -- 0.145.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 23 Mar 2025 22:52:19 +0100</lastBuildDate>
+    <atom:link href="https://vand3rlinden.com/categories/microsoft-365/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microsoft 365: Protect your environment against AiTM phishing attacks</title>
+      <link>https://vand3rlinden.com/post/m365-protect-against-aitm-phishing/</link>
+      <pubDate>Sun, 23 Mar 2025 22:52:19 +0100</pubDate>
+      <guid>https://vand3rlinden.com/post/m365-protect-against-aitm-phishing/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;In this blog post, we’ll walk through practical strategies to reduce the likelihood and impact of successful AiTM phishing attacks in Microsoft 365.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;In today’s threat landscape, adversary-in-the-middle (AiTM) phishing attacks have emerged as a particularly dangerous tactic. These attacks bypass traditional defenses by placing a malicious proxy between the user and the legitimate service, capturing credentials and session tokens in real time. Once attackers have session tokens, they can bypass even multi-factor authentication (MFA), making AiTM attacks especially difficult to defend against.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

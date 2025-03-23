@@ -6,8 +6,17 @@
     <description>Recent content on VAND3RLINDEN</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 10 Feb 2025 17:27:49 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 23 Mar 2025 22:52:19 +0100</lastBuildDate>
     <atom:link href="https://vand3rlinden.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microsoft 365: Protect your environment against AiTM phishing attacks</title>
+      <link>https://vand3rlinden.com/post/m365-protect-against-aitm-phishing/</link>
+      <pubDate>Sun, 23 Mar 2025 22:52:19 +0100</pubDate>
+      <guid>https://vand3rlinden.com/post/m365-protect-against-aitm-phishing/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;In this blog post, we’ll walk through practical strategies to reduce the likelihood and impact of successful AiTM phishing attacks in Microsoft 365.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;In today’s threat landscape, adversary-in-the-middle (AiTM) phishing attacks have emerged as a particularly dangerous tactic. These attacks bypass traditional defenses by placing a malicious proxy between the user and the legitimate service, capturing credentials and session tokens in real time. Once attackers have session tokens, they can bypass even multi-factor authentication (MFA), making AiTM attacks especially difficult to defend against.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Microsoft Defender for Office 365: Handling False Positives and False Negatives</title>
       <link>https://vand3rlinden.com/post/mdo-handling-false-positives-false-negatives/</link>
