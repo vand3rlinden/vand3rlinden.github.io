@@ -75,12 +75,13 @@ Allows you to define automatic responses, such as enforcing multi-factor authent
 [Policy Implementation](https://learn.microsoft.com/en-us/entra/id-protection/howto-identity-protection-configure-risk-policies)
 
 ### Require token protection for sign-in sessions
-Microsoft is rolling out token protection to combat token theft. As of now, it’s supported for SharePoint Online and Exchange Online.
+Microsoft is rolling out token protection to combat token theft. As of now, it’s supported for **SharePoint Online** and **Exchange Online**.
 
--Token protection binds access tokens to the device they were issued on.
--If the token is stolen and used elsewhere, it will fail authorization even if the session was authenticated.
+How token protection works:
+- Token protection binds access tokens to the device they were issued on.
+- If the token is stolen and used elsewhere, it will fail authorization even if the session was authenticated.
 
-Important: AiTM phishing kits can still successfully steal the token and initiate a session. However, with token protection, authorization will fail unless the token is used from the original device.
+> Important: AiTM phishing kits can still successfully steal the token and initiate a session. However, with token protection, authorization will fail unless the token is used from the original device.
 
 This makes token theft less valuable for attackers and adds another hurdle for them to overcome.
 
@@ -90,7 +91,7 @@ This makes token theft less valuable for attackers and adds another hurdle for t
 ### Block Risky Web Categories with Microsoft Defender for Endpoint
 AiTM phishing kits often use newly registered domains and parked domains to host their proxy phishing sites. These domains are frequently created just hours before an attack to avoid detection by traditional domain reputation engines.
 
-To proactively block access to such sites, you can configure web content filtering in Microsoft Defender for Endpoint (MDE):
+To proactively block access to such sites, you can configure web content filtering in Microsoft Defender for Endpoint:
 - In the Microsoft 365 Defender portal, go to Settings > Endpoints > Advanced features > Enable: Web content filtering.
 - Once enabled, navigate to: Endpoints > Web content filtering
 - Create a policy that blocks the following categories:
@@ -101,7 +102,7 @@ These categories are frequently leveraged by threat actors to bypass email filte
 
 Why it helps: Blocking access to these domains prevents users from ever reaching the phishing page—even if they click a link in a legitimate-looking email.
 
-This is especially effective when combined with Defender SmartScreen and network protection policies to stop outbound access to malicious or suspicious domains.
+This is especially effective when combined with Defender SmartScreen and Network Protection policies to stop outbound access to malicious or suspicious domains.
 
 ### Configure Automatic Attack Disruption in Microsoft Defender XDR
 Attackers move fast — sometimes within minutes of obtaining access. That’s why it’s crucial to respond faster.
