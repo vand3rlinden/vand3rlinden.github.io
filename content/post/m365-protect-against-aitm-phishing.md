@@ -11,7 +11,7 @@ cover:
 
 In today’s threat landscape, adversary-in-the-middle (AiTM) phishing attacks have emerged as a particularly dangerous tactic. These attacks bypass traditional defenses by placing a malicious proxy between the user and the legitimate service, capturing credentials and session tokens in real time. Once attackers have session tokens, they can bypass even multi-factor authentication (MFA), making AiTM attacks especially difficult to defend against.
 
-While there is no single configuration or silver bullet to fully prevent AiTM phishing attacks in Microsoft 365 environments, a layered defense strategy can significantly reduce risk. This includes a combination of user education, strong authentication methods, and granular Conditional Access policies.
+While there is no single configuration to fully prevent AiTM phishing attacks in Microsoft 365 environments, a layered defense strategy can significantly reduce risk. This includes a combination of user education, strong authentication methods, and granular Conditional Access policies.
 
 ## Path of an AiTM Phishing Attack
 The attack typically follows these steps:
@@ -51,6 +51,13 @@ Start by securing admin accounts first. Accounts with highly privileged administ
 
 Tip: When using eligible roles in PIM (Privileged Identity Management), it’s recommended to include an Entra ID group—preferably a dynamic group based on your admin naming convention (e.g., ‘adm’)—instead of include roles directly to the Conditional Access Policy.
 
+### Require compliant devices
+Ensures only trusted and compliant devices can access corporate resources.
+
+Why it helps: Blocks attackers using stolen credentials via AiTM phishing—even if they bypass MFA—because their device won’t meet compliance requirements.
+
+[Policy Implementation](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-alt-all-users-compliant-hybrid-or-mfa)
+
 ### Restrict Access by Network Location
 Implement location-based Conditional Access policies to limit access to specific countries or trusted IP ranges.
 - Example: Allow sign-ins only from countries where your organization operates.
@@ -80,7 +87,6 @@ This makes token theft less valuable for attackers and adds another hurdle for t
 [Policy Implementation - preview](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-token-protection)
 
 ## Harden Microsoft Defender
-
 ### Block Risky Web Categories with Microsoft Defender for Endpoint
 AiTM phishing kits often use newly registered domains and parked domains to host their proxy phishing sites. These domains are frequently created just hours before an attack to avoid detection by traditional domain reputation engines.
 
