@@ -17,7 +17,7 @@ While there is no single configuration to fully prevent AiTM phishing attacks in
 The attack typically follows these steps:
 
 1. **Phishing Email Received**  
-   The user receives a phishing email that appears to be legitimate.  
+   The user receives a phishing email that may closely resemble a legitimate message.  
 
    ![IMAGE](/images/m365-protect-against-aitm-phishing/m365-protect-against-aitm-phishing-1.png)
 
@@ -81,9 +81,7 @@ How token protection works:
 - Token protection binds access tokens to the device they were issued on.
 - If the token is stolen and used elsewhere, it will fail authorization even if the session was authenticated.
 
-> Important: AiTM phishing kits can still successfully steal the token and initiate a session. However, with token protection, authorization will fail unless the token is used from the original device.
-
-This makes token theft less valuable for attackers and adds another hurdle for them to overcome.
+> Important: AiTM phishing kits can still successfully steal the token and initiate a session. However, with token protection, authorization will fail unless the token is used from the original device. This makes token theft less valuable for attackers and adds another hurdle for them to overcome.
 
 [Policy Implementation - preview](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-token-protection)
 
@@ -102,7 +100,7 @@ These categories are frequently leveraged by threat actors to bypass email filte
 
 Why it helps: Blocking access to these domains prevents users from ever reaching the phishing page—even if they click a link in a legitimate-looking email.
 
-This is especially effective when combined with Defender SmartScreen and Network Protection policies to stop outbound access to malicious or suspicious domains.
+This is especially effective when combined with [Defender SmartScreen](https://learn.microsoft.com/en-us/windows/security/operating-system-security/virus-and-threat-protection/microsoft-defender-smartscreen/) and [Network Protection](https://learn.microsoft.com/en-us/defender-endpoint/enable-network-protection) policies to stop outbound access to malicious or suspicious domains.
 
 ### Configure Automatic Attack Disruption in Microsoft Defender XDR
 Attackers move fast — sometimes within minutes of obtaining access. That’s why it’s crucial to respond faster.
