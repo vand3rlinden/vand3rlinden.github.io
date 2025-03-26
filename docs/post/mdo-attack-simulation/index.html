@@ -245,12 +245,12 @@ Exclude this email address or domain from your external tagging configuration (<
 <li><strong>Manually select</strong>: Up to 20 payloads, including both global and tenant-specific payloads.</li>
 <li><strong>Randomize</strong>: Allowing Microsoft to select payloads automatically.</li>
 </ul>
-<p>It’s important to note that even in an automated simulation, only <strong>one payload</strong> is sent out per launch. <strong>All targeted users</strong> will receive the <strong>same payload</strong>, which is no different from how individual simulations operate.</p>
+<p>It’s important to note that even in an automated simulation, only one payload is sent out per launch. All targeted users will receive the same payload, which is no different from how individual simulations operate.</p>
 <h3 id="schedule-selection">Schedule Selection<a hidden class="anchor" aria-hidden="true" href="#schedule-selection">#</a></h3>
 <p>When configuring the automation schedule, you have two options:</p>
 <ul>
-<li><strong>Randomized Schedule</strong>: Can start simulations with <strong>randomize send times</strong>. However, you cannot limit it to just one simulation per month. Instead, you can <strong>schedule up to 10 simulations per year</strong> on specific allowed days.</li>
-<li><strong>Fixed Schedule</strong>: where simulations follow a <strong>weekly or monthly recurrence</strong>. However, they will always occur on a <strong>specific day of the week or month</strong>, and you <strong>cannot customize the send time</strong>.</li>
+<li><strong>Randomized Schedule</strong>: Can start simulations with randomize send times. However, you cannot limit it to just one simulation per month. Instead, you can schedule up to 10 simulations per year on specific allowed days.</li>
+<li><strong>Fixed Schedule</strong>: where simulations follow a weekly or monthly recurrence. However, they will always occur on a specific day of the week or month, and you cannot customize the send time.</li>
 </ul>
 <p>Each automated simulation will be listed in the <strong>Simulations tab</strong> with a naming convention like:<br>
 <code>AutomatedSimulation_PayloadName [Technique]_date</code></p>
@@ -289,11 +289,11 @@ Exclude this email address or domain from your external tagging configuration (<
 <li><em>*Each individual simulation can be configured to start at a different static time.</em></li>
 <li><em>**You can create an individual simulation each month or set up 12 individual simulations at once.</em></li>
 </ul>
-<p><strong>My advice</strong>: Consider creating <strong>individual monthly simulations</strong> <em>(e.g., 2 global payloads and 1 tenant payload as the interval)</em> and plan a yearly schedule that varies the <strong>simulation dates and times</strong> each month to keep users engaged and reduce predictability. Keep in mind that <strong>all target users</strong> will receive the <strong>same payload</strong>. However, using individual monthly simulations gives you <strong>greater control and flexibility</strong> over content, timing, and targeting throughout the year.</p>
+<p><strong>My advice</strong>: Consider creating individual monthly simulations <em>(e.g., 2 global payloads and 1 tenant payload as the interval)</em> and plan a yearly schedule that varies the simulation dates and times each month to keep users engaged and reduce predictability. Keep in mind that all target users will receive the same payload. However, using individual monthly simulations gives you greater control and flexibility over content, timing, and targeting throughout the year.</p>
 <h2 id="the-basic-elements-of-a-simulation-are">The basic elements of a simulation are:<a hidden class="anchor" aria-hidden="true" href="#the-basic-elements-of-a-simulation-are">#</a></h2>
 <ul>
-<li>Select a <em><strong>Social Engineering Technique</strong></em>, such as credential harvesting</li>
-<li>Select a <em><strong>Payload</strong></em> <em>(phishing emails and web pages that you use to launch simulations)</em>
+<li>Select a <strong>Social Engineering Technique</strong>, such as credential harvesting</li>
+<li>Select a <strong>Payload</strong> <em>(phishing emails and web pages that you use to launch simulations)</em>
 <ul>
 <li>Global Payloads: Includes built-in payloads, such as the <code>Keep Office 365 Password</code> payload</li>
 <li>Tenant Payloads: Contains <a href="https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-payloads#create-payloads">custom payloads</a>, such as a fake email from an executive with an official company signature. You can also use ChatGPT (or any other AI tool) to prompt a tenant payload to generate an HTML email for SharePoint Online document sharing, for example. A prompt can be: <em>Can you generate an HTML email template that looks like a Microsoft email to share a SharePoint document?</em> This prompt leads to <a href="https://vand3rlinden.com/images/mdo-attack-simulation/example-tenant-payload/sharepoint-documentshare.html">this</a> tenant payload, the HTML content can be copied and pasted into the <code>Configure Payload</code> section and change the Dynamic tags such as <code>${firstName}</code> and <code>${phishingUrl}</code>.</li>

@@ -72,13 +72,13 @@ When setting up an automated simulation, you have two options for payload select
 - **Manually select**: Up to 20 payloads, including both global and tenant-specific payloads.
 - **Randomize**: Allowing Microsoft to select payloads automatically.
 
-It’s important to note that even in an automated simulation, only **one payload** is sent out per launch. **All targeted users** will receive the **same payload**, which is no different from how individual simulations operate.
+It’s important to note that even in an automated simulation, only one payload is sent out per launch. All targeted users will receive the same payload, which is no different from how individual simulations operate.
 
 ### Schedule Selection
 When configuring the automation schedule, you have two options:  
 
-- **Randomized Schedule**: Can start simulations with **randomize send times**. However, you cannot limit it to just one simulation per month. Instead, you can **schedule up to 10 simulations per year** on specific allowed days.
-- **Fixed Schedule**: where simulations follow a **weekly or monthly recurrence**. However, they will always occur on a **specific day of the week or month**, and you **cannot customize the send time**.
+- **Randomized Schedule**: Can start simulations with randomize send times. However, you cannot limit it to just one simulation per month. Instead, you can schedule up to 10 simulations per year on specific allowed days.
+- **Fixed Schedule**: where simulations follow a weekly or monthly recurrence. However, they will always occur on a specific day of the week or month, and you cannot customize the send time.
 
 Each automated simulation will be listed in the **Simulations tab** with a naming convention like:  
 `AutomatedSimulation_PayloadName [Technique]_date`
@@ -94,11 +94,11 @@ Each automated simulation will be listed in the **Simulations tab** with a namin
 - _*Each individual simulation can be configured to start at a different static time._
 - _**You can create an individual simulation each month or set up 12 individual simulations at once._
 
-**My advice**: Consider creating **individual monthly simulations** _(e.g., 2 global payloads and 1 tenant payload as the interval)_ and plan a yearly schedule that varies the **simulation dates and times** each month to keep users engaged and reduce predictability. Keep in mind that **all target users** will receive the **same payload**. However, using individual monthly simulations gives you **greater control and flexibility** over content, timing, and targeting throughout the year.
+**My advice**: Consider creating individual monthly simulations _(e.g., 2 global payloads and 1 tenant payload as the interval)_ and plan a yearly schedule that varies the simulation dates and times each month to keep users engaged and reduce predictability. Keep in mind that all target users will receive the same payload. However, using individual monthly simulations gives you greater control and flexibility over content, timing, and targeting throughout the year.
 
 ## The basic elements of a simulation are:
-- Select a ***Social Engineering Technique***, such as credential harvesting
-- Select a ***Payload*** _(phishing emails and web pages that you use to launch simulations)_
+- Select a **Social Engineering Technique**, such as credential harvesting
+- Select a **Payload** _(phishing emails and web pages that you use to launch simulations)_
   - Global Payloads: Includes built-in payloads, such as the `Keep Office 365 Password` payload
   - Tenant Payloads: Contains [custom payloads](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-payloads#create-payloads), such as a fake email from an executive with an official company signature. You can also use ChatGPT (or any other AI tool) to prompt a tenant payload to generate an HTML email for SharePoint Online document sharing, for example. A prompt can be: _Can you generate an HTML email template that looks like a Microsoft email to share a SharePoint document?_ This prompt leads to [this](https://vand3rlinden.com/images/mdo-attack-simulation/example-tenant-payload/sharepoint-documentshare.html) tenant payload, the HTML content can be copied and pasted into the `Configure Payload` section and change the Dynamic tags such as `${firstName}` and `${phishingUrl}`.
 
