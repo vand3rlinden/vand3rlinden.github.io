@@ -22,6 +22,9 @@ While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages
    - The sending server reads the policy file and checks the mode (`enforce`, `testing`, or `none`).
    - If the mode is `enforce`, the sending server must use TLS and verify the certificate of the receiving server.
 
+3. **TLS Reporting (TLSRPT)**
+   - If the sending mail server encounters issues delivering an email, it can use the receiving server’s `TLSRPT` record to report the problem or confirm that the TLS session was successfully established.
+
 ![IMAGE](/images/mta-sts-explained/mta-sts-tlsrpt-visual.png)
 
 ## MTA-STS benefits:
@@ -102,7 +105,7 @@ TLS Reporting (TLSRPT) is a standard that provides a way to report when the TLS 
 | `_smtp._tls.example.com` | `TXT`| `v=TLSRPTv1; rua=mailto:tlsrpt@example.com`|
 
 ### TLSRPT report handling
-If a sending mail server is having trouble securely delivering mail to a receiving (your) mail server, the sending mail server can use the receiving (your) mail server's TLSRPT record to find out where to send a report about the problem or to report a successful session.
+If a sending mail server is having trouble securely delivering mail to a receiving mail server, the sending mail server can use the receiving mail server's TLSRPT record to find out where to send a report about the problem or to report a successful session.
 
 The reports are received in `.json`, you can look for the `summary` tag to check if the TLS connection was failed or successful:
 ```
