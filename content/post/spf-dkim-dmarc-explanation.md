@@ -130,6 +130,8 @@ Overview of the Valimail Dashboard:
 
 ![IMAGE](/images/spf-dkim-dmarc-explanation/valimail-monitor.png)
 
+> To sign up for a free Valimail environment, click [here](https://www.valimail.com/sign-up-ms-blog/). Once the setup is complete, you can sign in at [app.valimail.com](https://app.valimail.com/). After logging in, you can proceed to integrate [Microsoft Entra ID SSO with Valimail](https://support.valimail.com/en/articles/8466393-tutorial-how-to-integrate-microsoft-entra-id-sso-with-valimail).
+
 For heavy mail domains, I recommended monitoring the domain for at least three months with the DMARC policy set to `none`:
 
 - Hostname: `_dmarc`
