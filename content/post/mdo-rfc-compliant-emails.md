@@ -7,7 +7,7 @@ cover:
   image: /images/mdo-rfc-compliant-emails/mdo-rfc-compliant-emails-front.png
 ---
 
-> _In this post, we’ll explain what RFC-compliant emails are, provide examples, and explore what this means for senders, especially those who may be unknowingly sending malformed or improperly formatted messages._
+> _In this post, I’ll explain what RFC compliant emails are, share examples, and discuss what this means for senders. Especially those who may unknowingly be using improperly formatted sender addresses._
 
 ## Microsoft 365’s enhanced detection
 Recently, Microsoft has made a significant improvement in how it detects and handles non-RFC compliant emails. Microsoft has enhanced its detection mechanisms to better identify these types of messages, helping to protect users from potential risks.

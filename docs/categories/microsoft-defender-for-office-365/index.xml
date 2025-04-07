@@ -14,7 +14,7 @@
       <pubDate>Mon, 07 Apr 2025 12:16:19 +0200</pubDate>
       <guid>https://vand3rlinden.com/post/mdo-rfc-compliant-emails/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;In this post, we’ll explain what RFC-compliant emails are, provide examples, and explore what this means for senders, especially those who may be unknowingly sending malformed or improperly formatted messages.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;In this post, I’ll explain what RFC compliant emails are, share examples, and discuss what this means for senders. Especially those who may unknowingly be using improperly formatted sender addresses.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;microsoft-365s-enhanced-detection&#34;&gt;Microsoft 365’s enhanced detection&lt;/h2&gt;
 &lt;p&gt;Recently, Microsoft has made a significant improvement in how it detects and handles non-RFC compliant emails. Microsoft has enhanced its detection mechanisms to better identify these types of messages, helping to protect users from potential risks.&lt;/p&gt;</description>
     </item>
