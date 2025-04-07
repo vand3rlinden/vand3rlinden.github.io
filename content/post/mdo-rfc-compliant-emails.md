@@ -21,6 +21,8 @@ The **Internet Engineering Task Force (IETF)** defines standards through documen
 
 One key standard is **RFC 5322 (Internet Message Format)**, which defines how sender address headers should be structured. **RFC 5322** is also referred to as the **P2 sender** or `From:` (`RFC5322.From`, `header.from`) header, which is the sender address visible to recipients.
 
+Properly RFC compliant P2 (`From:`) addresses are formatted as: `“Display Name" <email@address.com>`. This structure ensures that the displayname and email address are clearly defined and properly interpreted by email systems. 
+
 Non-RFC compliant emails can be used to:
 
 - **Evade detection**: Malicious actors use malformed sender addresses to bypass filters and deliver harmful content directly to inboxes.
@@ -36,7 +38,7 @@ Enforcing RFC compliant emails is driven by several key reasons:
 - **Maintain trust**: Ensures consistent and professional email communication that meets industry standards.
 
 ## Examples of RFC compliant and non-RFC compliant email addresses
-Properly RFC compliant P2 (`From:`) addresses are formatted as: `“Display Name" <email@address.com>`. This structure ensures that the displayname and email address are clearly defined and properly interpreted by email systems. Below are some examples of RFC compliant and non-RFC compliant P2 sender addresses:
+Below are some examples of **RFC compliant** and **non-RFC compliant** P2 sender addresses:
 
 | P2 Address                                                      | Comment                                                                                                    | Compliance        |
 |----------                                                       |-------                                                                                                     |----------         |
