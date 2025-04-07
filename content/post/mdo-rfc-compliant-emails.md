@@ -40,15 +40,15 @@ Properly RFC compliant P2 (`From:`) addresses are formatted as: `“Display Name
 
 | P2 Address                                                      | Comment                                                                                                    | Compliance        |
 |----------                                                       |-------                                                                                                     |----------         |
-| `shaggy@example.com`                                            | None                                                                                                       | RFC compliant     |
+| `shaggy.rogers@example.com`                                     | None                                                                                                       | RFC compliant     |
 | `<shaggy.rogers@example.com>`                                   | None                                                                                                       | RFC compliant     |
 | `Shaggy Rogers <shaggy.rogers@example.com>`                     | None                                                                                                       | RFC compliant     |
 | `"Shaggy Rogers" <shaggy.rogers@example.com>`                   | Properly formatted with display name                                                                       | RFC compliant     |
 | `"Rogers, Shaggy" <shaggy.rogers@example.com>`                  | Properly formatted with display name                                                                       | RFC compliant     |
+| `"Shaggy Rogers <shaggy.rogers@example.com>"`                   | The entire `From:` value is incorrectly enclosed in double quotation marks, which is not allowed           | Non-RFC compliant |
 | `Rogers, Shaggy <shaggy.rogers@example.com>`                    | A display name that includes a comma must be enclosed in double quotes                                     | Non-RFC compliant |
 | `shaggy.rogers@example.com <shaggy.rogers@another-example.com>` | Display name contains `@` and is not in quotes                                                             | Non-RFC compliant |
 | `"Shaggy Rogers"<shaggy.rogers@example.com>`                    | Missing white space between the display name and email address                                             | Non-RFC compliant |
-| `Rogers, Shaggy <shaggy.rogers@example.com>`                    | A display name that contains a comma must be enclosed in double quotes                                     | Non-RFC compliant |
 | `Shaggy Rogers shaggy.rogers@example.com`                       | When a display name is used, the email address must be enclosed in angle brackets (`<email@address.com`>)  | Non-RFC compliant |
 
 ## Impact of enhanced RFC compliant P2 address detection for Microsoft 365 email senders
