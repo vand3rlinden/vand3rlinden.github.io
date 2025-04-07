@@ -14,29 +14,31 @@ Recently, Microsoft has made a significant improvement in how it detects and han
 
 As a result, users may now see safety tips or warnings in their Outlook clients when they receive emails that do not comply with RFC standards. These alerts are intended to raise awareness and encourage caution when engaging with such messages.
 
+Over time, Microsoft plans to strengthen these measures, which may include blocking or rejecting emails that do not comply with RFC standards. 
+
 ## What are RFC compliant emails?
-To ensure smooth communication between email systems, the **Internet Engineering Task Force (IETF)** defines standards through documents known as RFCs (Request for Comments).
+The **Internet Engineering Task Force (IETF)** defines standards through documents known as RFCs (Request for Comments).
 
 One key standard is **RFC 5322 (Internet Message Format)**, which defines how sender address headers should be structured. **RFC 5322** is also referred to as the **P2 sender** or `From:` (`RFC5322.From`, `header.from`) header, which is the sender address visible to recipients.
 
 Non-RFC compliant emails can be used to:
 
-- **Evade Detection**: Malicious actors use malformed sender addresses to bypass filters and deliver harmful content directly to inboxes.
-- **Mislead Recipients**: By manipulating sender addresses, attackers can make messages appear to come from trusted sources.
-- **Facilitate Phishing and Fraud**: These tactics increase the chances of successful phishing attacks, which can result in data breaches and financial losses.
+- **Evade detection**: Malicious actors use malformed sender addresses to bypass filters and deliver harmful content directly to inboxes.
+- **Mislead recipients**: By manipulating sender addresses, attackers can make messages appear to come from trusted sources.
+- **Facilitate phishing and fraud**: These tactics increase the chances of successful phishing attacks, which can result in data breaches and financial losses.
 
 Enforcing RFC compliant emails is driven by several key reasons:
 
 - **Prevent delivery issues**: Ensures emails are properly accepted by receiving systems, especially those with strict validation rules.
 - **Improve security**: Reduces the risk of spoofed or malicious emails by enforcing proper formatting.
-- **Enhance authentication alignment**: Supports better alignment with DKIM and DMARC for the **P2 sender domain**
+- **Enhance authentication alignment**: Supports better alignment with DKIM and DMARC for the **P2 sender domain**.
 - **Protect recipients**: Helps prevent phishing and fraud by blocking malformed or deceptive emails.
 - **Maintain trust**: Ensures consistent and professional email communication that meets industry standards.
 
 ## Examples of RFC compliant and non-RFC compliant email addresses
 Properly RFC compliant P2 (`From:`) addresses are formatted as: `“Display Name" <email@address.com>`. This structure ensures that the displayname and email address are clearly defined and properly interpreted by email systems. Below are some examples of RFC compliant and non-RFC compliant P2 sender addresses:
 
-| Example                                                         | Comment                                                                                                    | Compliance        |
+| P2 Address                                                      | Comment                                                                                                    | Compliance        |
 |----------                                                       |-------                                                                                                     |----------         |
 | `shaggy@example.com`                                            | None                                                                                                       | RFC compliant     |
 | `<shaggy.rogers@example.com>`                                   | None                                                                                                       | RFC compliant     |
@@ -49,16 +51,15 @@ Properly RFC compliant P2 (`From:`) addresses are formatted as: `“Display Name
 | `Rogers, Shaggy <shaggy.rogers@example.com>`                    | A display name that contains a comma must be enclosed in double quotes                                     | Non-RFC compliant |
 | `Shaggy Rogers shaggy.rogers@example.com`                       | When a display name is used, the email address must be enclosed in angle brackets (`<email@address.com`>)  | Non-RFC compliant |
 
-## What the enhanced detection of RFC compliant P2 sender addresses means for email senders to Microsoft 365
+## Impact of enhanced RFC compliant P2 address detection for Microsoft 365 email senders
 If you are currently using non-RFC compliant P2 sender addresses, it’s important to update your email systems to follow RFC standards, as shown in the above table. Switching to RFC compliant formats helps ensure that your emails are successfully delivered to Microsoft 365 mailboxes without being flagged by detection mechanisms or triggering safety tips for recipients.
 
-## SPF, DKIM, and DMAR vs. RFC compliant emails
+## SPF, DKIM, and DMARC vs. RFC compliant emails
 Both help prevent email spoofing, but it’s important to note that SPF, DKIM, and DMARC focus on email authentication and domain protection, not message formatting. Even if your messages pass these checks, they can still be rejected or flagged if they don’t use RFC compliant P2 sender addresses.
 
 Think of it this way: email authentication proves who you are, but RFC compliant P2 sender addresses shows you’re speaking the correct language.
 
 ## Microsoft Defender XDR Advanced Hunting detection
-
 The following KQL query can be used to detect whether possible vendors or other external senders are sending inbound email messages that do not comply with the RFC standard for RFC compliant P2 (`From:`) addresses:
 
 ```kql
