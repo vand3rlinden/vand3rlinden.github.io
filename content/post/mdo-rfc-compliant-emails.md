@@ -49,7 +49,7 @@ Properly RFC compliant P2 (`From:`) addresses are formatted as: `“Display Name
 | `Rogers, Shaggy <shaggy.rogers@example.com>`                    | A display name that includes a comma must be enclosed in double quotes                                     | Non-RFC compliant |
 | `shaggy.rogers@example.com <shaggy.rogers@another-example.com>` | Display name contains `@` and is not in quotes                                                             | Non-RFC compliant |
 | `"Shaggy Rogers"<shaggy.rogers@example.com>`                    | Missing white space between the display name and email address                                             | Non-RFC compliant |
-| `Shaggy Rogers shaggy.rogers@example.com`                       | When a display name is used, the email address must be enclosed in angle brackets (`<email@address.com`>)  | Non-RFC compliant |
+| `Shaggy Rogers shaggy.rogers@example.com`                       | When a display name is used, the email address must be enclosed in angle brackets (`<email@address.com>`)  | Non-RFC compliant |
 
 ## Impact of enhanced RFC compliant P2 address detection for Microsoft 365 email senders
 If you are currently using non-RFC compliant P2 sender addresses, it’s important to update your email systems to follow RFC standards, as shown in the above table. Switching to RFC compliant formats helps ensure that your emails are successfully delivered to Microsoft 365 mailboxes without being flagged by detection mechanisms or triggering safety tips for recipients.
