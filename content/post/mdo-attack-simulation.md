@@ -65,16 +65,21 @@ After the requirements are set, you can begin creating an attack simulation in t
 While Automated Simulations can be a great fit for your organization, there are some important considerations. For example, if you plan to automate a simulation for an entire year (which is the maximum duration for an automation schedule), you won’t be able to modify the content after the initial setup. This means you’ll be locked into the configuration choices made at the beginning.
 
 ### Individual Simulations 
-Individual simulations, on the other hand, offer more flexibility—especially if you prefer to run separate monthly simulations. They allow for adjustments and customizations between campaigns.
+Individual simulations, on the other hand, offer more flexibility, especially if you prefer to run separate monthly simulations. They allow for adjustments and customizations between campaigns.
 
 ### Payload Selection
+#### Automated simulation - Payload Selection:
 When setting up an automated simulation, you have two options for payload selection:
 - **Manually select**: Up to 20 payloads, including both global and tenant-specific payloads.
 - **Randomize**: Allowing Microsoft to select payloads automatically.
 
-It’s important to note that even in an automated simulation, only one payload is sent out per launch. All targeted users will receive the same payload, which is no different from how individual simulations operate.
+#### Individual Simulation - Payload Selection:
+Only one payload can be configured per simulation.
+
+> It’s important to note that even in an automated simulation, only one payload is sent out per launch. All targeted users will receive the same payload (phishing email).
 
 ### Schedule Selection
+#### Automated simulation - Schedule Selection:
 When configuring the automation schedule, you have two options:  
 
 - **Randomized Schedule**: Can start simulations with randomize send times. However, you cannot limit it to just one simulation per month. Instead, you can schedule up to 10 simulations per year on specific allowed days.
@@ -82,6 +87,9 @@ When configuring the automation schedule, you have two options:
 
 Each automated simulation will be listed in the **Simulations tab** with a naming convention like:  
 `AutomatedSimulation_PayloadName [Technique]_date`
+
+#### Individual Simulation - Schedule Selection:
+Each individual simulation can be configured to start at a different time. You can either create a new simulation each month or set up all 12 simulations at once, using varying dates and times to maintain user engagement and reduce predictability.
 
 #### Simulation schedule comparison
 
