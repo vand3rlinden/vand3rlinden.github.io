@@ -53,7 +53,7 @@ Below are some examples of **RFC compliant** and **non-RFC compliant** P2 sender
 | `"Shaggy Rogers"<shaggy.rogers@example.com>`                    | Missing white space between the display name and email address                                             | Non-RFC compliant |
 | `Shaggy Rogers shaggy.rogers@example.com`                       | When a display name is used, the email address must be enclosed in angle brackets (`<email@address.com>`)  | Non-RFC compliant |
 
-## Impact of enhanced RFC compliant P2 address detection for Microsoft 365 email senders
+## Impact of non-RFC compliant P2 address detection for Microsoft 365 email senders
 If you are currently using non-RFC compliant P2 sender addresses, it’s important to update your email systems to follow RFC standards, as shown in the above table. Switching to RFC compliant formats helps ensure that your emails are successfully delivered to Microsoft 365 mailboxes without being flagged by detection mechanisms or triggering safety tips for recipients.
 
 ## SPF, DKIM, and DMARC vs. RFC compliant emails
