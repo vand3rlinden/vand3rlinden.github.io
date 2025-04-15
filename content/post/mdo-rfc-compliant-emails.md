@@ -19,7 +19,7 @@ Over time, Microsoft plans to strengthen these measures, which may include block
 ## What are RFC compliant emails?
 The **Internet Engineering Task Force (IETF)** defines standards through documents known as RFCs (Request for Comments).
 
-One key standard is **RFC 5322 (Internet Message Format)**, which defines how sender address headers should be structured. **RFC 5322** is also referred to as the **P2 sender** or `From:` (`RFC5322.From`, `header.from`) header, which is the sender address visible to recipients.
+One key standard is **RFC 5322 (Internet Message Format)**, which defines how sender address headers should be structured. **RFC 5322** is also referred as the **P2 sender** or `From:` (`RFC5322.From`, `header.from`) header, which is the sender address visible to recipients.
 
 Properly RFC compliant P2 (`From:`) addresses are formatted as: `“Display Name" <email@address.com>`. This structure ensures that the displayname and email address are clearly defined and properly interpreted by email systems. 
 
