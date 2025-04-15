@@ -103,7 +103,7 @@ You can configure DKIM with a `TXT` record in your DNS zone for your sending mai
 
 > _Note: that a DKIM record is required for each sending server or mail provider._
 
-How you set up DKIM can vary depending on your mail provider; setting up DKIM for [Salesforce](https://help.salesforce.com/s/articleView?id=sf.emailadmin_create_secure_dkim.htm&type=5) differs from [Exchange Online](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/email-authentication-dkim-configure?view=o365-worldwide#steps-to-create-enable-and-disable-dkim-from-microsoft-defender-portal) in Microsoft Defender for Office 365.
+How you set up DKIM depends on your sending server or mail provider. For example, configuring DKIM for [Salesforce](https://help.salesforce.com/s/articleView?id=sales.emailadmin_create_secure_dkim.htm) differs from [Exchange Online](https://learn.microsoft.com/en-us/defender-office-365/email-authentication-dkim-configure) in Microsoft Defender for Office 365. If you’re managing your own mail server and using MTAs like Sendmail or Postfix, you can implement DKIM using tools such as [OpenDKIM](http://www.opendkim.org/).
 
 ### DKIM recommendations
 - You must implement DKIM key rotation for each sending service to prevent adversaries from intercepting and decrypting your DKIM keys. DKIM Key rotation helps to minimize the risk of having a private key compromised.
