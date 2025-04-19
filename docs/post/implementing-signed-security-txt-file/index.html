@@ -30,7 +30,9 @@ The security.txt file is typically hosted at /.well-known/security.txt on a webs
         }
 
     </style>
-</noscript><meta property="og:title" content="Implementing a signed security.txt file with PGP on your webserver" />
+</noscript>
++
++<meta property="og:title" content="Implementing a signed security.txt file with PGP on your webserver" />
 <meta property="og:description" content="
 A security.txt file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. Adding a signed security.txt file to your webserver enhances credibility and ensures trust, as the signature allows others to verify its authenticity. This blog will walk you through implementing a signed security.txt file using PGP (Pretty Good Privacy).
 Introduction
@@ -41,7 +43,8 @@ The security.txt file is typically hosted at /.well-known/security.txt on a webs
 <meta property="article:published_time" content="2024-11-25T23:35:37+01:00" />
 <meta property="article:modified_time" content="2024-11-25T23:35:37+01:00" />
 
-<meta name="twitter:card" content="summary_large_image" />
+
++<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://vand3rlinden.com/images/implementing-signed-security-txt-file/implementing-signed-security-txt-file-front.png" />
 <meta name="twitter:title" content="Implementing a signed security.txt file with PGP on your webserver"/>
 <meta name="twitter:description" content="
@@ -49,6 +52,7 @@ A security.txt file is an industry standard used by organizations to provide a c
 Introduction
 The security.txt file is typically hosted at /.well-known/security.txt on a webserver. It follows a standardized format to share security contact information, preferred encryption keys, and disclosure policies. However, without proper authentication, anyone could tamper with the file. A signed security.txt solves this issue by letting others verify the file’s legitimacy using your PGP key. Here’s how to create, sign, and verify a security.txt file for your webserver."/>
 
++
 
 <script type="application/ld+json">
 {

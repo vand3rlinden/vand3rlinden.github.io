@@ -30,7 +30,9 @@ After setting up DKIM in Microsoft Defender for Office 365, it is also important
         }
 
     </style>
-</noscript><meta property="og:title" content="Microsoft Defender for Office 365: Hardening DKIM and DMARC configuration" />
+</noscript>
++
++<meta property="og:title" content="Microsoft Defender for Office 365: Hardening DKIM and DMARC configuration" />
 <meta property="og:description" content="
 Improve email security in Microsoft 365: Fine-tuning DKIM, configuring DMARC for the MOERA domain, and blocking inbound DMARC failures from reaching user inboxes.
 Fine-tune DKIM by frequently rotating the DKIM keys
@@ -41,7 +43,8 @@ After setting up DKIM in Microsoft Defender for Office 365, it is also important
 <meta property="article:published_time" content="2024-04-21T15:31:27+02:00" />
 <meta property="article:modified_time" content="2024-04-21T15:31:27+02:00" />
 
-<meta name="twitter:card" content="summary_large_image" />
+
++<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://vand3rlinden.com/images/mdo-hardening-dkim-dmarc-config/mdo-hardening-dkim-dmarc-config-front.png" />
 <meta name="twitter:title" content="Microsoft Defender for Office 365: Hardening DKIM and DMARC configuration"/>
 <meta name="twitter:description" content="
@@ -49,6 +52,7 @@ Improve email security in Microsoft 365: Fine-tuning DKIM, configuring DMARC for
 Fine-tune DKIM by frequently rotating the DKIM keys
 After setting up DKIM in Microsoft Defender for Office 365, it is also important to set up frequent rotation of these DKIM keys to prevent adversaries from intercepting and decrypting your cryptographic keys. Key rotation helps to minimize the risk of compromising the private keys. In Microsoft 365, you can rotate the DKIM keys for your domains to increase security. The recurrence must be every 3 months because rotating the DKIM keys every 3 months ensures a complete rotation of both selectors every 6 months. You can rotate the DKIM keys manually using the Defender portal or Exchange Online PowerShell, but it is easy to forget if you do it manually. So you should delegate this to Azure Automation by using the runbook below:"/>
 
++
 
 <script type="application/ld+json">
 {
