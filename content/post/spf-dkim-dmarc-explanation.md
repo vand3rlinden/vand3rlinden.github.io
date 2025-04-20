@@ -94,7 +94,7 @@ The receiving server makes a DNS request using the sender’s domain name (P2 Se
 DKIM will pass if the sending server’s private key can be confirmed by the receiving server, using the public key in the sending domain’s DNS zone. This public key is published in a `TXT` or within a `CNAME` record. For example, if in `TXT`:
 
 - Hostname: `key1._domainkey.yourdomain.com` (in `TXT`)
-- Value: `v=DKIM1;t=s;p=MIIBIjANBgkqhkiG9w0BA...` (public key)
+- Value: `v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9….;` (public key)
 
 ![IMAGE](/images/spf-dkim-dmarc-explanation/dkim-visual.png)
 
