@@ -27,7 +27,7 @@ The attack typically follows these steps:
    ![IMAGE](/images/m365-protect-against-aitm-phishing/m365-protect-against-aitm-phishing-2.png)
 
 3. **Credential Harvesting**  
-   If the user also fails to notice red flags in the URL and enters their credentials, the attacker is able to intercept and steal **authorization tokens**, giving them access to the user’s session—even with MFA enabled.  
+   If the user also fails to notice red flags in the URL and enters their credentials, the attacker is able to intercept and steal **authorization tokens**, giving them access to the user’s session, even with MFA enabled.  
 
    ![IMAGE](/images/m365-protect-against-aitm-phishing/m365-protect-against-aitm-phishing-3.png)
 
@@ -39,7 +39,7 @@ Human error remains one of the leading causes of successful phishing attacks. No
 [Attack simulation training using Microsoft Defender for Office 365](https://vand3rlinden.com/post/mdo-attack-simulation/) or other platforms, such as **Knowbe4**, allows organizations to run real-world phishing simulations and educate users on how to spot suspicious links, spoofed login pages, or unexpected MFA prompts.
 
 ## Phishing-Resistant MFA
-Not all MFA methods are created equal. Most AiTM attacks work because they can intercept standard MFA flows like SMS or app-based codes. To defend effectively, organizations should enforce phishing-resistant MFA methods such as: FIDO2 security keys, these hardware-based tokens that are inherently resistant to AiTM attacks. This is because FIDO2 authentication is bound to the specific origin (i.e., the legitimate website or application). A sign-in attempt on a different surface — such as a phishing site — will fail if the origin does not match. This effectively prevents credentials from being reused on malicious or unauthorized platforms.
+Not all MFA methods are created equal. Most AiTM attacks work because they can intercept standard MFA flows like SMS or app-based codes. To defend effectively, organizations should enforce phishing-resistant MFA methods such as: FIDO2 security keys, these hardware-based tokens that are inherently resistant to AiTM attacks. This is because FIDO2 authentication is bound to the specific origin (i.e., the legitimate website or application). A sign-in attempt on a different surface, such as a phishing site, will fail if the origin does not match. This effectively prevents credentials from being reused on malicious or unauthorized platforms.
 
 [Enable passkeys (FIDO2) for your organization](https://learn.microsoft.com/en-us/entra/identity/authentication/how-to-enable-passkey-fido2)
 
@@ -49,12 +49,12 @@ Start by securing admin accounts first. Accounts with highly privileged administ
 
 [Policy Implementation](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-admin-phish-resistant-mfa)
 
-Tip: When using eligible roles in PIM (Privileged Identity Management), it’s recommended to include an Entra ID group—preferably a dynamic group based on your admin naming convention (e.g., ‘adm’)—instead of include roles directly to the Conditional Access Policy.
+Tip: When using eligible roles in PIM (Privileged Identity Management), it’s recommended to include an Entra ID group, preferably a dynamic group based on your admin naming convention (e.g., ‘adm’), instead of include roles directly to the Conditional Access Policy.
 
 ### Require compliant devices
 Ensures only trusted and compliant devices can access corporate resources.
 
-Why it helps: Blocks attackers using stolen credentials via AiTM phishing—even if they bypass MFA—because their device won’t meet compliance requirements.
+Why it helps: Blocks attackers using stolen credentials via AiTM phishing, even if they bypass MFA, because their device won’t meet compliance requirements.
 
 [Policy Implementation](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-alt-all-users-compliant-hybrid-or-mfa)
 
@@ -98,12 +98,12 @@ To proactively block access to such sites, you can configure web content filteri
 
 These categories are frequently leveraged by threat actors to bypass email filters and trick users into entering their credentials.
 
-Why it helps: Blocking access to these domains prevents users from ever reaching the phishing page—even if they click a link in a legitimate-looking email.
+Why it helps: Blocking access to these domains prevents users from ever reaching the phishing page, even if they click a link in a legitimate-looking email.
 
 This is especially effective when combined with [Defender SmartScreen](https://learn.microsoft.com/en-us/windows/security/operating-system-security/virus-and-threat-protection/microsoft-defender-smartscreen/) and [Network Protection](https://learn.microsoft.com/en-us/defender-endpoint/enable-network-protection) policies to stop outbound access to malicious or suspicious domains.
 
 ### Configure Automatic Attack Disruption in Microsoft Defender XDR
-Attackers move fast — sometimes within minutes of obtaining access. That’s why it’s crucial to respond faster.
+Attackers move fast, sometimes within minutes of obtaining access. That’s why it’s crucial to respond faster.
 
 Microsoft Defender XDR now offers automatic attack disruption, which can take immediate action when high-confidence signals of compromise are detected. This capability works across Defender for Endpoint, Defender for Identity, Defender for Office 365, and Defender for Cloud Apps.
 
@@ -117,4 +117,4 @@ What it does:
 Why it helps: Even if AiTM phishing is successful and the attacker gains a foothold, automatic attack disruption can contain the threat before significant damage occurs.
 
 ## Summary
-AiTM phishing attacks are hard to stop with a single control. By combining phishing-resistant MFA, Conditional Access policies, risk-based access controls, token protection, web filtering, user training, and automatic attack disruption in Microsoft Defender XDR, you build a strong, layered defense. The goal isn’t just to prevent attacks—but to detect, contain, and respond before damage is done. Defense in depth is your best strategy in the evolving threat landscape.
+AiTM phishing attacks are hard to stop with a single control. By combining phishing-resistant MFA, Conditional Access policies, risk-based access controls, token protection, web filtering, user training, and automatic attack disruption in Microsoft Defender XDR, you build a strong, layered defense. The goal isn’t just to prevent attacks, but to detect, contain, and respond before damage is done. Defense in depth is your best strategy in the evolving threat landscape.
