@@ -35,8 +35,8 @@ While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages
 - The domain you want to secure with inbound SMTP DANE with DNSSEC must referenced to an `MX` record such as `yourdomain-com.mail.protection.outlook.com`.
 
 - To configure inbound SMTP DANE with DNSSEC for your Accepted Domain, such as `yourdomain.com`, ensure that:
-  - If this domain is referenced in any smarthost configurations, or in any connectors, you need to switch the smarthost name to `yourdomain-com.mail.protection.outlook.com`
-  - Your business partners update their connectors to `yourdomain.onmicrosoft.com` or `yourdomain-com.mail.protection.outlook.com` to avoid failures. After enabling DANE, partners can switch to the new `yourdomain-com.<random>.mx.microsoft` endpoint to restore the original connection.
+  - If this domain is referenced in any smarthost configurations, or in any connectors, you need to switch the smarthost name to `tenantname.mail.protection.outlook.com`
+  - Your business partners update their connectors to `tenantname.onmicrosoft.com` or `tenantname.mail.protection.outlook.com` to avoid failures. After enabling DANE, partners can switch to the new `yourdomain-com.<random>.mx.microsoft` endpoint to restore the original connection.
 
 ## Set up inbound SMTP DANE with DNSSEC in Exchange Online
 Below is a simplified version of the implementation compared to the official [Microsoft Learn documentation](https://learn.microsoft.com/en-us/purview/how-smtp-dane-works#set-up-inbound-smtp-dane-with-dnssec).
@@ -146,3 +146,4 @@ The reports are received in `.json`, you can look for the `summary` tag to check
 - [How SMTP DNS-based Authentication of Named Entities (DANE) works](https://learn.microsoft.com/en-us/purview/how-smtp-dane-works)
 - [DNSSEC Analyzer](https://dnssec-analyzer.verisignlabs.com/)
 - [TLSRPT is defined in RFC8460](https://datatracker.ietf.org/doc/html/rfc8460)
+- [TLS-RPT Record Checker](https://easydmarc.com/tools/tls-rpt-check)
