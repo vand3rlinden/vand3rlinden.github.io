@@ -7,10 +7,10 @@ cover:
   image: /images/implementing-signed-security-txt-file/implementing-signed-security-txt-file-front.png
 ---
 
-> _A `security.txt` file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. Adding a signed `security.txt` file to your webserver enhances credibility and ensures trust, as the signature allows others to verify its authenticity. This blog will walk you through implementing a signed `security.txt` file using PGP (Pretty Good Privacy)._
+> _A `security.txt` file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. This blog will walk you through implementing a signed `security.txt` file using PGP (Pretty Good Privacy)._
 
 ## Introduction
-The `security.txt` file is typically hosted at `/.well-known/security.txt` on a webserver. It follows a standardized format to share security contact information, preferred encryption keys, and disclosure policies. However, without proper authentication, anyone could tamper with the file. A signed `security.txt` solves this issue by letting others verify the file’s legitimacy using your PGP key. Here’s how to create, sign, and verify a `security.txt` file for your webserver.
+The `security.txt` file, typically hosted at `/.well-known/security.txt`, provides a standardized way for security researchers to find the correct point of contact for reporting vulnerabilities. It helps ensure that security issues are directed to the right people quickly and efficiently. While it’s recommended to optionally sign the file with a PGP key for added authenticity, the primary goal is to clearly list how to reach your security team or responsible contact. Below, we’ll cover how to create a straightforward, effective `security.txt` file for your site.
 
 ## Step 1: Generate a PGP Key Pair
 If you don’t already have a PGP key pair, you’ll need to generate one. A PGP key pair consists of a public key, which you can share publicly, and a private key, which is kept secret.
