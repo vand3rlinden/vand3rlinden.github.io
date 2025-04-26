@@ -74,6 +74,7 @@ Quickly access SecOps tools and portals across Microsoft 365, including Defender
 - [CVE Details](https://www.cvedetails.com/)
 - [Shodan](https://www.shodan.io/)
 - [Sucuri SiteCheck scanner](https://sitecheck.sucuri.net)
+- [CyberChef](https://gchq.github.io/CyberChef/)
 
 ## My Pages
 - [MyAccess](https://myaccess.microsoft.com)
