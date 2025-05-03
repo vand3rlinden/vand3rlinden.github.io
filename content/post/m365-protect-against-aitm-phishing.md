@@ -74,6 +74,16 @@ Allows you to define automatic responses, such as enforcing multi-factor authent
 
 [Policy Implementation](https://learn.microsoft.com/en-us/entra/id-protection/howto-identity-protection-configure-risk-policies)
 
+### Require re-authentication and disable browser persistence
+Protect user access on unmanaged devices by configuring browser sessions to sign out automatically when the browser is closed and setting the sign-in frequency to 1 hour. This reduces the risk of unauthorized access by ensuring users must re-authenticate regularly and session data is not retained.
+
+Why it helps:
+- Sign-in frequency: By default, users in Microsoft Entra ID can remain signed in to applications like Microsoft 365 for up to 90 days without reauthenticating. Enforcing a timeout for MFA helps ensure that sessions are not kept alive indefinitely, enhancing security by requiring users to re-authenticate periodically.
+
+- Persistent browser session - Never persistent: The concept of a non-persistent browser session is designed to prevent users from remaining signed in after closing their browser. Disabling browser persistent sessions helps protect against drive-by attacks by preventing the creation and storage of session cookies, leaving nothing behind for an attacker to steal. While this does not prevent AiTM attacks, since AiTM targets active sessions rather than stored session data, non-persistent sessions still contribute to a layered defense. They help by limiting the time an attacker can use stolen session tokens, enforcing more frequent reauthentication.
+
+[Policy Implementation](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-all-users-persistent-browser)
+
 ### Require token protection for sign-in sessions
 Microsoft is rolling out token protection to combat token theft. As of now, it’s supported for **SharePoint Online** and **Exchange Online**.
 
