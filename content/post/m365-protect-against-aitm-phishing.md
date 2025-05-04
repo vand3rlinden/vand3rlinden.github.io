@@ -52,11 +52,11 @@ Start by securing admin accounts first. Accounts with highly privileged administ
 Tip: When using eligible roles in PIM (Privileged Identity Management), it’s recommended to include an Entra ID group, preferably a dynamic group based on your admin naming convention (e.g., ‘adm’), instead of include roles directly to the Conditional Access Policy.
 
 ### Require compliant devices
-Ensures only trusted and compliant devices can access corporate resources.
+To ensure that only trusted and compliant devices can access corporate resources, begin by applying these restrictions to admin accounts. As mentioned earlier in this blog, accounts with administrative rights are prime targets for attackers. Requiring these users to operate only from compliant or Microsoft Entra hybrid joined devices helps minimize the risk of compromise and limits potential exposure.
 
 Why it helps: Blocks attackers using stolen credentials via AiTM phishing, even if they bypass MFA, because their device won’t meet compliance requirements.
 
-[Policy Implementation](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-alt-all-users-compliant-hybrid-or-mfa)
+[Policy Implementation](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-alt-admin-device-compliand-hybrid)
 
 ### Restrict Access by Network Location
 Implement location-based Conditional Access policies to limit access to specific countries or trusted IP ranges.
