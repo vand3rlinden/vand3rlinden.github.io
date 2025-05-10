@@ -35,10 +35,10 @@ SPF will pass if the sender’s IP is added to the SPF record for the P1 Sender 
 ![IMAGE](/images/spf-dkim-dmarc-explanation/spf-visual.png)
 
 ### P1 vs. P2 - Sender explanation table:
-| Postal Letter      | Precise Term                    | Protected by  |
-| -----------        | -----------                     | -----------   |
-| Sender on envelope | `RFC5321.MailFrom` (P1 Sender)  |  SPF          |
-| Author on letter   | `RFC5322.From` (P2 Sender)      |  DKIM + DMARC |
+| Postal Letter                        | Precise Term                    | Protected by  |
+| -----------                          | -----------                     | -----------   |
+| Sender on envelope (Envelope sender) | `RFC5321.MailFrom` (P1 Sender)  |  SPF          |
+| Author on letter (Header sender)     | `RFC5322.From` (P2 Sender)      |  DKIM + DMARC |
 
 ### Implementation of SPF
 When you add your domain to Microsoft 365, Microsoft will ask you to provide an SPF record, such as `v=spf1 include:spf.protection.outlook.com -all`. If you have more allowed senders, you must include them in the SPF record. For example `v=spf1 include:spf.protection.outlook.com include:_spf.domain.com ip4:11.222.33.444 -all`
