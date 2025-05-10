@@ -13,11 +13,11 @@ cover:
 SPF, DKIM, and DMARC are critical email authentication protocols that help prevent email spoofing, phishing attacks, and domain impersonation for ***outbound email***. Enabling these protocols together strengthens your domain's email authentication mechanisms, improves security, and builds trust with your recipients by ensuring that email sent from your domain is legitimate and trustworthy.
 
 ### SPF, DKIM and DMARC - Comparison table:
-| Protocol           | Precise Term                     | Purpose                             |
-| -----------        | -----------                      | -----------                         |
-| SPF                | `RFC5321.MailFrom` (P1 Sender)   | Sender authorization check          |
-| DKIM               | `RFC5322.From` (P2 Sender)       | Message authenticity verification   |
-| DMARC              | `RFC5322.From` (P2 Sender)       | Final shield on top of SPF and DKIM |
+| Protocol      |  Term                                   | Precise Term                     | Purpose                             |
+| -----------   | -----------                             | -----------                      | -----------                         |
+| SPF           | Envelope sender                         | `RFC5321.MailFrom` (P1 Sender)   | Sender authorization check          |
+| DKIM          | Header sender (visible for recipients)  | `RFC5322.From` (P2 Sender)       | Message authenticity verification   |
+| DMARC         | Header sender (visible for recipients)  | `RFC5322.From` (P2 Sender)       | Final shield on top of SPF and DKIM |
 
 ## SPF
 ### What is SPF
