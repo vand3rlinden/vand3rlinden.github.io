@@ -27,10 +27,10 @@ When you segment your vendors and email streams, there is no need for SPF flatte
 
 Subdomain segmentation can be implemented in three ways:
 
-1. Using a direct subdomain address, such `news.yourdomain.com`, where both the  P1 sender (envelope sender) and P2 sender (header sender) use the subdomain (e.g., `news@new.yourdomain.com`).
+1. Using a direct subdomain address, such `news.yourdomain.com`, where both the  P1 sender (envelope sender) and P2 sender (header sender) use the subdomain (e.g., `news@news.yourdomain.com`).
 2. Setting only the P1 sender to a subdomain (if supported by your vendor or email stream, such as SendGrid) allows SPF alignment in relaxed mode (assuming your DMARC policy uses the default `aspf=r` tag). For example, SPF aligns with subdomain `news.yourdomain.com` as the P1 sender, while the email is still sent from your primary domain `yourdomain.com` as the P2 sender (e.g., `news@yourdomain.com`).
    - DAMRC policy tag `aspf=r` (relaxed mode): In this mode, the authenticated signing domain and the sender domain can be subdomains of each other and still be considered aligned.
-3. Using an SPF macro that points to a subdomain for a static sender allows you to continue sending from your main domain, but only from a fixed sender address (e.g., `news@yourdomain.com`).
+3. Using an SPF macro that points to a subdomain allows you to continue sending from your main domain, but only from a fixed/static sender address (e.g., `news@yourdomain.com`).
 
 These subdomain segmentation options can be combined, as covered in this blog. Adopting SPF segmentation increases control, reduces attack surfaces, and mitigates the impact of potential cyber incidents. 
 
@@ -156,7 +156,7 @@ Final computation of DNS lookups:
 | Total:                               | 3 DNS Lookups                          |
 
 ## Lastly
-For the future of your SPF record, add IP addresses using the separate include, and carefully decide whether a SaaS application should be sent through a subdomain or a static address instead of any address from your primary domain. In addition, make it a habit to monitor your SPF record frequently and document each sender you list.
+For the future of your SPF record, add IP addresses using the separate include, and carefully decide whether a SaaS application should be sent through a subdomain or a fixed sender address instead of any address from your primary domain. In addition, make it a habit to monitor your SPF record frequently and document each sender you list.
 
 ## Reference
 - [Dmarcian SPF best practices - Unavailable from the Netherlands](https://dmarcian.com/spf-best-practices/)
