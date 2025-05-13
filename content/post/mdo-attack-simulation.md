@@ -58,7 +58,7 @@ After the requirements are set, you can begin creating an attack simulation in t
   - [Training campaigns for Attack simulation](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-training-campaigns)
     - Instead of creating and launching simulated phishing attacks that eventually lead to training, you can create and assign Training campaigns directly to users.
   - [Payload automations for Attack simulation training](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-payload-automations)
-     - Payload automations, also known as payload harvesting, can collect data from real-world phishing attacks reported as phishing by users within your organization (and verified by Microsoft as phishing). You can define specific conditions to identify in phishing attacks, such as recipient details, social engineering techniques, or sender information.
+     - Payload automations, also known as payload harvesting, can collect data from real-world phishing attacks reported as phishing by users within your organization (and [verified by Microsoft as phishing](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-payload-automations#appendix)). You can define specific conditions to identify in phishing attacks, such as recipient details, social engineering techniques, or sender information.
 
 ## Automation vs. Individual simulations
 ### Automated Simulations
@@ -123,6 +123,8 @@ Each individual simulation can be configured to start at a different time. You c
 - Select ***End user notifications***
   - Global notifications: Includes built-in end user notifications send From `notification@attacksimulationtraining.com`
   - Tenant notifications: Includes custom end user notifications for branding and to set a different From address to an internal mailbox
+
+> Images that you use in end user notifications may be [blocked](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-faq#why-are-images-in-simulation-messages-blocked-by-outlook) with a message that the sender is not in the Outlook Safe Senders list. This happens by default because Outlook is configured to block automatic image downloads in messages from the Internet.
 
 - Select [target users](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-simulations#target-users), who will receive the simulated phishing message and on what schedule
   - All users or specific users and groups
