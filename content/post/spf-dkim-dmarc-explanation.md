@@ -83,9 +83,9 @@ Most mailbox providers will treat soft and hard- fails directives similarly, but
 > ***NOTE:*** If an email cannot pass SPF (e.g. due to relaying), it can be hard rejected at the SMTP level with an SPF hardfail (`-all`), which may prevent DMARC and DKIM evaluation. If you are unsure whether your senders are passing SPF, then [consider using an SPF softfail (`~all`)](https://www.mailhardener.com/blog/why-mailhardener-recommends-spf-softfail-over-fail) along with DMARC set to reject (`p=reject`). This ensures that the DMARC and DKIM evaluation is always performed in the absence of a valid SPF validation.
 
 ### Limitations of SPF
-Although SPF works relatively well in theory, there are several flaws in the protocol that mean that SPF alone is not enough to protect a sending domain.
+Although SPF performs reasonably well in theory, it has several limitations that make it insufficient on its own to fully protect a sending domain.
 
-The SPF protocol only protects the P1 sender and not the P2 sender of the email. DKIM was created to protect the P2 sender by adding a signature (SHA-256 hash function) to the email. But then there was the problem that not every mail server has an active policy for DKIM, which is why DMARC was created. With DMARC, the sender specifies on behalf of their domain what should be done with email that does not meet the DMARC requirements. DMARC protects the P2 sender as the last line of defense.
+SPF only validates the P1 sender, not the P2 sender. To address this gap, DKIM was introduced. DKIM helps protect the P2 sender by attaching a cryptographic signature to the message, allowing the receiving mail server to verify its authenticity by matching the private key used to sign the message with the public key published in DNS. However, not all sending mail servers had support to add DKIM signatures. This limitation led to the development of DMARC. DMARC allows domain owners to publish policies specifying how to handle messages that fail SPF and/or DKIM checks, particularly when the P1 and P2 identities are not aligned. Acting as the final layer of defense, DMARC ensures protection for the P2 sender by enforcing alignment and providing clear instructions for handling authentication failures.
 
 ## DKIM
 ### What is DKIM
