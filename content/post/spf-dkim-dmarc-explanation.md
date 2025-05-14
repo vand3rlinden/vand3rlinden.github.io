@@ -19,6 +19,14 @@ SPF, DKIM, and DMARC are critical email authentication protocols that help preve
 | DKIM     | Confirms message authenticity through cryptographic signature matching |
 | DMARC    | Enforces email policy by aligning SPF and DKIM results                 |
 
+### P1 vs. P2 - Sender explanation table:
+In this blog, you will read a lot about the P1 and P2 sender. Please refer to the table below to become familiar with these terms.
+
+| Postal Letter                        | Precise Term                    | Protected by  |
+| -----------                          | -----------                     | -----------   |
+| Sender on envelope (Envelope sender) | `RFC5321.MailFrom` (P1 Sender)  |  SPF          |
+| Author on letter (Header sender)     | `RFC5322.From` (P2 Sender)      |  DKIM + DMARC |
+
 ## SPF
 ### What is SPF
 Sender Policy Framework (SPF) is a protocol that aims to reduce spam. SPF can reduce email spoofing and spam by determining if the sender is authorized to send on behalf of the listed sender.
@@ -33,12 +41,6 @@ If an unauthorized server sends on behalf of your domain, the email will get a `
 SPF will pass if the sender’s IP is added to the SPF record for the P1 Sender domain.
 
 ![IMAGE](/images/spf-dkim-dmarc-explanation/spf-visual.png)
-
-### P1 vs. P2 - Sender explanation table:
-| Postal Letter                        | Precise Term                    | Protected by  |
-| -----------                          | -----------                     | -----------   |
-| Sender on envelope (Envelope sender) | `RFC5321.MailFrom` (P1 Sender)  |  SPF          |
-| Author on letter (Header sender)     | `RFC5322.From` (P2 Sender)      |  DKIM + DMARC |
 
 ### Implementation of SPF
 When you add your domain to Microsoft 365, Microsoft will ask you to provide an SPF record, such as `v=spf1 include:spf.protection.outlook.com -all`. If you have more allowed senders, you must include them in the SPF record. For example `v=spf1 include:spf.protection.outlook.com include:_spf.domain.com ip4:11.222.33.444 -all`
