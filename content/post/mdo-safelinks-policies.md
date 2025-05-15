@@ -50,7 +50,7 @@ In this article, we will use the Microsoft Security portal for the configuration
       - Wait for URL scanning to complete before delivering the message (recommended value: `$true`).
 
       - Do not rewrite URLs, do checks via Safe Links API only (recommended value: `$false`).
-        - If this setting is enabled, URLs are not wrapped, but they are scanned before the message is delivered. But ***only*** in supported versions of Outlook (Windows, Mac, and Outlook on the web), Safe Links functionality is invoked exclusively via APIs at the time a URL is clicked, hence the recommendation to set it to `$false`.
+        - When this setting is on (`$true`), URLs aren’t wrapped but are scanned before delivery. In supported Outlook clients (Windows, Mac, web), Safe Links checks happen only at click-time via APIs. Setting it to `$false` ensures URLs are wrapped, providing more consistent protection across all clients—not just the supported ones.
 
       - Do not rewrite the following URLs in email (recommended value: `none`).
 
@@ -72,7 +72,7 @@ In this article, we will use the Microsoft Security portal for the configuration
     - **Office 365 apps**:
       - Safe Links checks a list of known, malicious links when users click links in Microsoft Office apps. URLs are not rewritten (recommended value: `$true`).
         - Safe Links is supported in Office 365 desktop and mobile (iOS and Android) apps.
-        - 
+  
     - **Click protection settings**:
       - Track user clicks (recommended value: `$true`)
       - Let users click through to the original URL (recommended value: `$false`).
@@ -82,7 +82,7 @@ In this article, we will use the Microsoft Security portal for the configuration
     - **Notification**:
       - Use custom notification text (recommended value: `none`).
   
-6. Save you new Safe links policy
+6. Save your new Safe links policy
 
 > ***NOTE:*** Allow up to 6 hours for a new or updated policy to be applied.
 
