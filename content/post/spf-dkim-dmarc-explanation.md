@@ -115,7 +115,7 @@ How you set up DKIM depends on your sending server or mail provider. For example
 
 ## DMARC
 ### What is DMARC
-DMARC (Domain-based Message Authentication, Reporting and Conformance) acts as a shield on top of SPF and DKIM. With DMARC, the sender specifies what to do with email on behalf of the domain if it does not meet the requirements of SPF and DKIM.
+DMARC (Domain-based Message Authentication, Reporting and Conformance) acts as a shield on top of SPF and DKIM. With DMARC, domain owners specify how to handle emails sent on behalf of their domain if those messages fail SPF and/or DKIM checks. This allows them to define whether such emails should be monitored, quarantined, or rejected entirely.
 
 ### How DMARC works
 Once your domain has a DMARC record, any receiving email server can verify the incoming email based on the instructions in the DMARC policy. If the email passes the DMARC authentication, it will be delivered and can be trusted. If the email fails the check, depending on the instructions in the DMARC record, the email can be delivered, quarantined (flagged as potentially suspicious), or rejected.
