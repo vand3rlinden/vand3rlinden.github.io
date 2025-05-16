@@ -50,7 +50,17 @@ In this article, we will use the Microsoft Security portal for the configuration
       - Wait for URL scanning to complete before delivering the message (recommended value: `$true`).
 
       - Do not rewrite URLs, do checks via Safe Links API only (recommended value: `$false`).
-        - When this setting is on (`$true`), URLs aren’t wrapped but are scanned before delivery. In supported Outlook clients (Windows, Mac, web), Safe Links checks happen only at click-time via APIs. Setting it to `$false` ensures URLs are wrapped, providing more consistent protection across all clients—not just the supported ones.
+        - Wrapping URLs (Do not rewrite URLs: `$false`) ensures more consistent protection across all email clients, while disabling it (Do not rewrite URLs `$true`) offers a cleaner experience but limits protection to supported Outlook clients only. Below a summary table:
+          - URL Wrapping (Do not rewrite URLs: `$false`)
+            - URLs are rewritten into a `safelinks.protection.outlook.com` format.
+            - Protection happens at click-time, using Microsoft’s backend to evaluate the link.
+            - Works across all clients, even those that don’t support Safe Links APIs (e.g., mobile apps, third-party email apps).
+            - Microsoft recommends it for environments where users access emails from a variety of clients and devices.
+          - No URL Rewriting (Do not rewrite URLs: `$true`)
+            - URLs remain in their original form; they are not visibly changed.
+            - Scanned before delivery, and checked again at click-time using Safe Links APIs.
+            - Only supported in modern Outlook clients: Outlook for Windows, Mac, and Outlook on the web (OWA).
+            - Cleaner experience (no strange-looking links), but less coverage, older clients or unsupported apps won’t trigger click-time protection.
 
       - Do not rewrite the following URLs in email (recommended value: `none`).
 
