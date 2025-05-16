@@ -21,15 +21,15 @@ In this article, we will use the Microsoft Security portal for the configuration
 
 1. Go to the [Safe Attachments policies](https://security.microsoft.com/safelinksv2) in the Microsoft Security portal.
 
-2. Click on 'Global settings'
+2. Click on 'Global settings'.
 
-3. Check 'Turn on Defender for Office 365 for SharePoint, OneDrive, and Microsoft Teams'
+3. Check 'Turn on Defender for Office 365 for SharePoint, OneDrive, and Microsoft Teams'.
     - If a file in any SharePoint, OneDrive, or Microsoft Teams library is detected as malicious, [Safe Attachments for SharePoint, OneDrive, and Microsoft Teams](https://learn.microsoft.com/en-us/defender-office-365/safe-attachments-for-spo-odfb-teams-about) will prevent users from opening and downloading the file.
 
-4. Check 'Turn on Safe Documents for Office clients'
+4. Check 'Turn on Safe Documents for Office clients'.
     - To protected your users, [Safe Documents](https://learn.microsoft.com/en-us/defender-office-365/safe-documents-in-e5-plus-security-about) sends file information to the Microsoft Defender for Endpoint cloud for analysis (Only available with Microsoft 365 E5 or Microsoft 365 E5 Security license). 
 
-5. Click on 'Save'
+5. Click on 'Save'.
 
 6. Click on 'Create'.
 

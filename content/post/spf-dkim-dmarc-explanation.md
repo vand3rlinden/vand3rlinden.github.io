@@ -17,7 +17,7 @@ SPF, DKIM, and DMARC are critical email authentication protocols that help preve
 |----------|--------                                                                |
 | SPF      | Verifies sender authorization by checking the sender's IP address      |
 | DKIM     | Confirms message authenticity through cryptographic signature matching |
-| DMARC    | Enforces email policy by aligning SPF and DKIM results                 |
+| DMARC    | Enforces a policy by requiring alignment between SPF and/or DKIM       |
 
 ### P1 vs. P2 - Sender explanation table:
 In this blog, you will read a lot about the P1 and P2 sender. Please refer to the table below to become familiar with these terms.
@@ -45,11 +45,11 @@ SPF will pass if the sender’s IP is added to the SPF record for the P1 Sender 
 ### Implementation of SPF
 When you add your domain to Microsoft 365, Microsoft will ask you to provide an SPF record, such as `v=spf1 include:spf.protection.outlook.com -all`. If you have more allowed senders, you must include them in the SPF record. For example `v=spf1 include:spf.protection.outlook.com include:_spf.domain.com ip4:11.222.33.444 -all`
 
-The SPF record will differ for everyone; therefore, it is important to understand the following when implement an SPF- record:
+The SPF record will vary for each domain; therefore, it is important to understand the following when implementing an SPF record:
 
 - Can only have 255 characters, but it can be split to multiple strings in a single record, most DNS providers handle this automatically.
     - Example: `"v=spf1 first string" "second string -all"`
-- Can take up to a maximum of 10 DNS Lookups like `include:spf.protection.outlook.com` (which currently contains 1 DNS lookup, without child lookups)
+- Can take up to a maximum of 10 DNS Lookups, such as `include:spf.protection.outlook.com` (which currently contains 1 DNS lookup, without child lookups).
 
 > **CAUTION**: If your DNS lookups are going to be around 10/10, you should take [steps](https://vand3rlinden.com/post/handle-your-spf-record/) to stay well under 10 DNS lookups. Because if a vendor decides to add another DNS lookup within its SPF include (child lookup). Your SPF record will become inaccurate because it has reached the DNS lookup limit, which may result in email delivery problems.
 
@@ -80,7 +80,7 @@ SPF can get a softfail or a hardfail, you determine that at the end of the recor
 
 Most mailbox providers will treat soft and hard- fails directives similarly, but it is [recommended](https://dmarcian.com/spf-best-practices/) to mirror the DMARC policy as the technology is deployed: use softfail (`~all`) if the DMARC policies are "none" and "quarantine", and use hardfail (`-all`) if you have moved to a "reject" policy. 
 
-> ***NOTE:*** If an email cannot pass SPF (e.g. due to relaying), it can be hard rejected at the SMTP level with an SPF hardfail (`-all`), which may prevent DMARC and DKIM evaluation. If you are unsure whether your senders are passing SPF, then [consider using an SPF softfail (`~all`)](https://www.mailhardener.com/blog/why-mailhardener-recommends-spf-softfail-over-fail) along with DMARC set to reject (`p=reject`). This ensures that the DMARC and DKIM evaluation is always performed in the absence of a valid SPF validation.
+> **NOTE**: If an email cannot pass SPF (e.g. due to relaying), it can be hard rejected at the SMTP level with an SPF hardfail (`-all`), which may prevent DMARC and DKIM evaluation. If you are unsure whether your senders are passing SPF, then [consider using an SPF softfail (`~all`)](https://www.mailhardener.com/blog/why-mailhardener-recommends-spf-softfail-over-fail) along with DMARC set to reject (`p=reject`). This ensures that the DMARC and DKIM evaluation is always performed in the absence of a valid SPF validation.
 
 ### Limitations of SPF
 Although SPF performs reasonably well in theory, it has several limitations that make it insufficient on its own to fully protect a sending domain.
@@ -104,7 +104,7 @@ DKIM will pass if the sending server’s private key can be confirmed by the rec
 ### Implementation of DKIM
 You can configure DKIM with a `TXT` record in your DNS zone for your sending mail servers (such as postfix or sendmail). A DKIM generator can be used to generate a private key for your server and a public key for your DNS.
 
-> _Note: that a DKIM record is required for each sending server or mail provider._
+> **NOTE**: A DKIM record is required for each sending server or mail provider.
 
 How you set up DKIM depends on your sending server or mail provider. For example, configuring DKIM for [Salesforce](https://help.salesforce.com/s/articleView?id=sales.emailadmin_create_secure_dkim.htm) differs from [Exchange Online](https://learn.microsoft.com/en-us/defender-office-365/email-authentication-dkim-configure) in Microsoft Defender for Office 365. If you’re managing your own mail server and using MTAs like Sendmail or Postfix, you can implement DKIM using tools such as [OpenDKIM](http://www.opendkim.org/).
 
@@ -146,7 +146,7 @@ During the monitoring phase, you can [adjust your SPF record](https://vand3rlind
 
 The `sp=reject` tag means that subdomains will be included; if you don’t want your subdomains to be included in your domain’s root DMARC policy, you can set this to `sp=none` and list a separate DMARC policy for each subdomain (not recommended).
 
-If you do not list the `sp=` tag, your subdomains will get the policy from the `p=` tag.
+> **NOTE**: If you do not list the `sp=` tag, your subdomains will get the policy from the `p=` tag.
 
 ### DMARC policy explanation
 | Policy      | Value           | Meaning       |
@@ -162,19 +162,19 @@ The table on this [Microsoft Learn page](https://learn.microsoft.com/en-us/archi
   -  Is designed to send domain owners data about email authentication results for SPF, DKIM, and DMARC. These reports are essential for monitoring how a domain is being used and contain only authentication outcomes and message counts, without including any sensitive email content.
      - Combined data on a group of emails.
      - Not real-time, they are sent everyday by default.
-     - Sent in `XML` format
-     - No PII (Personal Identifiable Information)
-     - Supported in all DMARC-compliant mailbox providers
+     - Sent in `XML` format.
+     - No PII (Personal Identifiable Information).
+     - Supported in all DMARC-compliant mailbox providers.
 
 - `RUF` (Reporting URI for Forensic reports): 
   - Is designed to send domain owners detailed failure reports when emails don’t pass DMARC checks. These reports may include portions of the original message headers and metadata, sometimes with limited message content, depending on the reporting provider. The goal is to help identify legitimate sources that need to be properly authenticated. However, due to privacy concerns and the potential exposure of Personal Identifiable Information (PII), most providers do not send `RUF` reports.
     - Details of an individual email.
     - Sent almost immediately after the failures.
-    - Plain text format
-    - Contains PII (Personal Identifiable Information)
-    - Supported in only a handful of mailbox providers
+    - Plain text format.
+    - Contains PII (Personal Identifiable Information).
+    - Supported in only a handful of mailbox providers.
 
-> You don't need `RUF` Reporting to get a DMARC compliant domain, `RUA` is sufficient.
+> **NOTE**: You don't need `RUF` Reporting to get a DMARC compliant domain, `RUA` is sufficient.
 
 ## Protect all non-sending domains
 To protect all non-sending domains, you should consider:
@@ -194,15 +194,15 @@ To protect all non-sending domains, you should consider:
 This protects all of your domains from phishers and spammers, as bad actors will actively look for unused domains to exploit.
 
 ## To Summarize
-***SPF*** performs verification that the IP address of the sending server matches the entry in the SPF record from the sending domain.
+**SPF**: performs verification that the IP address of the sending server matches the entry in the SPF record from the sending domain.
 - **Purpose**: Sender authorization check
 - **Protect**: `RFC5321.MailFrom` (P1 Sender)
 
-***DKIM*** verifies if the public key (DNS record) of a sending domain, matched the private key that came from the sending server. This is a check that the sending domain actually sent the e-mail. DKIM must be configured for ***each*** sending server, such as Exchange Online or any other server/SaaS service.
+**DKIM**: verifies if the public key (DNS record) of a sending domain, matched the private key that came from the sending server. This is a check that the sending domain actually sent the e-mail. DKIM must be configured for **each** sending server, such as Exchange Online or any other server/SaaS service.
 - **Purpose**: Message authenticity verification
 - **Protect**: `RFC5322.From` (P2 Sender)
 
-***DMARC*** ensures that emails that fail the SPF and/or DKIM tests do not get through. If the email is unable to pass DMARC with SPF, DKIM can help pass DMARC for the P2 sender domain. Therefore, it is really important to have DKIM enabled for all your sending servers before setting DMARC to `reject`.
+**DMARC**: ensures that emails that fail the SPF and/or DKIM tests do not get through. If the email is unable to pass DMARC with SPF, DKIM can help pass DMARC for the P2 sender domain. Therefore, it is really important to have DKIM enabled for all your sending servers before setting DMARC to `reject`.
 - **Purpose**: Final sheld on top of SPF and DKIM
 - **Protect**: `RFC5322.From` (P2 Sender)
 
