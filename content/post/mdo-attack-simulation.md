@@ -100,7 +100,7 @@ Each individual simulation can be configured to start at a different time. You c
 | Static send time | No                             | No                        | Yes                 |
 
 - _*Each individual simulation can be configured to start at a different static time._
-- _**You can create an individual simulation each month or set up 12 individual simulations at once._
+- _**You can create an individual simulation each month and schedule it up to two weeks before the launch date._
 
 **My advice**: Consider creating individual monthly simulations _(e.g., 2 global payloads and 1 tenant payload as the interval)_ and plan a yearly schedule that varies the simulation dates and times each month to keep users engaged and reduce predictability. Keep in mind that all target users will receive the same payload. However, using individual monthly simulations gives you greater control and flexibility over content, timing, and targeting throughout the year.
 
