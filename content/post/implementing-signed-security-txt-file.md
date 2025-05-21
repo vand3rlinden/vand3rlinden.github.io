@@ -60,7 +60,7 @@ This will export the public key to a file named `pgp-publickey.txt`.
    Contact: mailto:security@example.com
 
    # OpenPGP key
-   Encryption: https://example.com/.well-know/pgp-publickey.txt
+   Encryption: https://example.com/.well-known/pgp-publickey.txt
 
    # Expiration of security.txt file
    Expires: expiration date of your pgp key pair
