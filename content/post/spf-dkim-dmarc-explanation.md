@@ -125,9 +125,17 @@ DMARC will pass if the P1 Sender and P2 Sender are equal, and/or SPF and DKIM ar
 ![IMAGE](/images/spf-dkim-dmarc-explanation/dmarc-visual.png)
 
 ### Implementation of DMARC
-Before using DMARC, you need to know how often it will fail. You should consider monitoring DMARC failures before setting the DMARC policy directly to reject.
+Before enforcing a DMARC policy, it’s important to understand how often DMARC checks might fail for your domain. Jumping straight to a reject policy without visibility can cause legitimate email to be blocked.
 
-There are several monitoring tools that convert the DMARC reports into a clear dashboard. One such tool is [Valimail](https://www.valimail.com/blog/office-365-free-dmarc-monitoring/) (free for Microsoft 365 users with an Exchange Online plan).
+You should start by monitoring DMARC failures. This can be done in two ways:
+
+1.	Manually reviewing DMARC RUA reports to identify which sending services are passing or failing DMARC. However, for high-volume domains, this can be overwhelming and difficult to manage.
+
+RUA report example in `.xml`:
+
+![IMAGE](/images/spf-dkim-dmarc-explanation/dmarc-xml.png)
+
+2. Using DMARC monitoring tools allows you to parse reports into a clear, visual dashboard. These tools also show which email providers are passing or failing DMARC, offering more actionable insights than relying on raw IP address data alone. One such tool is [Valimail](https://www.valimail.com/blog/office-365-free-dmarc-monitoring/) (free for Microsoft 365 users with an Exchange Online plan).
 
 Overview of the Valimail Dashboard:
 
