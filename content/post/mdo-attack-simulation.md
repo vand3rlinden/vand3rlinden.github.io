@@ -23,7 +23,7 @@ All target users must have a ***Microsoft Defender for Office 365 Plan 2*** (add
 ### 2: Report message button
 You should start by enabling your users to report email messages from the attack simulation using the built-in Report button, which is required for this training. If you haven’t already, [activate the built-in Report button](https://learn.microsoft.com/en-us/defender-office-365/submissions-user-reported-messages-custom-mailbox?view=o365-worldwide#use-the-microsoft-defender-portal-to-configure-user-reported-settings).
 
-> If you are still using the Microsoft Report Message or Report Phishing add-ins, consider [transitioning to the built-in report button](https://learn.microsoft.com/en-us/defender-office-365/submissions-users-report-message-add-in-configure). These add-ins have security vulnerabilities that make them unsafe for your organization and will be deprecated over time. 
+> **NOTE**: If you are still using the Microsoft Report Message or Report Phishing add-ins, consider [transitioning to the built-in report button](https://learn.microsoft.com/en-us/defender-office-365/submissions-users-report-message-add-in-configure). These add-ins have security vulnerabilities that make them unsafe for your organization and will be deprecated over time. 
 
 Reported messages appear in the [User Reported](https://security.microsoft.com/reportsubmission?viewid=user) section of the Submissions page, your reporting mailbox, and are visible in the simulation report.
 
@@ -52,7 +52,7 @@ In order for Attack simulation training to have reporting capabilities, auditing
   - **Global Payloads**: Includes built-in payloads, such as the `Keep Office 365 Password` payload
   - **Tenant Payloads**: Contains [custom payloads](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-payloads#create-payloads), such as a fake email from an executive with an official company signature. You can also use ChatGPT (or any other AI tool) to prompt a tenant payload to generate an HTML email for SharePoint Online document sharing, for example. A prompt can be: _Can you generate an HTML email template that looks like a Microsoft email to share a SharePoint document?_ This prompt leads to [this](https://vand3rlinden.com/images/mdo-attack-simulation/example-tenant-payload/sharepoint-documentshare.html) tenant payload, the HTML content can be copied and pasted into the `Configure Payload` section and change the Dynamic tags such as `${firstName}` and `${phishingUrl}`.
 
-> Images that you use in tenant payloads may be [blocked](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-faq#why-are-images-in-simulation-messages-blocked-by-outlook) with a message that the sender is not in the Outlook Safe Senders list. This happens by default because Outlook is configured to block automatic image downloads in messages from the Internet.
+> **NOTE**: Images that you use in tenant payloads may be [blocked](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-faq#why-are-images-in-simulation-messages-blocked-by-outlook) with a message that the sender is not in the Outlook Safe Senders list. This happens by default because Outlook is configured to block automatic image downloads in messages from the Internet.
 
 - **Login Pages**: Phish web login page for credential harvesting and link in attachment techniques
   - **Global Login Pages**: Includes built-in login pages, such as the Microsoft login page
@@ -66,7 +66,7 @@ In order for Attack simulation training to have reporting capabilities, auditing
   - **Global notifications**: Includes built-in end user notifications send From `notification@attacksimulationtraining.com`
   - **Tenant notifications**: Includes custom end user notifications for branding and to set a different From address to an internal mailbox
 
-> Images that you use in end user notifications may be [blocked](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-faq#why-are-images-in-simulation-messages-blocked-by-outlook) with a message that the sender is not in the Outlook Safe Senders list. This happens by default because Outlook is configured to block automatic image downloads in messages from the Internet.
+> **NOTE**: Images that you use in end user notifications may be [blocked](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-faq#why-are-images-in-simulation-messages-blocked-by-outlook) with a message that the sender is not in the Outlook Safe Senders list. This happens by default because Outlook is configured to block automatic image downloads in messages from the Internet.
 
 - **[Target users](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-simulations#target-users)**: Who will receive the simulated phishing message and on what schedule
   - All users or specific users and groups
@@ -102,7 +102,7 @@ When setting up an automated simulation, you have two options for payload select
 - **Randomize**: Allowing Microsoft to select payloads automatically.
 
 #### Individual Simulation - Payload Selection:
-Only one payload can be configured per simulation.
+- Only one payload can be configured per simulation.
 
 > **NOTE**: It’s important to note that even in an automated simulation, only one payload is sent out per launch. All targeted users will receive the same payload (phishing email).
 
