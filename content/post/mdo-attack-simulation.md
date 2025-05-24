@@ -45,6 +45,34 @@ In order for Attack simulation training to have reporting capabilities, auditing
 2. Enable Organization Customization by running: `Enable-OrganizationCustomization`
 3. Then run the following PowerShell command to turn on auditing: `Set-AdminAuditLogConfig -UnifiedAuditLogIngestionEnabled $true`
 
+## The basic elements of a simulation are:
+- **Social Engineering Techniques** (e.g., credential harvesting)
+
+- **Payloads**: Phishing emails and web pages that you use to launch simulations
+  - **Global Payloads**: Includes built-in payloads, such as the `Keep Office 365 Password` payload
+  - **Tenant Payloads**: Contains [custom payloads](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-payloads#create-payloads), such as a fake email from an executive with an official company signature. You can also use ChatGPT (or any other AI tool) to prompt a tenant payload to generate an HTML email for SharePoint Online document sharing, for example. A prompt can be: _Can you generate an HTML email template that looks like a Microsoft email to share a SharePoint document?_ This prompt leads to [this](https://vand3rlinden.com/images/mdo-attack-simulation/example-tenant-payload/sharepoint-documentshare.html) tenant payload, the HTML content can be copied and pasted into the `Configure Payload` section and change the Dynamic tags such as `${firstName}` and `${phishingUrl}`.
+
+> Images that you use in tenant payloads may be [blocked](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-faq#why-are-images-in-simulation-messages-blocked-by-outlook) with a message that the sender is not in the Outlook Safe Senders list. This happens by default because Outlook is configured to block automatic image downloads in messages from the Internet.
+
+- **Login Pages**: Phish web login page for credential harvesting and link in attachment techniques
+  - **Global Login Pages**: Includes built-in login pages, such as the Microsoft login page
+  - **Tenant Login Pages**: Includes custom login pages, such as a custom Microsoft login page with corporate branding
+
+- **Phish Landing Pages**: Provides a learning moment for the user after being phished
+  - **Global Phish Landing Pages**: Includes built-in phish landing pages
+  - **Tenant Phish Landing Pages**: Includes custom landing pages, such as with corporate branding
+
+- **End user notifications**
+  - **Global notifications**: Includes built-in end user notifications send From `notification@attacksimulationtraining.com`
+  - **Tenant notifications**: Includes custom end user notifications for branding and to set a different From address to an internal mailbox
+
+> Images that you use in end user notifications may be [blocked](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-faq#why-are-images-in-simulation-messages-blocked-by-outlook) with a message that the sender is not in the Outlook Safe Senders list. This happens by default because Outlook is configured to block automatic image downloads in messages from the Internet.
+
+- **[Target users](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-simulations#target-users)**: Who will receive the simulated phishing message and on what schedule
+  - All users or specific users and groups
+    - All users are all mailboxes (user and shared) and resources (room and equipment) in Exchange Online
+  - Supported groups: **Microsoft 365** (static and dynamic), **distribution list** (static only) and **mail-enabled security** (static only).
+
 ## Creating an attack simulation training
 After the requirements are set, you can begin creating an attack simulation in the [Microsoft Defender Portal](https://security.microsoft.com/attacksimulator). 
 
@@ -76,7 +104,7 @@ When setting up an automated simulation, you have two options for payload select
 #### Individual Simulation - Payload Selection:
 Only one payload can be configured per simulation.
 
-> It’s important to note that even in an automated simulation, only one payload is sent out per launch. All targeted users will receive the same payload (phishing email).
+> **NOTE**: It’s important to note that even in an automated simulation, only one payload is sent out per launch. All targeted users will receive the same payload (phishing email).
 
 ### Schedule Selection
 #### Automated simulation - Schedule Selection:
@@ -102,36 +130,9 @@ Each individual simulation can be configured to start at a different time. You c
 - _*Each individual simulation can be configured to start at a different static time._
 - _**You can create an individual simulation each month and schedule it up to two weeks before the launch date._
 
-**My advice**: Consider creating individual monthly simulations _(e.g., 2 global payloads and 1 tenant payload as the interval)_ and plan a yearly schedule that varies the simulation dates and times each month to keep users engaged and reduce predictability. Keep in mind that all target users will receive the same payload. However, using individual monthly simulations gives you greater control and flexibility over content, timing, and targeting throughout the year.
-
-## The basic elements of a simulation are:
-- Select a **Social Engineering Technique**, such as credential harvesting
-- Select a **Payload** _(phishing emails and web pages that you use to launch simulations)_
-  - Global Payloads: Includes built-in payloads, such as the `Keep Office 365 Password` payload
-  - Tenant Payloads: Contains [custom payloads](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-payloads#create-payloads), such as a fake email from an executive with an official company signature. You can also use ChatGPT (or any other AI tool) to prompt a tenant payload to generate an HTML email for SharePoint Online document sharing, for example. A prompt can be: _Can you generate an HTML email template that looks like a Microsoft email to share a SharePoint document?_ This prompt leads to [this](https://vand3rlinden.com/images/mdo-attack-simulation/example-tenant-payload/sharepoint-documentshare.html) tenant payload, the HTML content can be copied and pasted into the `Configure Payload` section and change the Dynamic tags such as `${firstName}` and `${phishingUrl}`.
-
-> Images that you use in tenant payloads may be [blocked](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-faq#why-are-images-in-simulation-messages-blocked-by-outlook) with a message that the sender is not in the Outlook Safe Senders list. This happens by default because Outlook is configured to block automatic image downloads in messages from the Internet.
-
-- Select a ***Login Page*** _(phish web login page for credential harvesting and link in attachment techniques)_
-  - Global Login Pages: Includes built-in login pages, such as the Microsoft login page
-  - Tenant Login Pages: Includes custom login pages, such as a custom Microsoft login page with corporate branding
-
-- Select a ***Phish Landing Page*** _(provides a learning moment for the user after being phished)_
-  - Global Phish Landing Pages: Includes built-in phish landing pages
-  - Tenant Phish Landing Pages: Includes custom landing pages, such as with corporate branding
-
-- Select ***End user notifications***
-  - Global notifications: Includes built-in end user notifications send From `notification@attacksimulationtraining.com`
-  - Tenant notifications: Includes custom end user notifications for branding and to set a different From address to an internal mailbox
-
-> Images that you use in end user notifications may be [blocked](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-faq#why-are-images-in-simulation-messages-blocked-by-outlook) with a message that the sender is not in the Outlook Safe Senders list. This happens by default because Outlook is configured to block automatic image downloads in messages from the Internet.
-
-- Select [target users](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-simulations#target-users), who will receive the simulated phishing message and on what schedule
-  - All users or specific users and groups
-    - All users are all mailboxes (user and shared) and resources (room and equipment) in Exchange Online
-  - Supported groups: **Microsoft 365** (static and dynamic), **distribution list** (static only) and **mail-enabled security** (static only).
-
 ## The best practices of a simulation are:
+- **Individual simulations**: Consider creating individual monthly simulations and plan a yearly schedule that varies the simulation dates and times each month to keep users engaged and reduce predictability. Keep in mind that all target users will receive the same payload. However, using individual monthly simulations gives you greater control and flexibility over content, timing, and targeting throughout the year.
+
 - **Target users**: Include all **Microsoft Defender for Office Plan 2** users in your organization by using a dynamic Microsoft 365 group with the following syntax:
 ```
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "8e0c0a52-6a6c-4d40-8370-dd62790dcd70" -and assignedPlan.capabilityStatus -eq "Enabled")
@@ -144,7 +145,7 @@ If you want to target a specific department, such as HR, you can use the followi
 (user.department -eq "HR")
 ```
 
-> Users may appear in the report as `FailedToDeliverEmail` because they are blocked from signing in. This is expected behavior, and you can filter them out in the report.
+> **NOTE**: Users may appear in the report as `FailedToDeliverEmail` because they are blocked from signing in. This is expected behavior, and you can filter them out in the report.
 
 - **Training**: By enabling training during an attack simulation, Microsoft can assign courses and modules customized to the user’s previous simulation and training results through learning pathways. The training is based on user interactions, specifically whether they clicked and submitted their credentials. A compromised user may receive two training sessions. You can choose standalone training campaigns and disable training within the attack simulation. However, this approach will not be as adaptive as the learning pathways provided through training campaigns within an attack simulation.
 
@@ -170,7 +171,7 @@ Phish Landing Page:
 Once the user clicked on the link and logged in, they received an email from `notification@attacksimulationtraining.com` for each action to complete a training course. 
 
 ![IMAGE](/images/mdo-attack-simulation/mdo-attack-simulation-5.png)
-> You should remove the External tag for the notification email. To do so, run the cmdlet `Set-ExternalInOutlook -AllowList @{Add="attacksimulationtraining.com"}` by using the Exchange Online PowerShell module. You can also use **Tenant notifcations** to change the content or from address.
+> **NOTE**: You should remove the External tag for the notification email. To do so, run the cmdlet `Set-ExternalInOutlook -AllowList @{Add="attacksimulationtraining.com"}` by using the Exchange Online PowerShell module. You can also use **Tenant notifcations** to change the content or from address.
 
 The link will take the user to the Defender portal to complete the courses at `https://security.microsoft.com/trainingassignments`.
 
