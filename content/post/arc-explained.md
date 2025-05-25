@@ -1,5 +1,5 @@
 ---
-title: "Understanding the Role and Benefits of ARC Sealing"
+title: "Understanding the role and benefits of ARC Sealing"
 date: 2024-05-24T23:37:34+02:00
 draft: false
 categories: ["email", "DNS"]
@@ -22,7 +22,7 @@ When you send an email message, it goes through your sending server and may be r
 - **SPF** fails because of the new message source (IP address)
     - SPF checks email messages against an authorized list of IP addresses. When email is forwarded, it passes through an intermediate server whose IP may not be on the sender's SPF list. This results in unwanted SPF failures, even for legitimate email. 
 - **DKIM** fails because of content modification
-    - DKIM adds digital signatures to your emails that can be encrypted using a public key to verify the source and authenticity of the message. To do this, DKIM uses a hash value generated from the email header and body. However, during email forwarding scenarios, additional elements such as custom footers or extended subject lines may be added to the email, which can invalidate DKIM. 
+    - DKIM adds digital signatures to your emails that are encrypted using a private key from the sending server and can be verified using a public key published in DNS. If the email is modified during forwarding, such as by adding footers or changing headers, the DKIM signature may no longer match, causing verification to fail.
 - **DMARC** fails because of the SPF and DKIM failures
 	- DMARC assumes that emails are completely unchanged throughout the delivery process.
 
@@ -31,16 +31,83 @@ When you send an email message, it goes through your sending server and may be r
 > Want to learn more about SPF, DKIM, and DMARC? You can read my [previous blog post](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/) about these outbound authentication protocols.
 
 ## ARC Headers
-ARC helps preserve email authentication results and verifies the identity of intermediate server(s) that forward a message on to its final destination. There are three key components to ARC:
+ARC helps preserve email authentication results and verifies the identity of intermediate server(s) that forward a message on to its final destination. 
 
+There are three key components to ARC:
 - The `ARC-Authentication-Results` header: A header containing email authentication results like SPF, DKIM, and DMARC. 
-
 - The `ARC-Message-Signature` header: This header takes a snapshot of the message header information, including To, From, Subject, and Body.  
-
-- The `ARC-Seal` header: This header includes the `ARC-Message-Signature` and `ARC-Authentication-Results` header information and contains a tag called chain validation `cv=`, which contains the result of the evaluation of the existing ARC chain. The value can be `none`, `fail` or `pass`.
+- The `ARC-Seal` header: This header includes the `ARC-Message-Signature` and `ARC-Authentication-Results` header information and contains a tag called chain validation `cv=`, which contains the result of the evaluation of the existing ARC chain. The value can be `none`, `fail` or `pass`:
 	- `none`: No ARC chain to validate
 	- `fail`: ARC chain validation failed
 	- `pass`: ARC chain validation succeeded
+
+Each ARC header includes an `i=` tag, which stands for ARC instance. This number indicates the position of the system in the forwarding chain and helps establish the order of trust. 
+
+For example:
+- `i=1` is added by the first intermediary (e.g., the first system that receives and forwards the original message).
+- `i=2` is added by the next hop, which receives the message from the first forwarder and re-validates the earlier authentication results.
+- `i=3` and higher are added by subsequent intermediaries or the final destination mail server.
+
+Each ARC instance adds its own set of headers:
+- `ARC-Authentication-Results` (its own assessment of SPF, DKIM, DMARC, and possibly ARC).
+- `ARC-Message-Signature` (to cryptographically bind the message content and headers).
+- `ARC-Seal` (to seal the entire ARC package and validate the prior chain).
+
+This system creates a verifiable chain of custody that helps the final recipient determine whether the authentication results can still be trusted, even if the message was forwarded or altered en route.
+
+## The ARC trust chain
+When emails pass through multiple intermediaries, traditional authentication methods like SPF and DKIM can fail. That’s where ARC comes in, preserving the original authentication results across each hop. Below is an example of how ARC headers build up through multiple relays, including SendGrid, a security gateway, and finally Microsoft 365.
+
+### ✉️ **Message Flow**
+* **Original Sender:** `user@vand3rlinden.com`
+* **Hop 1:** SendGrid (sending on behalf of `vand3rlinden.com`)
+* **Hop 2:** Security Gateway (e.g., Proofpoint)
+* **Final Recipient:** Microsoft 365 user
+
+### 📜 **ARC Header Chain Example**
+#### ✅ ARC Instance 1 (Added by SendGrid)
+```
+ARC-Authentication-Results: i=1; d=sendgrid.net;
+ spf=pass smtp.mailfrom=vand3rlinden.com;
+ dkim=pass header.d=vand3rlinden.com;
+ dmarc=pass header.from=vand3rlinden.com;
+
+ARC-Message-Signature: i=1; a=rsa-sha256; d=sendgrid.net;
+ s=arc; h=from:to:subject:date;
+ bh=[body-hash]; b=[signature]
+
+ARC-Seal: i=1; a=rsa-sha256; d=sendgrid.net; s=arc;
+ t=[timestamp]; cv=none; b=[seal-signature]
+```
+
+#### ✅ ARC Instance 2 (Added by Security Gateway, e.g., Proofpoint)
+```
+ARC-Authentication-Results: i=2; d=securitygateway.com;
+ spf=pass; dkim=pass; dmarc=pass;
+
+ARC-Message-Signature: i=2; a=rsa-sha256; d=securitygateway.com;
+ s=arc; h=from:to:subject:date;
+ bh=[body-hash]; b=[signature]
+
+ARC-Seal: i=2; a=rsa-sha256; d=securitygateway.com; s=arc;
+ t=[timestamp]; cv=pass; b=[seal-signature]
+```
+
+#### ✅ ARC Instance 3 (Added by Microsoft 365)
+```
+ARC-Authentication-Results: i=3; d=microsoft.com;
+ spf=pass; dkim=pass; dmarc=pass;
+
+ARC-Message-Signature: i=3; a=rsa-sha256; d=microsoft.com;
+ s=arc; h=from:to:subject:date;
+ bh=[body-hash]; b=[signature]
+
+ARC-Seal: i=3; a=rsa-sha256; d=microsoft.com; s=arc;
+ t=[timestamp]; cv=pass; b=[seal-signature]
+```
+
+### 🔍 Final Note
+Each instance (`i=1`, `i=2`, `i=3`) seals the authentication results of the previous hop. By the time it reaches Microsoft 365 (`i=3`), the entire trust chain can be evaluated, even if the original SPF or DKIM fails due to forwarding. This is the core benefit of **ARC**, preserving authentication integrity across multiple hops.
 
 ## Mailbox providers that support ARC Sealers
 ARC has already been adopted by major mailbox providers such as Google and Microsoft, and is likely to become a global standard.

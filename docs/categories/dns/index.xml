@@ -40,7 +40,7 @@
 &lt;p&gt;SMTP DANE is a security protocol that uses DNSSEC to verify the authenticity of TLS certificates used for securing email communication. It helps protect against attacks such as TLS downgrade and man-in-the-middle attacks by ensuring that the certificates and encryption settings used in mail server communications are authentic and trustworthy.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Understanding the Role and Benefits of ARC Sealing</title>
+      <title>Understanding the role and benefits of ARC Sealing</title>
       <link>https://vand3rlinden.com/post/arc-explained/</link>
       <pubDate>Fri, 24 May 2024 23:37:34 +0200</pubDate>
       <guid>https://vand3rlinden.com/post/arc-explained/</guid>

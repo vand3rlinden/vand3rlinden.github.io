@@ -90,7 +90,7 @@
 &lt;p&gt;With a Safe Attachments policy, administrators can configure an additional layer of protection against malicious content in email attachments. It scans and evaluates attachments &lt;em&gt;(Safe Attachments opens files in a virtual environment)&lt;/em&gt; before delivering messages to recipients. You can create a custom policy to, specify actions for unknown malware, select a quarantine policy, and configure global settings to protect files in SharePoint, OneDrive, and Teams with Safe Attachments.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Understanding the Role and Benefits of ARC Sealing</title>
+      <title>Understanding the role and benefits of ARC Sealing</title>
       <link>https://vand3rlinden.com/post/arc-explained/</link>
       <pubDate>Fri, 24 May 2024 23:37:34 +0200</pubDate>
       <guid>https://vand3rlinden.com/post/arc-explained/</guid>
