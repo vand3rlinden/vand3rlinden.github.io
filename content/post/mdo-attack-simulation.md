@@ -50,7 +50,7 @@ In order for Attack simulation training to have reporting capabilities, auditing
 
 - **Payloads**: Phishing emails and web pages that you use to launch simulations
   - **Global Payloads**: Includes built-in payloads, such as the `Keep Office 365 Password` payload
-  - **Tenant Payloads**: Contains [custom payloads](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-payloads#create-payloads), such as a fake email from an executive with an official company signature. You can also use ChatGPT (or any other AI tool) to prompt a tenant payload to generate an HTML email for SharePoint Online document sharing, for example. A prompt can be: _Can you generate an HTML email template that looks like a Microsoft email to share a SharePoint document?_ This prompt leads to [this](https://vand3rlinden.com/images/mdo-attack-simulation/example-tenant-payload/sharepoint-documentshare.html) tenant payload, the HTML content can be copied and pasted into the `Configure Payload` section and change the Dynamic tags such as `${firstName}` and `${phishingUrl}`.
+  - **Tenant Payloads**: Contains custom payloads, such as a fake email from an executive with an official company signature. I have some custom-made HTML templates available on my [GitHub repository](https://github.com/vand3rlinden/MDO-TenantPayloads), feel free to use them. The HTML content can be copied and pasted directly into the Configure Payload section. For custom payloads, you can use the available dynamic tags such as `${firstName}` and `${phishingUrl}`. A full list of dynamic tags can be found in the [Custom Payloads](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-payloads#create-payloads) section on Microsoft Learn.
 
 > **NOTE**: Images that you use in tenant payloads may be [blocked](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-faq#why-are-images-in-simulation-messages-blocked-by-outlook) with a message that the sender is not in the Outlook Safe Senders list. This happens by default because Outlook is configured to block automatic image downloads in messages from the Internet.
 
@@ -189,8 +189,9 @@ Despite advanced security measures, phishing tactics continue to evolve, making 
 ## Reference
 - [Attack simulation training documentation](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/attack-simulation-training-get-started)
 - [Supported target users](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-simulations#target-users)
+- [Payloads in Attack simulation training](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-payloads)
+- [Automation Schedule details](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-simulation-automations#schedule-details)
 - [Attack simulation training deployment considerations and FAQ](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-faq)
 - [Turn on auditing](https://learn.microsoft.com/en-us/purview/audit-log-enable-disable?view=o365-worldwide&tabs=microsoft-purview-portal#turn-on-auditing)
-- [Automation Schedule details](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-simulation-automations#schedule-details)
 - [Manage rules for dynamic membership groups in Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/identity/users/groups-dynamic-membership)
 - [Product names and service plan identifiers for licensing](https://learn.microsoft.com/en-us/entra/identity/users/licensing-service-plan-reference)
