@@ -58,13 +58,13 @@ This system creates a verifiable chain of custody that helps the final recipient
 ## The ARC trust chain
 When emails pass through multiple intermediaries, traditional authentication methods like SPF and DKIM can fail. That’s where ARC comes in, preserving the original authentication results across each hop. Below is an example of how ARC headers build up through multiple relays, including SendGrid, a security gateway, and finally Microsoft 365.
 
-### ✉️ **Message Flow**
+### ✉️ Message Flow
 * **Original Sender:** `user@vand3rlinden.com`
 * **Hop 1:** SendGrid (sending on behalf of `vand3rlinden.com`)
 * **Hop 2:** Security Gateway (e.g., Proofpoint)
 * **Final Recipient:** Microsoft 365 user
 
-### 📜 **ARC Header Chain Example**
+### 📜 ARC Header Chain Example
 #### ✅ ARC Instance 1 (Added by SendGrid)
 ```
 ARC-Authentication-Results: i=1; d=sendgrid.net;
@@ -106,7 +106,6 @@ ARC-Seal: i=3; a=rsa-sha256; d=microsoft.com; s=arc;
  t=[timestamp]; cv=pass; b=[seal-signature]
 ```
 
-### 🔍 Final Note
 Each instance (`i=1`, `i=2`, `i=3`) seals the authentication results of the previous hop. By the time it reaches Microsoft 365 (`i=3`), the entire trust chain can be evaluated, even if the original SPF or DKIM fails due to forwarding. This is the core benefit of **ARC**, preserving authentication integrity across multiple hops.
 
 ## Mailbox providers that support ARC Sealers
