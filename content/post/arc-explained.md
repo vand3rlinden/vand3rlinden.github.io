@@ -59,8 +59,8 @@ This system creates a verifiable chain of custody that helps the final recipient
 When emails pass through multiple intermediaries, traditional authentication methods like SPF and DKIM can fail. That’s where ARC comes in, preserving the original authentication results across each hop. Below is an example of how ARC headers build up through multiple relays, including SendGrid, a security gateway, and finally Microsoft 365.
 
 ### ✉️ Message Flow
-* **Original Sender:** `user@vand3rlinden.com`
-* **Hop 1:** SendGrid (sending on behalf of `vand3rlinden.com`)
+* **Original Sender:** `shaggy@vand3rlinden.com` (sent from a DMARC-compliant mail server for `vand3rlinden.com`)
+* **Hop 1:** SendGrid (SMTP relay service acting as the intermediate server for `vand3rlinden.com`)
 * **Hop 2:** Security Gateway (e.g., Proofpoint)
 * **Final Recipient:** Microsoft 365 user
 
