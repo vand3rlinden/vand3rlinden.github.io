@@ -159,7 +159,7 @@ The attack simulation then begins with users receiving credential phishing email
 Payload:
 ![IMAGE](/images/mdo-attack-simulation/mdo-attack-simulation-2.png)
 
-A user can click on the link, which creates an outbound connection to an adversary-in-the-middle (AiTM) phishing site (the connection does not raise an alert in Defender).
+A user can click on the link, which creates an outbound connection to the selected Login Page.
 
 Login Page:
 ![IMAGE](/images/mdo-attack-simulation/mdo-attack-simulation-3.png)
@@ -174,7 +174,7 @@ Once the user clicked on the link and logged in, they received an email from `no
 ![IMAGE](/images/mdo-attack-simulation/mdo-attack-simulation-5.png)
 > **NOTE**: You should remove the External tag for the notification email. To do so, run the cmdlet `Set-ExternalInOutlook -AllowList @{Add="attacksimulationtraining.com"}` by using the Exchange Online PowerShell module. You can also use **Tenant notifcations** to change the content or from address.
 
-The link will take the user to the Defender portal to complete the courses at `https://security.microsoft.com/trainingassignments`.
+The link will take the user to the Defender portal to complete the courses at `https://security.microsoft.com/trainingassignments`. If the training is available in the user’s default language at `https://myaccount.microsoft.com/settingsandprivacy/language`, it will automatically be delivered in that language.
 
 ![IMAGE](/images/mdo-attack-simulation/mdo-attack-simulation-6.png)
 
