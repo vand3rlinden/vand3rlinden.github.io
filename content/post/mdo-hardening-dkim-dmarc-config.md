@@ -46,17 +46,11 @@ To prevent email spoofing and phishing using this domain, you need to set up a D
 If you are not using this domain for outbound messaging, you can treat your `onmicrosoft.com` domain as a non-sending domain, and the DMARC Aggregate (`rua`) and DMARC Forensic (`ruf`) reports are not required to be listed in the DMARC `TXT` record.
 
 ## Enforce DMARC rejection policy for inbound email
-Microsoft 365 overrides the DMARC fail action from `reject` to `oreject` (override reject) because, it uses [implicit email authentication](https://learn.microsoft.com/en-us/defender-office-365/email-authentication-about#inbound-email-authentication-for-mail-sent-to-microsoft-365) to evaluate inbound emails in Exchange Online Protection (EOP). This method extends traditional SPF, DKIM, and DMARC checks by incorporating signals from various sources, such as:
+Microsoft 365 overrides the DMARC fail action from `reject` to `oreject` (override reject) because, it uses [implicit email authentication](https://learn.microsoft.com/en-us/defender-office-365/email-authentication-about#inbound-email-authentication-for-mail-sent-to-microsoft-365) to evaluate inbound emails in Exchange Online Protection (EOP), this method goes beyond traditional SPF, DKIM, and DMARC checks by incorporating additional signals such as sender reputation, sender history, and behavioral analysis.
 
-- Sender reputation
-- Sender history
-- Recipient history
-- Behavioral analysis
-- Other advanced techniques
+> **NOTE**: For detailed information on how inbound email is processed in Microsoft 365, check out [this blog post](https://vand3rlinden.com/post/mdo-handling-false-positives-false-negatives/).
 
-The results of these implicit checks are consolidated into a single value called [composite authentication](https://learn.microsoft.com/en-us/defender-office-365/email-authentication-about#composite-authentication) (`compauth`), which is set in the `Authentication-Results` header of the email.
-
-If an email bypasses composite authentication (`compauth=none`) because other implicit signals pass successfully, a DMARC fail, even with a `reject` policy on the sender’s domain, can still be delivered.
+Even if an email fails DMARC with a reject policy on the sender’s domain, it can still be delivered if it bypasses composite authentication (`compauth=none`) or even passes it (`compauth=pass`) due to positive implicit signals.
 
 This configuration exists to prevent the rejection of some legitimate emails that may fail DMARC checks. By leveraging implicit email authentication, messages that fail traditional authentication methods may still be allowed into Microsoft 365 if the overall evaluation deems them safe. False negatives from the advanced implicit authentication checks can be reported to Microsoft as [questionable emails](https://learn.microsoft.com/en-us/defender-office-365/submissions-admin#report-questionable-email-to-microsoft) to improve detection.
 
