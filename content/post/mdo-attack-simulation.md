@@ -103,7 +103,7 @@ When setting up an automated simulation, you have two options for payload select
 - **Randomize**: Allowing Microsoft to select payloads automatically.
 
 #### Individual Simulation - Payload Selection:
-- Only one payload can be configured per simulation.
+- Only one payload can be configured per simulation. You can choose to create multiple individual simulations with different target users, send times, and payloads. 
 
 > **NOTE**: It’s important to note that even in an automated simulation, only one payload is sent out per launch. All targeted users will receive the same payload (phishing email).
 
@@ -114,11 +114,10 @@ When configuring the automation schedule, you have two options:
 - **Randomized Schedule**: Can start simulations with randomize send times. However, you cannot limit it to just one simulation per month. Instead, you can schedule up to 10 simulations per year on specific allowed days.
 - **Fixed Schedule**: where simulations follow a weekly or monthly recurrence. However, they will always occur on a specific day of the week or month, and you cannot customize the send time.
 
-Each automated simulation will be listed in the **Simulations tab** with a naming convention like:  
-`AutomatedSimulation_PayloadName [Technique]_date`
+Each automated simulation will be listed in the **Simulations tab** with a naming convention like: `AutomatedSimulation_PayloadName [Technique]_date`
 
 #### Individual Simulation - Schedule Selection:
-Each individual simulation can be configured to start at a different time. You can either create a new simulation each month or set up all 12 simulations at once, using varying dates and times to maintain user engagement and reduce predictability.
+Each individual simulation can be configured to start at a different time. You can create a new individual simulation each month and schedule it up to two weeks in preparation for the launch date.
 
 #### Simulation schedule comparison
 
