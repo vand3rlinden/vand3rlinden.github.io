@@ -102,10 +102,10 @@ When setting up an automated simulation, you have two options for payload select
 - **Manually select**: Up to 20 payloads, including both global and tenant-specific payloads.
 - **Randomize**: Allowing Microsoft to select payloads automatically.
 
-#### Individual Simulation - Payload Selection:
-- Only one payload can be configured per simulation. You can choose to create multiple individual simulations with different target users, send times, and payloads. 
-
 > **NOTE**: It’s important to note that even in an automated simulation, only one payload is sent out per launch. All targeted users will receive the same payload (phishing email).
+
+#### Individual Simulation - Payload Selection:
+- Each simulation allows only one payload to be configured. To use different payloads, target groups, or send times, you’ll need to create separate individual simulations for each configuration.
 
 ### Schedule Selection
 #### Automated simulation - Schedule Selection:
@@ -113,6 +113,8 @@ When configuring the automation schedule, you have two options:
 
 - **Randomized Schedule**: Can start simulations with randomize send times. However, you cannot limit it to just one simulation per month. Instead, you can schedule up to 10 simulations per year on specific allowed days.
 - **Fixed Schedule**: where simulations follow a weekly or monthly recurrence. However, they will always occur on a specific day of the week or month, and you cannot customize the send time.
+
+> **NOTE**: Neither of the automation schedules supports randomized delivery during business hours (e.g., between 08:00 AM and 5:00 PM, Monday through Friday).
 
 Each automated simulation will be listed in the **Simulations tab** with a naming convention like: `AutomatedSimulation_PayloadName [Technique]_date`
 
@@ -127,7 +129,7 @@ Each individual simulation can be configured to start at a different time. You c
 | Monthly  		     | No                             | Yes                       | Yes**               |
 | Static send time | No                             | No                        | Yes                 |
 
-- _*Each individual simulation can be configured to start at a different static time._
+- _*Each individual simulation can be configured to start at a specific static time, for example, during business hours (e.g., between 08:00 AM and 5:00 PM, Monday through Friday)._
 - _**You can create an individual simulation each month and schedule it up to two weeks before the launch date._
 
 ## The best practices of a simulation are:
