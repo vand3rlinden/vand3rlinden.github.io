@@ -21,8 +21,9 @@ While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages
 ## The flow of SMTP DANE on a mailserver
 - **Outbound SMTP DANE with DNSSEC `sending mail server`**: Requests DANE `TLSA` records of the receiving domain's `MX` record.
 - **Inbound SMTP DANE with DNSSEC `receiving mail server`**: Requires DNSSEC and DANE `TLSA` records that can be requested by the sending mail server.
+- **TLS Reporting (TLSRPT)**: If the sending mail server encounters issues delivering an email, it can use the receiving server’s `TLSRPT` record to report the problem or confirm that the TLS session was successfully established.
 
-![IMAGE](/images/dnssec-dane-explained/smtpdane-visual.png)
+![IMAGE](/images/exo-inbound-smtp-dane-dnssec/smtpdane-tlsrpt-visual.png)
 
 ## Prerequisites
 - Before you enable inbound SMTP DANE with DNSSEC in Exchange Online for a domain, you must have added the domain as an Accepted domain and the domain status must be Healthy in the Microsoft 365 Admin Center. The current domain's `MX` record must have a priority of `0` or `10` and must not have a fallback or secondary `MX` record.
