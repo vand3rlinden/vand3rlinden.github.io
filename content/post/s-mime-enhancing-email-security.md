@@ -7,9 +7,9 @@ cover:
   image: /images/s-mime-enhancing-email-security/s-mime-enhancing-email-security-front.png
 ---
 
-> _Unlocking the Power of S/MIME: This article will help you understand S/MIME and how to request, configure, and use S/MIME on your devices._
+> _Unlocking the Power of S/MIME (Secure/Multipurpose Internet Mail Extensions): This article will help you understand S/MIME and how to request, configure, and use S/MIME on your devices._
 
-## What is S/MIME (Secure/Multipurpose Internet Mail Extensions)?
+## What is S/MIME?
 In today's digital landscape, the security of sensitive information transmitted via email is critical. One method of safeguarding email communications is through the use of S/MIME. S/MIME is a widely adopted protocol that provides end-to-end encryption and digital signatures, ensuring the confidentiality, integrity, and authenticity of email messages. 
 
 In addition to DMARC-compliant email, S/MIME provides proof that the sender is the sender by signing the message with a personal certificate that exists only on the sender's devices _(the private key of the certificate)_. In practice, when we see DMARC-compliant email being sent with malicious content, these mailboxes are likely compromised and therefore able to send DMARC-compliant email from the sender. If the compromised mailbox normally signs the messages with S/MIME, the recipient may see this as a red flag and ignore the message.
