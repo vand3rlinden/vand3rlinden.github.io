@@ -33,7 +33,7 @@ gpg --full-generate-key
 4. Enter your name and email address when prompted.
 5. Set a strong passphrase to secure the private key.
 
-Once complete, your keys will be stored in the GPG keyring. You can view your generated key pair, including the corresponding Fingerprint, by running the following commands to list the public and private keys:
+Once complete, your keys will be stored in the GPG keyring. You can view your generated key pair, including the corresponding `Fingerprint`, by running the following commands to list the public and private keys:
 
 - Public key:
 ```
@@ -72,7 +72,7 @@ This will export the public key to a file named `pgp-publickey.txt`.
    Preferred-Languages: EN, NL
    ```
 
-2. **Sign the file with your Private Key**: Use the following command to create a cleartext signature (replace the `Fingerprint` with the actual Key ID):
+2. **Sign the file with your Private Key**: Use the following command to create a cleartext signature (replace the `Fingerprint` with the actual fingerprint):
    ```
    gpg --clearsign --local-user Fingerprint security.txt
    ```
@@ -85,7 +85,7 @@ This will export the public key to a file named `pgp-publickey.txt`.
    https://example.com/.well-known/pgp-publickey.txt
    ```
 
-## Step 3: Confirm the authenticity
+## Step 3: Confirm authenticity
 To confirm the authenticity of the `security.txt` file, anyone can verify it using your public key.
 
 ### 1. Import the Public Key
@@ -94,13 +94,13 @@ A user downloads your public key and imports it into their GPG keyring:
 gpg --import pgp-publickey.txt
 ```
 To trust a public key using GPG, the user can follow these steps:
-1.	Open a terminal and run: `gpg --edit-key Fingerprint` (replace the `Fingerprint` with the actual Key ID)
+1.	Open a terminal and run: `gpg --edit-key Fingerprint` (replace the `Fingerprint` with the actual fingerprint)
 2.	At the gpg> prompt, type: `trust`
 3.	When prompted to choose a trust level, enter: `5` (which stands for “I trust ultimately”), then press Enter.
 4.	To exit the editor: On Windows, press Ctrl + C, On Mac, press Command + C (or type `quit` and confirm if prompted)
 
 ### 2. Verify the Signature
-The user runs the following command to verify the signature (replace the `Fingerprint` with the actual Key ID):
+The user runs the following command to verify the signature (replace the `Fingerprint` with the actual fingerprint):
 ```
 gpg --verify --local-user Fingerprint security.txt
 ```
