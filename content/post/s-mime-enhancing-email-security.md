@@ -9,13 +9,13 @@ cover:
 
 > _Unlocking the Power of S/MIME: This article will help you understand S/MIME and how to request, configure, and use S/MIME on your devices._
 
-## What is S/MIME?
-In today's digital landscape, the security of sensitive information transmitted via email is critical. One method of safeguarding email communications is through the use of S/MIME _(Secure/Multipurpose Internet Mail Extensions)_. S/MIME is a widely adopted protocol that provides end-to-end encryption and digital signatures, ensuring the confidentiality, integrity, and authenticity of email messages. 
+## What is S/MIME (Secure/Multipurpose Internet Mail Extensions)?
+In today's digital landscape, the security of sensitive information transmitted via email is critical. One method of safeguarding email communications is through the use of S/MIME. S/MIME is a widely adopted protocol that provides end-to-end encryption and digital signatures, ensuring the confidentiality, integrity, and authenticity of email messages. 
 
 In addition to DMARC-compliant email, S/MIME provides proof that the sender is the sender by signing the message with a personal certificate that exists only on the sender's devices _(the private key of the certificate)_. In practice, when we see DMARC-compliant email being sent with malicious content, these mailboxes are likely compromised and therefore able to send DMARC-compliant email from the sender. If the compromised mailbox normally signs the messages with S/MIME, the recipient may see this as a red flag and ignore the message.
 
 ## How does S/MIME work?
-S/MIME (Secure/Multipurpose Internet Mail Extensions) is a widely adopted standard for securing email communications using cryptographic techniques. It provides confidentiality, integrity, non-repudiation, and authentication (CIANA) through the use of Public Key Infrastructure (PKI) and asymmetric encryption. S/MIME uses digital certificates, electronic credentials issued by trusted Certificate Authorities (CAs), to bind a user’s identity to a public key. These certificates are essential for secure key exchange and trust validation.
+S/MIME provides confidentiality, integrity, non-repudiation, and authentication (CIANA) through the use of Public Key Infrastructure (PKI) and asymmetric encryption (public/private key pair). S/MIME uses digital certificates, electronic credentials issued by trusted Certificate Authorities (CAs), to bind a user’s identity to a public key. These certificates are essential for secure key exchange and trust validation.
 
 1.	Encryption (Confidentiality):
 When a user sends an email using S/MIME, their email client encrypts the message using the recipient’s public key. Only the intended recipient, who possesses the corresponding private key, can decrypt and read the message. This ensures that the message content remains confidential, even if intercepted during transmission.
