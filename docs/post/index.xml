@@ -118,7 +118,7 @@
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;Unlocking the Power of S/MIME (Secure/Multipurpose Internet Mail Extensions): This article will help you understand S/MIME and how to request, configure, and use S/MIME on your devices.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;what-is-smime&#34;&gt;What is S/MIME?&lt;/h2&gt;
-&lt;p&gt;In today&amp;rsquo;s digital landscape, the security of sensitive information transmitted via email is critical. One method of safeguarding email communications is through the use of S/MIME. S/MIME is a widely adopted protocol that provides end-to-end encryption and digital signatures, ensuring the confidentiality, integrity, and authenticity of email messages.&lt;/p&gt;</description>
+&lt;p&gt;In today&amp;rsquo;s digital landscape, the security of sensitive information transmitted via email is critical. One method of safeguarding email communications is through the use of S/MIME, which is a widely adopted protocol that provides end-to-end encryption and digital signatures.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Microsoft Defender for Office 365: Attack simulation training</title>
