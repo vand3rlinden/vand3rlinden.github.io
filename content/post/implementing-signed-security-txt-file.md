@@ -33,19 +33,19 @@ gpg --full-generate-key
 4. Enter your name and email address when prompted.
 5. Set a strong passphrase to secure the private key.
 
-Once complete, your keys are stored in the GPG keyring. You can view your generated key pair by running the following command for both the public and private keys.
+Once complete, your keys will be stored in the GPG keyring. You can view your generated key pair, including the corresponding Fingerprint, by running the following commands to list the public and private keys:
 
 - Public key:
 ```
-gpg --list-keys
+gpg --list-keys --keyid-format LONG
 ```
 
 - Private key:
 ```
-gpg --list-secret-keys
+gpg --list-secret-keys --keyid-format LONG
 ```
 
-### 3. Export Your Public Key
+### 3. Export your Public Key
 Others will need your public key to verify your signature:
 ```
 gpg --armor --export your_email@example.com > pgp-publickey.txt
@@ -53,7 +53,7 @@ gpg --armor --export your_email@example.com > pgp-publickey.txt
 
 This will export the public key to a file named `pgp-publickey.txt`. 
 
-## Step 2: Create and Sign the security.txt file
+## Step 2: Create and sign the security.txt file
 1. **Create the security.txt file**: Create a plain text file named `security.txt` with the following content (customize as needed):
    ```
    # Security address
@@ -72,12 +72,12 @@ This will export the public key to a file named `pgp-publickey.txt`.
    Preferred-Languages: EN, NL
    ```
 
-2. **Sign the file with your Private Key**: Use the following command to create a cleartext signature:
+2. **Sign the file with your Private Key**: Use the following command to create a cleartext signature (replace the `Fingerprint` with the actual Key ID):
    ```
-   gpg --clearsign security.txt
+   gpg --clearsign --local-user Fingerprint security.txt
    ```
 
-   After you enter the passphrase to unlock the OpenPGP secret key, a signature file `security.txt.asc` is created. Copy the contents of `security.txt.asc` into the original `security.txt` file.
+   After you enter the passphrase to unlock the OpenPGP Private Key, a signature file `security.txt.asc` is created. Copy the contents of `security.txt.asc` into the original `security.txt` file.
 
 3. **Host the files**: In the `/.well-known/` folder on your webserver, upload the `security.txt` and `pgp-publickey.txt` files:
    ```
@@ -85,7 +85,7 @@ This will export the public key to a file named `pgp-publickey.txt`.
    https://example.com/.well-known/pgp-publickey.txt
    ```
 
-## Step 3: Verifying the Signature
+## Step 3: Confirm the authenticity
 To confirm the authenticity of the `security.txt` file, anyone can verify it using your public key.
 
 ### 1. Import the Public Key
@@ -93,11 +93,16 @@ A user downloads your public key and imports it into their GPG keyring:
 ```
 gpg --import pgp-publickey.txt
 ```
+To trust a public key using GPG, the user can follow these steps:
+1.	Open a terminal and run: `gpg --edit-key Fingerprint` (replace the `Fingerprint` with the actual Key ID)
+2.	At the gpg> prompt, type: `trust`
+3.	When prompted to choose a trust level, enter: `5` (which stands for “I trust ultimately”), then press Enter.
+4.	To exit the editor: On Windows, press Ctrl + C, On Mac, press Command + C (or type `quit` and confirm if prompted)
 
 ### 2. Verify the Signature
-The user runs the following command to verify the signature:
+The user runs the following command to verify the signature (replace the `Fingerprint` with the actual Key ID):
 ```
-gpg --verify security.txt
+gpg --verify --local-user Fingerprint security.txt
 ```
 
 If the file is authentic, they’ll see output confirming the signature, such as:
@@ -106,8 +111,6 @@ gpg: Signature made Fri 23 Nov 2024 10:30:00 AM UTC
 gpg:                using RSA key ABC123DEF4567890
 gpg: Good signature from "Your Name <your_email@example.com>"
 ```
-
-The user can trust your public key by running: `gpg --edit-key Key_ID`, typing `trust` at the next prompt, and selecting the option `5 = I trust ultimately`.
 
 ## Conclusion
 Adding a signed `security.txt` file to your webserver is a simple yet powerful way to build trust with security researchers and users. It ensures that the contact information provided is legitimate and hasn’t been tampered with. By following these steps, you create a clear and verifiable point of contact for handling vulnerabilities responsibly.

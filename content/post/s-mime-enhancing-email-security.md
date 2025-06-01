@@ -17,6 +17,8 @@ In addition to DMARC-compliant email, S/MIME provides proof that the sender is t
 ## How does S/MIME work?
 S/MIME provides confidentiality, integrity, non-repudiation, and authentication (CIANA) of email messages, through the use of Public Key Infrastructure (PKI) and asymmetric encryption (public/private key pair). S/MIME uses digital certificates, electronic credentials issued by trusted Certificate Authorities (CAs), to bind a user’s identity to a public key. These certificates are essential for secure key exchange and trust validation.
 
+S/MIME can be used for:
+
 1. Encryption (Confidentiality):
 When a user sends an email using S/MIME, their email client encrypts the message using the recipient’s public key. Only the intended recipient, who possesses the corresponding private key, can decrypt and read the message. This ensures that the message content remains confidential, even if intercepted during transmission.
 
