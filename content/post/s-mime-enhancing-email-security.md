@@ -81,7 +81,7 @@ openssl pkcs12 -inkey /tmp/certificate.key -in /tmp/certificate.crt -export -out
 - [S/MIME in Outlook for Windows](https://formsmarts.com/outlook-smime-encrypted-email)
 - [Configure S/MIME in Exchange Online](https://learn.microsoft.com/en-us/exchange/security-and-compliance/smime-exo/configure-smime-exo)
 
-Once you have imported the S/MIME e-mail certificate into your device, you can configure the e-mail client to encrypt and/or sign your messages.
+To send signed messages, you need to have your personal S/MIME certificate installed in your keychain. To send encrypted messages, the recipient’s certificate must also be stored in your keychain, this applies, for example, on macOS. Once you’ve imported your S/MIME email certificate into your device, you can configure your email client to digitally sign your outgoing messages and decrypt incoming messages that were encrypted with your public key.
 
 ![IMAGE](/images/s-mime-enhancing-email-security/s-mime-enhancing-email-security1.png)
 
