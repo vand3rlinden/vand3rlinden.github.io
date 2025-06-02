@@ -166,10 +166,10 @@
 &lt;h1 id=&#34;information-i-do-not-collect&#34;&gt;Information I do not collect&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;Cookies: I do not collect cookies on this website. This means I do not store any information on your device or track your browsing activity through cookies.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Cookies&lt;/strong&gt;: I do not collect cookies on this website. This means I do not store any information on your device or track your browsing activity through cookies.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Google Analytics: I do not use Google Analytics or any other analytics services to track your visit to my blog.&lt;/p&gt;</description>
+&lt;p&gt;&lt;strong&gt;Google Analytics&lt;/strong&gt;: I do not use Google Analytics or any other analytics services to track your visit to my blog.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Exchange Online: Configure inbound SMTP DANE with DNSSEC</title>

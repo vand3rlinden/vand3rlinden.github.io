@@ -85,7 +85,7 @@ This will export the public key to a file named `pgp-publickey.txt`.
    https://example.com/.well-known/pgp-publickey.txt
    ```
 
-## Step 3: Confirm authenticity
+## Step 3: Confirm authenticity and secure communication
 To confirm the authenticity of the `security.txt` file, anyone can verify it using your public key.
 
 ### 1. Import the Public Key
@@ -110,6 +110,27 @@ If the file is authentic, they’ll see output confirming the signature, such as
 gpg: Signature made Fri 23 Nov 2024 10:30:00 AM UTC
 gpg:                using RSA key ABC123DEF4567890
 gpg: Good signature from "Your Name <your_email@example.com>"
+```
+
+### 3. Secure communication
+For secure communication, users can use your public key to send an encrypted message to the email address listed in your `security.txt` file, which is cryptographically bound to your public key. This will look something like:
+
+```
+-----BEGIN PGP MESSAGE-----
+...
+-----END PGP MESSAGE-----
+```
+
+To decrypt this message using your private key:
+
+1. Save the encrypted message: `nano message.asc` (paste the entire PGP message and save the file, Ctrl+O, Enter, Ctrl+X)
+2. Decrypt the message with your private key: `gpg --decrypt --local-user Fingerprint message.asc` (replace the `Fingerprint` with the actual fingerprint)
+3. You should see output like this:
+
+```
+gpg: encrypted with 2048-bit RSA key, ID ABCD1234...
+gpg: decryption successful
+This is the decrypted message content.
 ```
 
 ## Conclusion
