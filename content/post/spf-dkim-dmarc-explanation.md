@@ -186,6 +186,8 @@ The table on this [Microsoft Learn page](https://learn.microsoft.com/en-us/archi
 
 > **NOTE**: Not all receiving mail servers support sending both `RUF` and `RUA` reports. Most servers typically support `RUA`, but this is not guaranteed. If supported, the reports are sent to the addresses specified in the DMARC policy.
 
+> **WARNING**: It’s not prohibited to include multiple email addresses in the `RUA` and `RUF` tags. However, best practice recommends limiting each tag to no more than two addresses, as some providers may ignore additional entries when sending DMARC reports. **My advice** is to limit this to one address whenever possible. If you do need to include more than one, you should format it like this: `rua=mailto:dmarc-reports@example.com,mailto:dmarc@example.com;`
+
 ## Protect all non-sending domains
 To protect all non-sending domains, you should consider:
 - A ***deny all SPF*** record:
