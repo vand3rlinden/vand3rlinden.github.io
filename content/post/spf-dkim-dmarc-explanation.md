@@ -54,16 +54,17 @@ The SPF record will vary for each domain; therefore, it is important to understa
 > **CAUTION**: If your DNS lookups are going to be around 10/10, you should take [steps](https://vand3rlinden.com/post/handle-your-spf-record/) to stay well under 10 DNS lookups. Because if a vendor decides to add another DNS lookup within its SPF include (child lookup). Your SPF record will become inaccurate because it has reached the DNS lookup limit, which may result in email delivery problems.
 
 ### Avoiding the 10 DNS Lookups cap, to:
-- Flatten your SPF record ***(not recommended)***
+- Flatten your SPF record.
     - Example: `v=spf1 include:spf.domain.com -all` can be `v=spf1 ip4:11.222.33.444 ip4:11.222.33.444 -all`
 
-> The [problem with flattening](https://vand3rlinden.com/post/handle-your-spf-record/#the-dangers-of-spf-flattening) is that email service providers can change or add IP addresses without telling you. Then your SPF record will be inaccurate, leading to email delivery problems.
-
-- Not using entries like `a` and `mx`, these mechanisms are often useless and probably should not be included in your SPF record (and other duplicate SPF mechanisms).
+> **Not recommended**: The [problem with flattening](https://vand3rlinden.com/post/handle-your-spf-record/#the-dangers-of-spf-flattening) is that email service providers can change or add IP addresses without telling you. Then your SPF record will be inaccurate, leading to email delivery problems.
 
 - Where email is incapable of passing DMARC with SPF, configure DKIM for the P2 Sender domain on the sending server or mail provider.
-  - ***NOTE:*** In this scenario, you must to set your SPF record to [softfail](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#softfail-or-hardfail) `~all`, this to ensure that the DMARC and DKIM evaluation will always be performed in the absence of a valid SPF validation.
+  - In this scenario, you must to set your SPF record to [softfail](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#softfail-or-hardfail) `~all`, this to ensure that the DMARC and DKIM evaluation will always be performed in the absence of a valid SPF validation.
 
+> **Not recommended**: You should work toward having both SPF and DKIM properly aligned.
+
+- Not using entries like `a` and `mx`, these mechanisms are often useless and probably should not be included in your SPF record (and other duplicate SPF mechanisms).
 
 - Move to vendor traffic with the use of subdomains for SPF authentication, subdomain segmentation creates a new domain dedicated to a particular mail stream with its own 10 DNS lookups. Organizations that segment their email streams find there is no need for SPF flattening and will end up with better controls, less attack surface, and limit any spillover effects of a potential cyber incident. 
   - Subdomain segmentation can be implemented in three ways:
@@ -135,7 +136,7 @@ RUA report example in `.xml`:
 
 ![IMAGE](/images/spf-dkim-dmarc-explanation/dmarc-xml.png)
 
-2. Using DMARC monitoring tools allows you to convert RUA reports into clear visual dashboards, providing more actionable insights than raw IP address data alone. Most tools can associate sending IP addresses with known sending services, such as Microsoft 365 or Salesforce. One example of such a tool is [Valimail](https://www.valimail.com/blog/office-365-free-dmarc-monitoring/) (free for Microsoft 365 users with an Exchange Online plan).
+2. Using DMARC monitoring tools allows you to convert `RUA` reports into clear visual dashboards, providing more actionable insights than raw IP address data alone. Most tools can associate sending IP addresses with known sending services, such as Microsoft 365 or Salesforce. One example of such a tool is [Valimail](https://www.valimail.com/blog/office-365-free-dmarc-monitoring/) (free for Microsoft 365 users with an Exchange Online plan).
 
 Overview of the Valimail Dashboard:
 
@@ -162,7 +163,7 @@ DMARC monitoring does **not** provide insights into the total sending volume of 
 There are three primary approaches to managing reporting in your DMARC monitoring strategy:
 1. If you see a sending service you don’t recognize, but SPF and/or DKIM passes, and your organization hasn’t historically documented all authorized sending services, review your SPF and `*._domainkey` entries in your public DNS. Remove any unused entries, and establish a practice of documenting all sending services authorized to send on behalf of your domain.
 2. If you recognize a sending service, but SPF and/or DKIM fails, update your domain’s email authentication settings to align SPF and DKIM for that sending service. This ensures the sending service is properly configured for outbound email authentication.
-3. If the sending service is unrecognized and all authentication checks fail (SPF, DKIM, and DMARC), then DMARC is working as intended. No action is required, as these messages will be rejected by most receiving mail servers once your DMARC policy is set to reject.
+3. If the sending service is unrecognized and all authentication checks fail (SPF, DKIM, and DMARC), then DMARC is working as intended. No action is required, as these messages will be rejected by most receiving mail servers once your DMARC policy is set to `reject`.
   
 ### DMARC policy explanation
 | Policy      | Value           | Meaning       |
@@ -218,7 +219,7 @@ This protects all of your domains from phishers and spammers, as bad actors will
 - **Purpose**: Sender authorization check
 - **Protect**: `RFC5321.MailFrom` (P1 Sender)
 
-**DKIM**: verifies if the public key (DNS record) of a sending domain, matched the private key that came from the sending server. This is a check that the sending domain actually sent the e-mail. DKIM must be configured for **each** sending server, such as Exchange Online or any other server/SaaS service.
+**DKIM**: verifies if the public key (DNS record) of a sending domain, matched the private key that came from the sending server. This is a check that the sending domain actually sent the e-mail. DKIM must be configured for **each** sending server, such as Exchange Online or any other sending service.
 - **Purpose**: Message authenticity verification
 - **Protect**: `RFC5322.From` (P2 Sender)
 
