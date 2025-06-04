@@ -168,21 +168,23 @@ The table on this [Microsoft Learn page](https://learn.microsoft.com/en-us/archi
 ### RUA vs. RUF DMARC Reports
 - `RUA` (Reporting URI for Aggregate reports):
   -  Is designed to send domain owners data about email authentication results for SPF, DKIM, and DMARC. These reports are essential for monitoring how a domain is being used and contain only authentication outcomes and message counts, without including any sensitive email content.
-     - Combined data on a group of emails.
-     - Not real-time, they are sent everyday by default.
-     - Sent in `XML` format.
-     - No PII (Personal Identifiable Information).
-     - Supported in all DMARC-compliant mailbox providers.
+     - Combined data on a group of emails
+     - Not real-time, they are sent everyday by default
+     - Sent in `XML` format
+     - No PII (Personal Identifiable Information)
+     - Supported in all DMARC-compliant mailbox providers
 
 - `RUF` (Reporting URI for Forensic reports): 
   - Is designed to send domain owners detailed failure reports when emails don’t pass DMARC checks. These reports may include portions of the original message headers and metadata, sometimes with limited message content, depending on the reporting provider. The goal is to help identify legitimate sources that need to be properly authenticated. However, due to privacy concerns and the potential exposure of Personal Identifiable Information (PII), most providers do not send `RUF` reports.
-    - Details of an individual email.
-    - Sent almost immediately after the failures.
-    - Plain text format.
-    - Contains PII (Personal Identifiable Information).
-    - Supported in only a handful of mailbox providers.
+    - Details of an individual email
+    - Sent almost immediately after the failures
+    - Plain text format
+    - Contains PII (Personal Identifiable Information)
+    - Supported in only a handful of mailbox providers, due to the sensitive PII data it may contains
 
 > **NOTE**: You don't need `RUF` Reporting to get a DMARC compliant domain, `RUA` is sufficient.
+
+> **NOTE**: Not all receiving mail servers support sending both `RUF` and `RUA` reports. Most servers typically support `RUA`, but this is not guaranteed. If supported, the reports are sent to the addresses specified in the DMARC policy.
 
 ## Protect all non-sending domains
 To protect all non-sending domains, you should consider:
