@@ -10,7 +10,7 @@ cover:
 >_Safe Attachments scans and evaluates attachments for malicious content before delivering messages to recipients._
 
 ## What you can manage with a Safe Attachments policy
-With a Safe Attachments policy, administrators can configure an additional layer of protection against malicious content in email attachments. It scans and evaluates attachments _(Safe Attachments opens files in a virtual environment)_ before delivering messages to recipients. You can create a custom policy to, specify actions for unknown malware, select a quarantine policy, and configure global settings to protect files in SharePoint, OneDrive, and Teams with Safe Attachments.
+With a Safe Attachments policy, administrators can configure an additional layer of protection against malicious content in email attachments. Safe Attachments scans and evaluates attachments in a virtual environment before delivering messages to recipients. You can create a custom policy to, specify actions for unknown malware, select a quarantine policy, and configure global settings to protect files in SharePoint, OneDrive, and Teams with Safe Attachments.
 
 Although there's no default Safe Attachments policy, the ***Built-in protection*** [preset security policy](https://learn.microsoft.com/en-us/defender-office-365/preset-security-policies) provides Safe Attachments protection to all recipients (users who aren't defined in the Standard or Strict preset security policies or in custom Safe Attachments policies).
 
@@ -19,7 +19,7 @@ You configure Safe Attachments policies in the Microsoft Defender portal or in E
 
 In this article, we will use the Microsoft Security portal for the configuration.
 
-1. Go to the [Safe Attachments policies](https://security.microsoft.com/safelinksv2) in the Microsoft Security portal.
+1. Go to the [Safe Attachments policies](https://security.microsoft.com/safeattachmentv2) in the Microsoft Security portal.
 
 2. Click on 'Global settings'.
 
@@ -38,7 +38,7 @@ In this article, we will use the Microsoft Security portal for the configuration
 8. Under 'Users and Domains', select the users, groups, and/or domains you want to include (In my case, I configured all the accepted domains).
     - If desired, exclude groups such as Microsoft 365 groups or mail-enabled security groups.
 
-9. Under 'Safe Attachments unknown malware response', choose 'Block - Block current and future messages and attachments with detected malware'.
+9. Under 'Safe Attachments unknown malware response', choose: 'Block - Block current and future messages and attachments with detected malware'.
 
 10. Under 'Quarantine policy', select a 'Request to release' policy. Preferred: AdminOnlyAccessPolicy. 
 
