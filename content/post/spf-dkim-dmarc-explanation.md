@@ -109,7 +109,7 @@ You can configure DKIM with a `TXT` record in your DNS zone for your sending mai
 How you set up DKIM depends on your sending server or mail provider. For example, configuring DKIM for [Salesforce](https://help.salesforce.com/s/articleView?id=sales.emailadmin_create_secure_dkim.htm) differs from [Exchange Online](https://learn.microsoft.com/en-us/defender-office-365/email-authentication-dkim-configure) in Microsoft Defender for Office 365. If you’re managing your own mail server and using MTAs like Sendmail or Postfix, you can implement DKIM using tools such as [OpenDKIM](http://www.opendkim.org/).
 
 ### DKIM recommendations
-- You must implement DKIM key rotation for each sending service to prevent adversaries from intercepting and decrypting your DKIM keys. DKIM Key rotation helps to minimize the risk of having a private key compromised.
+- You must implement DKIM key rotation for each sending server or mail provider to prevent adversaries from intercepting and decrypting your DKIM keys. DKIM Key rotation helps to minimize the risk of having a private key compromised.
   - Recurring: Every six months for a 2048-bit DKIM key.
 - The DKIM key length must be at least 2048-bits. 
 
@@ -135,7 +135,7 @@ RUA report example in `.xml`:
 
 ![IMAGE](/images/spf-dkim-dmarc-explanation/dmarc-xml.png)
 
-2. Using DMARC monitoring tools allows you to convert RUA reports into clear visual dashboards, providing more actionable insights than raw IP address data alone. Most tools can associate sending IP addresses with known services, such as Microsoft 365 or Salesforce. One example of such a tool is [Valimail](https://www.valimail.com/blog/office-365-free-dmarc-monitoring/) (free for Microsoft 365 users with an Exchange Online plan).
+2. Using DMARC monitoring tools allows you to convert RUA reports into clear visual dashboards, providing more actionable insights than raw IP address data alone. Most tools can associate sending IP addresses with known sending services, such as Microsoft 365 or Salesforce. One example of such a tool is [Valimail](https://www.valimail.com/blog/office-365-free-dmarc-monitoring/) (free for Microsoft 365 users with an Exchange Online plan).
 
 Overview of the Valimail Dashboard:
 
@@ -148,7 +148,7 @@ For heavy mail domains, I recommended monitoring the domain for at least three m
 - Hostname: `_dmarc`
 - Value: `v=DMARC1; p=none; sp=none; rua=mailto:dmarc_agg@vali.email;`
 
-During the monitoring phase, you can [adjust your SPF record](https://vand3rlinden.com/post/handle-your-spf-record/) and [set up DKIM for each sender](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#implementation-of-dkim), and then update your DMARC record to `reject` once the monitoring phase is complete:
+During the monitoring phase, you can [adjust your SPF record](https://vand3rlinden.com/post/handle-your-spf-record/) and [set up DKIM for each sending server](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#implementation-of-dkim), and then update your DMARC record to `reject` once the monitoring phase is complete:
 
 - Value: `v=DMARC1; p=reject; sp=reject; rua=mailto:dmarc_agg@vali.email;`
 
@@ -160,9 +160,9 @@ The `sp=reject` tag means that subdomains will be included; if you don’t want 
 DMARC monitoring does **not** provide insights into the total sending volume of your domain. Instead, it **only** shows authentication results (SPF/DKIM/DMARC pass or fail) based on the aggregate (`RUA`) reports received.
 
 There are three primary approaches to managing reporting in your DMARC monitoring strategy:
-1. If you see a sending IP or service you don’t recognize, but SPF and/or DKIM passes, and your organization hasn’t historically documented all authorized sending services, review your SPF records and `*._domainkey` public DNS entries. Remove any unused entries, and establish a practice of documenting all services authorized to send on behalf of your domain.
-2. If you recognize a service, but SPF and/or DKIM fails, update your domain’s email authentication settings to align SPF and DKIM for that service. This ensures the service is properly configured for outbound email authentication.
-3. If the service is unrecognized and all authentication checks fail (SPF, DKIM, and DMARC), then DMARC is working as intended. No action is required, as these messages will be rejected by most receiving mail servers once your DMARC policy is set to reject.
+1. If you see a sending service you don’t recognize, but SPF and/or DKIM passes, and your organization hasn’t historically documented all authorized sending services, review your SPF and `*._domainkey` entries in your public DNS. Remove any unused entries, and establish a practice of documenting all sending services authorized to send on behalf of your domain.
+2. If you recognize a sending service, but SPF and/or DKIM fails, update your domain’s email authentication settings to align SPF and DKIM for that sending service. This ensures the sending service is properly configured for outbound email authentication.
+3. If the sending service is unrecognized and all authentication checks fail (SPF, DKIM, and DMARC), then DMARC is working as intended. No action is required, as these messages will be rejected by most receiving mail servers once your DMARC policy is set to reject.
   
 ### DMARC policy explanation
 | Policy      | Value           | Meaning       |
