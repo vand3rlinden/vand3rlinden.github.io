@@ -8,10 +8,6 @@ enableRobotsTXT: true
 #menu settings
 menu:
   main:
-    - identifier: pages
-      name: SecOps
-      url: /m365-secops
-      weight: 20
     - identifier: categories
       name: Categories
       url: /categories/
@@ -20,6 +16,10 @@ menu:
       name: Posts
       url: /post/
       weight: 20
+    - identifier: pages
+      name: SecOps
+      url: /m365-secops
+      weight: 30
     #- identifier: tags
       #name: Tags
       #url: /tags/
@@ -42,7 +42,7 @@ params:
     - name: github
       url: "https://github.com/vand3rlinden"
     - name: email
-      url: "mailto:info@vand3rlinden.com"
+      url: "mailto:security@vand3rlinden.com"
 
   #meta settings
   env: production # to enable google analytics, opengraph, twitter-cards and schema.

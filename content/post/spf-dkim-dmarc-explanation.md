@@ -191,11 +191,16 @@ The table on this [Microsoft Learn page](https://learn.microsoft.com/en-us/archi
     - Contains PII (Personal Identifiable Information)
     - Supported in only a handful of mailbox providers, due to the sensitive PII data it may contains
 
-> **NOTE**: You don't need `RUF` Reporting to get a DMARC compliant domain, `RUA` is sufficient.
+### Best Practices and Insights for RUA and RUF DMARC Reports
+1. You don't need `RUF` Reporting to get a DMARC compliant domain, `RUA` is sufficient.
 
-> **NOTE**: Not all receiving mail servers support sending both `RUF` and `RUA` reports. Most servers typically support `RUA`, but this is not guaranteed. If supported, the reports are sent to the addresses specified in the DMARC policy.
+2. Not all receiving mail servers support sending both `RUF` and `RUA` reports. Most servers typically support `RUA`, but this is not guaranteed. If supported, the reports are sent to the addresses specified in the DMARC policy.
 
-> **WARNING**: It’s not prohibited to include multiple email addresses in the `RUA` and `RUF` tags. However, best practice recommends limiting each tag to no more than two addresses, as some providers may ignore additional entries when sending DMARC reports. **My advice** is to limit this to one address whenever possible. If you do need to include more than one, you should format it like this: `rua=mailto:dmarc-reports@example.com,mailto:dmarc@example.com;`
+3. It’s not prohibited to include multiple email addresses in the `RUA` and `RUF` tags. However, best practice recommends limiting each tag to no more than two addresses, as some providers may ignore additional entries when sending DMARC reports. **My advice** is to limit this to one address whenever possible. If you do need to include more than one, you should format it like this: `rua=mailto:dmarc-reports@example.com,mailto:dmarc@example.com;`
+
+4. DMARC External Validation for `RUA`/`RUF`: If you want to send DMARC reports to a domain different from your own, the receiving domain must explicitly authorize this by configuring a DNS record. This ensures that email providers recognize the recipient as an authorized destination for the reports.
+   - For example, if you’re sending reports to `example.com`, that domain must create the following TXT record: `yourdomain.com._report._dmarc.example.com`, with the value: `v=DMARC1;`
+   - DMARC monitoring providers, like Valimail, handle this automatically or use wildcard records on their end.
 
 ## Protect all non-sending domains
 To protect all non-sending domains, you should consider:
