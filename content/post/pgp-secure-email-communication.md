@@ -22,7 +22,7 @@ PGP uses a combination of symmetric-key encryption and public-key cryptography. 
 When you send a message encrypted with someone’s public key, only their private key can decrypt it. Likewise, when you sign a message with your private key, anyone with your public key can verify that the message came from you and hasn’t been altered.
 
 ## PGP vs. S/MIME: What’s the difference?
-In an earlier blog, I explained how S/MIME works, what it does, and how to request and configure it. Both PGP and S/MIME offer email encryption and digital signing, but they differ in architecture and how they are used.
+In an [earlier blog](https://vand3rlinden.com/post/s-mime-enhancing-email-security/), I explained how S/MIME works, what it does, and how to request and configure it. Both PGP and S/MIME offer email encryption and digital signing, but they differ in architecture and how they are used.
 
 - **S/MIME**: Uses X.509 certificates issued by a trusted Certificate Authority (CA) within a Public Key Infrastructure (PKI) model. It is centrally managed and commonly integrated into enterprise email platforms like Outlook. S/MIME enables encryption and digital signing of emails using public key cryptography.
 - **PGP**: Uses a web-of-trust model, where users manually validate each other’s keys using ASCII-armored text files (.asc). It is a decentralized system, meaning no central authority is required. While PGP provides greater flexibility, it also involves manual key management, which can be more complex for users.
@@ -40,7 +40,7 @@ PGP provides confidentiality, integrity, authentication, and non-repudiation (CI
 
 > _Arguing that you don't care about the right to privacy because you have nothing to hide is no different from saying you don't care about free speech because you have nothing to say._ – **Edward Snowden**
 
-4. **Establish digital identity**: Your public PGP key serves as a unique digital signature tied to your identity. As more people verify and associate your key with you, it becomes increasingly difficult for impersonators to send fake emails in your name. As I discussed in my blog on S/MIME, especially in the context of outbound email, consistently signing your messages builds trust. If a message is missing your usual signature, the recipient may view it as a red flag and choose to ignore it, even if it passes outbound authentication for the sending domain.
+4. **Establish digital identity**: Your public PGP key serves as a unique digital signature tied to your identity. As more people verify and associate your key with you, it becomes increasingly difficult for impersonators to send fake emails in your name. As I explained in my [earlier blog](https://vand3rlinden.com/post/s-mime-enhancing-email-security/#smime-vs-outbound-email-authentication) on S/MIME, particularly in the context of outbound email authentication, consistently signing your messages helps establish trust. If a message suddenly lacks your usual signature, the recipient may see it as a red flag and choose to ignore it, even if it passes outbound authentication for the sending domain.
 
 ## Setting up secure email communication with OpenPGP
 OpenPGP is the most widely used standard for email encryption. There are [many tools](https://www.openpgp.org/software/) and user-friendly applications that support it, such as [GPG Suite](https://gpgtools.org/) and various email plugins. In this blog, we’ll use the command-line tool GnuPG (GNU Privacy Guard), commonly known as GPG, which is the most widely used utility for generating and managing PGP keys. 
