@@ -16,14 +16,14 @@ In today's digital landscape, the security of sensitive information transmitted 
 In addition to DMARC-compliant email, which validates the sending source through SPF and DKIM checks, S/MIME provides cryptographic proof of the sender’s identity by digitally signing the message with a personal certificate, whose private key exists only on the sender’s device. In practice, when DMARC-compliant email is used to deliver malicious content, it often indicates that the sender’s mailbox has been compromised, allowing an attacker to send messages that still pass DMARC checks. However, if the compromised mailbox normally signs messages with S/MIME and the malicious message lacks this signature, the recipient may recognize this inconsistency as a red flag and choose to ignore the message. Additionally, S/MIME can be used to encrypt email content, helping protect messages from being read or modified in transit. It’s important to note that outbound email authentication techniques, such as SPF, DKIM, and DMARC, are unrelated to signing or encrypting a message, they validate the sending source, not the message content or its confidentiality.
 
 ## How does S/MIME work?
-S/MIME provides confidentiality, integrity, non-repudiation, and authentication (CIANA Triad) of email messages, through the use of Public Key Infrastructure (PKI) and asymmetric encryption (public/private key pair). S/MIME uses digital certificates, electronic credentials issued by trusted Certificate Authorities (CAs), to bind a user’s identity to a public key. These certificates are essential for secure key exchange and trust validation.
+S/MIME provides confidentiality, integrity, authentication, and non-repudiation (often grouped as the CIANA triad) for email messages by leveraging Public Key Infrastructure (PKI) and a combination of asymmetric encryption (public/private key pairs) and symmetric encryption (a single key for both encryption and decryption). It uses digital certificates, electronic credentials issued by trusted Certificate Authorities (CAs), to bind a user’s identity to their public key. These certificates are essential for enabling encryption and digital signatures, helping establish trust between communicating parties.
 
 S/MIME can be used for:
 
 1. Encryption (Confidentiality):
 When a user sends an email using S/MIME, their email client encrypts the message using the recipient’s public key. Only the intended recipient, who possesses the corresponding private key, can decrypt and read the message. This ensures that the message content remains confidential, even if intercepted during transmission.
 
-2. Digital Signature (Authentication and Integrity):
+1. Digital Signature (Authentication and Integrity):
 S/MIME also enables users to digitally sign emails. The sender’s email client generates a digital signature using the sender’s private key. Upon receiving the message, the recipient’s email client uses the sender’s public key to verify the signature. A valid signature confirms that the message has not been altered (integrity) and authenticates the sender’s identity.
 
 By combining encryption and digital signatures, S/MIME ensures that email communications are secure, trustworthy, and resistant to tampering or impersonation.

@@ -14,8 +14,9 @@ Email remains one of the least secure forms of communication, unless you take st
 
 PGP is an encryption program that provides cryptographic privacy and authentication. Originally created by Phil Zimmermann in 1991, PGP is now widely supported and standardized through OpenPGP.
 
-PGP uses a combination of symmetric-key encryption and public-key cryptography. Each user has a pair of keys:
+PGP uses a combination of symmetric encryption (a single key for encrypting and decrypting message content) and asymmetric encryption (public/private key pairs). The message is encrypted using symmetric encryption for efficiency, while asymmetric encryption is used to securely exchange the symmetric key, decrypt it on the recipient’s side, and verify digital signatures.
 
+Each user has a key pair:
 - A **public key**, which is shared with others and used to encrypt messages to you.
 - A **private key**, which is kept secret and used to decrypt messages you receive and to sign messages you send.
 
@@ -29,7 +30,7 @@ In an [earlier blog](https://vand3rlinden.com/post/s-mime-enhancing-email-securi
 
 In general, S/MIME is easier to deploy since it is built into many enterprise email platforms and allows certificate management through a central authority. PGP, on the other hand, is more popular among privacy-conscious individuals because of its decentralized nature and the transparency it offers.
 
-PGP provides confidentiality, integrity, authentication, and non-repudiation (CIANA Triad) for email communication, in the same way as S/MIME. However, non-repudiation in PGP is more easily challenged, especially if a private key is compromised or weakly tied to a verifiable identity. Since PGP is decentralized, there is often no authority backing to prove that a specific key belongs to a particular person. For example, if someone claims, _“That wasn’t me, someone else used my key”_, it can be difficult to disprove. In contrast, S/MIME relies on Certificate Authorities (CAs) that may perform identity verification (e.g., checking a passport or company ownership), providing stronger legal assurance in such cases. This is where S/MIME’s centralized approach can offer an advantage.
+PGP provides confidentiality, integrity, authentication, and non-repudiation (often grouped as the CIANA triad) for email communication, in the same way as S/MIME. However, non-repudiation in PGP is more easily challenged, especially if a private key is compromised or weakly tied to a verifiable identity. Since PGP is decentralized, there is often no authority backing to prove that a specific key belongs to a particular person. For example, if someone claims, _“That wasn’t me, someone else used my key”_, it can be difficult to disprove. In contrast, S/MIME relies on Certificate Authorities (CAs) that may perform identity verification (e.g., checking a passport or company ownership), providing stronger legal assurance in such cases. This is where S/MIME’s centralized approach can offer an advantage.
 
 ## Why encrypt and sign emails with PGP?
 1. **Keep your email private**: Most email is sent in plain text, your actual messages are stored unencrypted on the email provider’s servers. That means providers, or anyone who gains access to their systems, can read your email content. PGP encryption ensures that only the intended recipient can decrypt your message, even if the email provider is compromised.
