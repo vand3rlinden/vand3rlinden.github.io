@@ -30,8 +30,8 @@ While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages
 ## MTA-STS benefits:
 - Emails are transfered over a secure TLS connection
 - Must use TLS-Version 1.2 or higher
-- For the TLS Certificates they need to:
-  - Certificate Subject needs to match the MX-Entry
+- For the TLS certificates they need to:
+  - Certificate subject needs to match the MX-Entry
   - They need to be signed and issued by a public trusthworthy CA
   - They need to be valid (valid from / valid until)
 
@@ -57,8 +57,8 @@ _mta-sts.example.com IN TXT "v=STSv1; id=20240728"
 ```
 version: STSv1
 mode: testing
-mx: your-mx1.com
-mx: your-mx2.com
+mx: mail.example.com
+mx: mail2.example.com
 max_age: 604800
 ```
 

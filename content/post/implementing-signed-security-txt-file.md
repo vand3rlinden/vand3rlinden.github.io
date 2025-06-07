@@ -77,7 +77,7 @@ This will export the public key to a file named `pgp-publickey.txt`.
    gpg --clearsign --local-user Fingerprint security.txt
    ```
 
-   After you enter the passphrase to unlock the OpenPGP Private Key, a signature file `security.txt.asc` is created. Copy the contents of `security.txt.asc` into the original `security.txt` file.
+   After you enter the passphrase to unlock the OpenPGP Private Key, a signature file `security.txt.asc` is created. Copy the content of `security.txt.asc` into the original `security.txt` file.
 
 3. **Host the files**: In the `/.well-known/` folder on your webserver, upload the `security.txt` and `pgp-publickey.txt` files:
    ```

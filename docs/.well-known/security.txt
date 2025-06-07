@@ -2,30 +2,32 @@
 Hash: SHA256
 
 # Security address
-Contact: mailto:security@vand3rlinden.com
+Contact: mailto:security@example.com
 
 # OpenPGP key
-Encryption: https://vand3rlinden.com/.well-known/pgp-publickey.txt
+Encryption: https://vand3rlinden.com/encryption/pgp-security-publickey.txt
 
 # Expiration of security.txt file
-Expires: 2025-07-29T21:59:00.000Z
+Expires: 2026-06-07
 
 # Privacy Policy
-https://vand3rlinden.com/privacy-policy/
+Policy: https://vand3rlinden.com/privacy-policy/
 
 # Languages
 Preferred-Languages: EN, NL
 -----BEGIN PGP SIGNATURE-----
 
-iQGzBAEBCAAdFiEEc4KkE3UfnPiUeVui7xigVVGVOhsFAmdVr5wACgkQ7xigVVGV
-Ohv1Dgv/cXE3sIPDuEYICrzcEH+jIhNYDIK93Uf6kcQvW5wCqpAIFA4c13YisLbM
-s44QupVRBWyKEwG9e/NaGc3mqrBZOpv4gRzTnrW1f/3Q4NMwk6ig3HwMA3z64jQp
-FMz/LxKcGLb/fxN+KDwJiH4dXS+qPt9xjNaRtwGXnlQF6C9+qpGYaXDvjyFAu5De
-5NBvJAXmt6U2PJKGdVuIWg2yeVDD/KDIkfch1m+kRA8TnfVz9WoIaHNEe3Q7R3od
-M0INfWhHDjxl7W4fyO3ZkaITy2BfCrHGP66QpdqBTFVbNY0ayJVz1iLTrz1Tg2ii
-Nfvt33ehRc07iLwJUzHh/l8tRvnxEArRJqvXsQm3DYjMp3uLh0dqq3IQy7scf761
-mQfKtKd/SwTJ3PAhRrm2QTTVVWaUw4hEjmUGHSoS+f/UeYoXYtuOE1STJQWSrISw
-MyhS0XZ1rq1Y/uhk1oBTYwcqk7SRAsy5pC7NkJ09XkJtqMPohuUue4N09Ra8VyUk
-0ewkPSxY
-=XTR1
+iQIzBAEBCAAdFiEE2LgIdAAaOcVzxLw/ejaUkY/1cG0FAmhEkKIACgkQejaUkY/1
+cG2DYQ/+MXt7rWeqFjXk+5lKtpZSObz3k16xWVoh7Uqh3aCTjqlUXt1H0Z4q+RQB
+SIaO8vBV0CpKrp+/60q/Zmc0zq74llHFyb5IRJ2lzJ+ic6NXEu9jar3fQwfTXS1k
+tUYFTTf2AskMlmq80psBT0bpIDUXRKG09fh2aaIgm2QQjlfHR8MT39JAPtHM6p4M
+rSQz4zxwxxp8uSYSIf3r4fy926wxSkHoekzrCDqPKol94aaqI8uNCY6Ta+To15V3
+PsKjmRpXoyqy66eV/qBGTX/vjr1DkJqVpgoGQEtiFKQuzI4AK1ZM/OCozLi8BHad
+mAn4acSJSDgmJ7cA/m44rHlOGiUm34bo+QUSc7LzEtIG0CokMLTtFmrFKCNQudTm
+y0a3jPn2vxjqciWPSbVpsud1a0GOsNRfIQ6j1/P/+lw9mguJw1IuUCYcBVkZMNJt
+XA1ntFMnnBS+cvwzKWRvrAgpbV+jz+6gqUq/yoDCPJjk60aTCaQlF7QcarWkCywz
+LXyPYme5bR83LhpamGkK4UQrTwrcvuC4uV0S2uHaIM9xshfEAt+POlYQgYI7hxyb
+GBJVI3HSgalLqK5sO8Mjmi3J3aPIB9hQD7MEsSdjwD/qKy3M6oyiU97czJkpgV1E
+iYbxMrVWVlsHRzVNBECuteTyRQuiEk/UBq/R5Y66hdsY0J6iwvk=
+=q+sN
 -----END PGP SIGNATURE-----
