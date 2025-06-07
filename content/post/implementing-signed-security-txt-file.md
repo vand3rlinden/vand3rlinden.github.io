@@ -12,16 +12,16 @@ cover:
 ## Introduction
 The `security.txt` file, typically hosted at `/.well-known/security.txt`, provides a standardized way for security researchers to find the correct point of contact for reporting vulnerabilities. It helps ensure that security issues are directed to the right people quickly and efficiently. While it’s recommended to optionally sign the file with a PGP key for added authenticity, the primary goal is to clearly list how to reach your security team or responsible contact. Below, we’ll cover how to create a straightforward, effective `security.txt` file for your site.
 
-## Step 1: Generate a PGP Key Pair
+## Step 1: Generate a PGP key pair
 If you don’t already have a PGP key pair, you’ll need to generate one. A PGP key pair consists of a public key, which you can share publicly, and a private key, which is kept secret.
 
 ### 1. Install GPG (GNU Privacy Guard)
 GPG is the most common tool for generating and managing PGP keys. Install it using your package manager:
-- **Linux:** `sudo apt-get install gnupg`
+- **Linux (Debian based):** `sudo apt-get install gnupg`
 - **MacOS (via Homebrew):** `brew install gnupg`
 - **Windows:** Download GPG4Win from [https://gpg4win.org](https://gpg4win.org).
 
-### 2. Generate the Key Pair
+### 2. Generate the key pair
 Run the following command:
 ```
 gpg --full-generate-key
@@ -45,7 +45,7 @@ gpg --list-keys --keyid-format LONG
 gpg --list-secret-keys --keyid-format LONG
 ```
 
-### 3. Export your Public Key
+### 3. Export your public key
 Others will need your public key to verify your signature:
 ```
 gpg --armor --export your_email@example.com > pgp-publickey.txt
@@ -113,8 +113,7 @@ gpg: Good signature from "Your Name <your_email@example.com>"
 ```
 
 ### 3. Secure communication
-For secure communication, users can use your public key to send an encrypted message to the email address listed in your `security.txt` file, which is cryptographically bound to your public key. This will look something like:
-
+For secure communication, users can use your public key to send an encrypted message to the email address listed in your `security.txt` file, which is cryptographically bound to your private key, an encrypted PGP message will look like:
 ```
 -----BEGIN PGP MESSAGE-----
 ...
@@ -122,14 +121,12 @@ For secure communication, users can use your public key to send an encrypted mes
 ```
 
 To decrypt this message using your private key:
-
 1. Save the encrypted message: `nano message.asc` (paste the entire PGP message and save the file, Ctrl+O, Enter, Ctrl+X)
-2. Decrypt the message with your private key: `gpg --decrypt --local-user Fingerprint message.asc` (replace the `Fingerprint` with the actual fingerprint)
-3. You should see output like this:
-
+2. Decrypt the message: `gpg --decrypt --local-user Fingerprint message.asc` (replace the `Fingerprint` with the actual fingerprint)
+3. A successful decryption will look like:
 ```
-gpg: encrypted with 2048-bit RSA key, ID ABCD1234...
-gpg: decryption successful
+gpg: encrypted with rsa4096 key, ID ABCD1234....
+
 This is the decrypted message content.
 ```
 

@@ -6,8 +6,18 @@
     <description>Recent content on VAND3RLINDEN</description>
     <generator>Hugo -- 0.147.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 07 Apr 2025 12:16:19 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 06 Jun 2025 22:01:22 +0200</lastBuildDate>
     <atom:link href="https://vand3rlinden.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using PGP for secure email communication</title>
+      <link>https://vand3rlinden.com/post/pgp-secure-email-communication/</link>
+      <pubDate>Fri, 06 Jun 2025 22:01:22 +0200</pubDate>
+      <guid>https://vand3rlinden.com/post/pgp-secure-email-communication/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;In this post, I will explain what PGP is, how it differs from S/MIME, and why encrypting and signing your emails is more important than ever.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;what-is-pgp&#34;&gt;What is PGP?&lt;/h2&gt;
+&lt;p&gt;Email remains one of the least secure forms of communication, unless you take steps to protect it. Pretty Good Privacy (PGP) offers a powerful and accessible way to encrypt and sign your email messages, ensuring that your communication remains private and tamper-proof.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Microsoft Defender for Office 365: Approach for Non-RFC compliant emails</title>
       <link>https://vand3rlinden.com/post/mdo-rfc-compliant-emails/</link>

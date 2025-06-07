@@ -151,6 +151,20 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Using PGP for secure email communication
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> In this post, I will explain what PGP is, how it differs from S/MIME, and why encrypting and signing your emails is more important than ever.
+What is PGP? Email remains one of the least secure forms of communication, unless you take steps to protect it. Pretty Good Privacy (PGP) offers a powerful and accessible way to encrypt and sign your email messages, ensuring that your communication remains private and tamper-proof.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-06-06 22:01:22 +0200 CEST'>June 6, 2025</span>&nbsp;·&nbsp;7 min</footer>
+  <a class="entry-link" aria-label="post link to Using PGP for secure email communication" href="https://vand3rlinden.com/post/pgp-secure-email-communication/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Microsoft Defender for Office 365: Approach for Non-RFC compliant emails
     </h2>
   </header>
@@ -278,20 +292,6 @@ ARC ensures that legitimate emails are less likely to be marked as spam or rejec
   </div>
   <footer class="entry-footer"><span title='2024-05-24 23:37:34 +0200 CEST'>May 24, 2024</span>&nbsp;·&nbsp;6 min</footer>
   <a class="entry-link" aria-label="post link to Understanding the role and benefits of ARC Sealing" href="https://vand3rlinden.com/post/arc-explained/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Microsoft Defender for Office 365: Hardening DKIM and DMARC configuration
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> Improve email security in Microsoft 365: Fine-tuning DKIM, configuring DMARC for the MOERA domain, and blocking inbound DMARC failures from reaching user inboxes.
-Fine-tune DKIM by frequently rotating the DKIM keys After setting up DKIM in Microsoft Defender for Office 365, it is also important to set up frequent rotation of these DKIM keys to prevent adversaries from intercepting and decrypting your cryptographic keys. Key rotation helps to minimize the risk of compromising the private keys. In Microsoft 365, you can rotate the DKIM keys for your domains to increase security. The recurrence must be every 3 months because rotating the DKIM keys every 3 months ensures a complete rotation of both selectors every 6 months. You can rotate the DKIM keys manually using the Defender portal or Exchange Online PowerShell, but it is easy to forget if you do it manually. So you should delegate this to Azure Automation by using the runbook below:
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2024-04-21 15:31:27 +0200 CEST'>April 21, 2024</span>&nbsp;·&nbsp;5 min</footer>
-  <a class="entry-link" aria-label="post link to Microsoft Defender for Office 365: Hardening DKIM and DMARC configuration" href="https://vand3rlinden.com/post/mdo-hardening-dkim-dmarc-config/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

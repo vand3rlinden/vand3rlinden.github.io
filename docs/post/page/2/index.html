@@ -126,6 +126,20 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Microsoft Defender for Office 365: Hardening DKIM and DMARC configuration
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> Improve email security in Microsoft 365: Fine-tuning DKIM, configuring DMARC for the MOERA domain, and blocking inbound DMARC failures from reaching user inboxes.
+Fine-tune DKIM by frequently rotating the DKIM keys After setting up DKIM in Microsoft Defender for Office 365, it is also important to set up frequent rotation of these DKIM keys to prevent adversaries from intercepting and decrypting your cryptographic keys. Key rotation helps to minimize the risk of compromising the private keys. In Microsoft 365, you can rotate the DKIM keys for your domains to increase security. The recurrence must be every 3 months because rotating the DKIM keys every 3 months ensures a complete rotation of both selectors every 6 months. You can rotate the DKIM keys manually using the Defender portal or Exchange Online PowerShell, but it is easy to forget if you do it manually. So you should delegate this to Azure Automation by using the runbook below:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-04-21 15:31:27 +0200 CEST'>April 21, 2024</span>&nbsp;·&nbsp;5 min</footer>
+  <a class="entry-link" aria-label="post link to Microsoft Defender for Office 365: Hardening DKIM and DMARC configuration" href="https://vand3rlinden.com/post/mdo-hardening-dkim-dmarc-config/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Understanding S/MIME: Enhancing Email Security
     </h2>
   </header>
@@ -250,24 +264,12 @@ What are quarantine policies Back in April 2020, Microsoft made it possible for 
   <footer class="entry-footer"><span title='2023-12-11 16:33:46 +0100 CET'>December 11, 2023</span>&nbsp;·&nbsp;3 min</footer>
   <a class="entry-link" aria-label="post link to Microsoft Defender for Office 365: Quarantine policies" href="https://vand3rlinden.com/post/mdo-quarantine-policies/"></a>
 </article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">SPF, DKIM and DMARC explanation
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> In this post you will learn to understand how the DNS protocols SPF, DKIM and DMARC work together to protect your domain from phishers and spammers.
-Why deploy SPF, DKIM, and DMARC? SPF, DKIM, and DMARC are critical email authentication protocols that help prevent email spoofing, phishing attacks, and domain impersonation for outbound email. Enabling these protocols together strengthens your domain’s email authentication mechanisms, improves security, and builds trust with your recipients by ensuring that email sent from your domain is legitimate and trustworthy.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-12-09 11:46:16 +0100 CET'>December 9, 2023</span>&nbsp;·&nbsp;14 min</footer>
-  <a class="entry-link" aria-label="post link to SPF, DKIM and DMARC explanation" href="https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="https://vand3rlinden.com/post/">
       «&nbsp;Prev&nbsp;
+    </a>
+    <a class="next" href="https://vand3rlinden.com/post/page/3/">Next&nbsp;&nbsp;»
     </a>
   </nav>
 </footer>
