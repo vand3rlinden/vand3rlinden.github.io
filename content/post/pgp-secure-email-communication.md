@@ -85,7 +85,7 @@ Others will need your public key to verify your digital signature and/or to send
 gpg --armor --export your_email@example.com > pgp-publickey.asc
 ```
 
-## 4. Encrypt a message
+### 4. Encrypt a message
 1. Save the recipient’s public key: `nano pgp-publickey.asc` (paste the entire public key block and save the file with Ctrl+O, Enter, Ctrl+X)
 2. Import the public key: `gpg --import pgp-publickey.asc`
 3. Create your message: `nano message.txt`
