@@ -27,4 +27,4 @@ My blog may contain links to other Websites. I am not responsible for the privac
 I may update this privacy policy from time to time. You are advised to review this privacy policy periodically for any changes.
 
 # Contact me
-If you have any questions or concerns about this privacy policy, feel free to contact me at [security@vand3rlinden.com](mailto:security@vand3rlinden.com). For secure communication, you may use my [PGP public key](https://vand3rlinden.com/encryption/pgp-security-publickey.txt) to send an encrypted message.
+If you have any questions or concerns about this privacy policy, feel free to contact me at [security@vand3rlinden.com](mailto:security@vand3rlinden.com). For secure communication, you may use my [PGP public key](https://vand3rlinden.com/encryption/pgp-security-publickey.txt) to send an encrypted message (fingerprint: `D8B80874001A39C573C4BC3F7A3694918FF5706D`).
