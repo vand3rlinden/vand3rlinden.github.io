@@ -18,10 +18,11 @@ If you’d like to communicate securely, please use my public key below.
 - My personal PGP address: `gpg --fingerprint A1C9A7F709D3A889A3539A78C7CEA07966701A9E`
 - My security PGP address: `gpg --fingerprint D8B80874001A39C573C4BC3F7A3694918FF5706D`
 
-> **NOTE**: You should always verify PGP Fingerprints before trusting a Public Key.
-
 ### PGP Public Keys
 - [PGP Public Key for my personal email address](https://vand3rlinden.com/encryption/pgp-ricardo-publickey.txt)
 - [PGP Public Key for my security email address](https://vand3rlinden.com/encryption/pgp-security-publickey.txt)
 
-> **NOTE**: You can save the content to a `.asc` file.
+> **NOTE**: You can save the content to a `.asc` file and import the PGP public key using the following command: `gpg --import publickey.asc`
+
+## PGP Tooling
+I use the command-line tool [GnuPG](https://www.gnupg.org/), also known as GPG, which is the most widely adopted utility for generating and managing PGP keys. To simplify encryption, decryption, signing, and signature verification, I’ve created a Bash script that works seamlessly if GnuPG is installed on your system, check [my GitHub repository](https://github.com/vand3rlinden/Bash/blob/main/pgp_tool.sh) for the download. For iOS, I use [Instant PGP](https://apps.apple.com/us/app/instant-pgp/id1497433694) to manage and use PGP keys on mobile.
