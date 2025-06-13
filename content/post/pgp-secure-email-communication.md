@@ -44,7 +44,9 @@ PGP provides confidentiality, integrity, authentication, and non-repudiation (of
 4. **Establish digital identity**: Your public PGP key serves as a unique digital signature tied to your identity. As more people verify and associate your key with you, it becomes increasingly difficult for impersonators to send fake emails in your name. As I explained in my [earlier blog](https://vand3rlinden.com/post/s-mime-enhancing-email-security/#smime-vs-outbound-email-authentication) on S/MIME, particularly in the context of outbound email authentication, consistently signing your messages helps establish trust. If a message suddenly lacks your usual signature, the recipient may see it as a red flag and choose to ignore it, even if it passes outbound authentication for the sending domain.
 
 ## Setting up secure email communication with OpenPGP
-OpenPGP is the most widely used standard for email encryption. There are [many tools](https://www.openpgp.org/software/) and user-friendly applications that support it, such as [GPG Suite](https://gpgtools.org/) and various email plugins. In this blog, we’ll use the command-line tool GnuPG (GNU Privacy Guard), commonly known as GPG, which is the most widely used utility for generating and managing PGP keys. 
+OpenPGP is the most widely used standard for email encryption. There are [many tools](https://www.openpgp.org/software/) and user-friendly applications that support it, such as [GPG Suite](https://gpgtools.org/) and various email plugins. In this blog, we’ll use the command-line tool [GnuPG (GNU Privacy Guard)](https://www.gnupg.org/), commonly known as GPG, which is the most widely used utility for generating and managing PGP keys.
+
+> **NOTE**: While it is a good practice to become familiar with `gpg` commands, I have developed a bash script that streamlines encryption, decryption, signing, and signature verification. It works seamlessly as long as **GnuPG** is installed on your system, available here on my [GitHub repository](https://github.com/vand3rlinden/Bash/blob/main/pgp_tool.sh). I have also created a separate bash script for managing PGP keys, including key generation, import, and export. You can download it from the [same repository here](https://github.com/vand3rlinden/Bash/blob/main/pgp_key_tool.sh).
 
 Let's begin:
 
@@ -88,9 +90,10 @@ gpg --armor --export your_email@example.com > pgp-publickey.asc
 ### 4. Encrypt a message
 1. Save the recipient’s public key: `nano pgp-publickey.asc` (paste the entire public key block and save the file with Ctrl+O, Enter, Ctrl+X)
 2. Import the public key: `gpg --import pgp-publickey.asc`
-3. Create your message: `nano message.txt`
-4. Encrypt the message using the recipient’s public key: `gpg --encrypt --armor --recipient recipient@domain.com message.txt`, this will output an ASCII-armored encrypted file, e.g., `message.txt.asc`
-5. The output will look like this:
+3. Verify the `Fingerprint` from trusted sources like the recipient’s website or email signature: `gpg --fingerprint recipient@domain.com`
+4. Create your message: `nano message.txt`
+5. Encrypt the message using the recipient’s public key: `gpg --encrypt --armor --recipient recipient@domain.com message.txt`, this will output an ASCII-armored encrypted file, e.g., `message.txt.asc`
+6. The output will look like this:
 ```
 -----BEGIN PGP MESSAGE-----
 hQIMAxOeBV

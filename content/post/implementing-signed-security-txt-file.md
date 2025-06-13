@@ -93,11 +93,13 @@ A user downloads your public key and imports it into their GPG keyring:
 ```
 gpg --import pgp-publickey.txt
 ```
+
 To trust a public key using GPG, the user can follow these steps:
-1.	Open a terminal and run: `gpg --edit-key Fingerprint` (replace the `Fingerprint` with the actual fingerprint)
-2.	At the gpg> prompt, type: `trust`
-3.	When prompted to choose a trust level, enter: `5` (which stands for “I trust ultimately”), then press Enter.
-4.	To exit the editor: On Windows, press Ctrl + C, On Mac, press Command + C (or type `quit` and confirm if prompted)
+1. Always verify the `Fingerprint` from trusted sources, such as the key owner’s website or email signature, before trusting their public key: `gpg --fingerprint your_email@example.com`
+2.	Open a terminal and run: `gpg --edit-key Fingerprint` (replace the `Fingerprint` with the actual fingerprint)
+3.	At the gpg> prompt, type: `trust`
+4.	When prompted to choose a trust level, enter: `5` (which stands for “I trust ultimately”), then press Enter.
+5.	To exit the editor: On Windows, press Ctrl + C, On Mac, press Command + C (or type `quit` and confirm if prompted)
 
 ### 2. Verify the Signature
 The user runs the following command to verify the signature (replace the `Fingerprint` with the actual fingerprint):
@@ -129,6 +131,8 @@ gpg: encrypted with rsa4096 key, ID ABCD1234....
 
 This is the decrypted message content.
 ```
+
+> **NOTE**: While it is a good practice to become familiar with `gpg` commands, I have developed a bash script that streamlines encryption, decryption, signing, and signature verification. It works seamlessly as long as **GnuPG** is installed on your system, available here on my [GitHub repository](https://github.com/vand3rlinden/Bash/blob/main/pgp_tool.sh). I have also created a separate bash script for managing PGP keys, including key generation, import, and export. You can download it from the [same repository here](https://github.com/vand3rlinden/Bash/blob/main/pgp_key_tool.sh).
 
 ## Conclusion
 Adding a signed `security.txt` file to your webserver is a simple yet powerful way to build trust with security researchers and users. It ensures that the contact information provided is legitimate and hasn’t been tampered with. By following these steps, you create a clear and verifiable point of contact for handling vulnerabilities responsibly.
