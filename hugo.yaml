@@ -17,21 +17,17 @@ menu:
       url: /post/
       weight: 20
     - identifier: pages
-      name: SecOps
-      url: /m365-secops
-      weight: 30
-    - identifier: pages
       name: PGP
       url: /pgp
-      weight: 40
+      weight: 30
     #- identifier: tags
       #name: Tags
       #url: /tags/
-      #weight: 50
+      #weight: 40
     #- identifier: archives
       #name: Archives
       #url: /archives/
-      #weight: 60
+      #weight: 50
 
 params:
 # home-info mode
