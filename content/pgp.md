@@ -15,8 +15,8 @@ If you’d like to communicate securely, please use my public key below.
 
 ## PGP Fingerprints and Public Keys
 ### PGP Fingerprints
-- My personal email address: `gpg --fingerprint A1C9A7F709D3A889A3539A78C7CEA07966701A9E`
-- My security email address: `gpg --fingerprint D8B80874001A39C573C4BC3F7A3694918FF5706D`
+- My personal PGP address: `gpg --fingerprint A1C9A7F709D3A889A3539A78C7CEA07966701A9E`
+- My security PGP address: `gpg --fingerprint D8B80874001A39C573C4BC3F7A3694918FF5706D`
 
 > **NOTE**: You should always verify PGP Fingerprints before trusting a Public Key.
 
