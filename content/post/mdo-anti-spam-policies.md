@@ -92,7 +92,8 @@ In this outbound policy you can manage:
     ```
 
 - Disable automatic forwarding:
-    - Disabling this option will disable any auto-forwarding in your environment. Please review the comparison chart below to determine if this option meets your organization's needs.
+    - Disabling this option (`Off - Forwarding is disabled (Off)`) will disable any auto-forwarding in your environment. Please review the comparison chart below to determine if this option meets your organization's needs.
+      - **NOTE**: `Automatic - System-controlled (Automatic)` is equivalent to `Off - Forwarding is disabled (Off)`, however it is recommended to set this value to `Off - Forwarding is disabled (Off)`.
 
 ### Anti-spam outbound policy (Custom, Allow Forward)
 There are situations where you might want to allow automatic forwarding for mail accounts that need to have forwarding enabled, such as forwarding mail to internal team channels _(emails.teams.ms addresses)_.
