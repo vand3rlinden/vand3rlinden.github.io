@@ -20,14 +20,18 @@ menu:
       name: SecOps
       url: /m365-secops
       weight: 30
+    - identifier: pages
+      name: PGP
+      url: /pgp
+      weight: 40
     #- identifier: tags
       #name: Tags
       #url: /tags/
-      #weight: 30
+      #weight: 50
     #- identifier: archives
       #name: Archives
       #url: /archives/
-      #weight: 40
+      #weight: 60
 
 params:
 # home-info mode

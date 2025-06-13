@@ -148,8 +148,8 @@ Email remains one of the least secure forms of communication, unless you take st
                 </a>
             </li>
             <li>
-                <a href="https://vand3rlinden.com/m365-secops" title="SecOps">
-                    <span>SecOps</span>
+                <a href="https://vand3rlinden.com/pgp" title="PGP">
+                    <span>PGP</span>
                 </a>
             </li>
         </ul>
@@ -187,7 +187,7 @@ Email remains one of the least secure forms of communication, unless you take st
 <p>In an <a href="https://vand3rlinden.com/post/s-mime-enhancing-email-security/">earlier blog</a>, I explained how S/MIME works, what it does, and how to request and configure it. Both PGP and S/MIME offer email encryption and digital signing, but they differ in architecture and how they are used.</p>
 <ul>
 <li><strong>S/MIME</strong>: Uses X.509 certificates issued by a trusted Certificate Authority (CA) within a Public Key Infrastructure (PKI) model. It is centrally managed and commonly integrated into enterprise email platforms like Outlook. S/MIME enables encryption and digital signing of emails using public key cryptography.</li>
-<li><strong>PGP</strong>: Uses a web-of-trust model, where users manually validate each other’s keys using ASCII-armored text files (.asc). It is a decentralized system, meaning no central authority is required. While PGP provides greater flexibility, it also involves manual key management, which can be more complex for users.</li>
+<li><strong>PGP</strong>: Uses a web-of-trust model, where users manually validate each other’s keys using ASCII-armored text files (<code>.asc</code>). It is a decentralized system, meaning no central authority is required. While PGP provides greater flexibility, it also involves manual key management, which can be more complex for users.</li>
 </ul>
 <p>In general, S/MIME is easier to deploy since it is built into many enterprise email platforms and allows certificate management through a central authority. PGP, on the other hand, is more popular among privacy-conscious individuals because of its decentralized nature and the transparency it offers.</p>
 <p>PGP provides confidentiality, integrity, authentication, and non-repudiation (often grouped as the CIANA triad) for email communication, in the same way as S/MIME. However, non-repudiation in PGP is more easily challenged, especially if a private key is compromised or weakly tied to a verifiable identity. Since PGP is decentralized, there is often no authority backing to prove that a specific key belongs to a particular person. For example, if someone claims, <em>“That wasn’t me, someone else used my key”</em>, it can be difficult to disprove. In contrast, S/MIME relies on Certificate Authorities (CAs) that may perform identity verification (e.g., checking a passport or company ownership), providing stronger legal assurance in such cases. This is where S/MIME’s centralized approach can offer an advantage.</p>

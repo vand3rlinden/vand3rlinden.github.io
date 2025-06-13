@@ -26,7 +26,7 @@ When you send a message encrypted with someone’s public key, only their privat
 In an [earlier blog](https://vand3rlinden.com/post/s-mime-enhancing-email-security/), I explained how S/MIME works, what it does, and how to request and configure it. Both PGP and S/MIME offer email encryption and digital signing, but they differ in architecture and how they are used.
 
 - **S/MIME**: Uses X.509 certificates issued by a trusted Certificate Authority (CA) within a Public Key Infrastructure (PKI) model. It is centrally managed and commonly integrated into enterprise email platforms like Outlook. S/MIME enables encryption and digital signing of emails using public key cryptography.
-- **PGP**: Uses a web-of-trust model, where users manually validate each other’s keys using ASCII-armored text files (.asc). It is a decentralized system, meaning no central authority is required. While PGP provides greater flexibility, it also involves manual key management, which can be more complex for users.
+- **PGP**: Uses a web-of-trust model, where users manually validate each other’s keys using ASCII-armored text files (`.asc`). It is a decentralized system, meaning no central authority is required. While PGP provides greater flexibility, it also involves manual key management, which can be more complex for users.
 
 In general, S/MIME is easier to deploy since it is built into many enterprise email platforms and allows certificate management through a central authority. PGP, on the other hand, is more popular among privacy-conscious individuals because of its decentralized nature and the transparency it offers.
 

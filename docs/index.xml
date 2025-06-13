@@ -6,8 +6,22 @@
     <description>Recent content on VAND3RLINDEN</description>
     <generator>Hugo -- 0.147.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 Jun 2025 22:01:22 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 13 Jun 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://vand3rlinden.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Secure Communication via PGP</title>
+      <link>https://vand3rlinden.com/pgp/</link>
+      <pubDate>Fri, 13 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://vand3rlinden.com/pgp/</guid>
+      <description>&lt;p&gt;To ensure our communication remains private and authenticated, I use PGP (Pretty Good Privacy) encryption. PGP allows you to encrypt messages to me and verify my digital signature.&lt;/p&gt;
+&lt;p&gt;Using PGP is especially recommended when:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You’re sending sensitive or personal information&lt;/li&gt;
+&lt;li&gt;You want to verify that a message genuinely came from me&lt;/li&gt;
+&lt;li&gt;You care about privacy and data integrity&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you’d like to communicate securely, please use my public key below.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Using PGP for secure email communication</title>
       <link>https://vand3rlinden.com/post/pgp-secure-email-communication/</link>
