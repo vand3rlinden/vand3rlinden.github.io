@@ -46,9 +46,7 @@ PGP provides confidentiality, integrity, authentication, and non-repudiation (of
 ## Setting up secure email communication with OpenPGP
 OpenPGP is the most widely used standard for email encryption. There are [many tools](https://www.openpgp.org/software/) and user-friendly applications that support it, such as [GPG Suite](https://gpgtools.org/) and various email plugins. In this blog, we’ll use the command-line tool [GnuPG (GNU Privacy Guard)](https://www.gnupg.org/), commonly known as GPG, which is the most widely used utility for generating and managing PGP keys.
 
-> **NOTE**: While it is a good practice to become familiar with `gpg` commands, I have developed a bash script that streamlines encryption, decryption, signing, and signature verification. It works seamlessly as long as **GnuPG** is installed on your system, available here on my [GitHub repository](https://github.com/vand3rlinden/Bash/blob/main/pgp_tool.sh). I have also created a separate bash script for managing PGP keys, including key generation, import, and export. You can download it from the [same repository here](https://github.com/vand3rlinden/Bash/blob/main/pgp_key_tool.sh).
-
-Let's begin:
+**Let's begin**:
 
 ### 1. Install GnuPG (GNU Privacy Guard) using your package manager
 - **Linux (Debian based):** `sudo apt-get install gnupg`
@@ -137,6 +135,8 @@ gpg: encrypted with rsa4096 key, ID ABCD1234....
 
 This is the decrypted message content.
 ```
+
+> **NOTE**: While it is a good practice to become familiar with `gpg` commands, I have developed a bash script that streamlines encryption, decryption, signing, and signature verification. It works seamlessly as long as **GnuPG** is installed on your system, available here on my [GitHub repository](https://github.com/vand3rlinden/Bash/blob/main/pgp_tool.sh). I have also created a separate bash script for managing PGP keys, including key generation, import, and export. You can download it from the [same repository here](https://github.com/vand3rlinden/Bash/blob/main/pgp_key_tool.sh).
 
 ## Summerize
 PGP remains one of the most effective tools for securing email communication. By using strong encryption and digital signatures, it helps protect your messages from surveillance, tampering, and impersonation, even across untrusted networks or email providers. While it may not rely on centralized authorities like S/MIME, PGP empowers individuals with control over their own security and privacy through a decentralized trust model.
