@@ -29,4 +29,4 @@ I use the command-line tool [GnuPG](https://www.gnupg.org/), also known as GPG, 
 
 Additionally, I have created another bash script to manage PGP keys, including key generation, import, and export. This script is also available omy GitHub repository for [download](https://github.com/vand3rlinden/Bash/blob/main/pgp_key_tool.sh).
 
-For iOS, I use [Instant PGP](https://apps.apple.com/us/app/instant-pgp/id1497433694) to manage and use PGP keys on mobile devices. Be sure to store your private key locally on your iPhone, avoid syncing it to iCloud or any other cloud service to maintain security.
+For iOS, I use [Instant PGP](https://apps.apple.com/us/app/instant-pgp/id1497433694) to manage and use PGP keys. To maintain security, make sure iCloud backup is disabled for the Instant PGP app to prevent your private key from being synced to iCloud.
