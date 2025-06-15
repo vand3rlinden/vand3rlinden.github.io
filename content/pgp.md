@@ -15,12 +15,12 @@ If you’d like to communicate securely, please use my public key below.
 
 ## PGP Fingerprints and Public Keys
 ### PGP Fingerprints
-- My personal PGP fingerprint: `gpg --fingerprint A1C9A7F709D3A889A3539A78C7CEA07966701A9E`
-- My security PGP fingerprint: `gpg --fingerprint D8B80874001A39C573C4BC3F7A3694918FF5706D`
+- PGP fingerprint for my personal address: `gpg --fingerprint A1C9A7F709D3A889A3539A78C7CEA07966701A9E`
+- PGP fingerprint for my security address: `gpg --fingerprint D8B80874001A39C573C4BC3F7A3694918FF5706D`
 
 ### PGP Public Keys
-- [PGP Public Key for my personal email address](https://vand3rlinden.com/encryption/pgp-ricardo-publickey.txt)
-- [PGP Public Key for my security email address](https://vand3rlinden.com/encryption/pgp-security-publickey.txt)
+- [PGP Public Key for my personal address](https://vand3rlinden.com/encryption/pgp-ricardo-publickey.txt)
+- [PGP Public Key for my security address](https://vand3rlinden.com/encryption/pgp-security-publickey.txt)
 
 > **NOTE**: You can save the content to a `.asc` file and import the PGP public key using the following command: `gpg --import publickey.asc`
 
@@ -29,4 +29,4 @@ I use the command-line tool [GnuPG](https://www.gnupg.org/), also known as GPG, 
 
 Additionally, I have created another bash script to manage PGP keys, including key generation, import, and export. This script is also available omy GitHub repository for [download](https://github.com/vand3rlinden/Bash/blob/main/pgp_key_tool.sh).
 
-For iOS, I use [Instant PGP](https://apps.apple.com/us/app/instant-pgp/id1497433694) to manage and use PGP keys on mobile devices.
+For iOS, I use [Instant PGP](https://apps.apple.com/us/app/instant-pgp/id1497433694) to manage and use PGP keys on mobile devices. Be sure to store your private key locally on your iPhone, avoid syncing it to iCloud or any other cloud service to maintain security.

@@ -80,8 +80,8 @@ If you’d like to communicate securely, please use my public key below.">
   "keywords": [
     
   ],
-  "articleBody": "To ensure our communication remains private and authenticated, I use PGP (Pretty Good Privacy) encryption. My PGP Public Keys allows you to encrypt messages to me and verify my digital signature.\nUsing PGP is especially recommended when:\nYou’re sending sensitive or personal information You want to verify that a message genuinely came from me You care about privacy and data integrity If you’d like to communicate securely, please use my public key below.\nPGP Fingerprints and Public Keys PGP Fingerprints My personal PGP fingerprint: gpg --fingerprint A1C9A7F709D3A889A3539A78C7CEA07966701A9E My security PGP fingerprint: gpg --fingerprint D8B80874001A39C573C4BC3F7A3694918FF5706D PGP Public Keys PGP Public Key for my personal email address PGP Public Key for my security email address NOTE: You can save the content to a .asc file and import the PGP public key using the following command: gpg --import publickey.asc\nPGP Tooling I use the command-line tool GnuPG, also known as GPG, which is the most widely adopted utility for generating and managing PGP keys. To streamline tasks like encryption, decryption, signing, and signature verification, I have developed a bash script that works seamlessly if GnuPG is installed on your system, available for download on my GitHub repository.\nAdditionally, I have created another bash script to manage PGP keys, including key generation, import, and export. This script is also available omy GitHub repository for download.\nFor iOS, I use Instant PGP to manage and use PGP keys on mobile devices.\n",
-  "wordCount" : "236",
+  "articleBody": "To ensure our communication remains private and authenticated, I use PGP (Pretty Good Privacy) encryption. My PGP Public Keys allows you to encrypt messages to me and verify my digital signature.\nUsing PGP is especially recommended when:\nYou’re sending sensitive or personal information You want to verify that a message genuinely came from me You care about privacy and data integrity If you’d like to communicate securely, please use my public key below.\nPGP Fingerprints and Public Keys PGP Fingerprints PGP fingerprint for my personal address: gpg --fingerprint A1C9A7F709D3A889A3539A78C7CEA07966701A9E PGP fingerprint for my security address: gpg --fingerprint D8B80874001A39C573C4BC3F7A3694918FF5706D PGP Public Keys PGP Public Key for my personal address PGP Public Key for my security address NOTE: You can save the content to a .asc file and import the PGP public key using the following command: gpg --import publickey.asc\nPGP Tooling I use the command-line tool GnuPG, also known as GPG, which is the most widely adopted utility for generating and managing PGP keys. To streamline tasks like encryption, decryption, signing, and signature verification, I have developed a bash script that works seamlessly if GnuPG is installed on your system, available for download on my GitHub repository.\nAdditionally, I have created another bash script to manage PGP keys, including key generation, import, and export. This script is also available omy GitHub repository for download.\nFor iOS, I use Instant PGP to manage and use PGP keys on mobile devices. Be sure to store your private key locally on your iPhone, avoid syncing it to iCloud or any other cloud service to maintain security.\n",
+  "wordCount" : "262",
   "inLanguage": "en",
   "datePublished": "2025-06-13T00:00:00Z",
   "dateModified": "2025-06-13T00:00:00Z",
@@ -178,20 +178,20 @@ If you’d like to communicate securely, please use my public key below.">
 <h2 id="pgp-fingerprints-and-public-keys">PGP Fingerprints and Public Keys<a hidden class="anchor" aria-hidden="true" href="#pgp-fingerprints-and-public-keys">#</a></h2>
 <h3 id="pgp-fingerprints">PGP Fingerprints<a hidden class="anchor" aria-hidden="true" href="#pgp-fingerprints">#</a></h3>
 <ul>
-<li>My personal PGP fingerprint: <code>gpg --fingerprint A1C9A7F709D3A889A3539A78C7CEA07966701A9E</code></li>
-<li>My security PGP fingerprint: <code>gpg --fingerprint D8B80874001A39C573C4BC3F7A3694918FF5706D</code></li>
+<li>PGP fingerprint for my personal address: <code>gpg --fingerprint A1C9A7F709D3A889A3539A78C7CEA07966701A9E</code></li>
+<li>PGP fingerprint for my security address: <code>gpg --fingerprint D8B80874001A39C573C4BC3F7A3694918FF5706D</code></li>
 </ul>
 <h3 id="pgp-public-keys">PGP Public Keys<a hidden class="anchor" aria-hidden="true" href="#pgp-public-keys">#</a></h3>
 <ul>
-<li><a href="https://vand3rlinden.com/encryption/pgp-ricardo-publickey.txt">PGP Public Key for my personal email address</a></li>
-<li><a href="https://vand3rlinden.com/encryption/pgp-security-publickey.txt">PGP Public Key for my security email address</a></li>
+<li><a href="https://vand3rlinden.com/encryption/pgp-ricardo-publickey.txt">PGP Public Key for my personal address</a></li>
+<li><a href="https://vand3rlinden.com/encryption/pgp-security-publickey.txt">PGP Public Key for my security address</a></li>
 </ul>
 <blockquote>
 <p><strong>NOTE</strong>: You can save the content to a <code>.asc</code> file and import the PGP public key using the following command: <code>gpg --import publickey.asc</code></p></blockquote>
 <h2 id="pgp-tooling">PGP Tooling<a hidden class="anchor" aria-hidden="true" href="#pgp-tooling">#</a></h2>
 <p>I use the command-line tool <a href="https://www.gnupg.org/">GnuPG</a>, also known as GPG, which is the most widely adopted utility for generating and managing PGP keys. To streamline tasks like encryption, decryption, signing, and signature verification, I have developed a bash script that works seamlessly if <strong>GnuPG</strong> is installed on your system, available for <a href="https://github.com/vand3rlinden/Bash/blob/main/pgp_tool.sh">download</a> on my GitHub repository.</p>
 <p>Additionally, I have created another bash script to manage PGP keys, including key generation, import, and export. This script is also available omy GitHub repository for <a href="https://github.com/vand3rlinden/Bash/blob/main/pgp_key_tool.sh">download</a>.</p>
-<p>For iOS, I use <a href="https://apps.apple.com/us/app/instant-pgp/id1497433694">Instant PGP</a> to manage and use PGP keys on mobile devices.</p>
+<p>For iOS, I use <a href="https://apps.apple.com/us/app/instant-pgp/id1497433694">Instant PGP</a> to manage and use PGP keys on mobile devices. Be sure to store your private key locally on your iPhone, avoid syncing it to iCloud or any other cloud service to maintain security.</p>
 
 
   </div>
