@@ -18,6 +18,14 @@ In a previous [blog post](https://vand3rlinden.com/post/spf-dkim-dmarc-explanati
 
 Around the globe you will find an answer to bypass the DNS lookup limit with ***SPF flattening***. This approach converts hostnames to IP addresses, which don’t count in the DNS lookup count.
 
+### P1 vs. P2 - Sender explanation table:
+In this blog, you will read a lot about the P1 and P2 sender. Please refer to the table below to become familiar with these terms.
+
+| Postal Letter                        | Precise Term                    | Protected by  |
+| -----------                          | -----------                     | -----------   |
+| Sender on envelope (Envelope sender) | `RFC5321.MailFrom` (P1 Sender)  |  SPF          |
+| Author on letter (Header sender)     | `RFC5322.From` (P2 Sender)      |  DKIM + DMARC |
+
 ## The dangers of SPF flattening
 The problem with SPF flattening is that email service providers can change or add IP addresses without notifying you. As a result, your SPF record becomes inaccurate, leading to complications with email delivery. Yes, there are paid tools available to automate this process. However, SPF flattening also increases the likelihood of forgetting to remove entries that are no longer needed, resulting in over-authorization.
 
@@ -27,7 +35,7 @@ When you segment your email providers using subdomain segmentation, SPF flatteni
 
 Subdomain segmentation can be implemented in three ways:
 
-1. Using a direct subdomain address, such `news.yourdomain.com`, where both the  P1 sender (envelope sender) and P2 sender (header sender) use the subdomain (e.g., `news@news.yourdomain.com`).
+1. Using a direct subdomain address, such `news.yourdomain.com`, where both the P1 sender and P2 sender use the subdomain (e.g., `news@news.yourdomain.com`).
 2. Setting only the P1 sender to a subdomain (if supported by your email provider, such as SendGrid) allows SPF alignment in relaxed mode (assuming your DMARC policy uses the default `aspf=r` tag). For example, SPF aligns with subdomain `news.yourdomain.com` as the P1 sender, while the email is still sent from your primary domain `yourdomain.com` as the P2 sender (e.g., `news@yourdomain.com`).
    - DMARC policy tag `aspf=r` (SPF relaxed mode): In this mode, the authenticated signing domain and the sender domain can be subdomains of each other and still be considered aligned.
 3. Using an SPF macro that points to a subdomain allows you to continue sending from your main domain, but only from a fixed/static sender address (e.g., `news@yourdomain.com`).
@@ -61,7 +69,7 @@ Calculation of DNS lookups:
 Effective segmentation of your email providers is essential for maintaining control and clarity over your SPF record.
 
 ## Cut your SPF record
-Based on the information provided, identify which SaaS applications can be restricted to sending emails from a fixed sender address using an SPF macro. Additionally, determine which services, such as Microsoft 365, require sending emails from multiple addresses using your primary domain, and which services are not subject to these restrictions and can send through a subdomain, or where the email provider supports SPF alignment in relaxed mode through a subdomain.
+Based on the information provided, identify which email provider can be restricted to sending emails from a fixed sender address using an SPF macro. Additionally, determine which email provider, such as Microsoft 365, require sending emails from multiple addresses using your primary domain, and which email providers are not subject to these restrictions and can send through a subdomain, or where the email provider supports SPF alignment in relaxed mode through a subdomain.
 
 A helpful approach is to create a list of your SPF record entries and specify the desired behavior for each entry, as shown in the example below:
 
@@ -73,6 +81,8 @@ A helpful approach is to create a list of your SPF record entries and specify th
 | `include:_spf.app1.com`               | Uses multiple addresses and is capable of sending through a subdomain for both the P1 sender and P2 sender, with a new SPF `TXT` record configured for `app1.yourdomain.com`.|
 | `include:_spf.app2.com`               | Uses multiple addresses, but since the email provider supports setting the P1 sender to a subdomain, a new SPF `TXT` record is created for `app2.yourdomain.com`, but emails can still be sent using the primary domain `yourdomain.com` as the P2 sender.|
 | `mx`                                  | Duplicate mechanisms, can be removed. When using Microsoft 365, the `MX` endpoint IP is already listed in `include:spf.protection.outlook.com`.|
+
+> **NOTE**: If you encounter an unfamiliar email provider, it may be due to incomplete historical documentation of authorized email providers within your organization. In such cases, monitor your SPF record using DMARC monitoring for 1 to 3 months, and only allow email providers that you can confidently verify as legitimate. For more details, see my clarification on DMARC monitoring in [this blog post](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#clarification-on-dmarc-monitoring).
 
 If you look at the example above, we have ***2 DNS lookups*** left after cutting the current SPF record for the primary domain:
 | Look up                               | Count        |
@@ -156,7 +166,7 @@ Final computation of DNS lookups:
 | Total:                               | 3 DNS Lookups                          |
 
 ## Lastly
-For the future of your SPF record, add IP addresses using the separate include, and carefully decide whether a SaaS application should be sent through a subdomain or a fixed sender address instead of any address from your primary domain. In addition, make it a habit to monitor your SPF record frequently and document each sender you list.
+For the future of your SPF record, add IP addresses using the separate include, and carefully decide whether a email provider should be sent through a subdomain or a fixed sender address instead of any address from your primary domain. In addition, make it a habit to monitor your SPF record frequently and document each sender you list.
 
 ## Reference
 - [Dmarcian SPF best practices - Unavailable from the Netherlands](https://dmarcian.com/spf-best-practices/)
