@@ -104,10 +104,11 @@ include:_spf.yourdomain.com
 | ---                  | ---    | ---                                                                                                                  |
 | `_spf.yourdomain.com` | `TXT` | `v=spf1 ip4:11.222.33.444 ip4:44.33.222.111 ip4:22.33.444.555 ip4:55.66.777.8 ip4:88.99.999.99 ip4:99.88.777.66 -all`|
 
-
 > **CAUTION:** When the SPF record for your IP addresses reaches its limit of [two strings of 255 characters](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#implementation-of-spf), it becomes inaccurate. You should avoid including too many IP addresses. While you can add another include, such as `_spf1.yourdomain.com`, at the cost of another DNS lookup, it is advisable to start segmenting this into subdomains. Also, get into the habit of documenting all of your IP addresses that send mail on behalf of your domain.
 
 > **NOTE:** There is also an SPF macro for IP addresses, `%{i}`, this macro replace the IP address of the SMTP client that submitted the message. However, using two separate SPF macros _(because this blog already uses the macro `%{l}`)_ is not advisable due to the limit of two allowed void lookups (`NXDomain`). Even if you stay within the limit, there is still a risk of DNS timeouts due to slow DNS responses. Exceeding the limit will result in SPF `permerror`. Publishing an SPF policy that refers to data that does not exist in DNS is a poor practice and raises security concerns (see [RFC7208](https://www.rfc-editor.org/info/rfc7208) Section 4.6.4.).
+
+> **NOTE**: If you only have a small number of IP addresses to list, such as two or three, it is not strictly necessary to place them in a separate include. You can add them directly to your main SPF record. However, it is **important** to place the `ip4` mechanism (or any other mechanism) immediately after the `v=spf1` tag. While not technically required, this is considered a best practice, as it improves SPF efficiency by allowing faster DNS evaluation of straightforward matches before more resource intensive mechanisms are processed.
 
 ## Use an SPF macro to restrict a third-party service to send from a specific address
 As described above, third-party services like Salesforce and Zendesk are mostly limited to sending from a single email address, such as `invoices@yourdomain.com` and `support@yourdomain.com`.
