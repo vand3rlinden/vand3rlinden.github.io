@@ -164,6 +164,21 @@ There are three primary approaches to managing reporting in your DMARC monitorin
 1. If you see an email provider you don’t recognize, but SPF and/or DKIM passes, and your organization hasn’t historically documented all authorized email providers, review your SPF and `*._domainkey` entries in your public DNS. Remove any unused entries, and establish a practice of documenting all email providers authorized to send on behalf of your domain.
 2. If you recognize an email provider, but SPF and/or DKIM fails, update your domain’s email authentication settings to align SPF and DKIM for that email provider. This ensures the email provider is properly configured for outbound email authentication.
 3. If the email provider is unrecognized and all authentication checks fail (SPF, DKIM, and DMARC), then DMARC is working as intended. No action is required, as these messages will be rejected by most receiving mail servers once your DMARC policy is set to `reject`.
+
+### Maintenance steps on DMARC Monitoring
+- SPF:
+  - Perform periodic checks of the SPF record
+  - Track and document any changes to the SPF record
+  -	Maintain an up-to-date list of authorized senders
+
+- DKIM:
+  - Monitor for periodic DKIM key rotations
+    - Recurring: Every six months for a 2048-bit DKIM key
+  - Ensure timely updates and reconfiguration of rotated keys
+
+DMARC:
+  - Regularly review DMARC reports and data
+  - Set up alerting and reporting to detect high-volume email sources where DMARC validation fails due to SPF or DKIM misalignment
   
 ### DMARC policy explanation
 | Policy      | Value           | Meaning       |
