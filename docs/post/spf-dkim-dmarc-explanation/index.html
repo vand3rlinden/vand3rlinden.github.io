@@ -368,8 +368,11 @@ SPF, DKIM, and DMARC are critical email authentication protocols that help preve
 <p>SPF:</p>
 <ul>
 <li>Perform periodic checks of the SPF record</li>
-<li>Track and document any changes to the SPF record</li>
+<li>Track and document any changes to the SPF record
+<ul>
 <li>Maintain an up-to-date list of authorized senders</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>
@@ -383,11 +386,13 @@ SPF, DKIM, and DMARC are critical email authentication protocols that help preve
 <li>Ensure timely updates and reconfiguration of rotated keys</li>
 </ul>
 </li>
-</ul>
+<li>
 <p>DMARC:</p>
 <ul>
 <li>Regularly review DMARC reports and data</li>
 <li>Set up alerting and reporting to detect high-volume email sources where DMARC validation fails due to SPF or DKIM misalignment</li>
+</ul>
+</li>
 </ul>
 <h3 id="dmarc-policy-explanation">DMARC policy explanation<a hidden class="anchor" aria-hidden="true" href="#dmarc-policy-explanation">#</a></h3>
 <table>
