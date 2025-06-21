@@ -25,8 +25,8 @@ If you’d like to communicate securely, please use my public key below.
 > **NOTE**: You can save the content to a `.asc` file and import the PGP public key using the following command: `gpg --import publickey.asc`
 
 ## PGP Tooling
-I use the command-line tool [GnuPG](https://www.gnupg.org/), also known as GPG, which is the most widely adopted utility for generating and managing PGP keys. To streamline tasks like encryption, decryption, signing, and signature verification, I have developed a bash script that works seamlessly if **GnuPG** is installed on your system, available for [download](https://github.com/vand3rlinden/Bash/blob/main/pgp_tool.sh) on my GitHub repository.
+I use the command-line tool [GnuPG](https://www.gnupg.org/), also known as GPG, which is the most widely adopted utility for generating and managing PGP keys. To streamline tasks like encryption, decryption, signing, and signature verification, I have developed a bash script that works seamlessly if **GnuPG** is installed on your system, available for [download](https://github.com/vand3rlinden/Bash/blob/main/pgp-buddy/pgp_tool.sh) on my GitHub repository.
 
-Additionally, I have created another bash script to manage PGP keys, including key generation, import, and export. This script is also available on my GitHub repository for [download](https://github.com/vand3rlinden/Bash/blob/main/pgp_key_tool.sh).
+Additionally, I have created another bash script to manage PGP keys, including key generation, import, and export. This script is also available on my GitHub repository for [download](https://github.com/vand3rlinden/Bash/blob/main/pgp-buddy/pgp_key_tool.sh).
 
 For iOS, I use [Instant PGP](https://apps.apple.com/us/app/instant-pgp/id1497433694) to manage and use PGP keys. To maintain security, make sure iCloud backup is disabled for the Instant PGP app to prevent your private key from being synced to iCloud.

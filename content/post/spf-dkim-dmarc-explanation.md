@@ -34,7 +34,7 @@ Sender Policy Framework (SPF) is a protocol that aims to reduce spam. SPF can re
 ### How SPF works
 Imagine that you have an SPF record that looks like: 
 
-`v=spf1 include:_spf.domain.com ip4:11.222.33.444 -all`
+`v=spf1 ip4:11.222.33.444 include:_spf.domain.com -all`
 
 If an unauthorized server sends on behalf of your domain, the email will get a `spf=fail` in the message header because the IP is not listed in your SPF record.
 
@@ -43,15 +43,15 @@ SPF will pass if the sender’s IP is added to the SPF record for the P1 Sender 
 ![IMAGE](/images/spf-dkim-dmarc-explanation/spf-visual.png)
 
 ### Implementation of SPF
-When you add your domain to Microsoft 365, Microsoft will ask you to provide an SPF record, such as `v=spf1 include:spf.protection.outlook.com -all`. If you have more allowed senders, you must include them in the SPF record. For example `v=spf1 include:spf.protection.outlook.com include:_spf.domain.com ip4:11.222.33.444 -all`
+When you add your domain to Microsoft 365, Microsoft will ask you to provide an SPF record, such as `v=spf1 include:spf.protection.outlook.com -all`. If you have more allowed senders, you must include them in the SPF record. For example `v=spf1 ip4:11.222.33.444 include:spf.protection.outlook.com include:_spf.domain.com -all`
 
 The SPF record will vary for each domain; therefore, it is important to understand the following when implementing an SPF record:
 
 - Can only have 255 characters, but it can be split to multiple strings in a single record, most DNS providers handle this automatically.
     - Example: `"v=spf1 first string" "second string -all"`
-- Can take up to a maximum of 10 DNS Lookups, such as `include:spf.protection.outlook.com` (which currently contains 1 DNS lookup, without child lookups).
+- Can take up to a maximum of 10 DNS Lookups, such as `include:spf.protection.outlook.com` (this entry costs 1 DNS lookup, with no additional child lookups).
 
-> **CAUTION**: If your DNS lookups are going to be around 10/10, you should take [steps](https://vand3rlinden.com/post/handle-your-spf-record/) to stay well under 10 DNS lookups. Because if a vendor decides to add another DNS lookup within its SPF include (child lookup). Your SPF record will become inaccurate because it has reached the DNS lookup limit, which may result in email delivery problems.
+> **CAUTION**: You should take [steps](https://vand3rlinden.com/post/handle-your-spf-record/) to stay well under 10 DNS lookups. Because if a vendor decides to add another DNS lookup within its SPF include (child lookup). Your SPF record will become inaccurate because it has reached the DNS lookup limit, which may result in email delivery problems.
 
 ### Avoiding the 10 DNS Lookups cap, to:
 - Flatten your SPF record.
