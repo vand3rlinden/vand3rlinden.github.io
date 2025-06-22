@@ -91,7 +91,7 @@ If you look at the example above, we have ***2 DNS lookups*** left after cutting
 | `include:%{l}._spf.yourdomain.com`    | 1 DNS Lookup, using an SPF macro for both Salesforce and Zendesk _(configuration of this SPF macro is covered later in this blog)_|
 
 ## IP address management in your SPF record
-We successfully reduced the SPF record from ***9 DNS lookups*** to ***7 DNS lookups***, great job!
+We successfully reduced the SPF record from ***9 DNS lookups*** to ***2 DNS lookups***, great job!
 
 Now, regarding IP addresses in the SPF record:
 IP addresses themselves do not consume any DNS lookups, as no DNS resolution is required. However, including many IPs can make your SPF record lengthy and difficult to manage.
