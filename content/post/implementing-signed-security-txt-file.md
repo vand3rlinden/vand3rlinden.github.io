@@ -37,12 +37,12 @@ Once complete, your keys will be stored in the GPG keyring. You can view your ge
 
 - Public key:
 ```
-gpg --list-keys --keyid-format LONG
+gpg --list-keys
 ```
 
 - Private key:
 ```
-gpg --list-secret-keys --keyid-format LONG
+gpg --list-secret-keys
 ```
 
 ### 3. Export your public key
