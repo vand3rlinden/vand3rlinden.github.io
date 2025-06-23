@@ -132,7 +132,7 @@ gpg: encrypted with rsa4096 key, ID ABCD1234....
 This is the decrypted message content.
 ```
 
-> **NOTE**: While it is a good practice to become familiar with `gpg` commands, I have developed a bash script that streamlines encryption, decryption, signing, and signature verification. It works seamlessly as long as **GnuPG** is installed on your system, available here on my [GitHub repository](https://github.com/vand3rlinden/Bash/blob/main/pgp_tool.sh). I have also created a separate bash script for managing PGP keys, including key generation, import, and export. You can download it from the [same repository here](https://github.com/vand3rlinden/Bash/blob/main/pgp_key_tool.sh).
+> **NOTE**: While it is a good practice to become familiar with `gpg` commands, I have developed a bash script that streamlines encryption, decryption, signing, and signature verification. It works seamlessly as long as **GnuPG** is installed on your system, available here on my [GitHub repository](https://github.com/vand3rlinden/Bash/blob/main/pgp-buddy/pgp_tool.sh). I have also created a separate bash script for managing PGP keys, including key generation, import, and export. You can download it from the [same repository here](https://github.com/vand3rlinden/Bash/blob/main/pgp-buddy/pgp_key_tool.sh).
 
 ## Conclusion
 Adding a signed `security.txt` file to your webserver is a simple yet powerful way to build trust with security researchers and users. It ensures that the contact information provided is legitimate and hasn’t been tampered with. By following these steps, you create a clear and verifiable point of contact for handling vulnerabilities responsibly.

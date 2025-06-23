@@ -136,7 +136,7 @@ gpg: encrypted with rsa4096 key, ID ABCD1234....
 This is the decrypted message content.
 ```
 
-> **NOTE**: While it is a good practice to become familiar with `gpg` commands, I have developed a bash script that streamlines encryption, decryption, signing, and signature verification. It works seamlessly as long as **GnuPG** is installed on your system, available here on my [GitHub repository](https://github.com/vand3rlinden/Bash/blob/main/pgp_tool.sh). I have also created a separate bash script for managing PGP keys, including key generation, import, and export. You can download it from the [same repository here](https://github.com/vand3rlinden/Bash/blob/main/pgp_key_tool.sh).
+> **NOTE**: While it is a good practice to become familiar with `gpg` commands, I have developed a bash script that streamlines encryption, decryption, signing, and signature verification. It works seamlessly as long as **GnuPG** is installed on your system, available here on my [GitHub repository](https://github.com/vand3rlinden/Bash/blob/main/pgp-buddy/pgp_tool.sh). I have also created a separate bash script for managing PGP keys, including key generation, import, and export. You can download it from the [same repository here](https://github.com/vand3rlinden/Bash/blob/main/pgp-buddy/pgp_key_tool.sh).
 
 ## Summerize
 PGP remains one of the most effective tools for securing email communication. By using strong encryption and digital signatures, it helps protect your messages from surveillance, tampering, and impersonation, even across untrusted networks or email providers. While it may not rely on centralized authorities like S/MIME, PGP empowers individuals with control over their own security and privacy through a decentralized trust model.
