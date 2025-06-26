@@ -38,6 +38,9 @@ Subdomain segmentation can be implemented in three ways:
 1. Using a direct subdomain address, such `news.yourdomain.com`, where both the P1 sender and P2 sender use the subdomain (e.g., `news@news.yourdomain.com`).
 2. Setting only the P1 sender to a subdomain (if supported by your email provider, such as SendGrid) allows SPF alignment in relaxed mode (assuming your DMARC policy uses the default `aspf=r` tag). For example, SPF aligns with subdomain `news.yourdomain.com` as the P1 sender, while the email is still sent from your primary domain `yourdomain.com` as the P2 sender (e.g., `news@yourdomain.com`).
    - DMARC policy tag `aspf=r` (SPF relaxed mode): In this mode, the authenticated signing domain and the sender domain can be subdomains of each other and still be considered aligned.
+
+> **NOTE**: If your email provider does not allow setting the P1 sender to a subdomain, they might offer an option to pass SPF using their domain (e.g., `youremailprovider.com`). Keep in mind that this method requires DKIM alignment for your domain as the P2 sender domain. If DKIM is correctly set up for the P2 sender domain, the message can still meet DMARC requirements. However, relying only on DKIM is not best practice. If DKIM fails, for example due to slow DNS response, there is no backup.
+
 3. Using an SPF macro that points to a subdomain allows you to continue sending from your main domain, but only from a fixed/static sender address (e.g., `news@yourdomain.com`).
 
 These subdomain segmentation options can be combined, as covered in this blog. Adopting SPF segmentation increases control, reduces attack surfaces, and mitigates the impact of potential cyber incidents. 

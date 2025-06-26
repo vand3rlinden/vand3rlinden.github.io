@@ -62,7 +62,11 @@ The SPF record will vary for each domain; therefore, it is important to understa
 - Where email is incapable of passing DMARC with SPF, configure DKIM for the P2 Sender domain on the sending server or mail provider.
   - In this scenario, you must to set your SPF record to [softfail](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#softfail-or-hardfail) `~all`, this to ensure that the DMARC and DKIM evaluation will always be performed in the absence of a valid SPF validation.
 
-> **Not recommended**: You should work toward having both SPF and DKIM properly aligned.
+> **Not recommended**: You should work toward having both SPF and DKIM properly aligned
+
+- Allow SPF to pass using a different P1 sender, such as your email provider’s domain (if supported), and use DKIM on your own domain. This method is still DMARC compliant because DKIM matches the P2 sender domain.
+
+> **Not recommended**: It is not best practice to rely only on DKIM validation. If DKIM fails, for example due to slow DNS response, there is no fallback.
 
 - Not using entries like `a` and `mx`, these mechanisms are often useless and probably should not be included in your SPF record (and other duplicate SPF mechanisms).
 
