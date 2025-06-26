@@ -64,9 +64,9 @@ The SPF record will vary for each domain; therefore, it is important to understa
 
 > **Not recommended**: You should work toward having both SPF and DKIM properly aligned
 
-- Allow SPF to pass using a different P1 sender, such as your email provider’s domain (if supported), and use DKIM on your own domain. This method is still DMARC compliant because DKIM matches the P2 sender domain.
+- Allow SPF to pass by using a different P1 sender, such as your email provider’s domain (if supported), and use DKIM on your own domain as the P2 sender. This method still DMARC compliant because DKIM is aligned with the P2 sender domain.
 
-> **Not recommended**: It is not best practice to rely only on DKIM validation. If DKIM fails, for example due to slow DNS response, there is no fallback.
+> **Not recommended**: It is not best practice to rely only on DKIM validation. If DKIM fails, for example due to slow DNS response, there is no fallback. The best practice is to have both SPF and DKIM correctly aligned.
 
 - Not using entries like `a` and `mx`, these mechanisms are often useless and probably should not be included in your SPF record (and other duplicate SPF mechanisms).
 
