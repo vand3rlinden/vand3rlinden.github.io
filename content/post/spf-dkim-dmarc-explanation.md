@@ -53,16 +53,16 @@ The SPF record will vary for each domain; therefore, it is important to understa
 
 > **CAUTION**: You should take [steps](https://vand3rlinden.com/post/handle-your-spf-record/) to stay well under 10 DNS lookups. Because if a vendor decides to add another DNS lookup within its SPF include (child lookup). Your SPF record will become inaccurate because it has reached the DNS lookup limit, which may result in email delivery problems.
 
-### Avoiding the 10 DNS Lookups cap, to:
+### Tips to avoid reaching the 10 DNS lookups limit
 - Flatten your SPF record.
     - Example: `v=spf1 include:spf.domain.com -all` can be `v=spf1 ip4:11.222.33.444 ip4:11.222.33.444 -all`
 
 > **Not recommended**: The [problem with flattening](https://vand3rlinden.com/post/handle-your-spf-record/#the-dangers-of-spf-flattening) is that email service providers can change or add IP addresses without telling you. Then your SPF record will be inaccurate, leading to email delivery problems.
 
-- Where email is incapable of passing DMARC with SPF, configure DKIM for the P2 Sender domain on the sending server or mail provider.
-  - In this scenario, you must to set your SPF record to [softfail](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#softfail-or-hardfail) `~all`, this to ensure that the DMARC and DKIM evaluation will always be performed in the absence of a valid SPF validation.
+- Where email is incapable of passing DMARC with SPF (e.g. due to relaying), configure DKIM for the P2 Sender domain on the sending server or email provider.
+  - In this scenario, you must to set your SPF record to [softfail](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#softfail-or-hardfail) `~all`. This ensures that DKIM evaluation is always performed in the absence of a valid SPF validation, so the email can still be DMARC compliant due to DKIM alignment.
 
-> **Not recommended**: You should work toward having both SPF and DKIM properly aligned
+> **Not recommended**: You should work toward having both SPF and DKIM properly aligned. However, in relay scenarios, this is not always possible, even for DKIM. In such cases, you can check if your email provider supports ARC Sealers, which help preserve authentication results when an email passes through multiple servers. This allows your recipients to accept the ARC Seal from your relaying or intermediate server. More information about ARC Sealers can be found in [this](https://vand3rlinden.com/post/arc-explained/) blog.
 
 - Allow SPF to pass by using a different P1 sender, such as your email provider’s domain (if supported), and use DKIM on your own domain as the P2 sender. This method still DMARC compliant because DKIM is aligned with the P2 sender domain.
 
@@ -85,7 +85,7 @@ SPF can get a softfail or a hardfail, you determine that at the end of the recor
 
 Most mailbox providers will treat soft and hard- fails directives similarly, but it is [recommended](https://dmarcian.com/spf-best-practices/) to mirror the DMARC policy as the technology is deployed: use softfail (`~all`) if the DMARC policies are "none" and "quarantine", and use hardfail (`-all`) if you have moved to a "reject" policy. 
 
-> **NOTE**: If an email cannot pass SPF (e.g. due to relaying), it can be hard rejected at the SMTP level with an SPF hardfail (`-all`), which may prevent DMARC and DKIM evaluation. If you are unsure whether your senders are passing SPF, then [consider using an SPF softfail (`~all`)](https://www.mailhardener.com/blog/why-mailhardener-recommends-spf-softfail-over-fail) along with DMARC set to reject (`p=reject`). This ensures that the DMARC and DKIM evaluation is always performed in the absence of a valid SPF validation.
+> **NOTE**: If an email cannot pass SPF (e.g. due to relaying), it can be hard rejected at the SMTP level with an SPF hardfail (`-all`), which may prevent DKIM evaluation from being performed on the receiving mail server, which can then lead to a DMARC failure. If you are unsure whether your senders are passing SPF, then [consider using an SPF softfail (`~all`)](https://www.mailhardener.com/blog/why-mailhardener-recommends-spf-softfail-over-fail) along with DMARC set to reject (`p=reject`). This ensures that DKIM evaluation is always performed in the absence of a valid SPF validation, so the email can still be DMARC compliant due to DKIM alignment.
 
 ### Limitations of SPF
 Although SPF performs reasonably well in theory, it has several limitations that make it insufficient on its own to fully protect a sending domain.
