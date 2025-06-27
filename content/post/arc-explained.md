@@ -9,11 +9,9 @@ cover:
 
 > _This blog post explains the role and benefits of ARC sealing._
 
-ARC (Authenticated Received Chain) is an email authentication protocol that preserves the authentication results of an email as it travels through multiple intermediaries, such as forwarding services.
+ARC (Authenticated Received Chain) is an email authentication protocol that preserves the authentication results of an email as it travels through multiple intermediaries, such as forwarding services. This allows your recipients to accept the ARC Seal from your relaying or intermediate server. 
 
-Using ARC helps organizations handle the complexities of email authentication, especially when emails are forwarded. ARC involves multiple servers working together based on mutual trust.
-
-ARC ensures that legitimate emails are less likely to be marked as spam or rejected, while fraudulent emails are more easily identified and filtered out. In this blog post, we will explore the basics of ARC, how it works, and the benefits it provides.
+Using ARC helps organizations handle the complexities of email authentication, especially when emails are forwarded. ARC involves multiple servers working together based on mutual trust. In this blog post, we will explore the basics of ARC, how it works, and the benefits it provides.
 
 ## How ARC works
 ARC (Authenticated Received Chain) sealing is a way to help ensure the authenticity of email messages as they pass through various email servers. 
@@ -58,14 +56,14 @@ This system creates a verifiable chain of custody that helps the final recipient
 ## The ARC trust chain
 When emails pass through multiple intermediaries, traditional authentication methods like SPF and DKIM can fail. That’s where ARC comes in, preserving the original authentication results across each hop. Below is an example of how ARC headers build up through multiple relays, including SendGrid, a security gateway, and finally Microsoft 365.
 
-### ✉️ Message Flow
+### Message Flow
 * **Original Sender:** `shaggy@vand3rlinden.com` (sent from a DMARC-compliant mail server for `vand3rlinden.com`)
 * **Hop 1:** SendGrid (SMTP relay service acting as the intermediate server for `vand3rlinden.com`)
-* **Hop 2:** Security Gateway (e.g., Proofpoint)
+* **Hop 2:** Security Gateway
 * **Final Recipient:** Microsoft 365 user
 
-### 📜 ARC Header Chain Example
-#### ✅ ARC Instance 1 (Added by SendGrid)
+### ARC Header Chain Examples
+#### ✅ ARC Instance 1 (Outbound authentication passed, ARC Seal added by SendGrid)
 ```
 ARC-Authentication-Results: i=1; d=sendgrid.net;
  spf=pass smtp.mailfrom=vand3rlinden.com;
@@ -80,7 +78,7 @@ ARC-Seal: i=1; a=rsa-sha256; d=sendgrid.net; s=arc;
  t=[timestamp]; cv=none; b=[seal-signature]
 ```
 
-#### ✅ ARC Instance 2 (Added by Security Gateway, e.g., Proofpoint)
+#### ✅ ARC Instance 2 (ARC chain validation succeeded, ARC Seal added by a Security Gateway)
 ```
 ARC-Authentication-Results: i=2; d=securitygateway.com;
  spf=pass; dkim=pass; dmarc=pass;
@@ -93,7 +91,7 @@ ARC-Seal: i=2; a=rsa-sha256; d=securitygateway.com; s=arc;
  t=[timestamp]; cv=pass; b=[seal-signature]
 ```
 
-#### ✅ ARC Instance 3 (Added by Microsoft 365)
+#### ✅ ARC Instance 3 (ARC chain validation succeeded, ARC Seal added by Microsoft 365)
 ```
 ARC-Authentication-Results: i=3; d=microsoft.com;
  spf=pass; dkim=pass; dmarc=pass;
