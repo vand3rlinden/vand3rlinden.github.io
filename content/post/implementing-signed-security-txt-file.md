@@ -107,7 +107,7 @@ The user runs the following command to verify the signature:
 gpg --verify security.txt
 ```
 
-> The PGP-signed message includes metadata identifying the signer’s fingerprint; GPG then scans your keyring to find the corresponding public key to verify the signature.
+> The PGP-signed message includes metadata that identifies your fingerprint; GPG then scans the user’s keyring to find your corresponding public key to verify the signature.
 
 If the file is authentic, they’ll see output confirming the signature, such as:
 ```
@@ -126,7 +126,7 @@ For secure communication, users can use your public key to send an encrypted mes
 
 To decrypt this message using your private key:
 1. Save the encrypted message: `nano message.asc` (paste the entire PGP message and save the file, Ctrl+O, Enter, Ctrl+X)
-2. Decrypt the message: `gpg --decrypt message.asc` (the PGP-encrypted message includes metadata showing which recipient key it was encrypted to; GPG then scans your keyring to find the matching private key needed to decrypt it)
+2. Decrypt the message: `gpg --decrypt message.asc` (the PGP-encrypted message includes metadata showing your fingerprint, which it was encrypted to; GPG then scans your keyring to find the matching private key needed to decrypt it)
 3. A successful decryption will look like:
 ```
 gpg: encrypted with rsa4096 key, ID ABCD1234....

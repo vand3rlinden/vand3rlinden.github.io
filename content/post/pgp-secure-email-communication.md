@@ -119,7 +119,7 @@ iQIzBAEBCAAdFiEEocmn9wnTqI
 ### 6. The recipient verifies your digital signature
 1. The recipient has already imported your public key
 2. They paste the received text into a file named `signedmessage.asc`
-3. To verify the signature: `gpg --verify signedmessage.asc` (the PGP-signed message includes metadata identifying the signer’s fingerprint; GPG then scans your keyring to find the corresponding public key to verify the signature)
+3. To verify the signature: `gpg --verify signedmessage.asc` (the PGP-signed message includes metadata that identifies your key fingerprint; GPG then scans the recipient’s keyring to find your corresponding public key to verify the signature)
 4. A successful verification will look like:
 ```
 gpg: Good signature from "Your Name <your@email.com>"
@@ -128,7 +128,7 @@ gpg: Good signature from "Your Name <your@email.com>"
 ### 7. The recipient decrypts the message
 1. The recipient must have their private key on the local system
 2. They paste the PGP-encrypted content into a file called `encryptedmessage.asc`
-3. To decrypt the message: `gpg --decrypt encryptedmessage.asc` (the PGP-encrypted message includes metadata showing which recipient key it was encrypted to; GPG then scans your keyring to find the matching private key needed to decrypt it)
+3. To decrypt the message: `gpg --decrypt encryptedmessage.asc` (the PGP-encrypted message includes metadata showing the recipient’s key fingerprint it was encrypted to; GPG then scans the recipient’s keyring to find the matching private key needed to decrypt it)
 4. A successful decryption will look like:
 ```
 gpg: encrypted with rsa4096 key, ID ABCD1234....
