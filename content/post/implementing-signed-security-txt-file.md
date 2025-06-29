@@ -102,10 +102,12 @@ To trust a public key using GPG, the user can follow these steps:
 5.	To exit the editor: On Windows, press Ctrl + C, On Mac, press Command + C (or type `quit` and confirm if prompted)
 
 ### 2. Verify the Signature
-The user runs the following command to verify the signature (replace the `Fingerprint` with the actual fingerprint):
+The user runs the following command to verify the signature:
 ```
-gpg --verify --local-user Fingerprint security.txt
+gpg --verify security.txt
 ```
+
+> The PGP-signed message includes metadata identifying the signer’s fingerprint; GPG then scans your keyring to find the corresponding public key to verify the signature.
 
 If the file is authentic, they’ll see output confirming the signature, such as:
 ```
@@ -124,7 +126,7 @@ For secure communication, users can use your public key to send an encrypted mes
 
 To decrypt this message using your private key:
 1. Save the encrypted message: `nano message.asc` (paste the entire PGP message and save the file, Ctrl+O, Enter, Ctrl+X)
-2. Decrypt the message: `gpg --decrypt --local-user Fingerprint message.asc` (replace the `Fingerprint` with the actual fingerprint)
+2. Decrypt the message: `gpg --decrypt message.asc` (the PGP-encrypted message includes metadata showing which recipient key it was encrypted to; GPG then scans your keyring to find the matching private key needed to decrypt it)
 3. A successful decryption will look like:
 ```
 gpg: encrypted with rsa4096 key, ID ABCD1234....
