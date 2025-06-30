@@ -107,7 +107,7 @@ The user runs the following command to verify the signature:
 gpg --verify security.txt
 ```
 
-> The PGP-signed message includes metadata that identifies your fingerprint; GPG then scans the user’s keyring to find your corresponding public key to verify the signature.
+> The PGP-signed security.txt file includes metadata that identifies your fingerprint; GPG then scans the user’s keyring to find your corresponding public key to verify the signature.
 
 If the file is authentic, they’ll see output confirming the signature, such as:
 ```
