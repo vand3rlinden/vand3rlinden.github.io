@@ -61,12 +61,12 @@ Calculation of DNS lookups:
 
 | DNS Lookup                           | Count          |
 | -----------                          | -----------    |
+| `mx` (your MX record)                | 1 DNS Lookup   |
 | `include:spf.protection.outlook.com` | 1 DNS Lookup   |
 | `include:_spf.salesforce.com`        | 2 DNS Lookups  |
 | `include:mail.zendesk.com`           | 1 DNS Lookup   |
 | `include:_spf.app1.com`              | 2 DNS Lookups  |
 | `include:_spf.app2.com`              | 2 DNS Lookups  |
-| `mx` (your MX record)                | 1 DNS Lookup   |
 | Total:                               | 9 DNS Lookups  |
 
 Effective segmentation of your email providers is essential for maintaining control and clarity over your SPF record.
@@ -78,12 +78,12 @@ A helpful approach is to create a list of your SPF record entries and specify th
 
 | Look up                               | Outcome     |
 | -----------                           | ----------- |
-| `include:spf.protection.outlook.com`  | Uses multiple email addresses and must send through the primary domain `yourdomain.com`.|
-| `include:_spf.salesforce.com`         | Must send through the primary domain, but can be restricted to send from a fixed sender address `invoices@yourdomain.com` using an SPF macro.|
-| `include:mail.zendesk.com`            | Must send through the primary domain, but can be restricted to send from a fixed sender address `support@yourdomain.com` using an SPF macro.|
-| `include:_spf.app1.com`               | Uses multiple addresses and is capable of sending through a subdomain for both the P1 sender and P2 sender, with a new SPF `TXT` record configured for `app1.yourdomain.com`.|
-| `include:_spf.app2.com`               | Uses multiple addresses, but since the email provider supports setting the P1 sender to a subdomain, a new SPF `TXT` record is created for `app2.yourdomain.com`, but emails can still be sent using the primary domain `yourdomain.com` as the P2 sender.|
-| `mx`                                  | Duplicate mechanisms, can be removed. When using Microsoft 365, the `MX` endpoint IP is already listed in `include:spf.protection.outlook.com`.|
+| `mx`                                  | Duplicate mechanisms, can be removed. When using Microsoft 365, the `MX` endpoint IP is already listed in `include:spf.protection.outlook.com`|
+| `include:spf.protection.outlook.com`  | Uses multiple email addresses and must send through the primary domain `yourdomain.com`|
+| `include:_spf.salesforce.com`         | Must send through the primary domain, but can be restricted to send from a fixed sender address `invoices@yourdomain.com` using an SPF macro|
+| `include:mail.zendesk.com`            | Must send through the primary domain, but can be restricted to send from a fixed sender address `support@yourdomain.com` using an SPF macro|
+| `include:_spf.app1.com`               | Uses multiple addresses and is capable of sending through a subdomain for both the P1 sender and P2 sender, with a new SPF `TXT` record configured for `app1.yourdomain.com`|
+| `include:_spf.app2.com`               | Uses multiple addresses, but since the email provider supports setting the P1 sender to a subdomain, a new SPF `TXT` record is created for `app2.yourdomain.com`, but emails can still be sent using the primary domain `yourdomain.com` as the P2 sender|
 
 > **NOTE**: If you encounter unfamiliar email providers or IP addresses, it may be the result of incomplete historical documentation of authorized email services within your organization. In such cases, monitor your SPF record using DMARC monitoring for 1 to 3 months, and only allow email providers that you can confidently verify as legitimate. For more details, see my clarification on DMARC monitoring in [this blog post](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#clarification-on-dmarc-monitoring).
 
