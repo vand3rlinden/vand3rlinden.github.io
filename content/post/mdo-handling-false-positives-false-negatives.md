@@ -21,7 +21,7 @@ These signals include:
 - Behavioral analysis
 - Other advanced techniques
 
-The results of Microsoft’s implicit authentication checks are combined into a single value called composite authentication (`compauth`). This value is stamped into the [Authentication-Results message header](https://learn.microsoft.com/en-us/defender-office-365/message-headers-eop-mdo#authentication-results-message-header-fields) within the message headers.
+The results of Microsoft’s implicit authentication checks are combined into a single value called composite authentication (`compauth`). This value is stamped into the [Authentication-Results message header](https://learn.microsoft.com/en-us/defender-office-365/message-headers-eop-mdo#authentication-results-message-header-fields).
 
 ![IMAGE](/images/mdo-handling-false-positives-false-negatives/mdo-handling-false-positives-false-negatives-1.png)
 
