@@ -16,7 +16,8 @@
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;In this post, I will explain what PGP is, how it differs from S/MIME, and why encrypting and signing your emails is more important than ever.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;what-is-pgp&#34;&gt;What is PGP?&lt;/h2&gt;
-&lt;p&gt;Email remains one of the least secure forms of communication, unless you take steps to protect it. Pretty Good Privacy (PGP) offers a powerful and accessible way to encrypt and sign your email messages, ensuring that your communication remains private and tamper-proof.&lt;/p&gt;</description>
+&lt;p&gt;Pretty Good Privacy (PGP) is an encryption program that offers authentication and cryptographic privacy.&lt;/p&gt;
+&lt;p&gt;Unless you take precautions, email is still one of the least secure ways to communicate. To keep your correspondence private and impenetrable, PGP provides a strong method for encrypting and signing your emails.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Microsoft Defender for Office 365: Approach for Non-RFC compliant emails</title>

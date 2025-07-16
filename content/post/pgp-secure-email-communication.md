@@ -10,9 +10,9 @@ cover:
 > _In this post, I will explain what PGP is, how it differs from S/MIME, and why encrypting and signing your emails is more important than ever._
 
 ## What is PGP?
-Email remains one of the least secure forms of communication, unless you take steps to protect it. Pretty Good Privacy (PGP) offers a powerful and accessible way to encrypt and sign your email messages, ensuring that your communication remains private and tamper-proof.
+Pretty Good Privacy (PGP) is an encryption program that offers authentication and cryptographic privacy.
 
-PGP is an encryption program that provides cryptographic privacy and authentication. Originally created by Phil Zimmermann in 1991, PGP is now widely supported and standardized through OpenPGP.
+Unless you take precautions, email is still one of the least secure ways to communicate. To keep your correspondence private and impenetrable, PGP provides a strong method for encrypting and signing your emails.
 
 PGP uses a combination of symmetric encryption (a single key for encrypting and decrypting message content) and asymmetric encryption (public/private key pairs). The message is encrypted using symmetric encryption for efficiency, while asymmetric encryption is used to securely exchange the symmetric key, decrypt it on the recipient’s side, and verify digital signatures.
 
