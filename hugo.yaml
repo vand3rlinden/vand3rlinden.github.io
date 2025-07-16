@@ -33,7 +33,7 @@ params:
 # home-info mode
   homeInfoParams:
     Title: "Ricardo van der Linden | Security Analyst"
-    Content: Welcome to my blog! I started blogging as a way to give back to the community by sharing knowledge. In the IT world, we’ve all faced countless uncertainties, and we grow by helping one another through shared experiences and insights. My focus is largely on email security, as it continues to be one of the main attack vectors for malicious actors.
+    Content: Welcome to my blog! I started blogging to share my knowledge and give back to the community. All of us in the IT industry have encountered innumerable unknowns, and we develop by supporting one another with our common experiences and knowledge. Since email security is still one of the primary attack vectors used by bad actors, I mostly concentrate on it.
 
 # socialIcons
   socialIcons:
