@@ -140,7 +140,7 @@ RUA report example in `.xml`:
 
 ![IMAGE](/images/spf-dkim-dmarc-explanation/dmarc-xml.png)
 
-2. Using DMARC monitoring tools allows you to convert `RUA` reports into clear visual dashboards, providing more actionable insights than raw IP address data alone. Most tools can associate sending IP addresses with known email providers, such as Microsoft 365 or Salesforce. One example of such a tool is [Valimail](https://www.valimail.com/blog/office-365-free-dmarc-monitoring/) (free for Microsoft 365 users with an Exchange Online plan).
+2. Using DMARC monitoring tools allows you to convert `RUA` reports into clear visual dashboards, providing more actionable insights than raw IP address data alone. Most tools can associate sending IP addresses with known email providers, such as Microsoft 365 or Salesforce. One example of such a tool is [Valimail](https://www.valimail.com/blog/office-365-free-dmarc-monitoring/) (free for Microsoft 365 users with an Exchange Online plan). For personal use, you can use [Mailhardener’s free version](https://www.mailhardener.com/pricing), which supports one domain and offers one month of data retention.
 
 Overview of the Valimail Dashboard:
 
