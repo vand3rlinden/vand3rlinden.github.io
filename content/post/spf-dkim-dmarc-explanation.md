@@ -34,7 +34,7 @@ Sender Policy Framework (SPF) is a protocol that aims to reduce spam. SPF can re
 ### How SPF works
 Imagine that you have an SPF record that looks like: 
 
-`v=spf1 ip4:11.222.33.444 include:_spf.domain.com -all`
+`v=spf1 ip4:11.222.33.444 include:_spf.domain.com ~all`
 
 If an unauthorized server sends on behalf of your domain, the email will get a `spf=fail` in the message header because the IP is not listed in your SPF record.
 
@@ -43,24 +43,24 @@ SPF will pass if the sender’s IP is added to the SPF record for the P1 Sender 
 ![IMAGE](/images/spf-dkim-dmarc-explanation/spf-visual.png)
 
 ### Implementation of SPF
-When you add your domain to Microsoft 365, Microsoft will ask you to provide an SPF record, such as `v=spf1 include:spf.protection.outlook.com -all`. If you have more allowed senders, you must include them in the SPF record. For example `v=spf1 ip4:11.222.33.444 include:spf.protection.outlook.com include:_spf.domain.com -all`
+When you add your domain to Microsoft 365, Microsoft will ask you to provide an SPF record, such as `v=spf1 include:spf.protection.outlook.com ~all`. If you have more allowed senders, you must include them in the SPF record. For example `v=spf1 ip4:11.222.33.444 include:spf.protection.outlook.com include:_spf.domain.com ~all`
 
 The SPF record will vary for each domain; therefore, it is important to understand the following when implementing an SPF record:
 
 - Can only have 255 characters, but it can be split to multiple strings in a single record, most DNS providers handle this automatically.
-    - Example: `"v=spf1 first string" "second string -all"`
+    - Example: `"v=spf1 first string" "second string ~all"`
 - Can take up to a maximum of 10 DNS Lookups, such as `include:spf.protection.outlook.com` (this entry costs 1 DNS lookup, with no additional child lookups).
 
 > **CAUTION**: You should take [steps](https://vand3rlinden.com/post/handle-your-spf-record/) to stay well under 10 DNS lookups. Because if a vendor decides to add another DNS lookup within its SPF include (child lookup). Your SPF record will become inaccurate because it has reached the DNS lookup limit, which may result in email delivery problems.
 
 ### Tips to avoid reaching the 10 DNS lookups limit
 - Flatten your SPF record.
-    - Example: `v=spf1 include:spf.domain.com -all` can be `v=spf1 ip4:11.222.33.444 ip4:11.222.33.444 -all`
+    - Example: `v=spf1 include:spf.domain.com ~all` can be `v=spf1 ip4:11.222.33.444 ip4:11.222.33.444 ~all`
 
 > **Not recommended**: The [problem with flattening](https://vand3rlinden.com/post/handle-your-spf-record/#the-dangers-of-spf-flattening) is that email service providers can change or add IP addresses without telling you. Then your SPF record will be inaccurate, leading to email delivery problems.
 
 - Where email is incapable of passing DMARC with SPF (e.g. due to relaying), configure DKIM for the P2 Sender domain on the sending server or email provider.
-  - In this scenario, you must to set your SPF record to [softfail](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#softfail-or-hardfail) `~all`. This ensures that DKIM evaluation is always performed in the absence of a valid SPF validation, so the email can still be DMARC compliant due to DKIM alignment.
+  - In this scenario, you must to set your SPF record to softfail `~all`, instead of harfail `-all`. Softfail ensures that DKIM evaluation is always performed in absence of valid SPF validation due to relaying, so the email can still be DMARC compliant due to DKIM alignment. More details will follow on why using softfail instead of hardfail is considered best practice.
 
 > **Not recommended**: You should work toward having both SPF and DKIM properly aligned. However, in relay scenarios, this is not always possible, even for DKIM. In such cases, you can check if your email provider supports ARC Sealers, which help preserve authentication results when an email passes through multiple servers. This allows your recipients to accept the ARC Seal from your relaying or intermediate server. More information about ARC Sealers can be found in [this](https://vand3rlinden.com/post/arc-explained/) blog.
 
