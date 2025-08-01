@@ -54,7 +54,7 @@ SPF flattening attempts to work around the **too many DNS lookups** problem with
 #### For the long term:
 Imagine your organization has an SPF record on `yourdomain.com` with 9 of the 10 allowed DNS lookups, such as:
 ```
-v=spf1 ip4:11.222.33.444 ip4:44.33.222.111 ip4:22.33.444.555 ip4:55.66.777.8 ip4:88.99.999.99 ip4:99.88.777.66 mx include:spf.protection.outlook.com include:_spf.salesforce.com include:mail.zendesk.com include:_spf.app1.com include:_spf.app2.com -all
+v=spf1 ip4:11.222.33.444 ip4:44.33.222.111 ip4:22.33.444.555 ip4:55.66.777.8 ip4:88.99.999.99 ip4:99.88.777.66 mx include:spf.protection.outlook.com include:_spf.salesforce.com include:mail.zendesk.com include:_spf.app1.com include:_spf.app2.com ~all
 ```
 
 Calculation of DNS lookups:
@@ -112,7 +112,7 @@ include:_spf.yourdomain.com
 
 | Host                 | Type   | Value                                                                                                                |
 | ---                  | ---    | ---                                                                                                                  |
-| `_spf.yourdomain.com` | `TXT` | `v=spf1 ip4:11.222.33.444 ip4:44.33.222.111 ip4:22.33.444.555 ip4:55.66.777.8 ip4:88.99.999.99 ip4:99.88.777.66 -all`|
+| `_spf.yourdomain.com` | `TXT` | `v=spf1 ip4:11.222.33.444 ip4:44.33.222.111 ip4:22.33.444.555 ip4:55.66.777.8 ip4:88.99.999.99 ip4:99.88.777.66 ~all`|
 
 > **CAUTION:** When the SPF record for your IP addresses reaches its limit of [two strings of 255 characters](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#implementation-of-spf), it becomes inaccurate. You should avoid including too many IP addresses. While you can add another include, such as `_spf1.yourdomain.com`, at the cost of another DNS lookup, it is advisable to start segmenting this into subdomains. Also, get into the habit of documenting all of your IP addresses that send mail on behalf of your domain.
 
@@ -148,8 +148,8 @@ include:%{l}._spf.yourdomain.com
 
 | Host                           | Type   | Value                                    |
 | ---                            | ---    | ---                                      |
-| `invoices._spf.yourdomain.com` | `TXT`  | `v=spf1 include:_spf.salesforce.com -all`|
-| `support._spf.yourdomain.com`  | `TXT`  | `v=spf1 include:mail.zendesk.com -all`   |
+| `invoices._spf.yourdomain.com` | `TXT`  | `v=spf1 include:_spf.salesforce.com ~all`|
+| `support._spf.yourdomain.com`  | `TXT`  | `v=spf1 include:mail.zendesk.com ~all`   |
 
 After setting up the above, Salesfroce's sending servers can only send from `invoices@yourdomain.com` and Zendesk can only send from `support@yourdomain.com`.
 
@@ -163,7 +163,7 @@ After setting up the above, Salesfroce's sending servers can only send from `inv
 
 Instead of ***9 DNS lookups*** before cleaning, the cleaned SPF record has only ***3 DNS lookups*** with SPF macros:
 ```
-v=spf1 include:spf.protection.outlook.com include:_spf.yourdomain.com include:%{l}._spf.yourdomain.com -all
+v=spf1 include:spf.protection.outlook.com include:_spf.yourdomain.com include:%{l}._spf.yourdomain.com ~all
 ```
 
 Final computation of DNS lookups:

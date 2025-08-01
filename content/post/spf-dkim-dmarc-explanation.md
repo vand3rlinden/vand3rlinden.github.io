@@ -79,13 +79,15 @@ The SPF record will vary for each domain; therefore, it is important to understa
 ### Softfail or Hardfail
 SPF can get a softfail or a hardfail, you determine that at the end of the record.
 
-- With `~all`: The SPF record identifies the host as NOT authorized to send emails on behalf of the domain; however, it instructs email receivers to accept the email but flag it as potentially suspicious.
+- With `~all`: Email originating from a host that matches the term will not pass SPF evaluation, but will still be tested for other mechanisms (like DKIM).
 
-- With `-all`: The SPF record specifies that the host is NOT authorized to send emails and instructs email receivers to reject them.
+- With `-all`: Email originating from a host that matches the term will be rejected, no further mechanism (like DKIM) may be used.
 
-Most mailbox providers will treat soft and hard- fails directives similarly, but it is [recommended](https://dmarcian.com/spf-best-practices/) to mirror the DMARC policy as the technology is deployed: use softfail (`~all`) if the DMARC policies are "none" and "quarantine", and use hardfail (`-all`) if you have moved to a "reject" policy. 
+Most mailbox providers treat SPF softfail (`~all`) and hardfail (`-all`) in a similar way. However, when an email fails SPF, such as in cases involving relaying or delegated senders, it may be hard rejected at SMTP level if an SPF hardfail (`-all`) is used. This can prevent DKIM evaluation on the receiving mail server, which may lead to a DMARC failure. 
 
-> **NOTE**: If an email cannot pass SPF (e.g. due to relaying), it can be hard rejected at the SMTP level with an SPF hardfail (`-all`), which may prevent DKIM evaluation from being performed on the receiving mail server, which can then lead to a DMARC failure. If you are unsure whether your senders are passing SPF, then [consider using an SPF softfail (`~all`)](https://www.mailhardener.com/blog/why-mailhardener-recommends-spf-softfail-over-fail) along with DMARC set to reject (`p=reject`). This ensures that DKIM evaluation is always performed in the absence of a valid SPF validation, so the email can still be DMARC compliant due to DKIM alignment.
+The SPF hardfail mechanism (`-all`) is only recommended for domains that do not send email. 
+
+For domains that do send email, it is considered [best practice to use SPF softfail](https://www.mailhardener.com/blog/why-mailhardener-recommends-spf-softfail-over-fail) (`~all`). This allows that the DKIM evaluation still occur even if SPF fails, helping ensure the email remains DMARC-compliant through DKIM alignment.
 
 ### Limitations of SPF
 Although SPF performs reasonably well in theory, it has several limitations that make it insufficient on its own to fully protect a sending domain.
@@ -140,7 +142,8 @@ RUA report example in `.xml`:
 
 ![IMAGE](/images/spf-dkim-dmarc-explanation/dmarc-xml.png)
 
-2. Using DMARC monitoring tools allows you to convert `RUA` reports into clear visual dashboards, providing more actionable insights than raw IP address data alone. Most tools can associate sending IP addresses with known email providers, such as Microsoft 365 or Salesforce. One example of such a tool is [Valimail](https://www.valimail.com/blog/office-365-free-dmarc-monitoring/) (free for Microsoft 365 users with an Exchange Online plan). For personal use, you can use [Mailhardener’s free version](https://www.mailhardener.com/pricing), which supports one domain and offers one month of data retention.
+2. Using DMARC monitoring tools allows you to convert `RUA` reports into clear visual dashboards, providing more actionable insights than raw IP address data alone. Most tools can associate sending IP addresses with known email providers, such as Microsoft 365 or Salesforce. One example of such a tool is [Valimail](https://www.valimail.com/blog/office-365-free-dmarc-monitoring/) (free for Microsoft 365 users with an Exchange Online plan). 
+   - For personal use, you can use [Mailhardener’s free version](https://www.mailhardener.com/pricing), which supports one domain and offers one month of data retention. Mailhardener also offers good value for corporate use. While it’s not free, it supports hosting BIMI assets and MTA-STS policies, and includes SSO integration with Entra ID.
 
 Overview of the Valimail Dashboard:
 
@@ -252,10 +255,6 @@ This protects all of your domains from phishers and spammers, as bad actors will
 - **Protect**: `RFC5322.From` (P2 Sender)
 
 ## Reference
-- [Dmarcian SPF best practices - Unavailable from the Netherlands](https://dmarcian.com/spf-best-practices/)
-- [Dmarcian Concluding the Experiment: SPF Flattening - Unavailable from the Netherlands](https://dmarcian.com/spf-flattening/)
-- [Dmarcian DMARC best practices - Unavailable from the Netherlands](https://dmarcian.com/advancing-dmarc-policy/)
-- [Dmarcian The Difference in DMARC Reports: RUA and RUF - Unavailable from the Netherlands](https://dmarcian.com/rua-vs-ruf/)
 - [Why Mailhardener recommends SPF softfail over fail](https://www.mailhardener.com/blog/why-mailhardener-recommends-spf-softfail-over-fail)
 - [How to protect domains that do not send email](https://www.cloudflare.com/learning/dns/dns-records/protect-domains-without-email/)
 - [SPF is defined in RFC 7208](https://www.rfc-editor.org/info/rfc7208)
