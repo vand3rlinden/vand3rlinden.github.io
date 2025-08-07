@@ -2,20 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://vand3rlinden.com/pgp/</loc>
-    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://vand3rlinden.com/</loc>
-    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://vand3rlinden.com/categories/</loc>
-    <lastmod>2025-06-06T22:01:22+02:00</lastmod>
+    <lastmod>2025-08-07T15:03:37+02:00</lastmod>
   </url><url>
     <loc>https://vand3rlinden.com/categories/email/</loc>
-    <lastmod>2025-06-06T22:01:22+02:00</lastmod>
+    <lastmod>2025-08-07T15:03:37+02:00</lastmod>
+  </url><url>
+    <loc>https://vand3rlinden.com/post/exo-reject-direct-send/</loc>
+    <lastmod>2025-08-07T15:03:37+02:00</lastmod>
   </url><url>
     <loc>https://vand3rlinden.com/post/</loc>
-    <lastmod>2025-06-06T22:01:22+02:00</lastmod>
+    <lastmod>2025-08-07T15:03:37+02:00</lastmod>
+  </url><url>
+    <loc>https://vand3rlinden.com/</loc>
+    <lastmod>2025-08-07T15:03:37+02:00</lastmod>
+  </url><url>
+    <loc>https://vand3rlinden.com/pgp/</loc>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://vand3rlinden.com/post/pgp-secure-email-communication/</loc>
     <lastmod>2025-06-06T22:01:22+02:00</lastmod>
