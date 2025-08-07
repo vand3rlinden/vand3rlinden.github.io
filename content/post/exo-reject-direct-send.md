@@ -13,8 +13,8 @@ Direct Send is a method used to send emails directly to Exchange Online hosted m
 
 This method assumes that SPF, DKIM, and DMARC are properly configured for your accepted domain. Any sender using Direct Send without being included in the accepted domain’s SPF record will already struggle to deliver messages successfully to your internal inboxes.
 
-There are situations where a potentially malicious email can still be successfully delivered to internal mailboxes when Direct Send is enabled. For example:
-- SPF, DKIM, and DMARC validation may fail, but the email can still be accepted if implicit email authentication passes. This mechanism goes beyond traditional authentication methods by using additional signals to determine the final verdict for inbound messages.
+However, there are situations where a potentially malicious email can still be successfully delivered to internal mailboxes when Direct Send is enabled. For example:
+- If SPF, DKIM, and DMARC validation may fail, but the email can still be accepted if [implicit email authentication](https://vand3rlinden.com/post/mdo-handling-false-positives-false-negatives/#how-inbound-email-works-in-microsoft-365) passes. This mechanism goes beyond traditional authentication methods by using additional signals to determine the final verdict for inbound messages.
 - If additional protections, such as Spoof Intelligence and the ‘Honor DMARC policy’ settings (if a message is detected as Spoof by Spoof Intelligence), are not enabled in your inbound anti-phishing policy.
 
 Since most tenants do not rely on Direct Send, Microsoft has introduced a setting **(in Public Preview)** to disable Direct Send. Turning off this feature helps block bad actors from spoofing your accepted domains in Exchange Online and sending emails to your internal mailboxes.
