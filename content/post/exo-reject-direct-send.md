@@ -7,7 +7,7 @@ cover:
   image: /images/exo-reject-direct-send/exo-reject-direct-send-front.png
 ---
 
-> _In this post, you will learn how what Direct send is and how to Reject Direct Send._
+> _In this post, you will learn what Direct send is and how to reject Direct Send._
 
 Direct Send is a method used to send emails directly to Exchange Online hosted mailboxes from on-premises devices, applications, or third-party cloud services, using the MX record endpoint of your accepted domain in Exchange Online.
 
