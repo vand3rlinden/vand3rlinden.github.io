@@ -7,7 +7,7 @@ cover:
   image: /images/exo-reject-direct-send/exo-reject-direct-send-front.png
 ---
 
-> _In this post, you will learn what Direct send is and how to reject Direct Send._
+> _In this post, you will learn what Direct Send is, how attackers can abuse it, and how to block its use._
 
 Direct Send is a method used to send emails directly to Exchange Online hosted mailboxes from on-premises devices, applications, or third-party cloud services, using the MX record endpoint of your accepted domain in Exchange Online.
 
@@ -57,10 +57,10 @@ In this scenario, an attacker attempts to phish a user in the demo tenant by try
 ```
 $PSEmailServer = "yourdomain-com.mail.protection.outlook.com"
 $SMTPPort = 25
-$MailTo = "scooby.doo@yourdomain.com"
+$MailTo = "adelev@yourdomain.com"
 $MailFrom = "Shaggy Rogers <shaggy@yourdomain.com>" #This email address does not require a mailbox, can be any value before the @ symbol
 $MailSubject = "Test email"
-$MailBody = "Hi Scooby, please help me out with this test."
+$MailBody = "Hi Adele, please help me out with this test."
 $Attachment = "C:/temp/test.docx"
 Send-MailMessage -From $MailFrom -To $MailTo -Attachments $Attachment -Subject $MailSubject -Body $MailBody -Port $SMTPPort -WarningAction "SilentlyContinue"
 ```
