@@ -58,11 +58,12 @@ In some situations, you may want your users to be able to request that a message
 
 1. Go to [Quarantine Policies](https://security.microsoft.com/quarantinePolicies) in the Microsoft Security portal.
 2. Click on 'Add custom policy'.
-3. Specify a policy name such as _RequestReleaseFullAccessPolicy_.
+3. Specify a policy name such as _DefaultRequestAccessWithNotificationPolicy_.
 4. Under Recipient Message Access select _Limited access_.
 
-![IMAGE](/images/mdo-quarantine-policies/mdo-quarantine-policies-newpolicy.png) 
-*With **Set specific access** you can turn on or off each **User message access action** as desired, for more advanced configurations.*
+![IMAGE](/images/mdo-quarantine-policies/mdo-quarantine-policies-newpolicy.png)
+
+> With **Set specific access** you can turn on or off each **User message access action** as desired, for more advanced configurations.
 
 5. Enable quarantine notifications, if desired.
 6. Safe your policy.

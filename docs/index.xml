@@ -16,7 +16,7 @@
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;In this post, you will learn what Direct send is and how to reject Direct Send.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Direct Send is a method used to send emails directly to Exchange Online hosted mailboxes from on-premises devices, applications, or third-party cloud services, using the MX record endpoint of your accepted domain in Exchange Online.&lt;/p&gt;
-&lt;p&gt;This method assumes that SPF, DKIM, and DMARC are properly configured for your accepted domain. Any sender using Direct Send without being included in the accepted domain’s SPF record will already struggle to deliver messages successfully to your internal inboxes.&lt;/p&gt;</description>
+&lt;p&gt;This method assumes that SPF, DKIM, and DMARC are properly configured for your accepted domain. Any sender using Direct Send without being included in the SPF record of the accepted domain will already struggle to deliver messages successfully to your internal inboxes.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Secure Communication via PGP</title>

@@ -163,6 +163,7 @@ I’ve noticed that when a user is targeted by self-to-self spoofing, and the me
 - Spoof settings:
   - [Spoof Intelligence](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-phishing-policies-about?view=o365-worldwide#spoof-settings)
   - [Spoof intelligence insight](https://learn.microsoft.com/en-us/defender-office-365/anti-spoofing-spoof-intelligence)
+    - [Information about spoof detections](https://learn.microsoft.com/en-us/defender-office-365/anti-spoofing-spoof-intelligence#view-information-about-spoof-detections)
   - [Anti-spoofing protection in EOP](https://learn.microsoft.com/en-us/defender-office-365/anti-phishing-protection-spoofing-about)
   - [Anti-spoofing protection FAQ](https://learn.microsoft.com/en-us/defender-office-365/anti-phishing-protection-spoofing-faq)
 - Other:
