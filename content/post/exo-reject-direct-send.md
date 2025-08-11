@@ -67,16 +67,16 @@ Send-MailMessage -From $MailFrom -To $MailTo -Attachments $Attachment -Subject $
 
 3. The malicious server from the attacker is not authorized to send email for `yourdomain.com`, because its public IP is missing from the SPF record. However, since the domain is not DMARC-compliant, there is still a chance the email will be accepted (based on the tenant configuration or implicit email authentication). Fortunately, the receiving tenant has Spoof Intelligence enabled and the email has been detected as `SPOOF` by Spoof Intelligence. As a result, the message is quarantined because of the configured applied action. 
 
-[!IMAGE](/images/exo-reject-direct-send/exo-reject-direct-send-1.png)
+![IMAGE](/images/exo-reject-direct-send/exo-reject-direct-send-1.png)
 
 4. However, this tenant does not have **request to release from quarantine** restrictions enabled for the applied action. This means the user can release the message themselves and open the malicious attachment.
 
-[!IMAGE](/images/exo-reject-direct-send/exo-reject-direct-send-2.png)
+![IMAGE](/images/exo-reject-direct-send/exo-reject-direct-send-2.png)
 
 ### Reject DirectSend
 For this test, I used the same demo tenant, but this time with RejectDirectSend set to `$true`. The attacker followed the same steps, but now encountered the following error when attempting to send a message:
 
-[!IMAGE](/images/exo-reject-direct-send/exo-reject-direct-send-3.png)
+![IMAGE](/images/exo-reject-direct-send/exo-reject-direct-send-3.png)
 
 ## Summary
 You may be hesitant to enable the Reject Direct Send feature due to a lack of visibility into whether Direct Send is currently used in your tenant. To help with this, Microsoft is working on a Direct Send traffic report, which will allow admins to identify any existing Direct Send usage and assess the potential impact of enabling the feature. Since Direct Send requires the outbound IP of the sender or range to be included in the SPF record, admins should already be in the habit of documenting each sender in their SPF configuration. If you are confident that Direct Send is not being used in your environment, you can safely enable the Reject Direct Send feature already.
