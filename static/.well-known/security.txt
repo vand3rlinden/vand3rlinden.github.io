@@ -2,7 +2,7 @@
 Hash: SHA256
 
 # Security address
-Contact: mailto:security@example.com
+Contact: mailto:security@vand3rlinden.com
 
 # OpenPGP key
 Encryption: https://vand3rlinden.com/encryption/pgp-security-publickey.txt
@@ -17,17 +17,18 @@ Policy: https://vand3rlinden.com/privacy-policy/
 Preferred-Languages: EN, NL
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCAAdFiEE2LgIdAAaOcVzxLw/ejaUkY/1cG0FAmhEkKIACgkQejaUkY/1
-cG2DYQ/+MXt7rWeqFjXk+5lKtpZSObz3k16xWVoh7Uqh3aCTjqlUXt1H0Z4q+RQB
-SIaO8vBV0CpKrp+/60q/Zmc0zq74llHFyb5IRJ2lzJ+ic6NXEu9jar3fQwfTXS1k
-tUYFTTf2AskMlmq80psBT0bpIDUXRKG09fh2aaIgm2QQjlfHR8MT39JAPtHM6p4M
-rSQz4zxwxxp8uSYSIf3r4fy926wxSkHoekzrCDqPKol94aaqI8uNCY6Ta+To15V3
-PsKjmRpXoyqy66eV/qBGTX/vjr1DkJqVpgoGQEtiFKQuzI4AK1ZM/OCozLi8BHad
-mAn4acSJSDgmJ7cA/m44rHlOGiUm34bo+QUSc7LzEtIG0CokMLTtFmrFKCNQudTm
-y0a3jPn2vxjqciWPSbVpsud1a0GOsNRfIQ6j1/P/+lw9mguJw1IuUCYcBVkZMNJt
-XA1ntFMnnBS+cvwzKWRvrAgpbV+jz+6gqUq/yoDCPJjk60aTCaQlF7QcarWkCywz
-LXyPYme5bR83LhpamGkK4UQrTwrcvuC4uV0S2uHaIM9xshfEAt+POlYQgYI7hxyb
-GBJVI3HSgalLqK5sO8Mjmi3J3aPIB9hQD7MEsSdjwD/qKy3M6oyiU97czJkpgV1E
-iYbxMrVWVlsHRzVNBECuteTyRQuiEk/UBq/R5Y66hdsY0J6iwvk=
-=q+sN
+iQJOBAEBCAA4FiEE2LgIdAAaOcVzxLw/ejaUkY/1cG0FAmibPyMaHHNlY3VyaXR5
+QHZhbmQzcmxpbmRlbi5jb20ACgkQejaUkY/1cG3BWRAAu6Ksqe6q7O1+H9EmUUVI
+aDOIkEL0yfFgJ2OGcFBkoHiyUG+kSKz66CRnWEPUqEkQ/PkSRvdzmu7DWfed+VlT
+/FKWEaZhtY1l5JHftIYbJ9OPBkvzXwMwAjrbZcnEYA+rv0Du/vAYNj2ZcV98aUv8
+U/+cLWPiA4tu/Ui4n4/ud9LrzCrA4fHx3nUripXIDCS4UDJydwIy1S35/IZjr11G
+YjCglBik/QPmTIQSkjLk7OnpZqQ8/b0OidBIZD/TUEa1EraNuJPwlprXlc6NXya6
+TNbffVbdbfR4XWMz1nMhkLIbmR9jjBTuHq7azPdONTYFx7xsw+ooMiWpf/SuzmAG
+qizyxX/rdStAm+7z8qZZu1aIHo4RNIqEvPydZM6DeNoiR3A59ND7cgujIV7tEE6z
+of53ctXeuaNzINBCR4eWnhnU3GSq+nbWuXQq323c2ndoJuHHs0deFc+lyKZX3lIA
+CzPhEftU0tgjn9LyWdJ4NZMbGxAc4aANh+gP6mSlPv+iF8faOc1lyqK3Hk/pVzvt
+g+ZNhGLQD9RGeWF50n+QU7lOZagdg4xNk097oWxf9JSJgxcoyeHp66StIRSFSMU+
+YygTjc3upIJr/m3N6/pos/PJOCD2sNMYvtk5mR0z7/lxjzhdw2+GV2KuHSVFUJSA
+kwMs71EsGugMq2o7jkAZzbo=
+=HePK
 -----END PGP SIGNATURE-----
