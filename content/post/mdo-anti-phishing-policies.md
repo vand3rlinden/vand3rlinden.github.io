@@ -16,7 +16,7 @@ Anti-phishing policies provide enhanced control over incoming phishing emails, f
 ## Impersonation protection
 Impersonation occurs when the sender of an email appears similar to a legitimate or expected sender's address. Attackers often use impersonated email addresses in phishing or other attacks to deceive recipients and gain their trust. There are two main types of impersonation:
 
-- **User impersonation:** Contains subtle differences in the email alias.
+- **User impersonation:** Contains subtle differences in the email alias / display name.
 - **Domain impersonation:** Contains subtle differences in the domain.
 
 ### User impersonation protection
@@ -26,7 +26,7 @@ User impersonation protection allows you to secure up to 350 internal and extern
 > **NOTE:** User impersonation protection is not effective when there is a history of email communication between the sender and recipient. Detection of an impersonation attempt is only possible in cases where there is no prior email interaction between the sender and recipient.
 
 ### How it works
-User impersonation involves using a combination of the user’s display name and email address to make the email appear similar to that of a legitimate or trusted sender. For example, your CEO `Shaggy Rogers <shaggy@contoso.com>` could be impersonated as Shaggy Rogers, but with a completely different email address, such as `Shaggy Rogers <shaggy.rogers@fabrikam.com>`. Even though SPF, DKIM and DMARC will pass for the `fabrikam.com` domain, the email will be flagged as protection policy category `UIMP` (user impersonation) in the `X-Forefront-Antispam-Report` message header.
+User impersonation involves using a combination of the user’s display name and email address to make the email appear similar to that of a legitimate or trusted sender. For example, your CEO `"Shaggy Rogers" <shaggy@contoso.com>` could be impersonated as Shaggy Rogers, but with a completely different email address, such as `"Rogers, Shaggy" <ceo@gmail.com>`. Even though SPF, DKIM and DMARC will pass for the `gmail.com` domain, the email will be flagged as protection policy category `UIMP` (user impersonation) in the `X-Forefront-Antispam-Report` message header.
 
 ### Domain impersonation protection
 ### What you can protect:
@@ -43,7 +43,7 @@ You can use Impersonation insight in the [Microsoft Defender Portal](https://sec
 Mailbox Intelligence uses artificial intelligence (AI) to determine the email patterns of users with their most frequent contacts.
 
 ### How it works:
-Mailbox intelligence operates similarly to user impersonation protection; however, it utilizes the contents of the mailbox to identify phishing attempts. For instance, if you regularly exchange emails with `Shaggy Rogers <shaggy@contoso.com>`, and one day you receive an email from `Shaggy Rogers <shaggy.rogers@fabrikam.com>` that successfully passes SPF, DKIM, and DMARC checks, it will still be flagged with the protection policy category `GIMP` (Mailbox Intelligence Based Impersonation) in the `X-Forefront-Antispam-Report` message header. This is because the AI within Mailbox Intelligence assesses that you have not previously interacted with `Shaggy Rogers <shaggy.rogers@fabrikam.com>`, suggesting a potential impersonation.
+Mailbox intelligence operates similarly to user impersonation protection; however, it utilizes the contents of the mailbox to identify phishing attempts. For instance, if you regularly exchange emails with `"Shaggy Rogers" <shaggy@contoso.com>`, and one day you receive an email from `"Shaggy Rogers" <shaggy.rogers@fabrikam.com>` that successfully passes SPF, DKIM, and DMARC checks, it will still be flagged with the protection policy category `GIMP` (Mailbox Intelligence Based Impersonation) in the `X-Forefront-Antispam-Report` message header. This is because the AI within Mailbox Intelligence assesses that you have not previously interacted with `Shaggy Rogers <shaggy.rogers@fabrikam.com>`, suggesting a potential impersonation.
 
 Mailbox Intelligence has two settings:
 
