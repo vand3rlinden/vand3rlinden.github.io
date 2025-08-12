@@ -14,8 +14,8 @@ Direct Send is a method used to send emails directly to Exchange Online hosted m
 This method assumes that SPF, DKIM, and DMARC are properly configured for your accepted domain. Any sender using Direct Send without being included in the SPF record of the accepted domain will already struggle to deliver messages successfully to your internal inboxes.
 
 However, there are situations where a potentially malicious email can still be successfully delivered to internal mailboxes when Direct Send is enabled. For example:
-- If SPF, DKIM, and DMARC validation may fail, but the email can still be accepted if [implicit email authentication](https://vand3rlinden.com/post/mdo-handling-false-positives-false-negatives/#how-inbound-email-works-in-microsoft-365) passes. This mechanism goes beyond traditional authentication methods by using additional signals to determine the final verdict for inbound messages.
-- If additional protections, such as Spoof Intelligence and the ‘Honor DMARC policy’ settings (if a message is detected as Spoof by Spoof Intelligence), are not enabled in your anti-phishing policy.
+- When SPF validation fails, the email can still be accepted if the [implicit email authentication](https://vand3rlinden.com/post/mdo-handling-false-positives-false-negatives/#how-inbound-email-works-in-microsoft-365) passes. This mechanism goes beyond traditional authentication methods by using additional signals to determine the final verdict for inbound messages.
+- If additional protections, such as **Spoof Intelligence** and the **Honor DMARC policy** settings (if a message is detected as Spoof by Spoof Intelligence) are not enabled in your anti-phishing policy.
 
 Since most tenants do not rely on Direct Send, Microsoft has introduced a setting **(in Public Preview)** to disable Direct Send. Turning off this feature helps block bad actors from spoofing your accepted domains in Exchange Online and sending emails to your internal mailboxes.
 
@@ -39,7 +39,7 @@ To configure SMTP relay, you can follow the guidance provided in the following M
 If needed, you can roll back the change to allow Direct Send again: `Set-OrganizationConfig -RejectDirectSend $false`
 
 ## How an adversary can abuse DirectSend for Phishing
-For this test, I set up a new demo tenant with the following configuration:
+For this test, I have set up a new demo tenant with the following configuration:
 
 - **Anti-phishing policy**: Spoof Intelligence is enabled
 - **Applied action**: If a message is detected as spoofed by Spoof Intelligence > Quarantine the message
@@ -79,7 +79,7 @@ For this test, I used the same demo tenant, but this time with RejectDirectSend 
 ![IMAGE](/images/exo-reject-direct-send/exo-reject-direct-send-3.png)
 
 ## Summary
-You may be hesitant to enable the Reject Direct Send feature due to a lack of visibility into whether Direct Send is currently used in your tenant. To help with this, Microsoft is working on a Direct Send traffic report, which will allow admins to identify any existing Direct Send usage and assess the potential impact of enabling the feature. Since Direct Send requires the outbound IP of the sender or range to be included in the SPF record, admins should already be in the habit of documenting each sender in their SPF configuration. If you are confident that Direct Send is not being used in your environment, you can safely enable the Reject Direct Send feature already.
+You may be hesitant to enable the Reject Direct Send feature due to a lack of visibility into whether Direct Send is currently used in your tenant. To help with this, Microsoft is working on a Direct Send traffic report, which will allow admins to identify any existing Direct Send usage and assess the potential impact of enabling the feature. Since Direct Send requires the outbound IP or range to be included in the SPF record of the sender, admins should already be in the habit of documenting each sender in their SPF configuration. If you are confident that Direct Send is not being used in your environment, you can safely enable the Reject Direct Send feature already.
 
 > I have already contacted Microsoft to ask if they have an ETA for their DirectSend traffic report, but unfortunately I have not received an answer yet. There are ways to query inbound email without a connector, but this will return all inbound email without a connector, not just DirectSend traffic. If you have another idea, or know more about the DirectSend traffic report Microsoft promised to create, feel free to send me a DM on LinkedIn or drop me an email. Thanks in advance!
 
