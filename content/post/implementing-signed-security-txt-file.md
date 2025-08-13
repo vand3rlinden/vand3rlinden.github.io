@@ -19,7 +19,7 @@ If you don’t already have a PGP key pair, you’ll need to generate one. A PGP
 GPG is the most common tool for generating and managing PGP keys. Install it using your package manager:
 - **Linux (Debian based):** `sudo apt-get install gnupg`
 - **MacOS (via Homebrew):** `brew install gnupg`
-- **Windows:** Download GPG4Win from [https://gpg4win.org](https://gpg4win.org).
+- **Windows:** `winget install -e --id GnuPG.Gpg4win` or direct download GPG4Win from [https://gpg4win.org](https://gpg4win.org).
 
 ### 2. Generate the key pair
 Run the following command:

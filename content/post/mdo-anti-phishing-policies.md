@@ -26,7 +26,7 @@ User impersonation protection allows you to secure up to 350 internal and extern
 > **NOTE:** User impersonation protection is not effective when there is a history of email communication between the sender and recipient. Detection of an impersonation attempt is only possible in cases where there is no prior email interaction between the sender and recipient.
 
 ### How it works
-User impersonation involves using a combination of the user’s display name and email address to make the email appear similar to that of a legitimate or trusted sender. For example, your CEO `"Shaggy Rogers" <shaggy@contoso.com>` could be impersonated as Shaggy Rogers, but with a completely different email address, such as `"Rogers, Shaggy" <ceo@gmail.com>`. Even though SPF, DKIM and DMARC will pass for the `gmail.com` domain, the email will be flagged as protection policy category `UIMP` (user impersonation) in the `X-Forefront-Antispam-Report` message header.
+User impersonation involves using a combination of the user’s display name and email address to make the email appear similar to that of a legitimate or trusted sender. For example, your CEO `"Shaggy Rogers" <shaggy@contoso.com>` could be impersonated with a completely different email address, such as `"Rogers, Shaggy" <ceo@gmail.com>`. Even though SPF, DKIM and DMARC will pass for the `gmail.com` domain, the email will be flagged as protection policy category `UIMP` (user impersonation) in the `X-Forefront-Antispam-Report` message header.
 
 ### Domain impersonation protection
 ### What you can protect:
