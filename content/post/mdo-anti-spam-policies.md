@@ -80,7 +80,7 @@ In this outbound policy you can manage:
     - You should not enable this dynamic allow list, because incoming messages from this dynamic list will bypass spam filtering.
 
 ### Anti-spam outbound policy
-- Configure message limits and set the 'over limit action' to 'restrict users from sending email'. Users can be released from the [restricted entities](https://security.microsoft.com/restrictedentities) once there is no indication of a compromised user.
+- Configure outbound message limits:
   - Recommended Strict:
     ```
     Restrict sending to external recipients (per hour)
@@ -90,6 +90,8 @@ In this outbound policy you can manage:
     Maximum recipient limit per day
     800
     ```
+
+- Set the restriction placed on users who reach the message limit to **restrict users from sending email**, users can be released from the [restricted entities](https://security.microsoft.com/restrictedentities) once there is no indication of a compromised user.
 
 - Disable automatic forwarding:
     - Disabling this option (`Off - Forwarding is disabled (Off)`) will disable any auto-forwarding in your environment. Please review the comparison chart below to determine if this option meets your organization's needs.
@@ -118,12 +120,14 @@ If you only want to allow users to forward to a few specific domains, the best c
 
 ### Reference
 - [Anti-spam protection](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-spam-protection-about)
-- [Configure connection filtering](https://learn.microsoft.com/en-us/defender-office-365/connection-filter-policies-configure)
+  - [Configure anti-spam inbound policy](https://learn.microsoft.com/en-us/defender-office-365/anti-spam-policies-configure)
+  - [Configure connection filter policy](https://learn.microsoft.com/en-us/defender-office-365/connection-filter-policies-configure)
+  - [Configure anti-spam outbound policy](https://learn.microsoft.com/en-us/defender-office-365/outbound-spam-policies-configure)
 - [Exchange Online Sending limits](https://learn.microsoft.com/en-us/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#sending-limits)
 - [Zero-hour auto purge (ZAP)](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/zero-hour-auto-purge)
-- [Recommended anti-spam policy settings - Inbound anti-spam policy](https://learn.microsoft.com/en-us/defender-office-365/recommended-settings-for-eop-and-office365?view=o365-worldwide#eop-anti-spam-policy-settings)
+- [Recommended anti-spam policy settings - Inbound anti-spam policy](https://learn.microsoft.com/en-us/defender-office-365/recommended-settings-for-eop-and-office365?view=o365-worldwide#anti-spam-policy-settings)
 - [Recommended anti-spam policy ASF settings - Inbound anti-spam policy](https://learn.microsoft.com/en-us/defender-office-365/recommended-settings-for-eop-and-office365?view=o365-worldwide#asf-settings-in-anti-spam-policies)
-- [Recommended anti-spam policy settings - Outbound anti-spam policy](https://learn.microsoft.com/en-us/defender-office-365/recommended-settings-for-eop-and-office365?view=o365-worldwide#eop-outbound-spam-policy-settings)
+- [Recommended anti-spam policy settings - Outbound anti-spam policy](https://learn.microsoft.com/en-us/defender-office-365/recommended-settings-for-eop-and-office365?view=o365-worldwide#outbound-spam-policy-settings)
 - [Azure Communication Services for Email - Solution for high volumes of external email](https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/email-overview)
 - [Public Preview: High Volume Email for Microsoft 365 - Solution for high volumes of internal email](https://learn.microsoft.com/en-us/exchange/mail-flow-best-practices/high-volume-mails-m365)
 - [Bulk senders insight in Exchange Online Protection](https://learn.microsoft.com/en-us/defender-office-365/anti-spam-bulk-senders-insight)
