@@ -131,6 +131,8 @@ DMARC will pass if the P1 Sender and P2 Sender are equal, and/or SPF and DKIM ar
 
 ![IMAGE](/images/spf-dkim-dmarc-explanation/dmarc-visual.png)
 
+> **IMPORTANT**: DMARC does not directly block or allow mail, it depends on how the receiving server is configured to handle messages that fail DMARC (SPF and/or DKIM alignment validation).
+
 ### Implementation of DMARC
 Before enforcing a DMARC policy, it’s important to understand how often DMARC checks might fail for your domain. Jumping straight to a reject policy without visibility can cause legitimate email to be blocked.
 
@@ -250,7 +252,7 @@ This protects all of your domains from phishers and spammers, as bad actors will
 - **Purpose**: Message authenticity verification
 - **Protect**: `RFC5322.From` (P2 Sender)
 
-**DMARC**: ensures that emails that fail the SPF and/or DKIM tests do not get through. If the email is unable to pass DMARC with SPF, DKIM can help pass DMARC for the P2 sender domain. Therefore, it is really important to have DKIM enabled for all your sending servers before setting DMARC to `reject`.
+**DMARC**: ensures that emails failing SPF and/or DKIM validation do not get through, depending on how the receiving server is configured to handle the messages. If the email is unable to pass DMARC with SPF, DKIM can help pass DMARC for the P2 sender domain. Therefore, it is really important to have DKIM enabled for all your sending servers before setting DMARC to `reject`.
 - **Purpose**: Final sheld on top of SPF and DKIM
 - **Protect**: `RFC5322.From` (P2 Sender)
 
