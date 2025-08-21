@@ -40,6 +40,7 @@ If an unauthorized server sends on behalf of your domain, the email will get a `
 
 SPF will pass if the sender’s IP is added to the SPF record for the P1 Sender domain.
 
+### How SPF evaluation works
 ![IMAGE](/images/spf-dkim-dmarc-explanation/spf-visual.png)
 
 ### Implementation of SPF
@@ -106,6 +107,7 @@ DKIM will pass if the sending server’s private key can be confirmed by the rec
 - Hostname: `key1._domainkey.yourdomain.com` (in `TXT`)
 - Value: `v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9….;` (public key)
 
+### How DKIM evaluation works
 ![IMAGE](/images/spf-dkim-dmarc-explanation/dkim-visual.png)
 
 ### Implementation of DKIM
@@ -127,8 +129,12 @@ DMARC (Domain-based Message Authentication, Reporting and Conformance) acts as a
 ### How DMARC works
 Once your domain has a DMARC record, any receiving email server can verify the incoming email based on the instructions in the DMARC policy. If the email passes the DMARC authentication, it will be delivered and can be trusted. If the email fails the check, depending on the instructions in the DMARC record, the email can be delivered, quarantined (flagged as potentially suspicious), or rejected.
 
-DMARC will pass when the P1 Sender and P2 Sender domain are aligned, and at least one of SPF or DKIM passes with that aligned domain. If the P1 and P2 Senders are not aligned, then DKIM must pass and align with the P2 Sender domain for DMARC to pass.
+DMARC will pass when the P1 and P2 sender domains are aligned, and at least one of SPF or DKIM passes with that aligned domain. If the P1 and P2 sender domains are not aligned, then DKIM must pass and align with the P2 domain for DMARC to pass.
 
+Example of a DMARC pass with the P1 and P2 sender domain aligned:
+![IMAGE](/images/spf-dkim-dmarc-explanation/dmarc-pass.png)
+
+### How DMARC evaluation works
 ![IMAGE](/images/spf-dkim-dmarc-explanation/dmarc-visual.png)
 
 > **IMPORTANT**: DMARC does not directly block or allow mail, it depends on how the receiving server is configured to handle messages that fail DMARC (SPF and/or DKIM alignment validation).
