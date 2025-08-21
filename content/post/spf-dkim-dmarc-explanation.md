@@ -127,7 +127,7 @@ DMARC (Domain-based Message Authentication, Reporting and Conformance) acts as a
 ### How DMARC works
 Once your domain has a DMARC record, any receiving email server can verify the incoming email based on the instructions in the DMARC policy. If the email passes the DMARC authentication, it will be delivered and can be trusted. If the email fails the check, depending on the instructions in the DMARC record, the email can be delivered, quarantined (flagged as potentially suspicious), or rejected.
 
-DMARC will pass if the P1 Sender and P2 Sender are equal, and/or SPF and DKIM are passed. If the P1 sender is not equal to the P2 sender, then DKIM must pass for the P2 sender domain in order to get a DMARC pass.
+DMARC will pass when the P1 Sender and P2 Sender domain are aligned, and at least one of SPF or DKIM passes with that aligned domain. If the P1 and P2 Senders are not aligned, then DKIM must pass and align with the P2 Sender domain for DMARC to pass.
 
 ![IMAGE](/images/spf-dkim-dmarc-explanation/dmarc-visual.png)
 
