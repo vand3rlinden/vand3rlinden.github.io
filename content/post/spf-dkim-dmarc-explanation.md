@@ -183,16 +183,16 @@ There are three primary approaches to managing reporting in your DMARC monitorin
 ### Maintenance steps on DMARC Monitoring
 - SPF:
   - Perform periodic checks of the SPF record
-  - Track and document any changes to the SPF record
-    -	Maintain an up-to-date list of authorized senders
+  - Track and document all changes made to the SPF record
+  - Configure alerting to notify security teams whenever modifications to the SPF record are detected
+  -	Maintain an up-to-date of your authorized senders
 
 - DKIM:
   - Monitor for periodic DKIM key rotations
     - Recurring: Every six months for a 2048-bit DKIM key
-  - Ensure timely updates and reconfiguration of rotated keys
 
 - DMARC:
-  - Regularly review DMARC reports and data
+  - Regularly review DMARC reports
   - Set up alerting and reporting to detect high-volume email sources where DMARC validation fails due to SPF or DKIM misalignment
   
 ### DMARC policy explanation
