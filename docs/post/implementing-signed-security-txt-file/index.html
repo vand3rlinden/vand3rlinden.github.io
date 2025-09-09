@@ -13,7 +13,7 @@ Introduction
 The security.txt file, typically hosted at /.well-known/security.txt, provides a standardized way for security researchers to find the correct point of contact for reporting vulnerabilities. It helps ensure that security issues are directed to the right people quickly and efficiently. While it’s recommended to optionally sign the file with a PGP key for added authenticity, the primary goal is to clearly list how to reach your security team or responsible contact. Below, we’ll cover how to create a straightforward, effective security.txt file for your site.">
 <meta name="author" content="">
 <link rel="canonical" href="https://vand3rlinden.com/post/implementing-signed-security-txt-file/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.93f625d739f1d6a5c6f20c146bc6a8d26b233492b34b2220c54b12fd46a04ded.css" integrity="sha256-k/Yl1znx1qXG8gwUa8ao0msjNJKzSyIgxUsS/UagTe0=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.f49d66caae9ea0fd43f21f29e71a8d3e284517ed770f2aa86fa012953ad3c9ef.css" integrity="sha256-9J1myq6eoP1D8h8p5xqNPihFF&#43;13Dyqob6ASlTrTye8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://vand3rlinden.com/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://vand3rlinden.com/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://vand3rlinden.com/favicon-32x32.png">
@@ -254,7 +254,7 @@ https://example.com/.well-known/pgp-publickey.txt
 <p>The user runs the following command to verify the signature:</p>
 <pre tabindex="0"><code>gpg --verify security.txt
 </code></pre><blockquote>
-<p>The PGP-signed security.txt file includes metadata that identifies your fingerprint; GPG then scans the user’s keyring to find your corresponding public key to verify the signature.</p></blockquote>
+<p>The PGP-signed <code>security.txt</code> file includes metadata that identifies your fingerprint; GPG then scans the user’s keyring to find your corresponding public key to verify the signature.</p></blockquote>
 <p>If the file is authentic, they’ll see output confirming the signature, such as:</p>
 <pre tabindex="0"><code>gpg: Signature made Fri 23 Nov 2024 10:30:00 AM UTC
 gpg:                using RSA key ABC123DEF4567890
