@@ -41,11 +41,13 @@ If needed, you can roll back the change to allow Direct Send again: `Set-Organiz
 ## How an adversary can abuse DirectSend for Phishing
 For this test, I have set up a new demo tenant with the following configuration:
 
-- **Anti-phishing policy**: Spoof Intelligence is enabled
+- **Anti-phishing policy**: 
+  - Spoof Intelligence enabled
+  - Honor DMARC policy enabled (If the message is detected as spoof and DMARC Policy is set as `p=reject`)
 - **Applied action**: If a message is detected as spoofed by Spoof Intelligence > Quarantine the message
 - **Quarantine policy**: DefaultFullAccessWithNotificationPolicy
 - **RejectDirectSend**: `$false`
-- The domain of the victum is not DMARC-compliant
+- The domain of the victum is not DMARC-compliant (`p=none`)
 
 ### DirectSend Allowed (default for existing tenants)
 In this scenario, an attacker attempts to phish a user in the demo tenant by trying sending an email directly to the inbox from a malicious server, where port 25 is open for outbound traffic. The attacker follows these steps:
@@ -65,7 +67,7 @@ $Attachment = "C:/temp/test.docx"
 Send-MailMessage -From $MailFrom -To $MailTo -Attachments $Attachment -Subject $MailSubject -Body $MailBody -Port $SMTPPort -WarningAction "SilentlyContinue"
 ```
 
-3. The malicious server from the attacker is not authorized to send email for `yourdomain.com`, because its public IP is missing from the SPF record. However, since the domain is not DMARC-compliant, there is still a chance the email will be accepted (based on the tenant configuration or implicit email authentication). Fortunately, the receiving tenant has Spoof Intelligence enabled and the email has been detected as `SPOOF` by Spoof Intelligence. As a result, the message is quarantined because of the configured applied action. 
+3. The malicious server from the attacker is not authorized to send email for `yourdomain.com`, because its public IP is missing from the SPF record. However, since the domain is not DMARC-compliant, there is still a chance the email will be accepted (based on the implicit email authentication). Fortunately, the receiving tenant has Spoof Intelligence enabled and the email has been detected as `SPOOF` by Spoof Intelligence. As a result, the message is quarantined because of the configured applied action. 
 
 ![IMAGE](/images/exo-reject-direct-send/exo-reject-direct-send-1.png)
 
