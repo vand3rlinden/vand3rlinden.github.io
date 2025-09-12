@@ -18,6 +18,8 @@ If you’d like to communicate securely, please use my public key below.
 - PGP fingerprint for my personal address: `gpg --fingerprint A1C9A7F709D3A889A3539A78C7CEA07966701A9E`
 - PGP fingerprint for my security address: `gpg --fingerprint D8B80874001A39C573C4BC3F7A3694918FF5706D`
 
+> **IMPORTANT**: Always verify the `Fingerprint` of a key owner from trusted sources, such as their website or email signature, or through in-person verification.
+
 ### PGP Public Keys
 - [PGP Public Key for my personal address](https://vand3rlinden.com/encryption/pgp-ricardo-publickey.txt)
 - [PGP Public Key for my security address](https://vand3rlinden.com/encryption/pgp-security-publickey.txt)

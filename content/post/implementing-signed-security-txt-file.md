@@ -94,13 +94,6 @@ A user downloads your public key and imports it into their GPG keyring:
 gpg --import pgp-publickey.txt
 ```
 
-To trust a public key using GPG, the user can follow these steps:
-1. Always verify the `Fingerprint` from trusted sources, such as the key owner’s website or email signature, before trusting their public key: `gpg --fingerprint your_email@example.com`
-2.	Open a terminal and run: `gpg --edit-key Fingerprint` (replace the `Fingerprint` with the actual fingerprint)
-3.	At the gpg> prompt, type: `trust`
-4.	When prompted to choose a trust level, enter: `5` (which stands for “I trust ultimately”), then press Enter.
-5.	To exit the editor: On Windows, press Ctrl + C, On Mac, press Command + C (or type `quit` and confirm if prompted)
-
 ### 2. Verify the Signature
 The user runs the following command to verify the signature:
 ```
@@ -109,7 +102,7 @@ gpg --verify security.txt
 
 > The PGP-signed `security.txt` file includes metadata that identifies your fingerprint; GPG then scans the user’s keyring to find your corresponding public key to verify the signature.
 
-If the file is authentic, they’ll see output confirming the signature, such as:
+If the file is authentic, the user will see output confirming the signature, such as:
 ```
 gpg: Signature made Fri 23 Nov 2024 10:30:00 AM UTC
 gpg:                using RSA key ABC123DEF4567890
