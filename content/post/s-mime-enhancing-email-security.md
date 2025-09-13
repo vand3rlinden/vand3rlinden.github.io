@@ -72,7 +72,7 @@ openssl pkcs12 -inkey /tmp/certificate.key -in /tmp/certificate.crt -export -out
 ```
 **Note:** If you want to import the certificate on BSD-based systems like macOS, you must add the `-legacy` flag at the end of the command when using OpenSSL v3. This version of OpenSSL has changed the default algorithm, making it incompatible with the default LibreSSL library used in BSD-based systems.
 
-3. Your S/MIME email certificate is now ready to be installed on your devices, here are some external instructions on how to install the certificate on your device and email client.
+3. Your S/MIME email certificate is now ready to be installed on your devices or MUAs, here are some external instructions on how to install the certificate on your device and email client.
 - [S/MIME on iOS](https://formsmarts.com/iphone-smime-encrypted-email)
 - [S/MIME for Outlook for iOS and Android](https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/outlook-for-ios-and-android/smime-outlook-for-ios-and-android)
 - [S/MIME on Mac](https://support.apple.com/guide/mail/use-personal-certificates-mlhlp1179/mac)
@@ -81,6 +81,7 @@ openssl pkcs12 -inkey /tmp/certificate.key -in /tmp/certificate.crt -export -out
 - [S/MIME in Outlook on the web](https://support.microsoft.com/en-us/office/encrypt-messages-by-using-s-mime-in-outlook-on-the-web-878c79fc-7088-4b39-966f-14512658f480)
 - [S/MIME in Outlook for Windows](https://formsmarts.com/outlook-smime-encrypted-email)
 - [Configure S/MIME in Exchange Online](https://learn.microsoft.com/en-us/exchange/security-and-compliance/smime-exo/configure-smime-exo)
+- [Using S/MIME in Thunderbird](https://support.mozilla.org/en-US/kb/instructions-smime-certificate-using-csr#w_import-the-certificate-into-certificate-manager-and-back-it-up)
 
 To send signed messages, you need to have your personal S/MIME certificate installed in your keychain. To send encrypted messages, the recipient’s certificate must also be stored in your keychain, this applies, for example, on macOS. Once you’ve imported your S/MIME email certificate into your device, you can configure your email client to digitally sign your outgoing messages and decrypt incoming messages that were encrypted with your public key.
 
