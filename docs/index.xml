@@ -26,11 +26,11 @@
       <description>&lt;p&gt;To ensure our communication remains private and authenticated, I use PGP (Pretty Good Privacy) encryption. My PGP Public Keys allows you to encrypt messages to me and verify my digital signature.&lt;/p&gt;
 &lt;p&gt;Using PGP is especially recommended when:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;You’re sending sensitive or personal information&lt;/li&gt;
+&lt;li&gt;You are sending sensitive or personal information&lt;/li&gt;
 &lt;li&gt;You want to verify that a message genuinely came from me&lt;/li&gt;
 &lt;li&gt;You care about privacy and data integrity&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;If you’d like to communicate securely, please use my public key below.&lt;/p&gt;</description>
+&lt;p&gt;If you do like to communicate securely, please use my public keys below.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Using PGP for secure email communication</title>
