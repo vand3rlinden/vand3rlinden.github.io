@@ -136,7 +136,40 @@ gpg: encrypted with rsa4096 key, ID ABCD1234....
 This is the decrypted message content.
 ```
 
-> **NOTE**: While it is a good practice to become familiar with `gpg` commands, I have developed a bash script that streamlines encryption, decryption, signing, and signature verification. It works seamlessly as long as **GnuPG** is installed on your system, available here on my [GitHub repository](https://github.com/vand3rlinden/Bash/blob/main/pgp-buddy/pgp_tool.sh). I have also created a separate bash script for managing PGP keys, including key generation, import, and export. You can download it from the [same repository here](https://github.com/vand3rlinden/Bash/blob/main/pgp-buddy/pgp_key_tool.sh).
+## Simplify PGP use
+### Option 1: Using GnuPG with a command-line bash script
+While it is a good practice to become familiar with `gpg` commands, I have developed a bash script that streamlines encryption, decryption, signing, and signature verification. It works seamlessly as long as **GnuPG** is installed on your system, available here on my [GitHub repository](https://github.com/vand3rlinden/Bash/blob/main/pgp-buddy/pgp_tool.sh). I have also created a separate bash script for managing PGP keys, including key generation, import, and export. You can download it from the [same repository here](https://github.com/vand3rlinden/Bash/blob/main/pgp-buddy/pgp_key_tool.sh).
+
+### Option 2: Using an MUA with PGP functionality
+The [Thunderbird](https://www.thunderbird.net/) MUA offers an integrated PGP solution, which simplifies the use of signing, encrypting, and decrypting. It also provides the option to publish and search for available PGP public keys for encryption via `keys.openpgp.org`.
+
+## Extra: Setting up a PGP Web Key Directory (WKD)
+If you want to use PGP to protect your email, it is a good idea to publish your public key in a WKD. If you already have a HTTPS web server running on the same domain as your email, you can publish your public key through WKD. This makes it possible for email programs that support WKD to automatically find your key over HTTPS, or to import with GnuPG: `gpg --locate-keys [email]`
+
+### How does it work?
+When someone writes you an email with a supporting mail client, the program checks if WKD is available for your domain. If it finds a public key, the key is automatically imported into the sender his keyring. This way, messages can be sent to you securely without extra steps.
+
+### Advanced vs. Direct setup implementation
+There are two ways to implement an WKD. The first is the **advanced** method, which is harder to set up and requires a CA-signed and trusted certificate for the openpgpkey sub-domain. The **direct** method requires no additional DNS entries.
+
+There are two ways to set up a WKD:
+- The first is the **advanced method**, this option is more difficult to configure and needs a CA-signed, trusted certificate for the `openpgpkey` subdomain:
+  - Advanced Implementation: `https://openpgpkey.example.org/.well-known/openpgpkey/example.org/`
+- The second is the **direct method**, this one is easier because it does not need any extra DNS records:
+  - Direct Implementation: `https://example.org/.well-known/openpgpkey/`
+
+### Direct Implementation
+1. If you are going to implement the direct method, create the following folder `hu` inside your webroot folder: `https://example.org/.well-known/openpgpkey/hu/`
+2. After you've created the folder, **add an empty** `policy` file to let clients know that you've set up the WKD service: `https://example.org/.well-known/openpgpkey/policy`
+3. Get hashed uid: `gpg --with-wkd-hash --fingerprint [email]or[fingerprint]`
+4. Export hased uid: `gpg --export --no-armor [email]or[fingerprint] > [hasehd-uid]`
+5. Move the created file to the `/hu/` folder and check whether the file is downloadable using the example link below: `https://example.org/.well-known/openpgpkey/hu/hacabazoakmnagxwmkjerb9yehuwehbm`
+6. Test your WKD: `gpg --auto-key-locate clear,nodefault,wkd --locate-external-keys [email]`
+7. Test your WKD with online checkers: https://miarecki.eu/tools/wkd-checker/, https://www.webkeydirectory.com/
+8. Locate a WKD key: `gpg --locate-keys [email]`
+
+### Community Effort
+You can also upload and share your PGP public key on: https://keys.openpgp.org/. For details on how to use it, see: https://keys.openpgp.org/about/usage.
 
 ## Summerize
 PGP remains one of the most effective tools for securing email communication. By using strong encryption and digital signatures, it helps protect your messages from surveillance, tampering, and impersonation, even across untrusted networks or email providers. While it may not rely on centralized authorities like S/MIME, PGP empowers individuals with control over their own security and privacy through a decentralized trust model.
