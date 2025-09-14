@@ -147,7 +147,7 @@ The [Thunderbird](https://www.thunderbird.net/) MUA offers an integrated PGP sol
 If you want to use PGP to protect your email, it is a good idea to publish your public key in a WKD. If you already have a HTTPS web server running on the same domain as your email, you can publish your public key through WKD. This makes it possible for email programs that support WKD to automatically find your key over HTTPS, or to import with GnuPG: `gpg --locate-keys [email]`
 
 ### How does it work?
-When someone writes you an email with a supporting mail client, the program checks if WKD is available for your domain. If it finds a public key, the key is automatically imported into the sender his keyring. This way, messages can be sent to you securely without extra steps.
+When someone sends you an email using a mail client that supports WKD, the program checks whether your domain has WKD enabled. If it finds your PGP public key, the key is automatically added to the keyring of the sender. This lets the sender encrypt their message to you with your PGP publickey and send it securely, without extra steps. It also makes it much easier for the sender to find your public key by using GnuPG with the command: `gpg --locate-keys [email]`
 
 ### Advanced vs. Direct setup implementation
 There are two ways to implement an WKD. The first is the **advanced** method, which is harder to set up and requires a CA-signed and trusted certificate for the openpgpkey sub-domain. The **direct** method requires no additional DNS entries.
