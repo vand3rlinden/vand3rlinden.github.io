@@ -159,8 +159,8 @@ There are two ways to set up a WKD:
   - Direct Implementation: `https://example.org/.well-known/openpgpkey/`
 
 ### Direct Implementation
-1. If you are going to implement the direct method, create the following folder `hu` inside your webroot folder: `https://example.org/.well-known/openpgpkey/hu/`
-2. After you've created the folder, **add an empty** `policy` file to let clients know that you've set up the WKD service: `https://example.org/.well-known/openpgpkey/policy`
+1. If you are going to implement the direct method, create the following folder structure on your webserver inside the `.well-known` folder: `https://example.org/.well-known/openpgpkey/hu/`
+2. After you have created the folder, **add an empty** `policy` file to let clients know that you have set up the WKD service: `https://example.org/.well-known/openpgpkey/policy`
 3. Get hashed uid: `gpg --with-wkd-hash --fingerprint [email]or[fingerprint]`
 4. Export hased uid: `gpg --export --no-armor [email]or[fingerprint] > [hasehd-uid]`
 5. Move the created file to the `/hu/` folder and check whether the file is downloadable using the example link below: `https://example.org/.well-known/openpgpkey/hu/hacabazoakmnagxwmkjerb9yehuwehbm`
