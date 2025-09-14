@@ -174,7 +174,7 @@ You can also upload and share your PGP public key on: https://keys.openpgp.org/.
 
 > **IMPORTANT**: Always verify the `Fingerprint` of a key owner from trusted sources, such as their website or email signature, or through in-person verification.
 
-## Summerize
+## Summarize
 PGP remains one of the most effective tools for securing email communication. By using strong encryption and digital signatures, it helps protect your messages from surveillance, tampering, and impersonation, even across untrusted networks or email providers. While it may not rely on centralized authorities like S/MIME, PGP empowers individuals with control over their own security and privacy through a decentralized trust model.
 
 If you are someone who values confidential communication, learning to use PGP is a practical step toward regaining control of your digital conversations.
