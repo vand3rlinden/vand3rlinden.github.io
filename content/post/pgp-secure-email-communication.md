@@ -141,7 +141,7 @@ This is the decrypted message content.
 While it is a good practice to become familiar with `gpg` commands, I have developed a bash script that streamlines encryption, decryption, signing, and signature verification. It works seamlessly as long as **GnuPG** is installed on your system, available here on my [GitHub repository](https://github.com/vand3rlinden/Bash/blob/main/pgp-buddy/pgp_tool.sh). I have also created a separate bash script for managing PGP keys, including key generation, import, and export. You can download it from the [same repository here](https://github.com/vand3rlinden/Bash/blob/main/pgp-buddy/pgp_key_tool.sh).
 
 ### Option 2: Using an MUA with PGP functionality
-The [Thunderbird](https://www.thunderbird.net/) MUA offers an integrated PGP solution, which simplifies the use of signing, encrypting, and decrypting. It also provides the option to publish and search for available PGP public keys for encryption via `keys.openpgp.org`.
+The [Thunderbird](https://www.thunderbird.net/) MUA offers an integrated PGP solution, which simplifies the use of signing, encrypting, and decrypting. It also provides the option to publish and search for available PGP public keys for encryption via your WKD or `keys.openpgp.org`.
 
 ## Simplify PGP public key sharing
 ### Option 1: Setting up a PGP Web Key Directory (WKD)
@@ -177,6 +177,6 @@ You can also upload and share your PGP public key on: https://keys.openpgp.org/.
 ## Summerize
 PGP remains one of the most effective tools for securing email communication. By using strong encryption and digital signatures, it helps protect your messages from surveillance, tampering, and impersonation, even across untrusted networks or email providers. While it may not rely on centralized authorities like S/MIME, PGP empowers individuals with control over their own security and privacy through a decentralized trust model.
 
-Whether you’re a privacy advocate, a journalist, or just someone who values confidential communication, learning to use PGP is a practical step toward regaining control of your digital conversations.
+If you are someone who values confidential communication, learning to use PGP is a practical step toward regaining control of your digital conversations.
 
 > _In a world where email remains a vulnerable medium, PGP helps ensure your messages stay truly private and authentically yours._ - **Ricardo van der Linden**
