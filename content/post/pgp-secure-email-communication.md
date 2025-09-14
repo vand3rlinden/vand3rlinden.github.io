@@ -143,13 +143,14 @@ While it is a good practice to become familiar with `gpg` commands, I have devel
 ### Option 2: Using an MUA with PGP functionality
 The [Thunderbird](https://www.thunderbird.net/) MUA offers an integrated PGP solution, which simplifies the use of signing, encrypting, and decrypting. It also provides the option to publish and search for available PGP public keys for encryption via `keys.openpgp.org`.
 
-## Extra: Setting up a PGP Web Key Directory (WKD)
-If you want to use PGP to protect your email, it is a good idea to publish your public key in a WKD. If you already have a HTTPS web server running on the same domain as your email, you can publish your public key through WKD. This makes it possible for email programs that support WKD to automatically find your key over HTTPS, or to import with GnuPG: `gpg --locate-keys [email]`
+## Simplify PGP public key sharing
+### Option 1: Setting up a PGP Web Key Directory (WKD)
+If you want to use PGP, it is a good idea to publish your public key in a WKD. If you already have a HTTPS web server running on the same domain as your email, you can publish your public key through a WKD. This makes it possible for email programs that support WKDs to automatically find your key over HTTPS, or to import with GnuPG (`gpg --locate-keys [email]`).
 
-### How does it work?
-When someone sends you an email using a mail client that supports WKD, the program checks whether your domain has WKD enabled. If it finds your PGP public key, the key is automatically added to the keyring of the sender. This lets the sender encrypt their message to you with your PGP publickey and send it securely, without extra steps. It also makes it much easier for the sender to find your public key by using GnuPG with the command: `gpg --locate-keys [email]`
+#### How does it work?
+When someone sends you an email using a mail client that supports WKD, the program checks whether your domain has WKD enabled. If it finds your PGP public key, the key is automatically added to the keyring of the sender. This lets the sender encrypt their message to you with your PGP publickey and send it securely, without extra steps. It also makes it much easier for the sender to find your public key by using GnuPG (`gpg --locate-keys [email]`).
 
-### Advanced vs. Direct setup implementation
+#### Advanced vs. Direct setup implementation
 There are two ways to implement an WKD. The first is the **advanced** method, which is harder to set up and requires a CA-signed and trusted certificate for the openpgpkey sub-domain. The **direct** method requires no additional DNS entries.
 
 There are two ways to set up a WKD:
@@ -158,7 +159,7 @@ There are two ways to set up a WKD:
 - The second is the **direct method**, this one is easier because it does not need any extra DNS records:
   - Direct Implementation: `https://example.org/.well-known/openpgpkey/`
 
-### Direct Implementation
+#### Direct Implementation
 1. If you are going to implement the direct method, create the following folder structure on your webserver inside the `.well-known` folder: `https://example.org/.well-known/openpgpkey/hu/`
 2. After you have created the folder, **add an empty** `policy` file to let clients know that you have set up the WKD service: `https://example.org/.well-known/openpgpkey/policy`
 3. Get hashed uid: `gpg --with-wkd-hash --fingerprint [email]or[fingerprint]`
@@ -168,8 +169,10 @@ There are two ways to set up a WKD:
 7. Test your WKD with online checkers: https://miarecki.eu/tools/wkd-checker/, https://www.webkeydirectory.com/
 8. Locate a WKD key: `gpg --locate-keys [email]`
 
-### Community Effort
+### Option 2: Community Effort
 You can also upload and share your PGP public key on: https://keys.openpgp.org/. For details on how to use it, see: https://keys.openpgp.org/about/usage.
+
+> **IMPORTANT**: Always verify the `Fingerprint` of a key owner from trusted sources, such as their website or email signature, or through in-person verification.
 
 ## Summerize
 PGP remains one of the most effective tools for securing email communication. By using strong encryption and digital signatures, it helps protect your messages from surveillance, tampering, and impersonation, even across untrusted networks or email providers. While it may not rely on centralized authorities like S/MIME, PGP empowers individuals with control over their own security and privacy through a decentralized trust model.
