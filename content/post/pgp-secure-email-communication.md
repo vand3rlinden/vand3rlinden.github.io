@@ -141,14 +141,14 @@ This is the decrypted message content.
 While it is a good practice to become familiar with `gpg` commands, I have developed a bash script that streamlines encryption, decryption, signing, and signature verification. It works seamlessly as long as **GnuPG** is installed on your system, available here on my [GitHub repository](https://github.com/vand3rlinden/Bash/blob/main/pgp-buddy/pgp_tool.sh). I have also created a separate bash script for managing PGP keys, including key generation, import, and export. You can download it from the [same repository here](https://github.com/vand3rlinden/Bash/blob/main/pgp-buddy/pgp_key_tool.sh).
 
 ### Option 2: Using an MUA with PGP functionality
-The [Thunderbird](https://www.thunderbird.net/) MUA offers an integrated PGP solution, which simplifies the use of signing, encrypting, and decrypting. It also provides the option to publish and search for available PGP public keys for encryption via your WKD or `keys.openpgp.org`.
+The [Thunderbird](https://www.thunderbird.net/) MUA offers an integrated PGP solution, which simplifies the use of signing, encrypting, and decrypting. It also provides the option to publish (through `keys.openpgp.org`) and search for available PGP public keys for encryption via your WKD or `keys.openpgp.org`.
 
 ## Simplify PGP public key sharing
 ### Option 1: Setting up a PGP Web Key Directory (WKD)
 If you want to use PGP, it is a good idea to publish your public key in a WKD. If you already have a HTTPS web server running on the same domain as your email, you can publish your public key through a WKD. This makes it possible for email programs that support WKDs to automatically find your key over HTTPS, or to import with GnuPG (`gpg --locate-keys [email]`).
 
 #### How does it work?
-When someone sends you an email using a mail client that supports WKD, the program checks whether your domain has WKD enabled. If it finds your PGP public key, the key is automatically added to the keyring of the sender. This lets the sender encrypt their message to you with your PGP publickey and send it securely, without extra steps. It also makes it much easier for the sender to find your public key by using GnuPG (`gpg --locate-keys [email]`).
+If someone want to send you a PGP encrypted email using a mail client that supports WKD, the MUA checks whether your domain has WKD enabled. If it finds your PGP public key, the key is automatically added to the keyring of the sender. This lets the sender encrypt their message to you with your PGP publickey and send it securely, without extra steps. It also makes it much easier for the sender to find your public key by using GnuPG with the command: `gpg --locate-keys [email]`
 
 #### Advanced vs. Direct setup implementation
 There are two ways to implement an WKD. The first is the **advanced** method, which is harder to set up and requires a CA-signed and trusted certificate for the openpgpkey sub-domain. The **direct** method requires no additional DNS entries.
