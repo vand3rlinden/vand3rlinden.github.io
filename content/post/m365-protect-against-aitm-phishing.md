@@ -95,7 +95,7 @@ How token protection works:
 
 > Important: AiTM phishing kits can still successfully steal the token and initiate a session. However, with token protection, authorization will fail unless the token is used from the original device. This makes token theft less valuable for attackers and adds another hurdle for them to overcome.
 
-[Policy Implementation - preview](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-token-protection)
+[Policy Implementation](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-token-protection)
 
 ## Harden Microsoft Defender
 ### Block Risky Web Categories with Microsoft Defender for Endpoint

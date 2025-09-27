@@ -51,7 +51,7 @@ OpenPGP is the most widely used standard for email encryption. There are [many t
 ### 1. Install GnuPG (GNU Privacy Guard) using your package manager
 - **Linux (Debian based):** `sudo apt-get install gnupg`
 - **MacOS (via Homebrew):** `brew install gnupg`
-- **Windows:** Download GPG4Win from [https://gpg4win.org](https://gpg4win.org)
+- **Windows:** `winget install -e --id GnuPG.Gpg4win` or direct download GPG4Win from [https://gpg4win.org](https://gpg4win.org).
 
 ### 2. Generate the key pair
 Run the following command:
