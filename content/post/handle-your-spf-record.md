@@ -43,7 +43,9 @@ Subdomain segmentation can be implemented in three ways:
 
 3. Using an SPF macro that points to a subdomain allows you to continue sending from your main domain, but only from a fixed/static sender address (e.g., `news@yourdomain.com`).
 
-These subdomain segmentation options can be combined, as covered in this blog. Adopting SPF segmentation increases control, reduces attack surfaces, and mitigates the impact of potential cyber incidents. 
+These subdomain segmentation options can be combined, as covered in this blog. Adopting SPF segmentation increases control, reduces attack surfaces, and mitigates the impact of potential cyber incidents.
+
+> **NOTE**: SPF always checks the exact domain of the P1 sender. So, if you send from a subdomain, the receiving mail server looks for an SPF record on the subdomain and does not fall back to the rootdomain.
 
 SPF flattening attempts to work around the **too many DNS lookups** problem without addressing its underlying causes. Avoiding SPF record flattening will help you get a handle on your SPF record.
 

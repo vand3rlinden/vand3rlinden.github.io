@@ -79,6 +79,8 @@ The SPF record will vary for each domain; therefore, it is important to understa
     - Check if your email providers have the ability to pass SPF on a subdomain on behalf of your primary domain; passing SPF on a subdomain is still DMARC compliant (assuming your DMARC policy uses the default `aspf=r` tag for SPF relaxed mode).
     - Use an [SPF macro](https://vand3rlinden.com/post/handle-your-spf-record/#use-an-spf-macro-to-restrict-a-third-party-service-to-send-from-a-specific-address) to limit a third-party service to sending from a specific address, since services like Salesforce are most often limited to sending from a single email address, such as `invoices@yourdomain.com`.
 
+> **NOTE**: SPF always checks the exact domain of the P1 sender. So, if you send from a subdomain, the receiving mail server looks for an SPF record on the subdomain and does not fall back to the rootdomain.
+
 ### Softfail or Hardfail
 SPF can get a softfail or a hardfail, you determine that at the end of the record.
 
