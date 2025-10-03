@@ -4,8 +4,8 @@ Hash: SHA256
 # Security address
 Contact: mailto:security@vand3rlinden.com
 
-# OpenPGP key
-Encryption: https://vand3rlinden.com/encryption/pgp-security-publickey.txt
+# OpenPGP Public Key
+Encryption: gpg --locate-keys security@vand3rlinden.com
 
 # Expiration of security.txt file
 Expires: 2026-06-07
@@ -17,18 +17,18 @@ Policy: https://vand3rlinden.com/privacy-policy/
 Preferred-Languages: EN, NL
 -----BEGIN PGP SIGNATURE-----
 
-iQJOBAEBCAA4FiEE2LgIdAAaOcVzxLw/ejaUkY/1cG0FAmibPyMaHHNlY3VyaXR5
-QHZhbmQzcmxpbmRlbi5jb20ACgkQejaUkY/1cG3BWRAAu6Ksqe6q7O1+H9EmUUVI
-aDOIkEL0yfFgJ2OGcFBkoHiyUG+kSKz66CRnWEPUqEkQ/PkSRvdzmu7DWfed+VlT
-/FKWEaZhtY1l5JHftIYbJ9OPBkvzXwMwAjrbZcnEYA+rv0Du/vAYNj2ZcV98aUv8
-U/+cLWPiA4tu/Ui4n4/ud9LrzCrA4fHx3nUripXIDCS4UDJydwIy1S35/IZjr11G
-YjCglBik/QPmTIQSkjLk7OnpZqQ8/b0OidBIZD/TUEa1EraNuJPwlprXlc6NXya6
-TNbffVbdbfR4XWMz1nMhkLIbmR9jjBTuHq7azPdONTYFx7xsw+ooMiWpf/SuzmAG
-qizyxX/rdStAm+7z8qZZu1aIHo4RNIqEvPydZM6DeNoiR3A59ND7cgujIV7tEE6z
-of53ctXeuaNzINBCR4eWnhnU3GSq+nbWuXQq323c2ndoJuHHs0deFc+lyKZX3lIA
-CzPhEftU0tgjn9LyWdJ4NZMbGxAc4aANh+gP6mSlPv+iF8faOc1lyqK3Hk/pVzvt
-g+ZNhGLQD9RGeWF50n+QU7lOZagdg4xNk097oWxf9JSJgxcoyeHp66StIRSFSMU+
-YygTjc3upIJr/m3N6/pos/PJOCD2sNMYvtk5mR0z7/lxjzhdw2+GV2KuHSVFUJSA
-kwMs71EsGugMq2o7jkAZzbo=
-=HePK
+iQJOBAEBCAA4FiEE2LgIdAAaOcVzxLw/ejaUkY/1cG0FAmjfdu4aHHNlY3VyaXR5
+QHZhbmQzcmxpbmRlbi5jb20ACgkQejaUkY/1cG1RPQ//SE8KrsokiYl3pwP2ER7Y
+ngIILX+1cVHv5FUhtc95p35JZOZke/E520ojt3EXCya3ogbIOcpJUkctSwJpt2Sy
+rApUFY+K+syzH/URYuRRrDbH2iiDecApI/tUR2WFzZ6zU+xJbw7gSJMD3DZQoSVV
+Yyh0PWxQ8xiJhl/qXbVaZ1DjlIrrZCfXV6aEof6hHjFFZvMS321iponfY+0fkghv
+OmRzk1pbH3v/Oy+XiJOY5cBX5x4xARKVSbs41n7sfoN7nNknGyJyUvM03zBfoemj
+0eP5MOkJsNJ5k7lsFVOatc6POePpB1AgDPJPkiMs5j+3/rsHaHLWjUrMd5MN844X
+foX/mUf32uP2NnRbqflkJpDFUtrAu8ICp9aoECXdN5hhujxaKJ4qUtdW7106JHap
+AbpFbKWjaX+kNZyVmHd2Ejefs0SClCBZLXWSYHzG9hWR12l5m87aXDKLNQ0WhjL2
+iBQ457nUZUrWX0MHVKQ3Xm/wRdmK4IgYuo95H+tSCu3eNCP9oMA3IctqVYWS4hVt
+5hpPoloHWicFaZ80Q3qM2Hsv2I77FwSM5YxWWIAlZyel4P1+tC2sXOFFdiXu1JRc
+jAhZVE1+1n9CN9zChe2e1nrmacN/nNyrSgpEGeymca+m0/XRE5xLbO0yGYdTy+bK
+HfGHNndqkuIpAtZm1V8pcvA=
+=JXS3
 -----END PGP SIGNATURE-----

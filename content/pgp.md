@@ -13,17 +13,13 @@ Using PGP is especially recommended when:
 
 If you do like to communicate securely, please use my public keys below.
 
-## PGP Fingerprints and Public Keys
+## My PGP Fingerprints and Public Keys
 ### PGP Fingerprints
 - PGP fingerprint for my personal address: `gpg --fingerprint A1C9A7F709D3A889A3539A78C7CEA07966701A9E`
 - PGP fingerprint for my security address: `gpg --fingerprint D8B80874001A39C573C4BC3F7A3694918FF5706D`
 
 ### PGP Public Keys
-- [PGP Public Key for my personal address](https://vand3rlinden.com/encryption/pgp-ricardo-publickey.txt)
-- [PGP Public Key for my security address](https://vand3rlinden.com/encryption/pgp-security-publickey.txt)
-  - I run a WKD to publish my public keys. To locate them, you can run, for example: `gpg --locate-keys security@vand3rlinden.com` (also published at `keys.openpgp.org`)
-
-> **NOTE**: You can save the content to a `.asc` file and import the PGP public key using the following command: `gpg --import publickey.asc`
+I run a WKD to publish my public keys. To locate them, you can run, for example: `gpg --locate-keys security@vand3rlinden.com` (also published at `keys.openpgp.org`)
 
 ## PGP Tooling
 I use the command-line tool [GnuPG](https://www.gnupg.org/), also known as GPG, which is the most widely adopted utility for generating and managing PGP keys. To streamline tasks like encryption, decryption, signing, and signature verification, I have developed a bash script that works seamlessly if **GnuPG** is installed on your system, available for [download](https://github.com/vand3rlinden/Bash/blob/main/pgp-buddy/pgp_tool.sh) on my GitHub repository.

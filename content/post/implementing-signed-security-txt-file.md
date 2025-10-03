@@ -85,6 +85,8 @@ This will export the public key to a file named `pgp-publickey.txt`.
    https://example.com/.well-known/pgp-publickey.txt
    ```
 
+> **NOTE**: You could also consider hosting your PGP public key through a WKD or at `keys.openpgp.org`. For more information, please check my recent [blog post](https://vand3rlinden.com/post/pgp-secure-email-communication/#simplify-pgp-public-key-sharing).
+
 ## Step 3: Confirm authenticity and secure communication
 To confirm the authenticity of the `security.txt` file, anyone can verify it using your public key.
 
