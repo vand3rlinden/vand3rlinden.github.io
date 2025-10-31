@@ -9,6 +9,7 @@
 <meta name="keywords" content="">
 <meta name="description" content="
 In this post you will learn to understand how the DNS protocols SPF, DKIM and DMARC work together to protect your domain from phishers and spammers.
+
 Why deploy SPF, DKIM, and DMARC?
 SPF, DKIM, and DMARC are critical email authentication protocols that help prevent email spoofing, phishing attacks, and domain impersonation for outbound email. Enabling these protocols together strengthens your domain&rsquo;s email authentication mechanisms, improves security, and builds trust with your recipients by ensuring that email sent from your domain is legitimate and trustworthy.">
 <meta name="author" content="">
@@ -46,6 +47,7 @@ Why deploy SPF, DKIM, and DMARC? SPF, DKIM, and DMARC are critical email authent
 <meta name="twitter:title" content="SPF, DKIM and DMARC explanation">
 <meta name="twitter:description" content="
 In this post you will learn to understand how the DNS protocols SPF, DKIM and DMARC work together to protect your domain from phishers and spammers.
+
 Why deploy SPF, DKIM, and DMARC?
 SPF, DKIM, and DMARC are critical email authentication protocols that help prevent email spoofing, phishing attacks, and domain impersonation for outbound email. Enabling these protocols together strengthens your domain&rsquo;s email authentication mechanisms, improves security, and builds trust with your recipients by ensuring that email sent from your domain is legitimate and trustworthy.">
 
@@ -172,7 +174,8 @@ SPF, DKIM, and DMARC are critical email authentication protocols that help preve
         
 </figure>
   <div class="post-content"><blockquote>
-<p><em>In this post you will learn to understand how the DNS protocols SPF, DKIM and DMARC work together to protect your domain from phishers and spammers.</em></p></blockquote>
+<p><em>In this post you will learn to understand how the DNS protocols SPF, DKIM and DMARC work together to protect your domain from phishers and spammers.</em></p>
+</blockquote>
 <h2 id="why-deploy-spf-dkim-and-dmarc">Why deploy SPF, DKIM, and DMARC?<a hidden class="anchor" aria-hidden="true" href="#why-deploy-spf-dkim-and-dmarc">#</a></h2>
 <p>SPF, DKIM, and DMARC are critical email authentication protocols that help prevent email spoofing, phishing attacks, and domain impersonation for <em><strong>outbound email</strong></em>. Enabling these protocols together strengthens your domain&rsquo;s email authentication mechanisms, improves security, and builds trust with your recipients by ensuring that email sent from your domain is legitimate and trustworthy.</p>
 <h3 id="spf-dkim-and-dmarc---comparison-table">SPF, DKIM and DMARC - Comparison table:<a hidden class="anchor" aria-hidden="true" href="#spf-dkim-and-dmarc---comparison-table">#</a></h3>
@@ -230,7 +233,8 @@ SPF, DKIM, and DMARC are critical email authentication protocols that help preve
 <p>If an unauthorized server sends on behalf of your domain, the email will get a <code>spf=SoftFail</code> in the message header because the IP is not listed in your SPF record.</p>
 <p>SPF will pass if the sender’s IP is added to the SPF record for the P1 Sender domain.</p>
 <blockquote>
-<p>Later, you will read about the difference between SPF Softfail and Hardfail, as well as what is considered best practice.</p></blockquote>
+<p>Later, you will read about the difference between SPF Softfail and Hardfail, as well as what is considered best practice.</p>
+</blockquote>
 <h3 id="how-spf-evaluation-works">How SPF evaluation works<a hidden class="anchor" aria-hidden="true" href="#how-spf-evaluation-works">#</a></h3>
 <p><img alt="IMAGE" loading="lazy" src="/images/spf-dkim-dmarc-explanation/spf-visual.png"></p>
 <h3 id="implementation-of-spf">Implementation of SPF<a hidden class="anchor" aria-hidden="true" href="#implementation-of-spf">#</a></h3>
@@ -245,7 +249,8 @@ SPF, DKIM, and DMARC are critical email authentication protocols that help preve
 <li>Can take up to a maximum of 10 DNS Lookups, such as <code>include:spf.protection.outlook.com</code> (this entry costs 1 DNS lookup, with no additional child lookups).</li>
 </ul>
 <blockquote>
-<p><strong>CAUTION</strong>: You should take <a href="https://vand3rlinden.com/post/handle-your-spf-record/">steps</a> to stay well under 10 DNS lookups. Because if a vendor decides to add another DNS lookup within its SPF include (child lookup). Your SPF record will become inaccurate because it has reached the DNS lookup limit, which may result in email delivery problems.</p></blockquote>
+<p><strong>CAUTION</strong>: You should take <a href="https://vand3rlinden.com/post/handle-your-spf-record/">steps</a> to stay well under 10 DNS lookups. Because if a vendor decides to add another DNS lookup within its SPF include (child lookup). Your SPF record will become inaccurate because it has reached the DNS lookup limit, which may result in email delivery problems.</p>
+</blockquote>
 <h3 id="tips-to-avoid-reaching-the-10-dns-lookups-limit">Tips to avoid reaching the 10 DNS lookups limit<a hidden class="anchor" aria-hidden="true" href="#tips-to-avoid-reaching-the-10-dns-lookups-limit">#</a></h3>
 <ul>
 <li>Flatten your SPF record.
@@ -255,7 +260,8 @@ SPF, DKIM, and DMARC are critical email authentication protocols that help preve
 </li>
 </ul>
 <blockquote>
-<p><strong>Not recommended</strong>: The <a href="https://vand3rlinden.com/post/handle-your-spf-record/#the-dangers-of-spf-flattening">problem with flattening</a> is that email service providers can change or add IP addresses without telling you. Then your SPF record will be inaccurate, leading to email delivery problems.</p></blockquote>
+<p><strong>Not recommended</strong>: The <a href="https://vand3rlinden.com/post/handle-your-spf-record/#the-dangers-of-spf-flattening">problem with flattening</a> is that email service providers can change or add IP addresses without telling you. Then your SPF record will be inaccurate, leading to email delivery problems.</p>
+</blockquote>
 <ul>
 <li>Where email is incapable of passing DMARC with SPF (e.g. due to relaying), configure DKIM for the P2 Sender domain on the sending server or email provider.
 <ul>
@@ -264,12 +270,14 @@ SPF, DKIM, and DMARC are critical email authentication protocols that help preve
 </li>
 </ul>
 <blockquote>
-<p><strong>Not recommended</strong>: You should work toward having both SPF and DKIM properly aligned. However, in relay scenarios, this is not always possible, even for DKIM. In such cases, you can check if your email provider supports ARC Sealers, which help preserve authentication results when an email passes through multiple servers. This allows your recipients to accept the ARC Seal from your relaying or intermediate server. More information about ARC Sealers can be found in <a href="https://vand3rlinden.com/post/arc-explained/">this</a> blog.</p></blockquote>
+<p><strong>Not recommended</strong>: You should work toward having both SPF and DKIM properly aligned. However, in relay scenarios, this is not always possible, even for DKIM. In such cases, you can check if your email provider supports ARC Sealers, which help preserve authentication results when an email passes through multiple servers. This allows your recipients to accept the ARC Seal from your relaying or intermediate server. More information about ARC Sealers can be found in <a href="https://vand3rlinden.com/post/arc-explained/">this</a> blog.</p>
+</blockquote>
 <ul>
 <li>Allow SPF to pass by using a different P1 sender, such as your email provider’s domain (if supported), and use DKIM on your own domain as the P2 sender. This method still DMARC compliant because DKIM is aligned with the P2 sender domain.</li>
 </ul>
 <blockquote>
-<p><strong>Not recommended</strong>: It is not best practice to rely only on DKIM validation. If DKIM fails, for example due to slow DNS response, there is no fallback. The best practice is to have both SPF and DKIM correctly aligned.</p></blockquote>
+<p><strong>Not recommended</strong>: It is not best practice to rely only on DKIM validation. If DKIM fails, for example due to slow DNS response, there is no fallback. The best practice is to have both SPF and DKIM correctly aligned.</p>
+</blockquote>
 <ul>
 <li>
 <p>Not using entries like <code>a</code> and <code>mx</code>, these mechanisms are often useless and probably should not be included in your SPF record (and other duplicate SPF mechanisms).</p>
@@ -288,7 +296,8 @@ SPF, DKIM, and DMARC are critical email authentication protocols that help preve
 </li>
 </ul>
 <blockquote>
-<p><strong>NOTE</strong>: SPF always checks the exact domain of the P1 sender. So, if you send from a subdomain, the receiving mail server looks for an SPF record on the subdomain and does not fall back to the rootdomain.</p></blockquote>
+<p><strong>NOTE</strong>: SPF always checks the exact domain of the P1 sender. So, if you send from a subdomain, the receiving mail server looks for an SPF record on the subdomain and does not fall back to the rootdomain.</p>
+</blockquote>
 <h3 id="softfail-or-hardfail">Softfail or Hardfail<a hidden class="anchor" aria-hidden="true" href="#softfail-or-hardfail">#</a></h3>
 <p>SPF can get a softfail or a hardfail, you determine that at the end of the record.</p>
 <ul>
@@ -320,7 +329,8 @@ SPF, DKIM, and DMARC are critical email authentication protocols that help preve
 <h3 id="implementation-of-dkim">Implementation of DKIM<a hidden class="anchor" aria-hidden="true" href="#implementation-of-dkim">#</a></h3>
 <p>You can configure DKIM with a <code>TXT</code> record in your DNS zone for your sending mail servers (such as postfix or sendmail). A DKIM generator can be used to generate a private key for your server and a public key for your DNS.</p>
 <blockquote>
-<p><strong>NOTE</strong>: A DKIM record is required for each sending server or mail provider.</p></blockquote>
+<p><strong>NOTE</strong>: A DKIM record is required for each sending server or mail provider.</p>
+</blockquote>
 <p>How you set up DKIM depends on your sending server or mail provider. For example, configuring DKIM for <a href="https://help.salesforce.com/s/articleView?id=sales.emailadmin_create_secure_dkim.htm">Salesforce</a> differs from <a href="https://learn.microsoft.com/en-us/defender-office-365/email-authentication-dkim-configure">Exchange Online</a> in Microsoft Defender for Office 365. If you’re managing your own mail server and using MTAs like Sendmail or Postfix, you can implement DKIM using tools such as <a href="http://www.opendkim.org/">OpenDKIM</a>.</p>
 <h3 id="dkim-recommendations">DKIM recommendations<a hidden class="anchor" aria-hidden="true" href="#dkim-recommendations">#</a></h3>
 <ul>
@@ -342,7 +352,8 @@ SPF, DKIM, and DMARC are critical email authentication protocols that help preve
 <h3 id="how-dmarc-evaluation-works">How DMARC evaluation works<a hidden class="anchor" aria-hidden="true" href="#how-dmarc-evaluation-works">#</a></h3>
 <p><img alt="IMAGE" loading="lazy" src="/images/spf-dkim-dmarc-explanation/dmarc-visual.png"></p>
 <blockquote>
-<p><strong>IMPORTANT</strong>: DMARC does not directly block or allow mail, it depends on how the receiving server is configured to handle messages that fail DMARC (SPF and/or DKIM alignment validation).</p></blockquote>
+<p><strong>IMPORTANT</strong>: DMARC does not directly block or allow mail, it depends on how the receiving server is configured to handle messages that fail DMARC (SPF and/or DKIM alignment validation).</p>
+</blockquote>
 <h3 id="implementation-of-dmarc">Implementation of DMARC<a hidden class="anchor" aria-hidden="true" href="#implementation-of-dmarc">#</a></h3>
 <p>Before enforcing a DMARC policy, it’s important to understand how often DMARC checks might fail for your domain. Jumping straight to a reject policy without visibility can cause legitimate email to be blocked.</p>
 <p>You should start by monitoring DMARC failures. This can be done in two ways:</p>
@@ -361,7 +372,8 @@ SPF, DKIM, and DMARC are critical email authentication protocols that help preve
 <p>Overview of the Valimail Dashboard:</p>
 <p><img alt="IMAGE" loading="lazy" src="/images/spf-dkim-dmarc-explanation/valimail-monitor.png"></p>
 <blockquote>
-<p>To sign up for a free Valimail environment, click <a href="https://www.valimail.com/sign-up-ms-blog/">here</a>. Once the setup is complete, you can sign in at <a href="https://app.valimail.com/">app.valimail.com</a>. After logging in, you can proceed to integrate <a href="https://support.valimail.com/en/articles/8466393-tutorial-how-to-integrate-microsoft-entra-id-sso-with-valimail">Microsoft Entra ID SSO with Valimail</a>.</p></blockquote>
+<p>To sign up for a free Valimail environment, click <a href="https://www.valimail.com/sign-up-ms-blog/">here</a>. Once the setup is complete, you can sign in at <a href="https://app.valimail.com/">app.valimail.com</a>. After logging in, you can proceed to integrate <a href="https://support.valimail.com/en/articles/8466393-tutorial-how-to-integrate-microsoft-entra-id-sso-with-valimail">Microsoft Entra ID SSO with Valimail</a>.</p>
+</blockquote>
 <p>For heavy mail domains, I recommended monitoring the domain for at least three months with the DMARC policy set to <code>none</code>:</p>
 <ul>
 <li>Hostname: <code>_dmarc</code></li>
@@ -373,7 +385,8 @@ SPF, DKIM, and DMARC are critical email authentication protocols that help preve
 </ul>
 <p>The <code>sp=reject</code> tag means that subdomains will be included; if you don’t want your subdomains to be included in your domain’s root DMARC policy, you can set this to <code>sp=none</code> and list a separate DMARC policy for each subdomain (not recommended).</p>
 <blockquote>
-<p><strong>NOTE</strong>: If you do not list the <code>sp=</code> tag, your subdomains will get the policy from the <code>p=</code> tag.</p></blockquote>
+<p><strong>NOTE</strong>: If you do not list the <code>sp=</code> tag, your subdomains will get the policy from the <code>p=</code> tag.</p>
+</blockquote>
 <h3 id="clarification-on-dmarc-monitoring">Clarification on DMARC Monitoring<a hidden class="anchor" aria-hidden="true" href="#clarification-on-dmarc-monitoring">#</a></h3>
 <p>DMARC monitoring does <strong>not</strong> provide insights into the total sending volume of your domain. Instead, it <strong>only</strong> shows authentication results (SPF/DKIM/DMARC pass or fail) based on the aggregate (<code>RUA</code>) reports received.</p>
 <p>There are three primary approaches to managing reporting in your DMARC monitoring strategy:</p>

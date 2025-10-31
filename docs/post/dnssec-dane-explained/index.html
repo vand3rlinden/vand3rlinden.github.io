@@ -9,6 +9,7 @@
 <meta name="keywords" content="">
 <meta name="description" content="
 In this post, you find out how DNSSEC and DANE cooperate, and learn how to set up DANE TLSA DNS records.
+
 DNSSEC (DNS Security Extensions)
 The domain name system (DNS) is the phone book of the Internet: it tells computers where to send and retrieve information. Unfortunately, it also accepts any address given to it, no questions asked.
 DNSSEC adds a security layer to this phonebook. It uses digital signatures to make sure the information in the phonebook can be trusted and hasn&rsquo;t been tampered with. It&rsquo;s like putting a lock on the phonebook to prevent DNS spoofing.">
@@ -48,6 +49,7 @@ DNSSEC adds a security layer to this phonebook. It uses digital signatures to ma
 <meta name="twitter:title" content="DNSSEC and DANE explained">
 <meta name="twitter:description" content="
 In this post, you find out how DNSSEC and DANE cooperate, and learn how to set up DANE TLSA DNS records.
+
 DNSSEC (DNS Security Extensions)
 The domain name system (DNS) is the phone book of the Internet: it tells computers where to send and retrieve information. Unfortunately, it also accepts any address given to it, no questions asked.
 DNSSEC adds a security layer to this phonebook. It uses digital signatures to make sure the information in the phonebook can be trusted and hasn&rsquo;t been tampered with. It&rsquo;s like putting a lock on the phonebook to prevent DNS spoofing.">
@@ -175,16 +177,19 @@ DNSSEC adds a security layer to this phonebook. It uses digital signatures to ma
         
 </figure>
   <div class="post-content"><blockquote>
-<p><em>In this post, you find out how DNSSEC and DANE cooperate, and learn how to set up DANE TLSA DNS records.</em></p></blockquote>
+<p><em>In this post, you find out how DNSSEC and DANE cooperate, and learn how to set up DANE TLSA DNS records.</em></p>
+</blockquote>
 <h2 id="dnssec-dns-security-extensions">DNSSEC (DNS Security Extensions)<a hidden class="anchor" aria-hidden="true" href="#dnssec-dns-security-extensions">#</a></h2>
 <p>The domain name system (DNS) is the phone book of the Internet: it tells computers where to send and retrieve information. Unfortunately, it also accepts any address given to it, no questions asked.</p>
 <p>DNSSEC adds a security layer to this phonebook. It uses digital signatures to make sure the information in the phonebook can be trusted and hasn&rsquo;t been tampered with. It&rsquo;s like putting a lock on the phonebook to prevent DNS spoofing.</p>
 <blockquote>
-<p>DNSSEC can be enabled with your DNS provider if they support it.</p></blockquote>
+<p>DNSSEC can be enabled with your DNS provider if they support it.</p>
+</blockquote>
 <h2 id="dane-dns-based-authentication-of-named-entities">DANE (DNS-based Authentication of Named Entities)<a hidden class="anchor" aria-hidden="true" href="#dane-dns-based-authentication-of-named-entities">#</a></h2>
 <p>DANE used the DNS infrastructure to store details about the security of a service, such as the public key (fingerprint) of a certificate. These details act as a special seal of approval, ensuring that when your computer talks to this service, it&rsquo;s real and it&rsquo;s safe. DANE uses the TLSA <em>(Transport Layer Security Authentication)</em> record type, which allows users to verify the security details from a service <em>(such as a web or mail server)</em> by querying the DNS for its information.</p>
 <blockquote>
-<p>DANE relies on DNSSEC and only works when DNSSEC is enabled.</p></blockquote>
+<p>DANE relies on DNSSEC and only works when DNSSEC is enabled.</p>
+</blockquote>
 <h2 id="implementation-of-dane">Implementation of DANE<a hidden class="anchor" aria-hidden="true" href="#implementation-of-dane">#</a></h2>
 <p>You can implement DANE with a <code>TLSA</code> record at your DNS hosting provider:</p>
 <ul>

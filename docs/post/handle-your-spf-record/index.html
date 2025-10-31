@@ -9,6 +9,7 @@
 <meta name="keywords" content="">
 <meta name="description" content="
 In this post, I will share my best practices for getting a handle on your SPF record.
+
 Why it makes sense to have a good SPF procedure in place
 In a previous blog post, I explained the limitations of SPF and how it works with DKIM and DMARC. It&rsquo;s crucial to have a well-structured SPF procedure to avoid future problems, especially since exceeding the DNS lookup limit of 10 can cause issues, such as:">
 <meta name="author" content="">
@@ -46,6 +47,7 @@ Why it makes sense to have a good SPF procedure in place In a previous blog post
 <meta name="twitter:title" content="Get a handle on your SPF record">
 <meta name="twitter:description" content="
 In this post, I will share my best practices for getting a handle on your SPF record.
+
 Why it makes sense to have a good SPF procedure in place
 In a previous blog post, I explained the limitations of SPF and how it works with DKIM and DMARC. It&rsquo;s crucial to have a well-structured SPF procedure to avoid future problems, especially since exceeding the DNS lookup limit of 10 can cause issues, such as:">
 
@@ -172,7 +174,8 @@ In a previous blog post, I explained the limitations of SPF and how it works wit
         
 </figure>
   <div class="post-content"><blockquote>
-<p><em>In this post, I will share my best practices for getting a handle on your SPF record.</em></p></blockquote>
+<p><em>In this post, I will share my best practices for getting a handle on your SPF record.</em></p>
+</blockquote>
 <h2 id="why-it-makes-sense-to-have-a-good-spf-procedure-in-place">Why it makes sense to have a good SPF procedure in place<a hidden class="anchor" aria-hidden="true" href="#why-it-makes-sense-to-have-a-good-spf-procedure-in-place">#</a></h2>
 <p>In a previous <a href="https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/">blog post</a>, I explained the limitations of SPF and how it works with DKIM and DMARC. It&rsquo;s crucial to have a well-structured SPF procedure to avoid future problems, especially since exceeding the DNS lookup limit of 10 can cause issues, such as:</p>
 <ul>
@@ -218,13 +221,15 @@ In a previous blog post, I explained the limitations of SPF and how it works wit
 </li>
 </ol>
 <blockquote>
-<p><strong>NOTE</strong>: If your email provider does not allow setting the P1 sender to a subdomain, they might offer an option to pass SPF using their domain (e.g., <code>youremailprovider.com</code>). Keep in mind that this method requires DKIM alignment for your domain as the P2 sender. If DKIM is correctly set up for the P2 sender, the message can still meet DMARC requirements. However, relying only on DKIM is not best practice. If DKIM fails, for example due to slow DNS response, there is no backup. The best practice is to have both SPF and DKIM correctly aligned.</p></blockquote>
+<p><strong>NOTE</strong>: If your email provider does not allow setting the P1 sender to a subdomain, they might offer an option to pass SPF using their domain (e.g., <code>youremailprovider.com</code>). Keep in mind that this method requires DKIM alignment for your domain as the P2 sender. If DKIM is correctly set up for the P2 sender, the message can still meet DMARC requirements. However, relying only on DKIM is not best practice. If DKIM fails, for example due to slow DNS response, there is no backup. The best practice is to have both SPF and DKIM correctly aligned.</p>
+</blockquote>
 <ol start="3">
 <li>Using an SPF macro that points to a subdomain allows you to continue sending from your main domain, but only from a fixed/static sender address (e.g., <code>news@yourdomain.com</code>).</li>
 </ol>
 <p>These subdomain segmentation options can be combined, as covered in this blog. Adopting SPF segmentation increases control, reduces attack surfaces, and mitigates the impact of potential cyber incidents.</p>
 <blockquote>
-<p><strong>NOTE</strong>: SPF always checks the exact domain of the P1 sender. So, if you send from a subdomain, the receiving mail server looks for an SPF record on the subdomain and does not fall back to the rootdomain.</p></blockquote>
+<p><strong>NOTE</strong>: SPF always checks the exact domain of the P1 sender. So, if you send from a subdomain, the receiving mail server looks for an SPF record on the subdomain and does not fall back to the rootdomain.</p>
+</blockquote>
 <p>SPF flattening attempts to work around the <strong>too many DNS lookups</strong> problem without addressing its underlying causes. Avoiding SPF record flattening will help you get a handle on your SPF record.</p>
 <h2 id="how-to-get-a-handle-on-your-spf-record">How to get a handle on your SPF record<a hidden class="anchor" aria-hidden="true" href="#how-to-get-a-handle-on-your-spf-record">#</a></h2>
 <h4 id="a-quick-win-on-how-to-handle-your-spf-record">A quick win on how to handle your SPF record:<a hidden class="anchor" aria-hidden="true" href="#a-quick-win-on-how-to-handle-your-spf-record">#</a></h4>
@@ -312,7 +317,8 @@ In a previous blog post, I explained the limitations of SPF and how it works wit
   </tbody>
 </table>
 <blockquote>
-<p><strong>NOTE</strong>: If you encounter unfamiliar email providers or IP addresses, it may be the result of incomplete historical documentation of authorized email services within your organization. In such cases, monitor your SPF record using DMARC monitoring for 1 to 3 months, and only allow email providers that you can confidently verify as legitimate. For more details, see my clarification on DMARC monitoring in <a href="https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#clarification-on-dmarc-monitoring">this blog post</a>.</p></blockquote>
+<p><strong>NOTE</strong>: If you encounter unfamiliar email providers or IP addresses, it may be the result of incomplete historical documentation of authorized email services within your organization. In such cases, monitor your SPF record using DMARC monitoring for 1 to 3 months, and only allow email providers that you can confidently verify as legitimate. For more details, see my clarification on DMARC monitoring in <a href="https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#clarification-on-dmarc-monitoring">this blog post</a>.</p>
+</blockquote>
 <p>If you look at the example above, we have <em><strong>2 DNS lookups</strong></em> left after cutting the current SPF record for the primary domain:</p>
 <table>
   <thead>
@@ -338,7 +344,8 @@ In a previous blog post, I explained the limitations of SPF and how it works wit
 IP addresses themselves do not consume any DNS lookups, as no DNS resolution is required. However, including many IPs can make your SPF record lengthy and difficult to manage.</p>
 <p>It is important to document each IP address and understand its origin. If you need to include many IPs (as discussed in this blog), consider offloading them to a separate include (e.g., <code>include:_spf.yourdomain.com</code>). This approach only costs <em><strong>1 DNS lookup</strong></em> and helps keep your main SPF record more manageable.</p>
 <blockquote>
-<p><strong>NOTE</strong>: If you only have a small number of IP addresses to list, such as two or three, it is not strictly necessary to place them in a separate include. You can let them stay into your main SPF record. However, it is important to place the <code>ip4</code> mechanism always immediately after the <code>v=spf1</code> tag. While this approach is not technically required, it is considered a best practice because it improves SPF efficiency by enabling faster DNS evaluation of straightforward matches before more resource intensive mechanisms are processed.</p></blockquote>
+<p><strong>NOTE</strong>: If you only have a small number of IP addresses to list, such as two or three, it is not strictly necessary to place them in a separate include. You can let them stay into your main SPF record. However, it is important to place the <code>ip4</code> mechanism always immediately after the <code>v=spf1</code> tag. While this approach is not technically required, it is considered a best practice because it improves SPF efficiency by enabling faster DNS evaluation of straightforward matches before more resource intensive mechanisms are processed.</p>
+</blockquote>
 <ol>
 <li>In the SPF record for <code>yourdomain.com</code>, add the following DNS lookup:</li>
 </ol>
@@ -363,9 +370,11 @@ IP addresses themselves do not consume any DNS lookups, as no DNS resolution is 
   </tbody>
 </table>
 <blockquote>
-<p><strong>CAUTION:</strong> When the SPF record for your IP addresses reaches its limit of <a href="https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#implementation-of-spf">two strings of 255 characters</a>, it becomes inaccurate. You should avoid including too many IP addresses. While you can add another include, such as <code>_spf1.yourdomain.com</code>, at the cost of another DNS lookup, it is advisable to start segmenting this into subdomains. Also, get into the habit of documenting all of your IP addresses that send mail on behalf of your domain.</p></blockquote>
+<p><strong>CAUTION:</strong> When the SPF record for your IP addresses reaches its limit of <a href="https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#implementation-of-spf">two strings of 255 characters</a>, it becomes inaccurate. You should avoid including too many IP addresses. While you can add another include, such as <code>_spf1.yourdomain.com</code>, at the cost of another DNS lookup, it is advisable to start segmenting this into subdomains. Also, get into the habit of documenting all of your IP addresses that send mail on behalf of your domain.</p>
+</blockquote>
 <blockquote>
-<p><strong>NOTE:</strong> There is also an SPF macro for IP addresses, <code>%{i}</code>, this macro replace the IP address of the SMTP client that submitted the message. However, using two separate SPF macros <em>(because this blog already uses the macro <code>%{l}</code>)</em> is not advisable due to the limit of two allowed void lookups (<code>NXDomain</code>). Even if you stay within the limit, there is still a risk of DNS timeouts due to slow DNS responses. Exceeding the limit will result in SPF <code>permerror</code>. Publishing an SPF policy that refers to data that does not exist in DNS is a poor practice and raises security concerns (see <a href="https://www.rfc-editor.org/info/rfc7208">RFC7208</a> Section 4.6.4.).</p></blockquote>
+<p><strong>NOTE:</strong> There is also an SPF macro for IP addresses, <code>%{i}</code>, this macro replace the IP address of the SMTP client that submitted the message. However, using two separate SPF macros <em>(because this blog already uses the macro <code>%{l}</code>)</em> is not advisable due to the limit of two allowed void lookups (<code>NXDomain</code>). Even if you stay within the limit, there is still a risk of DNS timeouts due to slow DNS responses. Exceeding the limit will result in SPF <code>permerror</code>. Publishing an SPF policy that refers to data that does not exist in DNS is a poor practice and raises security concerns (see <a href="https://www.rfc-editor.org/info/rfc7208">RFC7208</a> Section 4.6.4.).</p>
+</blockquote>
 <h2 id="use-an-spf-macro-to-restrict-a-third-party-service-to-send-from-a-specific-address">Use an SPF macro to restrict a third-party service to send from a specific address<a hidden class="anchor" aria-hidden="true" href="#use-an-spf-macro-to-restrict-a-third-party-service-to-send-from-a-specific-address">#</a></h2>
 <p>As described above, third-party services like Salesforce and Zendesk are mostly limited to sending from a single email address, such as <code>invoices@yourdomain.com</code> and <code>support@yourdomain.com</code>.
 So it is unnecessary to have <code>include:_spf.salesforce.com</code> and <code>include:mail.zendesk.com</code> cost <em><strong>3 DNS Lookups</strong></em> in the SPF record on <code>yourdomain.com</code>.</p>
@@ -417,7 +426,8 @@ So it is unnecessary to have <code>include:_spf.salesforce.com</code> and <code>
 </ol>
 <pre tabindex="0"><code>include:%{l}._spf.yourdomain.com
 </code></pre><blockquote>
-<p><strong>CAUTION</strong>: Always place the <code>{l}</code> SPF macro at the end of your SPF record, as SPF evaluation processes this macro last during policy validation. Placing it elsewhere can lead to SPF permerrors, regardless of any subsequent includes in your SPF record.</p></blockquote>
+<p><strong>CAUTION</strong>: Always place the <code>{l}</code> SPF macro at the end of your SPF record, as SPF evaluation processes this macro last during policy validation. Placing it elsewhere can lead to SPF permerrors, regardless of any subsequent includes in your SPF record.</p>
+</blockquote>
 <ol start="2">
 <li>Now we will create two new <code>TXT</code> records in the DNS zone of <code>yourdomain.com</code> to restrict Salesforce to only send from <code>invoices@yourdomain.com</code> and Zendesk to only send from <code>support@yourdomain.com</code>.</li>
 </ol>

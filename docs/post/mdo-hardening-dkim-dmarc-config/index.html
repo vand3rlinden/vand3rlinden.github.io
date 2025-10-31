@@ -9,6 +9,7 @@
 <meta name="keywords" content="">
 <meta name="description" content="
 Improve email security in Microsoft 365: Fine-tuning DKIM, configuring DMARC for the MOERA domain, and blocking inbound DMARC failures from reaching user inboxes.
+
 Fine-tune DKIM by frequently rotating the DKIM keys
 After setting up DKIM in Microsoft Defender for Office 365, it is also important to set up frequent rotation of these DKIM keys to prevent adversaries from intercepting and decrypting your cryptographic keys. Key rotation helps to minimize the risk of compromising the private keys. In Microsoft 365, you can rotate the DKIM keys for your domains to increase security. The recurrence must be every 3 months because rotating the DKIM keys every 3 months ensures a complete rotation of both selectors every 6 months. You can rotate the DKIM keys manually using the Defender portal or Exchange Online PowerShell, but it is easy to forget if you do it manually. So you should delegate this to Azure Automation by using the runbook below:">
 <meta name="author" content="">
@@ -46,6 +47,7 @@ Fine-tune DKIM by frequently rotating the DKIM keys After setting up DKIM in Mic
 <meta name="twitter:title" content="Microsoft Defender for Office 365: Hardening DKIM and DMARC configuration">
 <meta name="twitter:description" content="
 Improve email security in Microsoft 365: Fine-tuning DKIM, configuring DMARC for the MOERA domain, and blocking inbound DMARC failures from reaching user inboxes.
+
 Fine-tune DKIM by frequently rotating the DKIM keys
 After setting up DKIM in Microsoft Defender for Office 365, it is also important to set up frequent rotation of these DKIM keys to prevent adversaries from intercepting and decrypting your cryptographic keys. Key rotation helps to minimize the risk of compromising the private keys. In Microsoft 365, you can rotate the DKIM keys for your domains to increase security. The recurrence must be every 3 months because rotating the DKIM keys every 3 months ensures a complete rotation of both selectors every 6 months. You can rotate the DKIM keys manually using the Defender portal or Exchange Online PowerShell, but it is easy to forget if you do it manually. So you should delegate this to Azure Automation by using the runbook below:">
 
@@ -172,7 +174,8 @@ After setting up DKIM in Microsoft Defender for Office 365, it is also important
         
 </figure>
   <div class="post-content"><blockquote>
-<p>Improve email security in Microsoft 365: Fine-tuning DKIM, configuring DMARC for the MOERA domain, and blocking inbound DMARC failures from reaching user inboxes.</p></blockquote>
+<p>Improve email security in Microsoft 365: Fine-tuning DKIM, configuring DMARC for the MOERA domain, and blocking inbound DMARC failures from reaching user inboxes.</p>
+</blockquote>
 <h2 id="fine-tune-dkim-by-frequently-rotating-the-dkim-keys">Fine-tune DKIM by frequently rotating the DKIM keys<a hidden class="anchor" aria-hidden="true" href="#fine-tune-dkim-by-frequently-rotating-the-dkim-keys">#</a></h2>
 <p>After <a href="https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/email-authentication-dkim-configure">setting up DKIM</a> in Microsoft Defender for Office 365, it is also important to set up frequent rotation of these DKIM keys to prevent adversaries from intercepting and decrypting your cryptographic keys. Key rotation helps to minimize the risk of compromising the private keys. In Microsoft 365, you can rotate the DKIM keys for your domains to increase security. The recurrence must be every 3 months because rotating the DKIM keys every 3 months ensures a complete rotation of both selectors every 6 months. You can rotate the DKIM keys manually using the <a href="https://learn.microsoft.com/en-us/defender-office-365/email-authentication-dkim-configure#use-the-defender-portal-to-rotate-dkim-keys-for-a-custom-domain">Defender portal</a> or <a href="https://learn.microsoft.com/en-us/defender-office-365/email-authentication-dkim-configure#use-exchange-online-powershell-to-rotate-the-dkim-keys-for-a-domain-and-change-the-bit-depth">Exchange Online PowerShell</a>, but it is easy to forget if you do it manually. So you should delegate this to Azure Automation by using the runbook below:</p>
 <pre tabindex="0"><code>#Connect EXO
@@ -190,7 +193,8 @@ foreach ($domain in $domains){
 <p>Example of a spoofed <em><strong>outbound message</strong></em> from an <code>onmicrosoft.com</code> that doesn&rsquo;t have a DMARC reject policy:
 <img alt="IMAGE" loading="lazy" src="/images/mdo-hardening-dkim-dmarc-config/mdo-hardening-dkim-dmarc-config1.png"></p>
 <blockquote>
-<p><strong>NOTE:</strong> Spoofed <em><strong>inbound messages</strong></em> from  your <code>onmicrosoft.com</code> domain will end up in the Junk Folder, because the detection technology is <code>Spoof intra-org</code>. Spoof Intelligence will not trigger your anti-phishing policy for this detection.</p></blockquote>
+<p><strong>NOTE:</strong> Spoofed <em><strong>inbound messages</strong></em> from  your <code>onmicrosoft.com</code> domain will end up in the Junk Folder, because the detection technology is <code>Spoof intra-org</code>. Spoof Intelligence will not trigger your anti-phishing policy for this detection.</p>
+</blockquote>
 <p>To prevent email spoofing and phishing using this domain, you need to set up a DMARC reject policy on the MOERA domain, as you do on all of your send and <a href="https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#protect-all-non-sending-domains">non-send domains</a>. Setting DMARC for the MOERA is most often forgotten because you do not own the MOERA domain, but Microsoft has made it possible to manage the public DNS of your MOERA domain in the Microsoft 365 Admin Center.</p>
 <ol>
 <li>In the <a href="https://admin.microsoft.com">Microsoft 365 admin center</a>, select Show all &gt; Settings &gt; Domains</li>
@@ -206,7 +210,8 @@ foreach ($domain in $domains){
 <h2 id="enforce-dmarc-rejection-policy-for-inbound-email">Enforce DMARC rejection policy for inbound email<a hidden class="anchor" aria-hidden="true" href="#enforce-dmarc-rejection-policy-for-inbound-email">#</a></h2>
 <p>Microsoft 365 overrides the DMARC fail action from <code>reject</code> to <code>oreject</code> (override reject) because, it uses <a href="https://learn.microsoft.com/en-us/defender-office-365/email-authentication-about#inbound-email-authentication-for-mail-sent-to-microsoft-365">implicit email authentication</a> to evaluate inbound emails in Exchange Online Protection (EOP), this method goes beyond traditional SPF, DKIM, and DMARC checks by incorporating additional signals such as sender reputation, sender history, and behavioral analysis.</p>
 <blockquote>
-<p><strong>NOTE</strong>: For detailed information on how inbound email is processed in Microsoft 365, check out <a href="https://vand3rlinden.com/post/mdo-handling-false-positives-false-negatives/">this blog post</a>.</p></blockquote>
+<p><strong>NOTE</strong>: For detailed information on how inbound email is processed in Microsoft 365, check out <a href="https://vand3rlinden.com/post/mdo-handling-false-positives-false-negatives/">this blog post</a>.</p>
+</blockquote>
 <p>Even if an email fails DMARC with a reject policy on the sender’s domain, it can still be delivered if it bypasses composite authentication (<code>compauth=none</code>) or even passes it (<code>compauth=pass</code>) due to positive implicit signals.</p>
 <p>This configuration exists to prevent the rejection of some legitimate emails that may fail DMARC checks. By leveraging implicit email authentication, messages that fail traditional authentication methods may still be allowed into Microsoft 365 if the overall evaluation deems them safe. False negatives from the advanced implicit authentication checks can be reported to Microsoft as <a href="https://learn.microsoft.com/en-us/defender-office-365/submissions-admin#report-questionable-email-to-microsoft">questionable emails</a> to improve detection.</p>
 <p>Example <code>Authentication-Results</code> header with DMARC fail action <code>oreject</code> and composite authentication <code>none</code> that arrived in the user&rsquo;s inbox, which was also not detected as Spoof by <a href="https://vand3rlinden.com/post/mdo-anti-phishing-policies/#spoof-intelligence">Spoof Intelligence</a>:</p>
@@ -217,7 +222,8 @@ foreach ($domain in $domains){
 <p>Example of the NDR:
 <img alt="IMAGE" loading="lazy" src="/images/mdo-hardening-dkim-dmarc-config/mdo-hardening-dkim-dmarc-config3.png"></p>
 <blockquote>
-<p>CAUTION: The outlined approach may lead to false positives due to EOP’s implicit authentication techniques. However, <strong>my personal opinion</strong>, DMARC failures should always be rejected before reaching a user’s inbox. It’s the sender’s responsibility to ensure proper outbound authentication. Non-compliant DMARC emails should be treated as suspicious, even if they pass advanced checks. This method also catches emails that have not been detected as Spoof by Spoof Intelligence (that has the <a href="https://vand3rlinden.com/post/mdo-anti-phishing-policies/#configure-anti-phishing-policies-and-best-practices">honor DMARC policy</a> configured to reject) despite failed authentication, as they’ll now be handled by the proposed mail flow rule to reject.</p></blockquote>
+<p>CAUTION: The outlined approach may lead to false positives due to EOP’s implicit authentication techniques. However, <strong>my personal opinion</strong>, DMARC failures should always be rejected before reaching a user’s inbox. It’s the sender’s responsibility to ensure proper outbound authentication. Non-compliant DMARC emails should be treated as suspicious, even if they pass advanced checks. This method also catches emails that have not been detected as Spoof by Spoof Intelligence (that has the <a href="https://vand3rlinden.com/post/mdo-anti-phishing-policies/#configure-anti-phishing-policies-and-best-practices">honor DMARC policy</a> configured to reject) despite failed authentication, as they’ll now be handled by the proposed mail flow rule to reject.</p>
+</blockquote>
 <h2 id="to-summerize">To summerize<a hidden class="anchor" aria-hidden="true" href="#to-summerize">#</a></h2>
 <p>DKIM rotation ensures that even if a key is compromised, it will become obsolete after a period of time, limiting the window of vulnerability. Setting up DMARC for the MOERA domain is critical to protect against email fraud targeting this domain, and by preventing inbound DMARC failures with the oreject override action from reaching user inboxes, you will harden your DKIM and DMARC configuration in Microsoft 365.</p>
 <h2 id="reference">Reference<a hidden class="anchor" aria-hidden="true" href="#reference">#</a></h2>

@@ -4,7 +4,7 @@
     <title>Other on VAND3RLINDEN</title>
     <link>https://vand3rlinden.com/categories/other/</link>
     <description>Recent content in Other on VAND3RLINDEN</description>
-    <generator>Hugo -- 0.150.0</generator>
+    <generator>Hugo -- 0.151.2</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 25 Nov 2024 23:35:37 +0100</lastBuildDate>
     <atom:link href="https://vand3rlinden.com/categories/other/index.xml" rel="self" type="application/rss+xml" />
@@ -14,7 +14,8 @@
       <pubDate>Mon, 25 Nov 2024 23:35:37 +0100</pubDate>
       <guid>https://vand3rlinden.com/post/implementing-signed-security-txt-file/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;A &lt;code&gt;security.txt&lt;/code&gt; file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. This blog will walk you through implementing a signed &lt;code&gt;security.txt&lt;/code&gt; file using PGP (Pretty Good Privacy).&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;A &lt;code&gt;security.txt&lt;/code&gt; file is an industry standard used by organizations to provide a clear point of contact for vulnerability reporting. This blog will walk you through implementing a signed &lt;code&gt;security.txt&lt;/code&gt; file using PGP (Pretty Good Privacy).&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;The &lt;code&gt;security.txt&lt;/code&gt; file, typically hosted at &lt;code&gt;/.well-known/security.txt&lt;/code&gt;, provides a standardized way for security researchers to find the correct point of contact for reporting vulnerabilities. It helps ensure that security issues are directed to the right people quickly and efficiently. While it’s recommended to optionally sign the file with a PGP key for added authenticity, the primary goal is to clearly list how to reach your security team or responsible contact. Below, we’ll cover how to create a straightforward, effective &lt;code&gt;security.txt&lt;/code&gt; file for your site.&lt;/p&gt;</description>
     </item>
