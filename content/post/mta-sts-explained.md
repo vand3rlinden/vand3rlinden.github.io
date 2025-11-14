@@ -51,7 +51,7 @@ _mta-sts.example.com IN TXT "v=STSv1; id=20240728"
 ### Host the MTA-STS Policy on Github Pages
 1. Create a new [public repository](https://docs.github.com/en/pages/quickstart#creating-your-website) called `mta-sts`
 2. Disabling Jekyll, GitHub Pages is powered by Jekyll, a static website generator. However, Jekyll does not serve folders that begin with a dot. In order to do so, we'll add a single empty file called `.nojekyll` to the repo.
-3. Creating the MTA-STS Policy in `.well-known/mta-sts.txt` with the following content, and list all your MX records for your domain:
+3. Creating the MTA-STS Policy in `.well-known/mta-sts.txt` with the following content, and make sure to list all MX records for your domain:
 ```
 version: STSv1
 mode: testing
