@@ -9,9 +9,7 @@ cover:
 
 > _This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages._
 
-MTA-STS (Mail Transfer Agent Strict Transport Security) is a security protocol that enforces the use of secure TLS connections for **inbound** email communication. It helps protect your domain from TLS downgrade and man-in-the-middle attacks by ensuring that incoming emails are encrypted with TLS when delivered to your mail servers. When an external mail server (SMTP client) attempts to send email to your domain, it checks your MTA-STS policy to determine whether TLS encryption must be enforced.
-
-While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages and ensuring they originate from authorized domains, MTA-STS specifically focuses on securing the transport layer between mail servers. By using a policy file retrieved over HTTPS, MTA-STS allows receiving domains to specify their requirement for encrypted connections, ensuring that sending mail servers only deliver mail over verified secure channels, thereby enhancing the overall security of email transport.
+MTA-STS is a security mechanism that allows the sending (outbound) mail server to enforce the use of HTTPS-secured policies published by the receiving (inbound) mail server. This ensures that TLS connections between mail servers are both encrypted and validated, preventing attackers from downgrading the connection or intercepting messages through man-in-the-middle attacks.
 
 ## How MTA-STS Works
 1. **Discovery**:

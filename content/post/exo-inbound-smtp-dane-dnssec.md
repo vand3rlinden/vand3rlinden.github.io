@@ -14,9 +14,7 @@ While ***outbound*** SMTP DANE with DNSSEC in Exchange Online has been enabled s
 > For a deeper understanding of DNSSEC and DANE, take a look at my earlier [blog post](https://vand3rlinden.com/post/dnssec-dane-explained/).
 
 ## How SMTP DANE with DNSSEC works
-SMTP DANE is a security protocol that uses DNSSEC to verify the authenticity of TLS certificates used for securing email communication. It helps protect against attacks such as TLS downgrade and man-in-the-middle attacks by ensuring that the certificates and encryption settings used in mail server communications are authentic and trustworthy.
-
-While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages and ensuring they are sent from authorized domains, SMTP DANE focuses specifically on securely establishing TLS connections between mail servers. By leveraging DNSSEC to publish certificate information directly in DNS, SMTP DANE ensures that the sending mail server connects to the intended receiving mail server with verified encryption, enhancing the overall security of email transport.
+SMTP DANE is a security mechanism that uses DNSSEC to allow the sending (outbound) mail server to verify the TLS certificate of the receiving (inbound) mail server. This helps ensure that TLS connections between mail servers cannot be intercepted or downgraded, protecting against attacks such as TLS downgrade and man-in-the-middle attacks.
 
 ## The flow of SMTP DANE on a mailserver
 - **Outbound SMTP DANE with DNSSEC `sending mail server`**: Requests DANE `TLSA` records of the receiving domain's `MX` record.
@@ -95,6 +93,17 @@ Below is a simplified version of the implementation compared to the official [Mi
 12. Check the health of your domain's `MX` record in the Microsoft 365 Admin Center under 'DNS Records'.
 
 ![IMAGE](/images/exo-inbound-smtp-dane-dnssec/exo-inbound-smtp-dane-dnssec11.png)
+
+## Rollback the change
+Since we carefully added the DNSSEC-signed MX record `mx.microsoft` alongside the existing `mail.protection.outlook.com` MX record, you can safely make this change without worrying about inbound email interruption. If something does go wrong, the change can be rolled back by doing the following:
+
+1. Disable SMTP DANE: `Disable-SmtpDaneInbound -DomainName yourdomain.com` 
+2. Create a new MX record in your public DNS with the following hostname value and set the priority to 20: `yourdomain-com.mail.protection.outlook.com`
+3. Make sure the MX record you created in step 2 is working by using the [Microsoft Remote Connectivity Analyzer](https://testconnectivity.microsoft.com/tests/O365InboundSmtp/input)
+4. If mail flow works with the `mail.protection.outlook.com` MX record, run the following command: `Disable-DnssecForVerifiedDomain -DomainName yourdomain.com`
+5. Delete the DNSSEC MX record in your public DNS: `yourdomain-com.<random>.mx.microsoft`
+6. Make sure the MX record you created in step 2 is the only MX record, and that it's set to priority 0 (highest priority)
+7. Confirm that the MX record matches the value in the Microsoft 365 Admin Center -> Settings -> Domains (Select the domain, select DNS records, then run Check health)
 
 ## Cmdlets to get DNSSEC and SMTP DANE configuration settings in Exchange Online
 ```PowerShell

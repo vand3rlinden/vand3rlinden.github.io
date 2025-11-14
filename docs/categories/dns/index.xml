@@ -4,7 +4,7 @@
     <title>DNS on VAND3RLINDEN</title>
     <link>https://vand3rlinden.com/categories/dns/</link>
     <description>Recent content in DNS on VAND3RLINDEN</description>
-    <generator>Hugo -- 0.151.2</generator>
+    <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 19 Oct 2024 23:30:32 +0200</lastBuildDate>
     <atom:link href="https://vand3rlinden.com/categories/dns/index.xml" rel="self" type="application/rss+xml" />
@@ -26,7 +26,11 @@
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages.&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;MTA-STS (Mail Transfer Agent Strict Transport Security) is a security protocol that enforces the use of secure TLS connections for &lt;strong&gt;inbound&lt;/strong&gt; email communication. It helps protect your domain from TLS downgrade and man-in-the-middle attacks by ensuring that incoming emails are encrypted with TLS when delivered to your mail servers. When an external mail server (SMTP client) attempts to send email to your domain, it checks your MTA-STS policy to determine whether TLS encryption must be enforced.&lt;/p&gt;</description>
+&lt;p&gt;MTA-STS is a security mechanism that allows the sending (outbound) mail server to enforce the use of HTTPS-secured policies published by the receiving (inbound) mail server. This ensures that TLS connections between mail servers are both encrypted and validated, preventing attackers from downgrading the connection or intercepting messages through man-in-the-middle attacks.&lt;/p&gt;
+&lt;h2 id=&#34;how-mta-sts-works&#34;&gt;How MTA-STS Works&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Discovery&lt;/strong&gt;:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Exchange Online: Configure inbound SMTP DANE with DNSSEC</title>
@@ -41,7 +45,7 @@
 &lt;p&gt;For a deeper understanding of DNSSEC and DANE, take a look at my earlier &lt;a href=&#34;https://vand3rlinden.com/post/dnssec-dane-explained/&#34;&gt;blog post&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;how-smtp-dane-with-dnssec-works&#34;&gt;How SMTP DANE with DNSSEC works&lt;/h2&gt;
-&lt;p&gt;SMTP DANE is a security protocol that uses DNSSEC to verify the authenticity of TLS certificates used for securing email communication. It helps protect against attacks such as TLS downgrade and man-in-the-middle attacks by ensuring that the certificates and encryption settings used in mail server communications are authentic and trustworthy.&lt;/p&gt;</description>
+&lt;p&gt;SMTP DANE is a security mechanism that uses DNSSEC to allow the sending (outbound) mail server to verify the TLS certificate of the receiving (inbound) mail server. This helps ensure that TLS connections between mail servers cannot be intercepted or downgraded, protecting against attacks such as TLS downgrade and man-in-the-middle attacks.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Understanding the role and benefits of ARC Sealing</title>
