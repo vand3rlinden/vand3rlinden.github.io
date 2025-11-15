@@ -103,7 +103,7 @@ Since we carefully added the DNSSEC-signed MX record `mx.microsoft` alongside th
 4. If mail flow works with the `mail.protection.outlook.com` MX record, run the following command: `Disable-DnssecForVerifiedDomain -DomainName yourdomain.com`
 5. Delete the DNSSEC MX record in your public DNS: `yourdomain-com.<random>.mx.microsoft`
 6. Make sure the MX record you created in step 2 is the only MX record, and that it's set to priority 0 (highest priority)
-7. Confirm that the MX record matches the value in the Microsoft 365 Admin Center -> Settings -> Domains (Select the domain, select DNS records, then run Check health)
+7. Confirm that the MX record matches the value in the Microsoft 365 Admin Center -> Settings -> Domains (first, select the domain, then, select the DNS records)
 
 ## Cmdlets to get DNSSEC and SMTP DANE configuration settings in Exchange Online
 ```PowerShell
