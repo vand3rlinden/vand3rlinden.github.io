@@ -81,7 +81,19 @@ The SPF record will vary for each domain; therefore, it is important to understa
 
 > **NOTE**: SPF always checks the exact domain of the P1 sender. So, if you send from a subdomain, the receiving mail server looks for an SPF record on the subdomain and does not fall back to the rootdomain.
 
-### Softfail or Hardfail
+### Set up a recommended wildcard SPF record with a hardfail policy
+Even if your root domain already uses an SPF softfail/hardfail policy, and your DMARC policy is set to reject for both the root domain (`p`) and subdomains (`sp`), adding a wildcard SPF hardfail record for all subdomains still adds value to your outbound email authentication and helps protect your domain as the P1 sender. Attackers often target unconfigured subdomains, and some receiving mail servers may still evaluate only SPF. This creates a gap that attackers could exploit by sending email from an unconfigured subdomain, even when your DMARC subdomain policy (`sp`) is set to reject.
+
+A wildcard SPF hardfail record closes this gap by blocking any subdomain as hardfail that should not send email, while your existing SPF records on the root domain, subdomains, and future subdomains continue to function normally. Adding this wildcard SPF hardfail record to both sending and non-sending domains helps prevent subdomain abuse for the P1 Sender.
+
+To implement a wildcard SPF hardfail record, set the following values in your public DNS:
+
+- Host: `*`
+- Value: `v=spf1 -all`
+
+> Since unconfigured subdomains are non-sending, you can safely set the wildcard SPF record to a hardfail, just as you would for domains that do not send email.
+
+### Softfail or hardfail for sending domains
 SPF can get a softfail or a hardfail, you determine that at the end of the record.
 
 - With `~all`: Email originating from a host that not match the record will not pass the SPF evaluation, but will still be tested for other mechanisms (like DKIM).
