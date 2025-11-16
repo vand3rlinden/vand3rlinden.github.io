@@ -91,7 +91,7 @@ To implement a wildcard SPF hardfail record, set the following values in your pu
 - Host: `*`
 - Value: `v=spf1 -all`
 
-> Since unconfigured subdomains are non-sending, you can safely set the wildcard SPF record to a hardfail, just as you would for domains that do not send email.
+> Since unconfigured subdomains are non-sending domains, you can safely set the wildcard SPF record to a hardfail for your sending domain, just as you would for domains that do not send email.
 
 ### Softfail or hardfail for sending domains
 SPF can get a softfail or a hardfail, you determine that at the end of the record.
@@ -254,11 +254,15 @@ To protect all non-sending domains, you should consider:
   - Name: `@` 
   - Content:`v=spf1 -all` 
   - Type: `TXT`
+- A ***deny all SPF wildcard*** record for subdmains:
+  - Name: `*` 
+  - Content:`v=spf1 -all` 
+  - Type: `TXT`
 - A ***reject DMARC*** record:
   - Name: `_dmarc` 
   - Content: `v=DMARC1; p=reject;`
   - Type: `TXT`
-- An ***unassociated public key as a DKIM*** wildcard record:
+- An ***unassociated public key as a DKIM wildcard*** record:
   - Name: `*._domainkey`
   - Content: `v=DKIM1; p=`
   - Type: `TXT`
