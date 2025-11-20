@@ -20,7 +20,7 @@ Since port 25 does not use authentication (MTA-to-MTA delivery), implementing an
 
 2. **Policy Evaluation**:
    - The sending server reads the policy file and checks the mode (`enforce`, `testing`, or `none`).
-   - If the mode is `enforce`, the sending server must use TLS and verify the certificate of the receiving server.
+   - If the mode is `enforce`, the sending server must use TLS and verify the certificate of the receiving server (`mail.example.com`).
 
 3. **TLS Reporting (TLSRPT)**
    - If the sending mail server encounters issues delivering an email, it can use the receiving server’s `TLSRPT` record to report the problem or confirm that the TLS session was successfully established.
