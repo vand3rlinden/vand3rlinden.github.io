@@ -27,7 +27,7 @@
 &lt;p&gt;&lt;em&gt;This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages.&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;MTA-STS is a security mechanism that allows the sending (outbound) mail server to enforce the use of HTTPS secured policies published by the receiving (inbound) mail server. This ensures that TLS connections between mail servers are both encrypted and valide, preventing attackers from downgrading the connection or intercept messages through man-in-the-middle attacks.&lt;/p&gt;
-&lt;p&gt;Because port 25 has no authentication (MTA to MTA delivery), using a MTA-STS policy can enforce TLS encryption and certificate validation for server-to-server (MTA to MTA) mail delivery for confidentiality.&lt;/p&gt;</description>
+&lt;p&gt;Since port 25 does not use authentication (MTA-to-MTA delivery), implementing an MTA-STS policy enforces TLS encryption and certificate validation between MTA’s, this ensures the confidentiality of email delivery.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Exchange Online: Configure inbound SMTP DANE with DNSSEC</title>
