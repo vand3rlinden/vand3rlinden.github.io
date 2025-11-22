@@ -26,11 +26,11 @@ Safe Links protection through Safe Links policies is accessible in the following
   - Safe Links protection for supported Office desktop, mobile, and web applications.
 
 ## Safe Links policy configuration
-You configure Safe Links policies in the Microsoft Security portal or in Exchange Online PowerShell with the `New-SafeLinksPolicy` cmdlet.
+You configure Safe Links policies in Microsoft Defender XDR or in Exchange Online PowerShell with the `New-SafeLinksPolicy` cmdlet.
 
-In this article, we will use the Microsoft Security portal for the configuration.
+In this article, we will use Microsoft Defender XDR for the configuration.
 
-1. Go to the [Safe links Policies](https://security.microsoft.com/safelinksv2) in the Microsoft Security portal.
+1. Go to the [Safe links Policies](https://security.microsoft.com/safelinksv2) in Microsoft Defender XDR.
 
 2. Click on 'Create'.
 
@@ -77,11 +77,9 @@ In this article, we will use the Microsoft Security portal for the configuration
 
     - **Teams**:
       - Safe Links checks a list of known, malicious links when users click links in Microsoft Teams. URLs are not rewritten (recommended value: `$true`).
-        - This setting may require up to 24 hours to become effective. It influences the functionality of time-of-click protection.
     
     - **Office 365 apps**:
       - Safe Links checks a list of known, malicious links when users click links in Microsoft Office apps. URLs are not rewritten (recommended value: `$true`).
-        - Safe Links is supported in Office 365 desktop and mobile (iOS and Android) apps.
   
     - **Click protection settings**:
       - Track user clicks (recommended value: `$true`)

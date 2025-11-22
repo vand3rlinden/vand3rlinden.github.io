@@ -10,10 +10,10 @@ cover:
 > _Quarantine policies let you control the quarantine on how users can use it. This post will cover the default policies and how to create a custom policy._
 
 ## What are quarantine policies
-Back in April 2020, Microsoft made it possible for users to view, release, or delete quarantined messages (expect high confidence phishing). Some organizations were not happy about users having access to their own quarantined items. Quarantine policies give you more control over quarantine for your end users and which quarantined items they can release.
+Back in April 2020, Microsoft made it possible for users to view, release, or delete quarantined messages (expect high confidence phishing). Some organizations were not happy about users having access to their own quarantined items. Quarantine policies give you more control over the quarantine for your end users and allow you to decide which quarantined items they are allowed to release.
 
 ## The default quarantine policies
-You can access it from the [Quarantine policies section](https://security.microsoft.com/quarantinePolicies) of the Microsoft Security Portal.
+You can access it from the [Quarantine policies section](https://security.microsoft.com/quarantinePolicies) in Microsoft Defender XDR.
 
 Out of the box, you will see three policies: 
 - DefaultFullAccessPolicy 
@@ -56,7 +56,7 @@ This policy has the same settings as the _DefaultFullAccessPolicy_ quarantine po
 ## Create a custom quarantine policy, such as for request to release
 In some situations, you may want your users to be able to request that a message be released from quarantine, rather than releasing it themselves. To do this, you can create a custom quarantine policy by following the steps below:
 
-1. Go to [Quarantine Policies](https://security.microsoft.com/quarantinePolicies) in the Microsoft Security portal.
+1. Go to [Quarantine Policies](https://security.microsoft.com/quarantinePolicies) in Microsoft Defender XDR.
 2. Click on 'Add custom policy'.
 3. Specify a policy name such as _DefaultRequestAccessWithNotificationPolicy_.
 4. Under Recipient Message Access select _Limited access_.
@@ -86,8 +86,10 @@ Users can _request release_ of quarantined items after you assign the quarantine
 
 ![IMAGE](/images/mdo-quarantine-policies/mdo-quarantine-policies-approverelease.png)
 
+> **NOTE**: Users cannot release their own quarantined messages in the following situations, regardless of how the quarantine policy is configured: **Messages quarantined as malware by anti-malware policies**, **Messages quarantined as malware or phishing by Safe Attachments policies** and **Messages quarantined as high confidence phishing by anti-spam policies**.
+
 ### Quarantine Administrators in the Defender Portal
-Quarantine Administrators is an Email & Collaboration role group in the [Microsoft Defender portal](https://security.microsoft.com/emailandcollabpermissions). If XDR Unified role-based access control (RBAC) is enabled, grant the permissions `Security operations/Security Data/Email & collaboration quarantine (manage)` within the [Microsoft Defender XDR Unified RBAC Portal](https://security.microsoft.com/mtp_roles).
+Quarantine Administrators is an Email & Collaboration role group in [Microsoft Defender XDR](https://security.microsoft.com/emailandcollabpermissions). If XDR Unified role-based access control (RBAC) is enabled, grant the permissions `Security operations/Security Data/Email & collaboration quarantine (manage)` within the [Microsoft Defender XDR Unified RBAC Portal](https://security.microsoft.com/mtp_roles).
 
 To ensure _Quarantine Administrators_ are notified of release requests, add them as recipients in the _'User requested to release a quarantined message'_ [alert policy](https://security.microsoft.com/alertpoliciesv2). This will send them an informational email alert whenever a user requests a release from quarantine.
 
@@ -99,5 +101,5 @@ After you have set up the quarantine policies the way you want them, you can use
 
 ### Reference
 - [Quarantine policies](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/quarantine-policies)
-- [Email & collaboration roles in the Microsoft Defender portal](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/mdo-portal-permissions?view=o365-worldwide#modify-email--collaboration-role-group-role-assignments-in-the-microsoft-defender-portal)
+- [Email & collaboration roles in Microsoft Defender XDR](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/mdo-portal-permissions?view=o365-worldwide#modify-email--collaboration-role-group-role-assignments-in-the-microsoft-defender-portal)
 - [Microsoft Defender XDR Unified role-based access control (RBAC)](https://learn.microsoft.com/en-us/defender-xdr/manage-rbac)

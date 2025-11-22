@@ -52,14 +52,14 @@
 &lt;p&gt;We live in a time where most first impressions happen online, and emails are usually the first touchpoint. The problem is, inboxes are crowded, and getting someone to notice your message isn’t easy. That’s exactly why BIMI (Brand Indicators for Message Identification) was created. It gives companies a simple way to show who they are and build trust the moment their email lands.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>MTA-STS Explained: A Comprehensive guide to the MTA-STS Policy</title>
+      <title>MTA-STS Explained: A complete guide to the MTA-STS Policy</title>
       <link>https://vand3rlinden.com/post/mta-sts-explained/</link>
       <pubDate>Fri, 23 Aug 2024 16:22:41 +0200</pubDate>
       <guid>https://vand3rlinden.com/post/mta-sts-explained/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages.&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;MTA-STS is a security mechanism that allows the sending (outbound) mail server to enforce the use of HTTPS secured policies published by the receiving (inbound) mail server. This ensures that TLS connections between mail servers are both encrypted and valide, preventing attackers from downgrading the connection or intercept messages through man-in-the-middle attacks.&lt;/p&gt;
+&lt;p&gt;MTA-STS is a security mechanism that allows the sending (outbound) mail server to enforce the use of HTTPS secured policies published by the receiving (inbound) mail server. This ensures that TLS connections between mail servers are both encrypted and valid, preventing attackers from downgrading the connection or intercept messages through man-in-the-middle attacks.&lt;/p&gt;
 &lt;p&gt;Since port 25 does not use authentication (MTA-to-MTA delivery), implementing an MTA-STS policy enforces TLS encryption and certificate validation between MTA’s, this ensures the confidentiality of email delivery.&lt;/p&gt;</description>
     </item>
     <item>

@@ -6,8 +6,15 @@
     <description>Recent content in Microsoft Defender for Office 365 on VAND3RLINDEN</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 07 Apr 2025 12:16:19 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 23 Nov 2025 00:17:31 +0100</lastBuildDate>
     <atom:link href="https://vand3rlinden.com/categories/microsoft-defender-for-office-365/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microsoft Defender for Office 365: Configuration Summary </title>
+      <link>https://vand3rlinden.com/post/mdo-configuration-summary/</link>
+      <pubDate>Sun, 23 Nov 2025 00:17:31 +0100</pubDate>
+      <guid>https://vand3rlinden.com/post/mdo-configuration-summary/</guid>
+      <description>&lt;p&gt;In this post, I will explain how to configure Microsoft Defender for Office 365 in your tenant. Since I have already covered most of these settings in my earlier blogs, I thought it was time to combine all the information into one post. I will link to my previous articles, so you can use this post as a summary to help strengthen your Microsoft Defender for Office 365 configuration, &lt;code&gt;@&lt;/code&gt; the speed of email!&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Microsoft Defender for Office 365: Approach for Non-RFC compliant emails</title>
       <link>https://vand3rlinden.com/post/mdo-rfc-compliant-emails/</link>
@@ -106,7 +113,7 @@
 &lt;p&gt;&lt;em&gt;All inbound e-mail is automatically protected from spam by Exchange Online Protection (EOP) for Microsoft 365 organizations with mailboxes in Exchange Online. EOP uses anti-spam policies as part of your organization&amp;rsquo;s overall spam defense.&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;what-you-can-manage-with-anti-spam-policies&#34;&gt;What you can manage with Anti-spam policies&lt;/h2&gt;
-&lt;p&gt;Anti-spam policies provide you with control over both inbound and outbound email in Exchange Online. Within the Microsoft Security Portal, you can access the &lt;a href=&#34;https://security.microsoft.com/antispam&#34;&gt;Anti-Spam Policy section&lt;/a&gt;, where three default policies are available for editing. Additionally, it is possible to create custom policies, and further details on this will be discussed later in this post.&lt;/p&gt;</description>
+&lt;p&gt;Anti-spam policies provide you with control over both inbound and outbound email in Exchange Online. Within the Microsoft Defender XDR, you can access the &lt;a href=&#34;https://security.microsoft.com/antispam&#34;&gt;Anti-Spam Policy section&lt;/a&gt;, where three default policies are available for editing. Additionally, it is possible to create custom policies, and further details on this will be discussed later in this post.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Microsoft Defender for Office 365: Quarantine policies</title>
@@ -117,7 +124,7 @@
 &lt;p&gt;&lt;em&gt;Quarantine policies let you control the quarantine on how users can use it. This post will cover the default policies and how to create a custom policy.&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;what-are-quarantine-policies&#34;&gt;What are quarantine policies&lt;/h2&gt;
-&lt;p&gt;Back in April 2020, Microsoft made it possible for users to view, release, or delete quarantined messages (expect high confidence phishing). Some organizations were not happy about users having access to their own quarantined items. Quarantine policies give you more control over quarantine for your end users and which quarantined items they can release.&lt;/p&gt;</description>
+&lt;p&gt;Back in April 2020, Microsoft made it possible for users to view, release, or delete quarantined messages (expect high confidence phishing). Some organizations were not happy about users having access to their own quarantined items. Quarantine policies give you more control over the quarantine for your end users and allow you to decide which quarantined items they are allowed to release.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

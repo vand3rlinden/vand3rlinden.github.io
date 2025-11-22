@@ -15,11 +15,11 @@ With a Safe Attachments policy, administrators can configure an additional layer
 Although there's no default Safe Attachments policy, the ***Built-in protection*** [preset security policy](https://learn.microsoft.com/en-us/defender-office-365/preset-security-policies) provides Safe Attachments protection to all recipients (users who aren't defined in the Standard or Strict preset security policies or in custom Safe Attachments policies).
 
 ## Safe Attachments configuration
-You configure Safe Attachments policies in the Microsoft Defender portal or in Exchange Online PowerShell with the `New-SafeAttachmentRule` cmdlet.
+You configure Safe Attachments policies in Microsoft Defender XDR or in Exchange Online PowerShell with the `New-SafeAttachmentRule` cmdlet.
 
-In this article, we will use the Microsoft Security portal for the configuration.
+In this article, we will use Microsoft Defender XDR for the configuration.
 
-1. Go to the [Safe Attachments policies](https://security.microsoft.com/safeattachmentv2) in the Microsoft Security portal.
+1. Go to the [Safe Attachments policies](https://security.microsoft.com/safeattachmentv2) in Microsoft Defender XDR.
 
 2. Click on 'Global settings'.
 

@@ -36,7 +36,7 @@ Domain impersonation protection helps secure both your organization’s domains 
 Domain impersonation occurs when the sender's domain is manipulated to resemble the legitimate domain. For example, `contoso.com` could be impersonated as `c0ntoso.com` or `contoso.co`. Even though SPF, DKIM and DMARC will pass for the domain `c0ntoso.com` or `contoso.co`, the email will be labeled with Protection Policy Category `DIMP` (domain impersonation) in the `X-Forefront-Antispam-Report` message header.
 
 ### Impersonation insight
-You can use Impersonation insight in the [Microsoft Defender Portal](https://security.microsoft.com/impersonationinsight) to quickly identify messages from impersonated senders or sender domains that are included in impersonation protection in anti-phishing policies.
+You can use Impersonation insight in [Microsoft Defender XDR](https://security.microsoft.com/impersonationinsight) to quickly identify messages from impersonated senders or sender domains that are included in impersonation protection in anti-phishing policies.
 
 ## Mailbox intelligence
 ### What you can protect:
@@ -76,12 +76,12 @@ When Spoof Intelligence is enabled, Spoof Intelligence Insight provides a list o
 If Spoof Intelligence has good signals that a domain may be suspicious, Spoof Intelligence will identify it as a **block** and mark the email with protection policy category `SPOOF` in the `X-Forefront-Antispam-Report` message header. However, if Spoof Intelligence has good signals that a domain should pass extended authentication checks, it will be **allowed** by Spoof Intelligence and the [Unauthenticated Sender Indicators](https://learn.microsoft.com/en-us/defender-office-365/anti-phishing-policies-about?view=o365-worldwide#unauthenticated-sender-indicators) should be visible to the recipient.
 
 ### Spoof intelligence insight
-You can use the Spoof Intelligence Insight in the [Microsoft Defender portal](https://security.microsoft.com/spoofintelligence) to identify spoofed senders who are sending unauthenticated emails (messages that fail SPF, DKIM, or DMARC and sender reputation checks). Spoof Intelligence Insight allows you to manually [override](https://learn.microsoft.com/en-us/defender-office-365/anti-spoofing-spoof-intelligence#override-the-spoof-intelligence-verdict) the Spoof Intelligence verdict to either **allow** or **block** the detected spoofed senders. However, once overridden, the spoofed sender will no longer appear in the Spoof Intelligence Insight and will instead be listed under the **Spoofed Senders tab** on the [Tenant Allow/Block Lists](https://security.microsoft.com/tenantAllowBlockList?viewid=SpoofItem) page.
+You can use the Spoof Intelligence Insight in [Microsoft Defender XDR](https://security.microsoft.com/spoofintelligence) to identify spoofed senders who are sending unauthenticated emails (messages that fail SPF, DKIM, or DMARC and sender reputation checks). Spoof Intelligence Insight allows you to manually [override](https://learn.microsoft.com/en-us/defender-office-365/anti-spoofing-spoof-intelligence#override-the-spoof-intelligence-verdict) the Spoof Intelligence verdict to either **allow** or **block** the detected spoofed senders. However, once overridden, the spoofed sender will no longer appear in the Spoof Intelligence Insight and will instead be listed under the **Spoofed Senders tab** on the [Tenant Allow/Block Lists](https://security.microsoft.com/tenantAllowBlockList?viewid=SpoofItem) page.
 
 ## Configure anti-phishing policies and best practices
 > The best practices are based on the [Strict recommendations settings](https://learn.microsoft.com/en-us/defender-office-365/recommended-settings-for-eop-and-office365?view=o365-worldwide#eop-anti-phishing-policy-settings) of the Configuration Analyzer.
 
-1. Sign in to the Microsoft Defender portal and navigate to the [Anti-phishing section](https://security.microsoft.com/antiphishing).
+1. Sign in to Microsoft Defender XDR and navigate to the [Anti-phishing section](https://security.microsoft.com/antiphishing).
 
 2. Navigate to 'Phishing Threshold & Protection' and select 'Edit Protection Settings'.
 

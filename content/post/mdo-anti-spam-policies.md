@@ -10,7 +10,7 @@ cover:
 > _All inbound e-mail is automatically protected from spam by Exchange Online Protection (EOP) for Microsoft 365 organizations with mailboxes in Exchange Online. EOP uses anti-spam policies as part of your organization's overall spam defense._
 
 ## What you can manage with Anti-spam policies
-Anti-spam policies provide you with control over both inbound and outbound email in Exchange Online. Within the Microsoft Security Portal, you can access the [Anti-Spam Policy section](https://security.microsoft.com/antispam), where three default policies are available for editing. Additionally, it is possible to create custom policies, and further details on this will be discussed later in this post.
+Anti-spam policies provide you with control over both inbound and outbound email in Exchange Online. Within the Microsoft Defender XDR, you can access the [Anti-Spam Policy section](https://security.microsoft.com/antispam), where three default policies are available for editing. Additionally, it is possible to create custom policies, and further details on this will be discussed later in this post.
 
 ### Anti-spam inbound policy (Default)
 In this inbound policy you can manage:
@@ -37,7 +37,7 @@ In this outbound policy you can manage:
 
 - **Daily message limit**, the [default limit](https://learn.microsoft.com/en-us/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#sending-limits) is `10,000` emails per day, this limit can be changed between `0` and `10,000`.
 
-> Beginning in October 2025, Exchange Online will begin enforcing an [External Recipient Rate Limit (ERR)](https://techcommunity.microsoft.com/t5/exchange-team-blog/exchange-online-to-introduce-external-recipient-rate-limit/ba-p/4114733) of 2,000 recipients in 24 hours. If you have a cloud-hosted mailbox that needs to exceed the ERR limit, you can move to [Azure Communication Services for Email](https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/email-overview), which is designed specifically for high-volume email sent to recipients outside your tenant. For interal messages you could use [High Volume Email for Microsoft 365](https://techcommunity.microsoft.com/blog/exchange/high-volume-email-continued-support-for-basic-authentication--other-important-up/4411197) ([HVE on Microsoft Learn](https://learn.microsoft.com/en-us/exchange/mail-flow-best-practices/high-volume-mails-m365) - Public Preview).
+> Beginning in October 2026, Exchange Online will begin enforcing an [External Recipient Rate Limit (ERR)](https://techcommunity.microsoft.com/t5/exchange-team-blog/exchange-online-to-introduce-external-recipient-rate-limit/ba-p/4114733) of 2,000 recipients in 24 hours. If you have a cloud-hosted mailbox that needs to exceed the ERR limit, you can move to [Azure Communication Services for Email](https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/email-overview), which is designed specifically for high-volume email sent to recipients outside your tenant. For interal messages you could use [High Volume Email for Microsoft 365](https://techcommunity.microsoft.com/blog/exchange/high-volume-email-continued-support-for-basic-authentication--other-important-up/4411197) ([HVE on Microsoft Learn](https://learn.microsoft.com/en-us/exchange/mail-flow-best-practices/high-volume-mails-m365) - Public Preview).
 
 - **Limit action**, to restrict users from sending email who reach the message limit.
 

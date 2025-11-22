@@ -23,7 +23,7 @@ S/MIME can be used for:
 1. Encryption (Confidentiality):
 When a user sends an email using S/MIME, their email client encrypts the message using the recipient’s public key. Only the intended recipient, who possesses the corresponding private key, can decrypt and read the message. This ensures that the message content remains confidential, even if intercepted during transmission.
 
-1. Digital Signature (Authentication and Integrity):
+2. Digital Signature (Authentication and Integrity):
 S/MIME also enables users to digitally sign emails. The sender’s email client generates a digital signature using the sender’s private key. Upon receiving the message, the recipient’s email client uses the sender’s public key to verify the signature. A valid signature confirms that the message has not been altered (integrity) and authenticates the sender’s identity.
 
 By combining encryption and digital signatures, S/MIME ensures that email communications are secure, trustworthy, and resistant to tampering or impersonation.
