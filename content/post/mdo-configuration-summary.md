@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft Defender for Office 365: Configuration Summary '
+title: 'Microsoft Defender for Office 365: Configuration Summary'
 date: 2025-11-23T00:17:31+01:00
 draft: false
 categories: ["Microsoft Defender for Office 365"]
@@ -7,9 +7,9 @@ cover:
   image: /images/mdo-configuration-summary/mdo-configuration-summary-front.png
 ---
 
-In this post, I will explain how to configure Microsoft Defender for Office 365 in your tenant. Since I have already covered most of these settings in my earlier blogs, I thought it was time to combine all the information into one post. I will link to my previous articles, so you can use this post as a summary to help strengthen your Microsoft Defender for Office 365 configuration, `@` the speed of email!
+In this post, I will explain how to configure **Microsoft Defender for Office 365** in your tenant. Since I have already covered most of these settings in my earlier blogs, I thought it was time to combine all the information into one post. I will link to my previous articles, so you can use this post as a summary to help strengthen your Microsoft Defender for Office 365 configuration, `@` the speed of email!
 
-> **NOTE**: These recommendations mostly align with the strict recommendations of the Configuration Analyzer and the Microsoft Secure Score in XDR. 
+> **NOTE**: These recommendations mostly align with the ***strict*** recommendations of the **Configuration Analyzer** and the **Microsoft Secure Score** in XDR. 
 
 ## Configuration Checklist
 ### 1: Setup Preset Security Policies
@@ -32,7 +32,7 @@ Reference:
 - [Configuration in Microsoft Defender XDR](https://security.microsoft.com/presetSecurityPolicies)
 - [Policy settings in preset security policies](https://learn.microsoft.com/en-us/defender-office-365/preset-security-policies#policy-settings-in-preset-security-policies)
 
-### 3: Configure Exchange Online Protection Threat policies
+### 2: Configure Exchange Online Protection Threat policies
 - [Anti-spam policies](https://vand3rlinden.com/post/mdo-anti-spam-policies/)
     - Anti-spam policies give you control over both inbound and outbound email in Exchange Online. Within these policies, you can configure settings such as completely blocking automatic forwarding for outbound mail.
 - [Anti-malware policies](https://vand3rlinden.com/post/mdo-anti-malware-policies/)

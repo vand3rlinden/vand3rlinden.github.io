@@ -9,11 +9,11 @@
     <lastBuildDate>Sun, 23 Nov 2025 00:17:31 +0100</lastBuildDate>
     <atom:link href="https://vand3rlinden.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Microsoft Defender for Office 365: Configuration Summary </title>
+      <title>Microsoft Defender for Office 365: Configuration Summary</title>
       <link>https://vand3rlinden.com/post/mdo-configuration-summary/</link>
       <pubDate>Sun, 23 Nov 2025 00:17:31 +0100</pubDate>
       <guid>https://vand3rlinden.com/post/mdo-configuration-summary/</guid>
-      <description>&lt;p&gt;In this post, I will explain how to configure Microsoft Defender for Office 365 in your tenant. Since I have already covered most of these settings in my earlier blogs, I thought it was time to combine all the information into one post. I will link to my previous articles, so you can use this post as a summary to help strengthen your Microsoft Defender for Office 365 configuration, &lt;code&gt;@&lt;/code&gt; the speed of email!&lt;/p&gt;</description>
+      <description>&lt;p&gt;In this post, I will explain how to configure &lt;strong&gt;Microsoft Defender for Office 365&lt;/strong&gt; in your tenant. Since I have already covered most of these settings in my earlier blogs, I thought it was time to combine all the information into one post. I will link to my previous articles, so you can use this post as a summary to help strengthen your Microsoft Defender for Office 365 configuration, &lt;code&gt;@&lt;/code&gt; the speed of email!&lt;/p&gt;</description>
     </item>
     <item>
       <title>Exchange Online: Reject Direct Send</title>
