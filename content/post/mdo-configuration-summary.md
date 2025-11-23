@@ -15,6 +15,8 @@ In this post, I will explain how to configure **Microsoft Defender for Office 36
 ### 1: Setup Preset Security Policies
 If your organization does not have the budget or time, Preset Security Policies ensure you can maintain a balance between keeping harmful content away from users and avoiding unnecessary disruptions. These policies can be configured within five minutes with just a few clicks. Unlike custom policies, which are highly configurable, most settings in Preset Security Policies cannot be modified.
 
+> **NOTE**: If you choose to use Preset Security Policies; you can skip to **Step 5** of this check list.
+
 The following Preset Security Policies are available:
 
 Standard Preset Security Policy - A baseline protection profile that provides:
@@ -48,7 +50,7 @@ Reference:
 	
 ### 4: Use custom release request quarantine policies (instead of self-release)
 - [Quarantine policies](https://vand3rlinden.com/post/mdo-quarantine-policies/)
-	- If you are not using Preset Policies, you can create a quarantine policy to customize the user experience for quarantined messages. Quarantine policies give you more control over the quarantine for your end users and allow you to decide which quarantined items they are allowed to release.
+	- If you are **not** using Preset Security Policies, you can create a quarantine policy to customize the user experience for quarantined messages. Quarantine policies give you more control over the quarantine for your end users and allow you to decide which quarantined items they are allowed to release.
 
 ### 5: Hardening Microsoft Defender for Office 365's DKIM and DMARC configuration
 - [Hardening DKIM and DMARC configuration](https://vand3rlinden.com/post/mdo-hardening-dkim-dmarc-config/)
