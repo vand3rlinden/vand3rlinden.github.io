@@ -85,7 +85,3 @@ Reference:
 		
 ## Final words
 Since email security is still one of the main attack vectors used by malicious actors, you should not underestimate the importance of a strong Microsoft Defender for Office 365 setup, or any email security solution (Secure Email Gateway). If you have serious concerns about email privacy, you may also want to consider signing and encrypting your or the messages of your key users using [PGP](https://vand3rlinden.com/post/pgp-secure-email-communication/) or [S/MIME](https://vand3rlinden.com/post/s-mime-enhancing-email-security/). These methods ensure that your messages remain private and protected from unwanted access by big tech providers (even if you send them through Microsoft 365) or governments.
-	
-
-
-	
