@@ -63,7 +63,7 @@ Reference:
 ### 7: DNS configuration
 - **Inbound email**:
     - [MTA-STS Policy](https://vand3rlinden.com/post/mta-sts-explained/)
-		- MTA-STS is a security mechanism that allows the sending (outbound) mail server to enforce the use of HTTPS secured policies published by in your DNS. This ensures that TLS connections between the sending mail server and your mail server are both encrypted and valid.
+		- MTA-STS is a security mechanism that allows the sending (outbound) mail server to enforce the use of HTTPS secured policies published in your DNS. This ensures that TLS connections between the sending mail server and your mail server are both encrypted and valid.
 	- [Configure inbound SMTP DANE with DNSSEC in Exchange Online](https://vand3rlinden.com/post/exo-inbound-smtp-dane-dnssec/)
 		- SMTP DANE is a security mechanism that uses DNSSEC to allow the sending mail server to verify the TLS certificate of your mail server.
 	
@@ -84,4 +84,4 @@ Reference:
     - To understand why your environment experiences **false positives** and **false negatives**, you first need to know how Microsoft 365 processes inbound email and how to correctly use submissions and the Tenant Allow/Block List.
 		
 ## Final words
-Since email security is still one of the main attack vectors used by malicious actors, you should not underestimate the importance of a strong Microsoft Defender for Office 365 setup, or any email security solution (Secure Email Gateway). If you have serious concerns about email privacy, you may also want to consider signing and encrypting your or the messages of your key users using [PGP](https://vand3rlinden.com/post/pgp-secure-email-communication/) or [S/MIME](https://vand3rlinden.com/post/s-mime-enhancing-email-security/). These methods ensure that your messages remain private and protected from unwanted access by big tech providers (even if you send them through Microsoft 365) or governments.
+Since email security is still one of the main attack vectors used by malicious actors, you should not underestimate the importance of a strong Microsoft Defender for Office 365 setup, or any email security solution. If you have serious concerns about email privacy, you may also want to consider signing and encrypting your or the messages of your key users using [PGP](https://vand3rlinden.com/post/pgp-secure-email-communication/) or [S/MIME](https://vand3rlinden.com/post/s-mime-enhancing-email-security/). These methods ensure that your messages remain private and protected from unwanted access by big tech providers (even if you send them through Microsoft 365) or governments.
