@@ -67,7 +67,7 @@ Reference:
 	- [Configure inbound SMTP DANE with DNSSEC in Exchange Online](https://vand3rlinden.com/post/exo-inbound-smtp-dane-dnssec/)
 		- SMTP DANE is a security mechanism that uses DNSSEC to allow the sending mail server to verify the TLS certificate of your mail server.
 	
-> **NOTE**: Neither SMTP DANE nor MTA-STS is universally **better**; the choice depends on the specific context and needs of the organization. SMTP DANE provides stronger security, but requires DNSSEC, and not every DNS provider supports DNSSEC yet. Using the two together can provide the best of both worlds, increasing security through a layered approach.
+> **NOTE**: Neither SMTP DANE nor MTA-STS is universally **better**. SMTP DANE provides stronger security, but requires DNSSEC, and not every DNS provider supports DNSSEC yet. MTA-STS is easier to implement and provides good security through HTTPS and DNS. Using the two together can provide the best of both worlds, increasing security through a layered approach.
 	
 - **Outbound email**:
 	- [Deploy SPF, DKIM, and DMARC the right way](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/)

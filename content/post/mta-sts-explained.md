@@ -61,6 +61,7 @@ mx: mail.example.com
 mx: secondmx.example.com
 max_age: 604800
 ```
+> **NOTE**: To find your MX record(s), you can check your public DNS or use a tool like dig, and run: `dig example.com MX +short`
 
 4. Activating [GitHub Pages for the subdomain](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain): `mta-sts`
 
@@ -85,6 +86,7 @@ Example:
 - `mode: enforce`: Specifies that the policy should be strictly enforced. Other modes are `testing` (send report only) and `none` (do nothing).
 - `mx`: Lists each of the MX servers that handle email for your domain. If needed, wildcards are allowd, such as `*.j-v1.mx.microsoft`
 - `max_age: 604800`: Specifies the duration (in seconds) that the policy is valid. After this time, the sending MTA should refresh the policy.
+  - The time (in seconds) that a sending MTA is allowed to cache the policy. The minimum recommended value is 1 week (604800 seconds).
 
 In the `mta-sts.txt` file, you should list all MX servers that are used for receiving emails for your domain and that support TLS. This ensures that sending MTAs know which servers to establish secure connections with when delivering emails to your domain.
 
@@ -113,9 +115,10 @@ The reports are received in `.json`, you can look for the `summary` tag to check
 ```
 
 ## MTA-STS vs. SMTP DANE
-Neither SMTP DANE nor MTA-STS is universally "better"; the choice depends on the specific context and needs of the organization. SMTP DANE provides stronger security, but requires DNSSEC, and not every DNS provider supports DNSSEC yet. MTA-STS, on the other hand, is easier to implement and provides good security through HTTPS and DNS. Using the two together can provide the best of both worlds, increasing security through a layered approach.
+Neither SMTP DANE nor MTA-STS is universally **better**. SMTP DANE provides stronger security, but requires DNSSEC, and not every DNS provider supports DNSSEC yet. MTA-STS is easier to implement and provides good security through HTTPS and DNS. Using the two together can provide the best of both worlds, increasing security through a layered approach.
 
 ## Reference
+- [MTA-STS](https://www.mailhardener.com/kb/mta-sts)
 - [MTA-STS validator](https://www.mailhardener.com/tools/mta-sts-validator)
 - [TLS-RPT Record Checker](https://easydmarc.com/tools/tls-rpt-check)
 - [MTA-STS is defined in RFC8461](https://datatracker.ietf.org/doc/html/rfc8461)

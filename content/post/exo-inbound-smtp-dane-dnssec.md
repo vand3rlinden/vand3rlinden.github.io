@@ -124,13 +124,14 @@ The `TLSA` records are listed in: `_25._tcp.yourdomain-com.<random>.mx.microsoft
 ## Rollback the change
 Since we carefully added the DNSSEC-signed MX record `mx.microsoft` alongside the existing `mail.protection.outlook.com` MX record, you can safely make this change without worrying about inbound email interruption. If something does go wrong, the change can be rolled back by doing the following:
 
-1. Disable SMTP DANE: `Disable-SmtpDaneInbound -DomainName yourdomain.com` 
-2. Create a new MX record in your public DNS with the following hostname value and set the priority to 20: `yourdomain-com.mail.protection.outlook.com`
-3. Make sure the MX record you created in step 2 is working by using the [Microsoft Remote Connectivity Analyzer](https://testconnectivity.microsoft.com/tests/O365InboundSmtp/input)
-4. If mail flow works with the `mail.protection.outlook.com` MX record, run the following command: `Disable-DnssecForVerifiedDomain -DomainName yourdomain.com`
-5. Delete the DNSSEC MX record in your public DNS: `yourdomain-com.<random>.mx.microsoft`
-6. Make sure the MX record you created in step 2 is the only MX record, and that it's set to priority 0 (highest priority)
-7. Confirm that the MX record matches the value in the Microsoft 365 Admin Center -> Settings -> Domains (first, select the domain, then, select the DNS records)
+1. Disable SMTP DANE: `Disable-SmtpDaneInbound -DomainName yourdomain.com`
+2. Run: `Get-MxRecordReport -Domain yourdomain.com` to get your current MX record.
+3. Create a new MX record in your public DNS with the following hostname value and set the priority to `20`: `20 yourdomain-com.mail.protection.outlook.com`
+4. Make sure the MX record you created in step 2 is working by using the [Microsoft Remote Connectivity Analyzer](https://testconnectivity.microsoft.com/tests/O365InboundSmtp/input)
+5. If mail flow works with the `mail.protection.outlook.com` MX record, run the following command: `Disable-DnssecForVerifiedDomain -DomainName yourdomain.com`
+6. Delete the DNSSEC MX record in your public DNS: `0 yourdomain-com.<random>.mx.microsoft`
+7. Make sure the MX record you created in step 2 is the only MX record, and that it's set to priority `0` (highest priority)
+8. Confirm that the MX record matches the value in the Microsoft 365 Admin Center -> Settings -> Domains (first, select the domain, then, select the DNS records)
 
 ## Activate TLS Reporting (TLSRPT)
 TLS Reporting (TLSRPT) is a standard that provides a way to report when the TLS connection could not be established during email transmission.
@@ -150,6 +151,9 @@ The reports are received in `.json`, you can look for the `summary` tag to check
 ```
 "summary":{"total-successful-session-count":1,"total-failure-session-count":0}
 ```
+
+## MTA-STS vs. SMTP DANE
+Neither SMTP DANE nor [MTA-STS](https://vand3rlinden.com/post/mta-sts-explained/) is universally **better**. SMTP DANE provides stronger security, but requires DNSSEC, and not every DNS provider supports DNSSEC yet. MTA-STS is easier to implement and provides good security through HTTPS and DNS. Using the two together can provide the best of both worlds, increasing security through a layered approach.
 
 ## Reference
 - [Announcing General Availability of Inbound SMTP DANE with DNSSEC for Exchange Online](https://techcommunity.microsoft.com/blog/exchange/announcing-general-availability-of-inbound-smtp-dane-with-dnssec-for-exchange-on/4281292)
