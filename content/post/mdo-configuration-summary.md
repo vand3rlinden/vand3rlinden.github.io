@@ -49,13 +49,15 @@ Reference:
 	- Safe Links scans URLs in incoming messages and checks them for malicious content at the time they are clicked. Safe Links protection works in Email/Outlook, Microsoft Teams, and Office apps.
 
 ### 4: Using Custom VS. The Default Always On Policies
-The threat policies **Anti-phishing**, **Anti-spam**, and **Anti-malware** comes with default **Always On** policies. These policies are automatically used for every recipient domain in your tenant. You can change the settings of these **Always On** policies, for example by using the **strict** or **standard** recommendations from the **Configuration Analyzer**.
+The threat policies **Anti-phishing**, **Anti-spam**, and **Anti-malware** comes with default **Always On policies**. These policies are automatically used for every recipient domain in your tenant. You can change the settings of these **Always On policies**, for example by using the **strict** or **standard** recommendations from the **Configuration Analyzer**.
 
-I often see many new **Custom Default** policies created, that are set for all recipient domains. This is not a good practice. It is better to use and adjust the built-in **Always On** policies, because they automatically apply to all recipient domains. It becomes a problem when an IT admin adds a new recipient domain but forgets to update the custom threat policies. Users in the new recipient domain may then have weaker protection, which creates a security gap.
+I often see many new **Custom Default policies** created, that are set for all recipient domains. This is not a good practice. It is better to use and adjust the built-in **Always On policies**, because they automatically apply to all recipient domains. It becomes a problem when an IT admin adds a new recipient domain but forgets to update the custom threat policies. Users in the new recipient domain may then have weaker protection, which creates a security gap.
 
-I am not saying you should never use custom threat policies. For example, you can set the **Always On** policies to the **standard** recommendations, and then create a custom policy with **strict** recommendations for your key users, or users that are allowed to forward in a **Custom Outbound Anti-spam policy**.
+I am not saying you should never use custom threat policies. For example, you can set the **Always On policies** to the **standard** recommendations, and then create a custom policy with **strict** recommendations for your key users, or users that are allowed to forward in a **Custom Outbound Anti-spam policy**.
 
-The above recommandation is not for **Safe Attachments** and **Safe Links** policies, because there is **not** an **Always On** default policy you can adjust _(only the built-in protection preset security policy)_. However, in these cases you should create a **Custom Default** policy based on the **strict** or **standard** recommendations from the **Configuration Analyzer**, and make sure all recipient domains are **always** included.
+The above recommandation is not for **Safe Attachments** and **Safe Links** policies, because there is **not** an **Always On default policy** you can adjust _(only the built-in protection preset security policy)_. However, in these cases you should create a **Custom policy** based on the **strict** or **standard** recommendations from the **Configuration Analyzer**, and make sure all recipient domains are **always** included.
+
+> Recommended name convention for **Custom policies**: `<TENANTNAME> - <PURPOSE> - <POLICY>` (e.g., `TENANTNAME - Strict - Anti-Phishing policy`, `TENANTNAME - Allow Forward - Outbound Anti-spam policy`)
 	
 ### 5: Use custom release request quarantine policies (instead of self-release)
 - [Quarantine policies](https://vand3rlinden.com/post/mdo-quarantine-policies/)
