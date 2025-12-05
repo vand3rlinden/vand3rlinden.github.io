@@ -55,7 +55,7 @@ I often see many new **Custom Default policies** created, that are set for all r
 
 I am not saying you should never use custom threat policies. For example, you can set the **Always On policies** to the **standard** recommendations, and then create a custom policy with **strict** recommendations for your key users, or users that are allowed to forward in a **Custom Outbound Anti-spam policy**.
 
-The above recommandation is not for **Safe Attachments** and **Safe Links** policies, because there is **not** an **Always On default policy** you can adjust _(only the built-in protection preset security policy)_. However, in these cases you should create a **Custom policy** based on the **strict** or **standard** recommendations from the **Configuration Analyzer**, and make sure all recipient domains are **always** included.
+The above recommandation is not for **Safe Attachments** and **Safe Links** policies, because there is **not** an **Always On default policy** you can adjust _(only the built-in protection preset security policy is available, and it cannot be adjusted)_. However, for these policies you can create a **Custom policy** based on the **standard** or **strict** recommendations, and make sure all recipient domains are **always** included.
 
 > Recommended name convention for **Custom policies**: `<TENANTNAME> - <PURPOSE> - <POLICY>` (e.g., `TENANTNAME - Strict - Anti-Phishing policy`, `TENANTNAME - Allow Forward - Outbound Anti-spam policy`)
 	
@@ -96,3 +96,7 @@ The above recommandation is not for **Safe Attachments** and **Safe Links** poli
 		
 ## Final words
 Since email security is still one of the main attack vectors used by malicious actors, you should not underestimate the importance of a strong Microsoft Defender for Office 365 setup, or any email security solution. If you have serious concerns about email privacy, you may also want to consider signing and encrypting your or the messages of your key users using [PGP](https://vand3rlinden.com/post/pgp-secure-email-communication/) or [S/MIME](https://vand3rlinden.com/post/s-mime-enhancing-email-security/). These methods ensure that your messages remain private and protected from unwanted access by big tech providers (even if you send them through Microsoft 365) or governments.
+
+
+## Resources
+- [Recommended email and collaboration threat policy settings](https://learn.microsoft.com/en-us/defender-office-365/recommended-settings-for-eop-and-office365)
