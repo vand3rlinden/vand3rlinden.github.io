@@ -53,7 +53,7 @@ The threat policies **Anti-phishing**, **Anti-spam**, and **Anti-malware** comes
 
 I often see many new **Custom Default** policies created, that are set for all recipient domains. This is not a good practice. It is better to use and adjust the built-in **Always On** policies, because they automatically apply to all recipient domains. It becomes a problem when an IT admin adds a new recipient domain but forgets to update the custom threat policies. Users in the new recipient domain may then have weaker protection, which creates a security gap.
 
-I am not saying you should never use custom threat policies. For example, you can set the **Always On** policies to the **standard** recommendations, and then create a custom policy with **strict** recommendations for your key users, or users that are allowed to forward in your **Outbound Anti-spam policy**.
+I am not saying you should never use custom threat policies. For example, you can set the **Always On** policies to the **standard** recommendations, and then create a custom policy with **strict** recommendations for your key users, or users that are allowed to forward in a **Custom Outbound Anti-spam policy**.
 
 The above recommandation is not for **Safe Attachments** and **Safe Links** policies, because there is **not** an **Always On** default policy you can adjust _(only the built-in protection preset security policy)_. However, in these cases you should create a **Custom Default** policy based on the **strict** or **standard** recommendations from the **Configuration Analyzer**, and make sure all recipient domains are **always** included.
 	
