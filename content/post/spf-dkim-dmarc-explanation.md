@@ -133,8 +133,8 @@ You can configure DKIM with a `TXT` record in your DNS zone for your sending mai
 
 How you set up DKIM depends on your sending server or mail provider. For example, configuring DKIM for [Salesforce](https://help.salesforce.com/s/articleView?id=sales.emailadmin_create_secure_dkim.htm) differs from [Exchange Online](https://learn.microsoft.com/en-us/defender-office-365/email-authentication-dkim-configure) in Microsoft Defender for Office 365. If you’re managing your own mail server and using MTAs like Sendmail or Postfix, you can implement DKIM using tools such as [OpenDKIM](http://www.opendkim.org/).
 
-### DKIM key rotation
-You must implement DKIM key rotation for each sending server or mail provider to prevent adversaries from intercepting and decrypting your DKIM keys. DKIM Key rotation helps to minimize the risk of having a private key compromised.
+### DKIM key rotation procedure
+It is important to change your DKIM keys regularly for each sending server or mail provider to prevent adversaries from intercepting and decrypting your DKIM keys. DKIM Key rotation helps to minimize the risk of having a private key compromised.
 
 - Recurring: Every six months for a 2048-bit DKIM key.
 - The DKIM key length must be at least 2048-bits.
