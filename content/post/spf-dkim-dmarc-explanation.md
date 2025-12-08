@@ -133,10 +133,26 @@ You can configure DKIM with a `TXT` record in your DNS zone for your sending mai
 
 How you set up DKIM depends on your sending server or mail provider. For example, configuring DKIM for [Salesforce](https://help.salesforce.com/s/articleView?id=sales.emailadmin_create_secure_dkim.htm) differs from [Exchange Online](https://learn.microsoft.com/en-us/defender-office-365/email-authentication-dkim-configure) in Microsoft Defender for Office 365. If you’re managing your own mail server and using MTAs like Sendmail or Postfix, you can implement DKIM using tools such as [OpenDKIM](http://www.opendkim.org/).
 
-### DKIM recommendations
-- You must implement DKIM key rotation for each sending server or mail provider to prevent adversaries from intercepting and decrypting your DKIM keys. DKIM Key rotation helps to minimize the risk of having a private key compromised.
-  - Recurring: Every six months for a 2048-bit DKIM key.
-- The DKIM key length must be at least 2048-bits. 
+### DKIM key rotation
+You must implement DKIM key rotation for each sending server or mail provider to prevent adversaries from intercepting and decrypting your DKIM keys. DKIM Key rotation helps to minimize the risk of having a private key compromised.
+
+- Recurring: Every six months for a 2048-bit DKIM key.
+- The DKIM key length must be at least 2048-bits.
+
+### DKIM key revoke procedure
+When you stop using a DKIM key to sign your emails, it is important to keep the published DKIM key active for a period of time (usually 1 or 2 weeks)  before removing it from your DNS. This is known to as a cooldown period, designed to ensure that emails previously signed with the DKIM key continue to be successfully validated, even after the key is removed.
+
+>**IMPORTANT**: If there is an indication that your DKIM key has been compromised, you should revoke the key immediately.
+
+After the cooldown period (or if no cooldown period is used), it is recommended to update the DNS record with a **revoked** value for the `p=` value, such as: `v=DKIM1; p=;` This prevents receivers from using any cached values of the revoked key.
+
+An alternative solution is to use an unassociated wildcard DKIM key record:
+
+- Name: `*._domainkey`
+- Content: `v=DKIM1; p=`
+- Type: `TXT`
+
+This helps prevent the multiple revoked keys in your public DNS. My recommendation would be to set up this unassociated wildcard DKIM key, rather than having a bunch of revoked keys floating around.
 
 ## DMARC
 ### What is DMARC
@@ -262,7 +278,7 @@ To protect all non-sending domains, you should consider:
   - Name: `_dmarc` 
   - Content: `v=DMARC1; p=reject;`
   - Type: `TXT`
-- An ***unassociated public key as a DKIM wildcard*** record:
+- An ***unassociated wildcard DKIM*** record:
   - Name: `*._domainkey`
   - Content: `v=DKIM1; p=`
   - Type: `TXT`
