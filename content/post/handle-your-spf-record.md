@@ -59,6 +59,8 @@ Imagine your organization has an SPF record on `yourdomain.com` with 9 of the 10
 v=spf1 ip4:11.222.33.444 ip4:44.33.222.111 ip4:22.33.444.555 ip4:55.66.777.8 ip4:88.99.999.99 ip4:99.88.777.66 mx include:spf.protection.outlook.com include:_spf.salesforce.com include:mail.zendesk.com include:_spf.app1.com include:_spf.app2.com ~all
 ```
 
+> **NOTE**: IP addresses do not consume any DNS lookups and therefore they do not require DNS resolution (translating friendly domain names into IP addresses).
+
 Calculation of DNS lookups:
 
 | DNS Lookup                           | Count          |
@@ -99,9 +101,9 @@ If you look at the example above, we have ***2 DNS lookups*** left after cutting
 We successfully reduced the SPF record from ***9 DNS lookups*** to ***2 DNS lookups***, great job!
 
 Now, regarding IP addresses in the SPF record:
-IP addresses themselves do not consume any DNS lookups, as no DNS resolution is required. However, including many IPs can make your SPF record lengthy and difficult to manage.
+IP addresses do not consume any DNS lookups and therefore they do not require DNS resolution. However, including many IPs can make your SPF record lengthy and difficult to manage.
 
-It is important to document each IP address and understand its origin. If you need to include many IPs (as discussed in this blog), consider offloading them to a separate include (e.g., `include:_spf.yourdomain.com`). This approach only costs ***1 DNS lookup*** and helps keep your main SPF record more manageable.
+It is important to document each IP address and understand its origin. If you need to include many IPs (as discussed in this blog), consider offloading them to a separate include (e.g., `include:_spf.yourdomain.com`). This approach costs ***1 DNS lookup*** and helps keep your main SPF record more manageable.
 
 > **NOTE**: If you only have a small number of IP addresses to list, such as two or three, it is not strictly necessary to place them in a separate include. You can let them stay into your main SPF record. However, it is important to place the `ip4` mechanism always immediately after the `v=spf1` tag. While this approach is not technically required, it is considered a best practice because it improves SPF efficiency by enabling faster DNS evaluation of straightforward matches before more resource intensive mechanisms are processed.
 

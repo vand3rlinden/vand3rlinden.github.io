@@ -57,7 +57,7 @@ The SPF record will vary for each domain; therefore, it is important to understa
 > **CAUTION**: You should take [steps](https://vand3rlinden.com/post/handle-your-spf-record/) to stay well under 10 DNS lookups. Because if a vendor decides to add another DNS lookup within its SPF include (child lookup). Your SPF record will become inaccurate because it has reached the DNS lookup limit, which may result in email delivery problems.
 
 ### Tips to avoid reaching the 10 DNS lookups limit
-- Flatten your SPF record.
+- Flatten your SPF record, as IP addresses do not consume any DNS lookups and therefore they do not require DNS resolution (translating friendly domain names into IP addresses).
     - Example: `v=spf1 include:spf.domain.com ~all` can be `v=spf1 ip4:11.222.33.444 ip4:11.222.33.444 ~all`
 
 > **Not recommended**: The [problem with flattening](https://vand3rlinden.com/post/handle-your-spf-record/#the-dangers-of-spf-flattening) is that email service providers can change or add IP addresses without telling you. Then your SPF record will be inaccurate, leading to email delivery problems.
