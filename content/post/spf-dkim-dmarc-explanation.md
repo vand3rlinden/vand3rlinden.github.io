@@ -182,14 +182,7 @@ RUA report example in `.xml`:
 
 ![IMAGE](/images/spf-dkim-dmarc-explanation/dmarc-xml.png)
 
-2. Using DMARC monitoring tools allows you to convert `RUA` reports into clear visual dashboards, providing more actionable insights than raw IP address data alone. Most tools can associate sending IP addresses with known email providers, such as Microsoft 365 or Salesforce. One example of such a tool is [Valimail](https://www.valimail.com/blog/office-365-free-dmarc-monitoring/) (free for Microsoft 365 users with an Exchange Online plan). 
-   - For personal use, you can use [Mailhardener’s free version](https://www.mailhardener.com/pricing), which supports one domain and offers one month of data retention. Mailhardener also offers good value for corporate use. While it’s not free, it supports hosting BIMI assets and MTA-STS policies, and includes SSO integration with Entra ID.
-
-Overview of the Valimail Dashboard:
-
-![IMAGE](/images/spf-dkim-dmarc-explanation/valimail-monitor.png)
-
-> To sign up for a free Valimail environment, click [here](https://www.valimail.com/sign-up-ms-blog/). Once the setup is complete, you can sign in at [app.valimail.com](https://app.valimail.com/). After logging in, you can proceed to integrate [Microsoft Entra ID SSO with Valimail](https://support.valimail.com/en/articles/8466393-tutorial-how-to-integrate-microsoft-entra-id-sso-with-valimail).
+2. Using DMARC monitoring tools allows you to convert `RUA` reports into clear visual dashboards, providing more actionable insights than raw IP address data alone. Most tools can associate sending IP addresses with known email providers, such as Microsoft 365 or Salesforce. One example of such a tool is [Valimail](https://www.valimail.com/blog/office-365-free-dmarc-monitoring/) ([free for Microsoft 365 users](https://www.valimail.com/sign-up-ms-blog/) with an Exchange Online plan). Personally, I prefer [Mailhardener](https://www.mailhardener.com), which is [not free](https://www.mailhardener.com/pricing) for corporate use, but it supports hosting BIMI assets and MTA-STS policies. Both Valimail and Mailhardener can be integrated with Microsoft Entra ID through SSO.
 
 For heavy mail domains, I recommended monitoring the domain for at least three months with the DMARC policy set to `none`:
 
