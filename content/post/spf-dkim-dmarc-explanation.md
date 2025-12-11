@@ -182,7 +182,7 @@ RUA report example in `.xml`:
 
 ![IMAGE](/images/spf-dkim-dmarc-explanation/dmarc-xml.png)
 
-2. Using DMARC monitoring tools allows you to convert `RUA` reports into clear visual dashboards, providing more actionable insights than raw IP address data alone. Most tools can associate sending IP addresses with known email providers, such as Microsoft 365 or Salesforce. One example of such a tool is [Valimail](https://www.valimail.com/blog/office-365-free-dmarc-monitoring/) ([free for Microsoft 365 users](https://www.valimail.com/sign-up-ms-blog/) with an Exchange Online plan). Personally, I prefer [Mailhardener](https://www.mailhardener.com), which is [not free](https://www.mailhardener.com/pricing) for corporate use, but it supports hosting BIMI assets and MTA-STS policies. Both Valimail and Mailhardener can be integrated with Microsoft Entra ID through SSO.
+2. Using DMARC monitoring tools allows you to convert `RUA` reports into clear visual dashboards, providing more actionable insights than raw IP address data alone. Most tools can associate sending IP addresses with known email providers, such as Microsoft 365 or Salesforce. An example of such a tool is [Valimail](https://www.valimail.com/blog/office-365-free-dmarc-monitoring/) ([free for Microsoft 365 users](https://www.valimail.com/sign-up-ms-blog/) with an Exchange Online plan). Personally, I do prefer [Mailhardener](https://www.mailhardener.com), which is [not free](https://www.mailhardener.com/pricing) for corporate use, but it supports hosting BIMI assets and MTA-STS policies. Both Valimail and Mailhardener can be integrated with Microsoft Entra ID through SSO.
 
 For heavy mail domains, I recommended monitoring the domain for at least three months with the DMARC policy set to `none`:
 
