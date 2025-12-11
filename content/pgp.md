@@ -19,7 +19,7 @@ If you do like to communicate securely, please use my public keys below.
 - PGP fingerprint for my security address: `gpg --fingerprint D8B80874001A39C573C4BC3F7A3694918FF5706D`
 
 ### PGP Public Keys
-I run a WKD to publish my public keys. To locate them, you can run, for example: `gpg --locate-keys security@vand3rlinden.com` (also published at `keys.openpgp.org`)
+I run a [WKD](https://vand3rlinden.com/post/pgp-secure-email-communication/#option-1-setting-up-a-pgp-web-key-directory-wkd) to publish my public keys. To locate them, you can run, for example: `gpg --locate-keys security@vand3rlinden.com` (also published at `keys.openpgp.org`)
 
 ## PGP Tooling
 I use the command-line tool [GnuPG](https://www.gnupg.org/), also known as GPG, which is the most widely adopted utility for generating and managing PGP keys. To streamline tasks like encryption, decryption, signing, and signature verification, I have developed a bash script that works seamlessly if **GnuPG** is installed on your system, available for [download](https://github.com/vand3rlinden/Bash/blob/main/pgp-buddy/pgp_tool.sh) on my GitHub repository.

@@ -82,7 +82,7 @@ Others will need your public key to verify your digital signature and/or to send
 
 - Export Public key:
 ```
-gpg --armor --export your_email@example.com > pgp-publickey.asc
+gpg --armor --export your_email@anddomain.com > pgp-publickey.asc
 ```
 
 ### 4. Encrypt a message
@@ -151,20 +151,18 @@ If you want to use PGP, it is a good idea to publish your public key in a WKD. I
 If someone want to send you a PGP encrypted email using a mail client that supports WKD, the MUA checks whether your domain has WKD enabled. If it finds your PGP public key, the key is automatically added to the keyring of the sender. This lets the sender encrypt their message to you with your PGP publickey and send it securely, without extra steps. It also makes it much easier for the sender to find your public key by using GnuPG with the command: `gpg --locate-keys [email]`
 
 #### Advanced vs. Direct setup implementation
-There are two ways to implement an WKD. The first is the **advanced** method, which is harder to set up and requires a CA-signed and trusted certificate for the openpgpkey sub-domain. The **direct** method requires no additional DNS entries.
-
 There are two ways to set up a WKD:
 - The first is the **advanced method**, this option is more difficult to configure and needs a CA-signed, trusted certificate for the `openpgpkey` subdomain:
-  - Advanced Implementation: `https://openpgpkey.example.org/.well-known/openpgpkey/example.org/`
+  - Advanced Implementation: `https://openpgpkey.domain.com/.well-known/openpgpkey/domain.com/`
 - The second is the **direct method**, this one is easier because it does not need any extra DNS records:
-  - Direct Implementation: `https://example.org/.well-known/openpgpkey/`
+  - Direct Implementation: `https://domain.com/.well-known/openpgpkey/`
 
-#### Direct Implementation
-1. If you are going to implement the direct method, create the following folder structure on your webserver inside the `.well-known` folder: `https://example.org/.well-known/openpgpkey/hu/`
-2. After you have created the folder, **add an empty** `policy` file to let clients know that you have set up the WKD service: `https://example.org/.well-known/openpgpkey/policy`
+##### Direct Implementation
+1. If you are going to implement the direct method, create the following folder structure on your webserver inside the `.well-known` folder: `https://domain.com/.well-known/openpgpkey/hu/`
+2. After you have created the folder, **add an empty** `policy` file to let clients know that you have set up the WKD service: `https://domain.com/.well-known/openpgpkey/policy`
 3. Get hashed uid: `gpg --with-wkd-hash --fingerprint [email]or[fingerprint]`
 4. Export hased uid: `gpg --export --no-armor [email]or[fingerprint] > [hasehd-uid]`
-5. Move the created file to the `/hu/` folder and check whether the file is downloadable using the example link below: `https://example.org/.well-known/openpgpkey/hu/hacabazoakmnagxwmkjerb9yehuwehbm`
+5. Move the created file to the `/hu/` folder and check whether the file is downloadable using the example link below: `https://domain.com/.well-known/openpgpkey/hu/hacabazoakmnagxwmkjerb9yehuwehbm`
 6. Test your WKD: `gpg --auto-key-locate clear,nodefault,wkd --locate-external-keys [email]`
 7. Test your WKD with online checkers: https://miarecki.eu/tools/wkd-checker/, https://www.webkeydirectory.com/
 8. Locate a WKD key: `gpg --locate-keys [email]`
