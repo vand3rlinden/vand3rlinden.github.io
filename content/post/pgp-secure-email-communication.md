@@ -44,7 +44,7 @@ PGP provides confidentiality, integrity, authentication, and non-repudiation (of
 4. **Establish digital identity**: Your public PGP key serves as a unique digital signature tied to your identity. As more people verify and associate your key with you, it becomes increasingly difficult for impersonators to send fake emails in your name. As I explained in my [earlier blog](https://vand3rlinden.com/post/s-mime-enhancing-email-security/#smime-vs-outbound-email-authentication) on S/MIME, particularly in the context of outbound email authentication, consistently signing your messages helps establish trust. If a message suddenly lacks your usual signature, the recipient may see it as a red flag and choose to ignore it, even if it passes outbound authentication for the sending domain.
 
 ## Setting up secure email communication with OpenPGP
-OpenPGP is the most widely used standard for email encryption. There are [many tools](https://www.openpgp.org/software/) and user-friendly applications that support it, such as [GPG Suite](https://gpgtools.org/) and various email plugins. In this blog, we will use the command-line tool [GnuPG (GNU Privacy Guard)](https://www.gnupg.org/), commonly known as GPG, which is the most widely used utility for generating and managing PGP keys.
+OpenPGP is the most widely used standard for email encryption. There are [many tools](https://www.openpgp.org/software/) and user-friendly applications that support it, such as [GPG Suite](https://gpgtools.org/) and various email plugins (e.g., [Mailvelope](https://mailvelope.com)). In this blog, we will use the command-line tool [GnuPG (GNU Privacy Guard)](https://www.gnupg.org/), commonly known as GPG, which is the most widely used utility for generating and managing PGP keys.
 
 **Let's begin**:
 
@@ -153,15 +153,15 @@ This is the decrypted message content.
 While it is a good practice to become familiar with `gpg` commands, I have developed a bash script that streamlines **PGP/Inline** encryption, decryption, signing, and signature verification. It works seamlessly as long as **GnuPG** is installed on your system, available here on my [GitHub repository](https://github.com/vand3rlinden/Bash/blob/main/pgp-buddy/pgp_tool.sh). I have also created a separate bash script for managing PGP keys, including key generation, import, and export. You can download it from the [same repository here](https://github.com/vand3rlinden/Bash/blob/main/pgp-buddy/pgp_key_tool.sh).
 
 ### Option 2: Using an MUA with PGP functionality (PGP/MIME)
-The [Thunderbird](https://www.thunderbird.net/) MUA offers an integrated **PGP/MIME** solution, which simplifies the use of signing, encrypting, and decrypting. It also provides the option to publish (through `keys.openpgp.org`) and search for available PGP public keys for encryption via your WKD or `keys.openpgp.org`.
+The [Thunderbird](https://www.thunderbird.net/) MUA offers an integrated **PGP/MIME** only solution, which simplifies the use of signing, encrypting, and decrypting. It also provides the option to publish (through `keys.openpgp.org`) and search for available PGP public keys for encryption via your WKD or `keys.openpgp.org`.
 
 ### PGP/MIME vs. PGP/Inline
 There are different formats for applying PGP, **PGP/MIME** and **PGP/Inline**:
 
-- **PGP/MIME** (preferred standard, compatible with HTML) encrypts and sign the entire message, including attachments and the subject (and all associated metadata)
+- **PGP/MIME** (preferred standard, compatible with HTML) encrypts and sign the entire message, including attachments and all associated metadata (e.g., subject lines, headers and recipients)
 - **PGP/Inline** (primarily legacy method) encrypts and signs only the plain-text body, attachments can be encrypted separately as `.gpg` files
 
-> **NOTE**: You can use **PGP/Inline** in any text-to-text service (e.g., Email clients, WhatsApp, Signal) by copying and pasting the signed and encrypted messages as plain text, if **PGP/MIME** is not supported, such as in Thunderbird.
+> **NOTE**: You can use **PGP/Inline** in any text-to-text service (e.g., Email clients/providers, WhatsApp, Signal) by copying and pasting the signed and encrypted messages as plain text, even if **PGP/Inline** is not supported, such as in Thunderbird.
 
 ## Simplify PGP public key sharing
 ### Option 1: Setting up a PGP Web Key Directory (WKD)
