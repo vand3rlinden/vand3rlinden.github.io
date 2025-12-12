@@ -9,7 +9,7 @@ cover:
 
 > _This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages._
 
-MTA-STS is a security mechanism that allows the sending (outbound) mail server to enforce the use of HTTPS secured policies published by the receiving (inbound) mail server. This ensures that TLS connections between mail servers are both encrypted and valid, preventing attackers from downgrading the connection or intercept messages through man-in-the-middle attacks. 
+MTA-STS is a security mechanism that allows the sending (outbound) mail server to enforce the use of `HTTPS` secured policies published by the receiving (inbound) mail server. This ensures that TLS connections between mail servers are both encrypted and valid, preventing attackers from downgrading the connection or intercept messages through man-in-the-middle attacks. 
 
 Since port `25` does not use authentication (MTA-to-MTA delivery), implementing an MTA-STS policy enforces TLS encryption and certificate validation between MTA’s, this ensures the confidentiality of email delivery.
 
@@ -39,7 +39,7 @@ Since port `25` does not use authentication (MTA-to-MTA delivery), implementing 
 
 ## MTA-STS consists of:
 - MTA STS DNS TXT Record (`_mta-sts.example.com`)
-- MTA-STS Policy on HTTPS (`https://mta-sts.example.com/.well-known/mta-sts.txt`)
+- MTA-STS Policy on `HTTPS` (`https://mta-sts.example.com/.well-known/mta-sts.txt`)
   - A valid TLS certificate is required to be in place for `mta-sts.example.com`
 - SMTP TLS Reporting DNS TXT Record (`_smtp._tls.example.com`)
 
@@ -77,8 +77,7 @@ max_age: 604800
      - Under _Build and deployment_, change the Branch to be the `main` and select `root` as the publishing folder. Click Save, this will activate Github pages.
      - Under _Custom domain_ add `mta-sts.example.com`, this will create a commit that adds a `CNAME` file directly to the root of your repository.
 
-5. Once your custom domain is set up, GitHub will begin the process of issuing an SSL certificate using Let's Encrypt. This process typically takes around 15 minutes but can take up to 24 hours. Once the certificate is issued, the _Enforce HTTPS_ checkbox will be clickable. Please enable this setting if you are allowed to do so. After enabling this setting, the policy is deployed. You can verify this by navigating to:
-`https://mta-sts.example.com/.well-known/mta-sts.txt` - you should see the policy, and it should have loaded over `HTTPS`.
+5. Once your custom domain is set up, GitHub will begin the process of issuing an SSL certificate using Let's Encrypt. This process typically takes around 15 minutes but can take up to 24 hours. Once the certificate is issued, the **Enforce HTTPS** checkbox will be clickable. After enabling this setting, the policy is deployed. You can verify this by navigating to: `https://mta-sts.example.com/.well-known/mta-sts.txt` - you should see the policy, and it should have loaded over `HTTPS`.
 
 Example: 
 - MTA-STS policy for `vand3rlinden.com`: https://mta-sts.vand3rlinden.com/.well-known/mta-sts.txt
@@ -118,7 +117,7 @@ The reports are received in `.json`, you can look for the `summary` tag to check
 ```
 
 ## MTA-STS vs. SMTP DANE
-Neither [SMTP DANE](https://vand3rlinden.com/post/dnssec-dane-explained/#dnssec-and-smtp-dane-on-a-mailserver) nor MTA-STS is universally **better**. SMTP DANE provides stronger security, but requires DNSSEC, and not every DNS provider supports DNSSEC yet. MTA-STS is easier to implement and provides good security through HTTPS and DNS. Using the two together can provide the best of both worlds, increasing security through a layered approach.
+Neither [SMTP DANE](https://vand3rlinden.com/post/dnssec-dane-explained/#dnssec-and-smtp-dane-on-a-mailserver) nor MTA-STS is universally **better**. SMTP DANE provides stronger security, but requires DNSSEC, and not every DNS provider supports DNSSEC yet. MTA-STS is easier to implement and provides good security through `HTTPS` and DNS. Using the two together can provide the best of both worlds, increasing security through a layered approach.
 
 ## MTA-STS and SMTP DANE vs. Outbound email authentication
 While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages and ensuring they are sent from authorized domains for outbound email, SMTP DANE and MTA-STS focuses specifically on securely establishing TLS connections between mail servers. These protocols ensures that the sending mail server connects to the intended receiving inbound mail server with verified encryption.

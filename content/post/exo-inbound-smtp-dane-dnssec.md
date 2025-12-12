@@ -155,7 +155,7 @@ The reports are received in `.json`, you can look for the `summary` tag to check
 ```
 
 ## MTA-STS vs. SMTP DANE
-Neither SMTP DANE nor [MTA-STS](https://vand3rlinden.com/post/mta-sts-explained/) is universally **better**. SMTP DANE provides stronger security, but requires DNSSEC, and not every DNS provider supports DNSSEC yet. MTA-STS is easier to implement and provides good security through HTTPS and DNS. Using the two together can provide the best of both worlds, increasing security through a layered approach.
+Neither SMTP DANE nor [MTA-STS](https://vand3rlinden.com/post/mta-sts-explained/) is universally **better**. SMTP DANE provides stronger security, but requires DNSSEC, and not every DNS provider supports DNSSEC yet. MTA-STS is easier to implement and provides good security through `HTTPS` and DNS. Using the two together can provide the best of both worlds, increasing security through a layered approach.
 
 ## MTA-STS and SMTP DANE vs. Outbound email authentication
 While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages and ensuring they are sent from authorized domains for outbound email, SMTP DANE and MTA-STS focuses specifically on securely establishing TLS connections between mail servers. These protocols ensures that the sending mail server connects to the intended receiving inbound mail server with verified encryption.

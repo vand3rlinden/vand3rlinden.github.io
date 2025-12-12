@@ -205,7 +205,7 @@
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages.&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;MTA-STS is a security mechanism that allows the sending (outbound) mail server to enforce the use of HTTPS secured policies published by the receiving (inbound) mail server. This ensures that TLS connections between mail servers are both encrypted and valid, preventing attackers from downgrading the connection or intercept messages through man-in-the-middle attacks.&lt;/p&gt;
+&lt;p&gt;MTA-STS is a security mechanism that allows the sending (outbound) mail server to enforce the use of &lt;code&gt;HTTPS&lt;/code&gt; secured policies published by the receiving (inbound) mail server. This ensures that TLS connections between mail servers are both encrypted and valid, preventing attackers from downgrading the connection or intercept messages through man-in-the-middle attacks.&lt;/p&gt;
 &lt;p&gt;Since port &lt;code&gt;25&lt;/code&gt; does not use authentication (MTA-to-MTA delivery), implementing an MTA-STS policy enforces TLS encryption and certificate validation between MTA’s, this ensures the confidentiality of email delivery.&lt;/p&gt;</description>
     </item>
     <item>

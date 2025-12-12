@@ -44,9 +44,11 @@ PGP provides confidentiality, integrity, authentication, and non-repudiation (of
 4. **Establish digital identity**: Your public PGP key serves as a unique digital signature tied to your identity. As more people verify and associate your key with you, it becomes increasingly difficult for impersonators to send fake emails in your name. As I explained in my [earlier blog](https://vand3rlinden.com/post/s-mime-enhancing-email-security/#smime-vs-outbound-email-authentication) on S/MIME, particularly in the context of outbound email authentication, consistently signing your messages helps establish trust. If a message suddenly lacks your usual signature, the recipient may see it as a red flag and choose to ignore it, even if it passes outbound authentication for the sending domain.
 
 ## Setting up secure email communication with OpenPGP
-OpenPGP is the most widely used standard for email encryption. There are [many tools](https://www.openpgp.org/software/) and user-friendly applications that support it, such as [GPG Suite](https://gpgtools.org/) and various email plugins. In this blog, we’ll use the command-line tool [GnuPG (GNU Privacy Guard)](https://www.gnupg.org/), commonly known as GPG, which is the most widely used utility for generating and managing PGP keys.
+OpenPGP is the most widely used standard for email encryption. There are [many tools](https://www.openpgp.org/software/) and user-friendly applications that support it, such as [GPG Suite](https://gpgtools.org/) and various email plugins. In this blog, we will use the command-line tool [GnuPG (GNU Privacy Guard)](https://www.gnupg.org/), commonly known as GPG, which is the most widely used utility for generating and managing PGP keys.
 
 **Let's begin**:
+
+> **Note**: The steps below uses **PGP/Inline**, which encrypts and signs only the plain-text body. This is to help you get familiar with GnuPG. There are easier ways to use PGP, which you will read about later in this post. But first, let’s cover the basics!
 
 ### 1. Install GnuPG (GNU Privacy Guard) using your package manager
 - **Linux (Debian based):** `sudo apt-get install gnupg`
@@ -116,7 +118,12 @@ iQIzBAEBCAAdFiEEocmn9wnTqI
 ```
 4. You can now copy and paste this signed and encrypted message into your email client, and ready to send for secure email communication
 
-### 6. The recipient verifies your digital signature
+### 6. Encrypt an attachment (additionally)
+1. Encrypt the attachmentage using the recipient’s public key: `gpg --encrypt --recipient recipient@domain.com attachment.extension`
+2. This will output an encrypted file, e.g., `attachment.extension.gpg`
+3. You can attach the `.gpg` file to an email
+
+### 7. The recipient verifies your digital signature
 1. The recipient has already imported your public key
 2. They paste the received text into a file named `signedmessage.asc`
 3. To verify the signature: `gpg --verify signedmessage.asc` (the PGP-signed message includes metadata that identifies your key fingerprint; GPG then scans the recipient’s keyring to find your corresponding public key to verify the signature)
@@ -125,23 +132,36 @@ iQIzBAEBCAAdFiEEocmn9wnTqI
 gpg: Good signature from "Your Name <your@email.com>"
 ```
 
-### 7. The recipient decrypts the message
+### 8. The recipient decrypts the message
 1. The recipient must have their private key on the local system
 2. They paste the PGP-encrypted content into a file called `encryptedmessage.asc`
 3. To decrypt the message: `gpg --decrypt encryptedmessage.asc` (the PGP-encrypted message includes metadata showing the recipient’s key fingerprint it was encrypted to; GPG then scans the recipient’s keyring to find the matching private key needed to decrypt it)
-4. A successful decryption will look like:
+4. After entering the passphrase for the recipient’s private key, a successful decryption will look like:
 ```
 gpg: encrypted with rsa4096 key, ID ABCD1234....
 
 This is the decrypted message content.
 ```
 
-## Simplify PGP use
-### Option 1: Using GnuPG with a command-line bash script
-While it is a good practice to become familiar with `gpg` commands, I have developed a bash script that streamlines encryption, decryption, signing, and signature verification. It works seamlessly as long as **GnuPG** is installed on your system, available here on my [GitHub repository](https://github.com/vand3rlinden/Bash/blob/main/pgp-buddy/pgp_tool.sh). I have also created a separate bash script for managing PGP keys, including key generation, import, and export. You can download it from the [same repository here](https://github.com/vand3rlinden/Bash/blob/main/pgp-buddy/pgp_key_tool.sh).
+### 9. The recipient decrypts the attachment (additionally)
+1. The recipient must have their private key on the local system
+2. To decrypt the attachment: `gpg --decrypt -o attachment.extension attachment.extension.gpg` (the PGP-encrypted message includes metadata showing the recipient’s key fingerprint it was encrypted to; GPG then scans the recipient’s keyring to find the matching private key needed to decrypt it)
+3. After entering the passphrase for the recipient’s private key, the attachment is decrypted as: `attachment.extension` 
 
-### Option 2: Using an MUA with PGP functionality
-The [Thunderbird](https://www.thunderbird.net/) MUA offers an integrated PGP solution, which simplifies the use of signing, encrypting, and decrypting. It also provides the option to publish (through `keys.openpgp.org`) and search for available PGP public keys for encryption via your WKD or `keys.openpgp.org`.
+## Simplify PGP use
+### Option 1: Using GnuPG with a command-line bash script (PGP/Inline)
+While it is a good practice to become familiar with `gpg` commands, I have developed a bash script that streamlines **PGP/Inline** encryption, decryption, signing, and signature verification. It works seamlessly as long as **GnuPG** is installed on your system, available here on my [GitHub repository](https://github.com/vand3rlinden/Bash/blob/main/pgp-buddy/pgp_tool.sh). I have also created a separate bash script for managing PGP keys, including key generation, import, and export. You can download it from the [same repository here](https://github.com/vand3rlinden/Bash/blob/main/pgp-buddy/pgp_key_tool.sh).
+
+### Option 2: Using an MUA with PGP functionality (PGP/MIME)
+The [Thunderbird](https://www.thunderbird.net/) MUA offers an integrated **PGP/MIME** solution, which simplifies the use of signing, encrypting, and decrypting. It also provides the option to publish (through `keys.openpgp.org`) and search for available PGP public keys for encryption via your WKD or `keys.openpgp.org`.
+
+### PGP/MIME vs. PGP/Inline
+There are different formats for applying PGP, **PGP/MIME** and **PGP/Inline**:
+
+- **PGP/MIME** (preferred standard, compatible with HTML) encrypts and sign the entire message, including attachments and the subject (and all associated metadata)
+- **PGP/Inline** (primarily legacy method) encrypts and signs only the plain-text body, attachments can be encrypted separately as `.gpg` files
+
+> **NOTE**: You can use **PGP/Inline** in any text-to-text service (e.g., Email clients, WhatsApp, Signal) by copying and pasting the signed and encrypted messages as plain text, if **PGP/MIME** is not supported, such as in Thunderbird.
 
 ## Simplify PGP public key sharing
 ### Option 1: Setting up a PGP Web Key Directory (WKD)
@@ -152,9 +172,9 @@ If someone want to send you a PGP encrypted email using a mail client that suppo
 
 #### Advanced vs. Direct setup implementation
 There are two ways to set up a WKD:
-- The first is the **advanced method**, this option is more difficult to configure and needs a CA-signed, trusted certificate for the `openpgpkey` subdomain:
+- The first method is the **advanced method**, this option is more difficult to configure and needs a CA-signed, trusted certificate for the `openpgpkey` subdomain:
   - Advanced Implementation: `https://openpgpkey.domain.com/.well-known/openpgpkey/domain.com/`
-- The second is the **direct method**, this one is easier because it does not need any extra DNS records:
+- The second method is the **direct method**, this one is easier because it does not need any extra DNS records:
   - Direct Implementation: `https://domain.com/.well-known/openpgpkey/`
 
 ##### Direct Implementation
