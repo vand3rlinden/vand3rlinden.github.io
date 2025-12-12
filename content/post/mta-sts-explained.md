@@ -39,7 +39,8 @@ Since port `25` does not use authentication (MTA-to-MTA delivery), implementing 
 
 ## MTA-STS consists of:
 - MTA STS DNS TXT Record (`_mta-sts.example.com`)
-- MTA-STS Policy (`https://mta-sts.example.com/.well-known/mta-sts.txt`)
+- MTA-STS Policy on HTTPS (`https://mta-sts.example.com/.well-known/mta-sts.txt`)
+  - A valid TLS certificate is required to be in place for `mta-sts.example.com`
 - SMTP TLS Reporting DNS TXT Record (`_smtp._tls.example.com`)
 
 ##  Implement an MTA-STS policy for a domain
