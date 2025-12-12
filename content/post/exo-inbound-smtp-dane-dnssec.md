@@ -16,6 +16,8 @@ While ***outbound*** SMTP DANE with DNSSEC in Exchange Online has been enabled s
 ## How SMTP DANE with DNSSEC works
 SMTP DANE is a security mechanism that uses DNSSEC to allow the sending (outbound) mail server to verify the TLS certificate of the receiving (inbound) mail server. This helps ensure that TLS connections between mail servers cannot be intercepted or downgraded, protecting against attacks such as TLS downgrade and man-in-the-middle attacks.
 
+Since port `25` does not use authentication (MTA-to-MTA delivery), implementing SMTP DANE enforces TLS encryption and certificate validation between MTA’s, this ensures the confidentiality of email delivery.
+
 ## The flow of SMTP DANE on a mailserver
 - **Outbound SMTP DANE with DNSSEC `sending mail server`**: Requests DANE `TLSA` records of the receiving domain's `MX` record.
 - **Inbound SMTP DANE with DNSSEC `receiving mail server`**: Requires DNSSEC and DANE `TLSA` records that can be requested by the sending mail server.
@@ -154,6 +156,9 @@ The reports are received in `.json`, you can look for the `summary` tag to check
 
 ## MTA-STS vs. SMTP DANE
 Neither SMTP DANE nor [MTA-STS](https://vand3rlinden.com/post/mta-sts-explained/) is universally **better**. SMTP DANE provides stronger security, but requires DNSSEC, and not every DNS provider supports DNSSEC yet. MTA-STS is easier to implement and provides good security through HTTPS and DNS. Using the two together can provide the best of both worlds, increasing security through a layered approach.
+
+## MTA-STS and SMTP DANE vs. Outbound email authentication
+While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages and ensuring they are sent from authorized domains for outbound email, SMTP DANE and MTA-STS focuses specifically on securely establishing TLS connections between mail servers. These protocols ensures that the sending mail server connects to the intended receiving inbound mail server with verified encryption.
 
 ## Reference
 - [Announcing General Availability of Inbound SMTP DANE with DNSSEC for Exchange Online](https://techcommunity.microsoft.com/blog/exchange/announcing-general-availability-of-inbound-smtp-dane-with-dnssec-for-exchange-on/4281292)

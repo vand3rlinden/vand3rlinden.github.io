@@ -27,7 +27,7 @@
 &lt;p&gt;&lt;em&gt;This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages.&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;MTA-STS is a security mechanism that allows the sending (outbound) mail server to enforce the use of HTTPS secured policies published by the receiving (inbound) mail server. This ensures that TLS connections between mail servers are both encrypted and valid, preventing attackers from downgrading the connection or intercept messages through man-in-the-middle attacks.&lt;/p&gt;
-&lt;p&gt;Since port 25 does not use authentication (MTA-to-MTA delivery), implementing an MTA-STS policy enforces TLS encryption and certificate validation between MTA’s, this ensures the confidentiality of email delivery.&lt;/p&gt;</description>
+&lt;p&gt;Since port &lt;code&gt;25&lt;/code&gt; does not use authentication (MTA-to-MTA delivery), implementing an MTA-STS policy enforces TLS encryption and certificate validation between MTA’s, this ensures the confidentiality of email delivery.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Exchange Online: Configure inbound SMTP DANE with DNSSEC</title>
@@ -64,8 +64,7 @@
 &lt;p&gt;&lt;em&gt;In this post, you find out how DNSSEC and DANE cooperate, and learn how to set up DANE TLSA DNS records.&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;dnssec-dns-security-extensions&#34;&gt;DNSSEC (DNS Security Extensions)&lt;/h2&gt;
-&lt;p&gt;The domain name system (DNS) is the phone book of the Internet: it tells computers where to send and retrieve information. Unfortunately, it also accepts any address given to it, no questions asked.&lt;/p&gt;
-&lt;p&gt;DNSSEC adds a security layer to this phonebook. It uses digital signatures to make sure the information in the phonebook can be trusted and hasn&amp;rsquo;t been tampered with. It&amp;rsquo;s like putting a lock on the phonebook to prevent DNS spoofing.&lt;/p&gt;</description>
+&lt;p&gt;The domain name system (DNS) is often described as the phone book of the internet for translating friendly domain names into IP addresses. Unfortunately, it also accepts any address given to it. DNSSEC adds a security layer to this phonebook. It uses digital signatures to make sure the information in the phonebook can be trusted and has not been tampered with, to prevent DNS spoofing.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Get a handle on your SPF record</title>

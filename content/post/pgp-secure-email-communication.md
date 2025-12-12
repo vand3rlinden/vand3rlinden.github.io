@@ -82,7 +82,7 @@ Others will need your public key to verify your digital signature and/or to send
 
 - Export Public key:
 ```
-gpg --armor --export your_email@anddomain.com > pgp-publickey.asc
+gpg --armor --export your@email.com > pgp-publickey.asc
 ```
 
 ### 4. Encrypt a message

@@ -10,9 +10,7 @@ cover:
 > _In this post, you find out how DNSSEC and DANE cooperate, and learn how to set up DANE TLSA DNS records._
 
 ## DNSSEC (DNS Security Extensions)
-The domain name system (DNS) is the phone book of the Internet: it tells computers where to send and retrieve information. Unfortunately, it also accepts any address given to it, no questions asked.
-
-DNSSEC adds a security layer to this phonebook. It uses digital signatures to make sure the information in the phonebook can be trusted and hasn't been tampered with. It's like putting a lock on the phonebook to prevent DNS spoofing.
+The domain name system (DNS) is often described as the phone book of the internet for translating friendly domain names into IP addresses. Unfortunately, it also accepts any address given to it. DNSSEC adds a security layer to this phonebook. It uses digital signatures to make sure the information in the phonebook can be trusted and has not been tampered with, to prevent DNS spoofing.
 
 > DNSSEC can be enabled with your DNS provider if they support it.
 
@@ -62,6 +60,8 @@ Source: https://check.sidnlabs.nl/dane/
 
 ## DNSSEC and SMTP DANE on a mailserver
 SMTP DANE is a security mechanism that uses DNSSEC to allow the sending (outbound) mail server to verify the TLS certificate of the receiving (inbound) mail server. This helps ensure that TLS connections between mail servers cannot be intercepted or downgraded, protecting against attacks such as TLS downgrade and man-in-the-middle attacks.
+
+Since port `25` does not use authentication (MTA-to-MTA delivery), implementing SMTP DANE enforces TLS encryption and certificate validation between MTA’s, this ensures the confidentiality of email delivery.
 
 ## The flow of SMTP DANE on a mailserver
 - **Outbound SMTP DANE with DNSSEC `sending mail server`**: Requests DANE `TLSA` records of the receiving domain's `MX` record.

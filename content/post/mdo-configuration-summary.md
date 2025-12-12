@@ -74,9 +74,9 @@ The above recommandation is not for **Safe Attachments** and **Safe Links** poli
 ### 8: DNS configuration
 - **Inbound email**:
     - [MTA-STS Policy](https://vand3rlinden.com/post/mta-sts-explained/)
-		- MTA-STS is a security mechanism that allows the sending (outbound) mail server to enforce the use of HTTPS secured policies published in your DNS. This ensures that TLS connections between the sending mail server and your mail server are both encrypted and valid.
+		- MTA-STS is a security mechanism that allows the sending (outbound) mail server to enforce the use of HTTPS secured policies published in your DNS. This ensures that TLS connections between the sending (outbound) mail server and your mail server (inbound) are both encrypted and valid.
 	- [Configure inbound SMTP DANE with DNSSEC in Exchange Online](https://vand3rlinden.com/post/exo-inbound-smtp-dane-dnssec/)
-		- SMTP DANE is a security mechanism that uses DNSSEC to allow the sending mail server to verify the TLS certificate of your mail server.
+		- Functionally similar to MTA-STS, however, SMTP DANE uses DNSSEC to allow the sending (outbound) mail server to verify the TLS certificate of your mail server (inbound).
 	
 > **NOTE**: Neither SMTP DANE nor MTA-STS is universally **better**. SMTP DANE provides stronger security, but requires DNSSEC, and not every DNS provider supports DNSSEC yet. MTA-STS is easier to implement and provides good security through HTTPS and DNS. Using the two together can provide the best of both worlds, increasing security through a layered approach.
 	
