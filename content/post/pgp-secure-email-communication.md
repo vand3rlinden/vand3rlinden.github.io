@@ -145,7 +145,7 @@ This is the decrypted message content.
 
 ### 9. The recipient decrypts the attachment (additionally)
 1. The recipient must have their private key on the local system
-2. To decrypt the attachment: `gpg --decrypt -o attachment.extension attachment.extension.gpg` (the PGP-encrypted message includes metadata showing the recipient’s key fingerprint it was encrypted to; GPG then scans the recipient’s keyring to find the matching private key needed to decrypt it)
+2. To decrypt the attachment: `gpg --decrypt -o attachment.extension attachment.extension.gpg` (the PGP-encrypted attachment includes metadata showing the recipient’s key fingerprint it was encrypted to; GPG then scans the recipient’s keyring to find the matching private key needed to decrypt it)
 3. After entering the passphrase for the recipient’s private key, the attachment is decrypted as: `attachment.extension` 
 
 ## Simplify PGP use
