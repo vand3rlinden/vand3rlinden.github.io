@@ -4,8 +4,6 @@ title: "Microsoft 365: SecOps Links"
 type: "pages"
 ---
 
-Access SecOps tools and portals across Microsoft 365, including Defender, Entra, and Azure Portals—all in one place.
-
 ## Microsoft 365
 - [Microsoft 365 documentation](https://learn.microsoft.com/en-us/microsoft-365)
 - [Microsoft 365 Status](https://status.office365.com)
