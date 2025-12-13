@@ -1,7 +1,7 @@
 baseURL: "https://vand3rlinden.com"
 languageCode: en-us
 title: VAND3RLINDEN
-theme: PaperMod
+theme: papermod
 publishDir: "docs"
 enableRobotsTXT: true
 
