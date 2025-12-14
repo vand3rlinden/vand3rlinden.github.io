@@ -19,11 +19,4 @@ If you do like to communicate securely, please use my public keys below.
 - PGP fingerprint for my security address: `gpg --fingerprint D8B80874001A39C573C4BC3F7A3694918FF5706D`
 
 ### PGP Public Keys
-I run a [WKD](https://vand3rlinden.com/post/pgp-secure-email-communication/#option-1-setting-up-a-pgp-web-key-directory-wkd) to publish my public keys. To locate them, you can run, for example: `gpg --locate-keys security@vand3rlinden.com` (also published at `keys.openpgp.org`)
-
-## PGP Tooling
-I use the command-line tool [GnuPG](https://www.gnupg.org/), also known as GPG, which is the most widely adopted utility for generating and managing PGP keys. To streamline tasks like encryption, decryption, signing, and signature verification, I have developed a bash script that works seamlessly if **GnuPG** is installed on your system, available for [download](https://github.com/vand3rlinden/Bash/blob/main/pgp-buddy/pgp_tool.sh) on my GitHub repository.
-
-Additionally, I have created another bash script to manage PGP keys, including key generation, import, and export. This script is also available on my GitHub repository for [download](https://github.com/vand3rlinden/Bash/blob/main/pgp-buddy/pgp_key_tool.sh).
-
-For iOS, I use [Instant PGP](https://apps.apple.com/us/app/instant-pgp/id1497433694) to manage and use PGP keys. To maintain security, make sure iCloud backup is disabled for the Instant PGP app to prevent your private key from being synced to iCloud.
+I run a [WKD](https://vand3rlinden.com/post/pgp-secure-email-communication/#option-1-setting-up-a-pgp-web-key-directory-wkd) to publish my public keys. To locate them, you can run, for example: `gpg --locate-keys security@vand3rlinden.com` (also published at `keys.openpgp.org`).
