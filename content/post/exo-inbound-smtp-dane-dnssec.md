@@ -119,9 +119,16 @@ Get-SmtpDaneInboundStatus -DomainName yourdomain.com
 ```
 
 ## Check the TLSA record
-The `TLSA` records are listed in: `_25._tcp.yourdomain-com.<random>.mx.microsoft`
+SMTP DANE TLSA records for a receiving mail server should be located at `_25._tcp.mx-host`, where `mx-host` is the hostname of the receiving mail server (the `MX` value for inbound mail).
+
+You can validate the `TLSA` records for an `mx-host` by using the `dig` command-line tool:
+
+- Value: `_25._tcp.yourdomain-com.<random>.mx.microsoft` 
+- Type: `TLSA`
 
 ![IMAGE](/images/exo-inbound-smtp-dane-dnssec/exo-inbound-smtp-dane-dnssec12.png)
+
+You can also use an SMTP DANE/TLSA validator, such as the one provided by [Mailhardener](https://www.mailhardener.com/tools/dane-validator), to check whether `TLSA` records for SMTP DANE are configured correctly.
 
 ## Rollback the change
 Since we carefully added the DNSSEC-signed MX record `mx.microsoft` alongside the existing `mail.protection.outlook.com` MX record, you can safely make this change without worrying about inbound email interruption. If something does go wrong, the change can be rolled back by doing the following:
@@ -142,9 +149,9 @@ TLS Reporting (TLSRPT) is a standard that provides a way to report when the TLS 
 1. Log in to your DNS hosting provider's management console.
 2. Add a new TXT record with the following details:
 
-| Host                        | Type | Value                                   |
-| ----                        | ---  | ---                                     |
-| `_smtp._tls.example.com` | `TXT`| `v=TLSRPTv1; rua=mailto:tlsrpt@example.com`|
+| Host                        | Type | Value                                      |
+| ----                        | ---  | ---                                        |
+| `_smtp._tls.example.com`    | `TXT`| `v=TLSRPTv1; rua=mailto:tlsrpt@example.com`|
 
 ### TLSRPT report handling
 If a sending mail server is having trouble securely delivering mail to a receiving mail server, the sending mail server can use the receiving mail server's TLSRPT record to find out where to send a report about the problem or to report a successful session.
@@ -164,5 +171,6 @@ While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages
 - [Announcing General Availability of Inbound SMTP DANE with DNSSEC for Exchange Online](https://techcommunity.microsoft.com/blog/exchange/announcing-general-availability-of-inbound-smtp-dane-with-dnssec-for-exchange-on/4281292)
 - [How SMTP DNS-based Authentication of Named Entities (DANE) works](https://learn.microsoft.com/en-us/purview/how-smtp-dane-works)
 - [DNSSEC Analyzer](https://dnssec-analyzer.verisignlabs.com/)
-- [TLSRPT is defined in RFC8460](https://datatracker.ietf.org/doc/html/rfc8460)
+- [TLSA validator for inbound SMTP DANE](https://www.mailhardener.com/tools/dane-validator)
 - [TLS-RPT Record Checker](https://easydmarc.com/tools/tls-rpt-check)
+- [TLSRPT is defined in RFC8460](https://datatracker.ietf.org/doc/html/rfc8460)
