@@ -118,7 +118,7 @@ $DNSSEC.MtaStsValidation
 Get-SmtpDaneInboundStatus -DomainName yourdomain.com
 ```
 
-## Check the TLSA record
+## Validate the TLSA records
 SMTP DANE TLSA records for a receiving mail server should be located at `_25._tcp.mx-host`, where `mx-host` is the hostname of the receiving mail server (the `MX` value for inbound mail).
 
 You can validate the `TLSA` records for an `mx-host` by using the `dig` command-line tool:
