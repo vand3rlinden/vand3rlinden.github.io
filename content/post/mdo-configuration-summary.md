@@ -74,11 +74,11 @@ The above recommandation is not for **Safe Attachments** and **Safe Links** poli
 ### 8: DNS configuration
 - **Inbound email**:
     - [MTA-STS Policy](https://vand3rlinden.com/post/mta-sts-explained/)
-		- MTA-STS is a security mechanism that allows the sending (outbound) mail server to enforce the use of HTTPS secured policies published in your DNS. This ensures that TLS connections between the sending (outbound) mail server and your mail server (inbound) are both encrypted and valid.
+		- MTA-STS is a security mechanism that allows a sending (outbound) mail server to enforce the use of TLS by retrieving a secured `HTTPS` policy file published by the domain of the receiving (inbound) mail server.
 	- [Configure inbound SMTP DANE with DNSSEC in Exchange Online](https://vand3rlinden.com/post/exo-inbound-smtp-dane-dnssec/)
-		- Functionally similar to MTA-STS, however, SMTP DANE uses DNSSEC to allow the sending (outbound) mail server to verify the TLS certificate of your mail server (inbound).
+		- Functionally similar to MTA-STS, however, SMTP DANE uses DNSSEC to allow the sending (outbound) mail server to verify the TLS certificate of a receiving (inbound) mail server using `TLSA` records published in the DNS of the receiving domain.
 	
-> **NOTE**: Neither SMTP DANE nor MTA-STS is universally **better**. SMTP DANE provides stronger security, but requires DNSSEC, and not every DNS provider supports DNSSEC yet. MTA-STS is easier to implement and provides good security through HTTPS and DNS. Using the two together can provide the best of both worlds, increasing security through a layered approach.
+> **NOTE**: Neither SMTP DANE nor MTA-STS is universally **better**. SMTP DANE provides stronger security, but requires DNSSEC, and not every DNS provider supports DNSSEC yet. MTA-STS is easier to implement and provides good security through `HTTPS` and DNS. Using the two together can provide the best of both worlds, increasing security through a layered approach.
 	
 - **Outbound email**:
 	- [Deploy SPF, DKIM, and DMARC the right way](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/)
@@ -96,7 +96,6 @@ The above recommandation is not for **Safe Attachments** and **Safe Links** poli
 		
 ## Final words
 Since email security is still one of the main attack vectors used by malicious actors, you should not underestimate the importance of a strong Microsoft Defender for Office 365 setup, or any email security solution. If you have serious concerns about email privacy, you may also want to consider signing and encrypting your or the messages of your key users using [PGP](https://vand3rlinden.com/post/pgp-secure-email-communication/) or [S/MIME](https://vand3rlinden.com/post/s-mime-enhancing-email-security/). These methods ensure that your messages remain private and protected from unwanted access by big tech providers (even if you send them through Microsoft 365) or governments.
-
 
 ## Resources
 - [Recommended email and collaboration threat policy settings](https://learn.microsoft.com/en-us/defender-office-365/recommended-settings-for-eop-and-office365)

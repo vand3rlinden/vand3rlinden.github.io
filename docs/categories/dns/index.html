@@ -130,11 +130,10 @@ We live in a time where most first impressions happen online, and emails are usu
   </header>
   <div class="entry-content">
     <p> This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages.
-MTA-STS is a security mechanism that allows the sending (outbound) mail server to enforce the use of HTTPS secured policies published by the receiving (inbound) mail server. This ensures that TLS connections between mail servers are both encrypted and valid, preventing attackers from downgrading the connection or intercept messages through man-in-the-middle attacks.
-Since port 25 does not use authentication (MTA-to-MTA delivery), implementing an MTA-STS policy enforces TLS encryption and certificate validation between MTA’s, this ensures the confidentiality of email delivery.
+MTA-STS is a security mechanism that allows a sending (outbound) mail server to enforce the use of TLS by retrieving a secured HTTPS policy file published by the domain of the receiving (inbound) mail server. This enforcement ensures that connections between mail servers are encrypted and authenticated, preventing attackers from downgrading the connection or intercepting messages through man in the middle attacks.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2024-08-23 16:22:41 +0200 CEST'>August 23, 2024</span>&nbsp;·&nbsp;6 min</footer>
+  <footer class="entry-footer"><span title='2024-08-23 16:22:41 +0200 CEST'>August 23, 2024</span>&nbsp;·&nbsp;7 min</footer>
   <a class="entry-link" aria-label="post link to MTA-STS Explained: A complete guide to the MTA-STS Policy" href="https://vand3rlinden.com/post/mta-sts-explained/"></a>
 </article>
 
@@ -147,7 +146,7 @@ Since port 25 does not use authentication (MTA-to-MTA delivery), implementing an
     <p> In this post, you will learn how to enable and use SMTP DANE with DNSSEC in Exchange Online.
 While outbound SMTP DANE with DNSSEC in Exchange Online has been enabled since 2022, Microsoft is has rolling out inbound SMTP DANE with DNSSEC in Exchange Online since late 2024.
 For a deeper understanding of DNSSEC and DANE, take a look at my earlier blog post.
-How SMTP DANE with DNSSEC works SMTP DANE is a security mechanism that uses DNSSEC to allow the sending (outbound) mail server to verify the TLS certificate of the receiving (inbound) mail server. This helps ensure that TLS connections between mail servers cannot be intercepted or downgraded, protecting against attacks such as TLS downgrade and man-in-the-middle attacks.
+How SMTP DANE with DNSSEC works SMTP DANE is a security mechanism that uses DNSSEC to allow a sending (outbound) mail server to verify the TLS certificate of a receiving (inbound) mail server using TLSA records published in the DNS of the receiving domain. This helps ensure that TLS connections between mail servers cannot be intercepted or downgraded, protecting against attacks such as TLS downgrade and man-in-the-middle attacks.
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2024-07-28 01:13:44 +0200 CEST'>July 28, 2024</span>&nbsp;·&nbsp;7 min</footer>

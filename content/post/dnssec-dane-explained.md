@@ -59,7 +59,7 @@ Verify DANE TLSA records:
 Source: https://check.sidnlabs.nl/dane/ 
 
 ## DNSSEC and SMTP DANE on a mailserver
-SMTP DANE is a security mechanism that uses DNSSEC to allow the sending (outbound) mail server to verify the TLS certificate of the receiving (inbound) mail server. This helps ensure that TLS connections between mail servers cannot be intercepted or downgraded, protecting against attacks such as TLS downgrade and man-in-the-middle attacks.
+SMTP DANE is a security mechanism that uses DNSSEC to allow a sending (outbound) mail server to verify the TLS certificate of a receiving (inbound) mail server using `TLSA` records published in the DNS of the receiving domain. This helps ensure that TLS connections between mail servers cannot be intercepted or downgraded, protecting against attacks such as TLS downgrade and man-in-the-middle attacks.
 
 Since port `25` does not use authentication (MTA-to-MTA delivery), implementing SMTP DANE enforces TLS encryption and certificate validation between MTA’s, this ensures the confidentiality of email delivery.
 
