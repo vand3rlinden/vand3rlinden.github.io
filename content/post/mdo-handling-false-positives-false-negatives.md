@@ -19,15 +19,14 @@ These signals include:
 - Sender history
 - Recipient history
 - Behavioral analysis
-- Other advanced techniques
 
 The results of Microsoft’s implicit authentication checks are combined into a single value called composite authentication (`compauth`). This value is stamped into the [Authentication-Results message header](https://learn.microsoft.com/en-us/defender-office-365/message-headers-eop-mdo#authentication-results-message-header-fields).
 
 ![IMAGE](/images/mdo-handling-false-positives-false-negatives/mdo-handling-false-positives-false-negatives-1.png)
 
 ## False positives and False negatives
-- **False Positive (`FP`)**: is when an email isn't actually spam, but your system mistakenly thinks it is and puts it in the spam or quarantine folder.
-- **False Negative (`FN`)**: happens when an email is actually spam, but your system mistakenly lets it through, thinking it's not spam.
+- **False Positive (`FP`)**: is when an email **isn't actually spam**, but your system mistakenly thinks it is and puts it in the spam or quarantine folder.
+- **False Negative (`FN`)**: happens when an email **is actually spam**, but your system mistakenly lets it through, thinking it's not spam.
 
 Sometimes the signals of the implicit authentication gets it wrong, and therefore a good message can be a flagged as a bad one (false positive) and a questionable email message can be get through (false negative).
 
