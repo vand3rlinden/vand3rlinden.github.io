@@ -61,16 +61,16 @@ An optional company name []: **LEAVE BLANK**
 ```
 > **Note:** If you are requesting an S/MIME e-mail certificate for your personal e-mail, enter `N/A` in the `Organization Name` and `Organizational Unit Name` fields.
 
-4. The `certificate.csr` file is now created in the `/tmp` directory. You can upload the `CSR` file to a trusted Certificate Authority (CA), such as [Sectigo](https://sectigostore.com/id/email-signing-certificate).
+4. The `certificate.csr` file is now created in the `~/tmp` directory. You can upload the `CSR` file to a trusted Certificate Authority (CA), such as [Sectigo](https://sectigostore.com/id/email-signing-certificate).
 
 ## Configuring and installing the S/MIME email certificate
 After the CA signs the certificate, you can download the certificate, for example, in `.crt` format. This `.crt` file is your public key.
 
-1. Place your public key `certificate.crt` in the `/tmp` directory along with the previous private key `certificate.key`.
+1. Place your public key `certificate.crt` in the `~/tmp` directory along with the previous private key `certificate.key`.
 
 2. Execute the following command to combine the public key with the private key in a `.pfx` bundle file (`PKCS #12`).
 ```
-openssl pkcs12 -inkey /tmp/certificate.key -in /tmp/certificate.crt -export -out /tmp/your-email-com.pfx
+openssl pkcs12 -inkey ~/tmp/certificate.key -in ~/tmp/certificate.crt -export -out ~/tmp/your-email-com.pfx
 ```
 **Note:** If you want to import the certificate on BSD-based systems like macOS, you must add the `-legacy` flag at the end of the command when using OpenSSL v3. This version of OpenSSL has changed the default algorithm, making it incompatible with the default LibreSSL library used in BSD-based systems.
 
@@ -96,7 +96,7 @@ After you send the email to your recipient, the recipient's email client verifie
 ## Sharing your S/MIME public key
 Once you send a signed email using your S/MIME certificate, the recipient can save your public key and then send encrypted emails to you. However, unlike [PGP with WKD (Web Key Directory)](https://vand3rlinden.com/post/pgp-secure-email-communication/#option-1-setting-up-a-pgp-web-key-directory-wkd), S/MIME does not provide a standardized discovery mechanism for public keys.
 
-There are, however, alternative approaches using HTTPS, DNS TXT records, and optionally SMIMEA records. Please note that SMIMEA records are used only for verification and require DNSSEC.
+There are, however, alternative approaches using `HTTPS`, a DNS `TXT` record, and optionally a `SMIMEA` record. Please note that `SMIMEA` records are used only for verification and require DNSSEC.
 
 > **IMPORTANT**: Based on my research, there is currently no standardized method for sharing S/MIME public keys, and mail clients do not automatically discover them. This means out-of-band instructions are required.
 
@@ -110,24 +110,24 @@ You can publish the `HTTPS` URL of the certificate in a DNS `TXT` record so it c
   - **Type**: `TXT`
 
 ### Optional: Publish a DNS SMIMEA record for integrity (DNSSEC required)
-An SMIMEA record allows email senders to validate a recipient’s S/MIME certificate. These records are designed to be used with DNSSEC so the information can be trusted. SMIMEA is defined in [RFC 8162](https://www.rfc-editor.org/info/rfc8162) and currently has *experimental* status.
+An `SMIMEA` record allows email senders to validate a recipient’s S/MIME certificate. These records are designed to be used with DNSSEC so the information can be trusted. `SMIMEA` is defined in [RFC 8162](https://www.rfc-editor.org/info/rfc8162) and currently has *experimental* status.
 
 #### Implementing a DNS SMIMEA record
 1. Hash the local part of the email address: `echo -n "firstname.lastname" | openssl dgst -sha256`
 2. Extract the public key from the (downloaded) certificate and hash it: `openssl x509 -in firstname_lastname.crt -noout -pubkey | openssl pkey -pubin -outform DER | openssl dgst -sha256`
-3. Create the SMIMEA record:
+3. Create the `SMIMEA` record:
    - **Host**: `hash._smimecert.example.com`
    - **Value**: `3 1 1 hash` (See my [earlier post](https://vand3rlinden.com/post/dnssec-dane-explained/#implementation-of-dane) on DANE for an explanation of usage, selector, and matching types)
    - **Type**: `SMIMEA`
 
-> **IMPORTANT**: Unfortunately, most DNS providers do not yet support SMIMEA records.
+> **IMPORTANT**: Unfortunately, most DNS providers do not yet support `SMIMEA` records.
 
 ### How to use this discovery method
 If you want to send an encrypted email to `firstname.lastname@example.com` and check whether an S/MIME certificate is available, follow these steps:
 
 1. Query the `._smime` `TXT` record: `dig firstname.lastname._smime.example.com TXT +short`
 2. Download the `.crt` file from the `HTTPS` URL provided in the `TXT` record
-3. **Optional**: Validate the S/MIME certificate by hashing the local part of the email address and the public key for integrity: `dig hash._smimecert.example.com SMIMEA +short`
+3. **Optional**: Validate the S/MIME certificate by hashing the local part of the email address and the public key, and then querying the `SMIMEA` record to verify integrity: `dig hash._smimecert.example.com SMIMEA +short`
 
 While this approach is not standardized, I am researching a way to improve the S/MIME public key discovery, similar to what PGP offers with WKD. This because sending encrypted email is more important than ever for your digital sovereignty, especially when you want to protect your communications from prying eyes, whether they belong to big tech companies or governments. With S/MIME, you remain the only holder of your private key and the only one able to decrypt your messages.
 
