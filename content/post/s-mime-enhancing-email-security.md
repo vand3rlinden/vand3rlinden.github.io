@@ -33,9 +33,9 @@ By combining encryption and digital signatures, S/MIME ensures that email commun
 ## Requesting an S/MIME email certificate
 Under the hood, the S/MIME email certificate is a code signing certificate. Instead of specifying a domain name in the `Common Name (CN)` section of the `CSR`, you must specify your full name instead. We will request the CSR by using OpenSSL, OpenSSL is a command-line program for creating and managing certificates that is widely used by BSD Unixes* and Linux distributions, but there are also versions available for Windows.
 
-_*BSD Unixes such as Apple MacOS, OpenBSD, FreeBSD use LibreSSL (a fork of OpenSSL) as the primary SSL library as of 2021. LibreSSL also interacts with the `openssl` program name. This was chosen by the developers (OpenBSD team) of LibreSSL to make it easy for people, scripts, and systems that previously used OpenSSL to switch to LibreSSL._
+_*BSD Unixes such as Apple MacOS, OpenBSD, FreeBSD use LibreSSL (a fork of OpenSSL) as the primary SSL library as of 2021. LibreSSL also interacts with the `openssl` command. This was chosen by the developers (OpenBSD team) of LibreSSL to make it easy for people, scripts, and systems that previously used OpenSSL to switch to LibreSSL._
 
-**Note:** In this practical we will use the `/tmp` folder to temporarily store the CSR and private key. Please find a safe place for the private key once you have exported it.
+> **Note:** In this practical we will use the `/tmp` folder to temporarily store the CSR and private key. Please find a safe place for the private key once you have exported it.
 
 1. Open a terminal application on your computer
 
@@ -59,7 +59,7 @@ to be sent with your certificate request
 A challenge password []: **LEAVE BLANK**
 An optional company name []: **LEAVE BLANK**
 ```
-**Note:** If you are requesting an S/MIME e-mail certificate for your personal e-mail, enter `N/A` in the `Organization Name` and `Organizational Unit Name` fields.
+> **Note:** If you are requesting an S/MIME e-mail certificate for your personal e-mail, enter `N/A` in the `Organization Name` and `Organizational Unit Name` fields.
 
 4. The `certificate.csr` file is now created in the `/tmp` directory. You can upload the `CSR` file to a trusted Certificate Authority (CA), such as [Sectigo](https://sectigostore.com/id/email-signing-certificate).
 
