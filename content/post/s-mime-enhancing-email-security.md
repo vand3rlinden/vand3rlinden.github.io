@@ -125,7 +125,7 @@ An SMIMEA record allows email senders to validate a recipient’s S/MIME certifi
 ### How to use this discovery method
 If you want to send an encrypted email to `firstname.lastname@example.com` and check whether an S/MIME certificate is available, follow these steps:
 
-1. Query the `_smime` `TXT` record: `dig firstname.lastname._smime.example.com TXT +short`
+1. Query the `._smime` `TXT` record: `dig firstname.lastname._smime.example.com TXT +short`
 2. Download the `.crt` file from the `HTTPS` URL provided in the `TXT` record
 3. **Optional**: Validate the S/MIME certificate by hashing the local part of the email address and the public key for integrity: `dig hash._smimecert.example.com SMIMEA +short`
 
