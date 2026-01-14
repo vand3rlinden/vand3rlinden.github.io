@@ -35,13 +35,13 @@ Under the hood, the S/MIME email certificate is a code signing certificate. Inst
 
 _*BSD Unixes such as Apple MacOS, OpenBSD, FreeBSD use LibreSSL (a fork of OpenSSL) as the primary SSL library as of 2021. LibreSSL also interacts with the `openssl` command. This was chosen by the developers (OpenBSD team) of LibreSSL to make it easy for people, scripts, and systems that previously used OpenSSL to switch to LibreSSL._
 
-> **Note:** In this practical we will use the `/tmp` folder to temporarily store the CSR and private key. Please find a safe place for the private key once you have exported it.
+> **Note:** In this practical we will use the `~/tmp` folder to temporarily store the CSR and private key. Please find a safe place for the private key once you have exported it.
 
 1. Open a terminal application on your computer
 
 2. Execute the following command:
 ```
-openssl req -out /tmp/certificate.csr -newkey rsa:4096 -nodes -sha256 -keyout /tmp/certificate.key
+openssl req -out ~/tmp/certificate.csr -newkey rsa:4096 -nodes -sha256 -keyout ~/tmp/certificate.key
 ```
 
 3. Fill in the required information for the displayed fields with your own data:
