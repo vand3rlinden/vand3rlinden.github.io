@@ -264,7 +264,7 @@ An optional company name []: **LEAVE BLANK**
 <p>After you send the email to your recipient, the recipient&rsquo;s email client verifies the signature using your public key.</p>
 <p><img alt="IMAGE" loading="lazy" src="/images/s-mime-enhancing-email-security/s-mime-enhancing-email-security2.png"></p>
 <h2 id="sharing-your-smime-public-key">Sharing your S/MIME public key<a hidden class="anchor" aria-hidden="true" href="#sharing-your-smime-public-key">#</a></h2>
-<p>Once you send a signed email using your S/MIME certificate, the recipient can save your public key and then send encrypted emails to you. However, unlike PGP with WKD (Web Key Directory), S/MIME does not provide a standardized discovery mechanism for public keys.</p>
+<p>Once you send a signed email using your S/MIME certificate, the recipient can save your public key and then send encrypted emails to you. However, unlike <a href="https://vand3rlinden.com/post/pgp-secure-email-communication/#option-1-setting-up-a-pgp-web-key-directory-wkd">PGP with WKD (Web Key Directory)</a>, S/MIME does not provide a standardized discovery mechanism for public keys.</p>
 <p>There are, however, alternative approaches using HTTPS, DNS TXT records, and optionally SMIMEA records. Please note that SMIMEA records are used only for verification and require DNSSEC.</p>
 <blockquote>
 <p><strong>IMPORTANT</strong>: Based on my research, there is currently no standardized method for sharing S/MIME public keys, and mail clients do not automatically discover them. This means out-of-band instructions are required.</p>

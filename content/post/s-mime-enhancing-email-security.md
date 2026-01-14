@@ -94,7 +94,7 @@ After you send the email to your recipient, the recipient's email client verifie
 ![IMAGE](/images/s-mime-enhancing-email-security/s-mime-enhancing-email-security2.png)
 
 ## Sharing your S/MIME public key
-Once you send a signed email using your S/MIME certificate, the recipient can save your public key and then send encrypted emails to you. However, unlike PGP with WKD (Web Key Directory), S/MIME does not provide a standardized discovery mechanism for public keys.
+Once you send a signed email using your S/MIME certificate, the recipient can save your public key and then send encrypted emails to you. However, unlike [PGP with WKD (Web Key Directory)](https://vand3rlinden.com/post/pgp-secure-email-communication/#option-1-setting-up-a-pgp-web-key-directory-wkd), S/MIME does not provide a standardized discovery mechanism for public keys.
 
 There are, however, alternative approaches using HTTPS, DNS TXT records, and optionally SMIMEA records. Please note that SMIMEA records are used only for verification and require DNSSEC.
 
