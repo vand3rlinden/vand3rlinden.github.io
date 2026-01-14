@@ -10,7 +10,9 @@ cover:
 > _Unlocking the Power of S/MIME (Secure/Multipurpose Internet Mail Extensions): This article will help you understand S/MIME and how to request, configure, and use S/MIME on your devices._
 
 ## What is S/MIME?
-In today's digital landscape, the security of sensitive information transmitted via email is critical. One method of safeguarding email communications is through the use of S/MIME, which is a widely adopted protocol that provides end-to-end encryption and digital signatures.
+S/MIME is an email security standard that allows messages to be encrypted and digitally signed. Encryption protects the content of emails, so only the intended recipient can read them, while digital signatures verify the sender’s identity and ensure the message has not been altered. When properly implemented, S/MIME helps keep email communications private and secure from unauthorized access.
+
+> Email encrypted with S/MIME **cannot be read** by big tech companies or governments.
 
 ## S/MIME vs. Outbound email authentication
 In addition to DMARC-compliant email, which validates the sending source through SPF and DKIM checks, S/MIME provides cryptographic proof of the sender’s identity by digitally signing the message with a personal certificate, whose private key exists only on the sender’s device. In practice, when DMARC-compliant email is used to deliver malicious content, it often indicates that the sender’s mailbox has been compromised, allowing an attacker to send messages that still pass DMARC checks. However, if the compromised mailbox normally signs messages with S/MIME and the malicious message lacks this signature, the recipient may recognize this inconsistency as a red flag and choose to ignore the message.
@@ -26,7 +28,7 @@ When a user sends an email using S/MIME, their email client encrypts the message
 2. Digital Signature (Authentication and Integrity):
 S/MIME also enables users to digitally sign emails. The sender’s email client generates a digital signature using the sender’s private key. Upon receiving the message, the recipient’s email client uses the sender’s public key to verify the signature. A valid signature confirms that the message has not been altered (integrity) and authenticates the sender’s identity.
 
-By combining encryption and digital signatures, S/MIME ensures that email communications are secure, trustworthy, and resistant to tampering or impersonation.
+By combining encryption and digital signatures, S/MIME ensures that email communications is secure and resistant to tampering or impersonation.
 
 ## Requesting an S/MIME email certificate
 Under the hood, the S/MIME email certificate is a code signing certificate. Instead of specifying a domain name in the `Common Name (CN)` section of the `CSR`, you must specify your full name instead. We will request the CSR by using OpenSSL, OpenSSL is a command-line program for creating and managing certificates that is widely used by BSD Unixes* and Linux distributions, but there are also versions available for Windows.
@@ -90,6 +92,44 @@ To send signed messages, you need to have your personal S/MIME certificate insta
 After you send the email to your recipient, the recipient's email client verifies the signature using your public key.
 
 ![IMAGE](/images/s-mime-enhancing-email-security/s-mime-enhancing-email-security2.png)
+
+## Sharing your S/MIME public key
+Once you send a signed email using your S/MIME certificate, the recipient can save your public key and then send encrypted emails to you. However, unlike PGP with WKD (Web Key Directory), S/MIME does not provide a standardized discovery mechanism for public keys.
+
+There are, however, alternative approaches using HTTPS, DNS TXT records, and optionally SMIMEA records. Please note that SMIMEA records are used only for verification and require DNSSEC.
+
+> **IMPORTANT**: Based on my research, there is currently no standardized method for sharing S/MIME public keys, and mail clients do not automatically discover them. This means out-of-band instructions are required.
+
+### HTTPS hosting
+You can publish your (or your users) S/MIME public key certificates on your domain, for example: `https://example.com/.well-known/smime/firstname_lastname.crt`
+
+### Publish a DNS TXT record
+You can publish the `HTTPS` URL of the certificate in a DNS `TXT` record so it can be queried by others:
+  - **Host**: `firstname.lastname._smime.example.com`
+  - **Value**: `https://example.com/.well-known/smime/firstname_lastname.crt`
+  - **Type**: `TXT`
+
+### Optional: Publish a DNS SMIMEA record for integrity (DNSSEC required)
+An SMIMEA record allows email senders to validate a recipient’s S/MIME certificate. These records are designed to be used with DNSSEC so the information can be trusted. SMIMEA is defined in [RFC 8162](https://www.rfc-editor.org/info/rfc8162) and currently has *experimental* status.
+
+#### Implementing a DNS SMIMEA record
+1. Hash the local part of the email address: `echo -n "firstname.lastname" | openssl dgst -sha256`
+2. Extract the public key from the (downloaded) certificate and hash it: `openssl x509 -in firstname_lastname.crt -noout -pubkey | openssl pkey -pubin -outform DER | openssl dgst -sha256`
+3. Create the SMIMEA record:
+   - **Host**: `hash._smimecert.example.com`
+   - **Value**: `3 1 1 hash` (See my [earlier post](https://vand3rlinden.com/post/dnssec-dane-explained/#implementation-of-dane) on DANE for an explanation of usage, selector, and matching types)
+   - **Type**: `SMIMEA`
+
+> **IMPORTANT**: Unfortunately, most DNS providers do not yet support SMIMEA records.
+
+### How to use this discovery method
+If you want to send an encrypted email to `firstname.lastname@example.com` and check whether an S/MIME certificate is available, follow these steps:
+
+1. Query the `_smime` `TXT` record: `dig firstname.lastname._smime.example.com TXT +short`
+2. Download the `.crt` file from the `HTTPS` URL provided in the `TXT` record
+3. **Optional**: Validate the S/MIME certificate by hashing the local part of the email address and the public key for integrity: `dig hash._smimecert.example.com SMIMEA +short`
+
+While this approach is not standardized, I am researching a way to improve the S/MIME public key discovery, similar to what PGP offers with WKD. This because sending encrypted email is more important than ever for your digital sovereignty, especially when you want to protect your communications from prying eyes, whether they belong to big tech companies or governments. With S/MIME, you remain the only holder of your private key and the only one able to decrypt your messages.
 
 ## To Summarize
 S/MIME plays a critical role in enhancing email security by providing encryption, digital signatures, and authentication mechanisms. As cyber threats continue to evolve, implementing robust security measures such as S/MIME is essential to protecting sensitive information and maintaining trust in digital communications.
