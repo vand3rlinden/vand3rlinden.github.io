@@ -98,7 +98,7 @@ Once you send a signed email using your S/MIME certificate, the recipient can sa
 
 There are, however, alternative approaches using `HTTPS`, a DNS `TXT` record, and optionally a `SMIMEA` record. Please note that `SMIMEA` records are used only for verification and require DNSSEC.
 
-> **IMPORTANT**: Based on my research, there is currently no standardized method for sharing S/MIME public keys, and mail clients do not automatically discover them. This means out-of-band instructions are required.
+> **IMPORTANT**: Based on my research, there is currently no standardized method for sharing S/MIME public keys, and mail clients do not automatically discover them.
 
 ### HTTPS hosting
 You can publish your (or your users) S/MIME public key certificates on your domain, for example: `https://example.com/.well-known/smime/firstname_lastname.crt`
