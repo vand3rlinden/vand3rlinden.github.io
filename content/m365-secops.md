@@ -76,7 +76,7 @@ type: "pages"
 
 ## My Pages
 - [MyAccess](https://myaccess.microsoft.com)
-- [MyApplications](https://myapplications.microsoft.com)
+- [MyApplications](https://myapps.microsoft.com)
 - [MyAccount](https://myaccount.microsoft.com)
 - [MFASetup](https://aka.ms/mfasetup)
 - [SSPR](https://passwordreset.microsoftonline.com)
