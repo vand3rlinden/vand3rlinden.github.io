@@ -78,5 +78,7 @@ type: "pages"
 - [MyAccess](https://myaccess.microsoft.com)
 - [MyApplications](https://myapps.microsoft.com)
 - [MyAccount](https://myaccount.microsoft.com)
+
+## MFA/SSPR
 - [MFASetup](https://aka.ms/mfasetup)
 - [SSPR](https://passwordreset.microsoftonline.com)
