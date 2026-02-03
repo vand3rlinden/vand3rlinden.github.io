@@ -41,7 +41,7 @@ Subdomain segmentation can be implemented in three ways:
 
 > **NOTE**: If your email provider does not allow setting the P1 sender to a subdomain, they might offer an option to pass SPF using their domain (e.g., `youremailprovider.com`). Keep in mind that this method requires DKIM alignment for your domain as the P2 sender. If DKIM is correctly set up for the P2 sender, the message can still meet DMARC requirements. However, relying only on DKIM is not best practice. If DKIM fails, for example due to slow DNS response, there is no backup. The best practice is to have both SPF and DKIM correctly aligned.
 
-3. Using an SPF macro that points to a subdomain allows you to continue sending from your main domain, but only from a fixed/static sender address (e.g., `news@yourdomain.com`).
+3. Using an SPF macro that points to a subdomain allows you to continue sending from your main domain, but only from a static sender address (e.g., `news@yourdomain.com`).
 
 These subdomain segmentation options can be combined, as covered in this blog. Adopting SPF segmentation increases control, reduces attack surfaces, and mitigates the impact of potential cyber incidents.
 
@@ -76,7 +76,7 @@ Calculation of DNS lookups:
 Effective segmentation of your email providers is essential for maintaining control and clarity over your SPF record.
 
 ## Cut your SPF record
-Based on the information provided, identify which email provider can be restricted to sending emails from a fixed sender address using an SPF macro. Additionally, determine which email provider, such as Microsoft 365, require sending emails from multiple addresses using your primary domain, and which email providers are not subject to these restrictions and can send through a subdomain, or where the email provider supports SPF alignment in relaxed mode through a subdomain.
+Based on the information provided, identify which email provider can be restricted to sending emails from a static sender address using an SPF macro. Additionally, determine which email provider, such as Microsoft 365, require sending emails from multiple addresses using your primary domain, and which email providers are not subject to these restrictions and can send through a subdomain, or where the email provider supports SPF alignment in relaxed mode through a subdomain.
 
 A helpful approach is to create a list of your SPF record entries and specify the desired behavior for each entry, as shown in the example below:
 
@@ -84,8 +84,8 @@ A helpful approach is to create a list of your SPF record entries and specify th
 | -----------                           | ----------- |
 | `mx`                                  | Duplicate mechanisms, can be removed. When using Microsoft 365, the `MX` endpoint IP is already listed in `include:spf.protection.outlook.com`|
 | `include:spf.protection.outlook.com`  | Uses multiple email addresses and must send through the primary domain `yourdomain.com`|
-| `include:_spf.salesforce.com`         | Must send through the primary domain, but can be restricted to send from a fixed sender address `invoices@yourdomain.com` using an SPF macro|
-| `include:mail.zendesk.com`            | Must send through the primary domain, but can be restricted to send from a fixed sender address `support@yourdomain.com` using an SPF macro|
+| `include:_spf.salesforce.com`         | Must send through the primary domain, but can be restricted to send from a static sender address `invoices@yourdomain.com` using an SPF macro|
+| `include:mail.zendesk.com`            | Must send through the primary domain, but can be restricted to send from a static sender address `support@yourdomain.com` using an SPF macro|
 | `include:_spf.app1.com`               | Uses multiple addresses and is capable of sending through a subdomain for both the P1 sender and P2 sender, with a new SPF `TXT` record configured for `app1.yourdomain.com`|
 | `include:_spf.app2.com`               | Uses multiple addresses, but since the email provider supports setting the P1 sender to a subdomain, a new SPF `TXT` record is created for `app2.yourdomain.com`, but emails can still be sent using the primary domain `yourdomain.com` as the P2 sender|
 
@@ -123,7 +123,7 @@ include:_spf.yourdomain.com
 > **NOTE:** There is also an SPF macro for IP addresses, `%{i}`, this macro replace the IP address of the SMTP client that submitted the message. However, using two separate SPF macros _(because this blog already uses the macro `%{l}`)_ is not advisable due to the limit of two allowed void lookups (`NXDomain`). Even if you stay within the limit, there is still a risk of DNS timeouts due to slow DNS responses. Exceeding the limit will result in SPF `permerror`. Publishing an SPF policy that refers to data that does not exist in DNS is a poor practice and raises security concerns (see [RFC7208](https://www.rfc-editor.org/info/rfc7208) Section 4.6.4.).
 
 ## Use an SPF macro to restrict a third-party service to send from a specific address
-As described above, third-party services like Salesforce and Zendesk are mostly limited to sending from a single email address, such as `invoices@yourdomain.com` and `support@yourdomain.com`.
+Third-party services like Salesforce and Zendesk are mostly limited to sending from a static sender address, such as `invoices@yourdomain.com` and `support@yourdomain.com`.
 So it is unnecessary to have `include:_spf.salesforce.com` and `include:mail.zendesk.com` cost ***3 DNS Lookups*** in the SPF record on `yourdomain.com`.
 
 Calculate the DNS Lookups from `include:_spf.salesforce.com` in `yourdomain.com`:
@@ -161,7 +161,7 @@ After setting up the above, Salesfroce's sending servers can only send from `inv
 ![IMAGE](/images/handle-your-spf-record/spf-macro-visual-l.png)
 
 ## To summarize what we have done
-1. The main SPF record is cleaned up by deleting ***7 DNS lookups***, this with segmenting your email providers with subdomains and using an SPF macro for fixed sender addresses.
+1. The main SPF record is cleaned up by deleting ***7 DNS lookups***, this with segmenting your email providers with subdomains and using an SPF macro for static sender addresses.
 2. We deleted the `mx` DNS lookup because of a duplicate mechanism.
 3. We have set all the IP addresses in a separate include.
 
@@ -179,7 +179,7 @@ Final computation of DNS lookups:
 | Total:                               | 3 DNS Lookups                          |
 
 ## Lastly
-For the future of your SPF record, add IP addresses using the separate include, and carefully decide whether a email provider should be sent through a subdomain or a fixed sender address instead of any address from your primary domain. In addition, make it a habit to monitor your SPF record frequently and document each sender you list.
+For the future of your SPF record, add IP addresses using the separate include, and carefully decide whether a email provider should be sent through a subdomain or a static sender address instead of any address from your primary domain. In addition, make it a habit to monitor your SPF record frequently and document each sender you list.
 
 ## Reference
 - [Dmarcian SPF best practices - Unavailable from the Netherlands](https://dmarcian.com/spf-best-practices/)
