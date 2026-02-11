@@ -100,7 +100,7 @@ SPF can get a softfail or a hardfail, you determine that at the end of the recor
 
 - With `-all`: Email originating from a host that not match the record will not pass the SPF evaluation and be rejected, no further mechanism (like DKIM) may be used.
 
-Most mailbox providers treat SPF softfail (`~all`) and hardfail (`-all`) in a similar way. However, when an email fails SPF, such as in cases involving relaying or delegated senders, it may be hard rejected at SMTP level if an SPF hardfail (`-all`) is used. This can prevent DKIM evaluation on the receiving mail server, which may lead to a DMARC failure. 
+Most mailbox providers treat SPF softfail (`~all`) and hardfail (`-all`) in a similar way. However, when an email fails SPF, such as in cases involving relaying or delegated senders, it may be rejected by the receiving mail server if an SPF hardfail (`-all`) policy is in place. This can prevent DKIM evaluation on the receiving mail server, which may lead to a DMARC failure. 
 
 The SPF hardfail mechanism (`-all`) is only recommended for domains that do not send email. 
 
