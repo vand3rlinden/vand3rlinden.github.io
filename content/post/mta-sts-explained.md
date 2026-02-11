@@ -127,6 +127,7 @@ While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages
 ## Reference
 - [MTA-STS](https://www.mailhardener.com/kb/mta-sts)
 - [MTA-STS validator](https://www.mailhardener.com/tools/mta-sts-validator)
+- [TLS validator for MX endpoint](https://www.checktls.com/TestReceiver)
 - [TLS-RPT Record Checker](https://easydmarc.com/tools/tls-rpt-check)
 - [MTA-STS is defined in RFC8461](https://datatracker.ietf.org/doc/html/rfc8461)
 - [TLSRPT is defined in RFC8460](https://datatracker.ietf.org/doc/html/rfc8460)
