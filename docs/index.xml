@@ -71,7 +71,7 @@
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;In this blog post, we’ll walk through practical strategies to reduce the likelihood and impact of successful AiTM phishing attacks in Microsoft 365.&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;In today’s threat landscape, adversary-in-the-middle (AiTM) phishing attacks have emerged as a particularly dangerous tactic. These attacks bypass traditional defenses by placing a malicious proxy between the user and the legitimate service, capturing credentials and session tokens in real time. Once attackers have session tokens, they can bypass even multi-factor authentication (MFA), making AiTM attacks especially difficult to defend against.&lt;/p&gt;</description>
+&lt;p&gt;Adversary-in-the-middle (AiTM) phishing attacks have emerged as a particularly dangerous tactic. These attacks bypass traditional defenses by placing a malicious proxy between the user and the legitimate service, passing the credentials to the legitimate service while capturing the username, password, and MFA code, which are then used to hijack the session. Once attackers have session tokens, they can bypass even MFA, making AiTM attacks especially difficult to defend against.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Microsoft Defender for Office 365: Handling False Positives and False Negatives</title>

@@ -9,7 +9,7 @@ cover:
 
 > _In this blog post, we’ll walk through practical strategies to reduce the likelihood and impact of successful AiTM phishing attacks in Microsoft 365._
 
-In today’s threat landscape, adversary-in-the-middle (AiTM) phishing attacks have emerged as a particularly dangerous tactic. These attacks bypass traditional defenses by placing a malicious proxy between the user and the legitimate service, capturing credentials and session tokens in real time. Once attackers have session tokens, they can bypass even multi-factor authentication (MFA), making AiTM attacks especially difficult to defend against.
+Adversary-in-the-middle (AiTM) phishing attacks have emerged as a particularly dangerous tactic. These attacks bypass traditional defenses by placing a malicious proxy between the user and the legitimate service, passing the credentials to the legitimate service while capturing the username, password, and MFA code, which are then used to hijack the session. Once attackers have session tokens, they can bypass even MFA, making AiTM attacks especially difficult to defend against.
 
 While there is no single configuration to fully prevent AiTM phishing attacks in Microsoft 365 environments, a layered defense strategy can significantly reduce risk. This includes a combination of user education, strong authentication methods, and granular Conditional Access policies.
 
@@ -57,8 +57,6 @@ To ensure that only trusted and compliant devices can access corporate resources
 Why it helps: Blocks attackers using stolen credentials via AiTM phishing, even if they bypass MFA, because their device won’t meet compliance requirements.
 
 [Policy Implementation](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-alt-admin-device-compliand-hybrid)
-
-Tip: When using eligible roles in PIM (Privileged Identity Management), it’s recommended to include an Entra ID group, preferably a dynamic group based on your admin naming convention (e.g., ‘adm’), instead of include roles directly to the Conditional Access Policy. Also include an Entra ID group with the standard (non-privileged) accounts of the admins, as attackers can often find information online (e.g., LinkedIn) and target them with phishing emails sent to their regular user accounts.
 
 ### Restrict Access by Network Location
 Implement location-based Conditional Access policies to limit access to specific countries or trusted IP ranges.
