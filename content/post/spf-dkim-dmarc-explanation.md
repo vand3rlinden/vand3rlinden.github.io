@@ -16,7 +16,7 @@ SPF, DKIM, and DMARC are critical email authentication protocols that help preve
 | Protocol | Purpose                                                                |
 |----------|--------                                                                |
 | SPF      | Verifies sender authorization by checking the sender's IP address      |
-| DKIM     | Confirms message authenticity through cryptographic signature verification, ensuring the integrity of the message headers and the email body |
+| DKIM     | Ensures message integrity through cryptographic signature verification, confirming that the message headers and the email body have not been changed |
 | DMARC    | Enforces a policy by requiring alignment between SPF and/or DKIM       |
 
 ### P1 vs. P2 - Sender explanation table:
@@ -118,19 +118,19 @@ DomainKeys Identified Mail (DKIM) is an authentication-based technique that allo
 ### How DKIM works
 When an email is sent, the sending server creates a DKIM signature by hashing selected headers and the entire email body. This hash is signed using the private key of the sending domain, which stored on the sending server. Because the full body is hashed*, any modification to the email body will cause the DKIM validation to fail.
 
-> *The hash value is stored inside the DKIM signature in the `bh=` field, a Base64 encoded cryptographic hash of the email body, which used to ensure the integrity of the email content
+> *The hash value is stored inside the DKIM signature in the `bh=` field (a Base64 encoded cryptographic hash of the email body), which used to ensure the integrity of the email content
 
-When the receiving server receive the email, it reads the DKIM-Signature header and makes a DNS lookup using the selector and sending domain, such as `selector1._domainkey.yourdomain.com`. The public key is retrieved from a `TXT` record (or via CNAME) in the sender’s DNS zone. For example:
+When the receiving server receive the email, it reads the DKIM-Signature header and makes a DNS lookup using the selector and sending domain, such as `selector1._domainkey.yourdomain.com`. The public key is retrieved from a `TXT` record (or via CNAME) in the DNS zone of the sender. For example:
 
 - Hostname: `key1._domainkey.yourdomain.com` (TXT)
 - Value: `v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9…` (public key)
+
+The receiving server then recalculates the hash of the signed headers and entire body and verifies the signature using the public key. If the hash matches and the signature validates, DKIM passes.
 
 Example DKIM-Signature header in the email:
 ```
 v=1; a=rsa-sha256; c=relaxed/relaxed; d=yourdomain.com; s=key1; bh=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890=; b=Base64DSignatureValue
 ```
-
-The receiving server then recalculates the hash of the signed headers and entire body and verifies the signature using the public key. If the hash matches and the signature validates, DKIM passes.
 
 ### How DKIM evaluation works
 ![IMAGE](/images/spf-dkim-dmarc-explanation/dkim-visual.png)
@@ -292,7 +292,7 @@ This protects all of your domains from phishers and spammers, as bad actors will
 - **Purpose**: Sender authorization check
 - **Protect**: `RFC5321.MailFrom` (P1 Sender)
 
-**DKIM**: verifies if the public key (DNS record) of a sending domain matches the signed hash created with the private key on the sending server. This is a check that the sending domain actually sent the email, to ensure the integrity of the message headers and email body. DKIM must be configured for **each** sending server, such as Exchange Online or any other email provider.
+**DKIM**: verifies if the public key (DNS record) of a sending domain matches the signed hash created with the private key on the sending server. This is a check that the sending domain actually sent the email, and helps ensure the integrity of the message headers and the email body. DKIM must be configured for **each** sending server, such as Exchange Online or any other email provider.
 - **Purpose**: Message authenticity verification
 - **Protect**: `RFC5322.From` (P2 Sender)
 
