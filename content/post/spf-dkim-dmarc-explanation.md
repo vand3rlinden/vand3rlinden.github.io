@@ -116,11 +116,11 @@ SPF only validates the P1 sender, not the P2 sender. To address this gap, DKIM w
 DomainKeys Identified Mail (DKIM) is an authentication-based technique that allows the receiving mail server to verify the authenticity of an email by comparing the received private key with the public key if they match.
 
 ### How DKIM works
-When an email is sent, the sending server creates a DKIM signature by hashing selected headers* (such as, `From`, `Date`, `Subject`) and the entire email body. This hash is signed using the private key of the sending domain, which stored on the sending server. Because the full body is hashed**, any modification to the email body will cause the DKIM validation to fail.
+When an email is sent, the sending server creates a DKIM signature by hashing selected headers (such as `From`, `Date`, and `Subject`) and the entire email body. This hash is then signed using the private key of the sending domain, which is stored on the sending server. Because the full body is hashed and included in the signature, any modification to the email body will cause DKIM validation to fail.
 
-> *DKIM does not automatically sign every header, the sending server can choose which headers to include, and this headers are listed in the `h=` tag inside the DKIM-Signature header
+> *DKIM does not automatically sign every header, the sending server can choose which headers to include, and this headers are listed in the `h=` tag inside the `DKIM-Signature` header
 
-> **The hash value is stored inside the DKIM signature header in the `bh=` field (a Base64 encoded cryptographic hash of the email body), which used to ensure the integrity of the email content
+> **The hash value is stored inside the `DKIM-Signature` header in the `bh=` field (a Base64 encoded cryptographic hash of the email body), which used to ensure the integrity of the email content
 
 When the receiving server receive the email, it reads the DKIM-Signature header and makes a DNS lookup using the selector and sending domain, such as `selector1._domainkey.yourdomain.com`. The public key is retrieved from a `TXT` record (or via CNAME) in the DNS zone of the sender. For example:
 
