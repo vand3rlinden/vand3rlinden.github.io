@@ -20,7 +20,7 @@ When you send an email message, it goes through your sending server and may be r
 - **SPF** fails because of the new message source (IP address)
     - SPF checks email messages against an authorized list of IP addresses. When email is forwarded, it passes through an intermediate server whose IP may not be on the sender's SPF list. This results in unwanted SPF failures, even for legitimate email. 
 - **DKIM** fails because of content modification
-    - DKIM adds signatures that are hashed and signed using a private key on the sending server and can be verified with a public key published in DNS. If the email is modified during forwarding, such as by changing the email body or certain headers, the DKIM signature may no longer match, causing the verification to fail.
+    - DKIM adds a signature to an email that is hashed and signed using a private key on the sending server and can be verified with a public key published in DNS. If the email is modified during forwarding, such as by changing the email body or certain headers, the DKIM signature may no longer match, causing the verification to fail.
 - **DMARC** fails because of the SPF and DKIM failures
 	- DMARC assumes that emails are completely unchanged throughout the delivery process.
 
