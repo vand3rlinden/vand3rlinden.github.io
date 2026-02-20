@@ -29,7 +29,7 @@ In this blog, you will read a lot about the P1 and P2 sender. Please refer to th
 
 ## SPF
 ### What is SPF
-Sender Policy Framework (SPF) is a protocol that aims to reduce spam. SPF can reduce email spoofing and spam by determining if the sender is authorized to send on behalf of the listed sender.
+SPF (Sender Policy Framework) is a protocol that aims to reduce spam. SPF can reduce email spoofing and spam by determining if the sender is authorized to send on behalf of the listed sender.
 
 ### How SPF works
 Imagine that you have an SPF record that looks like: 
@@ -113,7 +113,7 @@ SPF only validates the P1 sender, not the P2 sender. To address this gap, DKIM w
 
 ## DKIM
 ### What is DKIM
-DomainKeys Identified Mail (DKIM) is an authentication-based technique that allows the receiving mail server to verify the authenticity of an email by comparing the received private key with the public key if they match.
+DKIM (DomainKeys Identified Mail) is an email authentication method that allows a receiving mail server to confirm that a message was genuinely sent by the domain it claims to come from and that its content has not been altered in transit.
 
 ### How DKIM works
 When an email is sent, the sending server creates a DKIM signature by hashing selected headers (such as `From`, `Date`, and `Subject`) and the entire email body. This hash is then signed using the private key of the sending domain, which is stored on the sending server. Because the full body is hashed and included in the signature, any modification to the email body will cause DKIM validation to fail.
