@@ -9,7 +9,7 @@ cover:
 
 > _This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages._
 
-MTA-STS (Mail Transfer Agent Strict Transport Security) is a transport security mechanism (TLS enforcement) that protects protects SMTP delivery, it allows a sending (outbound) mail server to enforce the use of TLS by retrieving a secured `HTTPS` policy file published by the domain of the receiving (inbound) mail server. This enforcement ensures that connections between mail servers are encrypted and authenticated, preventing attackers from downgrading the connection or intercepting messages through man in the middle attacks. 
+MTA-STS (Mail Transfer Agent Strict Transport Security) is a transport security mechanism (TLS enforcement) that protects SMTP delivery, it allows a sending (outbound) mail server to enforce the use of TLS by retrieving a secured `HTTPS` policy file published by the domain of the receiving (inbound) mail server. This enforcement ensures that connections between mail servers are encrypted and authenticated, preventing attackers from downgrading the connection or intercepting messages through man in the middle attacks. 
 
 Since port `25` does not use authentication (MTA-to-MTA delivery), implementing an MTA-STS policy enforces TLS encryption and certificate validation between MTA’s, this ensures the confidentiality of email delivery.
 
