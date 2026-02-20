@@ -107,7 +107,7 @@ TLS Reporting (TLSRPT) is a standard that provides a way to report when the TLS 
 | `_smtp._tls.example.com` | `TXT`| `v=TLSRPTv1; rua=mailto:tlsrpt@example.com`|
 
 ### TLSRPT report handling
-If a sending mail server is having trouble securely delivering mail to a receiving mail server, the sending mail server can use the receiving mail server's TLSRPT record to find out where to send a report about the problem or to report a successful session.
+If a sending mail server has issues securely delivering email to a receiving mail server, it can use the `TLSRPT` record published in the public DNS of the receiving domain to determine where to send a report about the problem or to report a successful TLS session.
 
 The reports are received in `.json`, you can look for the `summary` tag to check if the TLS connection was failed or successful:
 ```
