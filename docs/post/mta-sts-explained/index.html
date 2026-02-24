@@ -270,7 +270,7 @@ Value: github-username.github.io.
 <li>MTA-STS policy for <code>vand3rlinden.com</code>: <a href="https://mta-sts.vand3rlinden.com/.well-known/mta-sts.txt">https://mta-sts.vand3rlinden.com/.well-known/mta-sts.txt</a></li>
 <li>Repository of the MTA-STS policy for <code>mta-sts.vand3rlinden.com</code>: <a href="https://github.com/vand3rlinden/mta-sts">https://github.com/vand3rlinden/mta-sts</a></li>
 </ul>
-<h4 id="21-detailed-explanation-of-the-policy-file">2.1: Detailed Explanation of the Policy File<a hidden class="anchor" aria-hidden="true" href="#21-detailed-explanation-of-the-policy-file">#</a></h4>
+<h3 id="21-detailed-explanation-of-the-policy-file">2.1: Detailed Explanation of the Policy File<a hidden class="anchor" aria-hidden="true" href="#21-detailed-explanation-of-the-policy-file">#</a></h3>
 <ul>
 <li><code>version: STSv1</code>: Indicates the version of the MTA-STS policy.</li>
 <li><code>mode: enforce</code>: Specifies that the policy should be strictly enforced. Other modes are <code>testing</code> (send report only) and <code>none</code> (do nothing).</li>
@@ -284,14 +284,14 @@ Value: github-username.github.io.
 <blockquote>
 <p>In the <code>mta-sts.txt</code> file, you should list <strong>all MX servers</strong> that are used for receiving (inbound) emails for your domain and that support TLS.</p>
 </blockquote>
-<h4 id="22-from-testing-to-enforce">2.2: From testing to enforce<a hidden class="anchor" aria-hidden="true" href="#22-from-testing-to-enforce">#</a></h4>
-<ol start="2">
+<h3 id="22-from-testing-to-enforce">2.2: From testing to enforce<a hidden class="anchor" aria-hidden="true" href="#22-from-testing-to-enforce">#</a></h3>
+<ol>
 <li><strong>Start with Testing Mode</strong>: It is advisable to start with the <code>testing</code> mode. This allows you to monitor and log the results (with TLS reporting) without affecting email delivery. It helps you ensure that your MX servers are correctly configured to support TLS before enforcing the policy.</li>
 <li><strong>Transition to Enforce Mode</strong>: Once you are confident that your MX servers support TLS and that email can be securely delivered, you can switch to <code>enforce</code> mode to enhance your email security.</li>
 </ol>
 <h3 id="3-activate-tls-reporting-tlsrpt">3: Activate TLS Reporting (TLSRPT)<a hidden class="anchor" aria-hidden="true" href="#3-activate-tls-reporting-tlsrpt">#</a></h3>
 <p>TLS Reporting (TLSRPT) is a standard that provides a way to report when the TLS connection could not be established during email transmission.</p>
-<h4 id="31-implementation-of-tlsrpt">3.1: Implementation of TLSRPT<a hidden class="anchor" aria-hidden="true" href="#31-implementation-of-tlsrpt">#</a></h4>
+<h3 id="31-implementation-of-tlsrpt">3.1: Implementation of TLSRPT<a hidden class="anchor" aria-hidden="true" href="#31-implementation-of-tlsrpt">#</a></h3>
 <ol>
 <li>Log in to your DNS hosting provider&rsquo;s management console.</li>
 <li>Add a new TXT record with the following details:</li>
@@ -312,7 +312,7 @@ Value: github-username.github.io.
       </tr>
   </tbody>
 </table>
-<h4 id="32-tlsrpt-report-handling">3.2: TLSRPT report handling<a hidden class="anchor" aria-hidden="true" href="#32-tlsrpt-report-handling">#</a></h4>
+<h3 id="32-tlsrpt-report-handling">3.2: TLSRPT report handling<a hidden class="anchor" aria-hidden="true" href="#32-tlsrpt-report-handling">#</a></h3>
 <p>If a sending mail server has issues securely delivering email to a receiving mail server, it can use the <code>TLSRPT</code> record published in the public DNS of the receiving domain to determine where to send a report about the problem or to report a successful TLS session.</p>
 <p>The reports are received in <code>.json</code>, you can look for the <code>summary</code> tag to check if the TLS connection was failed or successful:</p>
 <pre tabindex="0"><code>&#34;summary&#34;:{&#34;total-successful-session-count&#34;:1,&#34;total-failure-session-count&#34;:0}

@@ -81,7 +81,7 @@ Example:
 - MTA-STS policy for `vand3rlinden.com`: https://mta-sts.vand3rlinden.com/.well-known/mta-sts.txt
 - Repository of the MTA-STS policy for `mta-sts.vand3rlinden.com`: https://github.com/vand3rlinden/mta-sts 
 
-#### 2.1: Detailed Explanation of the Policy File
+### 2.1: Detailed Explanation of the Policy File
 - `version: STSv1`: Indicates the version of the MTA-STS policy.
 - `mode: enforce`: Specifies that the policy should be strictly enforced. Other modes are `testing` (send report only) and `none` (do nothing).
 - `mx`: Lists each of the MX servers that handle email for your domain. If needed, wildcards are allowd, such as `*.j-v1.mx.microsoft`
@@ -90,15 +90,15 @@ Example:
 
 > In the `mta-sts.txt` file, you should list **all MX servers** that are used for receiving (inbound) emails for your domain and that support TLS.
 
-#### 2.2: From testing to enforce
-2. **Start with Testing Mode**: It is advisable to start with the `testing` mode. This allows you to monitor and log the results (with TLS reporting) without affecting email delivery. It helps you ensure that your MX servers are correctly configured to support TLS before enforcing the policy.
-3. **Transition to Enforce Mode**: Once you are confident that your MX servers support TLS and that email can be securely delivered, you can switch to `enforce` mode to enhance your email security.
+### 2.2: From testing to enforce
+1. **Start with Testing Mode**: It is advisable to start with the `testing` mode. This allows you to monitor and log the results (with TLS reporting) without affecting email delivery. It helps you ensure that your MX servers are correctly configured to support TLS before enforcing the policy.
+2. **Transition to Enforce Mode**: Once you are confident that your MX servers support TLS and that email can be securely delivered, you can switch to `enforce` mode to enhance your email security.
 
 
 ### 3: Activate TLS Reporting (TLSRPT)
 TLS Reporting (TLSRPT) is a standard that provides a way to report when the TLS connection could not be established during email transmission.
 
-#### 3.1: Implementation of TLSRPT
+### 3.1: Implementation of TLSRPT
 1. Log in to your DNS hosting provider's management console.
 2. Add a new TXT record with the following details:
 
@@ -106,7 +106,7 @@ TLS Reporting (TLSRPT) is a standard that provides a way to report when the TLS 
 | ----                        | ---  | ---                                     |
 | `_smtp._tls.example.com` | `TXT`| `v=TLSRPTv1; rua=mailto:tlsrpt@example.com`|
 
-#### 3.2: TLSRPT report handling
+### 3.2: TLSRPT report handling
 If a sending mail server has issues securely delivering email to a receiving mail server, it can use the `TLSRPT` record published in the public DNS of the receiving domain to determine where to send a report about the problem or to report a successful TLS session.
 
 The reports are received in `.json`, you can look for the `summary` tag to check if the TLS connection was failed or successful:
