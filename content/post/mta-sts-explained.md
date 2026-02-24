@@ -9,7 +9,7 @@ cover:
 
 > _This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages._
 
-MTA-STS (Mail Transfer Agent Strict Transport Security) is a transport security mechanism (TLS enforcement) that protects SMTP delivery, it allows a sending (outbound) mail server to enforce the use of TLS by retrieving a secured `HTTPS` policy file published by the domain of the receiving (inbound) mail server. 
+MTA-STS (Mail Transfer Agent Strict Transport Security) is a transport security mechanism (TLS enforcement) that protects SMTP delivery, it allows a sending (outbound) mail server to enforce the use of TLS by retrieving a secured `HTTPS` policy file published by the domain of the receiving (inbound) mail server. When MTA-STS is in `enforce` mode, the sending (outbound) mail server must validate that the receiving (inbound) mail server's TLS certificate is valid, trusted, and matches the domain (the domain name in the TLS certificate must match the MX record of the domain).
 
 Since port `25` does not use authentication (MTA-to-MTA delivery), implementing an MTA-STS policy enforces TLS encryption and certificate validation between MTA’s, this ensures the confidentiality of email delivery.
 
@@ -42,7 +42,7 @@ Since port `25` does not use authentication (MTA-to-MTA delivery), implementing 
 - SMTP TLS Reporting DNS TXT Record (`_smtp._tls.example.com`)
 
 ##  Implement an MTA-STS policy for a domain
-### Adding the DNS TXT Record for the MTA STS Policy
+### 1: Add a DNS TXT record for the MTA STS policy
 This `TXT` record is placed at `_mta-sts.example.com` and signals the presence of an MTA-STS policy.
 ```
 _mta-sts.example.com IN TXT "v=STSv1; id=20240728"
@@ -51,7 +51,7 @@ _mta-sts.example.com IN TXT "v=STSv1; id=20240728"
 - `v=STSv1:` Indicates the version of the MTA-STS policy.
 - `id=2024072801`: A unique identifier for the policy. This can be a date-based identifier or any other unique string. It must be updated whenever the policy file is changed.
 
-### Host the MTA-STS Policy on Github Pages
+### 2: Host the MTA-STS Policy file (in this blog we use Github Pages)
 1. Create a new [public repository](https://docs.github.com/en/pages/quickstart#creating-your-website) called `mta-sts`
 2. Disabling Jekyll, GitHub Pages is powered by Jekyll, a static website generator. However, Jekyll does not serve folders that begin with a dot. In order to do so, we'll add a single empty file called `.nojekyll` to the repo.
 3. Creating the MTA-STS Policy in `.well-known/mta-sts.txt` with the following content, and make sure to list all MX records for your domain:
@@ -81,24 +81,24 @@ Example:
 - MTA-STS policy for `vand3rlinden.com`: https://mta-sts.vand3rlinden.com/.well-known/mta-sts.txt
 - Repository of the MTA-STS policy for `mta-sts.vand3rlinden.com`: https://github.com/vand3rlinden/mta-sts 
 
-## Detailed Explanation of the Policy File
+#### 2.1: Detailed Explanation of the Policy File
 - `version: STSv1`: Indicates the version of the MTA-STS policy.
 - `mode: enforce`: Specifies that the policy should be strictly enforced. Other modes are `testing` (send report only) and `none` (do nothing).
 - `mx`: Lists each of the MX servers that handle email for your domain. If needed, wildcards are allowd, such as `*.j-v1.mx.microsoft`
 - `max_age: 604800`: Specifies the duration (in seconds) that the policy is valid. After this time, the sending MTA should refresh the policy.
   - The time (in seconds) that a sending MTA is allowed to cache the policy. The minimum recommended value is 1 week (604800 seconds).
 
-In the `mta-sts.txt` file, you should list all MX servers that are used for receiving emails for your domain and that support TLS. This ensures that sending MTAs know which servers to establish secure connections with when delivering emails to your domain.
+> In the `mta-sts.txt` file, you should list **all MX servers** that are used for receiving (inbound) emails for your domain and that support TLS.
 
-## Recommendations
-- **Start with Testing Mode**: It’s advisable to start with the `testing` mode. This allows you to monitor and log the results without affecting email delivery. It helps you ensure that your MX servers are correctly configured to support TLS before enforcing the policy.
-- **Transition to Enforce Mode**: Once you are confident that your MX servers support TLS and that email can be securely delivered, you can switch to `enforce` mode to enhance your email security.
-- **Activate TLS Reporting (TLSRPT)**: TLSRPT records are DNS `TXT` records that specify how to report issues with TLS encryption for SMTP. When an email server experiences issues delivering emails securely to another server, it can refer to the TLSRPT record to know where to send the report of the problem.
+#### 2.2: From testing to enforce
+2. **Start with Testing Mode**: It is advisable to start with the `testing` mode. This allows you to monitor and log the results (with TLS reporting) without affecting email delivery. It helps you ensure that your MX servers are correctly configured to support TLS before enforcing the policy.
+3. **Transition to Enforce Mode**: Once you are confident that your MX servers support TLS and that email can be securely delivered, you can switch to `enforce` mode to enhance your email security.
 
-## Activate TLS Reporting (TLSRPT)
+
+### 3: Activate TLS Reporting (TLSRPT)
 TLS Reporting (TLSRPT) is a standard that provides a way to report when the TLS connection could not be established during email transmission.
 
-### Implementation of TLSRPT
+#### 3.1: Implementation of TLSRPT
 1. Log in to your DNS hosting provider's management console.
 2. Add a new TXT record with the following details:
 
@@ -106,7 +106,7 @@ TLS Reporting (TLSRPT) is a standard that provides a way to report when the TLS 
 | ----                        | ---  | ---                                     |
 | `_smtp._tls.example.com` | `TXT`| `v=TLSRPTv1; rua=mailto:tlsrpt@example.com`|
 
-### TLSRPT report handling
+#### 3.2: TLSRPT report handling
 If a sending mail server has issues securely delivering email to a receiving mail server, it can use the `TLSRPT` record published in the public DNS of the receiving domain to determine where to send a report about the problem or to report a successful TLS session.
 
 The reports are received in `.json`, you can look for the `summary` tag to check if the TLS connection was failed or successful:
@@ -117,7 +117,7 @@ The reports are received in `.json`, you can look for the `summary` tag to check
 ## MTA-STS vs. SMTP DANE
 Neither [SMTP DANE](https://vand3rlinden.com/post/dnssec-dane-explained/#dnssec-and-smtp-dane-on-a-mailserver) nor MTA-STS is universally **better**. SMTP DANE provides stronger security, but requires DNSSEC, and not every DNS provider supports DNSSEC yet. MTA-STS is easier to implement and provides good security through `HTTPS` and DNS. Using the two together can provide the best of both worlds, increasing security through a layered approach. 
 
-This layered approach is beneficial because MTA-STS enforces TLS through a secure `HTTPS` policy file and validates the TLS certificate of the receiving (inbound) mail server, while SMTP DANE provides similar protection by checking TLS fingerprints obtained from the `TLSA` records of the receiving domain’s `MX` host and comparing them with the fingerprints presented by the receiving (inbound) mail server of the receiving domain.
+This layered approach is can be beneficial because MTA-STS enforces TLS through a secure `HTTPS` policy file and validates the TLS certificate of the receiving (inbound) mail server, while SMTP DANE provides similar protection by retrieving TLS fingerprints from the `TLSA` records from the `MX` host of the receiving domain and comparing them with the fingerprints presented by the receiving (inbound) mail server of the receiving domain.
 
 ## MTA-STS and SMTP DANE vs. Outbound email authentication
 While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages and ensuring they are sent from authorized domains for outbound email, SMTP DANE and MTA-STS focuses specifically on securely establishing TLS connections between mail servers. These protocols ensures that the sending mail server connects to the intended receiving inbound mail server with verified encryption.

@@ -74,11 +74,11 @@ The above recommandation is not for **Safe Attachments** and **Safe Links** poli
 ### 8: DNS configuration
 - **Inbound email**:
     - [MTA-STS Policy](https://vand3rlinden.com/post/mta-sts-explained/)
-		- MTA-STS is a security mechanism that allows a sending (outbound) mail server to enforce the use of TLS by retrieving a secured `HTTPS` policy file published by the domain of the receiving (inbound) mail server. This enforcement ensures that connections between mail servers are encrypted.
+		- MTA-STS enforces TLS through a secure `HTTPS` policy file and validates the TLS certificate of the receiving (inbound) mail server.
 	- [Configure inbound SMTP DANE with DNSSEC in Exchange Online](https://vand3rlinden.com/post/exo-inbound-smtp-dane-dnssec/)
-		- Functionally similar to MTA-STS, however, SMTP DANE uses DNSSEC to allow the sending (outbound) mail server to verify the TLS certificate of a receiving (inbound) mail server using `TLSA` records published in the DNS of the receiving domain.
+		- SMTP DANE provides also TLS enforcement, but it requires DNSSEC. It works by retrieving TLS fingerprints from the `TLSA` records published in the DNS of the receiving (inbound) domain’s `MX` host and comparing them with the fingerprints presented by the receiving (inbound) mail server.
 	
-> **NOTE**: Neither SMTP DANE nor MTA-STS is universally **better**. SMTP DANE provides stronger security, but requires DNSSEC, and not every DNS provider supports DNSSEC yet. MTA-STS is easier to implement and provides good security through `HTTPS` and DNS. Using the two together can provide the best of both worlds, increasing security through a layered approach.
+> **NOTE**: Neither SMTP DANE nor MTA-STS is universally **better**. Using the two together can provide the best of both worlds, increasing security through a layered approach.
 	
 - **Outbound email**:
 	- [Deploy SPF, DKIM, and DMARC the right way](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/)

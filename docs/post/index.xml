@@ -100,8 +100,7 @@
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages.&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;MTA-STS (Mail Transfer Agent Strict Transport Security) is a transport security mechanism (TLS enforcement) that protects SMTP delivery, it allows a sending (outbound) mail server to enforce the use of TLS by retrieving a secured &lt;code&gt;HTTPS&lt;/code&gt; policy file published by the domain of the receiving (inbound) mail server.&lt;/p&gt;
-&lt;p&gt;Since port &lt;code&gt;25&lt;/code&gt; does not use authentication (MTA-to-MTA delivery), implementing an MTA-STS policy enforces TLS encryption and certificate validation between MTA’s, this ensures the confidentiality of email delivery.&lt;/p&gt;</description>
+&lt;p&gt;MTA-STS (Mail Transfer Agent Strict Transport Security) is a transport security mechanism (TLS enforcement) that protects SMTP delivery, it allows a sending (outbound) mail server to enforce the use of TLS by retrieving a secured &lt;code&gt;HTTPS&lt;/code&gt; policy file published by the domain of the receiving (inbound) mail server. When MTA-STS is in &lt;code&gt;enforce&lt;/code&gt; mode, the sending (outbound) mail server must validate that the receiving (inbound) mail server&amp;rsquo;s TLS certificate is valid, trusted, and matches the domain (the domain name in the TLS certificate must match the MX record of the domain).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Exchange Online: Configure inbound SMTP DANE with DNSSEC</title>
@@ -116,7 +115,7 @@
 &lt;p&gt;For a deeper understanding of DNSSEC and DANE, take a look at my earlier &lt;a href=&#34;https://vand3rlinden.com/post/dnssec-dane-explained/&#34;&gt;blog post&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;how-smtp-dane-with-dnssec-works&#34;&gt;How SMTP DANE with DNSSEC works&lt;/h2&gt;
-&lt;p&gt;SMTP DANE is a transport security mechanism (TLS enforcement) that protects SMTP delivery to a domain by using DNSSEC validated &lt;code&gt;TLSA&lt;/code&gt; records to allow a sending (outbound) mail server to verify the TLS certificate of a receiving (inbound) mail server using &lt;code&gt;TLSA&lt;/code&gt; records published in the DNS of the receiving domain.&lt;/p&gt;</description>
+&lt;p&gt;SMTP DANE is a transport security mechanism (TLS enforcement) that protects SMTP delivery to a domain by using DNSSEC validated &lt;code&gt;TLSA&lt;/code&gt; records. It enables a sending (outbound) mail server to verify the TLS certificate of a receiving (inbound) mail server using &lt;code&gt;TLSA&lt;/code&gt; records published in the DNS on the MX host of the receiving domain. The sending (outbound) mail server validates the connection by comparing the TLS fingerprints obtained from the &lt;code&gt;TLSA&lt;/code&gt; records with the fingerprints presented by the receiving (inbound) mail server.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Microsoft Defender for Office 365: Safe Attachments policies</title>

@@ -158,7 +158,7 @@
     <p>In this post, I will explain how to configure Microsoft Defender for Office 365 in your tenant. Since I have already covered most of these settings in my earlier blogs, I thought it was time to combine all the information into one post. I will link to my previous articles, so you can use this post as a summary to help strengthen your Microsoft Defender for Office 365 configuration, @ the speed of email!
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-11-23 00:17:31 +0100 CET'>November 23, 2025</span>&nbsp;·&nbsp;7 min</footer>
+  <footer class="entry-footer"><span title='2025-11-23 00:17:31 +0100 CET'>November 23, 2025</span>&nbsp;·&nbsp;6 min</footer>
   <a class="entry-link" aria-label="post link to Microsoft Defender for Office 365: Configuration Summary" href="https://vand3rlinden.com/post/mdo-configuration-summary/"></a>
 </article>
 
@@ -270,8 +270,7 @@ We live in a time where most first impressions happen online, and emails are usu
   </header>
   <div class="entry-content">
     <p> This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages.
-MTA-STS (Mail Transfer Agent Strict Transport Security) is a transport security mechanism (TLS enforcement) that protects SMTP delivery, it allows a sending (outbound) mail server to enforce the use of TLS by retrieving a secured HTTPS policy file published by the domain of the receiving (inbound) mail server.
-Since port 25 does not use authentication (MTA-to-MTA delivery), implementing an MTA-STS policy enforces TLS encryption and certificate validation between MTA’s, this ensures the confidentiality of email delivery.
+MTA-STS (Mail Transfer Agent Strict Transport Security) is a transport security mechanism (TLS enforcement) that protects SMTP delivery, it allows a sending (outbound) mail server to enforce the use of TLS by retrieving a secured HTTPS policy file published by the domain of the receiving (inbound) mail server. When MTA-STS is in enforce mode, the sending (outbound) mail server must validate that the receiving (inbound) mail server’s TLS certificate is valid, trusted, and matches the domain (the domain name in the TLS certificate must match the MX record of the domain).
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2024-08-23 16:22:41 +0200 CEST'>August 23, 2024</span>&nbsp;·&nbsp;6 min</footer>
@@ -287,7 +286,7 @@ Since port 25 does not use authentication (MTA-to-MTA delivery), implementing an
     <p> In this post, you will learn how to enable and use SMTP DANE with DNSSEC in Exchange Online.
 While outbound SMTP DANE with DNSSEC in Exchange Online has been enabled since 2022, Microsoft is has rolling out inbound SMTP DANE with DNSSEC in Exchange Online since late 2024.
 For a deeper understanding of DNSSEC and DANE, take a look at my earlier blog post.
-How SMTP DANE with DNSSEC works SMTP DANE is a transport security mechanism (TLS enforcement) that protects SMTP delivery to a domain by using DNSSEC validated TLSA records to allow a sending (outbound) mail server to verify the TLS certificate of a receiving (inbound) mail server using TLSA records published in the DNS of the receiving domain.
+How SMTP DANE with DNSSEC works SMTP DANE is a transport security mechanism (TLS enforcement) that protects SMTP delivery to a domain by using DNSSEC validated TLSA records. It enables a sending (outbound) mail server to verify the TLS certificate of a receiving (inbound) mail server using TLSA records published in the DNS on the MX host of the receiving domain. The sending (outbound) mail server validates the connection by comparing the TLS fingerprints obtained from the TLSA records with the fingerprints presented by the receiving (inbound) mail server.
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2024-07-28 01:13:44 +0200 CEST'>July 28, 2024</span>&nbsp;·&nbsp;7 min</footer>
