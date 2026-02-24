@@ -69,7 +69,7 @@ The above recommandation is not for **Safe Attachments** and **Safe Links** poli
 
 ### 7: Reject Direct Send in Exchange Online
 - [Exchange Online: Reject Direct Send](https://vand3rlinden.com/post/exo-reject-direct-send/)
-	- Direct Send is a method used to send emails directly to Exchange Online hosted mailboxes from on-premises devices, applications, or third-party cloud services, using the MX record endpoint of your accepted domain in Exchange Online.
+	- Direct Send is a method used to send emails directly to Exchange Online hosted mailboxes from on-premises devices, applications, or third-party cloud services, using the `MX` record endpoint of your accepted domain in Exchange Online.
 
 ### 8: DNS configuration
 - **Inbound email**:

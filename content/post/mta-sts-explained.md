@@ -9,7 +9,7 @@ cover:
 
 > _This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages._
 
-MTA-STS (Mail Transfer Agent Strict Transport Security) is a transport security mechanism (TLS enforcement) that protects SMTP delivery, it allows a sending (outbound) mail server to enforce the use of TLS by retrieving a secured `HTTPS` policy file published by the domain of the receiving (inbound) mail server. When MTA-STS is in `enforce` mode, the sending (outbound) mail server must validate that the receiving (inbound) mail server's TLS certificate is valid, trusted, and matches the domain (the domain name in the TLS certificate must match the MX record of the domain).
+MTA-STS (Mail Transfer Agent Strict Transport Security) is a transport security mechanism (TLS enforcement) that protects SMTP delivery, it allows a sending (outbound) mail server to enforce the use of TLS by retrieving a secured `HTTPS` policy file published by the domain of the receiving (inbound) mail server. When MTA-STS is in `enforce` mode, the sending (outbound) mail server must validate that the receiving (inbound) mail server's TLS certificate is valid, trusted, and matches the domain (the domain name in the TLS certificate must match the `MX` record of the domain).
 
 Since port `25` does not use authentication (MTA-to-MTA delivery), implementing an MTA-STS policy enforces TLS encryption and certificate validation between MTA’s, this ensures the confidentiality of email delivery.
 
@@ -117,7 +117,7 @@ The reports are received in `.json`, you can look for the `summary` tag to check
 ## MTA-STS vs. SMTP DANE
 Neither [SMTP DANE](https://vand3rlinden.com/post/dnssec-dane-explained/#dnssec-and-smtp-dane-on-a-mailserver) nor MTA-STS is universally **better**. SMTP DANE provides stronger security, but requires DNSSEC, and not every DNS provider supports DNSSEC yet. MTA-STS is easier to implement and provides good security through `HTTPS` and DNS. Using the two together can provide the best of both worlds, increasing security through a layered approach. 
 
-This layered approach is can be beneficial because MTA-STS enforces TLS through a secure `HTTPS` policy file and validates the TLS certificate of the receiving (inbound) mail server, while SMTP DANE provides similar protection by retrieving TLS fingerprints from the `TLSA` records from the `MX` host of the receiving domain and comparing them with the fingerprints presented by the receiving (inbound) mail server of the receiving domain.
+This layered approach can be beneficial because MTA-STS enforces TLS through a secure `HTTPS` policy file and validates the TLS certificate of the receiving (inbound) mail server, while SMTP DANE provides similar protection by retrieving TLS fingerprints from the `TLSA` records from the `MX` host of the receiving domain and comparing them with the fingerprints presented by the receiving (inbound) mail server of the receiving domain.
 
 ## MTA-STS and SMTP DANE vs. Outbound email authentication
 While SPF, DKIM, and DMARC focus on verifying the authenticity of email messages and ensuring they are sent from authorized domains for outbound email, SMTP DANE and MTA-STS focuses specifically on securely establishing TLS connections between mail servers. These protocols ensures that the sending mail server connects to the intended receiving inbound mail server with verified encryption.
