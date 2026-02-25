@@ -212,24 +212,30 @@ The `sp=reject` tag means that subdomains will be included; if you don’t want 
 DMARC monitoring does **not** provide insights into the total sending volume of your domain. Instead, it **only** shows authentication results (SPF/DKIM/DMARC pass or fail) based on the aggregate (`RUA`) reports received.
 
 There are three primary approaches to managing reporting in your DMARC monitoring strategy:
-1. If you see an email provider you don’t recognize, but SPF and/or DKIM passes, and your organization hasn’t historically documented all authorized email providers, review your SPF and `*._domainkey` entries in your public DNS. Remove any unused entries, and establish a practice of documenting all email providers authorized to send on behalf of your domain.
+1. If you identify an email provider that you do not recognize, but SPF and/or DKIM passes, and your organization has not historically documented all authorized email providers, review your SPF record and `*._domainkey` entries in your public DNS. Remove any entries that are no longer in use.
 2. If you recognize an email provider, but SPF and/or DKIM fails, update your domain’s email authentication settings to align SPF and DKIM for that email provider. This ensures the email provider is properly configured for outbound email authentication.
+
+> **NOTE**: The above two steps should only be neccasary while the DMARC policy is set to `none`. During this monitoring phase on `none`, you should work towards documenting all authorized email providers and establishing a process for onboarding new email providers in the future when DMARC is on `reject`.
+
 3. If the email provider is unrecognized and all authentication checks fail (SPF, DKIM, and DMARC), then DMARC is working as intended. No action is required, as these messages will be rejected by most receiving mail servers once your DMARC policy is set to `reject`.
 
 ### Maintenance steps on DMARC Monitoring
 - SPF:
-  - Perform periodic checks of the SPF record
-  - Track and document all changes made to the SPF record
-  - Configure alerting to notify security teams whenever modifications to the SPF record are detected
-  -	Maintain an up-to-date list of your authorized senders
+  - Perform periodic reviews of the SPF record
+    - Track and document all changes made to the SPF record
+    - Maintain an up-to-date list of all authorized sending sources
+- Configure alerts to notify the security team whenever modifications to the SPF record are detected
 
 - DKIM:
-  - Monitor for periodic DKIM key rotations
-    - Recurring: Every six months for a 2048-bit DKIM key
+  - Monitor and perform periodic DKIM key rotations
+    - Recommended: Rotate 2048-bit DKIM keys every six months
+  - Detect DKIM misalignment, which can be verified through DMARC aggregate reports
 
 - DMARC:
   - Regularly review DMARC reports
-  - Set up alerting and reporting to detect high-volume email sources where DMARC validation fails due to SPF or DKIM misalignment
+    - Analyze SPF and DKIM pass and fail results
+    - Investigate any identified anomalies
+    - Identify DKIM and SPF misalignment issues
   
 ### DMARC policy explanation
 | Policy      | Value           | Meaning       |
