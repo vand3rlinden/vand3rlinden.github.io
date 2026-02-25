@@ -10,7 +10,7 @@ cover:
 > _In this post you will learn to understand how the DNS protocols SPF, DKIM and DMARC work together to protect your domain from phishers and spammers._
 
 ## Why deploy SPF, DKIM, and DMARC?
-SPF, DKIM, and DMARC are critical email authentication protocols that help prevent email spoofing, phishing attacks, and domain impersonation for ***outbound email***. Enabling these protocols together strengthens your domain's email authentication mechanisms, improves security, and builds trust with your recipients by ensuring that email sent from your domain is legitimate and trustworthy.
+SPF, DKIM, and DMARC are essential email authentication protocols for **outbound email** that help prevent spoofing in phishing attacks. Enabling these protocols together strengthens your domain's email authentication mechanisms, improves security, and builds trust with your recipients by ensuring that email sent from your domain is legitimate and trustworthy.
 
 ### SPF, DKIM and DMARC - Comparison table:
 | Protocol | Purpose                                                                |
