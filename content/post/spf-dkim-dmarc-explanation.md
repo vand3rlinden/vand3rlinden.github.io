@@ -116,9 +116,9 @@ SPF only validates the P1 sender, not the P2 sender. To address this gap, DKIM w
 DKIM (DomainKeys Identified Mail) is an email authentication method that allows a receiving mail server to verify that a message was genuinely sent by the claimed domain and that its content has not been altered in transit, by validating the hashed email headers and body.
 
 ### How DKIM works
-When an email is sent, the sending server creates a DKIM signature by hashing selected headers (such as `From`, `Date`, and `Subject`) and the entire email body. This hash is then signed using the private key of the sending domain, which is stored on the sending server. Because the full body is hashed and included in the signature, any modification to the email body will cause DKIM validation to fail.
+When an email is sent, the sending server creates a DKIM signature by hashing selected headers (such as `From`, `Date`, and `Subject`) and the entire email body*. This hash is then signed using the private key of the sending domain, which is stored on the sending server. Because the full body is hashed and included in the signature**, any modification to the email body will cause DKIM validation to fail.
 
-> *DKIM does not automatically sign every header, the sending server can choose which headers to include, and this headers are listed in the `h=` tag inside the `DKIM-Signature` header
+> *DKIM does not automatically sign every header, the sending server selects which headers to include, and those headers are listed in the `h=` tag inside the `DKIM-Signature` header
 
 > **The hash value is stored inside the `DKIM-Signature` header in the `bh=` field (a Base64 encoded cryptographic hash of the email body), which used to ensure the integrity of the email content
 
