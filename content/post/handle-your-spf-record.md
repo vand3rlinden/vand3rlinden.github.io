@@ -86,7 +86,7 @@ A helpful approach is to create a list of your SPF record entries and specify th
 | `include:spf.protection.outlook.com`  | Uses multiple email addresses and must send through the primary domain `yourdomain.com`|
 | `include:_spf.salesforce.com`         | Must send through the primary domain, but can be restricted to send from a static sender address `invoices@yourdomain.com` using an SPF macro|
 | `include:mail.zendesk.com`            | Must send through the primary domain, but can be restricted to send from a static sender address `support@yourdomain.com` using an SPF macro|
-| `include:_spf.app1.com`               | Uses multiple addresses and and can send email through a subdomain such as `app1.yourdomain.com` for both the P1 and P2 sender, a separate SPF `TXT` record is created for `app1.yourdomain.com` |
+| `include:_spf.app1.com`               | Uses multiple addresses and can send email through a subdomain such as `app1.yourdomain.com` for both the P1 and P2 sender, a separate SPF `TXT` record is created for `app1.yourdomain.com` |
 | `include:_spf.app2.com`               | Uses multiple addresses, but since the email provider supports configuring the P1 sender to a subdomain, a separate SPF `TXT` record is created for `app2.yourdomain.com`, however, emails can still be sent using the primary domain `yourdomain.com` as the P2 sender |
 
 
