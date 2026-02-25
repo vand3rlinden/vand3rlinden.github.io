@@ -224,7 +224,7 @@ There are three primary approaches to managing reporting in your DMARC monitorin
   - Perform periodic reviews of the SPF record
     - Track and document all changes made to the SPF record
     - Maintain an up-to-date list of all authorized sending sources
-- Configure alerts to notify the security team whenever modifications to the SPF record are detected
+  - Configure alerts to notify the security team whenever modifications to the SPF record are detected
 
 - DKIM:
   - Monitor and perform periodic DKIM key rotations
