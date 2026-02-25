@@ -86,8 +86,9 @@ A helpful approach is to create a list of your SPF record entries and specify th
 | `include:spf.protection.outlook.com`  | Uses multiple email addresses and must send through the primary domain `yourdomain.com`|
 | `include:_spf.salesforce.com`         | Must send through the primary domain, but can be restricted to send from a static sender address `invoices@yourdomain.com` using an SPF macro|
 | `include:mail.zendesk.com`            | Must send through the primary domain, but can be restricted to send from a static sender address `support@yourdomain.com` using an SPF macro|
-| `include:_spf.app1.com`               | Uses multiple addresses and is capable of sending through a subdomain for both the P1 sender and P2 sender, with a new SPF `TXT` record configured for `app1.yourdomain.com`|
-| `include:_spf.app2.com`               | Uses multiple addresses, but since the email provider supports setting the P1 sender to a subdomain, a new SPF `TXT` record is created for `app2.yourdomain.com`, but emails can still be sent using the primary domain `yourdomain.com` as the P2 sender|
+| `include:_spf.app1.com`               | Uses multiple addresses and and can send email through a subdomain such as `app1.yourdomain.com` for both the P1 and P2 sender, a separate SPF `TXT` record is created for `app1.yourdomain.com` |
+| `include:_spf.app2.com`               | Uses multiple addresses, but since the email provider supports configuring the P1 sender to a subdomain, a separate SPF `TXT` record is created for `app2.yourdomain.com`, however, emails can still be sent using the primary domain `yourdomain.com` as the P2 sender |
+
 
 > **NOTE**: If you encounter unfamiliar email providers or IP addresses, it may be the result of incomplete historical documentation of authorized email services within your organization. In such cases, monitor your SPF record using DMARC monitoring for 1 to 3 months, and only allow email providers that you can confidently verify as legitimate. For more details, see my clarification on DMARC monitoring in [this blog post](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#clarification-on-dmarc-monitoring).
 
@@ -155,7 +156,7 @@ include:%{l}._spf.yourdomain.com
 | `invoices._spf.yourdomain.com` | `TXT`  | `v=spf1 include:_spf.salesforce.com ~all`|
 | `support._spf.yourdomain.com`  | `TXT`  | `v=spf1 include:mail.zendesk.com ~all`   |
 
-After setting up the above, Salesfroce's sending servers can only send from `invoices@yourdomain.com` and Zendesk can only send from `support@yourdomain.com`.
+After setting up the above, Salesforce's sending servers can only send from `invoices@yourdomain.com` and Zendesk can only send from `support@yourdomain.com`.
 
 ## How the SPF macro %{l} works on the receiving mail server
 ![IMAGE](/images/handle-your-spf-record/spf-macro-visual-l.png)
