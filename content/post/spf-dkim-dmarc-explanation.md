@@ -235,6 +235,7 @@ There are three primary approaches to managing reporting in your DMARC monitorin
   - Regularly review DMARC reports
     - Analyze SPF and DKIM pass and fail results
     - Investigate any identified anomalies
+      - Detect potential abuse from sending sources with an abnormal volume of activity, which may indicate compromised sources
     - Identify DKIM and SPF misalignment issues
   
 ### DMARC policy explanation
