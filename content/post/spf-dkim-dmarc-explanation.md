@@ -40,7 +40,9 @@ If an unauthorized server sends on behalf of your domain, the email will get a `
 
 SPF will pass if the sender’s IP is added to the SPF record for the P1 Sender domain.
 
-> Later, you will read about the difference between SPF Softfail and Hardfail, as well as what is considered best practice.
+> **NOTE**: Later, you will read about the difference between SPF Softfail and Hardfail, as well as what is considered best practice.
+
+> **NOTE**: SPF always checks the exact domain of the P1 sender. So, if you send from a subdomain, the receiving mail server looks for an SPF record on the subdomain and does not fall back to the root domain.
 
 ### How SPF evaluation works
 ![IMAGE](/images/spf-dkim-dmarc-explanation/spf-visual.png)
@@ -62,12 +64,7 @@ The SPF record will vary for each domain; therefore, it is important to understa
 
 > **Not recommended**: The [problem with flattening](https://vand3rlinden.com/post/handle-your-spf-record/#the-dangers-of-spf-flattening) is that email service providers can change or add IP addresses without telling you. Then your SPF record will be inaccurate, leading to email delivery problems.
 
-- Where email is incapable of passing DMARC with SPF (due to relaying), configure DKIM for the P2 Sender domain on the sending server or email provider.
-  - In this scenario, you must to set your SPF record to softfail `~all`, instead of hardfail `-all`. Softfail ensures that DKIM evaluation is always performed in absence of valid SPF validation due to relaying, so the email can still be DMARC compliant due to DKIM alignment. More details will follow in this post on why using softfail instead of hardfail is considered best practice.
-
-> **Not recommended**: If DKIM fails, for example due to slow DNS response, there is no fallback. You should work toward having both SPF and DKIM properly aligned. However, in relay scenarios this is not always possible. Even DKIM can fail in these cases because the intermediate server may modify the message content during the relay. In such cases, you can check if your email provider supports ARC Sealers, which help preserve authentication results when an email passes through multiple servers. This allows your recipients to accept the ARC Seal from your relaying or intermediate server. More information about ARC Sealers can be found in [this](https://vand3rlinden.com/post/arc-explained/) blog.
-
-- Allow SPF to pass by using a different P1 sender, such as your email provider’s domain (if supported), and use DKIM on your own domain as the P2 sender. This method still DMARC compliant because DKIM is aligned with the P2 sender domain.
+- Configure only DKIM for the P2 sender domain on your mail server or provider. SPF can then use a different P1 sender (such as the domain of your provider, if supported) while DKIM aligns with your domain to maintain DMARC compliance.
 
 > **Not recommended**: It is not best practice to rely only on DKIM validation. If DKIM fails, for example due to slow DNS response, there is no fallback. The best practice is to have both SPF and DKIM correctly aligned.
 
@@ -79,8 +76,6 @@ The SPF record will vary for each domain; therefore, it is important to understa
     - Check if your email providers have the ability to pass SPF on a subdomain on behalf of your primary domain; passing SPF on a subdomain is still DMARC compliant (assuming your DMARC policy uses the default `aspf=r` tag for SPF relaxed mode).
     - Use an [SPF macro](https://vand3rlinden.com/post/handle-your-spf-record/#use-an-spf-macro-to-restrict-a-third-party-service-to-send-from-a-specific-address) to limit a third-party service to sending from a specific address, since services like Salesforce are most often limited to sending from a single email address, such as `invoices@yourdomain.com`.
 
-> **NOTE**: SPF always checks the exact domain of the P1 sender. So, if you send from a subdomain, the receiving mail server looks for an SPF record on the subdomain and does not fall back to the rootdomain.
-
 ### Set up a wildcard SPF hardfail record for unconfigured subdomains
 Even if your root domain already uses an SPF softfail/hardfail policy, and your [DMARC policy](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#dmarc) is set to reject for both the root domain (`p`) and subdomains (`sp`), adding a wildcard SPF hardfail record for all unconfigured subdomains still adds value to protect your outbound email authentication for your domain (P1 sender domain). Attackers often target unconfigured subdomains, and some receiving mail servers may still evaluate only SPF (P1 sender domain). This creates a gap that attackers could exploit by sending email from an unconfigured subdomain, even when your DMARC subdomain policy (`sp`) is set to reject.
 
@@ -91,7 +86,7 @@ To implement a wildcard SPF hardfail record, set the following values in your pu
 - Host: `*`
 - Value: `v=spf1 -all`
 
-> Since unconfigured subdomains are non-sending domains, you can safely set the wildcard SPF record to a hardfail for your sending domain, just as you would for domains that do not send email.
+> **NOTE**: Since unconfigured subdomains are non-sending domains, you can safely set the wildcard SPF record to a hardfail for your sending domain, just as you would for domains that do not send email.
 
 ### Softfail or hardfail for sending domains
 SPF can get a softfail or a hardfail, you determine that at the end of the record.
@@ -106,10 +101,6 @@ The SPF hardfail mechanism (`-all`) is only recommended for domains that do not 
 
 For domains that do send email, it is considered [best practice to use SPF softfail](https://www.mailhardener.com/blog/why-mailhardener-recommends-spf-softfail-over-fail) (`~all`). This allows that the DKIM evaluation still occur even if SPF fails, helping ensure the email remains DMARC-compliant through DKIM alignment.
 
-### Limitations of SPF
-Although SPF performs reasonably well in theory, it has several limitations that make it insufficient on its own to fully protect a sending domain.
-
-SPF only validates the P1 sender, not the P2 sender. To address this gap, DKIM was introduced. DKIM helps protect the P2 sender by attaching a cryptographic signature to the message, allowing the receiving mail server to verify its authenticity by matching the private key used to sign the message with the public key published in DNS. However, not all sending mail servers had support to add DKIM signatures. This limitation led to the development of DMARC. DMARC allows domain owners to publish policies specifying how to handle messages that fail SPF and/or DKIM checks, particularly when the P1 and P2 identities are not aligned. Acting as the final layer of defense, DMARC ensures protection for the P2 sender by enforcing alignment and providing clear instructions for handling authentication failures.
 
 ## DKIM
 ### What is DKIM
