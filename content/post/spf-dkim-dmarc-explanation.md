@@ -206,9 +206,9 @@ There are three primary approaches to managing reporting in your DMARC monitorin
 1. If you identify an email provider that you do not recognize, but SPF and/or DKIM passes, and your organization has not historically documented all authorized email providers, review your SPF record and `*._domainkey` entries in your public DNS. Remove any entries that are no longer in use.
 2. If you recognize an email provider, but SPF and/or DKIM fails, update your domain’s email authentication settings to align SPF and DKIM for that email provider. This ensures the email provider is properly configured for outbound email authentication.
 
-> **NOTE**: The above two steps should only be neccasary while the DMARC policy is set to `none`. During this monitoring phase on `none`, you should work towards documenting all authorized email providers and establishing a process for onboarding new email providers in the future when DMARC is on `reject`.
+> **NOTE**: The above two steps should only be neccasary while the DMARC policy is set to `none`. During this monitoring phase on `none`, you should work towards documenting all authorized email providers and establishing a process for onboarding and offboarding email providers in the future when DMARC is on `reject`.
 
-3. If the email provider is unrecognized and all authentication checks fail (SPF, DKIM, and DMARC), then DMARC is working as intended. No action is required, as these messages will be rejected by most receiving mail servers once your DMARC policy is set to `reject`.
+1. If the email provider is unrecognized and all authentication checks fail (SPF, DKIM, and DMARC), then DMARC is working as intended. No action is required, as these messages will be rejected by most receiving mail servers once your DMARC policy is set to `reject`.
 
 ### Maintenance steps on DMARC Monitoring
 - SPF:
@@ -226,7 +226,7 @@ There are three primary approaches to managing reporting in your DMARC monitorin
   - Regularly review DMARC reports
     - Analyze SPF and DKIM pass and fail results
     - Investigate any identified anomalies
-      - Detect potential abuse from legitimate sending sources with an abnormal volume of activity, which may indicate compromised sourcess
+      - Such as: Detect potential abuse from legitimate sending sources with an abnormal volume of activity, which may indicate compromised sources
     - Identify DKIM and SPF misalignment issues
   
 ### DMARC policy explanation
