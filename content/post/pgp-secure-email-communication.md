@@ -150,7 +150,7 @@ This is the decrypted message content.
 
 ## Simplify PGP use
 ### Option 1: Using GnuPG with a command-line bash script (PGP/Inline)
-While it is a good practice to become familiar with `gpg` commands, I have developed a bash script that streamlines **PGP/Inline** encryption, decryption, signing, and signature verification. It works seamlessly as long as **GnuPG** is installed on your system, available here on my [GitHub repository](https://github.com/vand3rlinden/Bash/blob/main/pgp-buddy/pgp_tool.sh). I have also created a separate bash script for managing PGP keys, including key generation, import, and export. You can download it from the [same repository here](https://github.com/vand3rlinden/Bash/blob/main/pgp-buddy/pgp_key_tool.sh).
+While it is a good practice to become familiar with `gpg` commands, I have developed a bash script that streamlines **PGP/Inline** encryption, decryption, signing, signature verification and managing PGP keys. It works seamlessly as long as **GnuPG** is installed on your system, available here on my [GitHub repository](https://github.com/vand3rlinden/Bash/tree/main/pgp-buddy).
 
 ### Option 2: Using an MUA with PGP functionality (PGP/MIME)
 The [Thunderbird](https://www.thunderbird.net/) MUA offers an integrated **PGP/MIME** only solution, which simplifies the use of signing, encrypting, and decrypting. It also provides the option to publish (through `keys.openpgp.org`) and search for available PGP public keys for encryption via your WKD or `keys.openpgp.org`.
