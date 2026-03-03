@@ -33,17 +33,17 @@ The attack typically follows these steps:
 
 This illustrates how AiTM phishing attacks bypass traditional authentication defenses by hijacking active sessions.
 
-## Train Your Users – The First Line of Defense
+## 1: Train your users (first line of defense)
 Human error remains one of the leading causes of successful phishing attacks. No technical control can completely compensate for an untrained or unaware user.
 
 [Attack simulation training using Microsoft Defender for Office 365](https://vand3rlinden.com/post/mdo-attack-simulation/) or other platforms, such as **Knowbe4**, allows organizations to run real-world phishing simulations and educate users on how to spot suspicious links, spoofed login pages, or unexpected MFA prompts.
 
-## Phishing-Resistant MFA
+## 2: Phishing-Resistant MFA
 Not all MFA methods are created equal. Most AiTM attacks work because they can intercept standard MFA flows like SMS or app-based codes. To defend effectively, organizations should enforce phishing-resistant MFA methods such as: FIDO2 security keys, these hardware-based tokens that are inherently resistant to AiTM attacks. This is because FIDO2 authentication is bound to the specific origin (i.e., the legitimate website or application). A sign-in attempt on a different surface, such as a phishing site, will fail if the origin does not match. This effectively prevents credentials from being reused on malicious or unauthorized platforms.
 
 - [Enable passkeys (FIDO2) for your organization](https://learn.microsoft.com/en-us/entra/identity/authentication/how-to-enable-passkey-fido2)
 
-## Harden Conditional Access Policies
+## 3: Harden Conditional Access Policies
 ### Enforce Phishing-Resistant MFA
 Start by securing admin accounts first. Accounts with highly privileged administrative rights are frequent targets for attackers. Enforcing phishing-resistant MFA on these accounts is a straightforward and effective way to significantly reduce the risk of compromise.
 
@@ -96,7 +96,7 @@ How token protection works:
 
 - [Policy Implementation](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-token-protection)
 
-## Harden Microsoft Defender
+## 4: Harden Microsoft Defender
 ### Block Risky Web Categories with Microsoft Defender for Endpoint
 AiTM phishing kits often use newly registered domains and parked domains to host their proxy phishing sites. These domains are frequently created just hours before an attack to avoid detection by traditional domain reputation engines.
 
