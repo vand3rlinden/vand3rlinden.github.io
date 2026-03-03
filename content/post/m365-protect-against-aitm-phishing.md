@@ -41,22 +41,23 @@ Human error remains one of the leading causes of successful phishing attacks. No
 ## Phishing-Resistant MFA
 Not all MFA methods are created equal. Most AiTM attacks work because they can intercept standard MFA flows like SMS or app-based codes. To defend effectively, organizations should enforce phishing-resistant MFA methods such as: FIDO2 security keys, these hardware-based tokens that are inherently resistant to AiTM attacks. This is because FIDO2 authentication is bound to the specific origin (i.e., the legitimate website or application). A sign-in attempt on a different surface, such as a phishing site, will fail if the origin does not match. This effectively prevents credentials from being reused on malicious or unauthorized platforms.
 
-[Enable passkeys (FIDO2) for your organization](https://learn.microsoft.com/en-us/entra/identity/authentication/how-to-enable-passkey-fido2)
+- [Enable passkeys (FIDO2) for your organization](https://learn.microsoft.com/en-us/entra/identity/authentication/how-to-enable-passkey-fido2)
 
 ## Harden Conditional Access Policies
 ### Enforce Phishing-Resistant MFA
 Start by securing admin accounts first. Accounts with highly privileged administrative rights are frequent targets for attackers. Enforcing phishing-resistant MFA on these accounts is a straightforward and effective way to significantly reduce the risk of compromise.
 
-[Policy Implementation](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-admin-phish-resistant-mfa)
+- [Policy Implementation](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-admin-phish-resistant-mfa)
 
 Tip: When using eligible roles in PIM (Privileged Identity Management), it’s recommended to include an Entra ID group, preferably a dynamic group based on your admin naming convention (e.g., ‘adm’), instead of include roles directly to the Conditional Access Policy. Also include an Entra ID group with the standard (non-privileged) accounts of the admins, as attackers can often find information online (e.g., LinkedIn) and target them with phishing emails sent to their regular user accounts.
 
 ### Require compliant devices
-To ensure that only trusted and compliant devices can access corporate resources, you may want to start by applying these restrictions to admin accounts. As mentioned earlier in this blog, accounts with administrative privileges are prime targets for attackers. Requiring these users to operate only from compliant or Microsoft Entra hybrid joined devices helps reduce the risk of compromise and limits potential exposure.
+By requiring compliant devices, you ensure that only devices marked as compliant can access company resources. To get started, you may want to apply this restriction to your admin accounts first, and then roll it out to your regular users.
 
 Why it helps: Blocks attackers using stolen credentials via AiTM phishing, even if they bypass MFA, because their device won’t meet compliance requirements.
 
-[Policy Implementation](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-alt-admin-device-compliand-hybrid)
+- [Policy Implementation - Admin](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-alt-admin-device-compliand-hybrid)
+- [Policy Implementation - All Users](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-all-users-device-compliance)
 
 ### Restrict Access by Network Location
 Implement location-based Conditional Access policies to limit access to specific countries or trusted IP ranges.
@@ -64,7 +65,7 @@ Implement location-based Conditional Access policies to limit access to specific
 
 Why it helps: Many AiTM attacks originate from foreign IP addresses. Restricting logins to known geographies can immediately block these attempts.
 
-[Policy Implementation](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-block-by-location)
+- [Policy Implementation](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-block-by-location)
 
 ### Enable Risk Policies
 Allows you to define automatic responses, such as enforcing multi-factor authentication (MFA), blocking access, or requiring a password reset when certain risk thresholds are met.
@@ -72,7 +73,7 @@ Allows you to define automatic responses, such as enforcing multi-factor authent
 - User risk policy: Automatically respond when a user’s account is compromised.
 - Sign-in risk policy: Require MFA or block access when risk is high.
 
-[Policy Implementation](https://learn.microsoft.com/en-us/entra/id-protection/howto-identity-protection-configure-risk-policies)
+- [Policy Implementation](https://learn.microsoft.com/en-us/entra/id-protection/howto-identity-protection-configure-risk-policies)
 
 ### Require re-authentication and disable browser persistence
 Protect user access on unmanaged devices by configuring browser sessions to sign out automatically when the browser is closed and setting the sign-in frequency to 1 hour. This reduces the risk of unauthorized access by ensuring users must re-authenticate regularly and session data is not retained.
@@ -82,10 +83,10 @@ Why it helps:
 
 - Persistent browser session - Never persistent: The concept of a non-persistent browser session is designed to prevent users from remaining signed in after closing their browser. Disabling browser persistent sessions helps protect against drive-by attacks by preventing the creation and storage of session cookies, leaving nothing behind for an attacker to steal. While this does not prevent AiTM attacks, since AiTM targets active sessions rather than stored session data, non-persistent sessions still contribute to a layered defense. They help by limiting the time an attacker can use stolen session tokens, enforcing more frequent reauthentication.
 
-[Policy Implementation](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-all-users-persistent-browser)
+- [Policy Implementation](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-all-users-persistent-browser)
 
 ### Require token protection for sign-in sessions
-Microsoft is rolling out token protection to combat token theft. As of now, it’s supported for **SharePoint Online** and **Exchange Online**.
+Microsoft is rolling out token protection to combat token theft. As of now, it’s supported for **SharePoint Online**, **Exchange Online**, **Microsoft Teams Services**, **Azure Virtual Desktop** and **Windows 365**.
 
 How token protection works:
 - Token protection binds access tokens to the device they were issued on.
@@ -93,7 +94,7 @@ How token protection works:
 
 > Important: AiTM phishing kits can still successfully steal the token and initiate a session. However, with token protection, authorization will fail unless the token is used from the original device. This makes token theft less valuable for attackers and adds another hurdle for them to overcome.
 
-[Policy Implementation](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-token-protection)
+- [Policy Implementation](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-token-protection)
 
 ## Harden Microsoft Defender
 ### Block Risky Web Categories with Microsoft Defender for Endpoint
@@ -122,7 +123,7 @@ What it does:
 - Disrupts lateral movement and command-and-control activity.
 - Uses AI to correlate telemetry across workloads and identify active attacks.
 
-[Configure automatic attack disruption in Microsoft Defender XDR](https://learn.microsoft.com/en-us/defender-xdr/configure-attack-disruption)
+- [Configure automatic attack disruption in Microsoft Defender XDR](https://learn.microsoft.com/en-us/defender-xdr/configure-attack-disruption)
 
 Why it helps: Even if AiTM phishing is successful and the attacker gains a foothold, automatic attack disruption can contain the threat before significant damage occurs.
 
