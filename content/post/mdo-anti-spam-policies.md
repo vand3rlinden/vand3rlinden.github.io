@@ -19,13 +19,10 @@ In this inbound policy you can manage:
 - **Spam actions**, to set actions (to junk, quarantine, delete and more) when spam is detected. Based on the verdict, you can choose what to do with it, such as quarantine the message, which you can manage with quarantine policies.
 
 - **Allowed and blocked senders or domains**, such as `someone@domain.com` or `domain.com` ([not recommended](https://vand3rlinden.com/post/mdo-anti-spam-policies/#best-practices)).
-  - To create a list of blocked/safe senders in EOP, follow the instructions in the two links below:
-    - [Create blocked sender lists in EOP](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/create-block-sender-lists-in-office-365)
-    - [Create safe sender lists in EOP](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/create-safe-sender-lists-in-office-365)
 
 ### Connection filter policy (Default)
 In this filter policy you can manage:
-- **IP allow list:** IP addresses on this list will be skipped for spam filtering.
+- **IP allow list:** IP addresses on this list will be skipped for spam filtering ([not recommended](https://vand3rlinden.com/post/mdo-anti-spam-policies/#best-practices)).
 
 - **IP block list:** IP addresses from this list will be blocked.
 
@@ -67,10 +64,13 @@ In this outbound policy you can manage:
     - ZAP continuously monitors spam and malware updates seamlessly for users. It automatically detects and acts on messages in a user's mailbox, searching the last 48 hours of delivered email. Users aren't notified of detected and moved messages.
 
 - Do not set up any allowed senders or domains.
-    - Allowed senders or allowed domains that are listed in anti-spam policies, creates a [high risk](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/create-safe-sender-lists-in-office-365?view=o365-worldwide#use-allowed-sender-lists-or-allowed-domain-lists) because it is possible to bypass all spam, spoof, phishing protection (except high confidence phishing), and sender authentication (SPF, DKIM, DMARC). You should consider using the [Tenant Allow/Block List](https://security.microsoft.com/tenantAllowBlockList) for [creating a safe sender lists](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/create-safe-sender-lists-in-office-365).
+    - **IMPORTANT**: This method creates a [high risk](https://learn.microsoft.com/en-us/defender-office-365/create-safe-sender-lists-in-office-365?view=o365-worldwide#use-allowed-sender-lists-or-allowed-domain-lists-in-anti-spam-policies), because attackers may able to successfully delivering emails that would otherwise be filtered. Messages identified as malware or high confidence phishing are still filtered. Avoid using popular domains (for example, microsoft.com) in allowed domain lists. You should consider using the [Tenant Allow/Block List](https://learn.microsoft.com/en-us/defender-office-365/create-safe-sender-lists-in-office-365?view=o365-worldwide#use-allow-entries-in-the-tenant-allowblock-list) for creating a safe sender lists.
+      - Source: [Create safe sender lists](https://learn.microsoft.com/en-us/defender-office-365/create-safe-sender-lists-in-office-365)
 
 ### Connection filter policy
 - IP allow list configuration:
+    - **IMPORTANT**: Without additional verification (for example, using mail flow rules), email from sources in the IP Allow List skips spam filtering and sender authentication checks (SPF, DKIM, and DMARC). This method creates a [high risk](https://learn.microsoft.com/en-us/defender-office-365/create-safe-sender-lists-in-office-365?view=o365-worldwide#use-the-ip-allow-list-in-the-default-connection-filter-policy), because attackers may able to successfully delivering emails that would otherwise be filtered. Messages identified as malware or high confidence phishing are still filtered.
+      - Source: [Create safe sender lists](https://learn.microsoft.com/en-us/defender-office-365/create-safe-sender-lists-in-office-365)
     - Adding allowed IP addresses is a more convenient option than allowing senders or domains. But you should always be careful, if you add IPs to the list for any reason (do not use IP ranges), check these IPs regularly to know the exact origin of each IP. Although IP spoofing is less common, it does happen.
 
 - IP block list configuration:
@@ -132,3 +132,5 @@ If you only want to allow users to forward to a few specific domains, the best c
 - [Public Preview: High Volume Email for Microsoft 365 - Solution for high volumes of internal email](https://learn.microsoft.com/en-us/exchange/mail-flow-best-practices/high-volume-mails-m365)
 - [Bulk senders insight in Exchange Online Protection](https://learn.microsoft.com/en-us/defender-office-365/anti-spam-bulk-senders-insight)
 - [Control automatic external email forwarding in Microsoft 365](https://learn.microsoft.com/en-us/defender-office-365/outbound-spam-policies-external-email-forwarding)
+- [Create safe sender lists](https://learn.microsoft.com/en-us/defender-office-365/create-safe-sender-lists-in-office-365)
+- [Create block sender lists](https://learn.microsoft.com/en-us/defender-office-365/create-block-sender-lists-in-office-365)
