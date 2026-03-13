@@ -86,7 +86,12 @@ Users can _request release_ of quarantined items after you assign the quarantine
 
 ![IMAGE](/images/mdo-quarantine-policies/mdo-quarantine-policies-approverelease.png)
 
-> **NOTE**: Users cannot release their own quarantined messages in the following situations, regardless of how the quarantine policy is configured: **Messages quarantined as malware by anti-malware policies**, **Messages quarantined as malware or phishing by Safe Attachments policies** and **Messages quarantined as high confidence phishing by anti-spam policies**.
+> **NOTE**: Users cannot release their own quarantined messages in the following situations, regardless of how the quarantine policy is configured: 
+> - **Messages quarantined as malware by anti-malware policies**
+> - **Messages quarantined as malware or phishing by Safe Attachments policies** 
+> - **Messages quarantined as high confidence phishing by anti-spam policies**.
+>
+> If the policy is configured to allow users to release these quarantined messages, users are instead only allowed to _request release_ of these quarantined messages.
 
 ### Quarantine Administrators in the Defender Portal
 Quarantine Administrators is an Email & Collaboration role group in [Microsoft Defender XDR](https://security.microsoft.com/emailandcollabpermissions). If XDR Unified role-based access control (RBAC) is enabled, grant the permissions `Security operations/Security Data/Email & collaboration quarantine (manage)` within the [Microsoft Defender XDR Unified RBAC Portal](https://security.microsoft.com/mtp_roles).
