@@ -41,7 +41,7 @@ Subdomain segmentation can be implemented in three ways:
 
 > **NOTE**: If your email provider does not allow setting the P1 sender to a subdomain, they might offer an option to pass SPF using their domain (e.g., `youremailprovider.com`). Keep in mind that this method requires DKIM alignment for your domain as the P2 sender. If DKIM is correctly set up for the P2 sender, the message can still meet DMARC requirements. However, relying only on DKIM is not best practice. If DKIM fails, for example due to slow DNS response, there is no backup. The best practice is to have both SPF and DKIM correctly aligned.
 
-3. Using an SPF macro that points to a subdomain allows you to continue sending from your main domain, but only from a static sender address (e.g., `news@yourdomain.com`).
+3. Using an SPF macro that points to a subdomain allows you to continue sending from your main domain, but only from a static sender address (e.g., `news@yourdomain.com`), **most secure and most recommended segmentation option if possible**.
 
 These subdomain segmentation options can be combined, as covered in this blog. Adopting SPF segmentation increases control, reduces attack surfaces, and mitigates the impact of potential cyber incidents.
 
@@ -172,12 +172,27 @@ v=spf1 include:spf.protection.outlook.com include:_spf.yourdomain.com include:%{
 ```
 
 Final computation of DNS lookups:
+
+- Root domain: `yourdomain.com`
 | DNS Lookup                           | Count                                  |
 | -----------                          | -----------                            |
 | `include:spf.protection.outlook.com` | 1 DNS Lookup                           |
 | `include:_spf.yourdomain.com`        | 1 DNS Lookup for the IP addresses      |
-| `include:%{l}._spf.yourdomain.comm`  | 1 DNS Lookup for Salesforce and Zendesk|
+| `include:%{l}._spf.yourdomain.com`   | 1 DNS Lookup for Salesforce and Zendesk|
 | Total:                               | 3 DNS Lookups                          |
+
+- Sub domain: `app1.yourdomain.com`
+| DNS Lookup                           | Count                                  |
+| -----------                          | -----------                            |
+| `include:_spf.app1.com`              | 2 DNS Lookups                          |
+| Total:                               | 2 DNS Lookups                          |
+
+- Sub domain: `app2.yourdomain.com`
+| DNS Lookup                           | Count                                  |
+| -----------                          | -----------                            |
+| `include:_spf.app2.com`              | 2 DNS Lookups                          |
+| Total:                               | 2 DNS Lookups                          |
+
 
 ## Lastly
 For the future of your SPF record, add IP addresses using the separate include, and carefully decide whether a email provider should be sent through a subdomain or a static sender address instead of any address from your primary domain. In addition, make it a habit to monitor your SPF record frequently and document each sender you list.
