@@ -41,7 +41,9 @@ Subdomain segmentation can be implemented in three ways:
 
 > **NOTE**: If your email provider does not allow setting the P1 sender to a subdomain, they might offer an option to pass SPF using their domain (e.g., `youremailprovider.com`). Keep in mind that this method requires DKIM alignment for your domain as the P2 sender. If DKIM is correctly set up for the P2 sender, the message can still meet DMARC requirements. However, relying only on DKIM is not best practice. If DKIM fails, for example due to slow DNS response, there is no backup. The best practice is to have both SPF and DKIM correctly aligned.
 
-3. Using an SPF macro that points to a subdomain allows you to continue sending from your main domain, but only from a static sender address (e.g., `news@yourdomain.com`), **most secure and most recommended segmentation option if possible**.
+3. Using an SPF macro that points to a subdomain allows you to continue sending from your main domain, but only from a static sender address (e.g., `news@yourdomain.com`).
+
+> **TIP**: Option 3 is also the most secure option, because this way you only allow a sending infrastructure to send from a static sender address. This segmentation option can be reused for all sending infrastructures that use a static sender address.
 
 These subdomain segmentation options can be combined, as covered in this blog. Adopting SPF segmentation increases control, reduces attack surfaces, and mitigates the impact of potential cyber incidents.
 
@@ -156,7 +158,9 @@ include:%{l}._spf.yourdomain.com
 | `invoices._spf.yourdomain.com` | `TXT`  | `v=spf1 include:_spf.salesforce.com ~all`|
 | `support._spf.yourdomain.com`  | `TXT`  | `v=spf1 include:mail.zendesk.com ~all`   |
 
-After setting up the above, Salesforce's sending servers can only send from `invoices@yourdomain.com` and Zendesk can only send from `support@yourdomain.com`.
+After setting up the above, Salesforce's sending servers can only send from `invoices@yourdomain.com` and Zendesk can only send from `support@yourdomain.com`. 
+
+> **TIP**: Any other new third-party service that requires only a static sender address can be onboarded using this SPF macro, and this will not increase the DNS lookup count for the main SPF record.
 
 ## How the SPF macro %{l} works on the receiving mail server
 ![IMAGE](/images/handle-your-spf-record/spf-macro-visual-l.png)
@@ -173,7 +177,7 @@ v=spf1 include:spf.protection.outlook.com include:_spf.yourdomain.com include:%{
 
 Final computation of DNS lookups:
 
-- Root domain: `yourdomain.com`
+- Main domain: `yourdomain.com`
 | DNS Lookup                           | Count                                  |
 | -----------                          | -----------                            |
 | `include:spf.protection.outlook.com` | 1 DNS Lookup                           |

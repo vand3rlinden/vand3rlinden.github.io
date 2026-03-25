@@ -199,6 +199,8 @@ The `sp=reject` tag means that subdomains will be included; if you don’t want 
 
 > **NOTE**: If you do not list the `sp=` tag, your subdomains will get the policy from the `p=` tag.
 
+> **IMPORTANT**: I believe that if your DMARC monitoring phase on `p=none;` was sufficient and you have identified and included all allowed senders that were not listed in your SPF before the monitoring phase, going directly to `p=reject;` is a perfectly good step to take. However, heavy mail domains that have existed for 20+ years may not have this confidence, and you may want to consider first setting the DMARC policy to `p=quarantine;` instead of going directly to `p=reject;`. This way any DMARC failures will still be delivered but to the recipient's spam or quarantine folder, giving you the opportunity to address any issues before moving to `p=reject;`, where emails can be directly rejected. If you do this, set a deadline for when to move to `p=reject;`, for example a maximum of one month. The `pct=` tag (with a value between `0` and `100`) can also be used to apply the DMARC policy to a percentage of messages for this purpose, however you do not have control over which specific messages this percentage applies to.
+
 ### Clarification on DMARC Monitoring
 DMARC monitoring does **not** provide insights into the total sending volume of your domain. Instead, it **only** shows authentication results (SPF/DKIM/DMARC pass or fail) based on the aggregate (`RUA`) reports received.
 
@@ -208,7 +210,7 @@ There are three primary approaches to managing reporting in your DMARC monitorin
 
 > **NOTE**: The above two steps should only be neccasary while the DMARC policy is set to `none`. During this monitoring phase on `none`, you should work towards documenting all authorized email providers and establishing a process for onboarding and offboarding email providers in the future when DMARC is on `reject`.
 
-1. If the email provider is unrecognized and all authentication checks fail (SPF, DKIM, and DMARC), then DMARC is working as intended. No action is required, as these messages will be rejected by most receiving mail servers once your DMARC policy is set to `reject`.
+3. If the email provider is unrecognized and all authentication checks fail (SPF, DKIM, and DMARC), then DMARC is working as intended. No action is required, as these messages will be rejected by most receiving mail servers once your DMARC policy is set to `reject`.
 
 ### Maintenance steps on DMARC Monitoring
 - SPF:
