@@ -185,13 +185,25 @@ Final computation of DNS lookups:
 | `include:%{l}._spf.yourdomain.com`   | 1 DNS Lookup for Salesforce and Zendesk|
 | Total:                               | 3 DNS Lookups                          |
 
-- Sub domain: `app1.yourdomain.com`
+- Sub domain: `invoices._spf.yourdomain.com` (SPF Macro subdomain)
+| DNS Lookup                           | Count                                  |
+| -----------                          | -----------                            |
+| `include:_spf.salesforce.com`        | 2 DNS Lookups                          |
+| Total:                               | 2 DNS Lookups                          |
+
+- Sub domain: `support._spf.yourdomain.com` (SPF Macro subdomain)
+| DNS Lookup                           | Count                                  |
+| -----------                          | -----------                            |
+| `include:mail.zendesk.com`           | 1 DNS Lookups                          |
+| Total:                               | 1 DNS Lookups                          |
+
+- Sub domain: `app1.yourdomain.com` (direct subdomain)
 | DNS Lookup                           | Count                                  |
 | -----------                          | -----------                            |
 | `include:_spf.app1.com`              | 2 DNS Lookups                          |
 | Total:                               | 2 DNS Lookups                          |
 
-- Sub domain: `app2.yourdomain.com`
+- Sub domain: `app2.yourdomain.com` (direct subdomain)
 | DNS Lookup                           | Count                                  |
 | -----------                          | -----------                            |
 | `include:_spf.app2.com`              | 2 DNS Lookups                          |
