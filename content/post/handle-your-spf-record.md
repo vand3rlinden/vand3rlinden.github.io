@@ -177,7 +177,7 @@ v=spf1 include:spf.protection.outlook.com include:_spf.yourdomain.com include:%{
 
 Final computation of DNS lookups:
 
-- Main domain: `yourdomain.com`
+- Main domain: `yourdomain.com` (3 of the 10 allowed DNS lookups)
 | DNS Lookup                           | Count                                  |
 | -----------                          | -----------                            |
 | `include:spf.protection.outlook.com` | 1 DNS Lookup                           |
