@@ -34,6 +34,8 @@ Example of a spoofed ***outbound message*** from an `onmicrosoft.com` that doesn
 
 > **NOTE:** Spoofed ***inbound messages*** from  your `onmicrosoft.com` domain will end up in the Junk Folder, because the detection technology is `Spoof intra-org`. Spoof Intelligence will not trigger your anti-phishing policy for this detection.
 
+> **IMPORTANT:** It is a good practice to block any `*.onmicrosoft.com` domain for ***inbound messages***, for example with a [never expiring block entry in the **Tenant Allow/Block List**](https://learn.microsoft.com/en-us/defender-office-365/tenant-allow-block-list-about#block-entries-in-the-tenant-allowblock-list). This way email messages from these `*.onmicrosoft.com` senders are marked as ***high confidence phishing*** and ***moved to quarantine***. When using the TABL, users in the organization will not be able to send email to any `*.onmicrosoft.com` domain (which is also not needed in my opinion). But, if exceptions are needed, the `*.onmicrosoft.com` domain can also be blocked using an **Exchange Online mail flow rule**.
+
 To prevent email spoofing and phishing using this domain, you need to set up a DMARC reject policy on the MOERA domain, as you do on all of your send and [non-send domains](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#protect-all-non-sending-domains). Setting DMARC for the MOERA is most often forgotten because you do not own the MOERA domain, but Microsoft has made it possible to manage the public DNS of your MOERA domain in the Microsoft 365 Admin Center.
 
 1. In the [Microsoft 365 admin center](https://admin.microsoft.com), select Show all > Settings > Domains

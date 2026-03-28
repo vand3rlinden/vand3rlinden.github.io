@@ -9,6 +9,7 @@ type: "pages"
 - [Microsoft 365 Status](https://status.office365.com)
 - [Microsoft 365 admin center](https://admin.microsoft.com/)
 - [Exchange Online admin center](https://admin.exchange.microsoft.com)
+- [Teams admin center](https://admin.teams.microsoft.com)
 - [Intune admin center](https://intune.microsoft.com)
 
 ## Azure
