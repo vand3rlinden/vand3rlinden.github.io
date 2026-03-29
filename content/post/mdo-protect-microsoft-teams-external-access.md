@@ -7,7 +7,7 @@ cover:
   image: /images/mdo-protect-microsoft-teams-external-access/mdo-protect-microsoft-teams-external-access-front.png
 ---
 
-In the wild, we see a lot of impersonated **IT Support** domains contacting users via Teams chat. Think of MOERA domains like `internalsupport.onmicrosoft.com`, starting a chat with a display name like `Corporate IT Service (Internal)` from `corporateit@internalsupport.onmicrosoft.com`. We all know that unaware users can fall for this, and the worst case scenario is that a user starts a screen sharing session, leaking internal information (data exfiltration), or gets phished by passing account credentials.
+In the wild, i see a lot of impersonated **IT Support** domains contacting users via Teams chat. Think of MOERA domains like `internalsupport.onmicrosoft.com`, starting a chat with a display name like `Corporate IT Service (Internal)` from `corporateit@internalsupport.onmicrosoft.com`. We all know that unaware users can fall for this, and the worst case scenario is that a user starts a screen sharing session, leaking internal information (data exfiltration), or gets phished by passing account credentials.
 
 [User awareness training](https://vand3rlinden.com/post/mdo-attack-simulation/) is always a good practice, however as IT Engineers it is our duty to protect users within the tenant in a way that aligns with business needs. In this blog i share my best practices for external Teams access. Keep in mind that these best practices will probably not fit every business, for example businesses that work with a lot of external users. However, this post will give you an idea of the different capabilities when it comes to external Teams access and how you can protect and monitor your environment.
 
