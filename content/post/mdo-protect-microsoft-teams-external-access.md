@@ -7,9 +7,9 @@ cover:
   image: /images/mdo-protect-microsoft-teams-external-access/mdo-protect-microsoft-teams-external-access-front.png
 ---
 
-In the wild, i see a lot of impersonated **IT Support** domains contacting users via Teams chat. Think of MOERA domains like `internalsupport.onmicrosoft.com`, starting a chat with a display name like `Corporate IT Service (Internal)` from `corporateit@internalsupport.onmicrosoft.com`. We all know that unaware users can fall for this, and the worst case scenario is that a user starts a screen sharing session, leaking internal information (data exfiltration), or gets phished by passing account credentials.
+In the wild, i see a lot of impersonated **IT Support** domains contacting users via Teams chat. Think of MOERA domains like `internalsupport.onmicrosoft.com`, starting a chat with a display name like `Corporate IT Service (Internal)` from `corporateit@internalsupport.onmicrosoft.com`. We all know that unaware users can fall for this, and the worst case scenario is that a user starts a screen sharing session, leaking internal information (data exfiltration), installing malware, or gets phished by passing account credentials.
 
-[User awareness training](https://vand3rlinden.com/post/mdo-attack-simulation/) is always a good practice, however as IT Engineers it is our duty to protect users within the tenant in a way that aligns with business needs. In this blog i share my best practices for external Teams access. Keep in mind that these best practices will probably not fit every business, for example businesses that work with a lot of external users. However, this post will give you an idea of the different capabilities when it comes to external Teams access and how you can protect and monitor your environment.
+[User awareness training](https://vand3rlinden.com/post/mdo-attack-simulation/) is always a good practice, however as IT Engineers it is our duty to protect users within the tenant in a way that aligns with business needs. In this blog I share my best practices for external Teams access. Keep in mind that these best practices will probably not fit every business, for example businesses that work with a lot of external users. However, this post will give you an idea of the different capabilities when it comes to external Teams access and how you can protect and monitor your environment.
 
 ## Step 1: Follow up Microsoft Secure Score recommendation for Teams
 As with all products, it is recommended to work through the Microsoft Secure Score recommendations (https://security.microsoft.com/exposure-secure-score). For Teams, the following recommendations were listed at the time of writing:
@@ -77,3 +77,4 @@ CloudAppEvents
 - [Manage anonymous participant access to Teams meetings](https://learn.microsoft.com/en-us/microsoftteams/anonymous-users-in-meetings)
 - [Microsoft Teams and the Tenant Allow/Block List](https://learn.microsoft.com/en-us/defender-office-365/tenant-allow-block-list-teams-domains-configure)
 - [How Defender for Cloud Apps helps protect your Microsoft 365 environment](https://learn.microsoft.com/en-us/defender-cloud-apps/protect-office-365#connect-office-365-to-microsoft-cloud-app-security)
+- [CloudAppEvents](https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-cloudappevents-table)
