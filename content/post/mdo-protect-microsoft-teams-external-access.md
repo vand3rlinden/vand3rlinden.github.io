@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft Defender for Office 365: Protecting External Teams Access'
+title: 'Microsoft Defender for Office 365: Protecting external Teams access'
 date: 2026-03-29T18:01:25+02:00
 draft: false
 categories: ["Microsoft Defender for Office 365"]
@@ -48,7 +48,7 @@ Within Microsoft Teams you have a couple of options to manage external domains. 
 
 > **IMPORTANT:** People from blocked domains can still join meetings anonymously if anonymous access is allowed, but we already mitigated this in step 1.
 
-For most organizations the **Block specific domains** scenario fits best. In practice, most malicious activity comes from impersonated MOERA domains (`*.onmicrosoft.com`), so you may want to add this as your first block entry. Note that by default, blocking a domain does not block its subdomains. For example, if you block `onmicrosoft.com`, `internalsuppor.onmicrosoft.com` is not blocked. If you want to block all subdomains, you can use the `Set-CsTenantFederationConfiguration` PowerShell cmdlet with the `-BlockAllSubdomains` parameter.
+For most organizations the **Block specific domains** scenario fits best. In practice, most malicious activity comes from impersonated MOERA domains (`*.onmicrosoft.com`), so you may want to add this as your first block entry. Note that by default, blocking a domain does not block its subdomains. For example, if you block `onmicrosoft.com`, `internalsupport.onmicrosoft.com` is not blocked. If you want to block all subdomains, you can use the `Set-CsTenantFederationConfiguration` PowerShell cmdlet with the `-BlockAllSubdomains` parameter.
 
 ```
 Set-CsTenantFederationConfiguration -BlockAllSubdomains $True
