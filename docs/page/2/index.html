@@ -112,6 +112,22 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Exchange Online: Configure inbound SMTP DANE with DNSSEC
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> In this post, you will learn how to enable and use SMTP DANE with DNSSEC in Exchange Online.
+While outbound SMTP DANE with DNSSEC in Exchange Online has been enabled since 2022, Microsoft is has rolling out inbound SMTP DANE with DNSSEC in Exchange Online since late 2024.
+For a deeper understanding of DNSSEC and DANE, take a look at my earlier blog post.
+How SMTP DANE with DNSSEC works SMTP DANE is a transport security mechanism (TLS enforcement) that protects SMTP delivery to a domain by using DNSSEC validated TLSA records. It enables a sending (outbound) mail server to verify the TLS certificate of a receiving (inbound) mail server using TLSA records published in the DNS on the MX host of the receiving domain. The sending (outbound) mail server validates the connection by comparing the TLS fingerprints obtained from the TLSA records with the fingerprints presented by the receiving (inbound) mail server.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-07-28 01:13:44 +0200 CEST'>July 28, 2024</span>&nbsp;·&nbsp;7 min</footer>
+  <a class="entry-link" aria-label="post link to Exchange Online: Configure inbound SMTP DANE with DNSSEC" href="https://vand3rlinden.com/post/exo-inbound-smtp-dane-dnssec/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Microsoft Defender for Office 365: Safe Attachments policies
     </h2>
   </header>
@@ -235,20 +251,6 @@ What you can manage with Anti-phishing policies Anti-phishing policies provide e
   </div>
   <footer class="entry-footer"><span title='2023-12-22 14:27:30 +0100 CET'>December 22, 2023</span>&nbsp;·&nbsp;9 min</footer>
   <a class="entry-link" aria-label="post link to Microsoft Defender for Office 365: Anti-phishing policies" href="https://vand3rlinden.com/post/mdo-anti-phishing-policies/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Microsoft Defender for Office 365: Anti-spam policies
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> All inbound e-mail is automatically protected from spam by Exchange Online Protection (EOP) for Microsoft 365 organizations with mailboxes in Exchange Online. EOP uses anti-spam policies as part of your organization’s overall spam defense.
-What you can manage with Anti-spam policies Anti-spam policies provide you with control over both inbound and outbound email in Exchange Online. Within the Microsoft Defender XDR, you can access the Anti-Spam Policy section, where three default policies are available for editing. Additionally, it is possible to create custom policies, and further details on this will be discussed later in this post.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-12-18 15:24:50 +0100 CET'>December 18, 2023</span>&nbsp;·&nbsp;8 min</footer>
-  <a class="entry-link" aria-label="post link to Microsoft Defender for Office 365: Anti-spam policies" href="https://vand3rlinden.com/post/mdo-anti-spam-policies/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

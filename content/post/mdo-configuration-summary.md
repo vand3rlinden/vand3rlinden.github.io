@@ -7,7 +7,7 @@ cover:
   image: /images/mdo-configuration-summary/mdo-configuration-summary-front.png
 ---
 
-In this post, I will explain how to configure **Microsoft Defender for Office 365** in your tenant. Since I have already covered most of these settings in my earlier blogs, I thought it was time to combine all the information into one post. I will link to my previous articles, so you can use this post as a summary to help strengthen your Microsoft Defender for Office 365 configuration, `@` the speed of email!
+In this post, I will explain how to configure **Microsoft Defender for Office 365** in your tenant. Since i have already covered most of these settings in my earlier blogs, I thought it was time to combine all the information into one post. I will link to my previous articles, so you can use this post as a summary to help strengthen your **Microsoft Defender for Office 365** configuration.
 
 > **NOTE**: These recommendations mostly align with the ***strict*** recommendations of the **Configuration Analyzer** and the **Microsoft Secure Score** in XDR. 
 
@@ -93,7 +93,11 @@ The above recommandation is not for **Safe Attachments** and **Safe Links** poli
 ### 10: Understand how inbound email works in Microsoft 365
 - [How inbound email works in Microsoft 365](https://vand3rlinden.com/post/mdo-handling-false-positives-false-negatives/)
     - To understand why your environment experiences **false positives** and **false negatives**, you first need to know how Microsoft 365 processes inbound email and how to correctly use submissions and the Tenant Allow/Block List.
-		
+
+### 11: Protecting External Teams Access
+- [Protecting External Teams Access](https://vand3rlinden.com/post/mdo-protect-microsoft-teams-external-access/)
+  - External Teams access is a common attack vector that is often misconfigured or overlooked.
+
 ## Final words
 Since email security is still one of the main attack vectors used by malicious actors, you should not underestimate the importance of a strong Microsoft Defender for Office 365 setup, or any email security solution. If you have serious concerns about email privacy, you may also want to consider signing and encrypting your or the messages of your key users using [PGP](https://vand3rlinden.com/post/pgp-secure-email-communication/) or [S/MIME](https://vand3rlinden.com/post/s-mime-enhancing-email-security/). These methods ensure that your messages remain private and protected from unwanted access by big tech providers (even if you send them through Microsoft 365) or governments.
 

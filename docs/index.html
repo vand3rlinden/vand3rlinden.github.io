@@ -151,11 +151,25 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Microsoft Defender for Office 365: Protecting External Teams Access
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>In the wild, we see a lot of impersonated IT Support domains contacting users via Teams chat. Think of MOERA domains like internalsupport.onmicrosoft.com, starting a chat with a display name like Corporate IT Service (Internal) from corporateit@internalsupport.onmicrosoft.com. We all know that unaware users can fall for this, and the worst case scenario is that a user starts a screen sharing session, leaking internal information (data exfiltration), or gets phished by passing account credentials.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-03-29 18:01:25 +0200 CEST'>March 29, 2026</span>&nbsp;·&nbsp;6 min</footer>
+  <a class="entry-link" aria-label="post link to Microsoft Defender for Office 365: Protecting External Teams Access" href="https://vand3rlinden.com/post/mdo-protect-microsoft-teams-external-access/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Microsoft Defender for Office 365: Configuration Summary
     </h2>
   </header>
   <div class="entry-content">
-    <p>In this post, I will explain how to configure Microsoft Defender for Office 365 in your tenant. Since I have already covered most of these settings in my earlier blogs, I thought it was time to combine all the information into one post. I will link to my previous articles, so you can use this post as a summary to help strengthen your Microsoft Defender for Office 365 configuration, @ the speed of email!
+    <p>In this post, I will explain how to configure Microsoft Defender for Office 365 in your tenant. Since i have already covered most of these settings in my earlier blogs, I thought it was time to combine all the information into one post. I will link to my previous articles, so you can use this post as a summary to help strengthen your Microsoft Defender for Office 365 configuration.
+NOTE: These recommendations mostly align with the strict recommendations of the Configuration Analyzer and the Microsoft Secure Score in XDR.
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2025-11-23 00:17:31 +0100 CET'>November 23, 2025</span>&nbsp;·&nbsp;6 min</footer>
@@ -275,22 +289,6 @@ MTA-STS (Mail Transfer Agent Strict Transport Security) is a transport security 
   </div>
   <footer class="entry-footer"><span title='2024-08-23 16:22:41 +0200 CEST'>August 23, 2024</span>&nbsp;·&nbsp;6 min</footer>
   <a class="entry-link" aria-label="post link to MTA-STS Explained: A complete guide to the MTA-STS Policy" href="https://vand3rlinden.com/post/mta-sts-explained/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Exchange Online: Configure inbound SMTP DANE with DNSSEC
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> In this post, you will learn how to enable and use SMTP DANE with DNSSEC in Exchange Online.
-While outbound SMTP DANE with DNSSEC in Exchange Online has been enabled since 2022, Microsoft is has rolling out inbound SMTP DANE with DNSSEC in Exchange Online since late 2024.
-For a deeper understanding of DNSSEC and DANE, take a look at my earlier blog post.
-How SMTP DANE with DNSSEC works SMTP DANE is a transport security mechanism (TLS enforcement) that protects SMTP delivery to a domain by using DNSSEC validated TLSA records. It enables a sending (outbound) mail server to verify the TLS certificate of a receiving (inbound) mail server using TLSA records published in the DNS on the MX host of the receiving domain. The sending (outbound) mail server validates the connection by comparing the TLS fingerprints obtained from the TLSA records with the fingerprints presented by the receiving (inbound) mail server.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2024-07-28 01:13:44 +0200 CEST'>July 28, 2024</span>&nbsp;·&nbsp;7 min</footer>
-  <a class="entry-link" aria-label="post link to Exchange Online: Configure inbound SMTP DANE with DNSSEC" href="https://vand3rlinden.com/post/exo-inbound-smtp-dane-dnssec/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
