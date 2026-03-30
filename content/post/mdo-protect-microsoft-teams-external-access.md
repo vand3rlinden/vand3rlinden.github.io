@@ -54,6 +54,31 @@ For most organizations the **Block specific domains** scenario fits best. In pra
 Set-CsTenantFederationConfiguration -BlockAllSubdomains $True
 ```
 
+> **CAUTION**: Before proceeding, please review your existing `*.onmicrosoft.com` Teams communication. If you have already connected the Microsoft 365 workload as in step 3, use the `CloudAppEvents` table. Otherwise, check the `OfficeActivity` table from the Microsoft 365 Sentinel connector.
+
+- `CloudAppEvents` (Advanced Hunting)
+```
+CloudAppEvents
+| where Timestamp > ago(30d)
+| where AccountId endswith "onmicrosoft.com"
+| where Application =~ "Microsoft Teams"
+| project-reorder Timestamp, AccountId
+| sort by Timestamp desc
+```
+
+- `OfficeActivity` (Sentinel)
+```
+OfficeActivity
+| where TimeGenerated > ago(60d)
+// Search for onmicrosoft[.]com domains that do not include your Entra ID guest users (guest_user[.]com#EXT#@YourMOERA.onmicrosoft[.]com)
+| where UserId endswith 'onmicrosoft.com' and UserId !contains "#EXT#"  
+// This #EXT# UserId is only used as a UserId in Entra ID and not for Teams communication
+| where OfficeWorkload =~ 'MicrosoftTeams'
+| where Operation contains 'Message'
+| project-reorder TimeGenerated, UserId
+| sort by TimeGenerated desc
+```
+
 > **IMPORTANT:** For every scenario, make sure to enable the option **Allow my security team to manage blocked domains and blocked users**. This will block and delete all existing and incoming messages from flagged senders when your SOC team adds a Teams sender to the Tenant Allow/Block List.
 
 ## Step 3: Connect Microsoft 365 workload to Defender for CloudApps
