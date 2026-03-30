@@ -39,7 +39,7 @@ As with all products, it is recommended to work through the Microsoft Secure Sco
   - When this setting is on, dial-in users skip the lobby and join the meeting directly.
 
 ## Step 2: Design an External access strategy 
-Within Microsoft Teams you have a few options to manage external domains to **call, chat, and set up meetings** with external users.
+Within Microsoft Teams you have a few options to manage external domains to **call, chat, and set up meetings**.
 
 Not every configuring scenario will fit every tenant, so it is worth thinking about your strategy here. The following scenarios are available in **Teams admin center > External collaboration > External access**:
 
