@@ -72,7 +72,7 @@ CloudAppEvents
 ```
 OfficeActivity
 | where TimeGenerated > ago(60d)
-// Search for onmicrosoft[.]com domains that do not include your Entra ID guest users (guest_user[.]com#EXT#@YourMOERA.onmicrosoft[.]com)
+// Search for onmicrosoft[.]com domains that do not contains your Entra ID guest users (guest_user[.]com#EXT#@YourMOERA.onmicrosoft[.]com)
 | where UserId endswith 'onmicrosoft.com' and UserId !contains "#EXT#"  
 // This #EXT# UserId is only used as a UserId in Entra ID and not for Teams communication
 | where OfficeWorkload =~ 'MicrosoftTeams'
