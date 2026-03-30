@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft Defender for Office 365: Protecting external Teams access'
+title: 'Microsoft Defender for Office 365: Securing external Teams communication'
 date: 2026-03-29T18:01:25+02:00
 draft: false
 categories: ["Microsoft Defender for Office 365"]
@@ -11,7 +11,7 @@ In the wild, i see a lot of impersonated **IT Support** domains contacting users
 
 [User awareness training](https://vand3rlinden.com/post/mdo-attack-simulation/) is always a good practice, however as IT Engineers it is our duty to protect users within the tenant in a way that aligns with business needs. In this blog I share my best practices for external Teams access. Keep in mind that these best practices will probably not fit every business, for example businesses that work with a lot of external users. However, this post will give you an idea of the different capabilities when it comes to external Teams access and how you can protect and monitor your environment.
 
-## Step 1: Follow up Microsoft Secure Score recommendation for Teams
+## Step 1: Follow up Microsoft Secure Score recommendations for Teams
 As with all products, it is recommended to work through the Microsoft Secure Score recommendations (https://security.microsoft.com/exposure-secure-score). For Teams, the following recommendations were listed at the time of writing:
 
 - **Configure which users are allowed to present in Teams meetings**
@@ -38,7 +38,7 @@ As with all products, it is recommended to work through the Microsoft Secure Sco
   - Teams admin center > Meetings > Meeting Policies > each group/direct policy > Meeting join and lobby section > **People dialing in can bypass the lobby** > **Off**
   - When this setting is on, dial-in users skip the lobby and join the meeting directly.
 
-## Step 2: Design an External access strategy 
+## Step 2: Design an external Teams communication strategy
 Within Microsoft Teams you have a few options to **manage communication** with external domains to **call, chat, and set up meetings**.
 
 Not every configuring scenario will fit every tenant, so it is worth thinking about your strategy here. The following scenarios are available in **Teams admin center > External collaboration > External access**:
