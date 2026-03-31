@@ -45,7 +45,7 @@ Not every configuring scenario will fit every tenant, so it is worth thinking ab
 
 - **Allow all external domains:** The default setting in Teams, it lets users in your organization find, call, chat, and set up meetings with people outside of your organization in any domain **(not recommended)**.
 - **Allow only specific external domains:** By adding domains to an allow list, you limit external access to only the allowed domains, once you set up a list of allowed domains, all other domains will be blocked **(recommended, but can become unmanageable if your tenant has a lot of external Teams communication)**.
-- **Block specific external domains:** By adding domains to a block list, you can communicate with all external domains except the ones you have blocked, once you set up a list of blocked domains, all other domains are allowed **(preferred if an allow list does not fit your organization's needs)**.
+- **Block only specific external domains:** By adding domains to a block list, you can communicate with all external domains except the ones you have blocked, once you set up a list of blocked domains, all other domains are allowed **(preferred if an allow list does not fit your organization's needs)**.
 - **Block all external domains:** Prevents users in your organization from finding, calling, chatting, and setting up meetings with people outside of your organization in any domain.
 
 > **IMPORTANT:** People from blocked domains can still join meetings anonymously if anonymous access is allowed, but we already mitigated this in step 1.
@@ -56,7 +56,7 @@ For most organizations the **Block specific domains** scenario fits best. In pra
 Set-CsTenantFederationConfiguration -BlockAllSubdomains $True
 ```
 
-> **CAUTION**: Before proceeding, please review your existing `*.onmicrosoft.com` Teams communication. If you have already connected the Microsoft 365 workload as in step 3, use the `CloudAppEvents` table. Otherwise, check the `OfficeActivity` table from the Microsoft 365 Sentinel connector.
+> **CAUTION**: Before proceeding, please review your existing `*.onmicrosoft.com` Teams communication. If you have already connected the Microsoft 365 workload as in step 3, use the `CloudAppEvents` table. Otherwise, check the `OfficeActivity` table from the Microsoft 365 Sentinel connector. If you spot a trusted `*.onmicrosoft.com` sender, encourage your vendor to use a custom domain instead of the MOERA domain.
 
 - `CloudAppEvents` (Advanced Hunting)
 ```
