@@ -72,7 +72,7 @@ CloudAppEvents
 ```
 OfficeActivity
 | where TimeGenerated > ago(60d)
-// Search for onmicrosoft[.]com domains that do not contains your Entra ID guest users (guest_user[.]com#EXT#@YourMOERA.onmicrosoft[.]com)
+// Search for onmicrosoft.com domains that do not contains your Entra ID guest users (guest_user.com#EXT#@YourMOERA.onmicrosoft.com)
 | where UserId endswith 'onmicrosoft.com' and UserId !contains "#EXT#"  
 // This #EXT# UserId is only used as a UserId in Entra ID and not for Teams client communication
 | where OfficeWorkload =~ 'MicrosoftTeams'
@@ -81,7 +81,7 @@ OfficeActivity
 | sort by TimeGenerated desc
 ```
 
-> **IMPORTANT:** For every scenario, make sure to enable the option **Allow my security team to manage blocked domains and blocked users**. This will block and delete all existing and incoming messages from flagged senders when your SOC team adds a Teams sender to the Tenant Allow/Block List.
+> **IMPORTANT:** For every scenario, make sure to enable the option **Allow my security team to manage blocked domains and blocked users**. This will block and delete all existing and incoming messages from flagged senders when your SOC team adds a malicious Teams sender to the Tenant Allow/Block List.
 
 ## Step 3: Connect Microsoft 365 workload to Defender for CloudApps
 Connecting apps to MDA such as [Microsoft 365 workloads](https://learn.microsoft.com/en-us/defender-cloud-apps/protect-office-365#connect-office-365-to-microsoft-cloud-app-securit) gives you visibility and control over your environment, and improves insight into user activities through the `CloudAppEvents` table in Advanced Hunting. When connected, and if you have not set a block on `onmicrosoft.com` yet, you could query or build a custom detection rule to alert when one of your users starts a screen sharing session with an `onmicrosoft.com` domain.
