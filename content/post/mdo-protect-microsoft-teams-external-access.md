@@ -41,7 +41,7 @@ As with all products, it is recommended to work through the Microsoft Secure Sco
 ## Step 2: Design an external Teams communication strategy
 Within Microsoft Teams you have a few options to **manage communication** with external domains to **call, chat, and set up meetings**.
 
-Not every configuring scenario will fit every tenant, so it is worth thinking about your strategy here. The following scenarios are available in **Teams admin center > External collaboration > External access**:
+Not every configuring scenario will fit every tenant, so it is worth thinking about your strategy here. The following scenarios are available in **Teams admin center > External collaboration > External access** > **Allow or block external domains** _(this manage which external domains are allowed or blocked for **Teams communication**)_:
 
 - **Allow all external domains:** The default setting in Teams, it lets users in your organization find, call, chat, and set up meetings with people outside of your organization in any domain **(not recommended)**.
 - **Allow only specific external domains:** By adding domains to an allow list, you limit external access to only the allowed domains, once you set up a list of allowed domains, all other domains will be blocked **(recommended, but can become unmanageable if your tenant has a lot of external Teams communication)**.
