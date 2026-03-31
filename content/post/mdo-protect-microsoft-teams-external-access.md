@@ -27,7 +27,7 @@ As with all products, it is recommended to work through the Microsoft Secure Sco
   - This setting controls who can join a meeting directly and who must wait in the lobby until admitted, organizers and co-organizers can change this when setting up a Teams meeting.
 
 - **Restrict anonymous users from joining meetings**
-  - Teams admin center > Meetings > Meeting Settings > **Anonymous users can join a meeting** > **Off**, **Anonymous users can interact with apps in meetings** > **Off**
+  - Teams admin center > Meetings > Meeting Settings > **Anonymous users can join a meeting** > **Off** ***and*** **Anonymous users can interact with apps in meetings** > **Off**
   - When this setting is on, anyone can join Teams meetings, including users who are not logged in to Teams with a work or school account.
 
 - **Restrict anonymous users from starting Teams meetings**
@@ -39,9 +39,9 @@ As with all products, it is recommended to work through the Microsoft Secure Sco
   - When this setting is on, dial-in users skip the lobby and join the meeting directly.
 
 ## Step 2: Design an external Teams communication strategy
-Within Microsoft Teams you have a few options to **manage communication** with external domains to **call, chat, and set up meetings**.
+- Setting: **Teams admin center > External collaboration > External access** > **Allow or block external domains** _(this manage which external domains are allowed or blocked for **Teams communication**)_
 
-Not every configuring scenario will fit every tenant, so it is worth thinking about your strategy here. The following scenarios are available in **Teams admin center > External collaboration > External access** > **Allow or block external domains** _(this manage which external domains are allowed or blocked for **Teams communication**)_:
+Within Microsoft Teams you have a few options to **manage communication** with external domains to **call, chat, and set up meetings**. Not every configuring scenario will fit every tenant, so it is worth thinking about your strategy here. The following scenarios are available:
 
 - **Allow all external domains:** The default setting in Teams, it lets users in your organization find, call, chat, and set up meetings with people outside of your organization in any domain **(not recommended)**.
 - **Allow only specific external domains:** By adding domains to an allow list, you limit external access to only the allowed domains, once you set up a list of allowed domains, all other domains will be blocked **(recommended, but can become unmanageable if your tenant has a lot of external Teams communication)**.
@@ -56,7 +56,7 @@ For most organizations the **Block specific domains** scenario fits best. In pra
 Set-CsTenantFederationConfiguration -BlockAllSubdomains $True
 ```
 
-> **CAUTION**: Before proceeding, please review your existing `*.onmicrosoft.com` Teams communication. If you have already connected the Microsoft 365 workload as in step 3, use the `CloudAppEvents` table. Otherwise, check the `OfficeActivity` table from the Microsoft 365 Sentinel connector. If you spot a trusted `*.onmicrosoft.com` sender, encourage your vendor to use a custom domain instead of the MOERA domain.
+> **CAUTION**: Before proceeding, please review your existing `*.onmicrosoft.com` Teams communication. If you have already connected the Microsoft 365 workload as in step 5, use the `CloudAppEvents` table. Otherwise, check the `OfficeActivity` table from the Microsoft 365 Sentinel connector. If you spot a trusted `*.onmicrosoft.com` sender, encourage your vendor to use a custom domain instead of the MOERA domain.
 
 - `CloudAppEvents` (Advanced Hunting)
 ```
@@ -81,9 +81,17 @@ OfficeActivity
 | sort by TimeGenerated desc
 ```
 
-> **IMPORTANT:** For every scenario, make sure to enable the option **Allow my security team to manage blocked domains and blocked users**. This will block and delete all existing and incoming messages from flagged senders when your SOC team adds a malicious Teams sender to the Tenant Allow/Block List.
+## Step 3: Allow your SOC team to manage blocked domains
+- Setting: **Teams admin center > External collaboration > External access > Allow my security team to manage blocked domains and blocked users**
 
-## Step 3: Connect Microsoft 365 workload to Defender for CloudApps
+For every external Teams communication scenario you choose, make sure to enable the option **Allow my security team to manage blocked domains and blocked users**. This will block and delete all existing and incoming messages from flagged senders when your SOC team adds a malicious Teams sender to the Tenant Allow/Block List.
+
+## Step 4: Managage external Teams communication with external users not managed by an organization
+- Setting: **Teams admin center > External collaboration > External access > People in my org can chat and have meetings with external users who have unmanaged Microsoft accounts**
+
+Consider disabling Teams communication with external unmanaged Teams users, users not managed by an organization, such as Microsoft Teams Free.
+
+## Step 5: Connect Microsoft 365 workload to Defender for CloudApps
 Connecting apps to MDA such as [Microsoft 365 workloads](https://learn.microsoft.com/en-us/defender-cloud-apps/protect-office-365#connect-office-365-to-microsoft-cloud-app-securit) gives you visibility and control over your environment, and improves insight into user activities through the `CloudAppEvents` table in Advanced Hunting. When connected, and if you have not set a block on `onmicrosoft.com` yet, you could query or build a custom detection rule to alert when one of your users starts a screen sharing session with an `onmicrosoft.com` domain.
 
 Example query:
