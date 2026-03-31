@@ -27,7 +27,7 @@ As with all products, it is recommended to work through the Microsoft Secure Sco
   - This setting controls who can join a meeting directly and who must wait in the lobby until admitted, organizers and co-organizers can change this when setting up a Teams meeting.
 
 - **Restrict anonymous users from joining meetings**
-  - Teams admin center > Meetings > each group/direct policy > **Anonymous users can join a meeting** > **Off**
+  - Teams admin center > Meetings > Meeting Settings > **Anonymous users can join a meeting** > **Off**, **Anonymous users can interact with apps in meetings** > **Off**
   - When this setting is on, anyone can join Teams meetings, including users who are not logged in to Teams with a work or school account.
 
 - **Restrict anonymous users from starting Teams meetings**
@@ -74,7 +74,7 @@ OfficeActivity
 | where TimeGenerated > ago(60d)
 // Search for onmicrosoft[.]com domains that do not contains your Entra ID guest users (guest_user[.]com#EXT#@YourMOERA.onmicrosoft[.]com)
 | where UserId endswith 'onmicrosoft.com' and UserId !contains "#EXT#"  
-// This #EXT# UserId is only used as a UserId in Entra ID and not for Teams communication
+// This #EXT# UserId is only used as a UserId in Entra ID and not for Teams client communication
 | where OfficeWorkload =~ 'MicrosoftTeams'
 | where Operation contains 'Message'
 | project-reorder TimeGenerated, UserId
