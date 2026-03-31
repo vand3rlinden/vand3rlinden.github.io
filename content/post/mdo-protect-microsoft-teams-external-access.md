@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft Defender for Office 365: Securing external Teams communication'
+title: 'Microsoft Defender for Office 365: Protecting external Teams communication'
 date: 2026-03-29T18:01:25+02:00
 draft: false
 categories: ["Microsoft Defender for Office 365"]
