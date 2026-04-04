@@ -289,6 +289,19 @@ To protect all non-sending domains, you should consider:
 
 This protects all of your domains from phishers and spammers, as bad actors will actively look for unused domains to exploit.
 
+## The right TTL for SPF, DKIM and DMARC
+`3600` seconds or `1` hour is the solid standard for all three (and each DKIM record). When this value is set too low, especially for DKIM, anti-spam filters that must constantly resolve your DKIM public key to verify the authenticity of each email simply cannot keep up.
+
+- SPF:
+  - Every receiving mail server has to resolve your SPF TXT record to check if the sending IP is authorized
+  - **Problem**: If TTL is too low, resolvers keep flushing the cache and re-querying your DNS
+- DKIM
+  - Cryptographic key lookups need to be consistently cacheable
+  - **Problem**: If TTL is too low anti-spam filters cannot keep up
+- DMARC:
+  - Policy lookups are less frequent but still benefit from caching
+  - **Problem**: `1` hour is fine, you could go higher but `3600` seconds keeps things consistent, and simple to manage when all three are on the same TTL
+
 ## To Summarize
 **SPF**: performs verification that the IP address of the sending server matches the entry in the SPF record from the sending domain.
 - **Purpose**: Sender authorization check
