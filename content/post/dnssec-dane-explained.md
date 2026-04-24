@@ -10,7 +10,7 @@ cover:
 > _In this post, you find out how DNSSEC and DANE cooperate, and learn how to set up DANE TLSA DNS records._
 
 ## DNSSEC (DNS Security Extensions)
-The domain name system (DNS) is often described as the phone book of the internet for translating friendly domain names into IP addresses. Unfortunately, it also accepts any address given to it. DNSSEC adds a security layer to this phonebook. It uses digital signatures to make sure the information in the phonebook can be trusted and has not been tampered with, to prevent DNS spoofing.
+DNS is often described as the address book of the internet for translating friendly domain names into IP addresses. But it was never built with security in mind and DNS blindly trusts whatever answer it gets back. DNSSEC adds a security layer to this address book. It uses cryptographic signatures to make sure the DNS records can be trusted and have not been tampered with, preventing attackers from injecting fake answers (DNS spoofing).
 
 > DNSSEC can be enabled with your DNS provider if they support it.
 
