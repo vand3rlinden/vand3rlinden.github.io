@@ -1,5 +1,5 @@
 baseURL: "https://vand3rlinden.com"
-languageCode: en-us
+locale: en-us
 title: VAND3RLINDEN
 theme: papermod
 publishDir: "docs"

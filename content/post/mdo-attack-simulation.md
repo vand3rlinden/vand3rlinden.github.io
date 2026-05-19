@@ -40,7 +40,7 @@ Exclude this email address or domain from your external tagging configuration (_
 > You can also use Tenant notifications to change the From address to an internal address.
 
 ### 5: Turn on auditing
-In order for Attack simulation training to have reporting capabilities, auditing needs to be [enabled](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-faq#attack-simulation-training-reports-dont-contain-any-activity-details) (turn on by default).
+In order for Attack simulation training to have reporting capabilities, auditing needs to be [enabled](https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-faq#attack-simulation-training-reports-dont-contain-any-activity-details) (on by default).
 1. Connect to Exchange Online PowerShell
 2. Enable Organization Customization by running: `Enable-OrganizationCustomization`
 3. Then run the following PowerShell command to turn on auditing: `Set-AdminAuditLogConfig -UnifiedAuditLogIngestionEnabled $true`
