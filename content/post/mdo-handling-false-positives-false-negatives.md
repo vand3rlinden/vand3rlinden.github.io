@@ -31,6 +31,9 @@ The results of Microsoft’s implicit authentication checks are combined into a 
 Sometimes the signals of the implicit authentication gets it wrong, and therefore a good message can be a flagged as a bad one (false positive) and a questionable email message can be get through (false negative).
 
 > **NOTE**: Implicit authentication helps prevent the rejection of legitimate emails that may, for example, fail DMARC checks during inbound processing. If you’re looking for more granular control over how DMARC failures are handled, [this blog post](https://vand3rlinden.com/post/mdo-hardening-dkim-dmarc-config/#enforce-dmarc-rejection-policy-for-inbound-email) is worth reading.
+> - **CAUTION**: This approach may lead to false positives due to EOP’s implicit authentication techniques
+
+Even with a strong Microsoft Defender for Office 365 configuration _(for example based on Microsoft's strict recommendations)_, you can still receive False Positives or False Negatives if Microsoft's backend mechanisms/implicit authentication techniques do not flag the email based on the signals they receive.
 
 To help these signals to get better you can [report good emails](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/submissions-admin?view=o365-worldwide#report-good-email-to-microsoft) as False Positive or [report questionable emails](https://learn.microsoft.com/en-us/defender-office-365/submissions-admin#report-questionable-email-to-microsoft) as False Negative to Microsoft using the Report Submission page. 
 
