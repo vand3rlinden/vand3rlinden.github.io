@@ -47,8 +47,8 @@ Mailbox intelligence operates similarly to user impersonation protection; howeve
 
 Mailbox Intelligence has two settings:
 
-1. **Enable Mailbox Intelligence:** This setting helps the AI distinguish between messages from legitimate and impersonated senders. By default, this setting is turned on.
-2. **Enable Impersonation Protection:** By default, this setting is off. This setting uses the contact history learned from Mailbox Intelligence (both frequent contacts and no contacts).
+1. **Enable Mailbox Intelligence:**  Enables AI to determine user email patterns and frequent contacts to identify potential impersonation attempts
+2. **Mailbox intelligence for impersonations:** Enables enhanced impersonation results based on each user's individual sender map _(which uses machine learning to learn the user's email patterns, frequent email contacts, how often they communicate, and the context of those relationships)_.
 
 To activate Mailbox Intelligence, both settings must be turned on.
 
