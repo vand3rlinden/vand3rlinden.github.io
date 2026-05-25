@@ -8,7 +8,7 @@ Contact: mailto:security@vand3rlinden.com
 Encryption: gpg --locate-keys security@vand3rlinden.com
 
 # Expiration of security.txt file
-Expires: 2026-06-07
+Expires: 2027-05-25
 
 # Privacy Policy
 Policy: https://vand3rlinden.com/privacy-policy/
@@ -17,18 +17,18 @@ Policy: https://vand3rlinden.com/privacy-policy/
 Preferred-Languages: EN, NL
 -----BEGIN PGP SIGNATURE-----
 
-iQJOBAEBCAA4FiEE2LgIdAAaOcVzxLw/ejaUkY/1cG0FAmjfdu4aHHNlY3VyaXR5
-QHZhbmQzcmxpbmRlbi5jb20ACgkQejaUkY/1cG1RPQ//SE8KrsokiYl3pwP2ER7Y
-ngIILX+1cVHv5FUhtc95p35JZOZke/E520ojt3EXCya3ogbIOcpJUkctSwJpt2Sy
-rApUFY+K+syzH/URYuRRrDbH2iiDecApI/tUR2WFzZ6zU+xJbw7gSJMD3DZQoSVV
-Yyh0PWxQ8xiJhl/qXbVaZ1DjlIrrZCfXV6aEof6hHjFFZvMS321iponfY+0fkghv
-OmRzk1pbH3v/Oy+XiJOY5cBX5x4xARKVSbs41n7sfoN7nNknGyJyUvM03zBfoemj
-0eP5MOkJsNJ5k7lsFVOatc6POePpB1AgDPJPkiMs5j+3/rsHaHLWjUrMd5MN844X
-foX/mUf32uP2NnRbqflkJpDFUtrAu8ICp9aoECXdN5hhujxaKJ4qUtdW7106JHap
-AbpFbKWjaX+kNZyVmHd2Ejefs0SClCBZLXWSYHzG9hWR12l5m87aXDKLNQ0WhjL2
-iBQ457nUZUrWX0MHVKQ3Xm/wRdmK4IgYuo95H+tSCu3eNCP9oMA3IctqVYWS4hVt
-5hpPoloHWicFaZ80Q3qM2Hsv2I77FwSM5YxWWIAlZyel4P1+tC2sXOFFdiXu1JRc
-jAhZVE1+1n9CN9zChe2e1nrmacN/nNyrSgpEGeymca+m0/XRE5xLbO0yGYdTy+bK
-HfGHNndqkuIpAtZm1V8pcvA=
-=JXS3
+iQJqBAEBCABUFiEENaPq6JitKFqnwblkwhc19SyfC5UFAmoUHwwbFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMCwzGhxzZWN1cml0eUB2YW5kM3JsaW5kZW4uY29tAAoJ
+EMIXNfUsnwuV20gQAMcbVYp0sxAa1iDUAZ7OX3aAW2G+zEXX4zc7lJcsITCQUgv5
+T3mxzWTrnP/KeUrUIICKPTWDkgOCofmtwpGG88FZXEpBIetYXJgjhZSFwmhInqQM
+jrWqSSrb+Fe0U9+e3ufGHUCGTyLt2zQPUxwwH1clvA9YfAvlabvGcN/iOUohjgsB
+CF/bHyO5sHlg6GHL4MhByySjVbKIOyOgbCmEY3QLMy+bxHE2FxJdPwtc2nQRXK0b
+Ir9dnC51xG8+hR26qsWn7YNXr5DTo9CiNa/k/uBK0G4ajRM6GTwkKTx5a5n7C04Y
+PWmgLynXl7C5ihmQrExAidWV3hjp1LHRSuRU4AEa7sgylh5lbckOlhh27Pw/S+jV
+/ibQ8/V9pP2G720qfObL5W5ZbEJf60P9zNLeD/P63TvRklAQJlXclAoSLDKvBm+D
+QOfv6iTWzS+NOZrtHSIeqCZWGN/q7RC9+OIjWIWSprQpFHYlqa9xv+91kGNUYptm
+erJ1O+zbhUg7c2Na4Zp0S3IoKOG3DJMYfdopsymFTXVHJ9qscH4u9W0woo9qFEF8
+YFYSM2WSx+kPzNuU7ntr7eljdKTAORTjxoNfx2XkLAUw0/zGvzIt3MDG+5iflJQ5
+2RleZmOsdEQDFdLQDhqUncHiy9IryALsN5fw2d6DGVdWzS6JsIlOGgObvLET
+=OOYN
 -----END PGP SIGNATURE-----
