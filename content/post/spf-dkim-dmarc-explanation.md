@@ -286,7 +286,7 @@ To protect all non-sending domains, you should consider:
   - Name: `*._domainkey`
   - Content: `v=DKIM1; p=`
   - Type: `TXT`
-- A **Null MX**, so the domain refuses inbound email:
+- A **null MX** record _(so the domain refuses inbound email)_:
   - Name: `@`
   - Content: `.`
   - Type: `MX`
