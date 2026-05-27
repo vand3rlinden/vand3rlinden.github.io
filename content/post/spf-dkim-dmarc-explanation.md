@@ -286,6 +286,10 @@ To protect all non-sending domains, you should consider:
   - Name: `*._domainkey`
   - Content: `v=DKIM1; p=`
   - Type: `TXT`
+- A **Null MX**, so the domain refuses inbound email:
+  - Name: `@`
+  - Content: `.`
+  - Type: `MX`
 
 This protects all of your domains from phishers and spammers, as bad actors will actively look for unused domains to exploit.
 
