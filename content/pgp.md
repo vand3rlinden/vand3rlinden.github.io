@@ -15,8 +15,8 @@ If you do like to communicate securely, please use my public keys below.
 
 ## My PGP Fingerprints and Public Keys
 ### PGP Fingerprints
-- PGP fingerprint for my personal address: `gpg --fingerprint A1C9A7F709D3A889A3539A78C7CEA07966701A9E`
-- PGP fingerprint for my security address: `gpg --fingerprint D8B80874001A39C573C4BC3F7A3694918FF5706D`
+- PGP fingerprint for my personal address: `BD33369F64E92829791DAB715E7019D79E5DF84C`
+- PGP fingerprint for my security address: `35A3EAE898AD285AA7C1B964C21735F52C9F0B95`
 
 ### PGP Public Keys
 I run a [WKD](https://vand3rlinden.com/post/pgp-secure-email-communication/#option-1-setting-up-a-pgp-web-key-directory-wkd) to publish my public keys. To locate them, you can run, for example: `gpg --locate-keys security@vand3rlinden.com` (also published at `keys.openpgp.org`).

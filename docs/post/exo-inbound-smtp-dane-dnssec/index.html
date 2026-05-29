@@ -334,20 +334,20 @@ SMTP DANE is a transport security mechanism (TLS enforcement) that protects SMTP
 <li>Add a new TXT record with the following details:</li>
 </ol>
 <table>
-  <thead>
-      <tr>
-          <th>Host</th>
-          <th>Type</th>
-          <th>Value</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>_smtp._tls.example.com</code></td>
-          <td><code>TXT</code></td>
-          <td><code>v=TLSRPTv1; rua=mailto:tlsrpt@example.com</code></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Host</th>
+					<th>Type</th>
+					<th>Value</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>_smtp._tls.example.com</code></td>
+					<td><code>TXT</code></td>
+					<td><code>v=TLSRPTv1; rua=mailto:tlsrpt@example.com</code></td>
+			</tr>
+	</tbody>
 </table>
 <h3 id="tlsrpt-report-handling">TLSRPT report handling<a hidden class="anchor" aria-hidden="true" href="#tlsrpt-report-handling">#</a></h3>
 <p>If a sending mail server has issues securely delivering email to a receiving mail server, it can use the <code>TLSRPT</code> record published in the public DNS of the receiving domain to determine where to send a report about the problem or to report a successful TLS session.</p>

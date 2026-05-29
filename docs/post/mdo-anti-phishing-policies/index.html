@@ -219,25 +219,25 @@ Anti-phishing policies provide enhanced control over incoming phishing emails, f
 <p>Spoofing occurs when the <code>From</code> address (P2 Sender, the sender address that&rsquo;s shown in email clients) in an email message doesn’t match the domain of the email source (P1 Sender).</p>
 <h3 id="p1-vs-p2--sender-explanation">P1 vs P2- sender explanation<a hidden class="anchor" aria-hidden="true" href="#p1-vs-p2--sender-explanation">#</a></h3>
 <table>
-  <thead>
-      <tr>
-          <th>Postal Letter</th>
-          <th>Precise Term</th>
-          <th>Protected by</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Sender on envelope</td>
-          <td><code>RFC5321.MailFrom</code> (P1 Sender)</td>
-          <td>SPF</td>
-      </tr>
-      <tr>
-          <td>Author on letter</td>
-          <td><code>RFC5322.From</code> (P2 Sender)</td>
-          <td>DKIM + DMARC</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Postal Letter</th>
+					<th>Precise Term</th>
+					<th>Protected by</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Sender on envelope</td>
+					<td><code>RFC5321.MailFrom</code> (P1 Sender)</td>
+					<td>SPF</td>
+			</tr>
+			<tr>
+					<td>Author on letter</td>
+					<td><code>RFC5322.From</code> (P2 Sender)</td>
+					<td>DKIM + DMARC</td>
+			</tr>
+	</tbody>
 </table>
 <h3 id="email-spoofing-vs-email-impersonation">Email Spoofing vs. Email Impersonation<a hidden class="anchor" aria-hidden="true" href="#email-spoofing-vs-email-impersonation">#</a></h3>
 <p><strong>Email spoofing</strong> happens when someone changes the email header (<code>From</code> address) so it looks like the message is from a trusted address, while <strong>email impersonation</strong> is when an attacker pretends to be a trusted person, often using free email services with similar-looking addresses to make the victim trust them.</p>
