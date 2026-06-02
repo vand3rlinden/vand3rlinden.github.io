@@ -324,5 +324,5 @@ This protects all of your domains from phishers and spammers, as bad actors will
 - [How to protect domains that do not send email](https://www.cloudflare.com/learning/dns/dns-records/protect-domains-without-email/)
 - [SPF is defined in RFC 7208](https://www.rfc-editor.org/info/rfc7208)
 - [DKIM is defined in RFC 6376](https://www.rfc-editor.org/info/rfc6376)
-- [DMARC is defined in RFC 7489](https://www.rfc-editor.org/info/rfc7489)
+- [DMARC is defined in RFC 9989](https://www.rfc-editor.org/info/rfc9989)
 - [SPF Policy Tester](https://vamsoft.com/support/tools/spf-policy-tester)
