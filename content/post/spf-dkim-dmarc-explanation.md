@@ -101,6 +101,9 @@ The SPF hardfail mechanism (`-all`) is only recommended for domains that do not 
 
 For domains that do send email, it is considered [best practice to use SPF softfail](https://www.mailhardener.com/blog/why-mailhardener-recommends-spf-softfail-over-fail) (`~all`). This allows that the DKIM evaluation still occur even if SPF fails, helping ensure the email remains DMARC-compliant through DKIM alignment.
 
+### Other SPF recommendations
+- SPF records should not authorize more sources than necessary
+- P1 Sender domain should align with P2 Sender domain where possible
 
 ## DKIM
 ### What is DKIM
@@ -156,6 +159,10 @@ An alternative solution is to use an unassociated wildcard DKIM key record:
 
 This helps prevent the multiple revoked keys in your public DNS. My recommendation would be to set up this unassociated wildcard DKIM key, rather than having a bunch of revoked keys floating around.
 
+### Other DKIM recommendations
+- Sign all outbound emails with a domain that aligns with the P2 sender domain
+- Use the `rsa-sha256` signing algorithm for creating signature hashes 
+
 ## DMARC
 ### What is DMARC
 DMARC (Domain-based Message Authentication, Reporting and Conformance) acts as a shield on top of SPF and DKIM. With DMARC, domain owners specify how to handle emails sent on behalf of their domain if those messages fail SPF and/or DKIM checks. This allows them to define whether such emails should be monitored, quarantined, or rejected entirely.
@@ -199,7 +206,7 @@ The `sp=reject` tag means that subdomains will be included; if you don’t want 
 
 > **NOTE**: If you do not list the `sp=` tag, your subdomains will get the policy from the `p=` tag.
 
-> **IMPORTANT**: I believe that if your DMARC monitoring phase on `p=none;` was sufficient and you have identified and included all allowed senders that were not listed in your SPF before the monitoring phase, going directly to `p=reject;` is a perfectly good step to take. However, heavy mail domains that have existed for 20+ years may not have this confidence, and you may want to consider first setting the DMARC policy to `p=quarantine;` instead of going directly to `p=reject;`. This way any DMARC failures will still be delivered but to the recipient's spam or quarantine folder, giving you the opportunity to address any issues before moving to `p=reject;`, where emails can be directly rejected. If you do this, set a deadline for when to move to `p=reject;`, for example a maximum of one month. The `pct=` tag (with a value between `0` and `100`) can also be used to apply the DMARC policy to a percentage of messages for this purpose, however you do not have control over which specific messages this percentage applies to.
+> **IMPORTANT**: I believe that if your DMARC monitoring phase on `p=none;` was sufficient and you have identified and included all allowed senders that were not listed in your SPF before the monitoring phase, going directly to `p=reject;` is a perfectly good step to take. However, heavy mail domains that have existed for 20+ years may not have this confidence, and you may want to consider first setting the DMARC policy to `p=quarantine;` instead of going directly to `p=reject;`. This way any DMARC failures will still be delivered but to the recipient's spam or quarantine folder, giving you the opportunity to address any issues before moving to `p=reject;`, where emails can be directly rejected. If you do this, set a deadline for when to move to `p=reject;`, for example a maximum of one month. See section (Other DMARC recommendations)[https://vand3rlinden.com/post/handle-your-spf-record/#other-dmarc-recommendations] for testing options.
 
 ### Clarification on DMARC Monitoring
 DMARC monitoring does **not** provide insights into the total sending volume of your domain. Instead, it **only** shows authentication results (SPF/DKIM/DMARC pass or fail) based on the aggregate (`RUA`) reports received.
@@ -267,6 +274,12 @@ The table on this [Microsoft Learn page](https://learn.microsoft.com/en-us/archi
 4. DMARC External Validation for `RUA`/`RUF`: If you want to send DMARC reports to a domain different from your own, the receiving domain must explicitly authorize this by configuring a DNS record. This ensures that email providers recognize the recipient as an authorized destination for the reports.
    - For example, if you’re sending reports to `example.com`, that domain must create the following TXT record: `yourdomain.com._report._dmarc.example.com`, with the value: `v=DMARC1;`
    - DMARC monitoring providers, like Valimail, handle this automatically or use wildcard records on their end.
+
+### Other DMARC recommendations
+- The policy must omit the `pct` tag, or it must have a value of `100` (Obsolete DMARC [RFC 7489](https://www.rfc-editor.org/info/rfc7489/))
+  - The pct tag controls what percentage of failing emails the `p=` policy gets applied to. It takes a value between `0` and `100`, defaulting to `100` if omitted. `pct=100` means the policy applies to all failing messages. `pct=25` means only a quarter of them. `pct=0` effectively disables policy enforcement entirely, regardless of what `p=` is set to.
+- The policy must omit the `t` tag, or it must have a value of `n` (Proposed standard DMARC [RFC 9989](https://www.rfc-editor.org/info/rfc9989/))
+  - The `t` tag is the newer alternative, introduced to give a cleaner way to signal testing intent. It works by downgrading the effective policy by one level for failing messages. `p=reject; t=y` behaves as `p=quarantine`. `p=quarantine; t=y` behaves as `p=none`. Setting `t=n` or removing the tag entirely means full enforcement is active.
 
 ## Protect all non-sending domains
 To protect all non-sending domains, you should consider:
