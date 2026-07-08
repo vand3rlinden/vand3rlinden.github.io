@@ -56,7 +56,7 @@ To activate Mailbox Intelligence, both settings must be turned on.
 
 ## Spoof intelligence
 ### What Spoofing is
-Spoofing occurs when the `From` address (P2 Sender, the sender address that's shown in email clients) in an email message doesn’t match the domain of the email source (P1 Sender).
+Spoofing occurs when the `From` address (P2 Sender) does not match the domain of the email source (P1 Sender), and neither SPF or DKIM authenticates the P2 sender domain.
 
 ### P1 vs P2- sender explanation
 | Postal Letter      | Precise Term                        | Protected by  |
