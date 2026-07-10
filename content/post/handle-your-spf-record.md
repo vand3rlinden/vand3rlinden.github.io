@@ -162,6 +162,8 @@ After setting up the above, Salesforce's sending servers can only send from `inv
 
 > **TIP**: Any other new third-party service that requires only a static sender address can be onboarded using this SPF macro, and this will not increase the DNS lookup count for the main SPF record.
 
+> **OPTIONAL**: If your static sender requires multiple email providers, for example if you use both **Zendesk** and **Topdesk** for your `support@yourdomain.com` address, you can add those providers to the SPF record on `support._spf.yourdomain.com`, with a maximum of 10 DNS lookups. If an email service uses an SPF macro within their include, such as **Salesforce**, it is important to place that include at the end of your record to avoid void lookups, as already described in [this](https://vand3rlinden.com/post/handle-your-spf-record/#ip-address-management-in-your-spf-record) section.
+
 ## How the SPF macro %{l} works on the receiving mail server
 ![IMAGE](/images/handle-your-spf-record/spf-macro-visual-l.png)
 
