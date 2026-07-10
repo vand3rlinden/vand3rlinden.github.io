@@ -191,7 +191,15 @@ RUA report example in `.xml`:
 
 ![IMAGE](/images/spf-dkim-dmarc-explanation/dmarc-xml.png)
 
-2. Using DMARC monitoring tools allows you to convert `RUA` reports into clear visual dashboards, providing more actionable insights than raw IP address data alone. Most tools can associate sending IP addresses with known email providers, such as Microsoft 365 or Salesforce. An example of such a tool is [Valimail](https://www.valimail.com/blog/office-365-free-dmarc-monitoring/) ([free for Microsoft 365 users](https://www.valimail.com/sign-up-ms-blog/) with an Exchange Online plan). Personally, I do prefer [Mailhardener](https://www.mailhardener.com), which is [not free](https://www.mailhardener.com/pricing) for corporate use, but it supports hosting BIMI assets and MTA-STS policies. Both Valimail and Mailhardener can be integrated with Microsoft Entra ID through SSO.
+2. Using DMARC monitoring tools allows you to convert `RUA` reports into clear visual dashboards, providing more actionable insights than raw IP address data alone. Most tools can associate sending IP addresses with known email providers, such as Microsoft 365 or Salesforce. 
+
+> DMARC monitoring tools I have experience with:
+> - [Valimail](https://www.valimail.com/blog/office-365-free-dmarc-monitoring/) ([free for Microsoft 365 users](https://www.valimail.com/sign-up-ms-blog/) with an Exchange Online plan). SSO with Microsoft Entra ID available. 
+> - [Mailhardener](https://www.mailhardener.com), which is [not free](https://www.mailhardener.com/pricing) for corporate use (but free for personal), and it supports hosting BIMI assets and MTA-STS policies. SSO with Microsoft Entra ID available. 
+
+RUA report example in Mailhardener:
+
+![IMAGE](/images/spf-dkim-dmarc-explanation/dmarc-mailhardener.png)
 
 For heavy mail domains, I recommended monitoring the domain for at least three months with the DMARC policy set to `none`:
 
@@ -271,9 +279,9 @@ The table on this [Microsoft Learn page](https://learn.microsoft.com/en-us/archi
 
 3. It is not recommended to include multiple email addresses in the `RUA` and `RUF` tags. As a best practice, each tag should be limited to no more than two addresses, as some providers may ignore additional entries when sending DMARC reports. **My advice** is to limit this to **one address** whenever possible. If you do need to include more than one, you should format it like this: `rua=mailto:dmarc-reports@example.com,mailto:dmarc@example.com;`
 
-4. DMARC External Validation for `RUA`/`RUF`: If you want to send DMARC reports to a domain different from your own, the receiving domain must explicitly authorize this by configuring a DNS record. This ensures that email providers recognize the recipient as an authorized destination for the reports.
+4. DMARC External Validation for `RUA`/`RUF`: If you want to send DMARC reports to an external domain, the receiving domain must explicitly authorize this by configuring a DNS record. This ensures that email providers recognize the recipient as an authorized destination for the reports.
    - For example, if you’re sending reports to `example.com`, that domain must create the following TXT record: `yourdomain.com._report._dmarc.example.com`, with the value: `v=DMARC1;`
-   - DMARC monitoring providers, like Valimail, handle this automatically or use wildcard records on their end.
+   - DMARC monitoring providers, such as Valimail and Mailhardener, handle this automatically by using a wildcard on their end, for example `*._report._dmarc.in.mailhardener.com` for Mailhardener.
 
 ### Other DMARC recommendations
 - The policy must omit the `pct` tag, or it must have a value of `100` (Obsolete DMARC [RFC 7489](https://www.rfc-editor.org/info/rfc7489/))
