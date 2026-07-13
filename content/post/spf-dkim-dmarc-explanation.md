@@ -181,17 +181,17 @@ Example of a DMARC pass with the P1 and P2 sender domain aligned:
 > **IMPORTANT**: DMARC does not directly block or allow mail, it depends on how the receiving server is configured to handle messages that fail DMARC (SPF and/or DKIM alignment validation).
 
 ### Implementation of DMARC
-Before enforcing a DMARC policy, it’s important to understand how often DMARC checks might fail for your domain. Jumping straight to a reject policy without visibility can cause legitimate email to be blocked.
+Before enforcing a DMARC policy, it is important to understand how often DMARC checks might fail for your domain. Jumping straight to a reject policy without visibility can cause legitimate email to be blocked.
 
 You should start by monitoring DMARC failures. This can be done in two ways:
 
-1. Manually reviewing DMARC `RUA` reports to identify which email providers are passing or failing DMARC. However, for high-volume domains, this can be overwhelming and difficult to manage.
+1. Manually reviewing DMARC `RUA` reports to identify which sending servers are passing or failing DMARC. However, this can be overwhelming and difficult to manage.
 
 RUA report example in `.xml`:
 
 ![IMAGE](/images/spf-dkim-dmarc-explanation/dmarc-xml.png)
 
-2. Using DMARC monitoring tools allows you to convert `RUA` reports into clear visual dashboards, providing more actionable insights than raw IP address data alone. Most tools can associate sending IP addresses with known email providers, such as Microsoft 365 or Salesforce. 
+2. Using DMARC monitoring tools allows you to convert `RUA` reports into clear visual dashboards, providing more actionable insights than raw IP address data alone. Most tools can associate sending servers (IP addresses) with known email providers, such as Microsoft 365 or Salesforce. 
 
 > DMARC monitoring tools I have experience with:
 > - [Valimail](https://www.valimail.com/blog/office-365-free-dmarc-monitoring/) ([free for Microsoft 365 users](https://www.valimail.com/sign-up-ms-blog/) with an Exchange Online plan). SSO with Microsoft Entra ID available. 
