@@ -134,12 +134,12 @@ v=1; a=rsa-sha256; c=relaxed/relaxed; d=yourdomain.com; s=key1; h=From:Date:Subj
 ### Implementation of DKIM
 You can configure DKIM with a `TXT` record in your DNS zone for your sending mail servers (such as postfix or sendmail). A DKIM generator can be used to generate a private key for your server and a public key for your DNS.
 
-> **NOTE**: A DKIM record is required for each sending server or mail provider.
+> **NOTE**: A DKIM record is required for each sending server or email provider.
 
-How you set up DKIM depends on your sending server or mail provider. For example, configuring DKIM for [Salesforce](https://help.salesforce.com/s/articleView?id=sales.emailadmin_create_secure_dkim.htm) differs from [Exchange Online](https://learn.microsoft.com/en-us/defender-office-365/email-authentication-dkim-configure) in Microsoft Defender for Office 365. If you’re managing your own mail server and using MTAs like Sendmail or Postfix, you can implement DKIM using tools such as [OpenDKIM](http://www.opendkim.org/).
+How you set up DKIM depends on your sending server or email provider. For example, configuring DKIM for [Salesforce](https://help.salesforce.com/s/articleView?id=sales.emailadmin_create_secure_dkim.htm) differs from [Exchange Online](https://learn.microsoft.com/en-us/defender-office-365/email-authentication-dkim-configure) in Microsoft Defender for Office 365. If you’re managing your own mail server and using MTAs like Sendmail or Postfix, you can implement DKIM using tools such as [OpenDKIM](http://www.opendkim.org/).
 
 ### DKIM key rotation procedure
-It is important to change your DKIM keys regularly for each sending server or mail provider to prevent adversaries from intercepting and decrypting your DKIM keys. DKIM Key rotation helps to minimize the risk of having a private key compromised.
+It is important to change your DKIM keys regularly for each sending server or email provider to prevent adversaries from intercepting and decrypting your DKIM keys. DKIM Key rotation helps to minimize the risk of having a private key compromised.
 
 - Recurring: Every six months for a 2048-bit DKIM key.
 - The DKIM key length must be at least 2048-bits.
@@ -206,7 +206,7 @@ For heavy mail domains, I recommended monitoring the domain for at least three m
 - Hostname: `_dmarc`
 - Value: `v=DMARC1; p=none; sp=none; rua=mailto:dmarc_agg@vali.email;`
 
-During the monitoring phase, you can [adjust your SPF record](https://vand3rlinden.com/post/handle-your-spf-record/) and [set up DKIM for each sending server](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#implementation-of-dkim), and then update your DMARC record to `reject` once the monitoring phase is complete:
+During the monitoring phase, you can [adjust your SPF record](https://vand3rlinden.com/post/handle-your-spf-record/) and [set up DKIM for each sending server or email provider](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#implementation-of-dkim), and then update your DMARC record to `reject` once the monitoring phase is complete:
 
 - Value: `v=DMARC1; p=reject; sp=reject; rua=mailto:dmarc_agg@vali.email;`
 
