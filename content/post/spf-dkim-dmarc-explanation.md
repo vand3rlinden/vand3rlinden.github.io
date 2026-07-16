@@ -76,18 +76,6 @@ The SPF record will vary for each domain; therefore, it is important to understa
     - Check if your email providers have the ability to pass SPF on a subdomain on behalf of your primary domain; passing SPF on a subdomain is still DMARC compliant (assuming your DMARC policy uses the default `aspf=r` tag for SPF relaxed mode).
     - Use an [SPF macro](https://vand3rlinden.com/post/handle-your-spf-record/#use-an-spf-macro-to-restrict-a-third-party-service-to-send-from-a-specific-address) to limit a third-party service to sending from a specific address, since services like Salesforce are most often limited to sending from a single email address, such as `invoices@yourdomain.com`.
 
-### Set up a wildcard SPF hardfail record for unconfigured subdomains
-Even if your root domain already uses an SPF softfail/hardfail policy, and your [DMARC policy](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#dmarc) is set to reject for both the root domain (`p`) and subdomains (`sp`), adding a wildcard SPF hardfail record for all unconfigured subdomains still adds value to protect your outbound email authentication for your domain (P1 sender domain). Attackers often target unconfigured subdomains, and some receiving mail servers may still evaluate only SPF (P1 sender domain). This creates a gap that attackers could exploit by sending email from an unconfigured subdomain, even when your DMARC subdomain policy (`sp`) is set to reject.
-
-A wildcard SPF hardfail record closes this gap by blocking any unconfigured subdomain as hardfail that should not send email, while your existing SPF records on the root domain, configured subdomains, and future configured subdomains continue to function normally. Adding this wildcard SPF hardfail record to both sending and [non-sending domains](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#protect-all-non-sending-domains) helps prevent subdomain abuse for the P1 sender domain.
-
-To implement a wildcard SPF hardfail record, set the following values in your public DNS:
-
-- Host: `*`
-- Value: `v=spf1 -all`
-
-> **NOTE**: Since unconfigured subdomains are non-sending domains, you can safely set the wildcard SPF record to a hardfail for your sending domain, just as you would for domains that do not send email.
-
 ### Softfail or hardfail for sending domains
 SPF can get a softfail or a hardfail, you determine that at the end of the record.
 
@@ -100,6 +88,18 @@ Most mailbox providers treat SPF softfail (`~all`) and hardfail (`-all`) in a si
 The SPF hardfail mechanism (`-all`) is only recommended for domains that do not send email. 
 
 For domains that do send email, it is considered [best practice to use SPF softfail](https://www.mailhardener.com/blog/why-mailhardener-recommends-spf-softfail-over-fail) (`~all`). This allows that the DKIM evaluation still occur even if SPF fails, helping ensure the email remains DMARC-compliant through DKIM alignment.
+
+### Set up a wildcard SPF hardfail record for unconfigured subdomains
+Even if your root domain already uses an SPF softfail/hardfail policy, and your [DMARC policy](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#dmarc) is set to reject for both the root domain (`p`) and subdomains (`sp`), adding a wildcard SPF hardfail record for all unconfigured subdomains still adds value to protect your outbound email authentication for your domain (P1 sender domain). Attackers often target unconfigured subdomains, and some receiving mail servers may still evaluate only SPF (P1 sender domain). This creates a gap that attackers could exploit by sending email from an unconfigured subdomain, even when your DMARC subdomain policy (`sp`) is set to reject.
+
+A wildcard SPF hardfail record closes this gap by blocking any unconfigured subdomain as hardfail that should not send email, while your existing SPF records on the root domain, configured subdomains, and future configured subdomains continue to function normally. Adding this wildcard SPF hardfail record to both sending and [non-sending domains](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#protect-all-non-sending-domains) helps prevent subdomain abuse for the P1 sender domain.
+
+To implement a wildcard SPF hardfail record, set the following values in your public DNS:
+
+- Host: `*`
+- Value: `v=spf1 -all`
+
+> **NOTE**: Since unconfigured subdomains are non-sending domains, you can safely set the wildcard SPF record to a hardfail for your sending domain, just as you would for domains that do not send email.
 
 ### Other SPF recommendations
 - SPF records should not authorize more sources than necessary
@@ -204,17 +204,27 @@ RUA report example in Mailhardener:
 For heavy mail domains, I recommended monitoring the domain for at least three months with the DMARC policy set to `none`:
 
 - Hostname: `_dmarc`
-- Value: `v=DMARC1; p=none; sp=none; rua=mailto:dmarc_agg@vali.email;`
+- Value: `v=DMARC1; p=none; sp=none; rua=mailto:email@yourmonitortool.com;`
 
 During the monitoring phase, you can [adjust your SPF record](https://vand3rlinden.com/post/handle-your-spf-record/) and [set up DKIM for each sending server or email provider](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#implementation-of-dkim), and then update your DMARC record to `reject` once the monitoring phase is complete:
 
-- Value: `v=DMARC1; p=reject; sp=reject; rua=mailto:dmarc_agg@vali.email;`
+- Value: `v=DMARC1; p=reject; sp=reject; rua=mailto:email@yourmonitortool.com;`
 
 The `sp=reject` tag means that subdomains will be included; if you don’t want your subdomains to be included in your domain’s root DMARC policy, you can set this to `sp=none` and list a separate DMARC policy for each subdomain (not recommended).
 
 > **NOTE**: If you do not list the `sp=` tag, your subdomains will get the policy from the `p=` tag.
 
-> **IMPORTANT**: I believe that if your DMARC monitoring phase on `p=none;` was sufficient and you have identified and included all allowed senders that were not listed in your SPF before the monitoring phase, going directly to `p=reject;` is a perfectly good step to take. However, heavy mail domains that have existed for 20+ years may not have this confidence, and you may want to consider first setting the DMARC policy to `p=quarantine;` instead of going directly to `p=reject;`. This way any DMARC failures will still be delivered but to the recipient's spam or quarantine folder, giving you the opportunity to address any issues before moving to `p=reject;`, where emails can be directly rejected. If you do this, set a deadline for when to move to `p=reject;`, for example a maximum of one month. See section [Other DMARC recommendations](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#other-dmarc-recommendations) for testing options.
+### DMARC testing options
+There are two main ways to test before going full enforcement (`p=reject;`).
+
+- **Option 1:** Gradual policy escalation
+  - If your `p=none;` monitoring phase was sufficient and you have added every authorized sender to your SPF record, you can confidently set your DMARC policy to `p=reject;`. For older, high-volume mail domains (which did not have historically documented all authorized email providers) it is safer to move from `p=none;` to `p=quarantine;` first. That way DMARC failures land in spam or a hosted quarantine instead of being rejected outright, giving you the opportunity to catch any issues before moving to `p=reject;`. Set a hard deadline for the transition from `p=quarantine;` to `p=reject;`.
+
+- **Option 2:** Use the `pct` / `t` tag for partial enforcement
+  - The policy must omit the `pct` tag, or it must have a value of `100` (Obsolete DMARC [RFC 7489](https://www.rfc-editor.org/info/rfc7489/))
+    - The pct tag controls what percentage of failing emails the `p=` policy gets applied to. It takes a value between `0` and `100`, defaulting to `100` if omitted. `pct=100` means the policy applies to all failing messages. `pct=25` means only a quarter of them. `pct=0` effectively disables policy enforcement entirely, regardless of what `p=` is set to.
+  - The policy must omit the `t` tag, or it must have a value of `n` (Proposed standard DMARC [RFC 9989](https://www.rfc-editor.org/info/rfc9989/))
+    - The `t` tag is the newer alternative, introduced to give a cleaner way to signal testing intent. It works by downgrading the effective policy by one level for failing messages. `p=reject; t=y` behaves as `p=quarantine`. `p=quarantine; t=y` behaves as `p=none`. Setting `t=n` or removing the tag entirely means full enforcement is active.
 
 ### Clarification on DMARC Monitoring
 DMARC monitoring does **not** provide insights into the total sending volume of your domain. Instead, it **only** shows authentication results (SPF/DKIM/DMARC pass or fail) based on the aggregate (`RUA`) reports received.
@@ -282,12 +292,6 @@ The table on this [Microsoft Learn page](https://learn.microsoft.com/en-us/archi
 4. DMARC External Validation for `RUA`/`RUF`: If you want to send DMARC reports to an external domain, the receiving domain must explicitly authorize this by configuring a DNS record. This ensures that email providers recognize the recipient as an authorized destination for the reports.
    - For example, if you’re sending reports to `example.com`, that domain must create the following TXT record: `yourdomain.com._report._dmarc.example.com`, with the value: `v=DMARC1;`
    - DMARC monitoring providers, such as Valimail and Mailhardener, handle this automatically by using a wildcard on their end, for example `*._report._dmarc.in.mailhardener.com` for Mailhardener.
-
-### Other DMARC recommendations
-- The policy must omit the `pct` tag, or it must have a value of `100` (Obsolete DMARC [RFC 7489](https://www.rfc-editor.org/info/rfc7489/))
-  - The pct tag controls what percentage of failing emails the `p=` policy gets applied to. It takes a value between `0` and `100`, defaulting to `100` if omitted. `pct=100` means the policy applies to all failing messages. `pct=25` means only a quarter of them. `pct=0` effectively disables policy enforcement entirely, regardless of what `p=` is set to.
-- The policy must omit the `t` tag, or it must have a value of `n` (Proposed standard DMARC [RFC 9989](https://www.rfc-editor.org/info/rfc9989/))
-  - The `t` tag is the newer alternative, introduced to give a cleaner way to signal testing intent. It works by downgrading the effective policy by one level for failing messages. `p=reject; t=y` behaves as `p=quarantine`. `p=quarantine; t=y` behaves as `p=none`. Setting `t=n` or removing the tag entirely means full enforcement is active.
 
 ## Protect all non-sending domains
 To protect all non-sending domains, you should consider:
