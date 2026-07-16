@@ -85,11 +85,11 @@ A helpful approach is to create a list of your SPF record entries and specify th
 | Look up                               | Outcome     |
 | -----------                           | ----------- |
 | `mx`                                  | Duplicate mechanisms, can be removed. When using Microsoft 365, the `MX` endpoint IP is already listed in `include:spf.protection.outlook.com`|
-| `include:spf.protection.outlook.com`  | Uses multiple email addresses and must send through the primary domain `yourdomain.com`|
+| `include:spf.protection.outlook.com`  | Uses multiple sender addresses and must send through the primary domain `yourdomain.com`|
 | `include:_spf.salesforce.com`         | Must send through the primary domain, but can be restricted to send from a static sender address `invoices@yourdomain.com` using an SPF macro|
 | `include:mail.zendesk.com`            | Must send through the primary domain, but can be restricted to send from a static sender address `support@yourdomain.com` using an SPF macro|
-| `include:_spf.app1.com`               | Uses multiple addresses and can send email through a subdomain such as `app1.yourdomain.com` for both the P1 and P2 sender, a separate SPF `TXT` record is created for `app1.yourdomain.com` |
-| `include:_spf.app2.com`               | Uses multiple addresses, but since the email provider supports configuring the P1 sender to a subdomain, a separate SPF `TXT` record is created for `app2.yourdomain.com`, however, emails can still be sent using the primary domain `yourdomain.com` as the P2 sender |
+| `include:_spf.app1.com`               | Uses multiple dynamic sender addresses and can send email through a subdomain such as `app1.yourdomain.com` for both the P1 and P2 sender, a separate SPF `TXT` record is created for `app1.yourdomain.com` |
+| `include:_spf.app2.com`               | Uses multiple dynamic sender addresses, but since the email provider supports configuring the P1 sender to a subdomain, a separate SPF `TXT` record is created for `app2.yourdomain.com`, however, emails can still be sent using the primary domain `yourdomain.com` as the P2 sender |
 
 
 > **NOTE**: If you encounter unfamiliar email providers or IP addresses, it may be the result of incomplete historical documentation of authorized email services within your organization. In such cases, monitor your SPF record using DMARC monitoring for 1 to 3 months, and only allow email providers that you can confidently verify as legitimate. For more details, see my clarification on DMARC monitoring in [this blog post](https://vand3rlinden.com/post/spf-dkim-dmarc-explanation/#clarification-on-dmarc-monitoring).
@@ -166,7 +166,7 @@ After setting up the above, Salesforce's sending servers can only send from `inv
 > 
 > _*If Microsoft 365 is already included in the main SPF record (`include:spf.protection.outlook.com`), it does not need to be listed in the SPF macro as well, since the SPF macro is evaluated at the end of your main SPF record. Listing it twice (in your main SPF record and the SPF macro) will result in an error, as `spf.protection.outlook.com` will have already been visited during evaluation before the SPF macro is reached._
 >
-> And if an email provider needs to send from two addresses, such as `support@yourdomain.com` and `no-reply@yourdomain.com`, you can create a separate SPF macro TXT record for each address (`support._spf.yourdomain.com` and `no-reply._spf.yourdomain.com`) and include the mail provider, such as Zendesk (`v=spf1 include:mail.zendesk.com ~all`), in each SPF macro TXT record. For more than two addresses, or if they are not static, it may be more practical to adopt a direct subdomain approach as described [here](https://vand3rlinden.com/post/handle-your-spf-record/#the-dangers-of-spf-flattening).
+> And if an email provider needs to send from two static addresses, such as `support@yourdomain.com` and `no-reply@yourdomain.com`, you can create a separate SPF macro TXT record for each address (`support._spf.yourdomain.com` and `no-reply._spf.yourdomain.com`) and include the mail provider, such as Zendesk (`v=spf1 include:mail.zendesk.com ~all`), in each SPF macro TXT record. For more than two addresses, or if they are not static, it may be more practical to adopt a direct subdomain approach as described [here](https://vand3rlinden.com/post/handle-your-spf-record/#the-dangers-of-spf-flattening).
 
 ## How the SPF macro %{l} works on the receiving mail server
 ![IMAGE](/images/handle-your-spf-record/spf-macro-visual-l.png)
