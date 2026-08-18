@@ -51,7 +51,6 @@ Setting: **Entra ID > Conditional Access > Policies > New policy**
 | --- | --- |
 | Grant | Block access |
 
-> **CAUTION:** If your tenant uses device code flow for device registration, exclude the Device Registration Service resource from Target resources. Since September 2024 Microsoft enforces authentication flow policies on that resource too when a policy targets all resources, and a tenant wide block without this exclusion can break device registration for legitimate scenarios like Teams devices. But again, get as close as possible to a full block for device code flow sign in
 
 ## Step 3: Start in report only, then flip it on
 Set **Enable policy** to **Report-only** first, not **On**. Give it a few days, then review the results through policy impact or report-only mode alongside the sign in logs from step 1. Confirm nothing legitimate gets caught, confirm your exclusion list is complete, and only then move the **Enable policy** toggle from **Report-only** to **On**.
@@ -60,5 +59,6 @@ Keep monitoring after that. Review the exclusion group regularly, and treat any 
 
 ## References
 - [Block authentication flows with Conditional Access policy](https://learn.microsoft.com/entra/identity/conditional-access/policy-block-authentication-flows)
-- [Microsoft identity platform and the OAuth 2.0 device authorization grant flow](https://learn.microsoft.com/entra/identity-platform/v2-oauth2-device-code)
 - [Restrict device code flow for Microsoft Teams devices with Conditional Access](https://learn.microsoft.com/entra/identity/conditional-access/policy-teams-devices-device-code-flow)
+- [Microsoft identity platform and the OAuth 2.0 device authorization grant flow](https://learn.microsoft.com/entra/identity-platform/v2-oauth2-device-code)
+- [SigninLogs - Columns](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/signinlogs)
