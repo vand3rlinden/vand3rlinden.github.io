@@ -18,8 +18,6 @@ The page the user lands on is genuinely Microsoft's. There is no fake login form
 ## What device code flow actually is
 Device code flow (OAuth 2.0 device authorization grant) exists for devices without a proper browser or keyboard, think smart TVs, some IoT devices, or CLI tools like older versions of Azure CLI. The device shows a short code and a URL, the user opens that URL on a second device such as their phone, signs in, enters the code, and the authentication state gets transferred back to the original device.
 
-That is a legitimate and useful flow for the scenarios it was built for. The problem is that nothing on the user his side distinguishes **my smart TV needs a code** from **an attacker's script needs a code**. The user just sees a request to enter a code on a real Microsoft page, and most people have no reason to think twice about that.
-
 ## Step 1: Audit current device code flow usage
 Before blocking anything, check whether device code flow is actually used in your tenant, you will want this to build a Conditional Access exclusion list and to explain to the business why this control matters.
 
