@@ -11,7 +11,7 @@ I see device code flow phishing pop up more and more. An attacker starts a devic
 
 This is what makes device code flow phishing hard to catch, and needs a security control at the tenant level. 
 
-The page the user lands on is genuinely Microsoft's. There is no fake login form, no lookalike domain, nothing that a **check the URL** reminder would catch.
+The page where the user enters the device code is a legitimate Microsoft URL. There is no fake login form, no lookalike domain, nothing that a **check the URL** reminder would catch.
 
 ![IMAGE](/images/m365-blocking-dcf-abuse/dcf-example.png)
 
