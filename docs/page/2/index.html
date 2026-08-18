@@ -2,7 +2,7 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.164.0"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.165.0"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -109,6 +109,20 @@
     </nav>
 </header>
 <main class="main"> 
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">MTA-STS Explained: A complete guide to the MTA-STS Policy
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages.
+MTA-STS (Mail Transfer Agent Strict Transport Security) is a transport security mechanism (TLS enforcement) that protects SMTP delivery, it allows a sending (outbound) mail server to enforce the use of TLS by retrieving a secured HTTPS policy file published by the domain of the receiving (inbound) mail server. When MTA-STS is in enforce mode, the sending (outbound) mail server must validate that the receiving (inbound) mail server’s TLS certificate is valid, trusted, and matches the domain (the domain name in the TLS certificate must match the MX record of the domain).
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-08-23 16:22:41 +0200 CEST'>August 23, 2024</span>&nbsp;·&nbsp;6 min</footer>
+  <a class="entry-link" aria-label="post link to MTA-STS Explained: A complete guide to the MTA-STS Policy" href="https://vand3rlinden.com/post/mta-sts-explained/"></a>
+</article>
 
 <article class="post-entry"> 
   <header class="entry-header">
@@ -237,20 +251,6 @@ What you can manage with an Anti-malware policy Mailboxes in Exchange Online ben
   </div>
   <footer class="entry-footer"><span title='2023-12-23 23:07:45 +0100 CET'>December 23, 2023</span>&nbsp;·&nbsp;3 min</footer>
   <a class="entry-link" aria-label="post link to Microsoft Defender for Office 365: Anti-malware policies" href="https://vand3rlinden.com/post/mdo-anti-malware-policies/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Microsoft Defender for Office 365: Anti-phishing policies
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> Phishing is an email attack that aims to steal sensitive information through messages that appear to be from legitimate or trusted senders. You can enhance the security of your Exchange Online mailboxes by implementing anti-phishing policies.
-What you can manage with Anti-phishing policies Anti-phishing policies provide enhanced control over incoming phishing emails, for instance, in cases where someone may attempt to impersonate your CEO or send messages from a domain that closely resembles yours. By default, a policy named ‘Office365 AntiPhish Default (Default)’ is automatically applied to all users.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-12-22 14:27:30 +0100 CET'>December 22, 2023</span>&nbsp;·&nbsp;9 min</footer>
-  <a class="entry-link" aria-label="post link to Microsoft Defender for Office 365: Anti-phishing policies" href="https://vand3rlinden.com/post/mdo-anti-phishing-policies/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
