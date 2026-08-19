@@ -7,7 +7,7 @@ cover:
   image: /images/m365-blocking-dcf-abuse/m365-blocking-dcf-abuse-front.png
 ---
 
-I see device code flow phishing pop up more and more. With device code flow phishing an attacker starts a device code sign in on their own machine, then tries to social engineer a user into completing it through a phishing email, phone call (vishing) or message. The user is asked to open a link, usually the real `microsoft.com/devicelogin` page, and paste in a code the attacker just generated. The user pastes the code and signs in, and the own session of the attacker picks up the resulting token. No password needed, no malicious page involved, just a user doing exactly what they were told.
+I see device code flow phishing pop up more and more. With device code flow phishing an attacker starts a device code sign in on their own machine, then tries to social engineer a user into completing it through a phishing email, phone call (vishing) or message. The user is asked to open a link, usually the real `microsoft.com/devicelogin` page, and paste in a code the attacker just generated. The user pastes the code and signs in, and the own session of the attacker picks up the resulting token. No password needed, no malicious login page involved, just a user doing exactly what they were told.
 
 This is what makes device code flow phishing hard to catch, and needs a security control at the tenant level. 
 
@@ -26,7 +26,6 @@ Check this in Microsoft Entra sign in logs, or with the following query against 
 ```kusto
 SigninLogs
 | where TimeGenerated > ago(30d)
-//| where UserPrincipalName =~ "UserPrincipalName"
 | where AuthenticationProtocol =~ 'deviceCode' or OriginalTransferMethod =~ 'deviceCodeFlow'
 | project TimeGenerated, UserPrincipalName, AppDisplayName, IPAddress, Location, DeviceDetail, ConditionalAccessStatus, ConditionalAccessPolicies, AuthenticationProtocol, OriginalTransferMethod
 | sort by TimeGenerated desc
