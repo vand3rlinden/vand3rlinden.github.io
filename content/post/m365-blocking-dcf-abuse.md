@@ -51,6 +51,9 @@ Setting: **Entra ID > Conditional Access > Policies > New policy**
 | Grant | Block access |
 
 
+> **IMPORTANT:** If your organization currently uses Device Code Flow for device registration purposes, you need to [exclude](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-authentication-flows#enforcement-of-authentication-flows-policies-on-device-registration-service-resource) the **Device Registration resource** from the scope of your Conditional Access policy to avoid impact. But, **only** do this if you actually have that dependency, since this exclusion is also what attackers (such as Storm-2372) rely on when they phish a user through Device Code Flow and then register a rogue device to get a Primary Refresh Token. Consider to move off Device Code Flow for registration where you can. For Teams Rooms use the [passwordless resource account](https://learn.microsoft.com/en-us/microsoftteams/rooms/passwordlessentraresourceaccounts) option, and for Windows / macOS devices, register through Autopilot or Company Portal which use browser based or brokered sign in rather than Device Code Flow.
+
+
 ## Step 3: Start in report only, then flip it on
 Set **Enable policy** to **Report-only** first, not **On**. Give it a few days, then review the results through policy impact or report-only mode alongside the sign in logs from step 1. Confirm nothing legitimate gets caught, confirm your exclusion list is complete, and only then move the **Enable policy** toggle from **Report-only** to **On**.
 
