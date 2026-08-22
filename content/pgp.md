@@ -19,7 +19,7 @@ If you do like to communicate securely, please use my public keys below.
 - PGP fingerprint for my security address: `35A3EAE898AD285AA7C1B964C21735F52C9F0B95`
 
 ### PGP Public Keys
-I run a [WKD](https://vand3rlinden.com/post/pgp-secure-email-communication/#option-1-setting-up-a-pgp-web-key-directory-wkd) to publish my public keys. To locate them, you can run, for example: `gpg --locate-keys security@vand3rlinden.com` (also published at `keys.openpgp.org`).
+I run a [WKD](https://vand3rlinden.com/post/pgp-secure-email-communication/#option-1-setting-up-a-pgp-web-key-directory-wkd) to publish my public keys. To locate them, you can run, for example: `gpg --locate-keys security@vand3rlinden.com`.
 
 ## S/MIME
 Do you prefer a more non-repudiation focused way of communicating _(trusted by my certificate authority ***Sectigo***)_? You can download my S/MIME certificate to encrypt emails sent to me. My S/MIME certificate is available at: `https://vand3rlinden.com/.well-known/smime/ricardo_vanderlinden.crt`
