@@ -27,6 +27,8 @@ In this blog, you will read a lot about the P1 and P2 sender. Please refer to th
 | Sender on envelope (Envelope sender) | `RFC5321.MailFrom` (P1 Sender)  |  SPF          |
 | Author on letter (Header sender)     | `RFC5322.From` (P2 Sender)      |  DKIM + DMARC |
 
+![IMAGE](/images/spf-dkim-dmarc-explanation/p1-p2-sender.png)
+
 ## SPF
 ### What is SPF
 SPF (Sender Policy Framework) is a protocol that aims to reduce spam. SPF can reduce email spoofing and spam by determining if the sender is authorized to send on behalf of the listed sender.

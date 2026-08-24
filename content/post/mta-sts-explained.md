@@ -9,9 +9,10 @@ cover:
 
 > _This blog post explains how an MTA-STS policy works and how to implement it on GitHub Pages._
 
-MTA-STS (Mail Transfer Agent Strict Transport Security) is a transport security mechanism (TLS enforcement) that protects SMTP delivery, it allows a sending (outbound) mail server to enforce the use of TLS by retrieving a secured `HTTPS` policy file published by the domain of the receiving (inbound) mail server. When MTA-STS is in `enforce` mode, the sending (outbound) mail server must validate that the receiving (inbound) mail server's TLS certificate is valid, trusted, and matches the domain (the domain name in the TLS certificate must match the `MX` record of the domain).
+MTA-STS (Mail Transfer Agent Strict Transport Security) is a transport security mechanism (TLS enforcement) that protects SMTP delivery, it allows a sending (outbound) mail server to **enforce the use of TLS** by retrieving a secured `HTTPS` policy file published by the domain of the receiving (inbound) mail server. When MTA-STS is in `enforce` mode, the sending (outbound) mail server must validate that the receiving (inbound) mail server's TLS certificate is valid, trusted, and matches the domain (the domain name in the TLS certificate must match the `MX` record of the domain).
 
-Since port `25` does not use authentication (MTA-to-MTA delivery), implementing an MTA-STS policy enforces TLS encryption and certificate validation between MTA’s, this ensures the confidentiality of email delivery.
+## TLS in email communication explained
+TLS encrypts the connection between each sending (outbound) mail server and receiving (inbound) mail server hop, so anyone sniffing the traffic in between cannot read it. STARTTLS is opportunistic by default, so if the receiving (inbound) mail server does not support TLS, mail in transit can fall back to plaintext unless the receiving (inbound) mail server enforces encryption (with MTA-STS or SMTP DANE). TLS in email communication is not end-to-end. Each server in the hop can see the message in plaintext once it arrives, decrypts it, then re-encrypts it for the next hop. If the message needs to be encrypted at rest, then you have options such as PGP or S/MIME.
 
 ## How MTA-STS Works
 1. **Discovery**:
