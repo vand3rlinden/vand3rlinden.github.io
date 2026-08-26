@@ -19,15 +19,15 @@ If your organization does not have the budget or time, Preset Security Policies 
 
 The following Preset Security Policies are available:
 
-Standard Preset Security Policy - A baseline protection profile that provides:
+**Standard Preset Security Policy** - A baseline protection profile that provides:
 - Exchange Online Protection (inbound anti-spam, anti-malware, and anti-phishing)
 - Microsoft Defender for Office 365 protection (Safe Attachments and Safe Links)
 
-Strict Preset Security Policy - A more aggressive protection profile for selected users, such as high-value or priority accounts. It provides:
+**Strict Preset Security Policy** - A more aggressive protection profile for selected users, such as high-value or priority accounts. It provides:
 - Exchange Online Protection (inbound anti-spam, anti-malware, and anti-phishing)
 - Microsoft Defender for Office 365 protection (Safe Attachments and Safe Links)
 
-Built-in Protection Preset Security Policy - Default Safe Attachments and Safe Links policies for Defender for Office 365
+**Built-in Protection Preset Security Policy** - Default Safe Attachments and Safe Links policies for Defender for Office 365
 - Provides baseline Microsoft 365 protection applied automatically to all users, safeguarding them against malicious links and attachments without requiring configuration.
 
 Reference:
