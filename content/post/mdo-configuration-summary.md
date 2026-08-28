@@ -63,15 +63,23 @@ The above recommandation is not for **Safe Attachments** and **Safe Links** poli
 - [Quarantine policies](https://vand3rlinden.com/post/mdo-quarantine-policies/)
 	- If you are **not** using Preset Security Policies, you can create a quarantine policy to customize the user experience for quarantined messages. Quarantine policies give you more control over the quarantine for your end users and allow you to decide which quarantined items they are allowed to release.
 
-### 6: Hardening Microsoft Defender for Office 365's DKIM and DMARC configuration
+### 6: Configure Priority account protection
+Priority account protection adds an extra layer of checks tuned to how executives and other high value targets actually receive mail, based on Microsoft's data on executive mail flow patterns. These checks don't help regular users, so they're not applied broadly. Priority account protection stacks on top of whatever anti-phishing, anti-spam, and anti-malware policies you already run, your existing custom policies stay exactly as they are. Security teams can also filter on priority accounts in reports and alerts, making it easier to investigate threats targeting important people.
+
+You configure priority account protection in the Defender portal, under Settings > Email & Collaboration > Priority account protection.
+
+Reference:
+- [Configure and review priority account protection in Microsoft Defender for Office 365](https://learn.microsoft.com/en-us/defender-office-365/priority-accounts-turn-on-priority-account-protection)
+
+### 7: Hardening Microsoft Defender for Office 365's DKIM and DMARC configuration
 - [Hardening DKIM and DMARC configuration](https://vand3rlinden.com/post/mdo-hardening-dkim-dmarc-config/)
 	- Improve email security in Microsoft Defender for Office 365 by fine-tuning DKIM, configuring DMARC for the MOERA domain, and blocking inbound DMARC failures from reaching user inboxes.
 
-### 7: Reject Direct Send in Exchange Online
+### 8: Reject Direct Send in Exchange Online
 - [Exchange Online: Reject Direct Send](https://vand3rlinden.com/post/exo-reject-direct-send/)
 	- Direct Send is a method used to send emails directly to Exchange Online hosted mailboxes from on-premises devices, applications, or third-party cloud services, using the `MX` record endpoint of your accepted domain in Exchange Online.
 
-### 8: DNS configuration
+### 9: DNS configuration
 - **Inbound email**:
     - [MTA-STS Policy](https://vand3rlinden.com/post/mta-sts-explained/)
 		- MTA-STS enforces TLS through a secure `HTTPS` policy file and validates the TLS certificate of the receiving (inbound) mail server.
@@ -86,15 +94,15 @@ The above recommandation is not for **Safe Attachments** and **Safe Links** poli
 	- [Get a handle on your SPF record](https://vand3rlinden.com/post/handle-your-spf-record/)
 		- It is crucial to have a well-structured SPF procedure to avoid future problems, especially since exceeding the DNS lookup limit of 10 can cause issues.
 		
-### 9: Promote a think before you click mindset
+### 10: Promote a think before you click mindset
 - [Attack simulation training](https://vand3rlinden.com/post/mdo-attack-simulation/)
 	- With Microsoft Defender for Office 365, you can create an attack simulation training to identify vulnerable users and mitigate potential threats before they impact your organization.
 	
-### 10: Understand how inbound email works in Microsoft 365
+### 11: Understand how inbound email works in Microsoft 365
 - [How inbound email works in Microsoft 365](https://vand3rlinden.com/post/mdo-handling-false-positives-false-negatives/)
     - To understand why your environment experiences **false positives** and **false negatives**, you first need to know how Microsoft 365 processes inbound email and how to correctly use submissions and the Tenant Allow/Block List.
 
-### 11: Protecting external Teams communication
+### 12: Protecting external Teams communication
 - [Protecting external Teams communication](https://vand3rlinden.com/post/mdo-protect-microsoft-teams-external-access/)
   - Malicious external Teams communication is a common attack vector that is often misconfigured or overlooked.
 
