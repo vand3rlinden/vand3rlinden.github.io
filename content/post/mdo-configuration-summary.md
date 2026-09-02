@@ -71,15 +71,22 @@ You configure priority account protection in the Defender portal, under Settings
 Reference:
 - [Configure and review priority account protection in Microsoft Defender for Office 365](https://learn.microsoft.com/en-us/defender-office-365/priority-accounts-turn-on-priority-account-protection)
 
-### 7: Hardening Microsoft Defender for Office 365's DKIM and DMARC configuration
+### 7: Configure user reported settings
+Configure the user reported settings for both Outlook and Teams. Reported messages appear on the User reported tab of the Submissions page (https://security.microsoft.com/reportsubmission). Microsoft reviews these messages to improve detection accuracy and reduce false positives and false negatives in the future.
+
+Reference:
+- [Configure user reported settings](https://learn.microsoft.com/en-us/defender-office-365/submissions-user-reported-messages-custom-mailbox?view=o365-worldwide#use-the-microsoft-defender-portal-to-configure-user-reported-settings)
+- [Microsoft Defender for Office 365: Handling False Positives and False Negatives](https://vand3rlinden.com/post/mdo-handling-false-positives-false-negatives/)
+
+### 8: Hardening Microsoft Defender for Office 365's DKIM and DMARC configuration
 - [Hardening DKIM and DMARC configuration](https://vand3rlinden.com/post/mdo-hardening-dkim-dmarc-config/)
 	- Improve email security in Microsoft Defender for Office 365 by fine-tuning DKIM, configuring DMARC for the MOERA domain, and blocking inbound DMARC failures from reaching user inboxes.
 
-### 8: Reject Direct Send in Exchange Online
+### 9: Reject Direct Send in Exchange Online
 - [Exchange Online: Reject Direct Send](https://vand3rlinden.com/post/exo-reject-direct-send/)
 	- Direct Send is a method used to send emails directly to Exchange Online hosted mailboxes from on-premises devices, applications, or third-party cloud services, using the `MX` record endpoint of your accepted domain in Exchange Online.
 
-### 9: DNS configuration
+### 10: DNS configuration
 - **Inbound email**:
     - [MTA-STS Policy](https://vand3rlinden.com/post/mta-sts-explained/)
 		- MTA-STS enforces TLS through a secure `HTTPS` policy file and validates the TLS certificate of the receiving (inbound) mail server.
