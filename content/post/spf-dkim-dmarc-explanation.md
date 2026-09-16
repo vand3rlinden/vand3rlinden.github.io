@@ -277,11 +277,11 @@ The table on this [Microsoft Learn page](https://learn.microsoft.com/en-us/archi
      - Supported in all DMARC-compliant mailbox providers
 
 - `RUF` (Reporting URI for Forensic reports): 
-  - Is designed to send domain owners detailed failure reports when emails don’t pass DMARC checks. These reports may include portions of the original message headers and metadata, sometimes with limited message content, depending on the reporting provider. The goal is to help identify legitimate sources that need to be properly authenticated. However, due to privacy concerns and the potential exposure of Personal Identifiable Information (PII), most providers do not send `RUF` reports.
-    - Details of an individual email
+  - Is designed to send domain owners detailed failure reports when emails don’t pass DMARC checks. These reports may include portions of the original message headers and metadata, sometimes with limited message content and possibly the email body, depending on the reporting provider. The goal is to help identify legitimate sources that need to be properly authenticated. However, due to privacy concerns and the potential exposure of Personal Identifiable Information (PII), most providers do not send `RUF` reports.
+    - Details of an individual email (original headers from the email, and possibly the email body)
     - Sent almost immediately after the failures
     - Plain text format
-    - Contains PII (Personal Identifiable Information)
+    - Contains PII data
     - Supported in only a handful of mailbox providers, due to the sensitive PII data it may contains
 
 ### Best Practices and Insights for RUA and RUF DMARC Reports
