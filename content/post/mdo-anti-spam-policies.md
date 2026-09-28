@@ -129,8 +129,6 @@ If you only want to allow users to forward to a few specific domains, the best c
 - [Recommended anti-spam policy settings - Inbound anti-spam policy](https://learn.microsoft.com/en-us/defender-office-365/recommended-settings-for-eop-and-office365?view=o365-worldwide#anti-spam-policy-settings)
 - [Recommended anti-spam policy ASF settings - Inbound anti-spam policy](https://learn.microsoft.com/en-us/defender-office-365/recommended-settings-for-eop-and-office365?view=o365-worldwide#asf-settings-in-anti-spam-policies)
 - [Recommended anti-spam policy settings - Outbound anti-spam policy](https://learn.microsoft.com/en-us/defender-office-365/recommended-settings-for-eop-and-office365?view=o365-worldwide#outbound-spam-policy-settings)
-- [Azure Communication Services for Email - Solution for high volumes of external email](https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/email-overview)
-- [Public Preview: High Volume Email for Microsoft 365 - Solution for high volumes of internal email](https://learn.microsoft.com/en-us/exchange/mail-flow-best-practices/high-volume-mails-m365)
 - [Bulk senders insight in Exchange Online Protection](https://learn.microsoft.com/en-us/defender-office-365/anti-spam-bulk-senders-insight)
 - [Control automatic external email forwarding in Microsoft 365](https://learn.microsoft.com/en-us/defender-office-365/outbound-spam-policies-external-email-forwarding)
 - [Create safe sender lists](https://learn.microsoft.com/en-us/defender-office-365/create-safe-sender-lists-in-office-365)
