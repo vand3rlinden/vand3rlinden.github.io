@@ -65,13 +65,13 @@ Spoofing occurs when the `From` address (P2 Sender) does not match the domain of
 | Author on letter   | `RFC5322.From` (P2 Sender)          |  DKIM + DMARC |
 
 ### Email Spoofing vs. Email Impersonation
-**Email spoofing** happens when someone changes the email header (`From` address) so it looks like the message is from a trusted address, while **email impersonation** is when an attacker pretends to be a trusted person, often using free email services with similar-looking addresses and displayname to make the victim trust them. 
+**Email spoofing** happens when someone changes the email header (`From` address) so it looks like the message is from a trusted address, while **email impersonation** is when an attacker pretends to be a trusted person, often using free email services with similar-looking addresses and display name to make the victim trust them. 
 
 I created the comparison chart below to make the differences easier to understand.
 
 |                       | Email Spoofing                                                  | Email Impersonation                                                        |
 | -----------           | -----------                                                     | -----------                                                                |
-| Sender address        | Exactly the trusted address (e.g. `Shaggy Rogers <shaggy.rogers@contoso[.]com>`) | Similar-looking address and displayname  (e.g. `Shaggy Rogers <ceo@gmail[.]com>`, or `<shaggy.rogers@c0ntoso.com>`)|
+| Sender address        | Exactly the trusted address (e.g. `Shaggy Rogers <shaggy.rogers@contoso[.]com>`) | Similar-looking address and display name  (e.g. `Shaggy Rogers <ceo@gmail[.]com>`, or `<shaggy.rogers@c0ntoso[.]com>`)|
 | Domain used           | The real domain, which the attacker does not own                | A look-alike domain or free email service the attacker controls            |
 | Email authentication  | Fails SPF, DKIM and/or DMARC for the `From` domain              | Often passes SPF, DKIM and DMARC, as the attacker owns the domain          |
 | Example               | From: `Shaggy Rogers <shaggy.rogers@contoso[.]com>` sent from an untrusted mail server | From: `Shaggy Rogers <ceo@gmail[.]com>` asking for an urgent payment |
