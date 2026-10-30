@@ -26,7 +26,7 @@ User impersonation protection allows you to secure up to 350 internal and extern
 > **NOTE:** User impersonation protection is not effective when there is a history of email communication between the sender and recipient. Detection of an impersonation attempt is only possible in cases where there is no prior email interaction between the sender and recipient.
 
 ### How it works
-User impersonation involves using a combination of the user’s display name and email address to make the email appear similar to that of a legitimate or trusted sender. For example, your CEO `"Shaggy Rogers" <shaggy@contoso.com>` could be impersonated with a completely different email address, such as `"Rogers, Shaggy" <ceo@gmail.com>`. Even though SPF, DKIM and DMARC will pass for the `gmail.com` domain, the email will be flagged as protection policy category `UIMP` (user impersonation) in the `X-Forefront-Antispam-Report` message header.
+User impersonation involves using a combination of the user’s display name and email address to make the email appear similar to that of a legitimate or trusted sender. For example, your CEO `"Shaggy Rogers" <shaggy@contoso[.]com>` could be impersonated with a completely different email address, such as `"Rogers, Shaggy" <ceo@gmail[.]com>`. Even though SPF, DKIM and DMARC will pass for the `gmail.com` domain, the email will be flagged as protection policy category `UIMP` (user impersonation) in the `X-Forefront-Antispam-Report` message header.
 
 ### Domain impersonation protection
 ### What you can protect:
@@ -43,7 +43,7 @@ You can use Impersonation insight in [Microsoft Defender XDR](https://security.m
 Mailbox Intelligence uses artificial intelligence (AI) to determine the email patterns of users with their most frequent contacts.
 
 ### How it works:
-Mailbox intelligence operates similarly to user impersonation protection; however, it utilizes the contents of the mailbox to identify phishing attempts. For instance, if you regularly exchange emails with `"Shaggy Rogers" <shaggy@contoso.com>`, and one day you receive an email from `"Shaggy Rogers" <shaggy.rogers@fabrikam.com>` that successfully passes SPF, DKIM, and DMARC checks, it will still be flagged with the protection policy category `GIMP` (Mailbox Intelligence Based Impersonation) in the `X-Forefront-Antispam-Report` message header. This is because the AI within Mailbox Intelligence assesses that you have not previously interacted with `Shaggy Rogers <shaggy.rogers@fabrikam.com>`, suggesting a potential impersonation.
+Mailbox intelligence operates similarly to user impersonation protection; however, it utilizes the contents of the mailbox to identify phishing attempts. For instance, if you regularly exchange emails with `"Shaggy Rogers" <shaggy@contoso[.]com>`, and one day you receive an email from `"Shaggy Rogers" <shaggy.rogers@fabrikam[.]com>` that successfully passes SPF, DKIM, and DMARC checks, it will still be flagged with the protection policy category `GIMP` (Mailbox Intelligence Based Impersonation) in the `X-Forefront-Antispam-Report` message header. This is because the AI within Mailbox Intelligence assesses that you have not previously interacted with `Shaggy Rogers <shaggy.rogers@fabrikam[.]com>`, suggesting a potential impersonation.
 
 Mailbox Intelligence has two settings:
 
@@ -71,10 +71,10 @@ I created the comparison chart below to make the differences easier to understan
 
 |                       | Email Spoofing                                                  | Email Impersonation                                                        |
 | -----------           | -----------                                                     | -----------                                                                |
-| Sender address        | Exactly the trusted address (e.g. `ceo@contoso.com`)            | Similar-looking address (e.g. `ceo@c0ntoso.com` or `contoso.ceo@gmail.com`)|
+| Sender address        | Exactly the trusted address (e.g. `ceo@contoso[.]com`)            | Similar-looking address (e.g. `ceo@c0ntoso[.]com` or `contoso.ceo@gmail[.]com`)|
 | Domain used           | The real domain, which the attacker does not own                | A look-alike domain or free email service the attacker controls            |
 | Email authentication  | Fails SPF, DKIM and/or DMARC for the `From` domain              | Often passes SPF, DKIM and DMARC, as the attacker owns the domain          |
-| Example               | `From: ceo@contoso.com` sent from an untrusted mail server      | `From: CEO <ceo@contoso-mail.com>` asking for an urgent payment            |
+| Example               | `From: ceo@contoso[.]com` sent from an untrusted mail server      | `From: CEO <ceo@contoso-mail[.]com>` asking for an urgent payment            |
 
 ### What you can protect
 When Spoof Intelligence is enabled, Spoof Intelligence Insight provides a list of spoofed senders that have been automatically detected and either allowed or blocked by the system. Exchange Online Protection (EOP) evaluates messages and determines whether to allow or block them using a combination of standard email authentication methods (SPF, DKIM and DMARC), with sender reputation, behavioral analysis, and other advanced techniques ([implicit email authentication](https://learn.microsoft.com/en-us/defender-office-365/email-authentication-about#inbound-email-authentication-for-mail-sent-to-microsoft-365)).
