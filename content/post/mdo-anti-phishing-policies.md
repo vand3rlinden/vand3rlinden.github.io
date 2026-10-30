@@ -65,7 +65,16 @@ Spoofing occurs when the `From` address (P2 Sender) does not match the domain of
 | Author on letter   | `RFC5322.From` (P2 Sender)          |  DKIM + DMARC |
 
 ### Email Spoofing vs. Email Impersonation
-**Email spoofing** happens when someone changes the email header (`From` address) so it looks like the message is from a trusted address, while **email impersonation** is when an attacker pretends to be a trusted person, often using free email services with similar-looking addresses to make the victim trust them.
+**Email spoofing** happens when someone changes the email header (`From` address) so it looks like the message is from a trusted address, while **email impersonation** is when an attacker pretends to be a trusted person, often using free email services with similar-looking addresses and displayname to make the victim trust them. 
+
+I created the comparison chart below to make the differences easier to understand.
+
+|                       | Email Spoofing                                                  | Email Impersonation                                                        |
+| -----------           | -----------                                                     | -----------                                                                |
+| Sender address        | Exactly the trusted address (e.g. `ceo@contoso.com`)            | Similar-looking address (e.g. `ceo@c0ntoso.com` or `contoso.ceo@gmail.com`)|
+| Domain used           | The real domain, which the attacker does not own                | A look-alike domain or free email service the attacker controls            |
+| Email authentication  | Fails SPF, DKIM and/or DMARC for the `From` domain              | Often passes SPF, DKIM and DMARC, as the attacker owns the domain          |
+| Example               | `From: ceo@contoso.com` sent from an untrusted mail server      | `From: CEO <ceo@contoso-mail.com>` asking for an urgent payment            |
 
 ### What you can protect
 When Spoof Intelligence is enabled, Spoof Intelligence Insight provides a list of spoofed senders that have been automatically detected and either allowed or blocked by the system. Exchange Online Protection (EOP) evaluates messages and determines whether to allow or block them using a combination of standard email authentication methods (SPF, DKIM and DMARC), with sender reputation, behavioral analysis, and other advanced techniques ([implicit email authentication](https://learn.microsoft.com/en-us/defender-office-365/email-authentication-about#inbound-email-authentication-for-mail-sent-to-microsoft-365)).
